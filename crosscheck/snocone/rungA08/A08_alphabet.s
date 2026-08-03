@@ -154,14 +154,16 @@ n9_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx25_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s3_ω_d80
+                        add              rsp, 80
+                                                                                        jmp   main_γ
 .Lx25_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n10_assign_α
 n9_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s3_ω_d80
+                        add              rsp, 80
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n10_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
@@ -176,15 +178,6 @@ n10_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n11_statement_α:
                         add              rsp, 96
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d96:
-                        add              rsp, 96
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d64:
-                        add              rsp, 64
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

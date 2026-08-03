@@ -140,7 +140,8 @@ n10_cmp_test_α:
                         test             eax, eax
                                                                                         jle   .Lx57_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s5_ω_d96
+                        add              rsp, 96
+                                                                                        jmp   n13_lit_string_α
 .Lx57_240:
                                                                                         jmp   n11_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -190,21 +191,6 @@ n14_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n15_statement_α:
-                                                                                        jmp   n16_lit_integer_α
-main_zw5s5_ω_d96:
-                        add              rsp, 96
-                                                                                        jmp   n16_lit_integer_α
-main_zw5s5_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   n16_lit_integer_α
-main_zw5s5_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n16_lit_integer_α
-main_zw5s5_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n16_lit_integer_α
-main_zw5s5_ω_d32:
-                        add              rsp, 32
                                                                                         jmp   n16_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_integer_α:
@@ -298,7 +284,8 @@ n23_cmp_test_α:
                         test             eax, eax
                                                                                         jle   .Lx75_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s9_ω_d208
+                        add              rsp, 208
+                                                                                        jmp   n26_lit_string_α
 .Lx75_240:
                                                                                         jmp   n24_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -348,21 +335,6 @@ n27_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n28_statement_α:
-                                                                                        jmp   n29_lit_integer_α
-main_zw5s9_ω_d208:
-                        add              rsp, 208
-                                                                                        jmp   n29_lit_integer_α
-main_zw5s9_ω_d192:
-                        add              rsp, 192
-                                                                                        jmp   n29_lit_integer_α
-main_zw5s9_ω_d176:
-                        add              rsp, 176
-                                                                                        jmp   n29_lit_integer_α
-main_zw5s9_ω_d160:
-                        add              rsp, 160
-                                                                                        jmp   n29_lit_integer_α
-main_zw5s9_ω_d144:
-                        add              rsp, 144
                                                                                         jmp   n29_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_lit_integer_α:
@@ -456,7 +428,8 @@ n36_cmp_test_α:
                         test             eax, eax
                                                                                         jle   .Lx93_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s13_ω_d320
+                        add              rsp, 320
+                                                                                        jmp   n39_lit_string_α
 .Lx93_240:
                                                                                         jmp   n37_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -507,21 +480,6 @@ n40_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n41_statement_α:
                         add              rsp, 352
-                                                                                        jmp   main_γ
-main_zw5s13_ω_d320:
-                        add              rsp, 320
-                                                                                        jmp   main_γ
-main_zw5s13_ω_d304:
-                        add              rsp, 304
-                                                                                        jmp   main_γ
-main_zw5s13_ω_d288:
-                        add              rsp, 288
-                                                                                        jmp   main_γ
-main_zw5s13_ω_d272:
-                        add              rsp, 272
-                                                                                        jmp   main_γ
-main_zw5s13_ω_d256:
-                        add              rsp, 256
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

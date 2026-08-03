@@ -108,14 +108,16 @@ n15_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx29_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_push_zw5s8_ω_d48
+                        add              rsp, 48
+                                                                                        jmp   n18_var_α
 .Lx29_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n16_assign_α
 n15_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_push_zw5s8_ω_d48
+                        add              rsp, 48
+                                                                                        jmp   n18_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call
@@ -126,18 +128,6 @@ n16_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n17_statement_α:
                         add              rsp, 64
-                                                                                        jmp   n18_var_α
-proc_LBL__stack_push_zw5s8_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n18_var_α
-proc_LBL__stack_push_zw5s8_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n18_var_α
-proc_LBL__stack_push_zw5s8_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n18_var_α
-proc_LBL__stack_push_zw5s8_ω_d16:
-                        add              rsp, 16
                                                                                         jmp   n18_var_α
 #=======================================================================================================================
 #         stack_push(w1)
@@ -177,9 +167,6 @@ n20_assign_α:
                                                                                         jmp   n21_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n21_statement_α:
-                                                                                        jmp   n22_lit_string_α
-proc_LBL__stack_push_zw5s9_ω_d64:
-                        add              rsp, 64
                                                                                         jmp   n22_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n22_lit_string_α:
@@ -294,23 +281,19 @@ n48_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx81_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_pop_zw5s12_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n78_save_restore_α
 .Lx81_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n49_statement_α
 n48_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_pop_zw5s12_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n78_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n49_statement_α:
                                                                                         jmp   n50_var_α
-proc_LBL__stack_pop_zw5s12_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n78_save_restore_α
-proc_LBL__stack_pop_zw5s12_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n78_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n50_var_α:
                         sub              rsp, 16
@@ -339,23 +322,19 @@ n51_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx86_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_pop_zw5s13_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n61_var_α
 .Lx86_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n52_statement_α
 n51_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_pop_zw5s13_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n61_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n52_statement_α:
                                                                                         jmp   n53_var_α
-proc_LBL__stack_pop_zw5s13_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n61_var_α
-proc_LBL__stack_pop_zw5s13_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n61_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n53_var_α:
                         sub              rsp, 16
@@ -401,9 +380,6 @@ n55_assign_α:
                                                                                         jmp   n56_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n56_statement_α:
-                                                                                        jmp   n57_var_α
-proc_LBL__stack_pop_zw5s14_ω_d80:
-                        add              rsp, 80
                                                                                         jmp   n57_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n57_var_α:
@@ -705,23 +681,19 @@ n132_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx142_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_peek_zw5s21_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n139_save_restore_α
 .Lx142_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n133_statement_α
 n132_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_peek_zw5s21_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n139_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n133_statement_α:
                                                                                         jmp   n134_var_α
-proc_LBL__stack_peek_zw5s21_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n139_save_restore_α
-proc_LBL__stack_peek_zw5s21_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n139_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n134_var_α:
                         sub              rsp, 16
@@ -767,9 +739,6 @@ n136_assign_α:
                                                                                         jmp   n137_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n137_statement_α:
-                                                                                        jmp   n138_save_restore_α
-proc_LBL__stack_peek_zw5s22_ω_d48:
-                        add              rsp, 48
                                                                                         jmp   n138_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n138_save_restore_α:
@@ -842,23 +811,19 @@ n158_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx170_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_top_zw5s25_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n167_save_restore_α
 .Lx170_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n159_statement_α
 n158_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_top_zw5s25_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n167_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n159_statement_α:
                                                                                         jmp   n160_var_α
-proc_LBL__stack_top_zw5s25_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n167_save_restore_α
-proc_LBL__stack_top_zw5s25_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n167_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n160_var_α:
                         sub              rsp, 16
@@ -895,9 +860,6 @@ n162_assign_α:
                                                                                         jmp   n163_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n163_statement_α:
-                                                                                        jmp   n164_lit_string_α
-proc_LBL__stack_top_zw5s26_ω_d48:
-                        add              rsp, 48
                                                                                         jmp   n164_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n164_lit_string_α:
@@ -1049,23 +1011,19 @@ n194_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx216_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_depth_zw5s31_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n205_save_restore_α
 .Lx216_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n195_statement_α
 n194_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_depth_zw5s31_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n205_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n195_statement_α:
                                                                                         jmp   n196_var_α
-proc_LBL__stack_depth_zw5s31_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n205_save_restore_α
-proc_LBL__stack_depth_zw5s31_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n205_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n196_var_α:
                         sub              rsp, 16
@@ -1109,9 +1067,6 @@ n199_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n200_statement_α:
                                                                                         jmp   n201_var_α
-proc_LBL__stack_depth_zw5s32_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   n201_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n201_var_α:
                         sub              rsp, 16
@@ -1140,14 +1095,16 @@ n202_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx227_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_depth_zw5s33_ω_d144
+                        add              rsp, 144
+                                                                                        jmp   n193_var_α
 .Lx227_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n203_assign_α
 n202_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__stack_depth_zw5s33_ω_d144
+                        add              rsp, 144
+                                                                                        jmp   n193_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n203_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call
@@ -1158,15 +1115,6 @@ n203_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n204_statement_α:
                         add              rsp, 160
-                                                                                        jmp   n193_var_α
-proc_LBL__stack_depth_zw5s33_ω_d160:
-                        add              rsp, 160
-                                                                                        jmp   n193_var_α
-proc_LBL__stack_depth_zw5s33_ω_d144:
-                        add              rsp, 144
-                                                                                        jmp   n193_var_α
-proc_LBL__stack_depth_zw5s33_ω_d128:
-                        add              rsp, 128
                                                                                         jmp   n193_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n205_save_restore_α:
@@ -1860,14 +1808,16 @@ n272_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx493_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n274_statement_α
 .Lx493_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n273_statement_α
 n272_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n274_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n273_statement_α:
                         add              rsp, 32
@@ -1875,18 +1825,12 @@ n273_statement_α:
 n273_statement_β:
                         add              rsp, 32
                                                                                         jmp   n274_statement_α
-main_zw5s2_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n274_statement_α
 #=======================================================================================================================
 #         stack_push(99)
 #-----------------------------------------------------------------------------------------------------------------------
 n274_statement_α:
                                                                                         jmp   n275_statement_α
 n274_statement_β:
-                                                                                        jmp   n275_statement_α
-main_zw5s3_ω_d32:
-                        add              rsp, 32
                                                                                         jmp   n275_statement_α
 #=======================================================================================================================
 #         OUTPUT = myvar                  ;* 99
@@ -2927,11 +2871,12 @@ n323_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx585_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s49_ω_d256
+                        add              rsp, 256
+                                                                                        jmp   n328_lit_string_α
 .Lx585_240:
                                                                                         jmp   n324_statement_α
 n323_call_β:
-                                                                                        jmp   main_zw5s49_ω_d256
+                                                                                        jmp   n328_lit_string_α
 .Lx585_0:
                         .quad            .Lx585_0_s
 .Lx585_0_s:
@@ -2941,9 +2886,6 @@ n324_statement_α:
                                                                                         jmp   n325_lit_string_α
 n324_statement_β:
                         add              rsp, 272
-                                                                                        jmp   n328_lit_string_α
-main_zw5s49_ω_d256:
-                        add              rsp, 256
                                                                                         jmp   n328_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n325_lit_string_α:
@@ -2977,9 +2919,6 @@ n326_assign_β:
 n327_statement_α:
                                                                                         jmp   n331_statement_α
 n327_statement_β:
-                                                                                        jmp   n331_statement_α
-main_zw5s51_ω_d272:
-                        add              rsp, 272
                                                                                         jmp   n331_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n328_lit_string_α:
@@ -3876,7 +3815,8 @@ n367_var_α:
                                                                                         jmp   n368_match_begin_α
 n367_var_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s67_ω_d544
+                        add              rsp, 544
+                                                                                        jmp   n394_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n368_match_begin_α:
                         sub              rsp, 2432
@@ -4244,7 +4184,8 @@ n368_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 2264]                    # cap_gen
                         call             rt_match_ctx_restore@PLT
-                                                                                        jmp   main_zw5s67_ω_d2992
+                        add              rsp, 2992
+                                                                                        jmp   n394_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n369_match_sequence_α:
                                                                                         jmp   n391_match_assign_save_α
@@ -4333,7 +4274,8 @@ n371_lit_string_α:
                                                                                         jmp   n372_match_replace_α
 n371_lit_string_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s67_ω_d2992
+                        add              rsp, 2992
+                                                                                        jmp   n394_lit_string_α
 .Lx664_0:
                         .quad            .Lx664_0_s
 .Lx664_0_s:
@@ -4359,15 +4301,6 @@ n373_statement_α:
                                                                                         jmp   n374_var_α
 n373_statement_β:
                         add              rsp, 3008
-                                                                                        jmp   n394_lit_string_α
-main_zw5s67_ω_d3008:
-                        add              rsp, 3008
-                                                                                        jmp   n394_lit_string_α
-main_zw5s67_ω_d2992:
-                        add              rsp, 2992
-                                                                                        jmp   n394_lit_string_α
-main_zw5s67_ω_d544:
-                        add              rsp, 544
                                                                                         jmp   n394_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n374_var_α:
@@ -4458,9 +4391,6 @@ n375_call_β:
 n376_statement_α:
                                                                                         jmp   n377_var_α
 n376_statement_β:
-                                                                                        jmp   n377_var_α
-main_zw5s68_ω_d3008:
-                        add              rsp, 3008
                                                                                         jmp   n377_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n377_var_α:

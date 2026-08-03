@@ -90,30 +90,20 @@ n5_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx47_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n10_statement_α
 .Lx47_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n6_statement_α
 n5_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n10_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_statement_α:
                         add              rsp, 80
                                                                                         jmp   n7_lit_string_α
-main_zw5s2_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n10_statement_α
-main_zw5s2_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n10_statement_α
-main_zw5s2_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n10_statement_α
-main_zw5s2_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n10_statement_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 310/001: two-string concat'      :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -142,12 +132,6 @@ n8_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_statement_α:
                         add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d80:
-                        add              rsp, 80
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n10_statement_α:
@@ -248,36 +232,20 @@ n17_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx63_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s5_ω_d96
+                        add              rsp, 96
+                                                                                        jmp   n22_statement_α
 .Lx63_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n18_statement_α
 n17_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s5_ω_d96
+                        add              rsp, 96
+                                                                                        jmp   n22_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n18_statement_α:
                         add              rsp, 112
                                                                                         jmp   n19_lit_string_α
-main_zw5s5_ω_d96:
-                        add              rsp, 96
-                                                                                        jmp   n22_statement_α
-main_zw5s5_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   n22_statement_α
-main_zw5s5_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n22_statement_α
-main_zw5s5_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n22_statement_α
-main_zw5s5_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n22_statement_α
-main_zw5s5_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n22_statement_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 310/002: three-string concat'    :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -306,12 +274,6 @@ n20_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n21_statement_α:
                         add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s6_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s6_ω_d112:
-                        add              rsp, 112
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n22_statement_α:
@@ -412,36 +374,20 @@ n29_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx79_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s8_ω_d96
+                        add              rsp, 96
+                                                                                        jmp   n34_statement_α
 .Lx79_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n30_statement_α
 n29_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s8_ω_d96
+                        add              rsp, 96
+                                                                                        jmp   n34_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n30_statement_α:
                         add              rsp, 112
                                                                                         jmp   n31_lit_string_α
-main_zw5s8_ω_d96:
-                        add              rsp, 96
-                                                                                        jmp   n34_statement_α
-main_zw5s8_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   n34_statement_α
-main_zw5s8_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n34_statement_α
-main_zw5s8_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n34_statement_α
-main_zw5s8_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n34_statement_α
-main_zw5s8_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n34_statement_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 310/003: left-associative concat' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -470,12 +416,6 @@ n32_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n33_statement_α:
                         add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s9_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s9_ω_d112:
-                        add              rsp, 112
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n34_statement_α:
@@ -507,9 +447,6 @@ n36_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n37_statement_α:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s11_ω_d16:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------

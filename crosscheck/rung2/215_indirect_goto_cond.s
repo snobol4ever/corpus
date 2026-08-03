@@ -39,9 +39,6 @@ n2_assign_α:
 n3_statement_α:
                         add              rsp, 16
                                                                                         jmp   n4_lit_integer_α
-proc_LBL__WON_zw5s5_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n4_lit_integer_α
 #=======================================================================================================================
 #         GT(0,3)         :S($T)F($F)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -119,24 +116,13 @@ n8_cmp_test_α:
                         test             eax, eax
                                                                                         jg    .Lx24_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__WON_zw5s6_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n11_goto_deferred_α
 .Lx24_240:
                                                                                         jmp   n9_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_statement_α:
                                                                                         jmp   n10_goto_deferred_α
-proc_LBL__WON_zw5s6_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n11_goto_deferred_α
-proc_LBL__WON_zw5s6_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n11_goto_deferred_α
-proc_LBL__WON_zw5s6_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n11_goto_deferred_α
-proc_LBL__WON_zw5s6_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n11_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_goto_deferred_α:
                         mov              rdi, qword ptr [rip + .Lx28_0]                 # name
@@ -216,9 +202,6 @@ n33_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n34_statement_α:
-                        add              rsp, 16
-                                                                                        jmp   proc_LBL__LOST_γ
-proc_LBL__LOST_zw5s7_ω_d16:
                         add              rsp, 16
                                                                                         jmp   proc_LBL__LOST_γ
 #-----------------------------------------------------------------------------------------------------------------------
@@ -359,23 +342,19 @@ n42_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx76_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s1_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n44_lit_string_α
 .Lx76_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n43_statement_α
 n42_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s1_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n44_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n43_statement_α:
                         add              rsp, 48
-                                                                                        jmp   n44_lit_string_α
-main_zw5s1_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n44_lit_string_α
-main_zw5s1_ω_d16:
-                        add              rsp, 16
                                                                                         jmp   n44_lit_string_α
 #=======================================================================================================================
 #         T = 'WON'
@@ -402,12 +381,6 @@ n45_assign_α:
 n46_statement_α:
                         add              rsp, 16
                                                                                         jmp   n47_lit_string_α
-main_zw5s2_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n47_lit_string_α
-main_zw5s2_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n47_lit_string_α
 #=======================================================================================================================
 #         F = 'LOST'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -431,9 +404,6 @@ n48_assign_α:
                                                                                         jmp   n49_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n49_statement_α:
-                        add              rsp, 16
-                                                                                        jmp   n50_lit_integer_α
-main_zw5s3_ω_d16:
                         add              rsp, 16
                                                                                         jmp   n50_lit_integer_α
 #=======================================================================================================================
@@ -513,24 +483,13 @@ n54_cmp_test_α:
                         test             eax, eax
                                                                                         jg    .Lx95_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s4_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n57_goto_deferred_α
 .Lx95_240:
                                                                                         jmp   n55_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n55_statement_α:
                                                                                         jmp   n56_goto_deferred_α
-main_zw5s4_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n57_goto_deferred_α
-main_zw5s4_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n57_goto_deferred_α
-main_zw5s4_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n57_goto_deferred_α
-main_zw5s4_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n57_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
 n56_goto_deferred_α:
                         mov              rdi, qword ptr [rip + .Lx99_0]                 # name
@@ -587,12 +546,6 @@ n60_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n61_statement_α:
                         add              rsp, 16
-                                                                                        jmp   n62_lit_integer_α
-main_zw5s5_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n62_lit_integer_α
-main_zw5s5_ω_d80:
-                        add              rsp, 80
                                                                                         jmp   n62_lit_integer_α
 #=======================================================================================================================
 #         GT(0,3)         :S($T)F($F)
@@ -671,24 +624,13 @@ n66_cmp_test_α:
                         test             eax, eax
                                                                                         jg    .Lx114_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s6_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   n69_goto_deferred_α
 .Lx114_240:
                                                                                         jmp   n67_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n67_statement_α:
                                                                                         jmp   n68_goto_deferred_α
-main_zw5s6_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n69_goto_deferred_α
-main_zw5s6_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n69_goto_deferred_α
-main_zw5s6_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n69_goto_deferred_α
-main_zw5s6_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n69_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
 n68_goto_deferred_α:
                         mov              rdi, qword ptr [rip + .Lx118_0]                # name
@@ -745,12 +687,6 @@ n72_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n73_statement_α:
                         add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s7_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s7_ω_d80:
-                        add              rsp, 80
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

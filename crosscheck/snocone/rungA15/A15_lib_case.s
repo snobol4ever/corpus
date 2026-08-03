@@ -1790,11 +1790,12 @@ n109_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx174_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s23_ω_d368
+                        add              rsp, 368
+                                                                                        jmp   n112_lit_string_α
 .Lx174_240:
                                                                                         jmp   n110_lit_string_α
 n109_call_β:
-                                                                                        jmp   main_zw5s23_ω_d368
+                                                                                        jmp   n112_lit_string_α
 .Lx174_0:
                         .quad            .Lx174_0_s
 .Lx174_0_s:
@@ -1847,15 +1848,6 @@ n113_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n114_statement_α:
                         add              rsp, 400
-                                                                                        jmp   main_γ
-main_zw5s23_ω_d368:
-                        add              rsp, 368
-                                                                                        jmp   main_γ
-main_zw5s23_ω_d352:
-                        add              rsp, 352
-                                                                                        jmp   main_γ
-main_zw5s23_ω_d336:
-                        add              rsp, 336
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

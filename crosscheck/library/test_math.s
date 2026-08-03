@@ -523,7 +523,8 @@ n88_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx112_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__sign_zw5s12_ω_d80
+                        add              rsp, 80
+                                                                                        jmp   n94_var_α
 .Lx112_240:
                         mov              qword ptr [rsp + 0], 0                         # result
                         mov              qword ptr [rsp + 8], 0
@@ -567,30 +568,6 @@ n92_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n93_statement_α:
                                                                                         jmp   n103_save_restore_α
-proc_LBL__sign_zw5s12_ω_d144:
-                        add              rsp, 144
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d128:
-                        add              rsp, 128
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d112:
-                        add              rsp, 112
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d96:
-                        add              rsp, 96
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n94_var_α
-proc_LBL__sign_zw5s12_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n94_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n94_var_α:
                         mov              rax, qword ptr [1879052352]                    # sign
@@ -767,26 +744,19 @@ n137_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx154_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__gcd_zw5s16_ω_d48
+                        add              rsp, 48
+                                                                                        jmp   n150_save_restore_α
 .Lx154_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n138_statement_α
 n137_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__gcd_zw5s16_ω_d48
+                        add              rsp, 48
+                                                                                        jmp   n150_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n138_statement_α:
                                                                                         jmp   n139_var_α
-proc_LBL__gcd_zw5s16_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n150_save_restore_α
-proc_LBL__gcd_zw5s16_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n150_save_restore_α
-proc_LBL__gcd_zw5s16_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n150_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n139_var_α:
                         sub              rsp, 16
@@ -845,9 +815,6 @@ n142_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n143_statement_α:
                                                                                         jmp   n144_var_α
-proc_LBL__gcd_zw5s17_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   n144_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n144_var_α:
                         sub              rsp, 16
@@ -884,12 +851,6 @@ n148_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n149_statement_α:
                         add              rsp, 144
-                                                                                        jmp   n135_var_α
-proc_LBL__gcd_zw5s19_ω_d144:
-                        add              rsp, 144
-                                                                                        jmp   n135_var_α
-proc_LBL__gcd_zw5s19_ω_d128:
-                        add              rsp, 128
                                                                                         jmp   n135_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n150_save_restore_α:
@@ -3057,11 +3018,12 @@ n312_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx509_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s38_ω_d528
+                        add              rsp, 528
+                                                                                        jmp   main_γ
 .Lx509_240:
                                                                                         jmp   n313_assign_α
 n312_call_β:
-                                                                                        jmp   main_zw5s38_ω_d528
+                                                                                        jmp   main_γ
 .Lx509_0:
                         .quad            .Lx509_0_s
 .Lx509_0_s:
@@ -3080,18 +3042,6 @@ n313_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n314_statement_α:
                         add              rsp, 544
-                                                                                        jmp   main_γ
-main_zw5s38_ω_d544:
-                        add              rsp, 544
-                                                                                        jmp   main_γ
-main_zw5s38_ω_d528:
-                        add              rsp, 528
-                                                                                        jmp   main_γ
-main_zw5s38_ω_d512:
-                        add              rsp, 512
-                                                                                        jmp   main_γ
-main_zw5s38_ω_d496:
-                        add              rsp, 496
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n315_goto_α:

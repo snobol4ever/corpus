@@ -304,11 +304,12 @@ n14_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx27_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s4_ω_d48
+                        add              rsp, 48
+                                                                                        jmp   main_γ
 .Lx27_240:
                                                                                         jmp   n15_assign_α
 n14_call_β:
-                                                                                        jmp   main_zw5s4_ω_d48
+                                                                                        jmp   main_γ
 .Lx27_0:
                         .quad            .Lx27_0_s
 .Lx27_0_s:
@@ -327,15 +328,6 @@ n15_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n16_statement_α:
                         add              rsp, 64
-                                                                                        jmp   main_γ
-main_zw5s4_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   main_γ
-main_zw5s4_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   main_γ
-main_zw5s4_ω_d32:
-                        add              rsp, 32
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

@@ -128,7 +128,9 @@ n1_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                                                                                        jmp   main_zw5s1_ω_d288
+                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
+                        add              rsp, 288
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_sequence_α:
                                                                                         jmp   n11_lit_integer_α
@@ -211,9 +213,6 @@ n4_statement_α:
                                                                                         jmp   main_γ
 n4_statement_β:
                         mov              rbp, qword ptr [rbp + 56]
-                        add              rsp, 288
-                                                                                        jmp   main_γ
-main_zw5s1_ω_d288:
                         add              rsp, 288
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------

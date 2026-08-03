@@ -405,14 +405,16 @@ n48_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx69_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__cap_zw5s9_ω_d160
+                        add              rsp, 160
+                                                                                        jmp   n56_save_restore_α
 .Lx69_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n49_keyword_snobol4_α
 n48_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__cap_zw5s9_ω_d160
+                        add              rsp, 160
+                                                                                        jmp   n56_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n49_keyword_snobol4_α:
                         sub              rsp, 16
@@ -465,14 +467,16 @@ n51_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx73_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__cap_zw5s9_ω_d208
+                        add              rsp, 208
+                                                                                        jmp   n56_save_restore_α
 .Lx73_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n52_binop_α
 n51_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__cap_zw5s9_ω_d208
+                        add              rsp, 208
+                                                                                        jmp   n56_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n52_binop_α:
                         sub              rsp, 16
@@ -494,30 +498,6 @@ n53_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n54_statement_α:
                                                                                         jmp   n55_save_restore_α
-proc_LBL__cap_zw5s9_ω_d240:
-                        add              rsp, 240
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d224:
-                        add              rsp, 224
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d208:
-                        add              rsp, 208
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d192:
-                        add              rsp, 192
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d176:
-                        add              rsp, 176
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d160:
-                        add              rsp, 160
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d144:
-                        add              rsp, 144
-                                                                                        jmp   n56_save_restore_α
-proc_LBL__cap_zw5s9_ω_d128:
-                        add              rsp, 128
-                                                                                        jmp   n56_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n55_save_restore_α:
                         call             rt_flat_ret_snap@PLT
@@ -571,7 +551,8 @@ n84_var_α:
                                                                                         jmp   n85_call_α
 n84_var_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__icase_zw5s12_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n88_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n85_call_α:
                         sub              rsp, 16
@@ -592,25 +573,21 @@ n85_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx123_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__icase_zw5s12_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n88_var_α
 .Lx123_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n86_statement_α
 n85_call_β:
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__icase_zw5s12_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n88_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n86_statement_α:
                                                                                         jmp   n87_save_restore_α
 n86_statement_β:
                         add              rsp, 48
-                                                                                        jmp   n88_var_α
-proc_LBL__icase_zw5s12_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n88_var_α
-proc_LBL__icase_zw5s12_ω_d16:
-                        add              rsp, 16
                                                                                         jmp   n88_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n87_save_restore_α:

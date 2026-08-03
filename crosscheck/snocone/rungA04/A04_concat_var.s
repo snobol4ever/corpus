@@ -95,18 +95,6 @@ n6_assign_α:
 n7_statement_α:
                         add              rsp, 64
                                                                                         jmp   main_γ
-main_zw5s2_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

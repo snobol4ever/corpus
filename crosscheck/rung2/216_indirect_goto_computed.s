@@ -365,11 +365,12 @@ n54_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx68_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__dmain_zw5s7_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n56_lit_string_α
 .Lx68_240:
                                                                                         jmp   n55_statement_α
 n54_call_β:
-                                                                                        jmp   proc_LBL__dmain_zw5s7_ω_d16
+                                                                                        jmp   n56_lit_string_α
 .Lx68_0:
                         .quad            .Lx68_0_s
 .Lx68_0_s:
@@ -377,9 +378,6 @@ n54_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n55_statement_α:
                         add              rsp, 32
-                                                                                        jmp   n56_lit_string_α
-proc_LBL__dmain_zw5s7_ω_d16:
-                        add              rsp, 16
                                                                                         jmp   n56_lit_string_α
 #=======================================================================================================================
 #         dispatch('MUL')
@@ -460,23 +458,18 @@ n57_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx73_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__dmain_zw5s8_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n59_lit_string_α
 .Lx73_240:
                                                                                         jmp   n58_statement_α
 n57_call_β:
-                                                                                        jmp   proc_LBL__dmain_zw5s8_ω_d16
+                                                                                        jmp   n59_lit_string_α
 .Lx73_0:
                         .quad            .Lx73_0_s
 .Lx73_0_s:
                         .string          "dispatch"
 #-----------------------------------------------------------------------------------------------------------------------
 n58_statement_α:
-                        add              rsp, 32
-                                                                                        jmp   n59_lit_string_α
-proc_LBL__dmain_zw5s8_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n59_lit_string_α
-proc_LBL__dmain_zw5s8_ω_d32:
                         add              rsp, 32
                                                                                         jmp   n59_lit_string_α
 #=======================================================================================================================
@@ -558,23 +551,18 @@ n60_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx78_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__dmain_zw5s9_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n62_lit_string_α
 .Lx78_240:
                                                                                         jmp   n61_statement_α
 n60_call_β:
-                                                                                        jmp   proc_LBL__dmain_zw5s9_ω_d16
+                                                                                        jmp   n62_lit_string_α
 .Lx78_0:
                         .quad            .Lx78_0_s
 .Lx78_0_s:
                         .string          "dispatch"
 #-----------------------------------------------------------------------------------------------------------------------
 n61_statement_α:
-                        add              rsp, 32
-                                                                                        jmp   n62_lit_string_α
-proc_LBL__dmain_zw5s9_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n62_lit_string_α
-proc_LBL__dmain_zw5s9_ω_d32:
                         add              rsp, 32
                                                                                         jmp   n62_lit_string_α
 #=======================================================================================================================
@@ -656,23 +644,18 @@ n63_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx83_240
                         add              rsp, 16
-                                                                                        jmp   proc_LBL__dmain_zw5s10_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   proc_LBL__dmain_γ
 .Lx83_240:
                                                                                         jmp   n64_statement_α
 n63_call_β:
-                                                                                        jmp   proc_LBL__dmain_zw5s10_ω_d16
+                                                                                        jmp   proc_LBL__dmain_γ
 .Lx83_0:
                         .quad            .Lx83_0_s
 .Lx83_0_s:
                         .string          "dispatch"
 #-----------------------------------------------------------------------------------------------------------------------
 n64_statement_α:
-                        add              rsp, 32
-                                                                                        jmp   proc_LBL__dmain_γ
-proc_LBL__dmain_zw5s10_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   proc_LBL__dmain_γ
-proc_LBL__dmain_zw5s10_ω_d32:
                         add              rsp, 32
                                                                                         jmp   proc_LBL__dmain_γ
 #-----------------------------------------------------------------------------------------------------------------------
@@ -949,31 +932,24 @@ n94_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx132_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s1_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n96_statement_α
 .Lx132_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n95_statement_α
 n94_call_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s1_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   n96_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n95_statement_α:
                         add              rsp, 48
-                                                                                        jmp   n96_statement_α
-main_zw5s1_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   n96_statement_α
-main_zw5s1_ω_d16:
-                        add              rsp, 16
                                                                                         jmp   n96_statement_α
 #=======================================================================================================================
 #         DEFINE('dispatch(OP)')          :(dmain)
 #-----------------------------------------------------------------------------------------------------------------------
 n96_statement_α:
-                                                                                        jmp   n97_lit_string_α
-main_zw5s2_ω_d48:
-                        add              rsp, 48
                                                                                         jmp   n97_lit_string_α
 #=======================================================================================================================
 # dmain   dispatch('ADD')
@@ -1054,11 +1030,12 @@ n98_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx140_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s7_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n100_lit_string_α
 .Lx140_240:
                                                                                         jmp   n99_statement_α
 n98_call_β:
-                                                                                        jmp   main_zw5s7_ω_d16
+                                                                                        jmp   n100_lit_string_α
 .Lx140_0:
                         .quad            .Lx140_0_s
 .Lx140_0_s:
@@ -1066,9 +1043,6 @@ n98_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n99_statement_α:
                         add              rsp, 32
-                                                                                        jmp   n100_lit_string_α
-main_zw5s7_ω_d16:
-                        add              rsp, 16
                                                                                         jmp   n100_lit_string_α
 #=======================================================================================================================
 #         dispatch('MUL')
@@ -1149,23 +1123,18 @@ n101_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx145_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s8_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n103_lit_string_α
 .Lx145_240:
                                                                                         jmp   n102_statement_α
 n101_call_β:
-                                                                                        jmp   main_zw5s8_ω_d16
+                                                                                        jmp   n103_lit_string_α
 .Lx145_0:
                         .quad            .Lx145_0_s
 .Lx145_0_s:
                         .string          "dispatch"
 #-----------------------------------------------------------------------------------------------------------------------
 n102_statement_α:
-                        add              rsp, 32
-                                                                                        jmp   n103_lit_string_α
-main_zw5s8_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n103_lit_string_α
-main_zw5s8_ω_d32:
                         add              rsp, 32
                                                                                         jmp   n103_lit_string_α
 #=======================================================================================================================
@@ -1247,23 +1216,18 @@ n104_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx150_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s9_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   n106_lit_string_α
 .Lx150_240:
                                                                                         jmp   n105_statement_α
 n104_call_β:
-                                                                                        jmp   main_zw5s9_ω_d16
+                                                                                        jmp   n106_lit_string_α
 .Lx150_0:
                         .quad            .Lx150_0_s
 .Lx150_0_s:
                         .string          "dispatch"
 #-----------------------------------------------------------------------------------------------------------------------
 n105_statement_α:
-                        add              rsp, 32
-                                                                                        jmp   n106_lit_string_α
-main_zw5s9_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n106_lit_string_α
-main_zw5s9_ω_d32:
                         add              rsp, 32
                                                                                         jmp   n106_lit_string_α
 #=======================================================================================================================
@@ -1345,23 +1309,18 @@ n107_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx155_240
                         add              rsp, 16
-                                                                                        jmp   main_zw5s10_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 .Lx155_240:
                                                                                         jmp   n108_statement_α
 n107_call_β:
-                                                                                        jmp   main_zw5s10_ω_d16
+                                                                                        jmp   main_γ
 .Lx155_0:
                         .quad            .Lx155_0_s
 .Lx155_0_s:
                         .string          "dispatch"
 #-----------------------------------------------------------------------------------------------------------------------
 n108_statement_α:
-                        add              rsp, 32
-                                                                                        jmp   main_γ
-main_zw5s10_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s10_ω_d32:
                         add              rsp, 32
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1374,9 +1333,6 @@ n109_goto_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n110_statement_α:
                                                                                         jmp   n111_lit_string_α
-main_zw5s3_ω_d32:
-                        add              rsp, 32
-                                                                                        jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n111_lit_string_α:
                         sub              rsp, 16
@@ -1460,9 +1416,6 @@ n118_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n119_statement_α:
                                                                                         jmp   n120_save_restore_α
-main_zw5s4_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   n120_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n120_save_restore_α:
                         call             rt_flat_ret_snap@PLT
@@ -1504,9 +1457,6 @@ n123_assign_α:
 n124_statement_α:
                         add              rsp, 16
                                                                                         jmp   n120_save_restore_α
-main_zw5s5_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   n120_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n125_goto_α:
                                                                                         jmp   n126_lit_string_α
@@ -1539,9 +1489,6 @@ n127_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n128_statement_α:
-                        add              rsp, 16
-                                                                                        jmp   n120_save_restore_α
-main_zw5s6_ω_d16:
                         add              rsp, 16
                                                                                         jmp   n120_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------

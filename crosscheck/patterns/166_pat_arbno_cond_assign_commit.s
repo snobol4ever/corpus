@@ -153,7 +153,9 @@ n1_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                                                                                        jmp   main_zw5s1_ω_d368
+                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
+                        add              rsp, 368
+                                                                                        jmp   n31_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_sequence_α:
                                                                                         jmp   n27_lit_integer_α
@@ -238,9 +240,6 @@ n4_statement_β:
                         mov              rbp, qword ptr [rbp + 56]
                         add              rsp, 368
                                                                                         jmp   n31_lit_string_α
-main_zw5s1_ω_d368:
-                        add              rsp, 368
-                                                                                        jmp   n31_lit_string_α
 #=======================================================================================================================
 # Y OUTPUT = 'C=[' C '] W=[' W ']'                              :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -283,7 +282,8 @@ n7_binop_α:
                                                                                         jmp   n8_lit_string_α
 n7_binop_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d32
+                        add              rsp, 32
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_string_α:
                         sub              rsp, 16
@@ -294,7 +294,8 @@ n8_lit_string_α:
                                                                                         jmp   n9_binop_α
 n8_lit_string_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d48
+                        add              rsp, 48
+                                                                                        jmp   main_γ
 .Lx46_0:
                         .quad            .Lx46_0_s
 .Lx46_0_s:
@@ -312,7 +313,8 @@ n9_binop_α:
                                                                                         jmp   n10_var_α
 n9_binop_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d64
+                        add              rsp, 64
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n10_var_α:
                         sub              rsp, 16
@@ -323,7 +325,8 @@ n10_var_α:
                                                                                         jmp   n11_binop_α
 n10_var_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d80
+                        add              rsp, 80
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n11_binop_α:
                         sub              rsp, 16
@@ -337,7 +340,8 @@ n11_binop_α:
                                                                                         jmp   n12_lit_string_α
 n11_binop_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d96
+                        add              rsp, 96
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n12_lit_string_α:
                         sub              rsp, 16
@@ -348,7 +352,8 @@ n12_lit_string_α:
                                                                                         jmp   n13_binop_α
 n12_lit_string_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d112
+                        add              rsp, 112
+                                                                                        jmp   main_γ
 .Lx50_0:
                         .quad            .Lx50_0_s
 .Lx50_0_s:
@@ -366,7 +371,8 @@ n13_binop_α:
                                                                                         jmp   n14_assign_α
 n13_binop_β:
                         add              rsp, 16
-                                                                                        jmp   main_zw5s2_ω_d128
+                        add              rsp, 128
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n14_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -375,7 +381,8 @@ n14_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n15_statement_α
 n14_assign_β:
-                                                                                        jmp   main_zw5s2_ω_d144
+                        add              rsp, 144
+                                                                                        jmp   main_γ
 .Lx52_0:
                         .quad            .Lx52_0_s
 .Lx52_0_s:
@@ -386,30 +393,6 @@ n15_statement_α:
                                                                                         jmp   main_γ
 n15_statement_β:
                         add              rsp, 144
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d144:
-                        add              rsp, 144
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d128:
-                        add              rsp, 128
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d112:
-                        add              rsp, 112
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d96:
-                        add              rsp, 96
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d80:
-                        add              rsp, 80
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d64:
-                        add              rsp, 64
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d48:
-                        add              rsp, 48
-                                                                                        jmp   main_γ
-main_zw5s2_ω_d32:
-                        add              rsp, 32
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_integer_α:
@@ -755,7 +738,8 @@ n32_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n33_statement_α
 n32_assign_β:
-                                                                                        jmp   main_zw5s3_ω_d16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 .Lx79_0:
                         .quad            .Lx79_0_s
 .Lx79_0_s:
@@ -766,12 +750,6 @@ n33_statement_α:
                                                                                         jmp   main_γ
 n33_statement_β:
                         add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d16:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-main_zw5s3_ω_d144:
-                        add              rsp, 144
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
