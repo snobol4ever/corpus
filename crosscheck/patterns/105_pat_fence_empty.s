@@ -249,7 +249,7 @@ n14_var_β:
                                                                                         jmp   n30_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_match_begin_α:
-                        sub              rsp, 256
+                        sub              rsp, 240
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -280,10 +280,8 @@ n15_match_begin_α:
                         mov              qword ptr [rsp + 216], 0
                         mov              qword ptr [rsp + 224], 0
                         mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              rdi, qword ptr [rsp + 256]                     # var
-                        mov              rsi, qword ptr [rsp + 264]
+                        mov              rdi, qword ptr [rsp + 240]                     # var
+                        mov              rsi, qword ptr [rsp + 248]
                         mov              qword ptr [rsp + 152], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 160], r13                     # outer_Σ
@@ -341,7 +339,7 @@ n15_match_begin_β:
                         mov              rdx, qword ptr [rbp + 184]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 152]                     # old_rbp
-                        add              rsp, 272
+                        add              rsp, 256
                                                                                         jmp   n30_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_integer_α:
@@ -447,11 +445,11 @@ n20_match_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n21_statement_end_α:
                         mov              rbp, qword ptr [rbp + 152]                     # old_rbp
-                        add              rsp, 288
+                        add              rsp, 272
                                                                                         jmp   n22_statement_begin_α
 n21_statement_end_β:
                         mov              rbp, qword ptr [rbp + 152]
-                        add              rsp, 288
+                        add              rsp, 272
                                                                                         jmp   n30_statement_begin_α
 #=======================================================================================================================
 # YES     OUTPUT = 'epsilon then LEN(2)'                        :(END)
