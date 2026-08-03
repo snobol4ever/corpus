@@ -125,6 +125,10 @@ n10_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n11_assign_α
+n10_var_β:
+                        add              rsp, 16
+                        add              rsp, 64
+                                                                                        jmp   n35_statement_end_α
 .Lx52_0:
                         .quad            .Lx52_0_s
 .Lx52_0_s:
@@ -385,6 +389,10 @@ n29_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n30_lit_integer_α
+n29_var_β:
+                        add              rsp, 16
+                        add              rsp, 320
+                                                                                        jmp   n10_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n30_lit_integer_α:
                         sub              rsp, 16
@@ -392,6 +400,9 @@ n30_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx75_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n31_coerce_numeric_α
+n30_lit_integer_β:
+                        add              rsp, 16
+                                                                                        jmp   n29_var_β
 .Lx75_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -418,6 +429,9 @@ n31_coerce_numeric_α:
                         mov              rcx, 101                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n32_coerce_numeric_α
+n31_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n30_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n32_coerce_numeric_α:
                         sub              rsp, 16
@@ -442,6 +456,9 @@ n32_coerce_numeric_α:
                         mov              rcx, 102                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n33_cmp_test_α
+n32_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n31_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n33_cmp_test_α:
                         sub              rsp, 16
@@ -451,12 +468,14 @@ n33_cmp_test_α:
                         test             eax, eax
                                                                                         je    .Lx81_240
                         add              rsp, 16
-                        add              rsp, 384
-                                                                                        jmp   n10_var_α
+                                                                                        jmp   n32_coerce_numeric_β
 .Lx81_240:
                         mov              qword ptr [rsp + 0], 0                         # result
                         mov              qword ptr [rsp + 8], 0
                                                                                         jmp   n34_assign_α
+n33_cmp_test_β:
+                        add              rsp, 16
+                                                                                        jmp   n32_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n34_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # cmp_test

@@ -224,16 +224,10 @@ n11_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        je    .Lx43_240
-                        mov              rbp, qword ptr [rbp + 88]                      # old_rbp
-                        add              rsp, 240
-                                                                                        jmp   n21_statement_begin_α
-.Lx43_240:
+                                                                                        jne   n10_lit_integer_β
                                                                                         jmp   n12_match_end_α
 n11_match_rpos_β:
-                        mov              rbp, qword ptr [rbp + 88]
-                        add              rsp, 240
-                                                                                        jmp   n21_statement_begin_α
+                                                                                        jmp   n10_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_end_α:
                         mov              rax, qword ptr [rbp + 56]

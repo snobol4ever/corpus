@@ -320,6 +320,10 @@ n27_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n28_call_α
+n27_var_β:
+                        add              rsp, 16
+                        add              rsp, 208
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n28_call_α:
                         sub              rsp, 16
@@ -340,16 +344,14 @@ n28_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx74_240
                         add              rsp, 16
-                        add              rsp, 224
-                                                                                        jmp   main_γ
+                                                                                        jmp   n27_var_β
 .Lx74_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n29_assign_α
 n28_call_β:
                         add              rsp, 16
-                        add              rsp, 224
-                                                                                        jmp   main_γ
+                                                                                        jmp   n27_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n29_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call

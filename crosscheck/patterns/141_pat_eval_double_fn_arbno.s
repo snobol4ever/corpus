@@ -24,6 +24,10 @@ n2_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n3_binop_α
+n2_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n6_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_binop_α:
                         sub              rsp, 16
@@ -35,6 +39,9 @@ n3_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n4_assign_α
+n3_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n2_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n4_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
@@ -858,6 +865,10 @@ n96_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n97_binop_α
+n96_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n97_binop_α:
                         sub              rsp, 16
@@ -869,6 +880,9 @@ n97_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n98_assign_α
+n97_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n96_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n98_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -1168,6 +1182,10 @@ n115_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n116_binop_α
+n115_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n119_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n116_binop_α:
                         sub              rsp, 16
@@ -1179,6 +1197,9 @@ n116_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n117_assign_α
+n116_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n115_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n117_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
@@ -1331,6 +1352,10 @@ n131_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n132_binop_α
+n131_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n126_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n132_binop_α:
                         sub              rsp, 16
@@ -1342,6 +1367,9 @@ n132_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n133_lit_string_α
+n132_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n131_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n133_lit_string_α:
                         sub              rsp, 16
@@ -1350,6 +1378,9 @@ n133_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx230_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n134_binop_α
+n133_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n132_binop_β
 .Lx230_0:
                         .quad            .Lx230_0_s
 .Lx230_0_s:
@@ -1365,6 +1396,9 @@ n134_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n135_call_α
+n134_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n133_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n135_call_α:
                         sub              rsp, 16
@@ -1384,13 +1418,15 @@ n135_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx232_240
-                                                                                        jmp   n137_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n134_binop_β
 .Lx232_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n136_assign_α
 n135_call_β:
-                                                                                        jmp   n137_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n134_binop_β
 #-----------------------------------------------------------------------------------------------------------------------
 n136_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call

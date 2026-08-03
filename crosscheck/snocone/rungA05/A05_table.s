@@ -412,6 +412,10 @@ n40_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n41_lit_string_α
+n40_var_β:
+                        add              rsp, 16
+                        add              rsp, 384
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n41_lit_string_α:
                         sub              rsp, 16
@@ -420,6 +424,9 @@ n41_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx101_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n42_subscript_α
+n41_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n40_var_β
 .Lx101_0:
                         .quad            .Lx101_0_s
 .Lx101_0_s:
@@ -435,12 +442,14 @@ n42_subscript_α:
                         cmp              eax, 104
                                                                                         jne   .Lx102_240
                         add              rsp, 16
-                        add              rsp, 416
-                                                                                        jmp   main_γ
+                                                                                        jmp   n41_lit_string_β
 .Lx102_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n43_deref_α
+n42_subscript_β:
+                        add              rsp, 16
+                                                                                        jmp   n41_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n43_deref_α:
                         sub              rsp, 16
@@ -450,12 +459,14 @@ n43_deref_α:
                         cmp              eax, 104
                                                                                         jne   .Lx103_240
                         add              rsp, 16
-                        add              rsp, 432
-                                                                                        jmp   main_γ
+                                                                                        jmp   n42_subscript_β
 .Lx103_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n44_assign_α
+n43_deref_β:
+                        add              rsp, 16
+                                                                                        jmp   n42_subscript_β
 #-----------------------------------------------------------------------------------------------------------------------
 n44_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # deref

@@ -61,6 +61,10 @@ n5_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n6_lit_string_α
+n5_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n10_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_lit_string_α:
                         sub              rsp, 16
@@ -69,6 +73,9 @@ n6_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx22_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n7_call_α
+n6_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n5_var_β
 .Lx22_0:
                         .quad            .Lx22_0_s
 .Lx22_0_s:
@@ -97,16 +104,14 @@ n7_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx23_240
                         add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   n10_lit_string_α
+                                                                                        jmp   n6_lit_string_β
 .Lx23_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n8_lit_string_α
 n7_call_β:
                         add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   n10_lit_string_α
+                                                                                        jmp   n6_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_string_α:
                         sub              rsp, 16

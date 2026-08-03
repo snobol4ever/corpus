@@ -82,6 +82,10 @@ n9_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n10_var_α
+n9_var_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n10_var_α:
                         sub              rsp, 16
@@ -90,6 +94,9 @@ n10_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n11_binop_α
+n10_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n9_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_binop_α:
                         sub              rsp, 16
@@ -101,12 +108,14 @@ n11_binop_α:
                         cmp              eax, 104
                                                                                         jne   .Lx30_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   main_γ
+                                                                                        jmp   n10_var_β
 .Lx30_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n12_assign_α
+n11_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n10_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

@@ -149,8 +149,7 @@ n11_coerce_string_α:
                                                                                         jmp   n12_match_begin_α
 n11_coerce_string_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n22_statement_begin_α
+                                                                                        jmp   n10_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_begin_α:
                         sub              rsp, 304
@@ -252,7 +251,8 @@ n12_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 136]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                                                                                        jmp   n15_statement_end_α
+                        add              rsp, 304
+                                                                                        jmp   n11_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_match_sequence_α:
                                                                                         jmp   n19_match_assign_save_α
@@ -501,8 +501,7 @@ n25_binop_α:
                                                                                         jmp   n26_lit_string_α
 n25_binop_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n32_statement_begin_α
+                                                                                        jmp   n24_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n26_lit_string_α:
                         sub              rsp, 16
@@ -513,8 +512,7 @@ n26_lit_string_α:
                                                                                         jmp   n27_binop_α
 n26_lit_string_β:
                         add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   n32_statement_begin_α
+                                                                                        jmp   n25_binop_β
 .Lx134_0:
                         .quad            .Lx134_0_s
 .Lx134_0_s:
@@ -532,8 +530,7 @@ n27_binop_α:
                                                                                         jmp   n28_var_α
 n27_binop_β:
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n32_statement_begin_α
+                                                                                        jmp   n26_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n28_var_α:
                         sub              rsp, 16
@@ -544,8 +541,7 @@ n28_var_α:
                                                                                         jmp   n29_binop_α
 n28_var_β:
                         add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n32_statement_begin_α
+                                                                                        jmp   n27_binop_β
 #-----------------------------------------------------------------------------------------------------------------------
 n29_binop_α:
                         sub              rsp, 16
@@ -558,7 +554,8 @@ n29_binop_α:
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n30_assign_α
 n29_binop_β:
-                                                                                        jmp   n31_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n28_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n30_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -567,7 +564,7 @@ n30_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n31_statement_end_α
 n30_assign_β:
-                                                                                        jmp   n31_statement_end_α
+                                                                                        jmp   n29_binop_β
 .Lx138_0:
                         .quad            .Lx138_0_s
 .Lx138_0_s:
@@ -661,8 +658,7 @@ n39_coerce_string_α:
                                                                                         jmp   n40_match_begin_α
 n39_coerce_string_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n46_statement_begin_α
+                                                                                        jmp   n38_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n40_match_begin_α:
                         sub              rsp, 624
@@ -792,8 +788,8 @@ n40_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 736
-                                                                                        jmp   n46_statement_begin_α
+                        add              rsp, 688
+                                                                                        jmp   n39_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n41_match_assign_save_α:
                         sub              rsp, 16
@@ -1026,8 +1022,7 @@ n57_coerce_string_α:
                                                                                         jmp   n58_match_begin_α
 n57_coerce_string_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n64_statement_begin_α
+                                                                                        jmp   n56_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n58_match_begin_α:
                         sub              rsp, 848
@@ -1185,8 +1180,8 @@ n58_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 960
-                                                                                        jmp   n64_statement_begin_α
+                        add              rsp, 912
+                                                                                        jmp   n57_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n59_match_assign_save_α:
                         sub              rsp, 16
@@ -1457,8 +1452,7 @@ n79_lit_string_α:
                                                                                         jmp   n80_binop_α
 n79_lit_string_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n88_statement_begin_α
+                                                                                        jmp   n78_var_β
 .Lx217_0:
                         .quad            .Lx217_0_s
 .Lx217_0_s:
@@ -1476,8 +1470,7 @@ n80_binop_α:
                                                                                         jmp   n81_coerce_string_α
 n80_binop_β:
                         add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   n88_statement_begin_α
+                                                                                        jmp   n79_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n81_coerce_string_α:
                         sub              rsp, 16
@@ -1488,8 +1481,7 @@ n81_coerce_string_α:
                                                                                         jmp   n82_match_begin_α
 n81_coerce_string_β:
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n88_statement_begin_α
+                                                                                        jmp   n80_binop_β
 #-----------------------------------------------------------------------------------------------------------------------
 n82_match_begin_α:
                         sub              rsp, 1120
@@ -1681,8 +1673,8 @@ n82_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 1264
-                                                                                        jmp   n88_statement_begin_α
+                        add              rsp, 1184
+                                                                                        jmp   n81_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n83_match_assign_save_α:
                         sub              rsp, 16

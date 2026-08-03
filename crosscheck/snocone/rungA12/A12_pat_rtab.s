@@ -63,6 +63,10 @@ n5_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n6_match_begin_α
+n5_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n14_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_begin_α:
                         sub              rsp, 176
@@ -134,8 +138,8 @@ n6_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 272
-                                                                                        jmp   n14_lit_string_α
+                        add              rsp, 240
+                                                                                        jmp   n5_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n7_match_assign_save_α:
                         sub              rsp, 16
@@ -152,6 +156,10 @@ n8_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx30_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n9_match_rtab_α
+n8_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 288
+                                                                                        jmp   n7_match_assign_save_α
 .Lx30_0:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------

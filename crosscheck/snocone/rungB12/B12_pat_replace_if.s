@@ -367,6 +367,10 @@ n22_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n23_assign_α
+n22_var_β:
+                        add              rsp, 16
+                        add              rsp, 336
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n23_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # var

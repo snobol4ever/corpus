@@ -23,6 +23,10 @@ n2_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n3_binop_α
+n2_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   proc_add_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n3_binop_α:
                         sub              rsp, 16
@@ -34,12 +38,14 @@ n3_binop_α:
                         cmp              eax, 104
                                                                                         jne   .Lx9_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   proc_add_γ
+                                                                                        jmp   n2_var_β
 .Lx9_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n4_assign_α
+n3_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n2_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n4_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
@@ -280,6 +286,10 @@ n20_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx40_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n21_lit_integer_α
+n20_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 48
+                                                                                        jmp   main_γ
 .Lx40_0:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
@@ -289,6 +299,9 @@ n21_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx41_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n22_call_α
+n21_lit_integer_β:
+                        add              rsp, 16
+                                                                                        jmp   n20_lit_integer_β
 .Lx41_0:
                         .quad            32
 #-----------------------------------------------------------------------------------------------------------------------
@@ -377,12 +390,11 @@ n22_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx43_240
                         add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   main_γ
+                                                                                        jmp   n21_lit_integer_β
 .Lx43_240:
                                                                                         jmp   n23_assign_α
 n22_call_β:
-                                                                                        jmp   main_γ
+                                                                                        jmp   n21_lit_integer_β
 .Lx43_0:
                         .quad            .Lx43_0_s
 .Lx43_0_s:

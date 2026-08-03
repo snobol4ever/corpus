@@ -81,6 +81,10 @@ n9_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx26_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n10_assign_α
+n9_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   main_γ
 .Lx26_0:
                         .quad            .Lx26_0_s
 .Lx26_0_s:

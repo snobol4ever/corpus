@@ -123,8 +123,7 @@ n10_var_α:
                                                                                         jmp   n11_coerce_integer_α
 n10_var_β:
                         add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   n25_statement_end_α
+                                                                                        jmp   n9_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_coerce_integer_α:
                         sub              rsp, 16
@@ -135,8 +134,7 @@ n11_coerce_integer_α:
                                                                                         jmp   n12_match_begin_α
 n11_coerce_integer_β:
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n25_statement_end_α
+                                                                                        jmp   n10_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_begin_α:
                         sub              rsp, 256
@@ -232,8 +230,8 @@ n12_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 136]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 336
-                                                                                        jmp   n25_statement_end_α
+                        add              rsp, 256
+                                                                                        jmp   n11_coerce_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_match_sequence_α:
                                                                                         jmp   n24_match_pos_α

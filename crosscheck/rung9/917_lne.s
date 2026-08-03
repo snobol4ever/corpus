@@ -43,6 +43,10 @@ n4_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx73_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n5_cmp_test_α
+n4_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n57_statement_begin_α
 .Lx73_0:
                         .quad            .Lx73_0_s
 .Lx73_0_s:
@@ -56,8 +60,7 @@ n5_cmp_test_α:
                         test             eax, eax
                                                                                         jne   .Lx75_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n57_statement_begin_α
+                                                                                        jmp   n4_lit_string_β
 .Lx75_240:
                                                                                         jmp   n6_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -95,6 +98,10 @@ n11_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx85_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n12_cmp_test_α
+n11_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n18_statement_begin_α
 .Lx85_0:
                         .quad            .Lx85_0_s
 .Lx85_0_s:
@@ -108,8 +115,7 @@ n12_cmp_test_α:
                         test             eax, eax
                                                                                         jne   .Lx87_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n18_statement_begin_α
+                                                                                        jmp   n11_lit_string_β
 .Lx87_240:
                                                                                         jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -179,6 +185,10 @@ n22_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx103_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n23_cmp_test_α
+n22_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n53_statement_begin_α
 .Lx103_0:
                         .quad            .Lx103_0_s
 .Lx103_0_s:
@@ -192,8 +202,7 @@ n23_cmp_test_α:
                         test             eax, eax
                                                                                         jne   .Lx105_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n53_statement_begin_α
+                                                                                        jmp   n22_lit_string_β
 .Lx105_240:
                                                                                         jmp   n24_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -231,6 +240,10 @@ n29_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx115_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n30_cmp_test_α
+n29_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n36_statement_begin_α
 .Lx115_0:
                         .quad            .Lx115_0_s
 .Lx115_0_s:
@@ -244,8 +257,7 @@ n30_cmp_test_α:
                         test             eax, eax
                                                                                         jne   .Lx117_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n36_statement_begin_α
+                                                                                        jmp   n29_lit_string_β
 .Lx117_240:
                                                                                         jmp   n31_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -315,6 +327,10 @@ n40_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx133_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n41_cmp_test_α
+n40_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n49_statement_begin_α
 .Lx133_0:
                         .quad            .Lx133_0_s
 .Lx133_0_s:
@@ -328,8 +344,7 @@ n41_cmp_test_α:
                         test             eax, eax
                                                                                         jne   .Lx135_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n49_statement_begin_α
+                                                                                        jmp   n40_lit_string_β
 .Lx135_240:
                                                                                         jmp   n42_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------

@@ -287,6 +287,10 @@ n22_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx40_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n23_call_α
+n22_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   main_γ
 .Lx40_0:
                         .quad            .Lx40_0_s
 .Lx40_0_s:
@@ -356,12 +360,11 @@ n23_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx42_240
                         add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   main_γ
+                                                                                        jmp   n22_lit_string_β
 .Lx42_240:
                                                                                         jmp   n24_assign_α
 n23_call_β:
-                                                                                        jmp   main_γ
+                                                                                        jmp   n22_lit_string_β
 .Lx42_0:
                         .quad            .Lx42_0_s
 .Lx42_0_s:

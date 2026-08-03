@@ -164,6 +164,10 @@ n14_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n15_assign_α
+n14_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 112
+                                                                                        jmp   main_γ
 .Lx39_0:
                         .quad            .Lx39_0_s
 .Lx39_0_s:

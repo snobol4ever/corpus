@@ -280,6 +280,10 @@ n14_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n15_binop_α
+n14_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n22_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_binop_α:
                         sub              rsp, 16
@@ -291,6 +295,9 @@ n15_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n16_assign_α
+n15_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n14_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n16_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

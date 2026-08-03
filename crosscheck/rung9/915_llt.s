@@ -43,6 +43,10 @@ n4_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx85_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n5_cmp_test_α
+n4_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n68_statement_begin_α
 .Lx85_0:
                         .quad            .Lx85_0_s
 .Lx85_0_s:
@@ -56,8 +60,7 @@ n5_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx87_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n68_statement_begin_α
+                                                                                        jmp   n4_lit_string_β
 .Lx87_240:
                                                                                         jmp   n6_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -95,6 +98,10 @@ n11_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx97_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n12_cmp_test_α
+n11_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n18_statement_begin_α
 .Lx97_0:
                         .quad            .Lx97_0_s
 .Lx97_0_s:
@@ -108,8 +115,7 @@ n12_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx99_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n18_statement_begin_α
+                                                                                        jmp   n11_lit_string_β
 .Lx99_240:
                                                                                         jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -179,6 +185,10 @@ n22_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx115_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n23_cmp_test_α
+n22_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n29_statement_begin_α
 .Lx115_0:
                         .quad            .Lx115_0_s
 .Lx115_0_s:
@@ -192,8 +202,7 @@ n23_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx117_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n29_statement_begin_α
+                                                                                        jmp   n22_lit_string_β
 .Lx117_240:
                                                                                         jmp   n24_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -263,6 +272,10 @@ n33_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx133_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n34_cmp_test_α
+n33_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n64_statement_begin_α
 .Lx133_0:
                         .quad            .Lx133_0_s
 .Lx133_0_s:
@@ -276,8 +289,7 @@ n34_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx135_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n64_statement_begin_α
+                                                                                        jmp   n33_lit_string_β
 .Lx135_240:
                                                                                         jmp   n35_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -315,6 +327,10 @@ n40_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx145_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n41_cmp_test_α
+n40_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n47_statement_begin_α
 .Lx145_0:
                         .quad            .Lx145_0_s
 .Lx145_0_s:
@@ -328,8 +344,7 @@ n41_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx147_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n47_statement_begin_α
+                                                                                        jmp   n40_lit_string_β
 .Lx147_240:
                                                                                         jmp   n42_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -399,6 +414,10 @@ n51_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx163_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n52_cmp_test_α
+n51_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n60_statement_begin_α
 .Lx163_0:
                         .quad            .Lx163_0_s
 .Lx163_0_s:
@@ -412,8 +431,7 @@ n52_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx165_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n60_statement_begin_α
+                                                                                        jmp   n51_lit_string_β
 .Lx165_240:
                                                                                         jmp   n53_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------

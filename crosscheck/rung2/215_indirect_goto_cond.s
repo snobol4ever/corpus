@@ -56,6 +56,10 @@ n6_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx22_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n7_coerce_numeric_α
+n6_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n12_goto_deferred_α
 .Lx22_0:
                         .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
@@ -82,6 +86,9 @@ n7_coerce_numeric_α:
                         mov              rcx, 111                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n8_coerce_numeric_α
+n7_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n6_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n8_coerce_numeric_α:
                         sub              rsp, 16
@@ -106,6 +113,9 @@ n8_coerce_numeric_α:
                         mov              rcx, 112                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n9_cmp_test_α
+n8_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n7_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n9_cmp_test_α:
                         sub              rsp, 16
@@ -115,8 +125,7 @@ n9_cmp_test_α:
                         test             eax, eax
                                                                                         jg    .Lx28_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n12_goto_deferred_α
+                                                                                        jmp   n8_coerce_numeric_β
 .Lx28_240:
                                                                                         jmp   n10_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -312,6 +321,10 @@ n47_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx89_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n48_call_α
+n47_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n50_statement_begin_α
 .Lx89_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -337,13 +350,15 @@ n48_call_α:
                         add              rsp, 32
                         cmp              eax, 104
                                                                                         jne   .Lx90_240
-                                                                                        jmp   n49_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n47_lit_integer_β
 .Lx90_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n49_statement_end_α
 n48_call_β:
-                                                                                        jmp   n49_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n47_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n49_statement_end_α:
                         add              rsp, 48
@@ -425,6 +440,10 @@ n60_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx109_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n61_coerce_numeric_α
+n60_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n66_goto_deferred_α
 .Lx109_0:
                         .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
@@ -451,6 +470,9 @@ n61_coerce_numeric_α:
                         mov              rcx, 111                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n62_coerce_numeric_α
+n61_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n60_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n62_coerce_numeric_α:
                         sub              rsp, 16
@@ -475,6 +497,9 @@ n62_coerce_numeric_α:
                         mov              rcx, 112                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n63_cmp_test_α
+n62_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n61_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n63_cmp_test_α:
                         sub              rsp, 16
@@ -484,8 +509,7 @@ n63_cmp_test_α:
                         test             eax, eax
                                                                                         jg    .Lx115_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n66_goto_deferred_α
+                                                                                        jmp   n62_coerce_numeric_β
 .Lx115_240:
                                                                                         jmp   n64_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -572,6 +596,10 @@ n74_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx132_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n75_coerce_numeric_α
+n74_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n80_goto_deferred_α
 .Lx132_0:
                         .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
@@ -598,6 +626,9 @@ n75_coerce_numeric_α:
                         mov              rcx, 111                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n76_coerce_numeric_α
+n75_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n74_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n76_coerce_numeric_α:
                         sub              rsp, 16
@@ -622,6 +653,9 @@ n76_coerce_numeric_α:
                         mov              rcx, 112                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n77_cmp_test_α
+n76_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n75_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n77_cmp_test_α:
                         sub              rsp, 16
@@ -631,8 +665,7 @@ n77_cmp_test_α:
                         test             eax, eax
                                                                                         jg    .Lx138_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n80_goto_deferred_α
+                                                                                        jmp   n76_coerce_numeric_β
 .Lx138_240:
                                                                                         jmp   n78_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------

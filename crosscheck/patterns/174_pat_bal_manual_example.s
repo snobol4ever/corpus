@@ -261,8 +261,7 @@ n9_binop_α:
                                                                                         jmp   n10_assign_α
 n9_binop_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   main_γ
+                                                                                        jmp   n8_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -271,8 +270,7 @@ n10_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n11_statement_end_α
 n10_assign_β:
-                        add              rsp, 48
-                                                                                        jmp   main_γ
+                                                                                        jmp   n9_binop_β
 .Lx38_0:
                         .quad            .Lx38_0_s
 .Lx38_0_s:

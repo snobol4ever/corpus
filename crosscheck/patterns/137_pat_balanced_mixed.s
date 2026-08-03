@@ -1463,6 +1463,10 @@ n86_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n87_binop_α
+n86_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n87_binop_α:
                         sub              rsp, 16
@@ -1474,6 +1478,9 @@ n87_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n88_assign_α
+n87_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n86_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n88_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

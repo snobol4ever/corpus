@@ -187,6 +187,11 @@ n10_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx40_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n11_match_rpos_α
+n10_lit_integer_β:
+                        add              rsp, 16
+                        mov              rbp, qword ptr [rbp + 88]                      # old_rbp
+                        add              rsp, 192
+                                                                                        jmp   n19_statement_begin_α
 .Lx40_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -195,11 +200,7 @@ n11_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        je    .Lx41_240
-                        mov              rbp, qword ptr [rbp + 88]                      # old_rbp
-                        add              rsp, 208
-                                                                                        jmp   n19_statement_begin_α
-.Lx41_240:
+                                                                                        jne   n10_lit_integer_β
                                                                                         jmp   n12_match_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_end_α:

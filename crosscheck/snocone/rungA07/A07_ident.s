@@ -35,6 +35,10 @@ n2_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx21_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n3_call_α
+n2_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n6_lit_string_α
 .Lx21_0:
                         .quad            .Lx21_0_s
 .Lx21_0_s:
@@ -63,16 +67,14 @@ n3_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx22_240
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n6_lit_string_α
+                                                                                        jmp   n2_lit_string_β
 .Lx22_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n4_lit_string_α
 n3_call_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n6_lit_string_α
+                                                                                        jmp   n2_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n4_lit_string_α:
                         sub              rsp, 16
@@ -132,6 +134,10 @@ n10_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx32_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n11_lit_string_α
+n10_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 64
+                                                                                        jmp   n15_lit_string_α
 .Lx32_0:
                         .quad            .Lx32_0_s
 .Lx32_0_s:
@@ -144,6 +150,9 @@ n11_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx33_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n12_call_α
+n11_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n10_lit_string_β
 .Lx33_0:
                         .quad            .Lx33_0_s
 .Lx33_0_s:
@@ -172,16 +181,14 @@ n12_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx34_240
                         add              rsp, 16
-                        add              rsp, 96
-                                                                                        jmp   n15_lit_string_α
+                                                                                        jmp   n11_lit_string_β
 .Lx34_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n13_lit_string_α
 n12_call_β:
                         add              rsp, 16
-                        add              rsp, 96
-                                                                                        jmp   n15_lit_string_α
+                                                                                        jmp   n11_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_lit_string_α:
                         sub              rsp, 16

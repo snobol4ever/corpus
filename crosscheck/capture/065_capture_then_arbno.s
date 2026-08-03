@@ -319,8 +319,7 @@ n13_binop_α:
                                                                                         jmp   n14_assign_α
 n13_binop_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   main_γ
+                                                                                        jmp   n12_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n14_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -329,8 +328,7 @@ n14_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n15_statement_end_α
 n14_assign_β:
-                        add              rsp, 48
-                                                                                        jmp   main_γ
+                                                                                        jmp   n13_binop_β
 .Lx53_0:
                         .quad            .Lx53_0_s
 .Lx53_0_s:

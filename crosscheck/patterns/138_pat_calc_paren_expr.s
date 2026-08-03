@@ -1632,6 +1632,10 @@ n96_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n97_binop_α
+n96_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n97_binop_α:
                         sub              rsp, 16
@@ -1643,6 +1647,9 @@ n97_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n98_assign_α
+n97_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n96_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n98_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

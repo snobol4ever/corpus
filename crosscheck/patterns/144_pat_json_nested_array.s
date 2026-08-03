@@ -1070,6 +1070,10 @@ n62_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n63_binop_α
+n62_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n63_binop_α:
                         sub              rsp, 16
@@ -1081,6 +1085,9 @@ n63_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n64_assign_α
+n63_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n62_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n64_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

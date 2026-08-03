@@ -120,6 +120,10 @@ n10_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n11_match_begin_α
+n10_var_β:
+                        add              rsp, 16
+                        add              rsp, 64
+                                                                                        jmp   n16_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_begin_α:
                         sub              rsp, 304
@@ -207,8 +211,8 @@ n11_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 448
-                                                                                        jmp   n16_lit_string_α
+                        add              rsp, 368
+                                                                                        jmp   n10_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_lit_α:
                         mov              eax, r14d
@@ -346,6 +350,10 @@ n20_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n21_match_begin_α
+n20_var_β:
+                        add              rsp, 16
+                        add              rsp, 400
+                                                                                        jmp   n26_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n21_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]                       # var
@@ -394,8 +402,7 @@ n21_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 416
-                                                                                        jmp   n26_lit_string_α
+                                                                                        jmp   n20_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n22_match_lit_α:
                         mov              eax, r14d

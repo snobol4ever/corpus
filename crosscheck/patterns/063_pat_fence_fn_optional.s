@@ -125,13 +125,15 @@ n7_call_α:
                         add              rsp, 32
                         cmp              eax, 104
                                                                                         jne   .Lx39_240
-                                                                                        jmp   n8_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n6_lit_integer_β
 .Lx39_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n8_statement_end_α
 n7_call_β:
-                                                                                        jmp   n8_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n6_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n8_statement_end_α:
                         add              rsp, 48
@@ -217,8 +219,7 @@ n16_coerce_string_α:
                                                                                         jmp   n17_match_begin_α
 n16_coerce_string_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n25_statement_begin_α
+                                                                                        jmp   n15_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_begin_α:
                         sub              rsp, 384
@@ -318,8 +319,8 @@ n17_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 496
-                                                                                        jmp   n25_statement_begin_α
+                        add              rsp, 448
+                                                                                        jmp   n16_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n18_match_assign_save_α:
                         sub              rsp, 16

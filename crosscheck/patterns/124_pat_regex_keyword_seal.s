@@ -1117,6 +1117,10 @@ n70_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n71_binop_α
+n70_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n71_binop_α:
                         sub              rsp, 16
@@ -1128,6 +1132,9 @@ n71_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n72_assign_α
+n71_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n70_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n72_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

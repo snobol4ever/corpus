@@ -52,6 +52,10 @@ n5_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx16_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n6_assign_α
+n5_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 .Lx16_0:
                         .quad            .Lx16_0_s
 .Lx16_0_s:

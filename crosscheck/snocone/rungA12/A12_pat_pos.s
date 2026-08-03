@@ -170,8 +170,8 @@ n6_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 152]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 272
-                                                                                        jmp   n16_lit_string_α
+                        add              rsp, 240
+                                                                                        jmp   n5_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n7_match_sequence_α:
                                                                                         jmp   n14_lit_integer_α

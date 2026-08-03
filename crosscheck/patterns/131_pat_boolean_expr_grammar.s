@@ -1861,6 +1861,10 @@ n117_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx198_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n118_binop_α
+n117_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 .Lx198_0:
                         .quad            .Lx198_0_s
 .Lx198_0_s:
@@ -1876,6 +1880,9 @@ n118_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n119_var_α
+n118_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n117_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n119_var_α:
                         sub              rsp, 16
@@ -1884,6 +1891,9 @@ n119_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n120_binop_α
+n119_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n118_binop_β
 #-----------------------------------------------------------------------------------------------------------------------
 n120_binop_α:
                         sub              rsp, 16
@@ -1895,6 +1905,9 @@ n120_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n121_lit_string_α
+n120_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n119_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n121_lit_string_α:
                         sub              rsp, 16
@@ -1903,6 +1916,9 @@ n121_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx202_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n122_binop_α
+n121_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n120_binop_β
 .Lx202_0:
                         .quad            .Lx202_0_s
 .Lx202_0_s:
@@ -1918,6 +1934,9 @@ n122_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n123_var_α
+n122_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n121_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n123_var_α:
                         sub              rsp, 16
@@ -1926,6 +1945,9 @@ n123_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n124_binop_α
+n123_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n122_binop_β
 #-----------------------------------------------------------------------------------------------------------------------
 n124_binop_α:
                         sub              rsp, 16
@@ -1937,6 +1959,9 @@ n124_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n125_assign_α
+n124_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n123_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n125_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

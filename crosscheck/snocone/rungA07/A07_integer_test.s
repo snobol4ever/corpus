@@ -116,6 +116,10 @@ n9_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx29_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n10_call_α
+n9_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 48
+                                                                                        jmp   n13_lit_string_α
 .Lx29_0:
                         .quad            .Lx29_0_s
 .Lx29_0_s:
@@ -140,16 +144,14 @@ n10_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx30_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n13_lit_string_α
+                                                                                        jmp   n9_lit_string_β
 .Lx30_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n11_lit_string_α
 n10_call_β:
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n13_lit_string_α
+                                                                                        jmp   n9_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_lit_string_α:
                         sub              rsp, 16

@@ -106,6 +106,10 @@ n11_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n12_lit_string_α
+n11_var_β:
+                        add              rsp, 16
+                        add              rsp, 64
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n12_lit_string_α:
                         sub              rsp, 16
@@ -114,6 +118,9 @@ n12_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx33_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n13_binop_α
+n12_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n11_var_β
 .Lx33_0:
                         .quad            .Lx33_0_s
 .Lx33_0_s:
@@ -129,6 +136,9 @@ n13_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n14_assign_α
+n13_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n12_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n14_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

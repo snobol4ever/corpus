@@ -80,6 +80,10 @@ n6_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx22_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n7_keyword_snobol4_α
+n6_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   main_γ
 .Lx22_0:
                         .quad            .Lx22_0_s
 .Lx22_0_s:
@@ -135,17 +139,15 @@ n9_call_α:
                         add              rsp, 48
                         cmp              eax, 104
                                                                                         jne   .Lx25_240
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   main_γ
+                        add              rsp, 48
+                                                                                        jmp   n6_lit_string_β
 .Lx25_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n10_assign_α
 n9_call_β:
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   main_γ
+                        add              rsp, 48
+                                                                                        jmp   n6_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call

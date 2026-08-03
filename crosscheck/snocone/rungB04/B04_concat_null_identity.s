@@ -157,6 +157,10 @@ n17_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx46_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n18_lit_string_α
+n17_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 112
+                                                                                        jmp   main_γ
 .Lx46_0:
                         .quad            .Lx46_0_s
 .Lx46_0_s:
@@ -169,6 +173,9 @@ n18_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx47_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n19_binop_α
+n18_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n17_lit_string_β
 .Lx47_0:
                         .quad            .Lx47_0_s
 .Lx47_0_s:
@@ -184,6 +191,9 @@ n19_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n20_assign_α
+n19_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n18_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n20_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop

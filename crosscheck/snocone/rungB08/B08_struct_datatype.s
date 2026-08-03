@@ -222,6 +222,10 @@ n17_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n18_call_α
+n17_var_β:
+                        add              rsp, 16
+                        add              rsp, 128
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n18_call_α:
                         sub              rsp, 16
@@ -242,16 +246,14 @@ n18_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx49_240
                         add              rsp, 16
-                        add              rsp, 144
-                                                                                        jmp   main_γ
+                                                                                        jmp   n17_var_β
 .Lx49_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n19_assign_α
 n18_call_β:
                         add              rsp, 16
-                        add              rsp, 144
-                                                                                        jmp   main_γ
+                                                                                        jmp   n17_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n19_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
