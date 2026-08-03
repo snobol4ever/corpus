@@ -1088,7 +1088,6 @@ n43_match_any_α:
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              r8, qword ptr [rsp + 664]
-                        mov              r9d, dword ptr [rsp + 660]
                         mov              edx, 0
 .Lx229_5:
                         cmp              edx, r9d

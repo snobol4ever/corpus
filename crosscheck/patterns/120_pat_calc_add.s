@@ -53,6 +53,7 @@ n0_match_span_α:
 .Lx2_240:
                         mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n0_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]

@@ -16,22 +16,14 @@ proc_PAT$0_α_body:
                         mov              qword ptr [rbp + 32], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_len_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
                         mov              eax, r14d
                         add              eax, 3
                         cmp              eax, r15d
-                                                                                        jle   .Lx1_240
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$0_scanfail
-.Lx1_240:
+                                                                                        jg    proc_PAT$0_scanfail
                         add              r14d, 3
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n0_match_len_β:
                         sub              r14d, 3
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanfail
 proc_PAT$0_scanhit:
                         cmp              qword ptr [rbp + 64], 1

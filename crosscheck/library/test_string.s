@@ -2080,7 +2080,6 @@ n249_match_any_α:
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              r8, qword ptr [rbp + 2168]
-                        mov              r9d, dword ptr [rbp + 2164]
                         mov              edx, 0
 .Lx309_5:
                         cmp              edx, r9d
@@ -10107,7 +10106,6 @@ n806_match_any_α:
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              r8, qword ptr [rbp + 2168]
-                        mov              r9d, dword ptr [rbp + 2164]
                         mov              edx, 0
 .Lx1243_5:
                         cmp              edx, r9d

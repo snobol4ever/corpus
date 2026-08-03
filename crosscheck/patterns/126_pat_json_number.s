@@ -53,6 +53,7 @@ n0_match_span_α:
 .Lx2_240:
                         mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n0_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]
@@ -119,22 +120,14 @@ proc_PAT$1_α_body:
                         mov              qword ptr [rbp + 32], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_len_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
                         mov              eax, r14d
                         add              eax, 0
                         cmp              eax, r15d
-                                                                                        jle   .Lx6_240
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx6_240:
+                                                                                        jg    proc_PAT$1_scanfail
                         add              r14d, 0
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n5_match_len_β:
                         sub              r14d, 0
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 proc_PAT$1_scanhit:
                         cmp              qword ptr [rbp + 64], 1

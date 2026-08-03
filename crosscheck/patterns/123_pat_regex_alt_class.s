@@ -16,29 +16,18 @@ proc_PAT$0_α_body:
                         mov              qword ptr [rbp + 32], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_any_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
                         mov              eax, r14d
                         cmp              eax, r15d
-                                                                                        jl    .Lx2_239
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$0_scanfail
-.Lx2_239:
+                                                                                        jge   proc_PAT$0_scanfail
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         lea              rdi, [rip + .C0]
                         cmp              byte ptr [rdi+rsi], 0
-                                                                                        jne   .Lx2_240
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$0_scanfail
-.Lx2_240:
+                                                                                        je    proc_PAT$0_scanfail
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n0_match_any_β:
                         sub              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanfail
 proc_PAT$0_scanhit:
                         cmp              qword ptr [rbp + 64], 1
@@ -101,29 +90,18 @@ proc_PAT$1_α_body:
                         mov              qword ptr [rbp + 32], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_any_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
                         mov              eax, r14d
                         cmp              eax, r15d
-                                                                                        jl    .Lx7_239
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx7_239:
+                                                                                        jge   proc_PAT$1_scanfail
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         lea              rdi, [rip + .C1]
                         cmp              byte ptr [rdi+rsi], 0
-                                                                                        jne   .Lx7_240
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx7_240:
+                                                                                        je    proc_PAT$1_scanfail
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n5_match_any_β:
                         sub              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 proc_PAT$1_scanhit:
                         cmp              qword ptr [rbp + 64], 1

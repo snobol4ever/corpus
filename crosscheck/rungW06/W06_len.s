@@ -747,7 +747,18 @@ main_zw5s9_ω_d16:
 #         subject LEN(5)  :s(e003)
 #-----------------------------------------------------------------------------------------------------------------------
 n35_var_α:
-                        sub              rsp, 496
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # subject
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n36_match_begin_α
+n35_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n43_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n36_match_begin_α:
+                        sub              rsp, 480
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -808,23 +819,8 @@ n35_var_α:
                         mov              qword ptr [rsp + 456], 0
                         mov              qword ptr [rsp + 464], 0
                         mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # subject
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n36_match_begin_α
-n35_var_β:
-                        add              rsp, 16
-                        add              rsp, 496
-                                                                                        jmp   n43_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n36_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 480]                     # var
+                        mov              rsi, qword ptr [rsp + 488]
                         mov              qword ptr [rsp + 448], r13                     # outer_Σ
                         mov              qword ptr [rsp + 456], r14                     # outer_δ
                         mov              qword ptr [rsp + 464], r15                     # outer_Δ
@@ -881,8 +877,7 @@ n36_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 472]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 496
-                                                                                        jmp   n43_lit_string_α
+                                                                                        jmp   main_zw5s10_ω_d496
 #-----------------------------------------------------------------------------------------------------------------------
 n37_match_len_α:
                         mov              eax, r14d
@@ -967,6 +962,12 @@ n39_statement_α:
 n39_statement_β:
                         add              rsp, 496
                                                                                         jmp   n43_lit_string_α
+main_zw5s10_ω_d496:
+                        add              rsp, 496
+                                                                                        jmp   n43_lit_string_α
+main_zw5s10_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   n43_lit_string_α
 #=======================================================================================================================
 # e003    OUTPUT = 'FAIL W06/003: LEN(5) on short string should fail'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1006,6 +1007,9 @@ n42_statement_β:
                                                                                         jmp   main_γ
 main_zw5s12_ω_d16:
                         add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s12_ω_d496:
+                        add              rsp, 496
                                                                                         jmp   main_γ
 #=======================================================================================================================
 #         OUTPUT = 'PASS W06/003: LEN(5) on 2-char string correctly fails'  :(END)
