@@ -235,6 +235,10 @@ n25_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx82_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n26_call_α
+n25_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n28_statement_begin_α
 .Lx82_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -260,13 +264,15 @@ n26_call_α:
                         add              rsp, 32
                         cmp              eax, 104
                                                                                         jne   .Lx83_240
-                                                                                        jmp   n27_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n25_lit_integer_β
 .Lx83_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n27_statement_end_α
 n26_call_β:
-                                                                                        jmp   n27_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n25_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n27_statement_end_α:
                         add              rsp, 48
@@ -383,6 +389,10 @@ n46_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx116_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n47_coerce_numeric_α
+n46_lit_integer_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n64_statement_begin_α
 .Lx116_0:
                         .quad            500
 #-----------------------------------------------------------------------------------------------------------------------
@@ -409,6 +419,9 @@ n47_coerce_numeric_α:
                         mov              rcx, 147                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n48_coerce_numeric_α
+n47_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n46_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n48_coerce_numeric_α:
                         sub              rsp, 16
@@ -433,6 +446,9 @@ n48_coerce_numeric_α:
                         mov              rcx, 148                                       # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n49_cmp_test_α
+n48_coerce_numeric_β:
+                        add              rsp, 16
+                                                                                        jmp   n47_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n49_cmp_test_α:
                         sub              rsp, 16
@@ -442,12 +458,14 @@ n49_cmp_test_α:
                         test             eax, eax
                                                                                         js    .Lx122_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n64_statement_begin_α
+                                                                                        jmp   n48_coerce_numeric_β
 .Lx122_240:
                         mov              qword ptr [rsp + 0], 0                         # result
                         mov              qword ptr [rsp + 8], 0
                                                                                         jmp   n50_var_α
+n49_cmp_test_β:
+                        add              rsp, 16
+                                                                                        jmp   n48_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
 n50_var_α:
                         sub              rsp, 16
@@ -456,6 +474,9 @@ n50_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n51_lit_integer_α
+n50_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n49_cmp_test_β
 #-----------------------------------------------------------------------------------------------------------------------
 n51_lit_integer_α:
                         sub              rsp, 16
@@ -463,6 +484,9 @@ n51_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx124_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n52_binop_α
+n51_lit_integer_β:
+                        add              rsp, 16
+                                                                                        jmp   n50_var_β
 .Lx124_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -476,12 +500,14 @@ n52_binop_α:
                         cmp              eax, 104
                                                                                         jne   .Lx125_240
                         add              rsp, 16
-                        add              rsp, 112
-                                                                                        jmp   n64_statement_begin_α
+                                                                                        jmp   n51_lit_integer_β
 .Lx125_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n53_binop_α
+n52_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n51_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n53_binop_α:
                         sub              rsp, 16
@@ -493,6 +519,9 @@ n53_binop_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n54_assign_α
+n53_binop_β:
+                        add              rsp, 16
+                                                                                        jmp   n52_binop_β
 #-----------------------------------------------------------------------------------------------------------------------
 n54_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
@@ -525,6 +554,10 @@ n58_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n59_call_α
+n58_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n62_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n59_call_α:
                         sub              rsp, 16
@@ -548,13 +581,15 @@ n59_call_α:
                         add              rsp, 32
                         cmp              eax, 104
                                                                                         jne   .Lx134_240
-                                                                                        jmp   n61_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n58_var_β
 .Lx134_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n60_assign_α
 n59_call_β:
-                                                                                        jmp   n61_statement_end_α
+                        add              rsp, 16
+                                                                                        jmp   n58_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n60_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call
