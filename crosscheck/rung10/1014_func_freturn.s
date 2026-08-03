@@ -1,22 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_LBL__always_fail_α
 proc_LBL__always_fail_α:
 proc_LBL__always_fail_α_body:
-#-----------------------------------------------------------------------------------------------------------------------
-n0_goto_α:
-                        sub              rsp, 16
-                                                                                        jmp   n1_statement_α
-n0_goto_β:
-                                                                                        jmp   proc_LBL__always_fail_ω
 #=======================================================================================================================
 # always_fail                                            :(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-n1_statement_α:
-                                                                                        jmp   n2_save_restore_α
+n0_statement_α:
+                                                                                        jmp   n1_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_save_restore_α:
+n1_save_restore_α:
                         call             rt_flat_ret_snap@PLT
                         mov              rcx, qword ptr [rax + 8]
                         mov              rbp, qword ptr [rax + 24]
@@ -46,23 +39,23 @@ proc_LBL__always_fail_ω:
 proc_always_fail_α:
 proc_always_fail_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n8_save_restore_α:
+n6_save_restore_α:
                         mov              rdi, rcx                                       # gw
                         mov              rsi, rdx                                       # ww
                         lea              rdx, [rsp + 0]                                 # rsp
                         mov              rcx, rbp                                       # rbp
                         call             rt_flat_wire_adopt@PLT
-                                                                                        jmp   n9_goto_deferred_α
+                                                                                        jmp   n7_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n9_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx13_0]                 # name
+n7_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx11_0]                 # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx13_1
-.Lx13_0:
-                        .quad            .Lx13_0_s
-.Lx13_0_s:
+                                                                                        jmp   .Lx11_1
+.Lx11_0:
+                        .quad            .Lx11_0_s
+.Lx11_0_s:
                         .string          "always_fail"
-.Lx13_1:
+.Lx11_1:
                                                                                         jmp   proc_always_fail_γ
 #-----------------------------------------------------------------------------------------------------------------------
 proc_always_fail_res:
@@ -166,37 +159,37 @@ main_α_body:
                         mov              rbp, rsp
                         sub              rsp, 8
 #-----------------------------------------------------------------------------------------------------------------------
-n14_statement_α:
-                                                                                        jmp   n15_statement_α
+n12_statement_α:
+                                                                                        jmp   n13_statement_α
 #=======================================================================================================================
 #         DEFINE('always_fail()')                        :(af_end)
 #-----------------------------------------------------------------------------------------------------------------------
-n15_statement_α:
-                                                                                        jmp   n16_statement_α
+n13_statement_α:
+                                                                                        jmp   n14_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
-n16_statement_α:
-                                                                                        jmp   n17_call_α
+n14_statement_α:
+                                                                                        jmp   n15_call_α
 #=======================================================================================================================
 #         always_fail()                                  :f(e001)
 #-----------------------------------------------------------------------------------------------------------------------
-n17_call_α:
+n15_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # always_fail
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [1879052296]
                         mov              qword ptr [rsp + 8], rax
-                        mov              rdi, qword ptr [rip + .Lx38_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx36_0]                 # name
                         mov              esi, 0                                         # np
                         mov              edx, 0                                         # nargs
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
-                                                                                        je    .Lx38_5
+                                                                                        je    .Lx36_5
                         call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx38_6]
-                        lea              rdx, [rip + .Lx38_7]
+                        lea              rcx, [rip + .Lx36_6]
+                        lea              rdx, [rip + .Lx36_7]
                                                                                         jmp   rax
-.Lx38_6:
+.Lx36_6:
                         mov              rdi, qword ptr [1879052288]
                         mov              rsi, qword ptr [1879052296]
                         mov              rax, qword ptr [rsp + 0]
@@ -205,123 +198,123 @@ n17_call_α:
                         mov              qword ptr [1879052296], rax
                         add              rsp, 16
                         call             rt_proc_call_epilogue_slim_γ@PLT
-                                                                                        jmp   .Lx38_2
-.Lx38_7:
+                                                                                        jmp   .Lx36_2
+.Lx36_7:
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [1879052288], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [1879052296], rax
                         add              rsp, 16
                         call             rt_proc_call_epilogue_slim_ω@PLT
-                                                                                        jmp   .Lx38_2
-.Lx38_5:
+                                                                                        jmp   .Lx36_2
+.Lx36_5:
                         add              rsp, 16
-.Lx38_2:
+.Lx36_2:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        jne   .Lx38_240
+                                                                                        jne   .Lx36_240
                         add              rsp, 16
-                                                                                        jmp   n22_statement_α
-.Lx38_240:
-                                                                                        jmp   n18_statement_α
-n17_call_β:
-                                                                                        jmp   n22_statement_α
-.Lx38_0:
-                        .quad            .Lx38_0_s
-.Lx38_0_s:
+                                                                                        jmp   n20_statement_α
+.Lx36_240:
+                                                                                        jmp   n16_statement_α
+n15_call_β:
+                                                                                        jmp   n20_statement_α
+.Lx36_0:
+                        .quad            .Lx36_0_s
+.Lx36_0_s:
                         .string          "always_fail"
 #-----------------------------------------------------------------------------------------------------------------------
-n18_statement_α:
+n16_statement_α:
                         add              rsp, 16
-                                                                                        jmp   n19_lit_string_α
+                                                                                        jmp   n17_lit_string_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 1014/001: freturn should cause statement failure' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n19_lit_string_α:
+n17_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 53
-                        mov              rax, qword ptr [rip + .Lx41_0]
+                        mov              rax, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n20_assign_α
-.Lx41_0:
-                        .quad            .Lx41_0_s
-.Lx41_0_s:
+                                                                                        jmp   n18_assign_α
+.Lx39_0:
+                        .quad            .Lx39_0_s
+.Lx39_0_s:
                         .string          "FAIL 1014/001: freturn should cause statement failure"
 #-----------------------------------------------------------------------------------------------------------------------
-n20_assign_α:
+n18_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx42_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx40_0]                 # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n21_statement_α
-.Lx42_0:
-                        .quad            .Lx42_0_s
-.Lx42_0_s:
+                                                                                        jmp   n19_statement_α
+.Lx40_0:
+                        .quad            .Lx40_0_s
+.Lx40_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n21_statement_α:
+n19_statement_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n22_statement_α:
-                                                                                        jmp   n23_lit_string_α
+n20_statement_α:
+                                                                                        jmp   n21_lit_string_α
 #=======================================================================================================================
 #         OUTPUT = 'PASS 1014_func_freturn (1/1)'
 #-----------------------------------------------------------------------------------------------------------------------
-n23_lit_string_α:
+n21_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 28
-                        mov              rax, qword ptr [rip + .Lx47_0]
+                        mov              rax, qword ptr [rip + .Lx45_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n24_assign_α
-.Lx47_0:
-                        .quad            .Lx47_0_s
-.Lx47_0_s:
+                                                                                        jmp   n22_assign_α
+.Lx45_0:
+                        .quad            .Lx45_0_s
+.Lx45_0_s:
                         .string          "PASS 1014_func_freturn (1/1)"
 #-----------------------------------------------------------------------------------------------------------------------
-n24_assign_α:
+n22_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx48_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx46_0]                 # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n25_statement_α
-.Lx48_0:
-                        .quad            .Lx48_0_s
-.Lx48_0_s:
+                                                                                        jmp   n23_statement_α
+.Lx46_0:
+                        .quad            .Lx46_0_s
+.Lx46_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n25_statement_α:
+n23_statement_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n26_goto_α:
-                                                                                        jmp   n27_statement_α
-n26_goto_β:
+n24_goto_α:
+                                                                                        jmp   n25_statement_α
+n24_goto_β:
                                                                                         jmp   main_ω
 #=======================================================================================================================
 # always_fail                                            :(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-n27_statement_α:
-                                                                                        jmp   n28_save_restore_α
+n25_statement_α:
+                                                                                        jmp   n26_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
-n28_save_restore_α:
+n26_save_restore_α:
                         call             rt_flat_ret_snap@PLT
                         mov              rcx, qword ptr [rax + 8]
                         mov              rbp, qword ptr [rax + 24]
                         mov              rsp, qword ptr [rax + 16]
                                                                                         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-n29_goto_α:
-                                                                                        jmp   n16_statement_α
-n29_goto_β:
+n27_goto_α:
+                                                                                        jmp   n14_statement_α
+n27_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n30_goto_α:
-                                                                                        jmp   n22_statement_α
-n30_goto_β:
+n28_goto_α:
+                                                                                        jmp   n20_statement_α
+n28_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
