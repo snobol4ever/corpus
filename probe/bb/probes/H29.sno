@@ -1,0 +1,10 @@
+*  H29 [H] FENCE1 manual idiom TAB/ABORT shape
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE(TAB(2) $ OUTPUT | ABORT) LEN(2) RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE(TAB(2) $ OUTPUT | ABORT) LEN(2) RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

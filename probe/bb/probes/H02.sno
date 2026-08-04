@@ -1,0 +1,10 @@
+*  H02 [H] FENCE1 over a bare literal
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE('ab') 'cd' RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE('ab') 'cd' RPOS(0)                 :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

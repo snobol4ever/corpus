@@ -1,0 +1,10 @@
+*  G08 [G] FENCE0 INSIDE an ALT arm
+*  subject: 'abcd'
+*  pattern: POS(0) (('ab' FENCE) | 'xy') 'cd' RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) (('ab' FENCE) | 'xy') 'cd' RPOS(0)       :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

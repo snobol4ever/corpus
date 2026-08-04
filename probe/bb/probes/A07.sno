@@ -1,0 +1,10 @@
+*  A07 [A] ALT BACKTRACK: arm1 must resume
+*  subject: 'AB'
+*  pattern: POS(0) ('AB' | 'A' | LEN(2)) $ OUTPUT 'B' RPOS(0)
+
+        SUBJ = 'AB'
+        SUBJ ? POS(0) ('AB' | 'A' | LEN(2)) $ OUTPUT 'B' RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

@@ -1,0 +1,11 @@
+*  H16 [H] . capture ON the FENCE1
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE(LEN(2)) . W LEN(2) RPOS(0)
+
+        SUBJ = 'abcd'
+        W = '<unset>'
+        SUBJ ? POS(0) FENCE(LEN(2)) . W LEN(2) RPOS(0)         :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

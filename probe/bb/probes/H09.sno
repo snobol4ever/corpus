@@ -1,0 +1,10 @@
+*  H09 [H] control for H08: bare ARBNO
+*  subject: 'abcd'
+*  pattern: POS(0) ARBNO(LEN(1)) RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) ARBNO(LEN(1)) RPOS(0)                    :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

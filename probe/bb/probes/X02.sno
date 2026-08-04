@@ -1,0 +1,10 @@
+*  X02 [X] nested ARBNO, bracketed groups
+*  subject: '(ab)(c)'
+*  pattern: POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')') RPOS(0)
+
+        SUBJ = '(ab)(c)'
+        SUBJ ? POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')') RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

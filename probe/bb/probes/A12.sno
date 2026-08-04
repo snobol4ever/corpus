@@ -1,0 +1,10 @@
+*  A12 [A] ALT of SEQUENCES
+*  subject: 'abcd'
+*  pattern: POS(0) (('ab' 'cd') | ('ab' 'zz')) $ OUTPUT
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) (('ab' 'cd') | ('ab' 'zz')) $ OUTPUT     :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

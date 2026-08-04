@@ -1,0 +1,11 @@
+*  N04 [N] ARBNO retried, . INSIDE body
+*  subject: 'abcd'
+*  pattern: POS(0) ARBNO(LEN(1) . W) RPOS(0)
+
+        SUBJ = 'abcd'
+        W = '<unset>'
+        SUBJ ? POS(0) ARBNO(LEN(1) . W) RPOS(0)                :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

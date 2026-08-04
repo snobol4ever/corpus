@@ -1,0 +1,10 @@
+*  F05 [F] $ behind a FENCE, match then FAILS
+*  subject: 'ab'
+*  pattern: ('a' $ OUTPUT) FENCE 'z'
+
+        SUBJ = 'ab'
+        SUBJ ? ('a' $ OUTPUT) FENCE 'z'                        :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

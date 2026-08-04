@@ -1,0 +1,11 @@
+*  D04 [D] *VAR holding an ALTERNATION
+*  subject: 'xycd'
+*  pattern: POS(0) *P $ OUTPUT
+
+        SUBJ = 'xycd'
+        P = 'ab' | 'xy'
+        SUBJ ? POS(0) *P $ OUTPUT                              :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

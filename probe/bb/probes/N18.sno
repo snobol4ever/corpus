@@ -1,0 +1,11 @@
+*  N18 [N] ARBNO with @ cursor inside body
+*  subject: 'abc'
+*  pattern: POS(0) ARBNO(@C LEN(1)) RPOS(0)
+
+        SUBJ = 'abc'
+        C = '?'
+        SUBJ ? POS(0) ARBNO(@C LEN(1)) RPOS(0)                 :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'C=' C
+END

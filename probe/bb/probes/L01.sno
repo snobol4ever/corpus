@@ -1,0 +1,10 @@
+*  L01 [L] bare leaf, no capture
+*  subject: 'abcd'
+*  pattern: LEN(2)
+
+        SUBJ = 'abcd'
+        SUBJ ? LEN(2)                                          :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

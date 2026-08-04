@@ -1,0 +1,10 @@
+*  G26 [G] control for G25: no fence
+*  subject: 'xabc'
+*  pattern: LEN(1) 'abc'
+
+        SUBJ = 'xabc'
+        SUBJ ? LEN(1) 'abc'                                    :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

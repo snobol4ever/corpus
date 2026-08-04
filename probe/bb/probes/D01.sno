@@ -1,0 +1,11 @@
+*  D01 [D] *VAR trivial, literal pattern
+*  subject: 'a'
+*  pattern: *P
+
+        SUBJ = 'a'
+        P = 'a'
+        SUBJ ? *P                                              :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

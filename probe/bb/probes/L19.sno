@@ -1,0 +1,10 @@
+*  L19 [L] SPAN leaf (variable extent) . OUTPUT
+*  subject: 'aabbc'
+*  pattern: SPAN('ab') . OUTPUT
+
+        SUBJ = 'aabbc'
+        SUBJ ? SPAN('ab') . OUTPUT                             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

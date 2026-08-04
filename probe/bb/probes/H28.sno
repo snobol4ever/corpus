@@ -1,0 +1,10 @@
+*  H28 [H] FENCE1 over an empty-match POS
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE(POS(0)) LEN(4) RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE(POS(0)) LEN(4) RPOS(0)             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

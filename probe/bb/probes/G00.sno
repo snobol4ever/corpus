@@ -1,0 +1,10 @@
+*  G00 [G] TRIPLE control: no fence at all
+*  subject: 'ABCZ'
+*  pattern: POS(0) ('A' | 'AB') ('CD' | 'C') 'Z' RPOS(0)
+
+        SUBJ = 'ABCZ'
+        SUBJ ? POS(0) ('A' | 'AB') ('CD' | 'C') 'Z' RPOS(0)    :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

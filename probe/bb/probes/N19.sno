@@ -1,0 +1,10 @@
+*  N19 [N] ARBNO of a SEQUENCE body
+*  subject: 'ababab'
+*  pattern: POS(0) ARBNO('a' 'b') $ OUTPUT RPOS(0)
+
+        SUBJ = 'ababab'
+        SUBJ ? POS(0) ARBNO('a' 'b') $ OUTPUT RPOS(0)          :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

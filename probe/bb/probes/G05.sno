@@ -1,0 +1,10 @@
+*  G05 [G] FENCE0 between two SEQ members
+*  subject: 'abcd'
+*  pattern: POS(0) LEN(2) FENCE LEN(2) RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) LEN(2) FENCE LEN(2) RPOS(0)              :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

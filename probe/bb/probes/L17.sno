@@ -1,0 +1,11 @@
+*  L17 [L] FAIL: . does NOT fire (conditional)
+*  subject: 'abcd'
+*  pattern: LEN(2) . W 'ZZ'
+
+        SUBJ = 'abcd'
+        W = '<unset>'
+        SUBJ ? LEN(2) . W 'ZZ'                                 :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

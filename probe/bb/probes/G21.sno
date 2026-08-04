@@ -1,0 +1,10 @@
+*  G21 [G] TWO FENCE0 in one pattern
+*  subject: 'abcd'
+*  pattern: POS(0) LEN(1) FENCE LEN(1) FENCE LEN(2) RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) LEN(1) FENCE LEN(1) FENCE LEN(2) RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

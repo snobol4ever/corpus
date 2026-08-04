@@ -1,0 +1,11 @@
+*  H23 [H] FENCE1 wrapping a captured GROUP
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE((LEN(2) LEN(2)) . W) RPOS(0)
+
+        SUBJ = 'abcd'
+        W = '<unset>'
+        SUBJ ? POS(0) FENCE((LEN(2) LEN(2)) . W) RPOS(0)       :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

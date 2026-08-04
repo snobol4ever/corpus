@@ -1,0 +1,11 @@
+*  A05 [A] ALT3 capture on ONE arm only
+*  subject: 'xycd'
+*  pattern: POS(0) ('ab' | 'xy' . W | 'pq')
+
+        SUBJ = 'xycd'
+        W = '<unset>'
+        SUBJ ? POS(0) ('ab' | 'xy' . W | 'pq')                 :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

@@ -1,0 +1,10 @@
+*  G01 [G] TRIPLE FENCE0: backup aborts match
+*  subject: 'ABCZ'
+*  pattern: POS(0) ('A' | 'AB') FENCE ('CD' | 'C') 'Z' RPOS(0)
+
+        SUBJ = 'ABCZ'
+        SUBJ ? POS(0) ('A' | 'AB') FENCE ('CD' | 'C') 'Z' RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

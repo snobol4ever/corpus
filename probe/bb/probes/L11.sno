@@ -1,0 +1,10 @@
+*  L11 [L] SEQ3 anchored, OUTER $ OUTPUT
+*  subject: 'abcd'
+*  pattern: (POS(0) LEN(4) RPOS(0)) $ OUTPUT
+
+        SUBJ = 'abcd'
+        SUBJ ? (POS(0) LEN(4) RPOS(0)) $ OUTPUT                :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

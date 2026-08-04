@@ -1,0 +1,10 @@
+*  G04 [G] FENCE0 as LAST component
+*  subject: 'abcd'
+*  pattern: POS(0) LEN(2) FENCE
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) LEN(2) FENCE                             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

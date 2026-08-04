@@ -1,0 +1,10 @@
+*  H06 [H] FENCE1 cut BITES (later arm needed)
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE('ab' | 'a') 'bcd' RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE('ab' | 'a') 'bcd' RPOS(0)          :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

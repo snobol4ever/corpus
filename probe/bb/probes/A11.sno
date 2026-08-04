@@ -1,0 +1,10 @@
+*  A11 [A] ALT nested in ALT
+*  subject: 'pqcd'
+*  pattern: POS(0) (('ab' | ('pq' | 'rs')) | 'xy') $ OUTPUT
+
+        SUBJ = 'pqcd'
+        SUBJ ? POS(0) (('ab' | ('pq' | 'rs')) | 'xy') $ OUTPUT :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

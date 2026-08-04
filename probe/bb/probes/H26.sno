@@ -1,0 +1,10 @@
+*  H26 [H] FENCE1 that FAILS overall, $ fired
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE(LEN(2) $ OUTPUT) 'ZZ'
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE(LEN(2) $ OUTPUT) 'ZZ'              :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

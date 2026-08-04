@@ -1,0 +1,10 @@
+*  X10 [X] manual PAIRS negative control
+*  subject: 'AABBB'
+*  pattern: POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0)
+
+        SUBJ = 'AABBB'
+        SUBJ ? POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0)        :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

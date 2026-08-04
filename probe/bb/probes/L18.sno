@@ -1,0 +1,10 @@
+*  L18 [L] FAIL then RETRY: unanchored scan, $
+*  subject: 'abZd'
+*  pattern: LEN(2) $ OUTPUT 'Z'
+
+        SUBJ = 'abZd'
+        SUBJ ? LEN(2) $ OUTPUT 'Z'                             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

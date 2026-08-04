@@ -1,0 +1,11 @@
+*  G22 [G] FENCE0 then a FAILING tail, . silent
+*  subject: 'abcd'
+*  pattern: POS(0) LEN(2) . W FENCE 'ZZ'
+
+        SUBJ = 'abcd'
+        W = '<unset>'
+        SUBJ ? POS(0) LEN(2) . W FENCE 'ZZ'                    :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

@@ -1,0 +1,10 @@
+*  H01 [H] TRIPLE FENCE1: local cut only
+*  subject: 'ABCZ'
+*  pattern: POS(0) ('A' | 'AB') FENCE('CD' | 'C') 'Z' RPOS(0)
+
+        SUBJ = 'ABCZ'
+        SUBJ ? POS(0) ('A' | 'AB') FENCE('CD' | 'C') 'Z' RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

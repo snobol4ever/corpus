@@ -1,0 +1,10 @@
+*  H12 [H] FENCE1 over an ALT inside ARBNO body
+*  subject: 'BlueBird'
+*  pattern: POS(0) ARBNO(FENCE('Bird' | 'Blue' | LEN(1))) $ OUTPUT RPOS(0)
+
+        SUBJ = 'BlueBird'
+        SUBJ ? POS(0) ARBNO(FENCE('Bird' | 'Blue' | LEN(1))) $ OUTPUT RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

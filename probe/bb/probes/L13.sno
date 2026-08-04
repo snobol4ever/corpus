@@ -1,0 +1,13 @@
+*  L13 [L] NESTED capture: inner . A, outer . B
+*  subject: 'abcd'
+*  pattern: ((LEN(2) . A) LEN(2)) . B
+
+        SUBJ = 'abcd'
+        A = '<unset>'
+        B = '<unset>'
+        SUBJ ? ((LEN(2) . A) LEN(2)) . B                       :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'A=' A
+        OUTPUT = 'B=' B
+END

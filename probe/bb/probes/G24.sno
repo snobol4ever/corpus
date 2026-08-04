@@ -1,0 +1,11 @@
+*  G24 [G] FENCE0 with deferred *P
+*  subject: 'abc'
+*  pattern: POS(0) *P FENCE RPOS(0)
+
+        SUBJ = 'abc'
+        P = LEN(3)
+        SUBJ ? POS(0) *P FENCE RPOS(0)                         :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

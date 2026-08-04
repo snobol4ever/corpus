@@ -1,0 +1,10 @@
+*  X09 [X] manual PAIRS: ARBNO of ALT, succeeds
+*  subject: 'CCBBAAAACC'
+*  pattern: POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0)
+
+        SUBJ = 'CCBBAAAACC'
+        SUBJ ? POS(0) ARBNO('AA' | 'BB' | 'CC') RPOS(0)        :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

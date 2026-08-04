@@ -1,0 +1,11 @@
+*  F03 [F] . behind a FENCE, match then FAILS
+*  subject: 'ab'
+*  pattern: ('a' . X) FENCE 'z'
+
+        SUBJ = 'ab'
+        X = '<unset>'
+        SUBJ ? ('a' . X) FENCE 'z'                             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'X=' X
+END

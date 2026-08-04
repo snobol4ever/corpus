@@ -1,0 +1,10 @@
+*  H05 [H] control for H04: no fence
+*  subject: 'abcd'
+*  pattern: POS(0) ('ab' | 'a') 'cd' RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) ('ab' | 'a') 'cd' RPOS(0)                :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

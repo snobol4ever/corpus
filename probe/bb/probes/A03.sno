@@ -1,0 +1,10 @@
+*  A03 [A] ALT2 $ on whole alternation
+*  subject: 'abcd'
+*  pattern: POS(0) ('ab' | 'xy') $ OUTPUT
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) ('ab' | 'xy') $ OUTPUT                   :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

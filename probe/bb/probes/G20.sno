@@ -1,0 +1,10 @@
+*  G20 [G] FENCE0 in OUTER of nested ARBNO
+*  subject: '(ab)(c)'
+*  pattern: POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')' FENCE) RPOS(0)
+
+        SUBJ = '(ab)(c)'
+        SUBJ ? POS(0) ARBNO('(' ARBNO(NOTANY(')')) ')' FENCE) RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

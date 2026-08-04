@@ -1,0 +1,10 @@
+*  G14 [G] FENCE0 BEFORE an ARBNO
+*  subject: 'abc'
+*  pattern: POS(0) FENCE ARBNO(LEN(1)) RPOS(0)
+
+        SUBJ = 'abc'
+        SUBJ ? POS(0) FENCE ARBNO(LEN(1)) RPOS(0)              :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

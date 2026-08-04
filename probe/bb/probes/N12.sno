@@ -1,0 +1,10 @@
+*  N12 [N] ARBNO variable-extent arm (SPAN)
+*  subject: '12ab34'
+*  pattern: POS(0) ARBNO(SPAN('0123456789') | LEN(1)) $ OUTPUT RPOS(0)
+
+        SUBJ = '12ab34'
+        SUBJ ? POS(0) ARBNO(SPAN('0123456789') | LEN(1)) $ OUTPUT RPOS(0) :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

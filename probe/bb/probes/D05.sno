@@ -1,0 +1,11 @@
+*  D05 [D] *VAR holding a SEQUENCE
+*  subject: 'abcd'
+*  pattern: POS(0) *P $ OUTPUT
+
+        SUBJ = 'abcd'
+        P = 'ab' 'cd'
+        SUBJ ? POS(0) *P $ OUTPUT                              :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

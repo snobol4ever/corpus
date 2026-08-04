@@ -1,0 +1,10 @@
+*  H18 [H] FENCE1 nested in FENCE1
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE(FENCE('ab' | 'a')) 'cd' RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE(FENCE('ab' | 'a')) 'cd' RPOS(0)    :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

@@ -1,0 +1,10 @@
+*  N01 [N] ARBNO not retried, no capture
+*  subject: 'abcd'
+*  pattern: POS(0) ARBNO(LEN(1))
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) ARBNO(LEN(1))                            :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

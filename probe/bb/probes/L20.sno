@@ -1,0 +1,10 @@
+*  L20 [L] BREAK leaf . OUTPUT
+*  subject: 'abcXd'
+*  pattern: BREAK('X') . OUTPUT
+
+        SUBJ = 'abcXd'
+        SUBJ ? BREAK('X') . OUTPUT                             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

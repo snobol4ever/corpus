@@ -1,0 +1,10 @@
+*  H10 [H] FENCE1 over ARBNO, $ inside
+*  subject: 'abcd'
+*  pattern: POS(0) FENCE(ARBNO(LEN(1)) $ OUTPUT) RPOS(0)
+
+        SUBJ = 'abcd'
+        SUBJ ? POS(0) FENCE(ARBNO(LEN(1)) $ OUTPUT) RPOS(0)    :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

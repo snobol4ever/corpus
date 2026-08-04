@@ -1,0 +1,10 @@
+*  X01 [X] nested ARBNO, degenerate inner
+*  subject: 'abc'
+*  pattern: POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0)
+
+        SUBJ = 'abc'
+        SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0)             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

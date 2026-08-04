@@ -1,0 +1,11 @@
+*  D09 [D] ARBNO(*P) -- case 7
+*  subject: 'abc'
+*  pattern: POS(0) ARBNO(*P) $ OUTPUT RPOS(0)
+
+        SUBJ = 'abc'
+        P = LEN(1)
+        SUBJ ? POS(0) ARBNO(*P) $ OUTPUT RPOS(0)               :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END
