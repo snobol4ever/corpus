@@ -114,15 +114,18 @@ __kernel void snobol(__global const char * Σ) {
                 RPOS0 = str(Σ+Δ, 0);                goto RPOS0_γ;
     RPOS0_β:                                        goto RPOS0_ω;
     /*------------------------------------------------------------------------*/
-    str_t       seq;
-    int         seq_Δ0;
-    seq_α:      seq_Δ0 = Δ; seq = str(Σ+Δ, 0);      goto POS0_α;
-    seq_β:                                          goto RPOS0_β;
-    POS0_γ:     seq = str(Σ+seq_Δ0, Δ-seq_Δ0);      goto ARBNO_α;
-    POS0_ω:                                         goto seq_ω;
-    ARBNO_γ:    seq = str(Σ+seq_Δ0, Δ-seq_Δ0);      goto RPOS0_α;
+    /*  SEQUENCE IS WIRING -- NO box, NO ports, NO cell, NO label of its own.  */
+    /*  P = POS0 ARBNO RPOS0 is ENTIRELY these edges, assigned by LOWER:       */
+    /*      P_α → M1_α          P_β → Mn_β                                    */
+    /*      Mi_γ → M(i+1)_α     Mn_γ → P_γ                                    */
+    /*      Mi_ω → M(i-1)_β     M1_ω → P_ω                                    */
+    /*  P's ports ARE the consumer's ports (main, below).  The old seq cell    */
+    /*  was written four times and read ZERO times -- the extent is derived    */
+    /*  by whoever needs it, and here nobody does.                             */
+    /*------------------------------------------------------------------------*/
+    POS0_γ:                                         goto ARBNO_α;
     ARBNO_ω:                                        goto POS0_β;
-    RPOS0_γ:    seq = str(Σ+seq_Δ0, Δ-seq_Δ0);      goto seq_γ;
+    ARBNO_γ:                                        goto RPOS0_α;
     RPOS0_ω:                                        goto ARBNO_β;
     /*------------------------------------------------------------------------*/
     /*  MATCH END = the SOLE reader of the pending chain (fenced success).     */
@@ -131,10 +134,10 @@ __kernel void snobol(__global const char * Σ) {
     /*------------------------------------------------------------------------*/
     inline void commit(cap_t * c) { if (!c) return; commit(c->prev); W = c->val; }
     /*------------------------------------------------------------------------*/
-    main_α:                                         goto seq_α;
-    seq_γ:      commit(cas_top);
+    main_α:                                         goto POS0_α;
+    RPOS0_γ:    commit(cas_top);
                 put("ok W=", W);                    return;
-    seq_ω:      printf("failed\n");                 return;
+    POS0_ω:     printf("failed\n");                 return;
 }
 /*----------------------------------------------------------------------------*/
 #ifdef __GNUC__

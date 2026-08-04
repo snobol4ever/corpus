@@ -165,22 +165,33 @@ __kernel void snobol(
                 RPOS0 = str(Σ+Δ, 0);                goto RPOS0_γ;
     RPOS0_β:                                        goto RPOS0_ω;
     /*------------------------------------------------------------------------*/
-    str_t       seq;
-    int         seq_Δ0;
-    seq_α:      seq_Δ0 = Δ; seq = str(Σ+Δ, 0);      goto POS0_α;
-    seq_β:                                          goto RPOS0_β;
-    POS0_γ:     seq = str(Σ+seq_Δ0, Δ-seq_Δ0);      goto assign_α;
-    POS0_ω:                                         goto seq_ω;
-    assign_γ:   seq = str(Σ+seq_Δ0, Δ-seq_Δ0);      goto RPOS0_α;
+    /*  SEQUENCE IS WIRING -- NO box, NO ports, NO cell, NO label of its own.  */
+    /*  The sequence P = POS0 assign RPOS0 is ENTIRELY these eight edges, all  */
+    /*  assigned by LOWER at compile time (proved by deletion, 2026-08-04;     */
+    /*  re-proved by this file, which declares no sequence box at all):        */
+    /*                                                                        */
+    /*      P_α → M1_α          P_β → Mn_β                                    */
+    /*      Mi_γ → M(i+1)_α     Mn_γ → P_γ                                    */
+    /*      Mi_ω → M(i-1)_β     M1_ω → P_ω                                    */
+    /*                                                                        */
+    /*  P's four ports ARE the consumer's four ports -- there is no third      */
+    /*  party to own them.  The INTERIOR edges (Mi↔Mi+1) are below; the        */
+    /*  BOUNDARY edges (P_α P_β P_γ P_ω) are in the consumer block that        */
+    /*  follows.  The matched extent is DERIVED by that consumer from its own  */
+    /*  entry cursor -- str(Σ+Δ0, Δ-Δ0) -- never accumulated in a member.      */
+    /*------------------------------------------------------------------------*/
+    POS0_γ:                                         goto assign_α;
     assign_ω:                                       goto POS0_β;
-    RPOS0_γ:    seq = str(Σ+seq_Δ0, Δ-seq_Δ0);      goto seq_γ;
+    assign_γ:                                       goto RPOS0_α;
     RPOS0_ω:                                        goto assign_β;
     /*------------------------------------------------------------------------*/
     str_t       write;
-    write_α:                                        goto seq_α;
-    write_β:                                        goto seq_β;
-    seq_γ:      write = write_str(out, seq);        goto write_γ;
-    seq_ω:                                          goto write_ω;
+    int         write_Δ0;
+    write_α:    write_Δ0 = Δ;                       goto POS0_α;
+    write_β:                                        goto RPOS0_β;
+    RPOS0_γ:    write = write_str(out,
+                       str(Σ+write_Δ0, Δ-write_Δ0));goto write_γ;
+    POS0_ω:                                         goto write_ω;
     /*------------------------------------------------------------------------*/
     main1_α:                                        goto write_α;
     main1_β:                                        return;
