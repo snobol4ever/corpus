@@ -301,14 +301,14 @@ proc_LBL__EMIT_β:
 proc_LBL__EMIT_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__EMIT_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__PSH_α:
 proc_LBL__PSH_α_body:
@@ -482,14 +482,14 @@ proc_LBL__PSH_β:
 proc_LBL__PSH_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__PSH_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__DRF_α:
 proc_LBL__DRF_α_body:
@@ -901,14 +901,14 @@ proc_LBL__DRF_β:
 proc_LBL__DRF_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__DRF_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ADD_α:
 proc_LBL__ADD_α_body:
@@ -1462,14 +1462,14 @@ proc_LBL__ADD_β:
 proc_LBL__ADD_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ADD_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__SUB_α:
 proc_LBL__SUB_α_body:
@@ -2023,14 +2023,14 @@ proc_LBL__SUB_β:
 proc_LBL__SUB_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__SUB_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__MUL_α:
 proc_LBL__MUL_α_body:
@@ -2584,14 +2584,14 @@ proc_LBL__MUL_β:
 proc_LBL__MUL_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__MUL_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__DIV_α:
 proc_LBL__DIV_α_body:
@@ -3145,14 +3145,14 @@ proc_LBL__DIV_β:
 proc_LBL__DIV_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__DIV_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__SGN_α:
 proc_LBL__SGN_α_body:
@@ -3702,14 +3702,14 @@ proc_LBL__SGN_β:
 proc_LBL__SGN_γ:
                         mov              rsp, rbp
                         pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              eax, 2
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__SGN_ω:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              eax, 104
+                        ret
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_EMIT_α
 proc_EMIT_α:
