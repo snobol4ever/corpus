@@ -82,7 +82,23 @@ __kernel void snobol(
     int Ω = len(Σ);
     goto main1_α;
     /*------------------------------------------------------------------------*/
-    /*          POS(0) ARBNO('Bird' | 'Blue' | LEN(1)) $ OUTPUT RPOS(0)       */
+    /*  SNOBOL4 SOURCE (verified byte-identical against sbl -b, 2026-08-04):   */
+    /*                                                                        */
+    /*      SUBJ = 'BlueGoldBirdFish'                                         */
+    /*      SUBJ ? (POS(0) ARBNO('Bird' | 'Blue' | LEN(1)) $ OUTPUT           */
+    /*             RPOS(0)) $ OUTPUT                        :F(FAILED)        */
+    /*      OUTPUT = 'Success!'                             :(END)            */
+    /*  FAILED  OUTPUT = 'Failure.'                                           */
+    /*  END                                                                   */
+    /*                                                                        */
+    /*  Oracle output: an EMPTY line (ARBNO's shy null match), then Blue,     */
+    /*  BlueG ... BlueGoldBirdFish, BlueGoldBirdFish, Success!  (13 lines).   */
+    /*                                                                        */
+    /*  DERIVE, DON'T ACCUMULATE (ruling 3, 2026-08-04): every result is      */
+    /*  str(Σ+Δ0, Δ-Δ0) from the cursor saved at α -- never cat() onto a      */
+    /*  running total.  γ is re-entered once per retry, so an accumulator     */
+    /*  double-counts (measured: 11x, right answer by accident).  This is     */
+    /*  why the per-iteration cell is {int alt_i;} and nothing more.          */
     /*------------------------------------------------------------------------*/
     str_t       POS0;
     POS0_α:     if (Δ != 0)                         goto POS0_ω;
@@ -141,8 +157,7 @@ __kernel void snobol(
     str_t       assign;
     assign_α:                                       goto ARBNO_α;
     assign_β:                                       goto ARBNO_β;
-    ARBNO_γ:    assign = write_str(out, ARBNO);
-                write_nl(out);                      goto assign_γ;
+    ARBNO_γ:    assign = write_str(out, ARBNO);     goto assign_γ;
     ARBNO_ω:                                        goto assign_ω;
     /*------------------------------------------------------------------------*/
     str_t       RPOS0;
