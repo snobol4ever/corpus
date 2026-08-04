@@ -1,0 +1,6 @@
+        P = LEN(1)
+        SUBJ = 'abc'
+        SUBJ ? POS(0) ARBNO(*P) $ OUTPUT RPOS(0)                        :F(NO7)
+        OUTPUT = 'ok'
+NO7
+END
