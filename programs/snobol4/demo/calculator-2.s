@@ -4010,17 +4010,24 @@ n642_match_assign_save_β:
 n643_match_any_α:
                         mov              eax, r14d
                         cmp              eax, r15d
-                                                                                        jge   n642_match_assign_save_β
+                                                                                        jl    .Lx648_239
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$0_scanfail
+.Lx648_239:
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         lea              rdi, [rip + .C0]
                         cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    n642_match_assign_save_β
+                                                                                        jne   .Lx648_240
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$0_scanfail
+.Lx648_240:
                         add              r14d, 1
                                                                                         jmp   n644_match_assign_cond_α
 n643_match_any_β:
                         sub              r14d, 1
-                                                                                        jmp   n642_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$0_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n644_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 0]
@@ -4644,36 +4651,38 @@ n684_goto_β:
                                                                                         jmp   n683_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n685_match_assign_save_α:
-                        lea              rdi, [rbp + 96]                                # slot
-                        mov              esi, r14d                                      # delta
-                        call             rt_cap_push@PLT
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n686_match_any_α
 n685_match_assign_save_β:
-                        lea              rdi, [rbp + 96]                                # slot
-                        call             rt_cap_pop@PLT
+                        add              rsp, 16
                                                                                         jmp   n683_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n686_match_any_α:
                         mov              eax, r14d
                         cmp              eax, r15d
-                                                                                        jge   n685_match_assign_save_β
+                                                                                        jl    .Lx698_240
+                        add              rsp, 16
+                                                                                        jmp   n683_match_alternate_af
+.Lx698_240:
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 43
                                                                                         je    .Lx698_0
                         cmp              esi, 45
                                                                                         je    .Lx698_0
-                                                                                        jmp   n685_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n683_match_alternate_af
 .Lx698_0:
                         add              r14d, 1
                                                                                         jmp   n687_match_assign_cond_α
 n686_match_any_β:
                         sub              r14d, 1
-                                                                                        jmp   n685_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n683_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n687_match_assign_cond_α:
-                        lea              rdi, [rbp + 96]                                # slot
-                        call             rt_cap_top@PLT
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S0]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -9851,17 +9860,19 @@ n1073_match_begin_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 336], rsp                     # zls2_mark
+                        mov              rax, rsp
+                        sub              rsp, 32
+                        mov              qword ptr [rsp + 16], rax                      # rsp_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 328], rax                     # patstk_mark
-                        mov              dword ptr [rbp + 320], 0                       # start_δ
+                        mov              qword ptr [rsp + 8], rax                       # patstk_mark
+                        mov              dword ptr [rsp + 0], 0                         # start_δ
 .Lx1668_0:
-                        mov              r14d, dword ptr [rbp + 320]
+                        mov              r14d, dword ptr [rsp + 0]
                                                                                         jmp   n1074_lit_integer_α
 n1073_match_begin_β:
-                        add              dword ptr [rbp + 320], 1
-                        mov              eax, dword ptr [rbp + 320]
+                        add              dword ptr [rsp + 0], 1
+                        mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx1668_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -9870,16 +9881,16 @@ n1073_match_begin_β:
                                                                                         jne   .Lx1668_1
                                                                                         jmp   .Lx1668_0
 .Lx1668_1:
-                        mov              rax, qword ptr [rbp + 328]                     # patstk_mark
-                        lea              rcx, [rip + g_patstk_sp]
-                        mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rbp + 336]
                         mov              r10, qword ptr [1879048192]
 .Lx1668_2:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1668_2
+                        mov              rax, qword ptr [r10 + 16]                      # cas_patstk
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rsp, qword ptr [r10 + 8]                       # cas_rsp_mark
                         mov              qword ptr [1879048192], r10
                         mov              r13, qword ptr [rbp + 368]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 376]                     # outer_δ
@@ -9942,10 +9953,16 @@ n1078_match_rpos_α:
                                                                                         jmp   n1079_match_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1079_match_end_α:
-                        mov              rax, qword ptr [rbp + 328]
+                        mov              r10, qword ptr [1879048192]
+.Lx1676_9:
+                        sub              r10, 24
+                        mov              rax, qword ptr [r10 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx1676_9
+                        mov              rax, qword ptr [r10 + 16]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rbp + 336]
+                        mov              rsp, qword ptr [r10 + 8]
                         push             r14
                         push             r15
                         push             r13

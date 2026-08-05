@@ -10090,17 +10090,19 @@ n1217_match_begin_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 32], rsp                      # zls2_mark
+                        mov              rax, rsp
+                        sub              rsp, 32
+                        mov              qword ptr [rsp + 16], rax                      # rsp_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 24], rax                      # patstk_mark
-                        mov              dword ptr [rbp + 16], 0                        # start_δ
+                        mov              qword ptr [rsp + 8], rax                       # patstk_mark
+                        mov              dword ptr [rsp + 0], 0                         # start_δ
 .Lx1754_0:
-                        mov              r14d, dword ptr [rbp + 16]
+                        mov              r14d, dword ptr [rsp + 0]
                                                                                         jmp   n1218_lit_integer_α
 n1217_match_begin_β:
-                        add              dword ptr [rbp + 16], 1
-                        mov              eax, dword ptr [rbp + 16]
+                        add              dword ptr [rsp + 0], 1
+                        mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx1754_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -10109,16 +10111,16 @@ n1217_match_begin_β:
                                                                                         jne   .Lx1754_1
                                                                                         jmp   .Lx1754_0
 .Lx1754_1:
-                        mov              rax, qword ptr [rbp + 24]                      # patstk_mark
-                        lea              rcx, [rip + g_patstk_sp]
-                        mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rbp + 32]
                         mov              r10, qword ptr [1879048192]
 .Lx1754_2:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1754_2
+                        mov              rax, qword ptr [r10 + 16]                      # cas_patstk
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rsp, qword ptr [r10 + 8]                       # cas_rsp_mark
                         mov              qword ptr [1879048192], r10
                         mov              r13, qword ptr [rbp + 64]                      # outer_Σ
                         mov              r14, qword ptr [rbp + 72]                      # outer_δ
@@ -10162,12 +10164,16 @@ n1221_match_len_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n1220_match_assign_save_β
+                                                                                        jle   .Lx1759_240
+                        add              rsp, 16
+                                                                                        jmp   n1217_match_begin_β
+.Lx1759_240:
                         add              r14d, 1
                                                                                         jmp   n1222_match_assign_cond_α
 n1221_match_len_β:
                         sub              r14d, 1
-                                                                                        jmp   n1220_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n1217_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n1222_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 0]
@@ -10189,10 +10195,16 @@ n1222_match_assign_cond_β:
                                                                                         jmp   n1221_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n1223_match_end_α:
-                        mov              rax, qword ptr [rbp + 24]
+                        mov              r10, qword ptr [1879048192]
+.Lx1763_9:
+                        sub              r10, 24
+                        mov              rax, qword ptr [r10 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx1763_9
+                        mov              rax, qword ptr [r10 + 16]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rbp + 32]
+                        mov              rsp, qword ptr [r10 + 8]
                         push             r14
                         push             r15
                         push             r13

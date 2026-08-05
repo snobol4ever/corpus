@@ -163,19 +163,29 @@ n8_match_lit_α:
                         mov              eax, r14d
                         add              eax, 5
                         cmp              eax, r15d
-                                                                                        jg    n7_match_assign_save_β
+                                                                                        jle   .Lx32_238
+                        add              rsp, 16
+                                                                                        jmp   n6_match_begin_β
+.Lx32_238:
                         movsxd           rcx, r14d
                         mov              edx, dword ptr [r13+rcx]
                         cmp              edx, 1819043176
-                                                                                        jne   n7_match_assign_save_β
+                                                                                        je    .Lx32_239
+                        add              rsp, 16
+                                                                                        jmp   n6_match_begin_β
+.Lx32_239:
                         movzx            eax, byte ptr [r13+rcx+4]
                         cmp              eax, 111
-                                                                                        jne   n7_match_assign_save_β
+                                                                                        je    .Lx32_240
+                        add              rsp, 16
+                                                                                        jmp   n6_match_begin_β
+.Lx32_240:
                         add              r14d, 5
                                                                                         jmp   n9_match_assign_cond_α
 n8_match_lit_β:
                         sub              r14d, 5
-                                                                                        jmp   n7_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n6_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n9_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 0]
