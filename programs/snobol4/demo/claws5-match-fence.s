@@ -3,103 +3,161 @@
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:
-                        sub              rsp, 336
-                        mov              qword ptr [rsp + 312], rcx
-                        mov              qword ptr [rsp + 320], rdx
-                        mov              qword ptr [rsp + 328], rbp
+                        sub              rsp, 240
+                        mov              qword ptr [rsp + 216], rcx
+                        mov              qword ptr [rsp + 224], rdx
+                        mov              qword ptr [rsp + 232], rbp
                         mov              rbp, rsp
-                        mov              qword ptr [rsp + 304], r8
-                        mov              dword ptr [rsp + 296], r14d
+                        mov              qword ptr [rsp + 208], r8
+                        mov              dword ptr [rsp + 200], r14d
 proc_PAT$0_attempt:
 proc_PAT$0_α_body:
-                        lea              rax, [rip + n0_match_sequence_β]
-                        mov              qword ptr [rbp + 272], rax
+                        lea              rax, [rip + proc_PAT$0_ω]
+                        mov              qword ptr [rbp + 176], rax
 #-----------------------------------------------------------------------------------------------------------------------
-n0_match_sequence_α:
-                                                                                        jmp   n16_lit_integer_α
-n0_match_sequence_as:
-                                                                                        jmp   proc_PAT$0_γ
-n0_match_sequence_β:
-                                                                                        jmp   n2_match_rpos_β
-n0_match_sequence_af:
-                                                                                        jmp   proc_PAT$0_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n1_lit_integer_α:
-                        mov              qword ptr [rbp + 256], 3                       # result
-                        mov              rax, qword ptr [rip + .Lx20_0]
-                        mov              qword ptr [rbp + 264], rax
-                                                                                        jmp   n2_match_rpos_α
-n1_lit_integer_β:
-                                                                                        jmp   n3_match_arbno_β
-.Lx20_0:
+n0_lit_integer_α:
+                        sub              rsp, 160
+                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
+                        mov              qword ptr [rsp + 8], 0
+                        mov              qword ptr [rsp + 16], 0
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 0
+                        mov              qword ptr [rsp + 40], 0
+                        mov              qword ptr [rsp + 48], 0
+                        mov              qword ptr [rsp + 56], 0
+                        mov              qword ptr [rsp + 64], 0
+                        mov              qword ptr [rsp + 72], 0
+                        mov              qword ptr [rsp + 80], 0
+                        mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
+                        mov              qword ptr [rsp + 112], 0
+                        mov              qword ptr [rsp + 120], 0
+                        mov              qword ptr [rsp + 128], 0
+                        mov              qword ptr [rsp + 136], 0
+                        mov              qword ptr [rsp + 144], 0
+                        mov              qword ptr [rsp + 152], 0
+                        mov              qword ptr [rbp + 32], 3                        # result
+                        mov              rax, qword ptr [rip + .Lx17_0]
+                        mov              qword ptr [rbp + 40], rax
+                                                                                        jmp   n1_match_pos_α
+.Lx17_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
-n2_match_rpos_α:
+n1_match_pos_α:
+                        mov              rax, 0
+                        cmp              r14d, eax
+                                                                                        je    .Lx18_240
+                        add              rsp, 160
+                                                                                        jmp   proc_PAT$0_scanfail
+.Lx18_240:
+                                                                                        jmp   n2_match_arbno_α
+n1_match_pos_β:
+                        add              rsp, 160
+                                                                                        jmp   proc_PAT$0_scanfail
+#-----------------------------------------------------------------------------------------------------------------------
+n2_match_arbno_α:
+                        mov              dword ptr [rbp + 64], r14d
+                        mov              dword ptr [rbp + 68], r14d
+                        mov              dword ptr [rbp + 72], 0
+                        mov              qword ptr [rbp + 88], rsp
+                        mov              qword ptr [rbp + 80], 0
+                                                                                        jmp   n3_lit_integer_α
+n2_match_arbno_β:
+                        mov              r14d, dword ptr [rbp + 68]
+                        mov              rax, qword ptr [rbp + 80]
+                        sub              rsp, 176
+                        mov              qword ptr [rsp + 0], rbp
+                        mov              qword ptr [rsp + 8], r14
+                        mov              qword ptr [rsp + 16], rax
+                        mov              qword ptr [rbp + 80], rsp
+                        mov              rbp, rsp
+                        add              rbp, 8
+                                                                                        jmp   n6_match_alternate_α
+n2_match_arbno_as:
+                        mov              eax, dword ptr [rbp + 0]
+                        cmp              r14d, eax
+                                                                                        je    n5_goto_β
+                        mov              rbp, qword ptr [rbp + -8]
+                        mov              eax, dword ptr [rbp + 72]
+                        add              eax, 1
+                        mov              dword ptr [rbp + 72], eax
+                        mov              dword ptr [rbp + 68], r14d
+                                                                                        jmp   n3_lit_integer_α
+n2_match_arbno_af:
+                        mov              rax, qword ptr [rbp + 8]
+                        mov              rdx, qword ptr [rbp + -8]
+                        lea              rsp, [rbp + 168]
+                        mov              rbp, rdx
+                        mov              ecx, dword ptr [rbp + 72]
+                        test             ecx, ecx
+                                                                                        jz    .Lx20_2
+                        sub              ecx, 1
+                        mov              dword ptr [rbp + 72], ecx
+                        mov              qword ptr [rbp + 80], rax
+                        lea              rbp, [rax + 8]
+                                                                                        jmp   n5_goto_β
+.Lx20_2:
+                        mov              r14d, dword ptr [rbp + 64]
+                        mov              rsp, qword ptr [rbp + 88]
+                                                                                        jmp   n1_match_pos_β
+#-----------------------------------------------------------------------------------------------------------------------
+n3_lit_integer_α:
+                        mov              qword ptr [rbp + 160], 3                       # result
+                        mov              rax, qword ptr [rip + .Lx21_0]
+                        mov              qword ptr [rbp + 168], rax
+                                                                                        jmp   n4_match_rpos_α
+.Lx21_0:
+                        .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
+n4_match_rpos_α:
                         mov              rax, 0
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n3_match_arbno_β
-                                                                                        jmp   proc_PAT$0_γ
-n2_match_rpos_β:
-                                                                                        jmp   n3_match_arbno_β
+                                                                                        jne   n2_match_arbno_β
+                        add              rsp, 160
+                                                                                        jmp   proc_PAT$0_scanhit
 #-----------------------------------------------------------------------------------------------------------------------
-n3_match_arbno_α:
-                        mov              dword ptr [rbp + 80], r14d
-                        mov              dword ptr [rbp + 84], r14d
-                        mov              dword ptr [rbp + 88], 0
-                        mov              qword ptr [rbp + 104], rsp
-                        mov              qword ptr [rbp + 96], 0
-                                                                                        jmp   n1_lit_integer_α
-n3_match_arbno_β:
-                        mov              r14d, dword ptr [rbp + 84]
-                        mov              rax, qword ptr [rbp + 96]
-                        sub              rsp, 256
-                        mov              qword ptr [rsp + 0], rbp
-                        mov              qword ptr [rsp + 8], r14
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rbp + 96], rsp
-                        mov              rbp, rsp
-                        add              rbp, -8
-                                                                                        jmp   n4_match_sequence_α
-n3_match_arbno_as:
-                        mov              eax, dword ptr [rbp + 16]
-                        cmp              r14d, eax
-                                                                                        je    n4_match_sequence_β
-                        mov              rbp, qword ptr [rbp + 8]
-                        mov              eax, dword ptr [rbp + 88]
-                        add              eax, 1
-                        mov              dword ptr [rbp + 88], eax
-                        mov              dword ptr [rbp + 84], r14d
-                                                                                        jmp   n1_lit_integer_α
-n3_match_arbno_af:
-                        mov              rax, qword ptr [rbp + 24]
-                        mov              rdx, qword ptr [rbp + 8]
-                        lea              rsp, [rbp + 264]
-                        mov              rbp, rdx
-                        mov              ecx, dword ptr [rbp + 88]
-                        test             ecx, ecx
-                                                                                        jz    .Lx23_2
-                        sub              ecx, 1
-                        mov              dword ptr [rbp + 88], ecx
-                        mov              qword ptr [rbp + 96], rax
-                        lea              rbp, [rax + -8]
-                                                                                        jmp   n4_match_sequence_β
-.Lx23_2:
-                        mov              r14d, dword ptr [rbp + 80]
-                        mov              rsp, qword ptr [rbp + 104]
-                                                                                        jmp   n17_match_pos_β
+n5_goto_α:
+                                                                                        jmp   n2_match_arbno_af
+n5_goto_β:
+                                                                                        jmp   n2_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
-n4_match_sequence_α:
-                                                                                        jmp   n6_match_alternate_α
-n4_match_sequence_as:
-                                                                                        jmp   n3_match_arbno_as
-n4_match_sequence_β:
-                                                                                        jmp   n5_match_span_β
-n4_match_sequence_af:
-                                                                                        jmp   n3_match_arbno_af
+n6_match_alternate_α:
+                        mov              dword ptr [rbp + 112], r14d
+                        lea              rax, [rip + .Lx25_21]
+                        mov              qword ptr [rbp + 128], rax
+                                                                                        jmp   n15_match_span_α
+.Lx25_21:
+                        lea              rax, [rip + .Lx25_19]
+                        mov              qword ptr [rbp + 128], rax
+                                                                                        jmp   n9_match_notany_α
+n6_match_alternate_s0:
+                        lea              rax, [rip + .Lx25_40]
+                        mov              qword ptr [rbp + 120], rax
+                                                                                        jmp   n6_match_alternate_as
+n6_match_alternate_s1:
+                        lea              rax, [rip + .Lx25_41]
+                        mov              qword ptr [rbp + 120], rax
+                                                                                        jmp   n6_match_alternate_as
+.Lx25_40:
+                                                                                        jmp   n14_goto_β
+.Lx25_41:
+                                                                                        jmp   n8_goto_β
+n6_match_alternate_as:
+                                                                                        jmp   n7_match_span_α
+n6_match_alternate_β:
+                        mov              rax, qword ptr [rbp + 120]
+                                                                                        jmp   rax
+n6_match_alternate_af:
+                        mov              r14d, dword ptr [rbp + 112]
+                        mov              rax, qword ptr [rbp + 128]
+                                                                                        jmp   rax
+.Lx25_19:
+                                                                                        jmp   n2_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
-n5_match_span_α:
+n7_match_span_α:
                         sub              rsp, 16
                         movsxd           rcx, r14d
 .Lx27_0:
@@ -152,160 +210,18 @@ n5_match_span_α:
 .Lx27_240:
                         mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
-                                                                                        jmp   n3_match_arbno_as
-n5_match_span_β:
+                                                                                        jmp   n2_match_arbno_as
+n7_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16
                                                                                         jmp   n6_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
-n6_match_alternate_α:
-                        mov              dword ptr [rbp + 128], r14d
-                        lea              rax, [rip + .Lx29_21]
-                        mov              qword ptr [rbp + 144], rax
-                                                                                        jmp   n13_match_sequence_α
-.Lx29_21:
-                        lea              rax, [rip + .Lx29_19]
-                        mov              qword ptr [rbp + 144], rax
-                                                                                        jmp   n7_match_sequence_α
-n6_match_alternate_s0:
-                        lea              rax, [rip + .Lx29_40]
-                        mov              qword ptr [rbp + 136], rax
-                                                                                        jmp   n6_match_alternate_as
-n6_match_alternate_s1:
-                        lea              rax, [rip + .Lx29_41]
-                        mov              qword ptr [rbp + 136], rax
-                                                                                        jmp   n6_match_alternate_as
-.Lx29_40:
-                                                                                        jmp   n13_match_sequence_β
-.Lx29_41:
-                                                                                        jmp   n7_match_sequence_β
-n6_match_alternate_as:
-                                                                                        jmp   n5_match_span_α
-n6_match_alternate_β:
-                        mov              rax, qword ptr [rbp + 136]
-                                                                                        jmp   rax
-n6_match_alternate_af:
-                        mov              r14d, dword ptr [rbp + 128]
-                        mov              rax, qword ptr [rbp + 144]
-                                                                                        jmp   rax
-.Lx29_19:
-                                                                                        jmp   n3_match_arbno_af
-#-----------------------------------------------------------------------------------------------------------------------
-n7_match_sequence_α:
-                                                                                        jmp   n12_match_notany_α
-n7_match_sequence_as:
-                                                                                        jmp   n6_match_alternate_s1
-n7_match_sequence_β:
-                                                                                        jmp   n8_match_span_β
-n7_match_sequence_af:
+n8_goto_α:
+                                                                                        jmp   n6_match_alternate_af
+n8_goto_β:
                                                                                         jmp   n6_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
-n8_match_span_α:
-                        lea              rdi, [rip + .C0]
-                        movsxd           rcx, r14d
-.Lx33_0:
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx33_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx33_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx33_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx33_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx33_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx33_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx33_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx33_1
-                        add              ecx, 1
-                                                                                        jmp   .Lx33_0
-.Lx33_1:
-                        cmp              ecx, r14d
-                                                                                        jle   n9_match_any_β
-                        mov              dword ptr [rbp + 228], r14d
-                        mov              r14d, ecx
-                                                                                        jmp   n6_match_alternate_s1
-n8_match_span_β:
-                        mov              r14d, dword ptr [rbp + 228]
-                                                                                        jmp   n9_match_any_β
-#-----------------------------------------------------------------------------------------------------------------------
-n9_match_any_α:
-                        mov              eax, r14d
-                        cmp              eax, r15d
-                                                                                        jge   n10_match_lit_β
-                        movsxd           rcx, r14d
-                        movzx            esi, byte ptr [r13+rcx]
-                        lea              rdi, [rip + .C1]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    n10_match_lit_β
-                        add              r14d, 1
-                                                                                        jmp   n8_match_span_α
-n9_match_any_β:
-                        sub              r14d, 1
-                                                                                        jmp   n10_match_lit_β
-#-----------------------------------------------------------------------------------------------------------------------
-n10_match_lit_α:
-                        mov              eax, r14d
-                        add              eax, 1
-                        cmp              eax, r15d
-                                                                                        jg    n11_match_break_β
-                        movsxd           rcx, r14d
-                        movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 95
-                                                                                        jne   n11_match_break_β
-                        add              r14d, 1
-                                                                                        jmp   n9_match_any_α
-n10_match_lit_β:
-                        sub              r14d, 1
-                                                                                        jmp   n11_match_break_β
-#-----------------------------------------------------------------------------------------------------------------------
-n11_match_break_α:
-                        movsxd           rcx, r14d
-.Lx39_0:
-                        cmp              ecx, r15d
-                                                                                        jge   n12_match_notany_β
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 95
-                                                                                        je    .Lx39_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   n12_match_notany_β
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 95
-                                                                                        je    .Lx39_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   n12_match_notany_β
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 95
-                                                                                        je    .Lx39_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   n12_match_notany_β
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 95
-                                                                                        je    .Lx39_1
-                        add              ecx, 1
-                                                                                        jmp   .Lx39_0
-.Lx39_1:
-                        mov              dword ptr [rbp + 208], r14d
-                        mov              r14d, ecx
-                                                                                        jmp   n10_match_lit_α
-n11_match_break_β:
-                        mov              r14d, dword ptr [rbp + 208]
-                                                                                        jmp   n12_match_notany_β
-#-----------------------------------------------------------------------------------------------------------------------
-n12_match_notany_α:
+n9_match_notany_α:
                         mov              eax, r14d
                         cmp              eax, r15d
                                                                                         jge   n6_match_alternate_af
@@ -314,21 +230,185 @@ n12_match_notany_α:
                         cmp              esi, 95
                                                                                         je    n6_match_alternate_af
                         add              r14d, 1
-                                                                                        jmp   n11_match_break_α
-n12_match_notany_β:
+                                                                                        jmp   n10_match_break_α
+n9_match_notany_β:
                         sub              r14d, 1
                                                                                         jmp   n6_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
-n13_match_sequence_α:
-                                                                                        jmp   n15_match_span_α
-n13_match_sequence_as:
-                                                                                        jmp   n6_match_alternate_s0
-n13_match_sequence_β:
-                                                                                        jmp   n14_match_lit_β
-n13_match_sequence_af:
+n10_match_break_α:
+                        sub              rsp, 16
+                        movsxd           rcx, r14d
+.Lx31_0:
+                        cmp              ecx, r15d
+                                                                                        jl    .Lx31_237
+                        add              rsp, 16
+                                                                                        jmp   n9_match_notany_β
+.Lx31_237:
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              esi, 95
+                                                                                        je    .Lx31_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jl    .Lx31_238
+                        add              rsp, 16
+                                                                                        jmp   n9_match_notany_β
+.Lx31_238:
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              esi, 95
+                                                                                        je    .Lx31_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jl    .Lx31_239
+                        add              rsp, 16
+                                                                                        jmp   n9_match_notany_β
+.Lx31_239:
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              esi, 95
+                                                                                        je    .Lx31_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jl    .Lx31_240
+                        add              rsp, 16
+                                                                                        jmp   n9_match_notany_β
+.Lx31_240:
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              esi, 95
+                                                                                        je    .Lx31_1
+                        add              ecx, 1
+                                                                                        jmp   .Lx31_0
+.Lx31_1:
+                        mov              dword ptr [rsp + 0], r14d
+                        mov              r14d, ecx
+                                                                                        jmp   n11_match_lit_α
+n10_match_break_β:
+                        mov              r14d, dword ptr [rsp + 0]
+                        add              rsp, 16
+                                                                                        jmp   n9_match_notany_β
+#-----------------------------------------------------------------------------------------------------------------------
+n11_match_lit_α:
+                        mov              eax, r14d
+                        add              eax, 1
+                        cmp              eax, r15d
+                                                                                        jg    n10_match_break_β
+                        movsxd           rcx, r14d
+                        movzx            eax, byte ptr [r13+rcx]
+                        cmp              eax, 95
+                                                                                        jne   n10_match_break_β
+                        add              r14d, 1
+                                                                                        jmp   n12_match_any_α
+n11_match_lit_β:
+                        sub              r14d, 1
+                                                                                        jmp   n10_match_break_β
+#-----------------------------------------------------------------------------------------------------------------------
+n12_match_any_α:
+                        mov              eax, r14d
+                        cmp              eax, r15d
+                                                                                        jge   n11_match_lit_β
+                        movsxd           rcx, r14d
+                        movzx            esi, byte ptr [r13+rcx]
+                        lea              rdi, [rip + .C0]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    n11_match_lit_β
+                        add              r14d, 1
+                                                                                        jmp   n13_match_span_α
+n12_match_any_β:
+                        sub              r14d, 1
+                                                                                        jmp   n11_match_lit_β
+#-----------------------------------------------------------------------------------------------------------------------
+n13_match_span_α:
+                        sub              rsp, 16
+                        lea              rdi, [rip + .C1]
+                        movsxd           rcx, r14d
+.Lx37_0:
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx37_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx37_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx37_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx37_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx37_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx37_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx37_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx37_1
+                        add              ecx, 1
+                                                                                        jmp   .Lx37_0
+.Lx37_1:
+                        cmp              ecx, r14d
+                                                                                        jg    .Lx37_240
+                        add              rsp, 16
+                                                                                        jmp   n12_match_any_β
+.Lx37_240:
+                        mov              dword ptr [rsp + 4], r14d
+                        mov              r14d, ecx
+                                                                                        jmp   n6_match_alternate_s1
+n13_match_span_β:
+                        mov              r14d, dword ptr [rsp + 4]
+                        add              rsp, 16
+                                                                                        jmp   n12_match_any_β
+#-----------------------------------------------------------------------------------------------------------------------
+n14_goto_α:
+                                                                                        jmp   n6_match_alternate_af
+n14_goto_β:
                                                                                         jmp   n6_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
-n14_match_lit_α:
+n15_match_span_α:
+                        sub              rsp, 16
+                        lea              rdi, [rip + .C2]
+                        movsxd           rcx, r14d
+.Lx40_0:
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx40_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx40_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx40_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx40_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx40_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx40_1
+                        add              ecx, 1
+                        cmp              ecx, r15d
+                                                                                        jge   .Lx40_1
+                        movzx            esi, byte ptr [r13+rcx]
+                        cmp              byte ptr [rdi+rsi], 0
+                                                                                        je    .Lx40_1
+                        add              ecx, 1
+                                                                                        jmp   .Lx40_0
+.Lx40_1:
+                        cmp              ecx, r14d
+                                                                                        jg    .Lx40_240
+                        add              rsp, 16
+                                                                                        jmp   n6_match_alternate_af
+.Lx40_240:
+                        mov              dword ptr [rsp + 4], r14d
+                        mov              r14d, ecx
+                                                                                        jmp   n16_match_lit_α
+n15_match_span_β:
+                        mov              r14d, dword ptr [rsp + 4]
+                        add              rsp, 16
+                                                                                        jmp   n6_match_alternate_af
+#-----------------------------------------------------------------------------------------------------------------------
+n16_match_lit_α:
                         mov              eax, r14d
                         add              eax, 10
                         cmp              eax, r15d
@@ -346,89 +426,32 @@ n14_match_lit_α:
                                                                                         jne   n15_match_span_β
                         add              r14d, 10
                                                                                         jmp   n6_match_alternate_s0
-n14_match_lit_β:
+n16_match_lit_β:
                         sub              r14d, 10
                                                                                         jmp   n15_match_span_β
-#-----------------------------------------------------------------------------------------------------------------------
-n15_match_span_α:
-                        lea              rdi, [rip + .C2]
-                        movsxd           rcx, r14d
-.Lx46_0:
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx46_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx46_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx46_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx46_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx46_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx46_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx46_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx46_1
-                        add              ecx, 1
-                                                                                        jmp   .Lx46_0
-.Lx46_1:
-                        cmp              ecx, r14d
-                                                                                        jle   n6_match_alternate_af
-                        mov              dword ptr [rbp + 180], r14d
-                        mov              r14d, ecx
-                                                                                        jmp   n14_match_lit_α
-n15_match_span_β:
-                        mov              r14d, dword ptr [rbp + 180]
-                                                                                        jmp   n6_match_alternate_af
-#-----------------------------------------------------------------------------------------------------------------------
-n16_lit_integer_α:
-                        mov              qword ptr [rbp + 48], 3                        # result
-                        mov              rax, qword ptr [rip + .Lx47_0]
-                        mov              qword ptr [rbp + 56], rax
-                                                                                        jmp   n17_match_pos_α
-n16_lit_integer_β:
-                                                                                        jmp   proc_PAT$0_ω
-.Lx47_0:
-                        .quad            0
-#-----------------------------------------------------------------------------------------------------------------------
-n17_match_pos_α:
-                        mov              rax, 0
-                        cmp              r14d, eax
-                                                                                        jne   proc_PAT$0_ω
-                                                                                        jmp   n3_match_arbno_α
-n17_match_pos_β:
-                                                                                        jmp   proc_PAT$0_ω
 proc_PAT$0_scanhit:
-                        cmp              qword ptr [rbp + 304], 1
-                                                                                        jne   .Lx49_0
-                        mov              ecx, dword ptr [rbp + 296]
+                        cmp              qword ptr [rbp + 208], 1
+                                                                                        jne   .Lx43_0
+                        mov              ecx, dword ptr [rbp + 200]
                         lea              rdx, [rip + g_scan_hit_start]
                         mov              dword ptr [rdx + 0], ecx
-.Lx49_0:
+.Lx43_0:
                                                                                         jmp   proc_PAT$0_γ
 proc_PAT$0_scanfail:
-                        cmp              qword ptr [rbp + 304], 1
-                                                                                        jne   .Lx50_0
-                        mov              eax, dword ptr [rbp + 296]
+                        cmp              qword ptr [rbp + 208], 1
+                                                                                        jne   .Lx44_0
+                        mov              eax, dword ptr [rbp + 200]
                         inc              eax
                         cmp              eax, r15d
-                                                                                        jg    .Lx50_0
+                                                                                        jg    .Lx44_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
-                                                                                        jne   .Lx50_0
-                        mov              dword ptr [rbp + 296], eax
+                                                                                        jne   .Lx44_0
+                        mov              dword ptr [rbp + 200], eax
                         mov              r14d, eax
                         mov              rsp, rbp
                                                                                         jmp   proc_PAT$0_attempt
-.Lx50_0:
+.Lx44_0:
                                                                                         jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_res:
@@ -436,20 +459,20 @@ proc_PAT$0_res:
                         pop              rbp
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_β:
-                                                                                        jmp   qword ptr [rbp + 272]
+                                                                                        jmp   qword ptr [rbp + 176]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
                         push             rbp
                         lea              rax, [rip + proc_PAT$0_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 312]
-                        mov              rbp, qword ptr [rbp + 328]
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              rbp, qword ptr [rbp + 232]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_ω:
-                        mov              rax, qword ptr [rbp + 320]
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328]
+                        mov              rax, qword ptr [rbp + 224]
+                        lea              rsp, [rbp + 240]
+                        mov              rbp, qword ptr [rbp + 232]
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8
@@ -467,7 +490,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 288
+                        mov              esi, 192
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 1
@@ -511,35 +534,35 @@ main_α_body:
 #=======================================================================================================================
 #                 &TRIM          =  0
 #-----------------------------------------------------------------------------------------------------------------------
-n51_statement_begin_α:
-                                                                                        jmp   n52_lit_string_α
+n45_statement_begin_α:
+                                                                                        jmp   n46_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n52_lit_string_α:
+n46_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 4
-                        mov              rax, qword ptr [rip + .Lx92_0]
+                        mov              rax, qword ptr [rip + .Lx86_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n53_lit_integer_α
-.Lx92_0:
-                        .quad            .Lx92_0_s
-.Lx92_0_s:
+                                                                                        jmp   n47_lit_integer_α
+.Lx86_0:
+                        .quad            .Lx86_0_s
+.Lx86_0_s:
                         .string          "TRIM"
 #-----------------------------------------------------------------------------------------------------------------------
-n53_lit_integer_α:
+n47_lit_integer_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3                         # result
-                        mov              rax, qword ptr [rip + .Lx93_0]
+                        mov              rax, qword ptr [rip + .Lx87_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n54_call_α
-n53_lit_integer_β:
+                                                                                        jmp   n48_call_α
+n47_lit_integer_β:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n56_statement_begin_α
-.Lx93_0:
+                                                                                        jmp   n50_statement_begin_α
+.Lx87_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
-n54_call_α:
+n48_call_α:
                         sub              rsp, 16
                         sub              rsp, 32
                         mov              r10, qword ptr [rsp + 64]
@@ -551,48 +574,48 @@ n54_call_α:
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         .section         .rodata
-.Lrkfnzd95:             .string          "SNO$KWSET"
+.Lrkfnzd89:             .string          "SNO$KWSET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd95]                        # fn
+                        lea              rdi, [rip + .Lrkfnzd89]                        # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 2                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 32
                         cmp              eax, 104
-                                                                                        jne   .Lx94_240
+                                                                                        jne   .Lx88_240
                         add              rsp, 16
-                                                                                        jmp   n53_lit_integer_β
-.Lx94_240:
+                                                                                        jmp   n47_lit_integer_β
+.Lx88_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n55_statement_end_α
-n54_call_β:
+                                                                                        jmp   n49_statement_end_α
+n48_call_β:
                         add              rsp, 16
-                                                                                        jmp   n53_lit_integer_β
+                                                                                        jmp   n47_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
-n55_statement_end_α:
+n49_statement_end_α:
                         add              rsp, 48
-                                                                                        jmp   n56_statement_begin_α
+                                                                                        jmp   n50_statement_begin_α
 #=======================================================================================================================
 #                 INPUT(.INPUT, 9, '[-f0 -r1000000]')
 #-----------------------------------------------------------------------------------------------------------------------
-n56_statement_begin_α:
-                                                                                        jmp   n57_lit_string_α
+n50_statement_begin_α:
+                                                                                        jmp   n51_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n57_lit_string_α:
+n51_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx100_0]
+                        mov              rax, qword ptr [rip + .Lx94_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n58_call_α
-.Lx100_0:
-                        .quad            .Lx100_0_s
-.Lx100_0_s:
+                                                                                        jmp   n52_call_α
+.Lx94_0:
+                        .quad            .Lx94_0_s
+.Lx94_0_s:
                         .string          "INPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n58_call_α:
+n52_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
                         mov              r10, qword ptr [rsp + 32]
@@ -600,57 +623,57 @@ n58_call_α:
                         mov              qword ptr [rsp + 0], r10
                         mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfnzd102:            .string          "SNO$NAME"
+.Lrkfnzd96:             .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd102]                       # fn
+                        lea              rdi, [rip + .Lrkfnzd96]                        # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
                         cmp              eax, 104
-                                                                                        jne   .Lx101_240
+                                                                                        jne   .Lx95_240
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n63_statement_begin_α
-.Lx101_240:
+                                                                                        jmp   n57_statement_begin_α
+.Lx95_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n59_lit_integer_α
-n58_call_β:
+                                                                                        jmp   n53_lit_integer_α
+n52_call_β:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n63_statement_begin_α
+                                                                                        jmp   n57_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n59_lit_integer_α:
+n53_lit_integer_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3                         # result
-                        mov              rax, qword ptr [rip + .Lx103_0]
+                        mov              rax, qword ptr [rip + .Lx97_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n60_lit_string_α
-n59_lit_integer_β:
+                                                                                        jmp   n54_lit_string_α
+n53_lit_integer_β:
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n63_statement_begin_α
-.Lx103_0:
+                                                                                        jmp   n57_statement_begin_α
+.Lx97_0:
                         .quad            9
 #-----------------------------------------------------------------------------------------------------------------------
-n60_lit_string_α:
+n54_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 15
-                        mov              rax, qword ptr [rip + .Lx104_0]
+                        mov              rax, qword ptr [rip + .Lx98_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n61_call_α
-n60_lit_string_β:
+                                                                                        jmp   n55_call_α
+n54_lit_string_β:
                         add              rsp, 16
-                                                                                        jmp   n59_lit_integer_β
-.Lx104_0:
-                        .quad            .Lx104_0_s
-.Lx104_0_s:
+                                                                                        jmp   n53_lit_integer_β
+.Lx98_0:
+                        .quad            .Lx98_0_s
+.Lx98_0_s:
                         .string          "[-f0 -r1000000]"
 #-----------------------------------------------------------------------------------------------------------------------
-n61_call_α:
+n55_call_α:
                         sub              rsp, 16
                         sub              rsp, 48
                         mov              r10, qword ptr [rsp + 96]
@@ -666,81 +689,81 @@ n61_call_α:
                         mov              qword ptr [rsp + 32], r10
                         mov              qword ptr [rsp + 40], r11
                         .section         .rodata
-.Lbynamefnzd29:         .string          "INPUT"
+.Lbynamefnzd28:         .string          "INPUT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lbynamefnzd29]                    # fn
+                        lea              rdi, [rip + .Lbynamefnzd28]                    # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 3                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 48
                         cmp              eax, 104
-                                                                                        jne   .Lx105_240
+                                                                                        jne   .Lx99_240
                         add              rsp, 16
-                                                                                        jmp   n60_lit_string_β
-.Lx105_240:
+                                                                                        jmp   n54_lit_string_β
+.Lx99_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n62_statement_end_α
-n61_call_β:
+                                                                                        jmp   n56_statement_end_α
+n55_call_β:
                         add              rsp, 16
-                                                                                        jmp   n60_lit_string_β
+                                                                                        jmp   n54_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
-n62_statement_end_α:
+n56_statement_end_α:
                         add              rsp, 80
-                                                                                        jmp   n63_statement_begin_α
+                                                                                        jmp   n57_statement_begin_α
 #=======================================================================================================================
 #                 src             =   INPUT                       :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
-n63_statement_begin_α:
-                                                                                        jmp   n64_var_α
+n57_statement_begin_α:
+                                                                                        jmp   n58_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n64_var_α:
+n58_var_α:
                         sub              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx110_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx104_0]                # name
                         call             NV_GET_fn@PLT
                         cmp              eax, 104
-                                                                                        jne   .Lx110_240
+                                                                                        jne   .Lx104_240
                         add              rsp, 16
-                                                                                        jmp   n85_statement_begin_α
-.Lx110_240:
+                                                                                        jmp   n79_statement_begin_α
+.Lx104_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n65_assign_α
-.Lx110_0:
-                        .quad            .Lx110_0_s
-.Lx110_0_s:
+                                                                                        jmp   n59_assign_α
+.Lx104_0:
+                        .quad            .Lx104_0_s
+.Lx104_0_s:
                         .string          "INPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n65_assign_α:
+n59_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # var
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax                    # src
                         mov              qword ptr [1879052296], rdx
-                                                                                        jmp   n66_statement_end_α
+                                                                                        jmp   n60_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n66_statement_end_α:
+n60_statement_end_α:
                         add              rsp, 16
-                                                                                        jmp   n67_statement_begin_α
+                                                                                        jmp   n61_statement_begin_α
 #=======================================================================================================================
 #                 claws           =
 #-----------------------------------------------------------------------------------------------------------------------
-n67_statement_begin_α:
-                                                                                        jmp   n68_lit_string_α
+n61_statement_begin_α:
+                                                                                        jmp   n62_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n68_lit_string_α:
+n62_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx116_0]
+                        mov              rax, qword ptr [rip + .Lx110_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n69_call_α
-.Lx116_0:
-                        .quad            .Lx116_0_s
-.Lx116_0_s:
+                                                                                        jmp   n63_call_α
+.Lx110_0:
+                        .quad            .Lx110_0_s
+.Lx110_0_s:
                         .string          "PAT$0"
 #-----------------------------------------------------------------------------------------------------------------------
-n69_call_α:
+n63_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
                         mov              r10, qword ptr [rsp + 32]
@@ -748,41 +771,41 @@ n69_call_α:
                         mov              qword ptr [rsp + 0], r10
                         mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfnzd118:            .string          "SNO$MKPAT"
+.Lrkfnzd112:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd118]                       # fn
+                        lea              rdi, [rip + .Lrkfnzd112]                       # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
                         cmp              eax, 104
-                                                                                        jne   .Lx117_240
-                                                                                        jmp   n71_statement_end_α
-.Lx117_240:
+                                                                                        jne   .Lx111_240
+                                                                                        jmp   n65_statement_end_α
+.Lx111_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n70_assign_α
-n69_call_β:
-                                                                                        jmp   n71_statement_end_α
+                                                                                        jmp   n64_assign_α
+n63_call_β:
+                                                                                        jmp   n65_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n70_assign_α:
+n64_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052304], rax                    # claws
                         mov              qword ptr [1879052312], rdx
-                                                                                        jmp   n71_statement_end_α
+                                                                                        jmp   n65_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n71_statement_end_α:
+n65_statement_end_α:
                         add              rsp, 32
-                                                                                        jmp   n72_statement_begin_α
+                                                                                        jmp   n66_statement_begin_α
 #=======================================================================================================================
 #                 src             claws                           :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
-n72_statement_begin_α:
-                                                                                        jmp   n73_var_α
+n66_statement_begin_α:
+                                                                                        jmp   n67_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n73_var_α:
+n67_var_α:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
@@ -807,9 +830,9 @@ n73_var_α:
                         mov              rdx, qword ptr [1879052296]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n74_match_begin_α
+                                                                                        jmp   n68_match_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n74_match_begin_α:
+n68_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, qword ptr [rsp + 8]
                         add              rsp, 16
@@ -837,30 +860,30 @@ n74_match_begin_α:
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 24], rax                      # patstk_mark
                         mov              dword ptr [rbp + 16], 0                        # start_δ
-.Lx126_0:
+.Lx120_0:
                         mov              r14d, dword ptr [rbp + 16]
-                                                                                        jmp   n75_match_patref_α
-n74_match_begin_β:
+                                                                                        jmp   n69_match_patref_α
+n68_match_begin_β:
                         add              dword ptr [rbp + 16], 1
                         mov              eax, dword ptr [rbp + 16]
                         cmp              eax, r15d
-                                                                                        jg    .Lx126_1
+                                                                                        jg    .Lx120_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
-                                                                                        jne   .Lx126_1
-                                                                                        jmp   .Lx126_0
-.Lx126_1:
+                                                                                        jne   .Lx120_1
+                                                                                        jmp   .Lx120_0
+.Lx120_1:
                         mov              rax, qword ptr [rbp + 24]                      # patstk_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 32]
                         mov              r10, qword ptr [1879048192]
-.Lx126_2:
+.Lx120_2:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
-                                                                                        jne   .Lx126_2
+                                                                                        jne   .Lx120_2
                         mov              qword ptr [1879048192], r10
                         mov              r13, qword ptr [rbp + 64]                      # outer_Σ
                         mov              r14, qword ptr [rbp + 72]                      # outer_δ
@@ -871,43 +894,43 @@ n74_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 56]                      # old_rbp
                         add              rsp, 144
-                                                                                        jmp   n85_statement_begin_α
+                                                                                        jmp   n79_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n75_match_patref_α:
+n69_match_patref_α:
                         lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              rax, qword ptr [rsi + 0]
                         test             rax, rax
-                                                                                        jne   .Lx127_11
+                                                                                        jne   .Lx121_11
                         mov              rax, qword ptr [1879052304]                    # claws
                         mov              rdx, qword ptr [1879052312]
                         cmp              eax, 8
-                                                                                        jne   .Lx127_9
+                                                                                        jne   .Lx121_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
-                                                                                        jne   .Lx127_10
+                                                                                        jne   .Lx121_10
                         mov              rdi, rdx                                       # headv
                         call             dtp_fn_of@PLT
-                                                                                        jmp   .Lx127_10
-.Lx127_9:
+                                                                                        jmp   .Lx121_10
+.Lx121_9:
                         xor              eax, eax
-.Lx127_10:
+.Lx121_10:
                         lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              qword ptr [rsi + 0], rax
-.Lx127_11:
+.Lx121_11:
                         test             rax, rax
-                                                                                        jz    .Lx127_0
+                                                                                        jz    .Lx121_0
                         mov              r8d, 1
-                        lea              rcx, [rip + .Lx127_4]
-                        lea              rdx, [rip + .Lx127_5]
+                        lea              rcx, [rip + .Lx121_4]
+                        lea              rdx, [rip + .Lx121_5]
                                                                                         jmp   rax
-.Lx127_4:
+.Lx121_4:
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
                         mov              dword ptr [rbp + 16], eax
-                                                                                        jmp   n76_match_end_α
-.Lx127_5:
-                                                                                        jmp   n74_match_begin_β
-.Lx127_0:
+                                                                                        jmp   n70_match_end_α
+.Lx121_5:
+                                                                                        jmp   n68_match_begin_β
+.Lx121_0:
                         push             r14
                         push             r15
                         push             r13
@@ -915,26 +938,26 @@ n75_match_patref_α:
                         lea              rdi, [rip + .S0]                               # varname
                         xor              esi, esi                                       # ival_flag
                         call             rt_defer_open@PLT
-.Lx127_2:
+.Lx121_2:
                         test             rax, rax
-                                                                                        je    .Lx127_3
+                                                                                        je    .Lx121_3
                         call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx127_7]
-                        lea              rdx, [rip + .Lx127_8]
+                        lea              rcx, [rip + .Lx121_7]
+                        lea              rdx, [rip + .Lx121_8]
                                                                                         jmp   rax
-.Lx127_7:
+.Lx121_7:
                         call             rt_proc_call_epilogue_γ@PLT
                         mov              rdi, rax                                       # fret
                         mov              rsi, rdx                                       # fret
                         call             rt_defer_step@PLT
-                                                                                        jmp   .Lx127_2
-.Lx127_8:
+                                                                                        jmp   .Lx121_2
+.Lx121_8:
                         call             rt_proc_call_epilogue_ω@PLT
                         mov              rdi, rax                                       # fret
                         mov              rsi, rdx                                       # fret
                         call             rt_defer_step@PLT
-                                                                                        jmp   .Lx127_2
-.Lx127_3:
+                                                                                        jmp   .Lx121_2
+.Lx121_3:
                         add              rsp, 8
                         pop              r13
                         pop              r15
@@ -942,19 +965,19 @@ n75_match_patref_α:
                         mov              edi, r14d                                      # cur_delta
                         call             rt_defer_close@PLT
                         test             eax, eax
-                                                                                        js    n74_match_begin_β
+                                                                                        js    n68_match_begin_β
                         mov              r14d, eax
-                        lea              rax, [rip + .Lx127_6]
+                        lea              rax, [rip + .Lx121_6]
                         sub              rsp, 8
                         push             rax
-                                                                                        jmp   n76_match_end_α
-.Lx127_6:
+                                                                                        jmp   n70_match_end_α
+.Lx121_6:
                         add              rsp, 16
-                                                                                        jmp   n74_match_begin_β
-n75_match_patref_β:
+                                                                                        jmp   n68_match_begin_β
+n69_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n76_match_end_α:
+n70_match_end_α:
                         mov              rax, qword ptr [rbp + 24]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -965,45 +988,45 @@ n76_match_end_α:
                         sub              rsp, 8
                         mov              rsi, qword ptr [1879048192]
                         mov              r10, rsi
-.Lx129_5:
+.Lx123_5:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
-                                                                                        jne   .Lx129_5
+                                                                                        jne   .Lx123_5
                         lea              rdi, [r10 + 24]
                         mov              rdx, r13
                         call             rt_dcap_end_ok_open@PLT
-.Lx129_1:
+.Lx123_1:
                         test             rax, rax
-                                                                                        je    .Lx129_2
+                                                                                        je    .Lx123_2
                         call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx129_3]
-                        lea              rdx, [rip + .Lx129_4]
+                        lea              rcx, [rip + .Lx123_3]
+                        lea              rdx, [rip + .Lx123_4]
                                                                                         jmp   rax
-.Lx129_3:
+.Lx123_3:
                         call             rt_proc_call_epilogue_γ@PLT
                         mov              rdi, rax
                         mov              rsi, rdx
                         call             rt_dcap_step@PLT
-                                                                                        jmp   .Lx129_1
-.Lx129_4:
+                                                                                        jmp   .Lx123_1
+.Lx123_4:
                         call             rt_proc_call_epilogue_ω@PLT
                         mov              rdi, rax
                         mov              rsi, rdx
                         call             rt_dcap_step@PLT
-                                                                                        jmp   .Lx129_1
-.Lx129_2:
+                                                                                        jmp   .Lx123_1
+.Lx123_2:
                         call             rt_dcap_end_ok_close@PLT
                         add              rsp, 8
                         pop              r13
                         pop              r15
                         pop              r14
                         mov              r10, qword ptr [1879048192]
-.Lx129_6:
+.Lx123_6:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
-                                                                                        jne   .Lx129_6
+                                                                                        jne   .Lx123_6
                         mov              qword ptr [1879048192], r10
                         mov              r13, qword ptr [rbp + 64]                      # outer_Σ
                         mov              r14, qword ptr [rbp + 72]                      # outer_δ
@@ -1012,43 +1035,43 @@ n76_match_end_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                                                                                        jmp   n77_statement_end_α
+                                                                                        jmp   n71_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n77_statement_end_α:
+n71_statement_end_α:
                         mov              rbp, qword ptr [rbp + 56]                      # old_rbp
                         add              rsp, 144
-                                                                                        jmp   n78_statement_begin_α
+                                                                                        jmp   n72_statement_begin_α
 #=======================================================================================================================
 #                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n78_statement_begin_α:
-                                                                                        jmp   n79_lit_string_α
+n72_statement_begin_α:
+                                                                                        jmp   n73_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n79_lit_string_α:
+n73_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 14
-                        mov              rax, qword ptr [rip + .Lx134_0]
+                        mov              rax, qword ptr [rip + .Lx128_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n80_var_α
-.Lx134_0:
-                        .quad            .Lx134_0_s
-.Lx134_0_s:
+                                                                                        jmp   n74_var_α
+.Lx128_0:
+                        .quad            .Lx128_0_s
+.Lx128_0_s:
                         .string          "matched bytes="
 #-----------------------------------------------------------------------------------------------------------------------
-n80_var_α:
+n74_var_α:
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # src
                         mov              rdx, qword ptr [1879052296]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n81_call_α
-n80_var_β:
+                                                                                        jmp   n75_call_α
+n74_var_β:
                         add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n81_call_α:
+n75_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
                         mov              r10, qword ptr [rsp + 32]
@@ -1056,27 +1079,27 @@ n81_call_α:
                         mov              qword ptr [rsp + 0], r10
                         mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfnzd137:            .string          "SIZE"
+.Lrkfnzd131:            .string          "SIZE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd137]                       # fn
+                        lea              rdi, [rip + .Lrkfnzd131]                       # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
                         cmp              eax, 104
-                                                                                        jne   .Lx136_240
+                                                                                        jne   .Lx130_240
                         add              rsp, 16
-                                                                                        jmp   n80_var_β
-.Lx136_240:
+                                                                                        jmp   n74_var_β
+.Lx130_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n82_binop_α
-n81_call_β:
+                                                                                        jmp   n76_binop_α
+n75_call_β:
                         add              rsp, 16
-                                                                                        jmp   n80_var_β
+                                                                                        jmp   n74_var_β
 #-----------------------------------------------------------------------------------------------------------------------
-n82_binop_α:
+n76_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 48]                      # lit_string
                         mov              rsi, qword ptr [rsp + 56]                      # a
@@ -1085,61 +1108,61 @@ n82_binop_α:
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n83_assign_α
-n82_binop_β:
+                                                                                        jmp   n77_assign_α
+n76_binop_β:
                         add              rsp, 32
-                                                                                        jmp   n80_var_β
+                                                                                        jmp   n74_var_β
 #-----------------------------------------------------------------------------------------------------------------------
-n83_assign_α:
+n77_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx139_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx133_0]                # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n84_statement_end_α
-.Lx139_0:
-                        .quad            .Lx139_0_s
-.Lx139_0_s:
+                                                                                        jmp   n78_statement_end_α
+.Lx133_0:
+                        .quad            .Lx133_0_s
+.Lx133_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n84_statement_end_α:
+n78_statement_end_α:
                         add              rsp, 64
                                                                                         jmp   main_γ
 #=======================================================================================================================
 # fail            OUTPUT          =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------
-n85_statement_begin_α:
-                                                                                        jmp   n86_lit_string_α
+n79_statement_begin_α:
+                                                                                        jmp   n80_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n86_lit_string_α:
+n80_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 20
-                        mov              rax, qword ptr [rip + .Lx144_0]
+                        mov              rax, qword ptr [rip + .Lx138_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n87_assign_α
-.Lx144_0:
-                        .quad            .Lx144_0_s
-.Lx144_0_s:
+                                                                                        jmp   n81_assign_α
+.Lx138_0:
+                        .quad            .Lx138_0_s
+.Lx138_0_s:
                         .string          "Pattern match failed"
 #-----------------------------------------------------------------------------------------------------------------------
-n87_assign_α:
+n81_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx145_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx139_0]                # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n88_statement_end_α
-.Lx145_0:
-                        .quad            .Lx145_0_s
-.Lx145_0_s:
+                                                                                        jmp   n82_statement_end_α
+.Lx139_0:
+                        .quad            .Lx139_0_s
+.Lx139_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n88_statement_end_α:
+n82_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n89_goto_α:
-                                                                                        jmp   n85_statement_begin_α
-n89_goto_β:
+n83_goto_α:
+                                                                                        jmp   n79_statement_begin_α
+n83_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
@@ -1164,7 +1187,7 @@ main_ω:
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
+                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
                         .byte            1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -1181,7 +1204,7 @@ main_ω:
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+                        .byte            1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
                         .byte            0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
                         .byte            1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
