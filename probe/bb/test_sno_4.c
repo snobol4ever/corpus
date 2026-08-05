@@ -74,28 +74,32 @@ __kernel void snobol(__global const char * Σ) {
                 LEN1 = str(Σ+Δ, 1); Δ += 1;         goto LEN1_γ;
     LEN1_β:     Δ -= 1;                             goto LEN1_ω;
     /*------------------------------------------------------------------------*/
-    /*  ALTERNATE — one per-iteration datum: which arm is live                 */
+    /*  ALTERNATE — NO BOX.  3 of its 4 ports are WIRING (proved 2026-08-05b,  */
+    /*  FINDING-...-ALT-SHELL-IS-WIRING).  Arms wire straight to the consumer, */
+    /*  which HERE IS THE CAPTURE, not ARBNO — the collapse is consumer-blind. */
+    /*  The ONE surviving datum is alt_i: which arm is live.  It is NOT        */
+    /*  wiring — see cap_β below and the FINDING's exhaustion table.           */
     /*------------------------------------------------------------------------*/
-    alt_α:      ζ->alt_i = 1;                       goto BIRD_α;
-    alt_β:      if (ζ->alt_i == 1)                  goto BIRD_β;
-                if (ζ->alt_i == 2)                  goto BLUE_β;
-                if (ζ->alt_i == 3)                  goto LEN1_β;
-                                                    goto alt_ω;
-    BIRD_γ:                                         goto alt_γ;
+    BIRD_γ:                                         goto cap_consume;
     BIRD_ω:     ζ->alt_i++;                         goto BLUE_α;
-    BLUE_γ:                                         goto alt_γ;
+    BLUE_γ:                                         goto cap_consume;
     BLUE_ω:     ζ->alt_i++;                         goto LEN1_α;
-    LEN1_γ:                                         goto alt_γ;
-    LEN1_ω:                                         goto alt_ω;
+    LEN1_γ:                                         goto cap_consume;
+    LEN1_ω:                                         goto cap_ω;
     /*------------------------------------------------------------------------*/
     /*  CAPTURE `.` — PUSH on gamma, POP on beta, COMMIT at match success      */
     /*------------------------------------------------------------------------*/
-    cap_α:      ζ->cap_Δ0 = Δ;                      goto alt_α;
-    alt_γ:      ζ->cap.val  = str(Σ + ζ->cap_Δ0, Δ - ζ->cap_Δ0);
+    cap_α:      ζ->cap_Δ0 = Δ; ζ->alt_i = 1;        goto BIRD_α;
+    cap_consume:
+                ζ->cap.val  = str(Σ + ζ->cap_Δ0, Δ - ζ->cap_Δ0);
                 ζ->cap.prev = cas_top;
                 cas_top     = &ζ->cap;              goto cap_γ;
-    cap_β:      cas_top     = ζ->cap.prev;          goto alt_β;
-    alt_ω:                                          goto cap_ω;
+    cap_β:      cas_top     = ζ->cap.prev;
+                /*  THE β SELECTOR — the one piece that is NOT wiring.        */
+                if (ζ->alt_i == 1)                  goto BIRD_β;
+                if (ζ->alt_i == 2)                  goto BLUE_β;
+                if (ζ->alt_i == 3)                  goto LEN1_β;
+                                                    goto cap_ω;
     /*------------------------------------------------------------------------*/
     /*  ARBNO — ONE datum: the cursor at alpha.  No accumulator, no counter,   */
     /*  no depth.  The result is DERIVED: str(Σ+Δ0, Δ-Δ0).                     */

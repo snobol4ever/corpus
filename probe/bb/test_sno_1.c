@@ -78,6 +78,9 @@ __kernel void snobol(
     inline str_t str(const char * σ, int δ) { return (str_t) {σ, δ}; }
     inline str_t cat(str_t x, str_t y) { return (str_t) {x.σ, x.δ + y.δ}; }
     /*------------------------------------------------------------------------*/
+    typedef struct _1 { int alt_i; } _1_t;
+    _1_t _slab[65];
+    _1_t * ζ = &_slab[0];
     int Δ = 0;
     int Ω = len(Σ);
     goto main1_α;
@@ -98,7 +101,8 @@ __kernel void snobol(
     /*  str(Σ+Δ0, Δ-Δ0) from the cursor saved at α -- never cat() onto a      */
     /*  running total.  γ is re-entered once per retry, so an accumulator     */
     /*  double-counts (measured: 11x, right answer by accident).  This is     */
-    /*  why the per-iteration cell is {int alt_i;} and nothing more.          */
+    /*  why the per-iteration cell is {int alt_i;} -- and why that ONE member  */
+    /*  survives the shell deletion below while the box itself does not.      */
     /*------------------------------------------------------------------------*/
     str_t       POS0;
     POS0_α:     if (Δ != 0)                         goto POS0_ω;
@@ -112,7 +116,7 @@ __kernel void snobol(
                 if (Σ[Δ+3] != 'd')                  goto BIRD_ω;
                 BIRD = str(Σ+Δ, 4);
                 Δ += 4;                             goto BIRD_γ;
-    BIRD_β:     Δ -= 4;                             goto BIRD_ω;
+    BIRD_β:     Δ -= 4;                             goto BLUE_α;
     /*------------------------------------------------------------------------*/
     str_t       BLUE;
     BLUE_α:     if (Σ[Δ+0] != 'B')                  goto BLUE_ω;
@@ -121,43 +125,100 @@ __kernel void snobol(
                 if (Σ[Δ+3] != 'e')                  goto BLUE_ω;
                 BLUE = str(Σ+Δ, 4);
                 Δ += 4;                             goto BLUE_γ;
-    BLUE_β:     Δ -= 4;                             goto BLUE_ω;
+    BLUE_β:     Δ -= 4;                             goto LEN1_α;
     /*------------------------------------------------------------------------*/
     str_t       LEN1;
     LEN1_α:     if (Δ+1 > Ω)                        goto LEN1_ω;
                 LEN1 = str(Σ+Δ,1); Δ+=1;            goto LEN1_γ;
-    LEN1_β:     Δ-=1;                               goto LEN1_ω;
+    LEN1_β:     Δ-=1;                               goto ARBNO_retract;
     /*------------------------------------------------------------------------*/
-    typedef struct _1 { int alt_i; } _1_t;
-    _1_t _1[64];
-    _1_t * ζ = &_1[0];
     /*------------------------------------------------------------------------*/
-    alt_α:      ζ->alt_i = 1;                       goto BIRD_α;
-    alt_β:      if (ζ->alt_i == 1)                  goto BIRD_β;
+    /*  ALTERNATION: 3 OF 4 PORTS ARE WIRING; THE β PORT IS NOT.              */
+    /*  (proved 2026-08-05b -- FINDING-2026-08-05b-...-ALT-SHELL-IS-WIRING)   */
+    /*                                                                        */
+    /*  The alt BOX is gone -- no ports, no cell, no label of its own.  Its    */
+    /*  arms wire DIRECTLY to the consumer, exactly as SEQUENCE's members do:  */
+    /*                                                                        */
+    /*      A_α → M1_α         (folded into the consumer's β edge)            */
+    /*      Mi_γ → A_γ         (A_γ IS the consumer's consumption site)       */
+    /*      Mi_ω → M(i+1)_α    (static chain)                                 */
+    /*      Mn_ω → A_ω         (A_ω IS the consumer's retract site)           */
+    /*                                                                        */
+    /*  ⭐ THE CHAIN IS β → NEXT α (Lon, 2026-08-05).  Mi_ω and Mi_β land on  */
+    /*  THE SAME TARGET -- one edge set, not two.  ω = "arm never matched,    */
+    /*  try next"; β = "arm matched, want another -- give back, try next".    */
+    /*  alt_i is written at γ (where the live arm is KNOWN), not walked       */
+    /*  forward by ++ at ω.  Measured 322→316 on the d0 probe vs the ω-chain. */
+    /*                                                                        */
+    /*  ⛔ BUT A_β IS NOT WIRING, AND THE COUNTER MUST STAY.  ARBNO's depth   */
+    /*  is UNBOUNDED and each live iteration bound a DIFFERENT alternative --  */
+    /*  that is why the cell array is _1[64] and not a scalar.  Static wiring  */
+    /*  is ONE copy of the code; it cannot carry N independent "which arm"     */
+    /*  facts.  The selector is DATA, not CONTROL.  Falsified by exhaustion    */
+    /*  over the closed target set {arm1, arm2, arm3, ω} × two probes whose    */
+    /*  live arm differs: perfect diagonal, no static choice passes both.      */
+    /*                                                                        */
+    /*  ⛔⛔ AND NOTE WHOSE CELL THAT IS.  `struct _1` has ONE member, alt_i.  */
+    /*  ARBNO's own state (ARBNO_i, ARBNO_Δ0) is SCALARS, outside the array.   */
+    /*  _1[64] exists SOLELY for the alternation -- delete alt_i and the whole */
+    /*  array goes with it.  So by this tree's operative definition of a box   */
+    /*  (owns a claim at unbounded depth -- what zls_grant_locals decides),    */
+    /*  ⭐ ALT *IS* A BOX.  What the deletion below removes is its DISPATCH    */
+    /*  SURFACE (3 of 4 ports), not its boxhood.  ⚠ An emitter rung that       */
+    /*  drops IR_MATCH_ALT as a KIND while keeping this datum leaves the claim */
+    /*  UNOWNED -- the SE-6 defect verbatim.  Keep a claim authority.          */
+    /*  (Contrast test_sno_4.c: there the cell is `_iter{alt_i;cap_Δ0;cap;}`   */
+    /*  and the CAPTURE claims at the same depth regardless, so there -- and   */
+    /*  only there -- alt_i genuinely rides along in someone else's claim.)    */
+    /*                                                                        */
+    /*  ⚠ THIS FILE CANNOT PROVE THAT -- ITS β SELECTOR FIRES ZERO TIMES.     */
+    /*  The greedy path succeeds, so backtracking reaches ARBNO_β (extend),   */
+    /*  never the retract.  ALL FOUR static wirings pass this probe.  Use     */
+    /*  test_sno_alt_d0.c (resumes arm 2) and test_sno_alt_d5.c (resumes      */
+    /*  arm 1) -- those are the probes that discriminate.                      */
+    BIRD_γ:     ζ->alt_i = 1;                       goto ARBNO_γ;
+    BIRD_ω:                                         goto BLUE_α;
+    BLUE_γ:     ζ->alt_i = 2;                       goto ARBNO_γ;
+    BLUE_ω:                                         goto LEN1_α;
+    LEN1_γ:     ζ->alt_i = 3;                       goto ARBNO_γ;
+    LEN1_ω:                                         goto ARBNO_retract;
+    /*------------------------------------------------------------------------*/
+    /*  ⭐⭐ ARBNO — ZERO LOCAL STORAGE.  PROVED BY DELETION 2026-08-05.       */
+    /*  Gone: ARBNO_Δ0 (the capture derives from ITS OWN entry cursor, per     */
+    /*  DERIVE-DON'T-ACCUMULATE), ARBNO_i (the depth WAS the frontier), and    */
+    /*  the ARBNO result member (derived, never stored).  What is left:        */
+    /*      α  — a PURE EDGE, no work at all (the shy null match)             */
+    /*      β  — ζ++  : that is ALT's GRANT, on the sole edge into ALT        */
+    /*      retract — ζ-- : ALT's RELEASE, then a COMPILE-TIME-CONSTANT base  */
+    /*      compare (`ζ == &_slab[0]`, an addressing constant, not a datum),  */
+    /*      then ALT's OWN selector.                                          */
+    /*  ⭐ ARBNO OWNS ZERO BYTES.  Every datum it touches belongs to ALT.      */
+    /*  341 → 312 insns (-O0) for this program, oracle-exact.                 */
+    /*                                                                        */
+    /*  ⚠ SCOPE — SINGLE-ENTRY ONLY.  α is a pure edge because the frontier   */
+    /*  is at base on entry.  On the ω path that SELF-RESTORES (the retract    */
+    /*  walks ζ back to base exactly when ARBNO_ω fires — measured).  On the   */
+    /*  γ path cells stay LIVE BY DESIGN (ARBNO must be resumable) — measured  */
+    /*  frontier offset 10 at success exit.  So RE-ENTRY after a γ-exit needs  */
+    /*  a caller-side restore: PLAN.md's "free-delineation: CALLER-side, both  */
+    /*  γ/ω return edges."  NESTED ARBNO IS NOT PROVED HERE and is the live    */
+    /*  SEQ-ERAD defect (H24 H25 X02 X06 X11).                                */
+    ARBNO_α:                                        goto ARBNO_γ;
+    ARBNO_β:    ζ++;                                goto BIRD_α;
+    ARBNO_retract:
+                ζ--;
+                if (ζ == &_slab[0])                 goto ARBNO_ω;
+                if (ζ->alt_i == 1)                  goto BIRD_β;
                 if (ζ->alt_i == 2)                  goto BLUE_β;
                 if (ζ->alt_i == 3)                  goto LEN1_β;
-                                                    goto alt_ω;
-    BIRD_γ:                                         goto alt_γ;
-    BIRD_ω:     ζ->alt_i++;                         goto BLUE_α;
-    BLUE_γ:                                         goto alt_γ;
-    BLUE_ω:     ζ->alt_i++;                         goto LEN1_α;
-    LEN1_γ:                                         goto alt_γ;
-    LEN1_ω:                                         goto alt_ω;
-    /*------------------------------------------------------------------------*/
-    str_t       ARBNO;
-    int         ARBNO_i;
-    int         ARBNO_Δ0;
-    ARBNO_α:    ARBNO_Δ0 = Δ; ARBNO_i = -1;
-                ARBNO = str(Σ+ARBNO_Δ0, 0);         goto ARBNO_γ;
-    ARBNO_β:    ζ = &_1[++ARBNO_i];                 goto alt_α;
-    alt_γ:      ARBNO = str(Σ+ARBNO_Δ0,Δ-ARBNO_Δ0); goto ARBNO_γ;
-    alt_ω:      if (ARBNO_i <= 0)                   goto ARBNO_ω;
-                ζ = &_1[--ARBNO_i];                 goto alt_β;
+                                                    goto ARBNO_retract;
     /*------------------------------------------------------------------------*/
     str_t       assign;
-    assign_α:                                       goto ARBNO_α;
+    int         assign_Δ0;
+    assign_α:   assign_Δ0 = Δ;                      goto ARBNO_α;
     assign_β:                                       goto ARBNO_β;
-    ARBNO_γ:    assign = write_str(out, ARBNO);     goto assign_γ;
+    ARBNO_γ:    assign = write_str(out,
+                    str(Σ+assign_Δ0, Δ-assign_Δ0)); goto assign_γ;
     ARBNO_ω:                                        goto assign_ω;
     /*------------------------------------------------------------------------*/
     str_t       RPOS0;
