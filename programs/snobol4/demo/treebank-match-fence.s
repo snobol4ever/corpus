@@ -841,27 +841,27 @@ n39_match_arbno_α:
 n39_match_arbno_β:
                         mov              r14d, dword ptr [rbp + 68]
                         mov              rax, qword ptr [rbp + 80]
-                        sub              rsp, 64
+                        sub              rsp, 144
                         mov              qword ptr [rsp + 0], rbp
                         mov              qword ptr [rsp + 8], r14
                         mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rbp + 80], rsp
                         mov              rbp, rsp
-                        add              rbp, -152
+                        add              rbp, -72
                                                                                         jmp   n42_match_arbno_α
 n39_match_arbno_as:
-                        mov              eax, dword ptr [rbp + 160]
+                        mov              eax, dword ptr [rbp + 80]
                         cmp              r14d, eax
                                                                                         je    n39_match_arbno_af
-                        mov              rbp, qword ptr [rbp + 152]
+                        mov              rbp, qword ptr [rbp + 72]
                         mov              eax, dword ptr [rbp + 72]
                         add              eax, 1
                         mov              dword ptr [rbp + 72], eax
                         mov              dword ptr [rbp + 68], r14d
                                                                                         jmp   n40_lit_integer_α
 n39_match_arbno_af:
-                        mov              rax, qword ptr [rbp + 168]
-                        mov              rdx, qword ptr [rbp + 152]
+                        mov              rax, qword ptr [rbp + 88]
+                        mov              rdx, qword ptr [rbp + 72]
                         lea              rsp, [rbp + 216]
                         mov              rbp, rdx
                         mov              ecx, dword ptr [rbp + 72]
@@ -870,7 +870,7 @@ n39_match_arbno_af:
                         sub              ecx, 1
                         mov              dword ptr [rbp + 72], ecx
                         mov              qword ptr [rbp + 80], rax
-                        lea              rbp, [rax + -152]
+                        lea              rbp, [rax + -72]
                                                                                         jmp   n39_match_arbno_af
 .Lx48_2:
                         mov              r14d, dword ptr [rbp + 64]
