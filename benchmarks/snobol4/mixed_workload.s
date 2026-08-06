@@ -8,6 +8,8 @@ proc_LBL__RSUM_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:
                                                                                         jmp   n1_var_α
+n0_statement_begin_β:
+                                                                                        jmp   n10_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:
                         sub              rsp, 16
@@ -141,6 +143,8 @@ n9_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n10_statement_begin_α:
                                                                                         jmp   n11_var_α
+n10_statement_begin_β:
+                                                                                        jmp   n19_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_var_α:
                         sub              rsp, 16
@@ -657,6 +661,8 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n69_statement_begin_α:
                                                                                         jmp   n70_lit_string_α
+n69_statement_begin_β:
+                                                                                        jmp   n74_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n70_lit_string_α:
                         sub              rsp, 16
@@ -723,6 +729,8 @@ n73_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n74_statement_begin_α:
                                                                                         jmp   n75_lit_string_α
+n74_statement_begin_β:
+                                                                                        jmp   n79_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n75_lit_string_α:
                         sub              rsp, 16
@@ -789,12 +797,16 @@ n78_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n79_statement_begin_α:
                                                                                         jmp   n80_statement_end_α
+n79_statement_begin_β:
+                                                                                        jmp   n81_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n80_statement_end_α:
                                                                                         jmp   n81_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n81_statement_begin_α:
                                                                                         jmp   n82_statement_end_α
+n81_statement_begin_β:
+                                                                                        jmp   n83_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n82_statement_end_α:
                                                                                         jmp   n83_statement_begin_α
@@ -803,6 +815,8 @@ n82_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n83_statement_begin_α:
                                                                                         jmp   n84_lit_string_α
+n83_statement_begin_β:
+                                                                                        jmp   n88_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n84_lit_string_α:
                         sub              rsp, 16
@@ -857,6 +871,8 @@ n87_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n88_statement_begin_α:
                                                                                         jmp   n89_call_α
+n88_statement_begin_β:
+                                                                                        jmp   n92_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n89_call_α:
                         sub              rsp, 16
@@ -895,6 +911,8 @@ n91_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n92_statement_begin_α:
                                                                                         jmp   n93_lit_integer_α
+n92_statement_begin_β:
+                                                                                        jmp   n96_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n93_lit_integer_α:
                         sub              rsp, 16
@@ -920,6 +938,8 @@ n95_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n96_statement_begin_α:
                                                                                         jmp   n97_lit_integer_α
+n96_statement_begin_β:
+                                                                                        jmp   n101_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n97_lit_integer_α:
                         sub              rsp, 16
@@ -971,6 +991,8 @@ n100_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n101_statement_begin_α:
                                                                                         jmp   n102_lit_string_α
+n101_statement_begin_β:
+                                                                                        jmp   n105_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n102_lit_string_α:
                         sub              rsp, 16
@@ -999,6 +1021,8 @@ n104_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n105_statement_begin_α:
                                                                                         jmp   n106_lit_integer_α
+n105_statement_begin_β:
+                                                                                        jmp   n109_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n106_lit_integer_α:
                         sub              rsp, 16
@@ -1024,6 +1048,8 @@ n108_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n109_statement_begin_α:
                                                                                         jmp   n110_var_α
+n109_statement_begin_β:
+                                                                                        jmp   n132_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n110_var_α:
                         sub              rsp, 176
@@ -1056,16 +1082,15 @@ n110_var_α:
                                                                                         jmp   n111_match_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n111_match_begin_α:
-                        mov              qword ptr [rsp + 56], rbp                      # old_rbp
-                        mov              rbp, rsp                                       # stmt_base
-                        mov              qword ptr [rbp + 64], r13                      # outer_Σ
-                        mov              qword ptr [rbp + 72], r14                      # outer_δ
-                        mov              qword ptr [rbp + 80], r15                      # outer_Δ
+                        mov              qword ptr [rbp + 736], r13                     # outer_Σ
+                        mov              qword ptr [rbp + 744], r14                     # outer_δ
+                        mov              qword ptr [rbp + 752], r15                     # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 88], rax                      # cap_gen
-                        mov              rdi, qword ptr [rsp + 160]                     # lo
-                        mov              rsi, qword ptr [rsp + 168]                     # hi
+                        mov              qword ptr [rbp + 760], rax                     # cap_gen
+                        mov              qword ptr [rbp + 728], rbp                     # old_rbp
+                        mov              rdi, qword ptr [rbp + 832]                     # lo
+                        mov              rsi, qword ptr [rbp + 840]                     # hi
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -1077,17 +1102,17 @@ n111_match_begin_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 32], rsp                      # zls2_mark
+                        mov              qword ptr [rbp + 704], rsp                     # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 24], rax                      # patstk_mark
-                        mov              dword ptr [rbp + 16], 0                        # start_δ
+                        mov              qword ptr [rbp + 696], rax                     # patstk_mark
+                        mov              dword ptr [rbp + 688], 0                       # start_δ
 .Lx292_0:
-                        mov              r14d, dword ptr [rbp + 16]
+                        mov              r14d, dword ptr [rbp + 688]
                                                                                         jmp   n112_match_patref_α
 n111_match_begin_β:
-                        add              dword ptr [rbp + 16], 1
-                        mov              eax, dword ptr [rbp + 16]
+                        add              dword ptr [rbp + 688], 1
+                        mov              eax, dword ptr [rbp + 688]
                         cmp              eax, r15d
                                                                                         jg    .Lx292_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -1096,10 +1121,10 @@ n111_match_begin_β:
                                                                                         jne   .Lx292_1
                                                                                         jmp   .Lx292_0
 .Lx292_1:
-                        mov              rax, qword ptr [rbp + 24]                      # patstk_mark
+                        mov              rax, qword ptr [rbp + 696]                     # patstk_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rbp + 32]
+                        mov              rsp, qword ptr [rbp + 704]
                         mov              r10, qword ptr [1879048192]
 .Lx292_2:
                         sub              r10, 24
@@ -1107,14 +1132,14 @@ n111_match_begin_β:
                         test             rax, rax
                                                                                         jne   .Lx292_2
                         mov              qword ptr [1879048192], r10
-                        mov              r13, qword ptr [rbp + 64]                      # outer_Σ
-                        mov              r14, qword ptr [rbp + 72]                      # outer_δ
-                        mov              r15, qword ptr [rbp + 80]                      # outer_Δ
+                        mov              r13, qword ptr [rbp + 736]                     # outer_Σ
+                        mov              r14, qword ptr [rbp + 744]                     # outer_δ
+                        mov              r15, qword ptr [rbp + 752]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 88]                      # cap_gen
+                        mov              rdx, qword ptr [rbp + 760]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
+                        mov              rbp, qword ptr [rbp + 728]                     # old_rbp
                         add              rsp, 176
                                                                                         jmp   n132_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1148,7 +1173,7 @@ n112_match_patref_α:
 .Lx293_4:
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rbp + 16], eax
+                        mov              dword ptr [rbp + 688], eax
                                                                                         jmp   n113_match_end_α
 .Lx293_5:
                                                                                         jmp   n111_match_begin_β
@@ -1200,11 +1225,11 @@ n112_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n113_match_end_α:
-                        mov              rax, qword ptr [rbp + 24]
+                        mov              rax, qword ptr [rbp + 696]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
-                        mov              qword ptr [rbp + 40], r14
-                        mov              rsp, qword ptr [rbp + 32]
+                        mov              qword ptr [rbp + 712], r14
+                        mov              rsp, qword ptr [rbp + 704]
                         push             r14
                         push             r15
                         push             r13
@@ -1251,12 +1276,12 @@ n113_match_end_α:
                         test             rax, rax
                                                                                         jne   .Lx295_6
                         mov              qword ptr [1879048192], r10
-                        mov              r13, qword ptr [rbp + 64]                      # outer_Σ
-                        mov              r14, qword ptr [rbp + 72]                      # outer_δ
-                        mov              r15, qword ptr [rbp + 80]                      # outer_Δ
+                        mov              r13, qword ptr [rbp + 736]                     # outer_Σ
+                        mov              r14, qword ptr [rbp + 744]                     # outer_δ
+                        mov              r15, qword ptr [rbp + 752]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 88]                      # cap_gen
+                        mov              rdx, qword ptr [rbp + 760]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                                                                                         jmp   n114_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1273,11 +1298,11 @@ n114_lit_string_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n115_match_replace_α:
                         mov              rdi, qword ptr [rip + .Lx298_0]                # name
-                        mov              rsi, qword ptr [rbp + 160]                     # sub_lo
-                        mov              rdx, qword ptr [rbp + 168]                     # sub_hi
-                        mov              ecx, dword ptr [rbp + 16]                      # start
-                        mov              r8, qword ptr [rbp + 40]                       # end
-                        lea              r9, [rbp + 112]                                # replp
+                        mov              rsi, qword ptr [rbp + 832]                     # sub_lo
+                        mov              rdx, qword ptr [rbp + 840]                     # sub_hi
+                        mov              ecx, dword ptr [rbp + 688]                     # start
+                        mov              r8, qword ptr [rbp + 712]                      # end
+                        lea              r9, [rbp + 784]                                # replp
                         call             rt_match_replace@PLT
                                                                                         jmp   .Lx298_1
 .Lx298_0:
@@ -1285,10 +1310,10 @@ n115_match_replace_α:
 .Lx298_0_s:
                         .string          "DATA"
 .Lx298_1:
+                        mov              rbp, qword ptr [rbp + 728]                     # old_rbp
                                                                                         jmp   n116_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n116_statement_end_α:
-                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
                         add              rsp, 176
                                                                                         jmp   n117_statement_begin_α
 #=======================================================================================================================
@@ -1296,6 +1321,8 @@ n116_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n117_statement_begin_α:
                                                                                         jmp   n118_var_α
+n117_statement_begin_β:
+                                                                                        jmp   n123_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n118_var_α:
                         sub              rsp, 16
@@ -1352,6 +1379,8 @@ n122_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n123_statement_begin_α:
                                                                                         jmp   n124_var_α
+n123_statement_begin_β:
+                                                                                        jmp   n109_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n124_var_α:
                         sub              rsp, 16
@@ -1458,6 +1487,8 @@ n131_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n132_statement_begin_α:
                                                                                         jmp   n133_lit_integer_α
+n132_statement_begin_β:
+                                                                                        jmp   n136_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n133_lit_integer_α:
                         sub              rsp, 16
@@ -1483,6 +1514,8 @@ n135_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n136_statement_begin_α:
                                                                                         jmp   n137_lit_integer_α
+n136_statement_begin_β:
+                                                                                        jmp   n140_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n137_lit_integer_α:
                         sub              rsp, 16
@@ -1508,6 +1541,8 @@ n139_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n140_statement_begin_α:
                                                                                         jmp   n141_var_α
+n140_statement_begin_β:
+                                                                                        jmp   n161_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n141_var_α:
                         sub              rsp, 16
@@ -1671,6 +1706,8 @@ n151_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n152_statement_begin_α:
                                                                                         jmp   n153_var_α
+n152_statement_begin_β:
+                                                                                        jmp   n140_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n153_var_α:
                         sub              rsp, 16
@@ -1773,6 +1810,8 @@ n160_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n161_statement_begin_α:
                                                                                         jmp   n162_lit_integer_α
+n161_statement_begin_β:
+                                                                                        jmp   n166_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n162_lit_integer_α:
                         sub              rsp, 16
@@ -1871,6 +1910,8 @@ n165_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n166_statement_begin_α:
                                                                                         jmp   n167_var_α
+n166_statement_begin_β:
+                                                                                        jmp   n178_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n167_var_α:
                         sub              rsp, 16
@@ -2035,6 +2076,8 @@ n177_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n178_statement_begin_α:
                                                                                         jmp   n179_call_α
+n178_statement_begin_β:
+                                                                                        jmp   n182_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n179_call_α:
                         sub              rsp, 16
@@ -2073,6 +2116,8 @@ n181_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n182_statement_begin_α:
                                                                                         jmp   n183_lit_string_α
+n182_statement_begin_β:
+                                                                                        jmp   n188_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n183_lit_string_α:
                         sub              rsp, 16
@@ -2131,6 +2176,8 @@ n187_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n188_statement_begin_α:
                                                                                         jmp   n189_lit_string_α
+n188_statement_begin_β:
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n189_lit_string_α:
                         sub              rsp, 16
@@ -2224,6 +2271,8 @@ n196_goto_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n197_statement_begin_α:
                                                                                         jmp   n198_var_α
+n197_statement_begin_β:
+                                                                                        jmp   n207_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n198_var_α:
                         sub              rsp, 16
@@ -2357,6 +2406,8 @@ n206_statement_end_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n207_statement_begin_α:
                                                                                         jmp   n208_var_α
+n207_statement_begin_β:
+                                                                                        jmp   n216_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n208_var_α:
                         sub              rsp, 16
