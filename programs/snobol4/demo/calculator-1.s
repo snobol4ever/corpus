@@ -730,11 +730,7 @@ n100_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx126_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx126_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 464]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 472]                     # outer_δ
                         mov              r15, qword ptr [rbp + 480]                     # outer_Δ
@@ -8909,11 +8905,7 @@ n949_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx1491_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx1491_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 4272]                    # outer_Σ
                         mov              r14, qword ptr [rbp + 4280]                    # outer_δ
                         mov              r15, qword ptr [rbp + 4288]                    # outer_Δ
@@ -9881,11 +9873,7 @@ n1025_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx1599_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx1599_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 464]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 472]                     # outer_δ
                         mov              r15, qword ptr [rbp + 480]                     # outer_Δ

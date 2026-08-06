@@ -10349,11 +10349,7 @@ n1221_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx1761_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx1761_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 160]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 168]                     # outer_δ
                         mov              r15, qword ptr [rbp + 176]                     # outer_Δ
@@ -11279,11 +11275,7 @@ n1329_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx1957_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx1957_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 5840]                    # outer_Σ
                         mov              r14, qword ptr [rbp + 5848]                    # outer_δ
                         mov              r15, qword ptr [rbp + 5856]                    # outer_Δ

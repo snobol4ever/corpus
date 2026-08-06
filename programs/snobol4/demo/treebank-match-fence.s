@@ -1936,11 +1936,7 @@ n97_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx174_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx174_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 624]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 632]                     # outer_δ
                         mov              r15, qword ptr [rbp + 640]                     # outer_Δ

@@ -1010,11 +1010,7 @@ n68_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
-.Lx121_6:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx121_6
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 432]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 440]                     # outer_δ
                         mov              r15, qword ptr [rbp + 448]                     # outer_Δ
