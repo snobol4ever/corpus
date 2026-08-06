@@ -851,9 +851,6 @@ n66_match_begin_α:
                         mov              qword ptr [r12 + 16], rax                      # cas_patstk
                         add              r12, 24                                        # cas_top
                         mov              qword ptr [rbp + 400], rsp                     # zls2_mark
-                        lea              rcx, [rip + g_patstk_sp]
-                        mov              rax, qword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 392], rax                     # patstk_mark
                         mov              dword ptr [rbp + 384], 0                       # start_δ
 .Lx118_0:
                         mov              r14d, dword ptr [rbp + 384]
@@ -869,11 +866,11 @@ n66_match_begin_β:
                                                                                         jne   .Lx118_1
                                                                                         jmp   .Lx118_0
 .Lx118_1:
-                        mov              rax, qword ptr [rbp + 392]                     # patstk_mark
+                        sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 16]                      # cas_patstk
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 400]
-                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 432]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 440]                     # outer_δ
                         mov              r15, qword ptr [rbp + 448]                     # outer_Δ
@@ -967,7 +964,13 @@ n67_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n68_match_end_α:
-                        mov              rax, qword ptr [rbp + 392]
+                        mov              r10, r12
+.Lx121_9:
+                        sub              r10, 24
+                        mov              rax, qword ptr [r10 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx121_9
+                        mov              rax, qword ptr [r10 + 16]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 400]
