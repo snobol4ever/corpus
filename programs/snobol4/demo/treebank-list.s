@@ -10229,11 +10229,7 @@ n1215_match_begin_β:
                                                                                         jne   .Lx1752_1
                                                                                         jmp   .Lx1752_0
 .Lx1752_1:
-.Lx1752_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx1752_2
+                        sub              r12, 24                                        # cas_mark
                         mov              rax, qword ptr [r12 + 16]                      # cas_patstk
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -11156,11 +11152,7 @@ n1327_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 5808]
-.Lx1954_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx1954_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 5840]                    # outer_Σ
                         mov              r14, qword ptr [rbp + 5848]                    # outer_δ
                         mov              r15, qword ptr [rbp + 5856]                    # outer_Δ

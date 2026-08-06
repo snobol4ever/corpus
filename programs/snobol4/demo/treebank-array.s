@@ -10840,11 +10840,7 @@ n1462_match_begin_β:
                                                                                         jne   .Lx2186_1
                                                                                         jmp   .Lx2186_0
 .Lx2186_1:
-.Lx2186_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx2186_2
+                        sub              r12, 24                                        # cas_mark
                         mov              rax, qword ptr [r12 + 16]                      # cas_patstk
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -12112,11 +12108,7 @@ n1598_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 7312]
-.Lx2427_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx2427_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 7344]                    # outer_Σ
                         mov              r14, qword ptr [rbp + 7352]                    # outer_δ
                         mov              r15, qword ptr [rbp + 7360]                    # outer_Δ
@@ -12468,11 +12460,7 @@ n1611_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 7536]
-.Lx2448_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx2448_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 7568]                    # outer_Σ
                         mov              r14, qword ptr [rbp + 7576]                    # outer_δ
                         mov              r15, qword ptr [rbp + 7584]                    # outer_Δ

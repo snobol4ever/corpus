@@ -873,11 +873,7 @@ n66_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 400]
-.Lx118_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx118_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 432]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 440]                     # outer_δ
                         mov              r15, qword ptr [rbp + 448]                     # outer_Δ

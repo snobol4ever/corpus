@@ -87,11 +87,7 @@ n2_match_begin_β:
                                                                                         jne   .Lx41_1
                                                                                         jmp   .Lx41_0
 .Lx41_1:
-.Lx41_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx41_2
+                        sub              r12, 24                                        # cas_mark
                         mov              rax, qword ptr [r12 + 16]                      # cas_patstk
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -357,11 +353,7 @@ n16_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 288]
-.Lx64_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx64_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 320]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 328]                     # outer_δ
                         mov              r15, qword ptr [rbp + 336]                     # outer_Δ
@@ -2085,11 +2077,7 @@ n204_match_begin_β:
                                                                                         jne   .Lx329_1
                                                                                         jmp   .Lx329_0
 .Lx329_1:
-.Lx329_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx329_2
+                        sub              r12, 24                                        # cas_mark
                         mov              rax, qword ptr [r12 + 16]                      # cas_patstk
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -2355,11 +2343,7 @@ n218_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 288]
-.Lx352_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx352_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 320]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 328]                     # outer_δ
                         mov              r15, qword ptr [rbp + 336]                     # outer_Δ

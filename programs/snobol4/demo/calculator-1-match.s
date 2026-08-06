@@ -3234,11 +3234,7 @@ n175_match_begin_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 848]
-.Lx282_2:
-                        sub              r12, 24
-                        mov              rax, qword ptr [r12 + 0]
-                        test             rax, rax
-                                                                                        jne   .Lx282_2
+                        sub              r12, 24                                        # cas_mark
                         mov              r13, qword ptr [rbp + 880]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 888]                     # outer_δ
                         mov              r15, qword ptr [rbp + 896]                     # outer_Δ
