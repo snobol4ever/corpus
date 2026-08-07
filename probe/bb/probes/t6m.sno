@@ -1,0 +1,5 @@
+ S = ','
+ S FENCE(BREAK(',') | REM) $ W *DIFFER(W) :S(A)F(B)
+A OUTPUT = 't6m MATCH ' W :(END)
+B OUTPUT = 't6m FAIL'
+END

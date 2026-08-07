@@ -1,0 +1,59 @@
+* T1 FENCE0 first-position anchor: 'BCD' ? FENCE 'C' must FAIL (anchors)
+ S1 = 'BCD'
+ S1 'C'                          :S(T1A)F(T1B)
+T1A OUTPUT = 'T1-plain: MATCH'   :(T1C)
+T1B OUTPUT = 'T1-plain: FAIL'
+T1C S1 FENCE 'C'                 :S(T1D)F(T1E)
+T1D OUTPUT = 'T1-fence: MATCH'   :(T2)
+T1E OUTPUT = 'T1-fence: FAIL'
+* T2 FENCE0 interior: backup through it aborts attempt, no anchor advance
+T2 S2 = 'ZXQ'
+ S2 ('X' | 'Z') 'Q'              :S(T2A)F(T2B)
+T2A OUTPUT = 'T2-plain: MATCH'   :(T2C)
+T2B OUTPUT = 'T2-plain: FAIL'
+T2C S2 ('X' | 'Z') FENCE 'Q'     :S(T2D)F(T2E)
+T2D OUTPUT = 'T2-fence: MATCH'   :(T3)
+T2E OUTPUT = 'T2-fence: FAIL'
+* T3 FENCE1 cuts alternatives INSIDE P on backup
+T3 S3 = 'ABC'
+ S3 ('AB' | 'A') 'BC'            :S(T3A)F(T3B)
+T3A OUTPUT = 'T3-plain: MATCH'   :(T3C)
+T3B OUTPUT = 'T3-plain: FAIL'
+T3C S3 FENCE('AB' | 'A') 'BC'    :S(T3D)F(T3E)
+T3D OUTPUT = 'T3-fence: MATCH'   :(T4)
+T3E OUTPUT = 'T3-fence: FAIL'
+* T4 FENCE1 backup PASSES THROUGH: left alternatives stay live
+T4 S4 = 'AAB'
+ S4 ('AA' | 'A') 'AB'            :S(T4A)F(T4B)
+T4A OUTPUT = 'T4-plain: MATCH'   :(T4C)
+T4B OUTPUT = 'T4-plain: FAIL'
+T4C S4 ('AA' | 'A') FENCE('') 'AB'  :S(T4D)F(T4E)
+T4D OUTPUT = 'T4-fence: MATCH'   :(T5)
+T4E OUTPUT = 'T4-fence: FAIL'
+* T5 FENCE1 FORWARD failure of P is a normal element failure: left retried
+T5 S5 = 'XAY'
+ S5 ('XA' | 'X') 'A' 'Y'         :S(T5A)F(T5B)
+T5A OUTPUT = 'T5-plain: MATCH'   :(T5C)
+T5B OUTPUT = 'T5-plain: FAIL'
+T5C S5 ('XA' | 'X') FENCE('A') 'Y'  :S(T5D)F(T5E)
+T5D OUTPUT = 'T5-fence: MATCH'   :(T6)
+T5E OUTPUT = 'T5-fence: FAIL'
+* T6 manual's own example, subject ',' discriminates
+T6 S6 = ','
+ S6 (BREAK(',') | REM) $ STR6 *DIFFER(STR6)  :S(T6A)F(T6B)
+T6A OUTPUT = 'T6-plain: MATCH'   :(T6C)
+T6B OUTPUT = 'T6-plain: FAIL'
+T6C S6 FENCE(BREAK(',') | REM) $ STR7 *DIFFER(STR7)  :S(T6D)F(T6E)
+T6D OUTPUT = 'T6-fence: MATCH'   :(T7)
+T6E OUTPUT = 'T6-fence: FAIL'
+* T7 captures inside FENCE1 survive the commit whack
+T7 S7 = 'abc'
+ S7 FENCE(('a' | 'x') . C1) (REM . C2)  :S(T7A)F(T7B)
+T7A OUTPUT = 'T7-fence: MATCH C1=' C1 ' C2=' C2  :(T8)
+T7B OUTPUT = 'T7-fence: FAIL'
+* T8 FENCE0 as last element (G04 shape)
+T8 S8 = 'AB'
+ S8 'A' FENCE                    :S(T8A)F(T8B)
+T8A OUTPUT = 'T8-fence: MATCH'   :(END)
+T8B OUTPUT = 'T8-fence: FAIL'
+END
