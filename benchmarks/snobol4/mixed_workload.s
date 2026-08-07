@@ -400,7 +400,7 @@ n56_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx62_237
                         add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanfail
 .Lx62_237:
                         movzx            esi, byte ptr [r13+rcx]
@@ -410,7 +410,7 @@ n56_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx62_238
                         add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanfail
 .Lx62_238:
                         movzx            esi, byte ptr [r13+rcx]
@@ -420,7 +420,7 @@ n56_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx62_239
                         add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanfail
 .Lx62_239:
                         movzx            esi, byte ptr [r13+rcx]
@@ -430,7 +430,7 @@ n56_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx62_240
                         add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanfail
 .Lx62_240:
                         movzx            esi, byte ptr [r13+rcx]
@@ -445,7 +445,7 @@ n56_match_break_α:
 n56_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n57_match_assign_cond_α:
