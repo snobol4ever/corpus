@@ -50,8 +50,9 @@ for f in "$DIR"/*.sno; do
     [ -f "$ref" ] || { NOREF=$((NOREF+1)); printf '  ⚠  %-5s NO .ref — run mkrefs.sh\n' "$id"; continue; }
 
     if [ "$MODE" = "compile" ]; then
-        timeout 90s bash -c '"$0" --compile "$1" -o "$2" </dev/null >/dev/null 2>&1 && "$2" </dev/null >"$3" 2>/dev/null' \
-            "$SCRIP" "$f" "$TMP/a.out" "$TMP/got" 2>"$TMP/sh.err"
+        RTOUT="$(dirname "$SCRIP")/out"
+        timeout 90s bash -c '"$0" --compile "$1" </dev/null >"$2.s" 2>/dev/null && [ -s "$2.s" ] && gcc "$2.s" -no-pie -L "$4" -lscrip_rt -Wl,-rpath,"$4" -o "$2" 2>/dev/null && LD_LIBRARY_PATH="$4" "$2" </dev/null >"$3" 2>/dev/null' \
+            "$SCRIP" "$f" "$TMP/a.out" "$TMP/got" "$RTOUT" 2>"$TMP/sh.err"
     else
         timeout 15s bash -c '"$0" --run "$1" </dev/null >"$2" 2>/dev/null' \
             "$SCRIP" "$f" "$TMP/got" 2>"$TMP/sh.err"
