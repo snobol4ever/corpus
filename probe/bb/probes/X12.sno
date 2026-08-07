@@ -1,0 +1,14 @@
+*  X12 [X] value/defer element inside an INVOKED proc: m3 exits via NULL jump
+*  Minimal W-1 witness (2026-08-07f): the match runs CORRECTLY, the proc
+*  RETURNS, following statements run — the process then dies at final exit
+*  (jmp to 0 from generated code; SCRIP_NO_SEGV_HANDLER=1 bt frame #0 = 0x0).
+*  '*U' in place of the plain ref crashes identically; literal-only patterns,
+*  RPOS/LEN/BREAK + '. U' capture in the same proc position are all CLEAN.
+*  MODE SPLIT: mode-4 is rc=0 with correct output — m3-only defect.
+	DEFINE('R(U)')	:(R_END)
+R	'145' U	:F(FRETURN)
+	R = 'OK'	:(RETURN)
+R_END
+	OUTPUT = R(4)
+	OUTPUT = 'AFTER'
+END
