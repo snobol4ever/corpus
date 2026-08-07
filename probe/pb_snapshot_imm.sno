@@ -1,0 +1,5 @@
+	X = 'Z'
+	'AZB' ? 'A' $ X X	:S(OK)F(NO)
+OK	OUTPUT = 'S ' X	:(END)
+NO	OUTPUT = 'F ' X
+END

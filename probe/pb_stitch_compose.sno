@@ -1,0 +1,9 @@
+	P = '12'
+	Q = 'A' P
+	R = Q Q Q
+	P = 'X'
+	Q = 'B'
+	'A12A12A12' ? POS(0) R RPOS(0)	:S(OK)F(NO)
+OK	OUTPUT = 'S'	:(END)
+NO	OUTPUT = 'F'
+END

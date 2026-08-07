@@ -1,0 +1,7 @@
+	P = '123'
+	Q = 'A' P 'Z'
+	P = 'XXX'
+	'A123Z' ? Q	:S(OK)F(NO)
+OK	OUTPUT = 'S'	:(END)
+NO	OUTPUT = 'F'
+END
