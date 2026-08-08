@@ -125,8 +125,6 @@ n5_match_assign_save_α:
                                                                                         jmp   n6_match_len_α
 n5_match_assign_save_β:
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
-                        add              rsp, 256
                                                                                         jmp   n2_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_len_α:
@@ -456,8 +454,6 @@ n18_match_assign_save_α:
                                                                                         jmp   n19_match_break_α
 n18_match_assign_save_β:
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
-                        add              rsp, 384
                                                                                         jmp   n17_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n19_match_break_α:
@@ -467,8 +463,7 @@ n19_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx65_237
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n17_match_defer_β
 .Lx65_237:
                         movzx            esi, byte ptr [r13+rcx]
@@ -478,8 +473,7 @@ n19_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx65_238
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n17_match_defer_β
 .Lx65_238:
                         movzx            esi, byte ptr [r13+rcx]
@@ -489,8 +483,7 @@ n19_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx65_239
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n17_match_defer_β
 .Lx65_239:
                         movzx            esi, byte ptr [r13+rcx]
@@ -500,8 +493,7 @@ n19_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx65_240
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n17_match_defer_β
 .Lx65_240:
                         movzx            esi, byte ptr [r13+rcx]
@@ -516,8 +508,7 @@ n19_match_break_α:
 n19_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 56]
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n17_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n20_match_assign_cond_α:
@@ -1790,7 +1781,6 @@ n159_match_assign_save_α:
                                                                                         jmp   n160_match_len_α
 n159_match_assign_save_β:
                         add              rsp, 16
-                        add              rsp, 256
                                                                                         jmp   n156_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n160_match_len_α:
@@ -2119,7 +2109,6 @@ n172_match_assign_save_α:
                                                                                         jmp   n173_match_break_α
 n172_match_assign_save_β:
                         add              rsp, 16
-                        add              rsp, 384
                                                                                         jmp   n171_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n173_match_break_α:
@@ -2129,7 +2118,7 @@ n173_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx309_237
                         add              rsp, 16
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n171_match_defer_β
 .Lx309_237:
                         movzx            esi, byte ptr [r13+rcx]
@@ -2139,7 +2128,7 @@ n173_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx309_238
                         add              rsp, 16
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n171_match_defer_β
 .Lx309_238:
                         movzx            esi, byte ptr [r13+rcx]
@@ -2149,7 +2138,7 @@ n173_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx309_239
                         add              rsp, 16
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n171_match_defer_β
 .Lx309_239:
                         movzx            esi, byte ptr [r13+rcx]
@@ -2159,7 +2148,7 @@ n173_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx309_240
                         add              rsp, 16
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n171_match_defer_β
 .Lx309_240:
                         movzx            esi, byte ptr [r13+rcx]
@@ -2174,7 +2163,7 @@ n173_match_break_α:
 n173_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                        add              rsp, 416
+                        add              rsp, 16
                                                                                         jmp   n171_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n174_match_assign_cond_α:
