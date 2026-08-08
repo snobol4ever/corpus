@@ -4206,7 +4206,7 @@ n654_match_span_α:
                         cmp              ecx, r14d
                                                                                         jg    .Lx659_240
                         add              rsp, 16
-                        add              rsp, 32
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 .Lx659_240:
                         mov              dword ptr [rsp + 4], r14d
@@ -4215,7 +4215,7 @@ n654_match_span_α:
 n654_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16
-                        add              rsp, 32
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n655_match_assign_cond_α:

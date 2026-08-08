@@ -3982,7 +3982,7 @@ n601_match_span_α:
                         cmp              ecx, r14d
                                                                                         jg    .Lx606_240
                         add              rsp, 16
-                        add              rsp, 32
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 .Lx606_240:
                         mov              dword ptr [rsp + 4], r14d
@@ -3991,7 +3991,7 @@ n601_match_span_α:
 n601_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16
-                        add              rsp, 32
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n602_match_assign_cond_α:
