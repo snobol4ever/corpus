@@ -8465,7 +8465,6 @@ n1383_match_break_α:
 .Lx1386_1:
                         mov              dword ptr [rsp + 0], r14d
                         mov              r14d, ecx
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$2_scanhit
 n1383_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
@@ -10831,15 +10830,16 @@ n1466_match_begin_α:
                         mov              qword ptr [rsp + 184], 0
                         mov              rdi, qword ptr [rsp + 192]                     # keyword_snobol4
                         mov              rsi, qword ptr [rsp + 200]
-                        mov              qword ptr [rbp + 272], rdi
-                        mov              qword ptr [rbp + 280], rsi
-                        mov              qword ptr [rbp + 160], r13                     # outer_Σ
-                        mov              qword ptr [rbp + 168], r14                     # outer_δ
-                        mov              qword ptr [rbp + 176], r15                     # outer_Δ
+                        mov              qword ptr [rbp + 176], rdi
+                        mov              qword ptr [rbp + 184], rsi
+                        mov              qword ptr [rsp + 56], rbp                      # old_rbp
+                        mov              rbp, rsp                                       # stmt_base
+                        mov              qword ptr [rbp + 64], r13                      # outer_Σ
+                        mov              qword ptr [rbp + 72], r14                      # outer_δ
+                        mov              qword ptr [rbp + 80], r15                      # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 184], rax                     # cap_gen
-                        mov              qword ptr [rbp + 152], rbp                     # old_rbp
+                        mov              qword ptr [rbp + 88], rax                      # cap_gen
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -10868,16 +10868,14 @@ n1466_match_begin_β:
 n1466_match_begin_af:
                         sub              r12, 24                                        # cas_mark
                         mov              rsp, qword ptr [r12 + 8]                       # cas_rsp_mark
-                        mov              r13, qword ptr [rbp + 160]                     # outer_Σ
-                        mov              r14, qword ptr [rbp + 168]                     # outer_δ
-                        mov              r15, qword ptr [rbp + 176]                     # outer_Δ
+                        mov              r13, qword ptr [rbp + 64]                      # outer_Σ
+                        mov              r14, qword ptr [rbp + 72]                      # outer_δ
+                        mov              r15, qword ptr [rbp + 80]                      # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 184]                     # cap_gen
+                        mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 152]                     # old_rbp
-                        add              rsp, 208
-                                                                                        jmp   n1474_statement_begin_α
+                                                                                        jmp   n1473_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1467_lit_integer_α:
                         sub              rsp, 16
@@ -10982,18 +10980,18 @@ n1472_match_end_α:
                         pop              r15
                         pop              r14
                         sub              r12, 24                                        # cas_mark
-                        mov              r13, qword ptr [rbp + 160]                     # outer_Σ
-                        mov              r14, qword ptr [rbp + 168]                     # outer_δ
-                        mov              r15, qword ptr [rbp + 176]                     # outer_Δ
+                        mov              r13, qword ptr [rbp + 64]                      # outer_Σ
+                        mov              r14, qword ptr [rbp + 72]                      # outer_δ
+                        mov              r15, qword ptr [rbp + 80]                      # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 184]                     # cap_gen
+                        mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 152]                     # old_rbp
                                                                                         jmp   n1473_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1473_statement_end_α:
-                        add              rsp, 240
+                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
+                        add              rsp, 208
                                                                                         jmp   n1474_statement_begin_α
 #=======================================================================================================================
 #                DATA('list(head,tail)')

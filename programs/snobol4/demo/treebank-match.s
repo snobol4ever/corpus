@@ -194,7 +194,6 @@ n6_match_break_α:
 .Lx9_1:
                         mov              dword ptr [rsp + 0], r14d
                         mov              r14d, ecx
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n6_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
