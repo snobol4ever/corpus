@@ -1,0 +1,5 @@
+in OUT P=arg
+at OUTSIDE P=arg LOC=inner-loc
+now returning from outside
+after call (not reached)
+FIN

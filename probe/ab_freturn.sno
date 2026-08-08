@@ -1,0 +1,10 @@
+* AB-0 witness: FRETURN exits the omega wire (statement failure), no value.
+	DEFINE('CHK(S)')		:(CHK_END)
+CHK	S ? LEN(3) . CHK		:S(RETURN)F(FRETURN)
+CHK_END
+	OUTPUT = 'got=' CHK('ABCDE')
+	X = CHK('AB')			:F(FOK)
+	OUTPUT = 'WRONG: FRETURN succeeded'	:(FEND)
+FOK	OUTPUT = 'FRETURN failed the statement'
+FEND	OUTPUT = 'X=' X
+END

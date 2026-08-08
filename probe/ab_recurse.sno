@@ -1,0 +1,11 @@
+* AB-0 witness: per-activation save/restore under RECURSION (manual p.103 pushdown).
+* TMP is read AFTER the recursive call returns -- it must be THIS activation TMP.
+	DEFINE('FACT(N)TMP')		:(FACT_END)
+FACT	TMP = N
+	LE(N,1)				:S(F1)
+	FACT = FACT(N - 1) * TMP	:(RETURN)
+F1	FACT = 1			:(RETURN)
+FACT_END
+	OUTPUT = FACT(6)
+	OUTPUT = FACT(10)
+END

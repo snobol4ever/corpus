@@ -1,0 +1,14 @@
+* AB-0 witness: goto OUT of a function body leaves the activation PENDING;
+* a later RETURN from outside must still find it via the activation anchor.
+	DEFINE('OUT(P)LOC')		:(O_END)
+OUT	LOC = 'inner-loc'
+	OUTPUT = 'in OUT P=' P		:(OUTSIDE)
+O_END
+	P = 'outer-P'
+	LOC = 'outer-loc'
+	OUT('arg')
+	OUTPUT = 'after call (not reached)'	:(FIN)
+OUTSIDE	OUTPUT = 'at OUTSIDE P=' P ' LOC=' LOC
+	OUTPUT = 'now returning from outside'	:(RETURN)
+FIN	OUTPUT = 'FIN'
+END
