@@ -917,23 +917,7 @@ proc_PAT$4_α_body:
                         mov              qword ptr [rbp + 144], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n50_match_defer_α:
-                        sub              rsp, 128
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052480]                    # PAT$4$V0
                         mov              rdx, qword ptr [1879052488]
                         cmp              eax, 8
@@ -956,7 +940,7 @@ n50_match_defer_α:
 .Lx59_4:
                                                                                         jmp   n51_match_fence1_α
 .Lx59_5:
-                        add              rsp, 128
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$4_scanfail
 .Lx59_0:
                         push             r14
@@ -994,7 +978,7 @@ n50_match_defer_α:
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         jns   .Lx59_240
-                        add              rsp, 128
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$4_scanfail
 .Lx59_240:
                         mov              r14d, eax
@@ -1004,7 +988,7 @@ n50_match_defer_α:
                                                                                         jmp   n51_match_fence1_α
 .Lx59_6:
                         add              rsp, 16
-                        add              rsp, 128
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$4_scanfail
 n50_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
@@ -1268,23 +1252,7 @@ proc_PAT$5_α_body:
                         mov              qword ptr [rbp + 144], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n76_match_defer_α:
-                        sub              rsp, 128
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052496]                    # PAT$5$V0
                         mov              rdx, qword ptr [1879052504]
                         cmp              eax, 8
@@ -1307,7 +1275,7 @@ n76_match_defer_α:
 .Lx85_4:
                                                                                         jmp   n77_match_fence1_α
 .Lx85_5:
-                        add              rsp, 128
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$5_scanfail
 .Lx85_0:
                         push             r14
@@ -1345,7 +1313,7 @@ n76_match_defer_α:
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         jns   .Lx85_240
-                        add              rsp, 128
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$5_scanfail
 .Lx85_240:
                         mov              r14d, eax
@@ -1355,7 +1323,7 @@ n76_match_defer_α:
                                                                                         jmp   n77_match_fence1_α
 .Lx85_6:
                         add              rsp, 16
-                        add              rsp, 128
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$5_scanfail
 n76_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
@@ -1619,32 +1587,10 @@ proc_PAT$6_α_body:
                         mov              qword ptr [rbp + 192], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n102_lit_integer_α:
-                        sub              rsp, 176
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rbp + 32], 3                        # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx109_0]
-                        mov              qword ptr [rbp + 40], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n103_match_pos_α
 .Lx109_0:
                         .quad            0
@@ -1652,13 +1598,9 @@ n102_lit_integer_α:
 n103_match_pos_α:
                         mov              rax, 0
                         cmp              r14d, eax
-                                                                                        je    .Lx110_240
-                        add              rsp, 176
-                                                                                        jmp   proc_PAT$6_scanfail
-.Lx110_240:
+                                                                                        jne   proc_PAT$6_scanfail
                                                                                         jmp   n104_match_arbno_α
 n103_match_pos_β:
-                        add              rsp, 176
                                                                                         jmp   proc_PAT$6_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n104_match_arbno_α:
@@ -1710,9 +1652,10 @@ n104_match_arbno_af:
                                                                                         jmp   n103_match_pos_β
 #-----------------------------------------------------------------------------------------------------------------------
 n105_lit_integer_α:
-                        mov              qword ptr [rbp + 176], 3                       # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx113_0]
-                        mov              qword ptr [rbp + 184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n106_match_rpos_α
 .Lx113_0:
                         .quad            0
@@ -1723,7 +1666,7 @@ n106_match_rpos_α:
                         sub              ecx, eax
                         cmp              r14d, ecx
                                                                                         jne   n104_match_arbno_β
-                        add              rsp, 176
+                        add              rsp, 48
                                                                                         jmp   proc_PAT$6_scanhit
 #-----------------------------------------------------------------------------------------------------------------------
 n107_match_defer_α:
