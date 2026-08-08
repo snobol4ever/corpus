@@ -397,14 +397,14 @@ n27_lit_integer_α:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n28_call_α:
-                        mov              rax, qword ptr [rsp + 304]
-                        mov              qword ptr [rsp + 256], rax
-                        mov              rax, qword ptr [rsp + 312]
-                        mov              qword ptr [rsp + 264], rax
                         mov              rax, qword ptr [rsp + 320]
                         mov              qword ptr [rsp + 272], rax
                         mov              rax, qword ptr [rsp + 328]
                         mov              qword ptr [rsp + 280], rax
+                        mov              rax, qword ptr [rsp + 304]
+                        mov              qword ptr [rsp + 256], rax
+                        mov              rax, qword ptr [rsp + 312]
+                        mov              qword ptr [rsp + 264], rax
                         .section         .rodata
 .Lbynamefn29:           .string          "ADD"
                         .section         .text

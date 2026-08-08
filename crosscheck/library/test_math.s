@@ -865,7 +865,6 @@ n155_statement_end_α:
 n156_statement_begin_α:
                                                                                         jmp   n157_var_α
 n156_statement_begin_β:
-                        add              rsp, 112
                                                                                         jmp   n141_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n157_var_α:
@@ -875,8 +874,6 @@ n157_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n158_assign_α
-n157_var_β:
-                                                                                        jmp   n159_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n158_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # var
@@ -3827,14 +3824,14 @@ n427_lit_integer_α:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n428_call_α:
-                        mov              rax, qword ptr [rsp + 688]
-                        mov              qword ptr [rsp + 640], rax
-                        mov              rax, qword ptr [rsp + 696]
-                        mov              qword ptr [rsp + 648], rax
                         mov              rax, qword ptr [rsp + 704]
                         mov              qword ptr [rsp + 656], rax
                         mov              rax, qword ptr [rsp + 712]
                         mov              qword ptr [rsp + 664], rax
+                        mov              rax, qword ptr [rsp + 688]
+                        mov              qword ptr [rsp + 640], rax
+                        mov              rax, qword ptr [rsp + 696]
+                        mov              qword ptr [rsp + 648], rax
                         .section         .rodata
 .Lrkfn719:              .string          "DIFFER"
                         .section         .text
@@ -3874,14 +3871,14 @@ n432_var_α:
                                                                                         jmp   n433_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n433_call_α:
-                        mov              rax, qword ptr [rsp + 784]
-                        mov              qword ptr [rsp + 736], rax
-                        mov              rax, qword ptr [rsp + 792]
-                        mov              qword ptr [rsp + 744], rax
                         mov              rax, qword ptr [rsp + 800]
                         mov              qword ptr [rsp + 752], rax
                         mov              rax, qword ptr [rsp + 808]
                         mov              qword ptr [rsp + 760], rax
+                        mov              rax, qword ptr [rsp + 784]
+                        mov              qword ptr [rsp + 736], rax
+                        mov              rax, qword ptr [rsp + 792]
+                        mov              qword ptr [rsp + 744], rax
                         .section         .rodata
 .Lrkfn727:              .string          "REMDR"
                         .section         .text

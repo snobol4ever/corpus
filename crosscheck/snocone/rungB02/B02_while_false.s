@@ -153,10 +153,6 @@ n10_lit_string_α:
                         mov              rax, qword ptr [rip + .Lx33_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n11_assign_α
-n10_lit_string_β:
-                        add              rsp, 16
-                        add              rsp, 96
-                                                                                        jmp   n5_var_α
 .Lx33_0:
                         .quad            .Lx33_0_s
 .Lx33_0_s:

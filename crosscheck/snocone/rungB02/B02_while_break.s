@@ -256,14 +256,14 @@ n18_lit_integer_α:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n19_call_α:
-                        mov              rax, qword ptr [rsp + 160]
-                        mov              qword ptr [rsp + 112], rax
-                        mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [rsp + 120], rax
                         mov              rax, qword ptr [rsp + 176]
                         mov              qword ptr [rsp + 128], rax
                         mov              rax, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 136], rax
+                        mov              rax, qword ptr [rsp + 160]
+                        mov              qword ptr [rsp + 112], rax
+                        mov              rax, qword ptr [rsp + 168]
+                        mov              qword ptr [rsp + 120], rax
                         .section         .rodata
 .Lbynamefn20:           .string          "ADD"
                         .section         .text

@@ -248,14 +248,14 @@ n16_lit_integer_α:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n17_call_α:
-                        mov              rax, qword ptr [rsp + 144]
-                        mov              qword ptr [rsp + 96], rax
-                        mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [rsp + 104], rax
                         mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [rsp + 112], rax
                         mov              rax, qword ptr [rsp + 168]
                         mov              qword ptr [rsp + 120], rax
+                        mov              rax, qword ptr [rsp + 144]
+                        mov              qword ptr [rsp + 96], rax
+                        mov              rax, qword ptr [rsp + 152]
+                        mov              qword ptr [rsp + 104], rax
                         .section         .rodata
 .Lbynamefn18:           .string          "ADD"
                         .section         .text

@@ -172,10 +172,6 @@ n12_var_α:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n13_lit_integer_α
-n12_var_β:
-                        add              rsp, 16
-                        add              rsp, 112
-                                                                                        jmp   n5_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_lit_integer_α:
                         sub              rsp, 16
@@ -183,9 +179,6 @@ n13_lit_integer_α:
                         mov              rax, qword ptr [rip + .Lx36_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n14_call_α
-n13_lit_integer_β:
-                        add              rsp, 16
-                                                                                        jmp   n12_var_β
 .Lx36_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
@@ -212,14 +205,14 @@ n14_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx37_240
                         add              rsp, 16
-                                                                                        jmp   n13_lit_integer_β
+                                                                                        jmp   n5_var_α
 .Lx37_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n15_assign_α
 n14_call_β:
                         add              rsp, 16
-                                                                                        jmp   n13_lit_integer_β
+                                                                                        jmp   n5_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call
