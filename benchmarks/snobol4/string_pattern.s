@@ -754,9 +754,6 @@ n61_match_begin_α:
                         mov              qword ptr [rbp + 560], r13                     # outer_Σ
                         mov              qword ptr [rbp + 568], r14                     # outer_δ
                         mov              qword ptr [rbp + 576], r15                     # outer_Δ
-                        lea              rcx, [rip + g_cap_gen]
-                        mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 584], rax                     # cap_gen
                         mov              qword ptr [rbp + 552], rbp                     # old_rbp
                         call             rt_match_enter@PLT
                         mov              r13, rax
@@ -789,7 +786,6 @@ n61_match_begin_af:
                         mov              r15, qword ptr [rbp + 576]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 584]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 552]                     # old_rbp
                                                                                         jmp   n60_assign_β
@@ -912,7 +908,6 @@ n63_match_end_α:
                         mov              r15, qword ptr [rbp + 576]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 584]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                                                                                         jmp   n64_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
