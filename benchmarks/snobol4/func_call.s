@@ -69,16 +69,18 @@ proc_LBL__INC_β:
                                                                                         jmp   proc_LBL__INC_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__INC_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              eax, 2
-                        ret
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__INC_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              eax, 104
-                        ret
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_INC_α
 proc_INC_α:
