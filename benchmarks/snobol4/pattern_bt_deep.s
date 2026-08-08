@@ -735,10 +735,6 @@ n62_match_begin_α:
                         mov              qword ptr [rbp + 496], r13                     # outer_Σ
                         mov              qword ptr [rbp + 504], r14                     # outer_δ
                         mov              qword ptr [rbp + 512], r15                     # outer_Δ
-                        mov              qword ptr [r12 + 0], 0                         # cas_top
-                        mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
-                        mov              qword ptr [r12 + 16], 0
-                        add              r12, 24                                        # cas_top
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rbp + 520], rax                     # cap_gen
@@ -746,6 +742,10 @@ n62_match_begin_α:
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
+                        mov              qword ptr [r12 + 0], 0                         # cas_top
+                        mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
+                        mov              qword ptr [r12 + 16], 0
+                        add              r12, 24                                        # cas_top
                         mov              qword ptr [rbp + 464], rsp                     # zls2_mark
                         mov              dword ptr [rbp + 448], 0                       # start_δ
 .Lx161_0:
