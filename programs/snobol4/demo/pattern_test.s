@@ -78,19 +78,22 @@ n6_match_begin_α:
                         mov              rsi, qword ptr [rsp + 8]
                         mov              qword ptr [rsp + 208], rdi
                         mov              qword ptr [rsp + 216], rsi
-                        mov              qword ptr [rsp + 96], r13                      # outer_Σ
-                        mov              qword ptr [rsp + 104], r14                     # outer_δ
-                        mov              qword ptr [rsp + 112], r15                     # outer_Δ
+                        mov              rax, rsp
+                        sub              rsp, 80
+                        mov              qword ptr [rsp + 16], rax                      # rsp_mark
+                        mov              qword ptr [rsp + 48], r13                      # outer_Σ
+                        mov              qword ptr [rsp + 56], r14                      # outer_δ
+                        mov              qword ptr [rsp + 64], r15                      # outer_Δ
+                        mov              qword ptr [r12 + 0], 0                         # cas_top
+                        mov              qword ptr [r12 + 8], rax                       # cas_rsp_mark
+                        mov              qword ptr [r12 + 16], 0
+                        add              r12, 24                                        # cas_top
+                        lea              rcx, [rip + g_cap_gen]
+                        mov              eax, dword ptr [rcx + 0]
+                        mov              qword ptr [rsp + 72], rax                      # cap_gen
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              qword ptr [r12 + 0], 0                         # cas_top
-                        mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
-                        mov              qword ptr [r12 + 16], 0
-                        add              r12, 24                                        # cas_top
-                        mov              rax, rsp
-                        sub              rsp, 32
-                        mov              qword ptr [rsp + 16], rax                      # rsp_mark
                         mov              dword ptr [rsp + 0], 0                         # start_δ
 .Lx28_0:
                         mov              r14d, dword ptr [rsp + 0]
@@ -109,14 +112,16 @@ n6_match_begin_β:
 n6_match_begin_af:
                         sub              r12, 24                                        # cas_mark
                         mov              rsp, qword ptr [r12 + 8]                       # cas_rsp_mark
-                        mov              r13, qword ptr [rsp + 96]                      # outer_Σ
-                        mov              r14, qword ptr [rsp + 104]                     # outer_δ
-                        mov              r15, qword ptr [rsp + 112]                     # outer_Δ
+                        sub              rsp, 80
+                        mov              r13, qword ptr [rsp + 48]                      # outer_Σ
+                        mov              r14, qword ptr [rsp + 56]                      # outer_δ
+                        mov              r15, qword ptr [rsp + 64]                      # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
+                        mov              rdx, qword ptr [rsp + 72]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 16
-                                                                                        jmp   n14_statement_begin_α
+                        add              rsp, 80
+                                                                                        jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_match_assign_save_α:
                         sub              rsp, 16
@@ -220,12 +225,14 @@ n10_match_end_α:
                         pop              r15
                         pop              r14
                         sub              r12, 24                                        # cas_mark
-                        mov              r13, qword ptr [rsp + 96]                      # outer_Σ
-                        mov              r14, qword ptr [rsp + 104]                     # outer_δ
-                        mov              r15, qword ptr [rsp + 112]                     # outer_Δ
+                        sub              rsp, 80
+                        mov              r13, qword ptr [rsp + 48]                      # outer_Σ
+                        mov              r14, qword ptr [rsp + 56]                      # outer_δ
+                        mov              r15, qword ptr [rsp + 64]                      # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
                         call             rt_match_ctx_restore@PLT
+                        add              rsp, 80
                                                                                         jmp   n11_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_lit_string_α:
@@ -257,7 +264,7 @@ n12_match_replace_α:
                                                                                         jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_statement_end_α:
-                        add              rsp, 48
+                        add              rsp, 16
                                                                                         jmp   n14_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = X
