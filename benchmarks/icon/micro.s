@@ -137,8 +137,8 @@ n1_call_value_β:
 n2_assign_α:
                         mov              rax, qword ptr [rbp + 528]
                         mov              rdx, qword ptr [rbp + 536]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 592], rax
+                        mov              qword ptr [rbp + 600], rdx
                                                                                         jmp   n3_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_keyword_icon_α:
@@ -168,14 +168,14 @@ n4_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n5_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 448]
-                        mov              qword ptr [rbp + 400], rax
-                        mov              rax, qword ptr [rbp + 456]
-                        mov              qword ptr [rbp + 408], rax
                         mov              rax, qword ptr [rbp + 480]
                         mov              qword ptr [rbp + 416], rax
                         mov              rax, qword ptr [rbp + 488]
                         mov              qword ptr [rbp + 424], rax
+                        mov              rax, qword ptr [rbp + 448]
+                        mov              qword ptr [rbp + 400], rax
+                        mov              rax, qword ptr [rbp + 456]
+                        mov              qword ptr [rbp + 408], rax
                         .section         .rodata
 .Lrkfn27:               .string          "writes"
                         .section         .text
@@ -311,14 +311,14 @@ n13_lit_integer_α:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n14_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 176]
-                        mov              qword ptr [rbp + 128], rax
-                        mov              rax, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 136], rax
                         mov              rax, qword ptr [rbp + 336]
                         mov              qword ptr [rbp + 144], rax
                         mov              rax, qword ptr [rbp + 344]
                         mov              qword ptr [rbp + 152], rax
+                        mov              rax, qword ptr [rbp + 176]
+                        mov              qword ptr [rbp + 128], rax
+                        mov              rax, qword ptr [rbp + 184]
+                        mov              qword ptr [rbp + 136], rax
                         .section         .rodata
 .Lrkfn41:               .string          "right"
                         .section         .text
@@ -347,25 +347,25 @@ n15_lit_string_α:
                         .string          "  "
 #-----------------------------------------------------------------------------------------------------------------------
 n16_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 592]
                         mov              qword ptr [rbp + 368], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 600]
                         mov              qword ptr [rbp + 376], rax
                                                                                         jmp   n17_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              rax, qword ptr [rbp + 120]
-                        mov              qword ptr [rbp + 56], rax
-                        mov              rax, qword ptr [rbp + 352]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              rax, qword ptr [rbp + 360]
-                        mov              qword ptr [rbp + 72], rax
                         mov              rax, qword ptr [rbp + 368]
                         mov              qword ptr [rbp + 80], rax
                         mov              rax, qword ptr [rbp + 376]
                         mov              qword ptr [rbp + 88], rax
+                        mov              rax, qword ptr [rbp + 352]
+                        mov              qword ptr [rbp + 64], rax
+                        mov              rax, qword ptr [rbp + 360]
+                        mov              qword ptr [rbp + 72], rax
+                        mov              rax, qword ptr [rbp + 112]
+                        mov              qword ptr [rbp + 48], rax
+                        mov              rax, qword ptr [rbp + 120]
+                        mov              qword ptr [rbp + 56], rax
                         .section         .rodata
 .Lrkfn46:               .string          "write"
                         .section         .text
@@ -753,8 +753,8 @@ n52_lit_integer_α:
 n53_assign_α:
                         mov              rax, qword ptr [rbp + 1584]
                         mov              rdx, qword ptr [rbp + 1592]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 1760], rax
+                        mov              qword ptr [rbp + 1768], rdx
                                                                                         jmp   n54_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n54_keyword_icon_α:
@@ -775,14 +775,14 @@ n54_keyword_icon_β:
 n55_assign_α:
                         mov              rax, qword ptr [rbp + 1552]
                         mov              rdx, qword ptr [rbp + 1560]
-                        mov              qword ptr [rbp + 80], rax
-                        mov              qword ptr [rbp + 88], rdx
+                        mov              qword ptr [rbp + 1776], rax
+                        mov              qword ptr [rbp + 1784], rdx
                                                                                         jmp   n56_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n56_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 1520], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 1528], rax
                                                                                         jmp   n57_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -795,7 +795,7 @@ n57_lit_integer_α:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n58_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rbp + 1760]
                         cmp              eax, 5
                                                                                         je    .Lx00006_1
                         cmp              eax, 3
@@ -804,13 +804,13 @@ n58_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00006_0
 .Lx00006_1:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 1504], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 1512], rax
                                                                                         jmp   n59_binop_α
 .Lx00006_0:
-                        lea              rdi, [rbp + 48]                                # self
+                        lea              rdi, [rbp + 1760]                              # self
                         lea              rsi, [rbp + 1536]                              # other
                         lea              rdx, [rbp + 1504]                              # out
                         mov              rcx, 0                                         # codes
@@ -842,22 +842,22 @@ n59_binop_α:
 n60_assign_α:
                         mov              rax, qword ptr [rbp + 1488]
                         mov              rdx, qword ptr [rbp + 1496]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 1760], rax
+                        mov              qword ptr [rbp + 1768], rdx
                                                                                         jmp   n61_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n61_var_α:
-                        mov              rax, qword ptr [rbp + 80]
+                        mov              rax, qword ptr [rbp + 1776]
                         mov              qword ptr [rbp + 1472], rax
-                        mov              rax, qword ptr [rbp + 88]
+                        mov              rax, qword ptr [rbp + 1784]
                         mov              qword ptr [rbp + 1480], rax
                                                                                         jmp   n62_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n62_assign_α:
                         mov              rax, qword ptr [rbp + 1472]
                         mov              rdx, qword ptr [rbp + 1480]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
+                        mov              qword ptr [rbp + 1728], rax
+                        mov              qword ptr [rbp + 1736], rdx
                                                                                         jmp   n63_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n63_var_α:
@@ -868,9 +868,9 @@ n63_var_α:
                                                                                         jmp   n64_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n64_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 1456], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 1464], rax
                                                                                         jmp   n65_call_value_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -960,65 +960,65 @@ n66_keyword_icon_β:
 n67_assign_α:
                         mov              rax, qword ptr [rbp + 1328]
                         mov              rdx, qword ptr [rbp + 1336]
-                        mov              qword ptr [rbp + 80], rax
-                        mov              qword ptr [rbp + 88], rdx
+                        mov              qword ptr [rbp + 1776], rax
+                        mov              qword ptr [rbp + 1784], rdx
                                                                                         jmp   n68_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n68_var_α:
-                        mov              rax, qword ptr [rbp + 80]
+                        mov              rax, qword ptr [rbp + 1776]
                         mov              qword ptr [rbp + 1296], rax
-                        mov              rax, qword ptr [rbp + 88]
+                        mov              rax, qword ptr [rbp + 1784]
                         mov              qword ptr [rbp + 1304], rax
                                                                                         jmp   n69_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n69_var_α:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 1312], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 1320], rax
                                                                                         jmp   n70_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n70_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 80]
+                        mov              eax, dword ptr [rbp + 1776]
                         cmp              eax, 5
                                                                                         je    .Lx00010_1
                         cmp              eax, 3
                                                                                         jne   .Lx00010_0
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 3
                                                                                         jne   .Lx00010_0
 .Lx00010_1:
-                        mov              rax, qword ptr [rbp + 80]
+                        mov              rax, qword ptr [rbp + 1776]
                         mov              qword ptr [rbp + 1280], rax
-                        mov              rax, qword ptr [rbp + 88]
+                        mov              rax, qword ptr [rbp + 1784]
                         mov              qword ptr [rbp + 1288], rax
                                                                                         jmp   n71_coerce_numeric_α
 .Lx00010_0:
-                        lea              rdi, [rbp + 80]                                # self
-                        lea              rsi, [rbp + 64]                                # other
+                        lea              rdi, [rbp + 1776]                              # self
+                        lea              rsi, [rbp + 1728]                              # other
                         lea              rdx, [rbp + 1280]                              # out
                         mov              rcx, 0                                         # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n71_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n71_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 5
                                                                                         je    .Lx00011_1
                         cmp              eax, 3
                                                                                         jne   .Lx00011_0
-                        mov              eax, dword ptr [rbp + 80]
+                        mov              eax, dword ptr [rbp + 1776]
                         cmp              eax, 3
                                                                                         jne   .Lx00011_0
 .Lx00011_1:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 1264], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 1272], rax
                                                                                         jmp   n72_binop_α
 .Lx00011_0:
-                        lea              rdi, [rbp + 64]                                # self
-                        lea              rsi, [rbp + 80]                                # other
+                        lea              rdi, [rbp + 1728]                              # self
+                        lea              rsi, [rbp + 1776]                              # other
                         lea              rdx, [rbp + 1264]                              # out
                         mov              rcx, 0                                         # codes
                         call             rt_coerce_num2_d@PLT
@@ -1073,8 +1073,8 @@ n73_call_builtin_icon_β:
 n74_assign_α:
                         mov              rax, qword ptr [rbp + 1200]
                         mov              rdx, qword ptr [rbp + 1208]
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
+                        mov              qword ptr [rbp + 1744], rax
+                        mov              qword ptr [rbp + 1752], rdx
                                                                                         jmp   n75_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 n75_disjunction_α:
@@ -1107,9 +1107,9 @@ n76_conjunction_β:
                                                                                         jmp   n56_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n77_var_α:
-                        mov              rax, qword ptr [rbp + 96]
+                        mov              rax, qword ptr [rbp + 1744]
                         mov              qword ptr [rbp + 1120], rax
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              rax, qword ptr [rbp + 1752]
                         mov              qword ptr [rbp + 1128], rax
                                                                                         jmp   n78_var_α
 n77_var_β:
@@ -1166,20 +1166,20 @@ n81_binop_α:
                                                                                         jmp   n82_binop_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n82_binop_test_α:
-                        mov              eax, dword ptr [rbp + 96]
+                        mov              eax, dword ptr [rbp + 1744]
                         cmp              eax, 112
                                                                                         je    .Lx00016_0
                         mov              eax, dword ptr [rbp + 1136]
                         cmp              eax, 112
                                                                                         je    .Lx00016_0
-                        mov              eax, dword ptr [rbp + 96]
+                        mov              eax, dword ptr [rbp + 1744]
                         cmp              eax, 3
                                                                                         jne   .Lx00016_2
                         mov              eax, dword ptr [rbp + 1136]
                         cmp              eax, 3
                                                                                         jne   .Lx00016_2
 .Lx00016_1:
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              rax, qword ptr [rbp + 1752]
                         mov              rcx, qword ptr [rbp + 1144]
                         cmp              rax, rcx
                                                                                         jl    n75_disjunction_af
@@ -1189,8 +1189,8 @@ n82_binop_test_α:
                         mov              qword ptr [rbp + 1112], rcx
                                                                                         jmp   n83_lit_real_α
 .Lx00016_0:
-                        mov              rdi, qword ptr [rbp + 96]                      # a
-                        mov              rsi, qword ptr [rbp + 104]                     # a
+                        mov              rdi, qword ptr [rbp + 1744]                    # a
+                        mov              rsi, qword ptr [rbp + 1752]                    # a
                         mov              rdx, qword ptr [rbp + 1136]                    # b
                         mov              rcx, qword ptr [rbp + 1144]                    # b
                         mov              r8d, 8                                         # op
@@ -1202,8 +1202,8 @@ n82_binop_test_α:
                                                                                         je    n75_disjunction_af
                                                                                         jmp   n83_lit_real_α
 .Lx00016_2:
-                        mov              rdi, qword ptr [rbp + 96]                      # lhs
-                        mov              rsi, qword ptr [rbp + 104]                     # lhs
+                        mov              rdi, qword ptr [rbp + 1744]                    # lhs
+                        mov              rsi, qword ptr [rbp + 1752]                    # lhs
                         mov              rdx, qword ptr [rbp + 1136]                    # rhs
                         mov              rcx, qword ptr [rbp + 1144]                    # rhs
                         mov              r8d, 8                                         # op
@@ -1225,14 +1225,14 @@ n83_lit_real_α:
                         .quad            4607632778762754458
 #-----------------------------------------------------------------------------------------------------------------------
 n84_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 960], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 968], rax
                                                                                         jmp   n85_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n85_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rbp + 1760]
                         cmp              eax, 5
                                                                                         je    .Lx00018_1
                         cmp              eax, 3
@@ -1241,13 +1241,13 @@ n85_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00018_0
 .Lx00018_1:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 928], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 936], rax
                                                                                         jmp   n86_binop_α
 .Lx00018_0:
-                        lea              rdi, [rbp + 48]                                # self
+                        lea              rdi, [rbp + 1760]                              # self
                         lea              rsi, [rbp + 944]                               # other
                         lea              rdx, [rbp + 928]                               # out
                         mov              rcx, 0                                         # codes
@@ -1345,9 +1345,9 @@ n90_binop_α:
                                                                                         jmp   n91_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n91_var_α:
-                        mov              rax, qword ptr [rbp + 96]
+                        mov              rax, qword ptr [rbp + 1744]
                         mov              qword ptr [rbp + 1040], rax
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              rax, qword ptr [rbp + 1752]
                         mov              qword ptr [rbp + 1048], rax
                                                                                         jmp   n92_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1454,8 +1454,8 @@ n96_call_builtin_icon_β:
 n97_assign_α:
                         mov              rax, qword ptr [rbp + 768]
                         mov              rdx, qword ptr [rbp + 776]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 1760], rax
+                        mov              qword ptr [rbp + 1768], rdx
                                                                                         jmp   n98_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n98_call_builtin_icon_α:
@@ -1493,14 +1493,14 @@ n99_keyword_icon_β:
 n00026_assign_α:
                         mov              rax, qword ptr [rbp + 704]
                         mov              rdx, qword ptr [rbp + 712]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
+                        mov              qword ptr [rbp + 1728], rax
+                        mov              qword ptr [rbp + 1736], rdx
                                                                                         jmp   n00025_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00025_var_α:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 656], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 664], rax
                                                                                         jmp   n00027_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1520,20 +1520,20 @@ n00027_keyword_icon_β:
                         .string          "&time"
 #-----------------------------------------------------------------------------------------------------------------------
 n00029_binop_test_α:
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 112
                                                                                         je    .Lx00030_0
                         mov              eax, dword ptr [rbp + 672]
                         cmp              eax, 112
                                                                                         je    .Lx00030_0
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 3
                                                                                         jne   .Lx00030_2
                         mov              eax, dword ptr [rbp + 672]
                         cmp              eax, 3
                                                                                         jne   .Lx00030_2
 .Lx00030_1:
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              rcx, qword ptr [rbp + 680]
                         cmp              rax, rcx
                                                                                         je    n00025_var_α
@@ -1543,8 +1543,8 @@ n00029_binop_test_α:
                         mov              qword ptr [rbp + 648], rcx
                                                                                         jmp   n00031_assign_α
 .Lx00030_0:
-                        mov              rdi, qword ptr [rbp + 64]                      # a
-                        mov              rsi, qword ptr [rbp + 72]                      # a
+                        mov              rdi, qword ptr [rbp + 1728]                    # a
+                        mov              rsi, qword ptr [rbp + 1736]                    # a
                         mov              rdx, qword ptr [rbp + 672]                     # b
                         mov              rcx, qword ptr [rbp + 680]                     # b
                         mov              r8d, 10                                        # op
@@ -1556,8 +1556,8 @@ n00029_binop_test_α:
                                                                                         je    n00025_var_α
                                                                                         jmp   n00031_assign_α
 .Lx00030_2:
-                        mov              rdi, qword ptr [rbp + 64]                      # lhs
-                        mov              rsi, qword ptr [rbp + 72]                      # lhs
+                        mov              rdi, qword ptr [rbp + 1728]                    # lhs
+                        mov              rsi, qword ptr [rbp + 1736]                    # lhs
                         mov              rdx, qword ptr [rbp + 672]                     # rhs
                         mov              rcx, qword ptr [rbp + 680]                     # rhs
                         mov              r8d, 10                                        # op
@@ -1573,8 +1573,8 @@ n00029_binop_test_α:
 n00031_assign_α:
                         mov              rax, qword ptr [rbp + 640]
                         mov              rdx, qword ptr [rbp + 648]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
+                        mov              qword ptr [rbp + 1728], rax
+                        mov              qword ptr [rbp + 1736], rdx
                                                                                         jmp   n00032_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00032_var_α:
@@ -1585,9 +1585,9 @@ n00032_var_α:
                                                                                         jmp   n00033_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00033_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 624], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 632], rax
                                                                                         jmp   n00034_call_value_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1677,65 +1677,65 @@ n00036_keyword_icon_β:
 n00039_assign_α:
                         mov              rax, qword ptr [rbp + 496]
                         mov              rdx, qword ptr [rbp + 504]
-                        mov              qword ptr [rbp + 80], rax
-                        mov              qword ptr [rbp + 88], rdx
+                        mov              qword ptr [rbp + 1776], rax
+                        mov              qword ptr [rbp + 1784], rdx
                                                                                         jmp   n00038_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00038_var_α:
-                        mov              rax, qword ptr [rbp + 80]
+                        mov              rax, qword ptr [rbp + 1776]
                         mov              qword ptr [rbp + 464], rax
-                        mov              rax, qword ptr [rbp + 88]
+                        mov              rax, qword ptr [rbp + 1784]
                         mov              qword ptr [rbp + 472], rax
                                                                                         jmp   n00040_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00040_var_α:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 480], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 488], rax
                                                                                         jmp   n00041_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00041_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 80]
+                        mov              eax, dword ptr [rbp + 1776]
                         cmp              eax, 5
                                                                                         je    .Lx00042_1
                         cmp              eax, 3
                                                                                         jne   .Lx00042_0
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 3
                                                                                         jne   .Lx00042_0
 .Lx00042_1:
-                        mov              rax, qword ptr [rbp + 80]
+                        mov              rax, qword ptr [rbp + 1776]
                         mov              qword ptr [rbp + 448], rax
-                        mov              rax, qword ptr [rbp + 88]
+                        mov              rax, qword ptr [rbp + 1784]
                         mov              qword ptr [rbp + 456], rax
                                                                                         jmp   n00043_coerce_numeric_α
 .Lx00042_0:
-                        lea              rdi, [rbp + 80]                                # self
-                        lea              rsi, [rbp + 64]                                # other
+                        lea              rdi, [rbp + 1776]                              # self
+                        lea              rsi, [rbp + 1728]                              # other
                         lea              rdx, [rbp + 448]                               # out
                         mov              rcx, 0                                         # codes
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n00043_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00043_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 5
                                                                                         je    .Lx00044_1
                         cmp              eax, 3
                                                                                         jne   .Lx00044_0
-                        mov              eax, dword ptr [rbp + 80]
+                        mov              eax, dword ptr [rbp + 1776]
                         cmp              eax, 3
                                                                                         jne   .Lx00044_0
 .Lx00044_1:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 432], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 440], rax
                                                                                         jmp   n00045_binop_α
 .Lx00044_0:
-                        lea              rdi, [rbp + 64]                                # self
-                        lea              rsi, [rbp + 80]                                # other
+                        lea              rdi, [rbp + 1728]                              # self
+                        lea              rsi, [rbp + 1776]                              # other
                         lea              rdx, [rbp + 432]                               # out
                         mov              rcx, 0                                         # codes
                         call             rt_coerce_num2_d@PLT
@@ -1790,21 +1790,21 @@ n00047_call_builtin_icon_β:
 n00049_assign_α:
                         mov              rax, qword ptr [rbp + 368]
                         mov              rdx, qword ptr [rbp + 376]
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
+                        mov              qword ptr [rbp + 1744], rax
+                        mov              qword ptr [rbp + 1752], rdx
                                                                                         jmp   n00048_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00048_var_α:
-                        mov              rax, qword ptr [rbp + 96]
+                        mov              rax, qword ptr [rbp + 1744]
                         mov              qword ptr [rbp + 288], rax
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              rax, qword ptr [rbp + 1752]
                         mov              qword ptr [rbp + 296], rax
                                                                                         jmp   n00050_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00050_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 352], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 1768]
                         mov              qword ptr [rbp + 360], rax
                                                                                         jmp   n00051_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1830,7 +1830,7 @@ n00051_call_builtin_icon_β:
                                                                                         jmp   n00052_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00053_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 96]
+                        mov              eax, dword ptr [rbp + 1744]
                         cmp              eax, 5
                                                                                         je    .Lx00054_1
                         cmp              eax, 3
@@ -1839,13 +1839,13 @@ n00053_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00054_0
 .Lx00054_1:
-                        mov              rax, qword ptr [rbp + 96]
+                        mov              rax, qword ptr [rbp + 1744]
                         mov              qword ptr [rbp + 272], rax
-                        mov              rax, qword ptr [rbp + 104]
+                        mov              rax, qword ptr [rbp + 1752]
                         mov              qword ptr [rbp + 280], rax
                                                                                         jmp   n00055_coerce_numeric_α
 .Lx00054_0:
-                        lea              rdi, [rbp + 96]                                # self
+                        lea              rdi, [rbp + 1744]                              # self
                         lea              rsi, [rbp + 304]                               # other
                         lea              rdx, [rbp + 272]                               # out
                         mov              rcx, 0                                         # codes
@@ -1858,7 +1858,7 @@ n00055_coerce_numeric_α:
                                                                                         je    .Lx00056_1
                         cmp              eax, 3
                                                                                         jne   .Lx00056_0
-                        mov              eax, dword ptr [rbp + 96]
+                        mov              eax, dword ptr [rbp + 1744]
                         cmp              eax, 3
                                                                                         jne   .Lx00056_0
 .Lx00056_1:
@@ -1869,7 +1869,7 @@ n00055_coerce_numeric_α:
                                                                                         jmp   n00057_binop_α
 .Lx00056_0:
                         lea              rdi, [rbp + 304]                               # self
-                        lea              rsi, [rbp + 96]                                # other
+                        lea              rsi, [rbp + 1744]                              # other
                         lea              rdx, [rbp + 256]                               # out
                         mov              rcx, 0                                         # codes
                         call             rt_coerce_num2_d@PLT
@@ -1890,14 +1890,14 @@ n00057_binop_α:
 n00058_assign_α:
                         mov              rax, qword ptr [rbp + 240]
                         mov              rdx, qword ptr [rbp + 248]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
+                        mov              qword ptr [rbp + 1728], rax
+                        mov              qword ptr [rbp + 1736], rdx
                                                                                         jmp   n00052_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00052_var_α:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 192], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 200], rax
                                                                                         jmp   n00059_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1910,7 +1910,7 @@ n00059_lit_integer_α:
                         .quad            1000000
 #-----------------------------------------------------------------------------------------------------------------------
 n00061_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 64]
+                        mov              eax, dword ptr [rbp + 1728]
                         cmp              eax, 5
                                                                                         je    .Lx00062_1
                         cmp              eax, 3
@@ -1919,13 +1919,13 @@ n00061_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00062_0
 .Lx00062_1:
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 1728]
                         mov              qword ptr [rbp + 176], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 1736]
                         mov              qword ptr [rbp + 184], rax
                                                                                         jmp   n00063_binop_α
 .Lx00062_0:
-                        lea              rdi, [rbp + 64]                                # self
+                        lea              rdi, [rbp + 1728]                              # self
                         lea              rsi, [rbp + 208]                               # other
                         lea              rdx, [rbp + 176]                               # out
                         mov              rcx, 0                                         # codes
@@ -2021,14 +2021,14 @@ n00071_call_builtin_icon_β:
 n00072_assign_α:
                         mov              rax, qword ptr [rbp + 80]
                         mov              rdx, qword ptr [rbp + 88]
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
+                        mov              qword ptr [rbp + 1712], rax
+                        mov              qword ptr [rbp + 1720], rdx
                                                                                         jmp   n00066_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00066_var_α:
-                        mov              rax, qword ptr [rbp + 112]
+                        mov              rax, qword ptr [rbp + 1712]
                         mov              qword ptr [rbp + 48], rax
-                        mov              rax, qword ptr [rbp + 120]
+                        mov              rax, qword ptr [rbp + 1720]
                         mov              qword ptr [rbp + 56], rax
                                                                                         jmp   n00073_return_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4125,14 +4125,14 @@ n00261_lit_real_α:
                         .quad            4625478292286210048
 #-----------------------------------------------------------------------------------------------------------------------
 n00263_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn597:              .string          "log"
                         .section         .text
@@ -6641,8 +6641,8 @@ n00478_lit_integer_α:
 n00480_assign_α:
                         mov              rax, qword ptr [rbp + 608]
                         mov              rdx, qword ptr [rbp + 616]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 720], rax
+                        mov              qword ptr [rbp + 728], rdx
                                                                                         jmp   n00481_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00481_lit_integer_α:
@@ -6692,8 +6692,8 @@ n00485_to_β:
 n00488_assign_α:
                         mov              rax, qword ptr [rbp + 160]
                         mov              rdx, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 704], rax
+                        mov              qword ptr [rbp + 712], rdx
                                                                                         jmp   n00489_bound_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00489_bound_α:
@@ -6721,9 +6721,9 @@ n00490_disjunction_af:
                                                                                         jmp   n00493_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00493_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 720]
                         mov              qword ptr [rbp + 336], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 728]
                         mov              qword ptr [rbp + 344], rax
                                                                                         jmp   n00494_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6736,7 +6736,7 @@ n00494_lit_integer_α:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n00496_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rbp + 720]
                         cmp              eax, 5
                                                                                         je    .Lx00497_1
                         cmp              eax, 3
@@ -6745,13 +6745,13 @@ n00496_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00497_0
 .Lx00497_1:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 720]
                         mov              qword ptr [rbp + 320], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 728]
                         mov              qword ptr [rbp + 328], rax
                                                                                         jmp   n00498_binop_α
 .Lx00497_0:
-                        lea              rdi, [rbp + 48]                                # self
+                        lea              rdi, [rbp + 720]                               # self
                         lea              rsi, [rbp + 352]                               # other
                         lea              rdx, [rbp + 320]                               # out
                         mov              rcx, 0                                         # codes
@@ -6783,8 +6783,8 @@ n00498_binop_α:
 n00500_assign_α:
                         mov              rax, qword ptr [rbp + 304]
                         mov              rdx, qword ptr [rbp + 312]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 720], rax
+                        mov              qword ptr [rbp + 728], rdx
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                                                                                         jmp   n00502_conjunction_α
@@ -6799,9 +6799,9 @@ n00502_conjunction_β:
                                                                                         jmp   n00501_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00491_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 704]
                         mov              qword ptr [rbp + 464], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 712]
                         mov              qword ptr [rbp + 472], rax
                                                                                         jmp   n00503_lit_integer_α
 n00491_var_β:
@@ -6816,9 +6816,9 @@ n00503_lit_integer_α:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n00505_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 704]
                         mov              qword ptr [rbp + 560], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 712]
                         mov              qword ptr [rbp + 568], rax
                                                                                         jmp   n00506_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6831,7 +6831,7 @@ n00506_lit_integer_α:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n00508_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 32]
+                        mov              eax, dword ptr [rbp + 704]
                         cmp              eax, 5
                                                                                         je    .Lx00509_1
                         cmp              eax, 3
@@ -6840,13 +6840,13 @@ n00508_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00509_0
 .Lx00509_1:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 704]
                         mov              qword ptr [rbp + 544], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 712]
                         mov              qword ptr [rbp + 552], rax
                                                                                         jmp   n00510_binop_α
 .Lx00509_0:
-                        lea              rdi, [rbp + 32]                                # self
+                        lea              rdi, [rbp + 704]                               # self
                         lea              rsi, [rbp + 576]                               # other
                         lea              rdx, [rbp + 544]                               # out
                         mov              rcx, 0                                         # codes
@@ -6901,7 +6901,7 @@ n00512_to_β:
                                                                                         jmp   .Lx00513_0
 #-----------------------------------------------------------------------------------------------------------------------
 n00514_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 32]
+                        mov              eax, dword ptr [rbp + 704]
                         cmp              eax, 5
                                                                                         je    .Lx00515_1
                         cmp              eax, 3
@@ -6910,13 +6910,13 @@ n00514_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx00515_0
 .Lx00515_1:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 704]
                         mov              qword ptr [rbp + 448], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 712]
                         mov              qword ptr [rbp + 456], rax
                                                                                         jmp   n00516_coerce_numeric_α
 .Lx00515_0:
-                        lea              rdi, [rbp + 32]                                # self
+                        lea              rdi, [rbp + 704]                               # self
                         lea              rsi, [rbp + 480]                               # other
                         lea              rdx, [rbp + 448]                               # out
                         mov              rcx, 0                                         # codes
@@ -6929,7 +6929,7 @@ n00516_coerce_numeric_α:
                                                                                         je    .Lx00517_1
                         cmp              eax, 3
                                                                                         jne   .Lx00517_0
-                        mov              eax, dword ptr [rbp + 32]
+                        mov              eax, dword ptr [rbp + 704]
                         cmp              eax, 3
                                                                                         jne   .Lx00517_0
 .Lx00517_1:
@@ -6940,7 +6940,7 @@ n00516_coerce_numeric_α:
                                                                                         jmp   n00518_binop_α
 .Lx00517_0:
                         lea              rdi, [rbp + 480]                               # self
-                        lea              rsi, [rbp + 32]                                # other
+                        lea              rsi, [rbp + 704]                               # other
                         lea              rdx, [rbp + 432]                               # out
                         mov              rcx, 0                                         # codes
                         call             rt_coerce_num2_d@PLT
@@ -7021,6 +7021,10 @@ n00501_unmark_α:
                         mov              rsp, qword ptr [rbp + 224]
                                                                                         jmp   n00485_to_β
 #-----------------------------------------------------------------------------------------------------------------------
+n00487_unmark_α:
+                        mov              rsp, qword ptr [rbp + 96]
+                                                                                        jmp   n00475_to_β
+#-----------------------------------------------------------------------------------------------------------------------
 n00470_var_α:
                         mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 688], rax
@@ -7057,10 +7061,6 @@ n00526_return_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_prslow_γ
-#-----------------------------------------------------------------------------------------------------------------------
-n00487_unmark_α:
-                        mov              rsp, qword ptr [rbp + 96]
-                                                                                        jmp   n00475_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_prslow_res:
                         add              rsp, 8
@@ -7426,14 +7426,14 @@ n00560_lit_integer_α:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n00562_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 160]
-                        mov              qword ptr [rbp + 544], rax
-                        mov              rax, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 552], rax
                         mov              rax, qword ptr [rbp + 496]
                         mov              qword ptr [rbp + 560], rax
                         mov              rax, qword ptr [rbp + 504]
                         mov              qword ptr [rbp + 568], rax
+                        mov              rax, qword ptr [rbp + 160]
+                        mov              qword ptr [rbp + 544], rax
+                        mov              rax, qword ptr [rbp + 168]
+                        mov              qword ptr [rbp + 552], rax
                         .section         .rodata
 .Lrkfn1096:             .string          "IDENTICAL"
                         .section         .text
@@ -7465,8 +7465,8 @@ n00565_lit_integer_α:
 n00567_assign_α:
                         mov              rax, qword ptr [rbp + 512]
                         mov              rdx, qword ptr [rbp + 520]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 672], rax
+                        mov              qword ptr [rbp + 680], rdx
                                                                                         jmp   n00568_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00564_lit_integer_α:
@@ -7478,14 +7478,14 @@ n00564_lit_integer_α:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n00570_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 160]
-                        mov              qword ptr [rbp + 448], rax
-                        mov              rax, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 456], rax
                         mov              rax, qword ptr [rbp + 400]
                         mov              qword ptr [rbp + 464], rax
                         mov              rax, qword ptr [rbp + 408]
                         mov              qword ptr [rbp + 472], rax
+                        mov              rax, qword ptr [rbp + 160]
+                        mov              qword ptr [rbp + 448], rax
+                        mov              rax, qword ptr [rbp + 168]
+                        mov              qword ptr [rbp + 456], rax
                         .section         .rodata
 .Lrkfn1101:             .string          "IDENTICAL"
                         .section         .text
@@ -7513,8 +7513,8 @@ n00572_lit_integer_α:
 n00574_assign_α:
                         mov              rax, qword ptr [rbp + 416]
                         mov              rdx, qword ptr [rbp + 424]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 672], rax
+                        mov              qword ptr [rbp + 680], rdx
                                                                                         jmp   n00568_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00571_lit_integer_α:
@@ -7526,14 +7526,14 @@ n00571_lit_integer_α:
                         .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n00576_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 160]
-                        mov              qword ptr [rbp + 352], rax
-                        mov              rax, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 360], rax
                         mov              rax, qword ptr [rbp + 304]
                         mov              qword ptr [rbp + 368], rax
                         mov              rax, qword ptr [rbp + 312]
                         mov              qword ptr [rbp + 376], rax
+                        mov              rax, qword ptr [rbp + 160]
+                        mov              qword ptr [rbp + 352], rax
+                        mov              rax, qword ptr [rbp + 168]
+                        mov              qword ptr [rbp + 360], rax
                         .section         .rodata
 .Lrkfn1106:             .string          "IDENTICAL"
                         .section         .text
@@ -7561,8 +7561,8 @@ n00578_lit_integer_α:
 n00580_assign_α:
                         mov              rax, qword ptr [rbp + 320]
                         mov              rdx, qword ptr [rbp + 328]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 672], rax
+                        mov              qword ptr [rbp + 680], rdx
                                                                                         jmp   n00568_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00577_lit_integer_α:
@@ -7574,14 +7574,14 @@ n00577_lit_integer_α:
                         .quad            4
 #-----------------------------------------------------------------------------------------------------------------------
 n00582_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 160]
-                        mov              qword ptr [rbp + 256], rax
-                        mov              rax, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 264], rax
                         mov              rax, qword ptr [rbp + 208]
                         mov              qword ptr [rbp + 272], rax
                         mov              rax, qword ptr [rbp + 216]
                         mov              qword ptr [rbp + 280], rax
+                        mov              rax, qword ptr [rbp + 160]
+                        mov              qword ptr [rbp + 256], rax
+                        mov              rax, qword ptr [rbp + 168]
+                        mov              qword ptr [rbp + 264], rax
                         .section         .rodata
 .Lrkfn1111:             .string          "IDENTICAL"
                         .section         .text
@@ -7609,8 +7609,8 @@ n00584_lit_integer_α:
 n00586_assign_α:
                         mov              rax, qword ptr [rbp + 224]
                         mov              rdx, qword ptr [rbp + 232]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 672], rax
+                        mov              qword ptr [rbp + 680], rdx
                                                                                         jmp   n00568_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00583_lit_integer_α:
@@ -7624,14 +7624,14 @@ n00583_lit_integer_α:
 n00588_assign_α:
                         mov              rax, qword ptr [rbp + 176]
                         mov              rdx, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 672], rax
+                        mov              qword ptr [rbp + 680], rdx
                                                                                         jmp   n00568_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00568_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 672]
                         mov              qword ptr [rbp + 144], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 680]
                         mov              qword ptr [rbp + 152], rax
                                                                                         jmp   n00589_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9238,6 +9238,10 @@ n00736_to_β:
                         inc              qword ptr [rbp + 160]
                                                                                         jmp   .Lx00737_0
 #-----------------------------------------------------------------------------------------------------------------------
+n00738_unmark_α:
+                        mov              rsp, qword ptr [rbp + 96]
+                                                                                        jmp   n00729_to_β
+#-----------------------------------------------------------------------------------------------------------------------
 n00724_var_α:
                         mov              rax, qword ptr [rbp + 16]
                         mov              qword ptr [rbp + 272], rax
@@ -9274,10 +9278,6 @@ n00742_return_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_everyto_γ
-#-----------------------------------------------------------------------------------------------------------------------
-n00738_unmark_α:
-                        mov              rsp, qword ptr [rbp + 96]
-                                                                                        jmp   n00729_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_everyto_res:
                         add              rsp, 8
@@ -9388,6 +9388,8 @@ n00748_proc_gen_α:
                         mov              rdx, qword ptr [rbp + 104]                     # v
                         call             rt_arg_stage@PLT
 .Lx00749_21:
+                        lea              rax, [rip + .Lx00749_7]
+                        push             rax
                         mov              edi, 34                                        # idx
                         mov              esi, 1                                         # nargs
                         call             rt_proc_call_open_det@PLT
@@ -9398,6 +9400,7 @@ n00748_proc_gen_α:
                                                                                         jmp   rax
 .Lx00749_3:
                         mov              qword ptr [rbp + 72], rsp
+                        add              rsp, 8
                         mov              rax, qword ptr [rbp + 64]
                         test             rax, rax
                                                                                         jne   .Lx00749_5
@@ -9423,15 +9426,25 @@ n00748_proc_gen_α:
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
                         cmp              eax, 104
-                                                                                        jne   .Lx00749_240
+                                                                                        jne   .Lx00749_239
                         add              rsp, 160
                                                                                         jmp   proc_evsusp_ω
-.Lx00749_240:
+.Lx00749_239:
                                                                                         jmp   n00748_proc_gen_β
 n00748_proc_gen_β:
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rbp + 72]
                                                                                         jmp   qword ptr [rsp]
+.Lx00749_7:
+                        add              rsp, 8
+                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rbp + 40], rdx
+                        cmp              eax, 104
+                                                                                        jne   .Lx00749_240
+                        add              rsp, 160
+                                                                                        jmp   proc_evsusp_ω
+.Lx00749_240:
+                                                                                        jmp   n00748_proc_gen_β
 .Lx00749_0:
                         .quad            .Lx00749_0_s
 .Lx00749_0_s:
@@ -9528,10 +9541,15 @@ proc_susproc_α:
                         mov              qword ptr [rsp + 144], rdx
                         mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
+                        mov              rdi, qword ptr [rbp + 136]
+                        mov              rsi, qword ptr [rbp + 144]
+                        call             rt_gen_save_wires@PLT
                         mov              rdi, rbp
                         mov              esi, 96
                         mov              edx, 128
                         call             rt_jmp_frame_lexprep2@PLT
+                        mov              rdi, qword ptr [rbp + 152]
+                        call             rt_gen_save_caller_rbp@PLT
 proc_susproc_α_body:
                         lea              rax, [rip + n00755_suspend_β]
                         mov              qword ptr [rbp + 96], rax
@@ -9589,6 +9607,8 @@ n00759_to_β:
                                                                                         jmp   .Lx00760_0
 #-----------------------------------------------------------------------------------------------------------------------
 n00755_suspend_α:
+                        lea              rdi, [rip + n00755_suspend_β]
+                        call             rt_gen_save_cont@PLT
                         lea              rax, [rip + n00755_suspend_β]
                         mov              qword ptr [rbp + 96], rax
                         mov              rax, qword ptr [rbp + 32]
@@ -9608,18 +9628,24 @@ proc_susproc_β:
                                                                                         jmp   qword ptr [rbp + 96]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_susproc_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
+                        mov              rdi, qword ptr [rbp + 0]
+                        mov              rsi, qword ptr [rbp + 8]
+                        mov              r14, rbp
                         lea              rsp, [rbp + 160]
-                        mov              rcx, qword ptr [rbp + 136]
-                        mov              rbp, qword ptr [rbp + 152]
-                                                                                        jmp   rcx
+                        call             rt_gen_get_gamma_wire@PLT
+                        mov              r15, rax
+                        call             rt_gen_get_caller_rbp@PLT
+                        mov              rbp, rax
+                        mov              rax, r14
+                                                                                        jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_susproc_ω:
                         lea              rsp, [rbp + 160]
-                        mov              rcx, qword ptr [rbp + 144]
-                        mov              rbp, qword ptr [rbp + 152]
-                                                                                        jmp   rcx
+                        call             rt_gen_get_omega_wire@PLT
+                        mov              r15, rax
+                        call             rt_gen_get_caller_rbp@PLT
+                        mov              rbp, rax
+                                                                                        jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_intcoerce_α
 proc_intcoerce_α:
@@ -13136,8 +13162,8 @@ n01086_lit_string_α:
 n01088_assign_α:
                         mov              rax, qword ptr [rbp + 176]
                         mov              rdx, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 336], rax
+                        mov              qword ptr [rbp + 344], rdx
                         mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
                                                                                         jmp   n01089_lit_integer_α
@@ -13806,14 +13832,14 @@ n01154_lit_integer_α:
                         .quad            20
 #-----------------------------------------------------------------------------------------------------------------------
 n01156_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn2077:             .string          "repl"
                         .section         .text
@@ -14226,14 +14252,14 @@ n01192_lit_integer_α:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n01194_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn2143:             .string          "left"
                         .section         .text
@@ -14442,14 +14468,14 @@ n01212_lit_integer_α:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n01214_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn2177:             .string          "center"
                         .section         .text
@@ -14658,14 +14684,14 @@ n01232_lit_integer_α:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n01234_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn2211:             .string          "right"
                         .section         .text
@@ -15500,18 +15526,18 @@ n01308_lit_string_α:
                         .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #-----------------------------------------------------------------------------------------------------------------------
 n01310_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 224]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 232]
-                        mov              qword ptr [rbp + 168], rax
-                        mov              rax, qword ptr [rbp + 240]
-                        mov              qword ptr [rbp + 176], rax
-                        mov              rax, qword ptr [rbp + 248]
-                        mov              qword ptr [rbp + 184], rax
                         mov              rax, qword ptr [rbp + 256]
                         mov              qword ptr [rbp + 192], rax
                         mov              rax, qword ptr [rbp + 264]
                         mov              qword ptr [rbp + 200], rax
+                        mov              rax, qword ptr [rbp + 240]
+                        mov              qword ptr [rbp + 176], rax
+                        mov              rax, qword ptr [rbp + 248]
+                        mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 224]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 232]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn2343:             .string          "map"
                         .section         .text
@@ -15734,18 +15760,18 @@ n01330_lit_string_α:
                         .string          "ba"
 #-----------------------------------------------------------------------------------------------------------------------
 n01332_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 224]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 232]
-                        mov              qword ptr [rbp + 168], rax
-                        mov              rax, qword ptr [rbp + 240]
-                        mov              qword ptr [rbp + 176], rax
-                        mov              rax, qword ptr [rbp + 248]
-                        mov              qword ptr [rbp + 184], rax
                         mov              rax, qword ptr [rbp + 256]
                         mov              qword ptr [rbp + 192], rax
                         mov              rax, qword ptr [rbp + 264]
                         mov              qword ptr [rbp + 200], rax
+                        mov              rax, qword ptr [rbp + 240]
+                        mov              qword ptr [rbp + 176], rax
+                        mov              rax, qword ptr [rbp + 248]
+                        mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 224]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 232]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn2379:             .string          "map"
                         .section         .text
@@ -15968,18 +15994,18 @@ n01352_lit_string_α:
                         .string          "ba"
 #-----------------------------------------------------------------------------------------------------------------------
 n01354_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 368]
-                        mov              qword ptr [rbp + 304], rax
-                        mov              rax, qword ptr [rbp + 376]
-                        mov              qword ptr [rbp + 312], rax
-                        mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 320], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 328], rax
                         mov              rax, qword ptr [rbp + 400]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 408]
                         mov              qword ptr [rbp + 344], rax
+                        mov              rax, qword ptr [rbp + 384]
+                        mov              qword ptr [rbp + 320], rax
+                        mov              rax, qword ptr [rbp + 392]
+                        mov              qword ptr [rbp + 328], rax
+                        mov              rax, qword ptr [rbp + 368]
+                        mov              qword ptr [rbp + 304], rax
+                        mov              rax, qword ptr [rbp + 376]
+                        mov              qword ptr [rbp + 312], rax
                         .section         .rodata
 .Lrkfn2420:             .string          "map"
                         .section         .text
@@ -16030,18 +16056,18 @@ n01360_lit_string_α:
                         .string          "cd"
 #-----------------------------------------------------------------------------------------------------------------------
 n01362_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 240]
-                        mov              qword ptr [rbp + 176], rax
-                        mov              rax, qword ptr [rbp + 248]
-                        mov              qword ptr [rbp + 184], rax
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              qword ptr [rbp + 192], rax
-                        mov              rax, qword ptr [rbp + 264]
-                        mov              qword ptr [rbp + 200], rax
                         mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 208], rax
                         mov              rax, qword ptr [rbp + 280]
                         mov              qword ptr [rbp + 216], rax
+                        mov              rax, qword ptr [rbp + 256]
+                        mov              qword ptr [rbp + 192], rax
+                        mov              rax, qword ptr [rbp + 264]
+                        mov              qword ptr [rbp + 200], rax
+                        mov              rax, qword ptr [rbp + 240]
+                        mov              qword ptr [rbp + 176], rax
+                        mov              rax, qword ptr [rbp + 248]
+                        mov              qword ptr [rbp + 184], rax
                         .section         .rodata
 .Lrkfn2425:             .string          "map"
                         .section         .text
@@ -20928,14 +20954,14 @@ n01826_lit_integer_α:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n01828_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn3233:             .string          "list"
                         .section         .text
@@ -21195,8 +21221,8 @@ n01854_make_list_α:
 n01855_assign_α:
                         mov              rax, qword ptr [rbp + 160]
                         mov              rdx, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 416], rax
+                        mov              qword ptr [rbp + 424], rdx
                                                                                         jmp   n01856_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n01856_unmark_α:
@@ -23498,14 +23524,14 @@ n02096_lit_integer_α:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n02098_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              qword ptr [rbp + 208], rax
-                        mov              rax, qword ptr [rbp + 264]
-                        mov              qword ptr [rbp + 216], rax
                         mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 280]
                         mov              qword ptr [rbp + 232], rax
+                        mov              rax, qword ptr [rbp + 256]
+                        mov              qword ptr [rbp + 208], rax
+                        mov              rax, qword ptr [rbp + 264]
+                        mov              qword ptr [rbp + 216], rax
                         .section         .rodata
 .Lrkfn3678:             .string          "put"
                         .section         .text
@@ -23828,18 +23854,18 @@ n02127_lit_integer_α:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n02129_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 368]
-                        mov              qword ptr [rbp + 304], rax
-                        mov              rax, qword ptr [rbp + 376]
-                        mov              qword ptr [rbp + 312], rax
-                        mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 320], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 328], rax
                         mov              rax, qword ptr [rbp + 400]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 408]
                         mov              qword ptr [rbp + 344], rax
+                        mov              rax, qword ptr [rbp + 384]
+                        mov              qword ptr [rbp + 320], rax
+                        mov              rax, qword ptr [rbp + 392]
+                        mov              qword ptr [rbp + 328], rax
+                        mov              rax, qword ptr [rbp + 368]
+                        mov              qword ptr [rbp + 304], rax
+                        mov              rax, qword ptr [rbp + 376]
+                        mov              qword ptr [rbp + 312], rax
                         .section         .rodata
 .Lrkfn3738:             .string          "put"
                         .section         .text
@@ -24214,22 +24240,22 @@ n02164_lit_integer_α:
                         .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n02166_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 448]
-                        mov              qword ptr [rbp + 368], rax
-                        mov              rax, qword ptr [rbp + 456]
-                        mov              qword ptr [rbp + 376], rax
-                        mov              rax, qword ptr [rbp + 464]
-                        mov              qword ptr [rbp + 384], rax
-                        mov              rax, qword ptr [rbp + 472]
-                        mov              qword ptr [rbp + 392], rax
-                        mov              rax, qword ptr [rbp + 480]
-                        mov              qword ptr [rbp + 400], rax
-                        mov              rax, qword ptr [rbp + 488]
-                        mov              qword ptr [rbp + 408], rax
                         mov              rax, qword ptr [rbp + 496]
                         mov              qword ptr [rbp + 416], rax
                         mov              rax, qword ptr [rbp + 504]
                         mov              qword ptr [rbp + 424], rax
+                        mov              rax, qword ptr [rbp + 480]
+                        mov              qword ptr [rbp + 400], rax
+                        mov              rax, qword ptr [rbp + 488]
+                        mov              qword ptr [rbp + 408], rax
+                        mov              rax, qword ptr [rbp + 464]
+                        mov              qword ptr [rbp + 384], rax
+                        mov              rax, qword ptr [rbp + 472]
+                        mov              qword ptr [rbp + 392], rax
+                        mov              rax, qword ptr [rbp + 448]
+                        mov              qword ptr [rbp + 368], rax
+                        mov              rax, qword ptr [rbp + 456]
+                        mov              qword ptr [rbp + 376], rax
                         .section         .rodata
 .Lrkfn3807:             .string          "put"
                         .section         .text
@@ -24640,26 +24666,26 @@ n02205_lit_integer_α:
                         .quad            4
 #-----------------------------------------------------------------------------------------------------------------------
 n02207_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 528]
-                        mov              qword ptr [rbp + 432], rax
-                        mov              rax, qword ptr [rbp + 536]
-                        mov              qword ptr [rbp + 440], rax
-                        mov              rax, qword ptr [rbp + 544]
-                        mov              qword ptr [rbp + 448], rax
-                        mov              rax, qword ptr [rbp + 552]
-                        mov              qword ptr [rbp + 456], rax
-                        mov              rax, qword ptr [rbp + 560]
-                        mov              qword ptr [rbp + 464], rax
-                        mov              rax, qword ptr [rbp + 568]
-                        mov              qword ptr [rbp + 472], rax
-                        mov              rax, qword ptr [rbp + 576]
-                        mov              qword ptr [rbp + 480], rax
-                        mov              rax, qword ptr [rbp + 584]
-                        mov              qword ptr [rbp + 488], rax
                         mov              rax, qword ptr [rbp + 592]
                         mov              qword ptr [rbp + 496], rax
                         mov              rax, qword ptr [rbp + 600]
                         mov              qword ptr [rbp + 504], rax
+                        mov              rax, qword ptr [rbp + 576]
+                        mov              qword ptr [rbp + 480], rax
+                        mov              rax, qword ptr [rbp + 584]
+                        mov              qword ptr [rbp + 488], rax
+                        mov              rax, qword ptr [rbp + 560]
+                        mov              qword ptr [rbp + 464], rax
+                        mov              rax, qword ptr [rbp + 568]
+                        mov              qword ptr [rbp + 472], rax
+                        mov              rax, qword ptr [rbp + 544]
+                        mov              qword ptr [rbp + 448], rax
+                        mov              rax, qword ptr [rbp + 552]
+                        mov              qword ptr [rbp + 456], rax
+                        mov              rax, qword ptr [rbp + 528]
+                        mov              qword ptr [rbp + 432], rax
+                        mov              rax, qword ptr [rbp + 536]
+                        mov              qword ptr [rbp + 440], rax
                         .section         .rodata
 .Lrkfn3883:             .string          "put"
                         .section         .text
@@ -25074,14 +25100,14 @@ n02242_lit_integer_α:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n02244_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              qword ptr [rbp + 208], rax
-                        mov              rax, qword ptr [rbp + 264]
-                        mov              qword ptr [rbp + 216], rax
                         mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 280]
                         mov              qword ptr [rbp + 232], rax
+                        mov              rax, qword ptr [rbp + 256]
+                        mov              qword ptr [rbp + 208], rax
+                        mov              rax, qword ptr [rbp + 264]
+                        mov              qword ptr [rbp + 216], rax
                         .section         .rodata
 .Lrkfn3948:             .string          "push"
                         .section         .text
@@ -25396,14 +25422,14 @@ n02271_lit_integer_α:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n02273_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              qword ptr [rbp + 208], rax
-                        mov              rax, qword ptr [rbp + 264]
-                        mov              qword ptr [rbp + 216], rax
                         mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 280]
                         mov              qword ptr [rbp + 232], rax
+                        mov              rax, qword ptr [rbp + 256]
+                        mov              qword ptr [rbp + 208], rax
+                        mov              rax, qword ptr [rbp + 264]
+                        mov              qword ptr [rbp + 216], rax
                         .section         .rodata
 .Lrkfn4014:             .string          "put"
                         .section         .text
@@ -25862,14 +25888,14 @@ n02324_lit_integer_α:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n02326_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              qword ptr [rbp + 208], rax
-                        mov              rax, qword ptr [rbp + 264]
-                        mov              qword ptr [rbp + 216], rax
                         mov              rax, qword ptr [rbp + 272]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 280]
                         mov              qword ptr [rbp + 232], rax
+                        mov              rax, qword ptr [rbp + 256]
+                        mov              qword ptr [rbp + 208], rax
+                        mov              rax, qword ptr [rbp + 264]
+                        mov              qword ptr [rbp + 216], rax
                         .section         .rodata
 .Lrkfn4092:             .string          "push"
                         .section         .text
@@ -26515,14 +26541,14 @@ n02390_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02392_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 336], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 344], rax
                         mov              rax, qword ptr [rbp + 432]
                         mov              qword ptr [rbp + 352], rax
                         mov              rax, qword ptr [rbp + 440]
                         mov              qword ptr [rbp + 360], rax
+                        mov              rax, qword ptr [rbp + 384]
+                        mov              qword ptr [rbp + 336], rax
+                        mov              rax, qword ptr [rbp + 392]
+                        mov              qword ptr [rbp + 344], rax
                         .section         .rodata
 .Lrkfn4186:             .string          "insert"
                         .section         .text
@@ -26844,14 +26870,14 @@ n02419_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02421_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 416]
-                        mov              qword ptr [rbp + 368], rax
-                        mov              rax, qword ptr [rbp + 424]
-                        mov              qword ptr [rbp + 376], rax
                         mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rbp + 384], rax
                         mov              rax, qword ptr [rbp + 472]
                         mov              qword ptr [rbp + 392], rax
+                        mov              rax, qword ptr [rbp + 416]
+                        mov              qword ptr [rbp + 368], rax
+                        mov              rax, qword ptr [rbp + 424]
+                        mov              qword ptr [rbp + 376], rax
                         .section         .rodata
 .Lrkfn4241:             .string          "insert"
                         .section         .text
@@ -26951,14 +26977,14 @@ n02431_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02433_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn4254:             .string          "insert"
                         .section         .text
@@ -27185,14 +27211,14 @@ n02450_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02452_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 416]
-                        mov              qword ptr [rbp + 368], rax
-                        mov              rax, qword ptr [rbp + 424]
-                        mov              qword ptr [rbp + 376], rax
                         mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rbp + 384], rax
                         mov              rax, qword ptr [rbp + 472]
                         mov              qword ptr [rbp + 392], rax
+                        mov              rax, qword ptr [rbp + 416]
+                        mov              qword ptr [rbp + 368], rax
+                        mov              rax, qword ptr [rbp + 424]
+                        mov              qword ptr [rbp + 376], rax
                         .section         .rodata
 .Lrkfn4297:             .string          "insert"
                         .section         .text
@@ -27292,14 +27318,14 @@ n02462_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02464_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn4310:             .string          "member"
                         .section         .text
@@ -27602,14 +27628,14 @@ n02490_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02492_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 272]
-                        mov              qword ptr [rbp + 224], rax
-                        mov              rax, qword ptr [rbp + 280]
-                        mov              qword ptr [rbp + 232], rax
                         mov              rax, qword ptr [rbp + 288]
                         mov              qword ptr [rbp + 240], rax
                         mov              rax, qword ptr [rbp + 296]
                         mov              qword ptr [rbp + 248], rax
+                        mov              rax, qword ptr [rbp + 272]
+                        mov              qword ptr [rbp + 224], rax
+                        mov              rax, qword ptr [rbp + 280]
+                        mov              qword ptr [rbp + 232], rax
                         .section         .rodata
 .Lrkfn4363:             .string          "insert"
                         .section         .text
@@ -27635,14 +27661,14 @@ n02494_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02496_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 304]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 312]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn4366:             .string          "delete"
                         .section         .text
@@ -27869,14 +27895,14 @@ n02512_lit_integer_α:
                         .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n02514_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 368]
-                        mov              qword ptr [rbp + 320], rax
-                        mov              rax, qword ptr [rbp + 376]
-                        mov              qword ptr [rbp + 328], rax
                         mov              rax, qword ptr [rbp + 416]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 424]
                         mov              qword ptr [rbp + 344], rax
+                        mov              rax, qword ptr [rbp + 368]
+                        mov              qword ptr [rbp + 320], rax
+                        mov              rax, qword ptr [rbp + 376]
+                        mov              qword ptr [rbp + 328], rax
                         .section         .rodata
 .Lrkfn4409:             .string          "insert"
                         .section         .text
@@ -28226,14 +28252,14 @@ n02546_to_β:
                                                                                         jmp   .Lx02547_0
 #-----------------------------------------------------------------------------------------------------------------------
 n02548_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 368]
-                        mov              qword ptr [rbp + 320], rax
-                        mov              rax, qword ptr [rbp + 376]
-                        mov              qword ptr [rbp + 328], rax
                         mov              rax, qword ptr [rbp + 416]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 424]
                         mov              qword ptr [rbp + 344], rax
+                        mov              rax, qword ptr [rbp + 368]
+                        mov              qword ptr [rbp + 320], rax
+                        mov              rax, qword ptr [rbp + 376]
+                        mov              qword ptr [rbp + 328], rax
                         .section         .rodata
 .Lrkfn4469:             .string          "insert"
                         .section         .text
@@ -29425,14 +29451,14 @@ n02665_lit_integer_α:
                         .quad            7
 #-----------------------------------------------------------------------------------------------------------------------
 n02667_call_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn4669:             .string          "point"
                         .section         .text
@@ -29641,14 +29667,14 @@ n02684_lit_integer_α:
                         .quad            7
 #-----------------------------------------------------------------------------------------------------------------------
 n02686_call_α:
-                        mov              rax, qword ptr [rbp + 400]
-                        mov              qword ptr [rbp + 352], rax
-                        mov              rax, qword ptr [rbp + 408]
-                        mov              qword ptr [rbp + 360], rax
                         mov              rax, qword ptr [rbp + 416]
                         mov              qword ptr [rbp + 368], rax
                         mov              rax, qword ptr [rbp + 424]
                         mov              qword ptr [rbp + 376], rax
+                        mov              rax, qword ptr [rbp + 400]
+                        mov              qword ptr [rbp + 352], rax
+                        mov              rax, qword ptr [rbp + 408]
+                        mov              qword ptr [rbp + 360], rax
                         .section         .rodata
 .Lrkfn4709:             .string          "point"
                         .section         .text
@@ -29963,14 +29989,14 @@ n02714_lit_integer_α:
                         .quad            7
 #-----------------------------------------------------------------------------------------------------------------------
 n02716_call_α:
-                        mov              rax, qword ptr [rbp + 368]
-                        mov              qword ptr [rbp + 320], rax
-                        mov              rax, qword ptr [rbp + 376]
-                        mov              qword ptr [rbp + 328], rax
                         mov              rax, qword ptr [rbp + 384]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 392]
                         mov              qword ptr [rbp + 344], rax
+                        mov              rax, qword ptr [rbp + 368]
+                        mov              qword ptr [rbp + 320], rax
+                        mov              rax, qword ptr [rbp + 376]
+                        mov              qword ptr [rbp + 328], rax
                         .section         .rodata
 .Lrkfn4762:             .string          "point"
                         .section         .text
@@ -30749,8 +30775,8 @@ n02789_lit_integer_α:
 n02791_assign_α:
                         mov              rax, qword ptr [rbp + 160]
                         mov              rdx, qword ptr [rbp + 168]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 256], rax
+                        mov              qword ptr [rbp + 264], rdx
                                                                                         jmp   n02792_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02792_unmark_α:
@@ -31138,14 +31164,14 @@ n02826_lit_string_α:
                         .string          "ru"
 #-----------------------------------------------------------------------------------------------------------------------
 n02828_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 432]
-                        mov              qword ptr [rbp + 384], rax
-                        mov              rax, qword ptr [rbp + 440]
-                        mov              qword ptr [rbp + 392], rax
                         mov              rax, qword ptr [rbp + 448]
                         mov              qword ptr [rbp + 400], rax
                         mov              rax, qword ptr [rbp + 456]
                         mov              qword ptr [rbp + 408], rax
+                        mov              rax, qword ptr [rbp + 432]
+                        mov              qword ptr [rbp + 384], rax
+                        mov              rax, qword ptr [rbp + 440]
+                        mov              qword ptr [rbp + 392], rax
                         .section         .rodata
 .Lrkfn4956:             .string          "open"
                         .section         .text
@@ -31256,14 +31282,14 @@ n02839_lit_integer_α:
                         .quad            8
 #-----------------------------------------------------------------------------------------------------------------------
 n02841_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn4970:             .string          "reads"
                         .section         .text
@@ -31471,14 +31497,14 @@ n02858_lit_string_α:
                         .string          "abcdefghijklmnopqrstuvwxyz"
 #-----------------------------------------------------------------------------------------------------------------------
 n02860_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn5004:             .string          "write"
                         .section         .text
@@ -31706,14 +31732,14 @@ n02880_var_α:
                                                                                         jmp   n02881_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02881_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              qword ptr [rbp + 160], rax
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 168], rax
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 176], rax
                         mov              rax, qword ptr [rbp + 232]
                         mov              qword ptr [rbp + 184], rax
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 168], rax
                         .section         .rodata
 .Lrkfn5047:             .string          "write"
                         .section         .text
@@ -35558,14 +35584,14 @@ n02961_lit_string_α:
                         .string          "w"
 #-----------------------------------------------------------------------------------------------------------------------
 n02963_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 8752]
-                        mov              qword ptr [rbp + 8704], rax
-                        mov              rax, qword ptr [rbp + 8760]
-                        mov              qword ptr [rbp + 8712], rax
                         mov              rax, qword ptr [rbp + 8768]
                         mov              qword ptr [rbp + 8720], rax
                         mov              rax, qword ptr [rbp + 8776]
                         mov              qword ptr [rbp + 8728], rax
+                        mov              rax, qword ptr [rbp + 8752]
+                        mov              qword ptr [rbp + 8704], rax
+                        mov              rax, qword ptr [rbp + 8760]
+                        mov              qword ptr [rbp + 8712], rax
                         .section         .rodata
 .Lrkfn5477:             .string          "open"
                         .section         .text
@@ -35599,14 +35625,14 @@ n02964_var_α:
 n02966_assign_α:
                         mov              rax, qword ptr [rbp + 8672]
                         mov              rdx, qword ptr [rbp + 8680]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 9008], rax
+                        mov              qword ptr [rbp + 9016], rdx
                                                                                         jmp   n02967_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02967_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 9008]
                         mov              qword ptr [rbp + 8592], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 9016]
                         mov              qword ptr [rbp + 8600], rax
                                                                                         jmp   n02968_lit_real_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35640,20 +35666,20 @@ n02970_call_builtin_icon_β:
                                                                                         jmp   n02971_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02972_binop_test_α:
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rbp + 9008]
                         cmp              eax, 112
                                                                                         je    .Lx02973_0
                         mov              eax, dword ptr [rbp + 8608]
                         cmp              eax, 112
                                                                                         je    .Lx02973_0
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rbp + 9008]
                         cmp              eax, 3
                                                                                         jne   .Lx02973_2
                         mov              eax, dword ptr [rbp + 8608]
                         cmp              eax, 3
                                                                                         jne   .Lx02973_2
 .Lx02973_1:
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 9016]
                         mov              rcx, qword ptr [rbp + 8616]
                         cmp              rax, rcx
                                                                                         jge   n02971_call_builtin_icon_α
@@ -35663,8 +35689,8 @@ n02972_binop_test_α:
                         mov              qword ptr [rbp + 8584], rcx
                                                                                         jmp   n02974_assign_α
 .Lx02973_0:
-                        mov              rdi, qword ptr [rbp + 48]                      # a
-                        mov              rsi, qword ptr [rbp + 56]                      # a
+                        mov              rdi, qword ptr [rbp + 9008]                    # a
+                        mov              rsi, qword ptr [rbp + 9016]                    # a
                         mov              rdx, qword ptr [rbp + 8608]                    # b
                         mov              rcx, qword ptr [rbp + 8616]                    # b
                         mov              r8d, 5                                         # op
@@ -35676,8 +35702,8 @@ n02972_binop_test_α:
                                                                                         je    n02971_call_builtin_icon_α
                                                                                         jmp   n02974_assign_α
 .Lx02973_2:
-                        mov              rdi, qword ptr [rbp + 48]                      # lhs
-                        mov              rsi, qword ptr [rbp + 56]                      # lhs
+                        mov              rdi, qword ptr [rbp + 9008]                    # lhs
+                        mov              rsi, qword ptr [rbp + 9016]                    # lhs
                         mov              rdx, qword ptr [rbp + 8608]                    # rhs
                         mov              rcx, qword ptr [rbp + 8616]                    # rhs
                         mov              r8d, 5                                         # op
@@ -35693,8 +35719,8 @@ n02972_binop_test_α:
 n02974_assign_α:
                         mov              rax, qword ptr [rbp + 8576]
                         mov              rdx, qword ptr [rbp + 8584]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 9008], rax
+                        mov              qword ptr [rbp + 9016], rdx
                                                                                         jmp   n02971_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02971_call_builtin_icon_α:
@@ -35717,8 +35743,8 @@ n02971_call_builtin_icon_β:
 n02976_assign_α:
                         mov              rax, qword ptr [rbp + 8544]
                         mov              rdx, qword ptr [rbp + 8552]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 8992], rax
+                        mov              qword ptr [rbp + 9000], rdx
                                                                                         jmp   n02975_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02975_lit_integer_α:
@@ -35796,14 +35822,14 @@ n02987_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n02989_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 8496]
-                        mov              qword ptr [rbp + 8448], rax
-                        mov              rax, qword ptr [rbp + 8504]
-                        mov              qword ptr [rbp + 8456], rax
                         mov              rax, qword ptr [rbp + 8528]
                         mov              qword ptr [rbp + 8464], rax
                         mov              rax, qword ptr [rbp + 8536]
                         mov              qword ptr [rbp + 8472], rax
+                        mov              rax, qword ptr [rbp + 8496]
+                        mov              qword ptr [rbp + 8448], rax
+                        mov              rax, qword ptr [rbp + 8504]
+                        mov              qword ptr [rbp + 8456], rax
                         .section         .rodata
 .Lrkfn5500:             .string          "writes"
                         .section         .text
@@ -35821,9 +35847,9 @@ n02989_call_builtin_icon_β:
                                                                                         jmp   n02986_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n02986_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 8992]
                         mov              qword ptr [rbp + 8320], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 9000]
                         mov              qword ptr [rbp + 8328], rax
                                                                                         jmp   n02990_proc_value_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35839,9 +35865,9 @@ n02990_proc_value_α:
                         .string          "nothing"
 #-----------------------------------------------------------------------------------------------------------------------
 n02992_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 9008]
                         mov              qword ptr [rbp + 8416], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 9016]
                         mov              qword ptr [rbp + 8424], rax
                                                                                         jmp   n02993_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35864,14 +35890,14 @@ n02993_call_proc_staged_β:
                         .string          "measure"
 #-----------------------------------------------------------------------------------------------------------------------
 n02996_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 8320]
-                        mov              qword ptr [rbp + 8272], rax
-                        mov              rax, qword ptr [rbp + 8328]
-                        mov              qword ptr [rbp + 8280], rax
                         mov              rax, qword ptr [rbp + 8336]
                         mov              qword ptr [rbp + 8288], rax
                         mov              rax, qword ptr [rbp + 8344]
                         mov              qword ptr [rbp + 8296], rax
+                        mov              rax, qword ptr [rbp + 8320]
+                        mov              qword ptr [rbp + 8272], rax
+                        mov              rax, qword ptr [rbp + 8328]
+                        mov              qword ptr [rbp + 8280], rax
                         .section         .rodata
 .Lrkfn5510:             .string          "put"
                         .section         .text
@@ -35901,14 +35927,3651 @@ n02995_unmark_α:
                         mov              rsp, qword ptr [rbp + 8192]
                                                                                         jmp   n02980_to_β
 #-----------------------------------------------------------------------------------------------------------------------
+n02982_var_α:
+                        mov              rax, qword ptr [rbp + 8992]
+                        mov              qword ptr [rbp + 7904], rax
+                        mov              rax, qword ptr [rbp + 9000]
+                        mov              qword ptr [rbp + 7912], rax
+                                                                                        jmp   n02998_call_builtin_icon_α
+#-----------------------------------------------------------------------------------------------------------------------
+n02998_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 7904]
+                        mov              qword ptr [rbp + 7872], rax
+                        mov              rax, qword ptr [rbp + 7912]
+                        mov              qword ptr [rbp + 7880], rax
+                        .section         .rodata
+.Lrkfn5517:             .string          "sort"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn5517]                        # fn
+                        lea              rsi, [rbp + 7872]                              # args
+                        mov              edx, 1                                         # nargs
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 7856], rax
+                        mov              qword ptr [rbp + 7864], rdx
+                        cmp              eax, 104
+                                                                                        je    n02999_var_α
+                                                                                        jmp   n03000_lit_integer_α
+n02998_call_builtin_icon_β:
+                                                                                        jmp   n02999_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03000_lit_integer_α:
+                        mov              qword ptr [rbp + 7952], 3                      # result
+                        mov              rax, qword ptr [rip + .Lx03001_0]
+                        mov              qword ptr [rbp + 7960], rax
+                                                                                        jmp   n03002_var_α
+.Lx03001_0:
+                        .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
+n03002_var_α:
+                        mov              rax, qword ptr [rbp + 8992]
+                        mov              qword ptr [rbp + 8048], rax
+                        mov              rax, qword ptr [rbp + 9000]
+                        mov              qword ptr [rbp + 8056], rax
+                                                                                        jmp   n03003_unop_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03003_unop_α:
+                        mov              rdi, qword ptr [rbp + 8992]                    # lo
+                        mov              rsi, qword ptr [rbp + 9000]                    # hi
+                        call             rt_size_d@PLT
+                        mov              qword ptr [rbp + 8032], rax
+                        mov              qword ptr [rbp + 8040], rdx
+                                                                                        jmp   n03004_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03004_lit_integer_α:
+                        mov              qword ptr [rbp + 8064], 3                      # result
+                        mov              rax, qword ptr [rip + .Lx03005_0]
+                        mov              qword ptr [rbp + 8072], rax
+                                                                                        jmp   n03006_coerce_numeric_α
+.Lx03005_0:
+                        .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
+n03006_coerce_numeric_α:
+                        mov              eax, dword ptr [rbp + 8032]
+                        cmp              eax, 5
+                                                                                        je    .Lx03007_1
+                        cmp              eax, 3
+                                                                                        jne   .Lx03007_0
+                        mov              eax, dword ptr [rbp + 8064]
+                        cmp              eax, 3
+                                                                                        jne   .Lx03007_0
+.Lx03007_1:
+                        mov              rax, qword ptr [rbp + 8032]
+                        mov              qword ptr [rbp + 8016], rax
+                        mov              rax, qword ptr [rbp + 8040]
+                        mov              qword ptr [rbp + 8024], rax
+                                                                                        jmp   n03008_binop_α
+.Lx03007_0:
+                        lea              rdi, [rbp + 8032]                              # self
+                        lea              rsi, [rbp + 8064]                              # other
+                        lea              rdx, [rbp + 8016]                              # out
+                        mov              rcx, 0                                         # codes
+                        call             rt_coerce_num2_d@PLT
+                                                                                        jmp   n03008_binop_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03008_binop_α:
+                        mov              eax, dword ptr [rbp + 8016]
+                        cmp              eax, 3
+                                                                                        jne   .Lx03009_0
+                        mov              rax, qword ptr [rbp + 8024]
+                        mov              rcx, 1
+                        sub              rax, rcx
+                        mov              qword ptr [rbp + 8000], 3
+                        mov              qword ptr [rbp + 8008], rax
+                                                                                        jmp   n03010_lit_integer_α
+.Lx03009_0:
+                        mov              rdi, qword ptr [rbp + 8016]
+                        mov              rsi, qword ptr [rbp + 8024]
+                        mov              rdx, qword ptr [rbp + 8064]
+                        mov              rcx, qword ptr [rbp + 8072]
+                        call             rt_sub@PLT
+                        cmp              eax, 104
+                                                                                        je    n02999_var_α
+                        mov              qword ptr [rbp + 8000], rax
+                        mov              qword ptr [rbp + 8008], rdx
+                                                                                        jmp   n03010_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03010_lit_integer_α:
+                        mov              qword ptr [rbp + 8080], 3                      # result
+                        mov              rax, qword ptr [rip + .Lx03011_0]
+                        mov              qword ptr [rbp + 8088], rax
+                                                                                        jmp   n03012_coerce_numeric_α
+.Lx03011_0:
+                        .quad            2
+#-----------------------------------------------------------------------------------------------------------------------
+n03012_coerce_numeric_α:
+                        mov              eax, dword ptr [rbp + 8000]
+                        cmp              eax, 5
+                                                                                        je    .Lx03013_1
+                        cmp              eax, 3
+                                                                                        jne   .Lx03013_0
+                        mov              eax, dword ptr [rbp + 8080]
+                        cmp              eax, 3
+                                                                                        jne   .Lx03013_0
+.Lx03013_1:
+                        mov              rax, qword ptr [rbp + 8000]
+                        mov              qword ptr [rbp + 7984], rax
+                        mov              rax, qword ptr [rbp + 8008]
+                        mov              qword ptr [rbp + 7992], rax
+                                                                                        jmp   n03014_binop_α
+.Lx03013_0:
+                        lea              rdi, [rbp + 8000]                              # self
+                        lea              rsi, [rbp + 8080]                              # other
+                        lea              rdx, [rbp + 7984]                              # out
+                        mov              rcx, 0                                         # codes
+                        call             rt_coerce_num2_d@PLT
+                                                                                        jmp   n03014_binop_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03014_binop_α:
+                        mov              rdi, qword ptr [rbp + 7984]
+                        mov              rsi, qword ptr [rbp + 7992]
+                        mov              rdx, qword ptr [rbp + 8080]
+                        mov              rcx, qword ptr [rbp + 8088]
+                        call             rt_div@PLT
+                        cmp              eax, 104
+                                                                                        je    n02999_var_α
+                        mov              qword ptr [rbp + 7968], rax
+                        mov              qword ptr [rbp + 7976], rdx
+                                                                                        jmp   n03015_coerce_numeric_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03015_coerce_numeric_α:
+                        mov              eax, dword ptr [rbp + 7968]
+                        cmp              eax, 5
+                                                                                        je    .Lx03016_1
+                        cmp              eax, 3
+                                                                                        jne   .Lx03016_0
+                        mov              eax, dword ptr [rbp + 7952]
+                        cmp              eax, 3
+                                                                                        jne   .Lx03016_0
+.Lx03016_1:
+                        mov              rax, qword ptr [rbp + 7968]
+                        mov              qword ptr [rbp + 7936], rax
+                        mov              rax, qword ptr [rbp + 7976]
+                        mov              qword ptr [rbp + 7944], rax
+                                                                                        jmp   n03017_binop_α
+.Lx03016_0:
+                        lea              rdi, [rbp + 7968]                              # self
+                        lea              rsi, [rbp + 7952]                              # other
+                        lea              rdx, [rbp + 7936]                              # out
+                        mov              rcx, 0                                         # codes
+                        call             rt_coerce_num2_d@PLT
+                                                                                        jmp   n03017_binop_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03017_binop_α:
+                        mov              eax, dword ptr [rbp + 7936]
+                        cmp              eax, 3
+                                                                                        jne   .Lx03018_0
+                        mov              rax, 1
+                        mov              rcx, qword ptr [rbp + 7944]
+                        add              rax, rcx
+                        mov              qword ptr [rbp + 7920], 3
+                        mov              qword ptr [rbp + 7928], rax
+                                                                                        jmp   n03019_subscript_α
+.Lx03018_0:
+                        mov              rdi, qword ptr [rbp + 7952]
+                        mov              rsi, qword ptr [rbp + 7960]
+                        mov              rdx, qword ptr [rbp + 7936]
+                        mov              rcx, qword ptr [rbp + 7944]
+                        call             rt_add@PLT
+                        cmp              eax, 104
+                                                                                        je    n02999_var_α
+                        mov              qword ptr [rbp + 7920], rax
+                        mov              qword ptr [rbp + 7928], rdx
+                                                                                        jmp   n03019_subscript_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03019_subscript_α:
+                        mov              rdi, qword ptr [rbp + 7856]                    # base
+                        mov              rsi, qword ptr [rbp + 7864]                    # base
+                        mov              rdx, qword ptr [rbp + 7920]                    # idx
+                        mov              rcx, qword ptr [rbp + 7928]                    # idx
+                        call             rt_subscript_var@PLT
+                        cmp              eax, 104
+                                                                                        je    n02999_var_α
+                        mov              qword ptr [rbp + 8096], rax
+                        mov              qword ptr [rbp + 8104], rdx
+                                                                                        jmp   n03020_deref_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03020_deref_α:
+                        mov              rdi, qword ptr [rbp + 8096]                    # d
+                        mov              rsi, qword ptr [rbp + 8104]                    # d
+                        call             rt_deref@PLT
+                        cmp              eax, 104
+                                                                                        je    n02999_var_α
+                        mov              qword ptr [rbp + 8112], rax
+                        mov              qword ptr [rbp + 8120], rdx
+                                                                                        jmp   n03021_assign_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03021_assign_α:
+                        mov              rax, qword ptr [rbp + 8112]
+                        mov              rdx, qword ptr [rbp + 8120]
+                        mov              qword ptr [1879052304], rax                    # overhead
+                        mov              qword ptr [1879052312], rdx
+                                                                                        jmp   n02999_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n02999_var_α:
+                        mov              rax, qword ptr [1879052304]                    # overhead
+                        mov              rdx, qword ptr [1879052312]
+                        mov              qword ptr [rbp + 7792], rax                    # result
+                        mov              qword ptr [rbp + 7800], rdx
+                                                                                        jmp   n03022_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03022_lit_integer_α:
+                        mov              qword ptr [rbp + 7808], 3                      # result
+                        mov              rax, qword ptr [rip + .Lx03023_0]
+                        mov              qword ptr [rbp + 7816], rax
+                                                                                        jmp   n03024_call_builtin_icon_α
+.Lx03023_0:
+                        .quad            10
+#-----------------------------------------------------------------------------------------------------------------------
+n03024_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 7808]
+                        mov              qword ptr [rbp + 7760], rax
+                        mov              rax, qword ptr [rbp + 7816]
+                        mov              qword ptr [rbp + 7768], rax
+                        mov              rax, qword ptr [rbp + 7792]
+                        mov              qword ptr [rbp + 7744], rax
+                        mov              rax, qword ptr [rbp + 7800]
+                        mov              qword ptr [rbp + 7752], rax
+                        .section         .rodata
+.Lrkfn5539:             .string          "right"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn5539]                        # fn
+                        lea              rsi, [rbp + 7744]                              # args
+                        mov              edx, 2                                         # nargs
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 7728], rax
+                        mov              qword ptr [rbp + 7736], rdx
+                        cmp              eax, 104
+                                                                                        je    n03025_proc_value_α
+                                                                                        jmp   n03026_lit_string_α
+n03024_call_builtin_icon_β:
+                                                                                        jmp   n03025_proc_value_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03026_lit_string_α:
+                        mov              qword ptr [rbp + 7824], 2                      # result
+                        mov              dword ptr [rbp + 7828], 10
+                        mov              rax, qword ptr [rip + .Lx03027_0]
+                        mov              qword ptr [rbp + 7832], rax
+                                                                                        jmp   n03028_call_builtin_icon_α
+.Lx03027_0:
+                        .quad            .Lx03027_0_s
+.Lx03027_0_s:
+                        .string          "  overhead"
+#-----------------------------------------------------------------------------------------------------------------------
+n03028_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 7824]
+                        mov              qword ptr [rbp + 7696], rax
+                        mov              rax, qword ptr [rbp + 7832]
+                        mov              qword ptr [rbp + 7704], rax
+                        mov              rax, qword ptr [rbp + 7728]
+                        mov              qword ptr [rbp + 7680], rax
+                        mov              rax, qword ptr [rbp + 7736]
+                        mov              qword ptr [rbp + 7688], rax
+                        .section         .rodata
+.Lrkfn5542:             .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn5542]                        # fn
+                        lea              rsi, [rbp + 7680]                              # args
+                        mov              edx, 2                                         # nargs
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 7664], rax
+                        mov              qword ptr [rbp + 7672], rdx
+                        cmp              eax, 104
+                                                                                        je    n03025_proc_value_α
+                                                                                        jmp   n03025_proc_value_α
+n03028_call_builtin_icon_β:
+                                                                                        jmp   n03025_proc_value_α
+#-----------------------------------------------------------------------------------------------------------------------
+n03025_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03029_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7648], rax
+                        mov              qword ptr [rbp + 7656], rdx
+                                                                                        jmp   n03030_call_proc_staged_α
+.Lx03029_0:
+                        .quad            .Lx03029_0_s
+.Lx03029_0_s:
+                        .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
+n03030_call_proc_staged_α:
+                        lea              rsi, [rbp + 7648]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03031_2
+.Lx03031_2:
+                        mov              qword ptr [rbp + 7600], rax
+                        mov              qword ptr [rbp + 7608], rdx
+                        cmp              eax, 104
+                                                                                        je    n03032_proc_value_α
+                                                                                        jmp   n03032_proc_value_α
+n03030_call_proc_staged_β:
+                                                                                        jmp   n03032_proc_value_α
+.Lx03031_0:
+                        .quad            .Lx03031_0_s
+.Lx03031_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03032_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03033_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7584], rax
+                        mov              qword ptr [rbp + 7592], rdx
+                                                                                        jmp   n03034_call_proc_staged_α
+.Lx03033_0:
+                        .quad            .Lx03033_0_s
+.Lx03033_0_s:
+                        .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
+n03034_call_proc_staged_α:
+                        lea              rsi, [rbp + 7584]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03035_2
+.Lx03035_2:
+                        mov              qword ptr [rbp + 7536], rax
+                        mov              qword ptr [rbp + 7544], rdx
+                        cmp              eax, 104
+                                                                                        je    n03036_proc_value_α
+                                                                                        jmp   n03036_proc_value_α
+n03034_call_proc_staged_β:
+                                                                                        jmp   n03036_proc_value_α
+.Lx03035_0:
+                        .quad            .Lx03035_0_s
+.Lx03035_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03036_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03037_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7520], rax
+                        mov              qword ptr [rbp + 7528], rdx
+                                                                                        jmp   n03038_call_proc_staged_α
+.Lx03037_0:
+                        .quad            .Lx03037_0_s
+.Lx03037_0_s:
+                        .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
+n03038_call_proc_staged_α:
+                        lea              rsi, [rbp + 7520]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03039_2
+.Lx03039_2:
+                        mov              qword ptr [rbp + 7472], rax
+                        mov              qword ptr [rbp + 7480], rdx
+                        cmp              eax, 104
+                                                                                        je    n03040_proc_value_α
+                                                                                        jmp   n03040_proc_value_α
+n03038_call_proc_staged_β:
+                                                                                        jmp   n03040_proc_value_α
+.Lx03039_0:
+                        .quad            .Lx03039_0_s
+.Lx03039_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03040_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03041_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7456], rax
+                        mov              qword ptr [rbp + 7464], rdx
+                                                                                        jmp   n03042_call_proc_staged_α
+.Lx03041_0:
+                        .quad            .Lx03041_0_s
+.Lx03041_0_s:
+                        .string          "globasgn"
+#-----------------------------------------------------------------------------------------------------------------------
+n03042_call_proc_staged_α:
+                        lea              rsi, [rbp + 7456]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03043_2
+.Lx03043_2:
+                        mov              qword ptr [rbp + 7408], rax
+                        mov              qword ptr [rbp + 7416], rdx
+                        cmp              eax, 104
+                                                                                        je    n03044_proc_value_α
+                                                                                        jmp   n03044_proc_value_α
+n03042_call_proc_staged_β:
+                                                                                        jmp   n03044_proc_value_α
+.Lx03043_0:
+                        .quad            .Lx03043_0_s
+.Lx03043_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03044_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03045_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7392], rax
+                        mov              qword ptr [rbp + 7400], rdx
+                                                                                        jmp   n03046_call_proc_staged_α
+.Lx03045_0:
+                        .quad            .Lx03045_0_s
+.Lx03045_0_s:
+                        .string          "statasgn"
+#-----------------------------------------------------------------------------------------------------------------------
+n03046_call_proc_staged_α:
+                        lea              rsi, [rbp + 7392]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03047_2
+.Lx03047_2:
+                        mov              qword ptr [rbp + 7344], rax
+                        mov              qword ptr [rbp + 7352], rdx
+                        cmp              eax, 104
+                                                                                        je    n03048_proc_value_α
+                                                                                        jmp   n03048_proc_value_α
+n03046_call_proc_staged_β:
+                                                                                        jmp   n03048_proc_value_α
+.Lx03047_0:
+                        .quad            .Lx03047_0_s
+.Lx03047_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03048_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03049_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7328], rax
+                        mov              qword ptr [rbp + 7336], rdx
+                                                                                        jmp   n03050_call_proc_staged_α
+.Lx03049_0:
+                        .quad            .Lx03049_0_s
+.Lx03049_0_s:
+                        .string          "loclasgn"
+#-----------------------------------------------------------------------------------------------------------------------
+n03050_call_proc_staged_α:
+                        lea              rsi, [rbp + 7328]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03051_2
+.Lx03051_2:
+                        mov              qword ptr [rbp + 7280], rax
+                        mov              qword ptr [rbp + 7288], rdx
+                        cmp              eax, 104
+                                                                                        je    n03052_proc_value_α
+                                                                                        jmp   n03052_proc_value_α
+n03050_call_proc_staged_β:
+                                                                                        jmp   n03052_proc_value_α
+.Lx03051_0:
+                        .quad            .Lx03051_0_s
+.Lx03051_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03052_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03053_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7264], rax
+                        mov              qword ptr [rbp + 7272], rdx
+                                                                                        jmp   n03054_call_proc_staged_α
+.Lx03053_0:
+                        .quad            .Lx03053_0_s
+.Lx03053_0_s:
+                        .string          "if0"
+#-----------------------------------------------------------------------------------------------------------------------
+n03054_call_proc_staged_α:
+                        lea              rsi, [rbp + 7264]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03055_2
+.Lx03055_2:
+                        mov              qword ptr [rbp + 7216], rax
+                        mov              qword ptr [rbp + 7224], rdx
+                        cmp              eax, 104
+                                                                                        je    n03056_proc_value_α
+                                                                                        jmp   n03056_proc_value_α
+n03054_call_proc_staged_β:
+                                                                                        jmp   n03056_proc_value_α
+.Lx03055_0:
+                        .quad            .Lx03055_0_s
+.Lx03055_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03056_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03057_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7200], rax
+                        mov              qword ptr [rbp + 7208], rdx
+                                                                                        jmp   n03058_call_proc_staged_α
+.Lx03057_0:
+                        .quad            .Lx03057_0_s
+.Lx03057_0_s:
+                        .string          "case3"
+#-----------------------------------------------------------------------------------------------------------------------
+n03058_call_proc_staged_α:
+                        lea              rsi, [rbp + 7200]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03059_2
+.Lx03059_2:
+                        mov              qword ptr [rbp + 7152], rax
+                        mov              qword ptr [rbp + 7160], rdx
+                        cmp              eax, 104
+                                                                                        je    n03060_proc_value_α
+                                                                                        jmp   n03060_proc_value_α
+n03058_call_proc_staged_β:
+                                                                                        jmp   n03060_proc_value_α
+.Lx03059_0:
+                        .quad            .Lx03059_0_s
+.Lx03059_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03060_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03061_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7136], rax
+                        mov              qword ptr [rbp + 7144], rdx
+                                                                                        jmp   n03062_call_proc_staged_α
+.Lx03061_0:
+                        .quad            .Lx03061_0_s
+.Lx03061_0_s:
+                        .string          "nulltest"
+#-----------------------------------------------------------------------------------------------------------------------
+n03062_call_proc_staged_α:
+                        lea              rsi, [rbp + 7136]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03063_2
+.Lx03063_2:
+                        mov              qword ptr [rbp + 7088], rax
+                        mov              qword ptr [rbp + 7096], rdx
+                        cmp              eax, 104
+                                                                                        je    n03064_proc_value_α
+                                                                                        jmp   n03064_proc_value_α
+n03062_call_proc_staged_β:
+                                                                                        jmp   n03064_proc_value_α
+.Lx03063_0:
+                        .quad            .Lx03063_0_s
+.Lx03063_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03064_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03065_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7072], rax
+                        mov              qword ptr [rbp + 7080], rdx
+                                                                                        jmp   n03066_call_proc_staged_α
+.Lx03065_0:
+                        .quad            .Lx03065_0_s
+.Lx03065_0_s:
+                        .string          "typef"
+#-----------------------------------------------------------------------------------------------------------------------
+n03066_call_proc_staged_α:
+                        lea              rsi, [rbp + 7072]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03067_2
+.Lx03067_2:
+                        mov              qword ptr [rbp + 7024], rax
+                        mov              qword ptr [rbp + 7032], rdx
+                        cmp              eax, 104
+                                                                                        je    n03068_proc_value_α
+                                                                                        jmp   n03068_proc_value_α
+n03066_call_proc_staged_β:
+                                                                                        jmp   n03068_proc_value_α
+.Lx03067_0:
+                        .quad            .Lx03067_0_s
+.Lx03067_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03068_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03069_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 7008], rax
+                        mov              qword ptr [rbp + 7016], rdx
+                                                                                        jmp   n03070_call_proc_staged_α
+.Lx03069_0:
+                        .quad            .Lx03069_0_s
+.Lx03069_0_s:
+                        .string          "imagef"
+#-----------------------------------------------------------------------------------------------------------------------
+n03070_call_proc_staged_α:
+                        lea              rsi, [rbp + 7008]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03071_2
+.Lx03071_2:
+                        mov              qword ptr [rbp + 6960], rax
+                        mov              qword ptr [rbp + 6968], rdx
+                        cmp              eax, 104
+                                                                                        je    n03072_proc_value_α
+                                                                                        jmp   n03072_proc_value_α
+n03070_call_proc_staged_β:
+                                                                                        jmp   n03072_proc_value_α
+.Lx03071_0:
+                        .quad            .Lx03071_0_s
+.Lx03071_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03072_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03073_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6944], rax
+                        mov              qword ptr [rbp + 6952], rdx
+                                                                                        jmp   n03074_call_proc_staged_α
+.Lx03073_0:
+                        .quad            .Lx03073_0_s
+.Lx03073_0_s:
+                        .string          "everyto"
+#-----------------------------------------------------------------------------------------------------------------------
+n03074_call_proc_staged_α:
+                        lea              rsi, [rbp + 6944]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03075_2
+.Lx03075_2:
+                        mov              qword ptr [rbp + 6896], rax
+                        mov              qword ptr [rbp + 6904], rdx
+                        cmp              eax, 104
+                                                                                        je    n03076_proc_value_α
+                                                                                        jmp   n03076_proc_value_α
+n03074_call_proc_staged_β:
+                                                                                        jmp   n03076_proc_value_α
+.Lx03075_0:
+                        .quad            .Lx03075_0_s
+.Lx03075_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03076_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03077_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6880], rax
+                        mov              qword ptr [rbp + 6888], rdx
+                                                                                        jmp   n03078_call_proc_staged_α
+.Lx03077_0:
+                        .quad            .Lx03077_0_s
+.Lx03077_0_s:
+                        .string          "everyalt"
+#-----------------------------------------------------------------------------------------------------------------------
+n03078_call_proc_staged_α:
+                        lea              rsi, [rbp + 6880]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03079_2
+.Lx03079_2:
+                        mov              qword ptr [rbp + 6832], rax
+                        mov              qword ptr [rbp + 6840], rdx
+                        cmp              eax, 104
+                                                                                        je    n03080_proc_value_α
+                                                                                        jmp   n03080_proc_value_α
+n03078_call_proc_staged_β:
+                                                                                        jmp   n03080_proc_value_α
+.Lx03079_0:
+                        .quad            .Lx03079_0_s
+.Lx03079_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03080_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03081_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6816], rax
+                        mov              qword ptr [rbp + 6824], rdx
+                                                                                        jmp   n03082_call_proc_staged_α
+.Lx03081_0:
+                        .quad            .Lx03081_0_s
+.Lx03081_0_s:
+                        .string          "conj5"
+#-----------------------------------------------------------------------------------------------------------------------
+n03082_call_proc_staged_α:
+                        lea              rsi, [rbp + 6816]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03083_2
+.Lx03083_2:
+                        mov              qword ptr [rbp + 6768], rax
+                        mov              qword ptr [rbp + 6776], rdx
+                        cmp              eax, 104
+                                                                                        je    n03084_proc_value_α
+                                                                                        jmp   n03084_proc_value_α
+n03082_call_proc_staged_β:
+                                                                                        jmp   n03084_proc_value_α
+.Lx03083_0:
+                        .quad            .Lx03083_0_s
+.Lx03083_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03084_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03085_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6752], rax
+                        mov              qword ptr [rbp + 6760], rdx
+                                                                                        jmp   n03086_call_proc_staged_α
+.Lx03085_0:
+                        .quad            .Lx03085_0_s
+.Lx03085_0_s:
+                        .string          "nullfunc"
+#-----------------------------------------------------------------------------------------------------------------------
+n03086_call_proc_staged_α:
+                        lea              rsi, [rbp + 6752]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03087_2
+.Lx03087_2:
+                        mov              qword ptr [rbp + 6704], rax
+                        mov              qword ptr [rbp + 6712], rdx
+                        cmp              eax, 104
+                                                                                        je    n03088_proc_value_α
+                                                                                        jmp   n03088_proc_value_α
+n03086_call_proc_staged_β:
+                                                                                        jmp   n03088_proc_value_α
+.Lx03087_0:
+                        .quad            .Lx03087_0_s
+.Lx03087_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03088_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03089_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6688], rax
+                        mov              qword ptr [rbp + 6696], rdx
+                                                                                        jmp   n03090_call_proc_staged_α
+.Lx03089_0:
+                        .quad            .Lx03089_0_s
+.Lx03089_0_s:
+                        .string          "listcall"
+#-----------------------------------------------------------------------------------------------------------------------
+n03090_call_proc_staged_α:
+                        lea              rsi, [rbp + 6688]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03091_2
+.Lx03091_2:
+                        mov              qword ptr [rbp + 6640], rax
+                        mov              qword ptr [rbp + 6648], rdx
+                        cmp              eax, 104
+                                                                                        je    n03092_proc_value_α
+                                                                                        jmp   n03092_proc_value_α
+n03090_call_proc_staged_β:
+                                                                                        jmp   n03092_proc_value_α
+.Lx03091_0:
+                        .quad            .Lx03091_0_s
+.Lx03091_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03092_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03093_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6624], rax
+                        mov              qword ptr [rbp + 6632], rdx
+                                                                                        jmp   n03094_call_proc_staged_α
+.Lx03093_0:
+                        .quad            .Lx03093_0_s
+.Lx03093_0_s:
+                        .string          "marshal"
+#-----------------------------------------------------------------------------------------------------------------------
+n03094_call_proc_staged_α:
+                        lea              rsi, [rbp + 6624]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03095_2
+.Lx03095_2:
+                        mov              qword ptr [rbp + 6576], rax
+                        mov              qword ptr [rbp + 6584], rdx
+                        cmp              eax, 104
+                                                                                        je    n03096_proc_value_α
+                                                                                        jmp   n03096_proc_value_α
+n03094_call_proc_staged_β:
+                                                                                        jmp   n03096_proc_value_α
+.Lx03095_0:
+                        .quad            .Lx03095_0_s
+.Lx03095_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03096_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03097_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6560], rax
+                        mov              qword ptr [rbp + 6568], rdx
+                                                                                        jmp   n03098_call_proc_staged_α
+.Lx03097_0:
+                        .quad            .Lx03097_0_s
+.Lx03097_0_s:
+                        .string          "evsusp"
+#-----------------------------------------------------------------------------------------------------------------------
+n03098_call_proc_staged_α:
+                        lea              rsi, [rbp + 6560]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03099_2
+.Lx03099_2:
+                        mov              qword ptr [rbp + 6512], rax
+                        mov              qword ptr [rbp + 6520], rdx
+                        cmp              eax, 104
+                                                                                        je    n03100_proc_value_α
+                                                                                        jmp   n03100_proc_value_α
+n03098_call_proc_staged_β:
+                                                                                        jmp   n03100_proc_value_α
+.Lx03099_0:
+                        .quad            .Lx03099_0_s
+.Lx03099_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03100_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03101_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6496], rax
+                        mov              qword ptr [rbp + 6504], rdx
+                                                                                        jmp   n03102_call_proc_staged_α
+.Lx03101_0:
+                        .quad            .Lx03101_0_s
+.Lx03101_0_s:
+                        .string          "tointeger"
+#-----------------------------------------------------------------------------------------------------------------------
+n03102_call_proc_staged_α:
+                        lea              rsi, [rbp + 6496]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03103_2
+.Lx03103_2:
+                        mov              qword ptr [rbp + 6448], rax
+                        mov              qword ptr [rbp + 6456], rdx
+                        cmp              eax, 104
+                                                                                        je    n03104_proc_value_α
+                                                                                        jmp   n03104_proc_value_α
+n03102_call_proc_staged_β:
+                                                                                        jmp   n03104_proc_value_α
+.Lx03103_0:
+                        .quad            .Lx03103_0_s
+.Lx03103_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03104_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03105_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6432], rax
+                        mov              qword ptr [rbp + 6440], rdx
+                                                                                        jmp   n03106_call_proc_staged_α
+.Lx03105_0:
+                        .quad            .Lx03105_0_s
+.Lx03105_0_s:
+                        .string          "intcoerce"
+#-----------------------------------------------------------------------------------------------------------------------
+n03106_call_proc_staged_α:
+                        lea              rsi, [rbp + 6432]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03107_2
+.Lx03107_2:
+                        mov              qword ptr [rbp + 6384], rax
+                        mov              qword ptr [rbp + 6392], rdx
+                        cmp              eax, 104
+                                                                                        je    n03108_proc_value_α
+                                                                                        jmp   n03108_proc_value_α
+n03106_call_proc_staged_β:
+                                                                                        jmp   n03108_proc_value_α
+.Lx03107_0:
+                        .quad            .Lx03107_0_s
+.Lx03107_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03108_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03109_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6368], rax
+                        mov              qword ptr [rbp + 6376], rdx
+                                                                                        jmp   n03110_call_proc_staged_α
+.Lx03109_0:
+                        .quad            .Lx03109_0_s
+.Lx03109_0_s:
+                        .string          "uplus"
+#-----------------------------------------------------------------------------------------------------------------------
+n03110_call_proc_staged_α:
+                        lea              rsi, [rbp + 6368]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03111_2
+.Lx03111_2:
+                        mov              qword ptr [rbp + 6320], rax
+                        mov              qword ptr [rbp + 6328], rdx
+                        cmp              eax, 104
+                                                                                        je    n03112_proc_value_α
+                                                                                        jmp   n03112_proc_value_α
+n03110_call_proc_staged_β:
+                                                                                        jmp   n03112_proc_value_α
+.Lx03111_0:
+                        .quad            .Lx03111_0_s
+.Lx03111_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03112_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03113_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6304], rax
+                        mov              qword ptr [rbp + 6312], rdx
+                                                                                        jmp   n03114_call_proc_staged_α
+.Lx03113_0:
+                        .quad            .Lx03113_0_s
+.Lx03113_0_s:
+                        .string          "tostring"
+#-----------------------------------------------------------------------------------------------------------------------
+n03114_call_proc_staged_α:
+                        lea              rsi, [rbp + 6304]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03115_2
+.Lx03115_2:
+                        mov              qword ptr [rbp + 6256], rax
+                        mov              qword ptr [rbp + 6264], rdx
+                        cmp              eax, 104
+                                                                                        je    n03116_proc_value_α
+                                                                                        jmp   n03116_proc_value_α
+n03114_call_proc_staged_β:
+                                                                                        jmp   n03116_proc_value_α
+.Lx03115_0:
+                        .quad            .Lx03115_0_s
+.Lx03115_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03116_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03117_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6240], rax
+                        mov              qword ptr [rbp + 6248], rdx
+                                                                                        jmp   n03118_call_proc_staged_α
+.Lx03117_0:
+                        .quad            .Lx03117_0_s
+.Lx03117_0_s:
+                        .string          "strcoerce"
+#-----------------------------------------------------------------------------------------------------------------------
+n03118_call_proc_staged_α:
+                        lea              rsi, [rbp + 6240]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03119_2
+.Lx03119_2:
+                        mov              qword ptr [rbp + 6192], rax
+                        mov              qword ptr [rbp + 6200], rdx
+                        cmp              eax, 104
+                                                                                        je    n03120_proc_value_α
+                                                                                        jmp   n03120_proc_value_α
+n03118_call_proc_staged_β:
+                                                                                        jmp   n03120_proc_value_α
+.Lx03119_0:
+                        .quad            .Lx03119_0_s
+.Lx03119_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03120_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03121_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6176], rax
+                        mov              qword ptr [rbp + 6184], rdx
+                                                                                        jmp   n03122_call_proc_staged_α
+.Lx03121_0:
+                        .quad            .Lx03121_0_s
+.Lx03121_0_s:
+                        .string          "absf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03122_call_proc_staged_α:
+                        lea              rsi, [rbp + 6176]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03123_2
+.Lx03123_2:
+                        mov              qword ptr [rbp + 6128], rax
+                        mov              qword ptr [rbp + 6136], rdx
+                        cmp              eax, 104
+                                                                                        je    n03124_proc_value_α
+                                                                                        jmp   n03124_proc_value_α
+n03122_call_proc_staged_β:
+                                                                                        jmp   n03124_proc_value_α
+.Lx03123_0:
+                        .quad            .Lx03123_0_s
+.Lx03123_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03124_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03125_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6112], rax
+                        mov              qword ptr [rbp + 6120], rdx
+                                                                                        jmp   n03126_call_proc_staged_α
+.Lx03125_0:
+                        .quad            .Lx03125_0_s
+.Lx03125_0_s:
+                        .string          "intadd"
+#-----------------------------------------------------------------------------------------------------------------------
+n03126_call_proc_staged_α:
+                        lea              rsi, [rbp + 6112]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03127_2
+.Lx03127_2:
+                        mov              qword ptr [rbp + 6064], rax
+                        mov              qword ptr [rbp + 6072], rdx
+                        cmp              eax, 104
+                                                                                        je    n03128_proc_value_α
+                                                                                        jmp   n03128_proc_value_α
+n03126_call_proc_staged_β:
+                                                                                        jmp   n03128_proc_value_α
+.Lx03127_0:
+                        .quad            .Lx03127_0_s
+.Lx03127_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03128_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03129_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 6048], rax
+                        mov              qword ptr [rbp + 6056], rdx
+                                                                                        jmp   n03130_call_proc_staged_α
+.Lx03129_0:
+                        .quad            .Lx03129_0_s
+.Lx03129_0_s:
+                        .string          "addfunc"
+#-----------------------------------------------------------------------------------------------------------------------
+n03130_call_proc_staged_α:
+                        lea              rsi, [rbp + 6048]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03131_2
+.Lx03131_2:
+                        mov              qword ptr [rbp + 6000], rax
+                        mov              qword ptr [rbp + 6008], rdx
+                        cmp              eax, 104
+                                                                                        je    n03132_proc_value_α
+                                                                                        jmp   n03132_proc_value_α
+n03130_call_proc_staged_β:
+                                                                                        jmp   n03132_proc_value_α
+.Lx03131_0:
+                        .quad            .Lx03131_0_s
+.Lx03131_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03132_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03133_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5984], rax
+                        mov              qword ptr [rbp + 5992], rdx
+                                                                                        jmp   n03134_call_proc_staged_α
+.Lx03133_0:
+                        .quad            .Lx03133_0_s
+.Lx03133_0_s:
+                        .string          "intpow"
+#-----------------------------------------------------------------------------------------------------------------------
+n03134_call_proc_staged_α:
+                        lea              rsi, [rbp + 5984]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03135_2
+.Lx03135_2:
+                        mov              qword ptr [rbp + 5936], rax
+                        mov              qword ptr [rbp + 5944], rdx
+                        cmp              eax, 104
+                                                                                        je    n03136_proc_value_α
+                                                                                        jmp   n03136_proc_value_α
+n03134_call_proc_staged_β:
+                                                                                        jmp   n03136_proc_value_α
+.Lx03135_0:
+                        .quad            .Lx03135_0_s
+.Lx03135_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03136_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03137_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5920], rax
+                        mov              qword ptr [rbp + 5928], rdx
+                                                                                        jmp   n03138_call_proc_staged_α
+.Lx03137_0:
+                        .quad            .Lx03137_0_s
+.Lx03137_0_s:
+                        .string          "intcmp"
+#-----------------------------------------------------------------------------------------------------------------------
+n03138_call_proc_staged_α:
+                        lea              rsi, [rbp + 5920]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03139_2
+.Lx03139_2:
+                        mov              qword ptr [rbp + 5872], rax
+                        mov              qword ptr [rbp + 5880], rdx
+                        cmp              eax, 104
+                                                                                        je    n03140_proc_value_α
+                                                                                        jmp   n03140_proc_value_α
+n03138_call_proc_staged_β:
+                                                                                        jmp   n03140_proc_value_α
+.Lx03139_0:
+                        .quad            .Lx03139_0_s
+.Lx03139_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03140_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03141_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5856], rax
+                        mov              qword ptr [rbp + 5864], rdx
+                                                                                        jmp   n03142_call_proc_staged_α
+.Lx03141_0:
+                        .quad            .Lx03141_0_s
+.Lx03141_0_s:
+                        .string          "rfact0"
+#-----------------------------------------------------------------------------------------------------------------------
+n03142_call_proc_staged_α:
+                        lea              rsi, [rbp + 5856]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03143_2
+.Lx03143_2:
+                        mov              qword ptr [rbp + 5808], rax
+                        mov              qword ptr [rbp + 5816], rdx
+                        cmp              eax, 104
+                                                                                        je    n03144_proc_value_α
+                                                                                        jmp   n03144_proc_value_α
+n03142_call_proc_staged_β:
+                                                                                        jmp   n03144_proc_value_α
+.Lx03143_0:
+                        .quad            .Lx03143_0_s
+.Lx03143_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03144_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03145_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5792], rax
+                        mov              qword ptr [rbp + 5800], rdx
+                                                                                        jmp   n03146_call_proc_staged_α
+.Lx03145_0:
+                        .quad            .Lx03145_0_s
+.Lx03145_0_s:
+                        .string          "rfact10"
+#-----------------------------------------------------------------------------------------------------------------------
+n03146_call_proc_staged_α:
+                        lea              rsi, [rbp + 5792]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03147_2
+.Lx03147_2:
+                        mov              qword ptr [rbp + 5744], rax
+                        mov              qword ptr [rbp + 5752], rdx
+                        cmp              eax, 104
+                                                                                        je    n03148_proc_value_α
+                                                                                        jmp   n03148_proc_value_α
+n03146_call_proc_staged_β:
+                                                                                        jmp   n03148_proc_value_α
+.Lx03147_0:
+                        .quad            .Lx03147_0_s
+.Lx03147_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03148_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03149_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5728], rax
+                        mov              qword ptr [rbp + 5736], rdx
+                                                                                        jmp   n03150_call_proc_staged_α
+.Lx03149_0:
+                        .quad            .Lx03149_0_s
+.Lx03149_0_s:
+                        .string          "rfib5"
+#-----------------------------------------------------------------------------------------------------------------------
+n03150_call_proc_staged_α:
+                        lea              rsi, [rbp + 5728]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03151_2
+.Lx03151_2:
+                        mov              qword ptr [rbp + 5680], rax
+                        mov              qword ptr [rbp + 5688], rdx
+                        cmp              eax, 104
+                                                                                        je    n03152_proc_value_α
+                                                                                        jmp   n03152_proc_value_α
+n03150_call_proc_staged_β:
+                                                                                        jmp   n03152_proc_value_α
+.Lx03151_0:
+                        .quad            .Lx03151_0_s
+.Lx03151_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03152_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03153_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5664], rax
+                        mov              qword ptr [rbp + 5672], rdx
+                                                                                        jmp   n03154_call_proc_staged_α
+.Lx03153_0:
+                        .quad            .Lx03153_0_s
+.Lx03153_0_s:
+                        .string          "prslow"
+#-----------------------------------------------------------------------------------------------------------------------
+n03154_call_proc_staged_α:
+                        lea              rsi, [rbp + 5664]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03155_2
+.Lx03155_2:
+                        mov              qword ptr [rbp + 5616], rax
+                        mov              qword ptr [rbp + 5624], rdx
+                        cmp              eax, 104
+                                                                                        je    n03156_proc_value_α
+                                                                                        jmp   n03156_proc_value_α
+n03154_call_proc_staged_β:
+                                                                                        jmp   n03156_proc_value_α
+.Lx03155_0:
+                        .quad            .Lx03155_0_s
+.Lx03155_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03156_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03157_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5600], rax
+                        mov              qword ptr [rbp + 5608], rdx
+                                                                                        jmp   n03158_call_proc_staged_α
+.Lx03157_0:
+                        .quad            .Lx03157_0_s
+.Lx03157_0_s:
+                        .string          "toreal"
+#-----------------------------------------------------------------------------------------------------------------------
+n03158_call_proc_staged_α:
+                        lea              rsi, [rbp + 5600]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03159_2
+.Lx03159_2:
+                        mov              qword ptr [rbp + 5552], rax
+                        mov              qword ptr [rbp + 5560], rdx
+                        cmp              eax, 104
+                                                                                        je    n03160_proc_value_α
+                                                                                        jmp   n03160_proc_value_α
+n03158_call_proc_staged_β:
+                                                                                        jmp   n03160_proc_value_α
+.Lx03159_0:
+                        .quad            .Lx03159_0_s
+.Lx03159_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03160_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03161_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5536], rax
+                        mov              qword ptr [rbp + 5544], rdx
+                                                                                        jmp   n03162_call_proc_staged_α
+.Lx03161_0:
+                        .quad            .Lx03161_0_s
+.Lx03161_0_s:
+                        .string          "realcoerce"
+#-----------------------------------------------------------------------------------------------------------------------
+n03162_call_proc_staged_α:
+                        lea              rsi, [rbp + 5536]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03163_2
+.Lx03163_2:
+                        mov              qword ptr [rbp + 5488], rax
+                        mov              qword ptr [rbp + 5496], rdx
+                        cmp              eax, 104
+                                                                                        je    n03164_proc_value_α
+                                                                                        jmp   n03164_proc_value_α
+n03162_call_proc_staged_β:
+                                                                                        jmp   n03164_proc_value_α
+.Lx03163_0:
+                        .quad            .Lx03163_0_s
+.Lx03163_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03164_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03165_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5472], rax
+                        mov              qword ptr [rbp + 5480], rdx
+                                                                                        jmp   n03166_call_proc_staged_α
+.Lx03165_0:
+                        .quad            .Lx03165_0_s
+.Lx03165_0_s:
+                        .string          "uplusr"
+#-----------------------------------------------------------------------------------------------------------------------
+n03166_call_proc_staged_α:
+                        lea              rsi, [rbp + 5472]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03167_2
+.Lx03167_2:
+                        mov              qword ptr [rbp + 5424], rax
+                        mov              qword ptr [rbp + 5432], rdx
+                        cmp              eax, 104
+                                                                                        je    n03168_proc_value_α
+                                                                                        jmp   n03168_proc_value_α
+n03166_call_proc_staged_β:
+                                                                                        jmp   n03168_proc_value_α
+.Lx03167_0:
+                        .quad            .Lx03167_0_s
+.Lx03167_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03168_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03169_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5408], rax
+                        mov              qword ptr [rbp + 5416], rdx
+                                                                                        jmp   n03170_call_proc_staged_α
+.Lx03169_0:
+                        .quad            .Lx03169_0_s
+.Lx03169_0_s:
+                        .string          "rtostring"
+#-----------------------------------------------------------------------------------------------------------------------
+n03170_call_proc_staged_α:
+                        lea              rsi, [rbp + 5408]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03171_2
+.Lx03171_2:
+                        mov              qword ptr [rbp + 5360], rax
+                        mov              qword ptr [rbp + 5368], rdx
+                        cmp              eax, 104
+                                                                                        je    n03172_proc_value_α
+                                                                                        jmp   n03172_proc_value_α
+n03170_call_proc_staged_β:
+                                                                                        jmp   n03172_proc_value_α
+.Lx03171_0:
+                        .quad            .Lx03171_0_s
+.Lx03171_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03172_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03173_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5344], rax
+                        mov              qword ptr [rbp + 5352], rdx
+                                                                                        jmp   n03174_call_proc_staged_α
+.Lx03173_0:
+                        .quad            .Lx03173_0_s
+.Lx03173_0_s:
+                        .string          "strcoercer"
+#-----------------------------------------------------------------------------------------------------------------------
+n03174_call_proc_staged_α:
+                        lea              rsi, [rbp + 5344]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03175_2
+.Lx03175_2:
+                        mov              qword ptr [rbp + 5296], rax
+                        mov              qword ptr [rbp + 5304], rdx
+                        cmp              eax, 104
+                                                                                        je    n03176_proc_value_α
+                                                                                        jmp   n03176_proc_value_α
+n03174_call_proc_staged_β:
+                                                                                        jmp   n03176_proc_value_α
+.Lx03175_0:
+                        .quad            .Lx03175_0_s
+.Lx03175_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03176_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03177_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              qword ptr [rbp + 5288], rdx
+                                                                                        jmp   n03178_call_proc_staged_α
+.Lx03177_0:
+                        .quad            .Lx03177_0_s
+.Lx03177_0_s:
+                        .string          "realcmp"
+#-----------------------------------------------------------------------------------------------------------------------
+n03178_call_proc_staged_α:
+                        lea              rsi, [rbp + 5280]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03179_2
+.Lx03179_2:
+                        mov              qword ptr [rbp + 5232], rax
+                        mov              qword ptr [rbp + 5240], rdx
+                        cmp              eax, 104
+                                                                                        je    n03180_proc_value_α
+                                                                                        jmp   n03180_proc_value_α
+n03178_call_proc_staged_β:
+                                                                                        jmp   n03180_proc_value_α
+.Lx03179_0:
+                        .quad            .Lx03179_0_s
+.Lx03179_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03180_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03181_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5216], rax
+                        mov              qword ptr [rbp + 5224], rdx
+                                                                                        jmp   n03182_call_proc_staged_α
+.Lx03181_0:
+                        .quad            .Lx03181_0_s
+.Lx03181_0_s:
+                        .string          "sqrtf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03182_call_proc_staged_α:
+                        lea              rsi, [rbp + 5216]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03183_2
+.Lx03183_2:
+                        mov              qword ptr [rbp + 5168], rax
+                        mov              qword ptr [rbp + 5176], rdx
+                        cmp              eax, 104
+                                                                                        je    n03184_proc_value_α
+                                                                                        jmp   n03184_proc_value_α
+n03182_call_proc_staged_β:
+                                                                                        jmp   n03184_proc_value_α
+.Lx03183_0:
+                        .quad            .Lx03183_0_s
+.Lx03183_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03184_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03185_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5152], rax
+                        mov              qword ptr [rbp + 5160], rdx
+                                                                                        jmp   n03186_call_proc_staged_α
+.Lx03185_0:
+                        .quad            .Lx03185_0_s
+.Lx03185_0_s:
+                        .string          "cosf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03186_call_proc_staged_α:
+                        lea              rsi, [rbp + 5152]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03187_2
+.Lx03187_2:
+                        mov              qword ptr [rbp + 5104], rax
+                        mov              qword ptr [rbp + 5112], rdx
+                        cmp              eax, 104
+                                                                                        je    n03188_proc_value_α
+                                                                                        jmp   n03188_proc_value_α
+n03186_call_proc_staged_β:
+                                                                                        jmp   n03188_proc_value_α
+.Lx03187_0:
+                        .quad            .Lx03187_0_s
+.Lx03187_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03188_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03189_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5088], rax
+                        mov              qword ptr [rbp + 5096], rdx
+                                                                                        jmp   n03190_call_proc_staged_α
+.Lx03189_0:
+                        .quad            .Lx03189_0_s
+.Lx03189_0_s:
+                        .string          "logf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03190_call_proc_staged_α:
+                        lea              rsi, [rbp + 5088]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03191_2
+.Lx03191_2:
+                        mov              qword ptr [rbp + 5040], rax
+                        mov              qword ptr [rbp + 5048], rdx
+                        cmp              eax, 104
+                                                                                        je    n03192_proc_value_α
+                                                                                        jmp   n03192_proc_value_α
+n03190_call_proc_staged_β:
+                                                                                        jmp   n03192_proc_value_α
+.Lx03191_0:
+                        .quad            .Lx03191_0_s
+.Lx03191_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03192_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03193_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 5024], rax
+                        mov              qword ptr [rbp + 5032], rdx
+                                                                                        jmp   n03194_call_proc_staged_α
+.Lx03193_0:
+                        .quad            .Lx03193_0_s
+.Lx03193_0_s:
+                        .string          "charf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03194_call_proc_staged_α:
+                        lea              rsi, [rbp + 5024]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03195_2
+.Lx03195_2:
+                        mov              qword ptr [rbp + 4976], rax
+                        mov              qword ptr [rbp + 4984], rdx
+                        cmp              eax, 104
+                                                                                        je    n03196_proc_value_α
+                                                                                        jmp   n03196_proc_value_α
+n03194_call_proc_staged_β:
+                                                                                        jmp   n03196_proc_value_α
+.Lx03195_0:
+                        .quad            .Lx03195_0_s
+.Lx03195_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03196_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03197_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4960], rax
+                        mov              qword ptr [rbp + 4968], rdx
+                                                                                        jmp   n03198_call_proc_staged_α
+.Lx03197_0:
+                        .quad            .Lx03197_0_s
+.Lx03197_0_s:
+                        .string          "ordf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03198_call_proc_staged_α:
+                        lea              rsi, [rbp + 4960]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03199_2
+.Lx03199_2:
+                        mov              qword ptr [rbp + 4912], rax
+                        mov              qword ptr [rbp + 4920], rdx
+                        cmp              eax, 104
+                                                                                        je    n03200_proc_value_α
+                                                                                        jmp   n03200_proc_value_α
+n03198_call_proc_staged_β:
+                                                                                        jmp   n03200_proc_value_α
+.Lx03199_0:
+                        .quad            .Lx03199_0_s
+.Lx03199_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03200_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03201_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4896], rax
+                        mov              qword ptr [rbp + 4904], rdx
+                                                                                        jmp   n03202_call_proc_staged_α
+.Lx03201_0:
+                        .quad            .Lx03201_0_s
+.Lx03201_0_s:
+                        .string          "strsize"
+#-----------------------------------------------------------------------------------------------------------------------
+n03202_call_proc_staged_α:
+                        lea              rsi, [rbp + 4896]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03203_2
+.Lx03203_2:
+                        mov              qword ptr [rbp + 4848], rax
+                        mov              qword ptr [rbp + 4856], rdx
+                        cmp              eax, 104
+                                                                                        je    n03204_proc_value_α
+                                                                                        jmp   n03204_proc_value_α
+n03202_call_proc_staged_β:
+                                                                                        jmp   n03204_proc_value_α
+.Lx03203_0:
+                        .quad            .Lx03203_0_s
+.Lx03203_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03204_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03205_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4832], rax
+                        mov              qword ptr [rbp + 4840], rdx
+                                                                                        jmp   n03206_call_proc_staged_α
+.Lx03205_0:
+                        .quad            .Lx03205_0_s
+.Lx03205_0_s:
+                        .string          "strpick"
+#-----------------------------------------------------------------------------------------------------------------------
+n03206_call_proc_staged_α:
+                        lea              rsi, [rbp + 4832]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03207_2
+.Lx03207_2:
+                        mov              qword ptr [rbp + 4784], rax
+                        mov              qword ptr [rbp + 4792], rdx
+                        cmp              eax, 104
+                                                                                        je    n03208_proc_value_α
+                                                                                        jmp   n03208_proc_value_α
+n03206_call_proc_staged_β:
+                                                                                        jmp   n03208_proc_value_α
+.Lx03207_0:
+                        .quad            .Lx03207_0_s
+.Lx03207_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03208_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03209_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4768], rax
+                        mov              qword ptr [rbp + 4776], rdx
+                                                                                        jmp   n03210_call_proc_staged_α
+.Lx03209_0:
+                        .quad            .Lx03209_0_s
+.Lx03209_0_s:
+                        .string          "strbang"
+#-----------------------------------------------------------------------------------------------------------------------
+n03210_call_proc_staged_α:
+                        lea              rsi, [rbp + 4768]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03211_2
+.Lx03211_2:
+                        mov              qword ptr [rbp + 4720], rax
+                        mov              qword ptr [rbp + 4728], rdx
+                        cmp              eax, 104
+                                                                                        je    n03212_proc_value_α
+                                                                                        jmp   n03212_proc_value_α
+n03210_call_proc_staged_β:
+                                                                                        jmp   n03212_proc_value_α
+.Lx03211_0:
+                        .quad            .Lx03211_0_s
+.Lx03211_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03212_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03213_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4704], rax
+                        mov              qword ptr [rbp + 4712], rdx
+                                                                                        jmp   n03214_call_proc_staged_α
+.Lx03213_0:
+                        .quad            .Lx03213_0_s
+.Lx03213_0_s:
+                        .string          "strsub"
+#-----------------------------------------------------------------------------------------------------------------------
+n03214_call_proc_staged_α:
+                        lea              rsi, [rbp + 4704]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03215_2
+.Lx03215_2:
+                        mov              qword ptr [rbp + 4656], rax
+                        mov              qword ptr [rbp + 4664], rdx
+                        cmp              eax, 104
+                                                                                        je    n03216_proc_value_α
+                                                                                        jmp   n03216_proc_value_α
+n03214_call_proc_staged_β:
+                                                                                        jmp   n03216_proc_value_α
+.Lx03215_0:
+                        .quad            .Lx03215_0_s
+.Lx03215_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03216_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03217_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4640], rax
+                        mov              qword ptr [rbp + 4648], rdx
+                                                                                        jmp   n03218_call_proc_staged_α
+.Lx03217_0:
+                        .quad            .Lx03217_0_s
+.Lx03217_0_s:
+                        .string          "substr"
+#-----------------------------------------------------------------------------------------------------------------------
+n03218_call_proc_staged_α:
+                        lea              rsi, [rbp + 4640]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03219_2
+.Lx03219_2:
+                        mov              qword ptr [rbp + 4592], rax
+                        mov              qword ptr [rbp + 4600], rdx
+                        cmp              eax, 104
+                                                                                        je    n03220_proc_value_α
+                                                                                        jmp   n03220_proc_value_α
+n03218_call_proc_staged_β:
+                                                                                        jmp   n03220_proc_value_α
+.Lx03219_0:
+                        .quad            .Lx03219_0_s
+.Lx03219_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03220_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03221_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4576], rax
+                        mov              qword ptr [rbp + 4584], rdx
+                                                                                        jmp   n03222_call_proc_staged_α
+.Lx03221_0:
+                        .quad            .Lx03221_0_s
+.Lx03221_0_s:
+                        .string          "subsasg"
+#-----------------------------------------------------------------------------------------------------------------------
+n03222_call_proc_staged_α:
+                        lea              rsi, [rbp + 4576]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03223_2
+.Lx03223_2:
+                        mov              qword ptr [rbp + 4528], rax
+                        mov              qword ptr [rbp + 4536], rdx
+                        cmp              eax, 104
+                                                                                        je    n03224_proc_value_α
+                                                                                        jmp   n03224_proc_value_α
+n03222_call_proc_staged_β:
+                                                                                        jmp   n03224_proc_value_α
+.Lx03223_0:
+                        .quad            .Lx03223_0_s
+.Lx03223_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03224_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03225_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4512], rax
+                        mov              qword ptr [rbp + 4520], rdx
+                                                                                        jmp   n03226_call_proc_staged_α
+.Lx03225_0:
+                        .quad            .Lx03225_0_s
+.Lx03225_0_s:
+                        .string          "strcmp"
+#-----------------------------------------------------------------------------------------------------------------------
+n03226_call_proc_staged_α:
+                        lea              rsi, [rbp + 4512]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03227_2
+.Lx03227_2:
+                        mov              qword ptr [rbp + 4464], rax
+                        mov              qword ptr [rbp + 4472], rdx
+                        cmp              eax, 104
+                                                                                        je    n03228_proc_value_α
+                                                                                        jmp   n03228_proc_value_α
+n03226_call_proc_staged_β:
+                                                                                        jmp   n03228_proc_value_α
+.Lx03227_0:
+                        .quad            .Lx03227_0_s
+.Lx03227_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03228_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03229_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4448], rax
+                        mov              qword ptr [rbp + 4456], rdx
+                                                                                        jmp   n03230_call_proc_staged_α
+.Lx03229_0:
+                        .quad            .Lx03229_0_s
+.Lx03229_0_s:
+                        .string          "strident"
+#-----------------------------------------------------------------------------------------------------------------------
+n03230_call_proc_staged_α:
+                        lea              rsi, [rbp + 4448]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03231_2
+.Lx03231_2:
+                        mov              qword ptr [rbp + 4400], rax
+                        mov              qword ptr [rbp + 4408], rdx
+                        cmp              eax, 104
+                                                                                        je    n03232_proc_value_α
+                                                                                        jmp   n03232_proc_value_α
+n03230_call_proc_staged_β:
+                                                                                        jmp   n03232_proc_value_α
+.Lx03231_0:
+                        .quad            .Lx03231_0_s
+.Lx03231_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03232_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03233_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4384], rax
+                        mov              qword ptr [rbp + 4392], rdx
+                                                                                        jmp   n03234_call_proc_staged_α
+.Lx03233_0:
+                        .quad            .Lx03233_0_s
+.Lx03233_0_s:
+                        .string          "concat"
+#-----------------------------------------------------------------------------------------------------------------------
+n03234_call_proc_staged_α:
+                        lea              rsi, [rbp + 4384]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03235_2
+.Lx03235_2:
+                        mov              qword ptr [rbp + 4336], rax
+                        mov              qword ptr [rbp + 4344], rdx
+                        cmp              eax, 104
+                                                                                        je    n03236_proc_value_α
+                                                                                        jmp   n03236_proc_value_α
+n03234_call_proc_staged_β:
+                                                                                        jmp   n03236_proc_value_α
+.Lx03235_0:
+                        .quad            .Lx03235_0_s
+.Lx03235_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03236_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03237_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4320], rax
+                        mov              qword ptr [rbp + 4328], rdx
+                                                                                        jmp   n03238_call_proc_staged_α
+.Lx03237_0:
+                        .quad            .Lx03237_0_s
+.Lx03237_0_s:
+                        .string          "reversef"
+#-----------------------------------------------------------------------------------------------------------------------
+n03238_call_proc_staged_α:
+                        lea              rsi, [rbp + 4320]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03239_2
+.Lx03239_2:
+                        mov              qword ptr [rbp + 4272], rax
+                        mov              qword ptr [rbp + 4280], rdx
+                        cmp              eax, 104
+                                                                                        je    n03240_proc_value_α
+                                                                                        jmp   n03240_proc_value_α
+n03238_call_proc_staged_β:
+                                                                                        jmp   n03240_proc_value_α
+.Lx03239_0:
+                        .quad            .Lx03239_0_s
+.Lx03239_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03240_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03241_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4256], rax
+                        mov              qword ptr [rbp + 4264], rdx
+                                                                                        jmp   n03242_call_proc_staged_α
+.Lx03241_0:
+                        .quad            .Lx03241_0_s
+.Lx03241_0_s:
+                        .string          "trimf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03242_call_proc_staged_α:
+                        lea              rsi, [rbp + 4256]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03243_2
+.Lx03243_2:
+                        mov              qword ptr [rbp + 4208], rax
+                        mov              qword ptr [rbp + 4216], rdx
+                        cmp              eax, 104
+                                                                                        je    n03244_proc_value_α
+                                                                                        jmp   n03244_proc_value_α
+n03242_call_proc_staged_β:
+                                                                                        jmp   n03244_proc_value_α
+.Lx03243_0:
+                        .quad            .Lx03243_0_s
+.Lx03243_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03244_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03245_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4192], rax
+                        mov              qword ptr [rbp + 4200], rdx
+                                                                                        jmp   n03246_call_proc_staged_α
+.Lx03245_0:
+                        .quad            .Lx03245_0_s
+.Lx03245_0_s:
+                        .string          "replf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03246_call_proc_staged_α:
+                        lea              rsi, [rbp + 4192]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03247_2
+.Lx03247_2:
+                        mov              qword ptr [rbp + 4144], rax
+                        mov              qword ptr [rbp + 4152], rdx
+                        cmp              eax, 104
+                                                                                        je    n03248_proc_value_α
+                                                                                        jmp   n03248_proc_value_α
+n03246_call_proc_staged_β:
+                                                                                        jmp   n03248_proc_value_α
+.Lx03247_0:
+                        .quad            .Lx03247_0_s
+.Lx03247_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03248_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03249_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4128], rax
+                        mov              qword ptr [rbp + 4136], rdx
+                                                                                        jmp   n03250_call_proc_staged_α
+.Lx03249_0:
+                        .quad            .Lx03249_0_s
+.Lx03249_0_s:
+                        .string          "leftf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03250_call_proc_staged_α:
+                        lea              rsi, [rbp + 4128]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03251_2
+.Lx03251_2:
+                        mov              qword ptr [rbp + 4080], rax
+                        mov              qword ptr [rbp + 4088], rdx
+                        cmp              eax, 104
+                                                                                        je    n03252_proc_value_α
+                                                                                        jmp   n03252_proc_value_α
+n03250_call_proc_staged_β:
+                                                                                        jmp   n03252_proc_value_α
+.Lx03251_0:
+                        .quad            .Lx03251_0_s
+.Lx03251_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03252_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03253_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4064], rax
+                        mov              qword ptr [rbp + 4072], rdx
+                                                                                        jmp   n03254_call_proc_staged_α
+.Lx03253_0:
+                        .quad            .Lx03253_0_s
+.Lx03253_0_s:
+                        .string          "centerf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03254_call_proc_staged_α:
+                        lea              rsi, [rbp + 4064]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03255_2
+.Lx03255_2:
+                        mov              qword ptr [rbp + 4016], rax
+                        mov              qword ptr [rbp + 4024], rdx
+                        cmp              eax, 104
+                                                                                        je    n03256_proc_value_α
+                                                                                        jmp   n03256_proc_value_α
+n03254_call_proc_staged_β:
+                                                                                        jmp   n03256_proc_value_α
+.Lx03255_0:
+                        .quad            .Lx03255_0_s
+.Lx03255_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03256_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03257_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 4000], rax
+                        mov              qword ptr [rbp + 4008], rdx
+                                                                                        jmp   n03258_call_proc_staged_α
+.Lx03257_0:
+                        .quad            .Lx03257_0_s
+.Lx03257_0_s:
+                        .string          "rightf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03258_call_proc_staged_α:
+                        lea              rsi, [rbp + 4000]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03259_2
+.Lx03259_2:
+                        mov              qword ptr [rbp + 3952], rax
+                        mov              qword ptr [rbp + 3960], rdx
+                        cmp              eax, 104
+                                                                                        je    n03260_proc_value_α
+                                                                                        jmp   n03260_proc_value_α
+n03258_call_proc_staged_β:
+                                                                                        jmp   n03260_proc_value_α
+.Lx03259_0:
+                        .quad            .Lx03259_0_s
+.Lx03259_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03260_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03261_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3936], rax
+                        mov              qword ptr [rbp + 3944], rdx
+                                                                                        jmp   n03262_call_proc_staged_α
+.Lx03261_0:
+                        .quad            .Lx03261_0_s
+.Lx03261_0_s:
+                        .string          "entabf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03262_call_proc_staged_α:
+                        lea              rsi, [rbp + 3936]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03263_2
+.Lx03263_2:
+                        mov              qword ptr [rbp + 3888], rax
+                        mov              qword ptr [rbp + 3896], rdx
+                        cmp              eax, 104
+                                                                                        je    n03264_proc_value_α
+                                                                                        jmp   n03264_proc_value_α
+n03262_call_proc_staged_β:
+                                                                                        jmp   n03264_proc_value_α
+.Lx03263_0:
+                        .quad            .Lx03263_0_s
+.Lx03263_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03264_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03265_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3872], rax
+                        mov              qword ptr [rbp + 3880], rdx
+                                                                                        jmp   n03266_call_proc_staged_α
+.Lx03265_0:
+                        .quad            .Lx03265_0_s
+.Lx03265_0_s:
+                        .string          "detabf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03266_call_proc_staged_α:
+                        lea              rsi, [rbp + 3872]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03267_2
+.Lx03267_2:
+                        mov              qword ptr [rbp + 3824], rax
+                        mov              qword ptr [rbp + 3832], rdx
+                        cmp              eax, 104
+                                                                                        je    n03268_proc_value_α
+                                                                                        jmp   n03268_proc_value_α
+n03266_call_proc_staged_β:
+                                                                                        jmp   n03268_proc_value_α
+.Lx03267_0:
+                        .quad            .Lx03267_0_s
+.Lx03267_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03268_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03269_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3808], rax
+                        mov              qword ptr [rbp + 3816], rdx
+                                                                                        jmp   n03270_call_proc_staged_α
+.Lx03269_0:
+                        .quad            .Lx03269_0_s
+.Lx03269_0_s:
+                        .string          "mapf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03270_call_proc_staged_α:
+                        lea              rsi, [rbp + 3808]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03271_2
+.Lx03271_2:
+                        mov              qword ptr [rbp + 3760], rax
+                        mov              qword ptr [rbp + 3768], rdx
+                        cmp              eax, 104
+                                                                                        je    n03272_proc_value_α
+                                                                                        jmp   n03272_proc_value_α
+n03270_call_proc_staged_β:
+                                                                                        jmp   n03272_proc_value_α
+.Lx03271_0:
+                        .quad            .Lx03271_0_s
+.Lx03271_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03272_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03273_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3744], rax
+                        mov              qword ptr [rbp + 3752], rdx
+                                                                                        jmp   n03274_call_proc_staged_α
+.Lx03273_0:
+                        .quad            .Lx03273_0_s
+.Lx03273_0_s:
+                        .string          "map1"
+#-----------------------------------------------------------------------------------------------------------------------
+n03274_call_proc_staged_α:
+                        lea              rsi, [rbp + 3744]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03275_2
+.Lx03275_2:
+                        mov              qword ptr [rbp + 3696], rax
+                        mov              qword ptr [rbp + 3704], rdx
+                        cmp              eax, 104
+                                                                                        je    n03276_proc_value_α
+                                                                                        jmp   n03276_proc_value_α
+n03274_call_proc_staged_β:
+                                                                                        jmp   n03276_proc_value_α
+.Lx03275_0:
+                        .quad            .Lx03275_0_s
+.Lx03275_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03276_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03277_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3680], rax
+                        mov              qword ptr [rbp + 3688], rdx
+                                                                                        jmp   n03278_call_proc_staged_α
+.Lx03277_0:
+                        .quad            .Lx03277_0_s
+.Lx03277_0_s:
+                        .string          "map2"
+#-----------------------------------------------------------------------------------------------------------------------
+n03278_call_proc_staged_α:
+                        lea              rsi, [rbp + 3680]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03279_2
+.Lx03279_2:
+                        mov              qword ptr [rbp + 3632], rax
+                        mov              qword ptr [rbp + 3640], rdx
+                        cmp              eax, 104
+                                                                                        je    n03280_proc_value_α
+                                                                                        jmp   n03280_proc_value_α
+n03278_call_proc_staged_β:
+                                                                                        jmp   n03280_proc_value_α
+.Lx03279_0:
+                        .quad            .Lx03279_0_s
+.Lx03279_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03280_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03281_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3616], rax
+                        mov              qword ptr [rbp + 3624], rdx
+                                                                                        jmp   n03282_call_proc_staged_α
+.Lx03281_0:
+                        .quad            .Lx03281_0_s
+.Lx03281_0_s:
+                        .string          "tablemap"
+#-----------------------------------------------------------------------------------------------------------------------
+n03282_call_proc_staged_α:
+                        lea              rsi, [rbp + 3616]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03283_2
+.Lx03283_2:
+                        mov              qword ptr [rbp + 3568], rax
+                        mov              qword ptr [rbp + 3576], rdx
+                        cmp              eax, 104
+                                                                                        je    n03284_proc_value_α
+                                                                                        jmp   n03284_proc_value_α
+n03282_call_proc_staged_β:
+                                                                                        jmp   n03284_proc_value_α
+.Lx03283_0:
+                        .quad            .Lx03283_0_s
+.Lx03283_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03284_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03285_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3552], rax
+                        mov              qword ptr [rbp + 3560], rdx
+                                                                                        jmp   n03286_call_proc_staged_α
+.Lx03285_0:
+                        .quad            .Lx03285_0_s
+.Lx03285_0_s:
+                        .string          "listmap"
+#-----------------------------------------------------------------------------------------------------------------------
+n03286_call_proc_staged_α:
+                        lea              rsi, [rbp + 3552]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03287_2
+.Lx03287_2:
+                        mov              qword ptr [rbp + 3504], rax
+                        mov              qword ptr [rbp + 3512], rdx
+                        cmp              eax, 104
+                                                                                        je    n03288_proc_value_α
+                                                                                        jmp   n03288_proc_value_α
+n03286_call_proc_staged_β:
+                                                                                        jmp   n03288_proc_value_α
+.Lx03287_0:
+                        .quad            .Lx03287_0_s
+.Lx03287_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03288_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03289_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3488], rax
+                        mov              qword ptr [rbp + 3496], rdx
+                                                                                        jmp   n03290_call_proc_staged_α
+.Lx03289_0:
+                        .quad            .Lx03289_0_s
+.Lx03289_0_s:
+                        .string          "nullscan"
+#-----------------------------------------------------------------------------------------------------------------------
+n03290_call_proc_staged_α:
+                        lea              rsi, [rbp + 3488]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03291_2
+.Lx03291_2:
+                        mov              qword ptr [rbp + 3440], rax
+                        mov              qword ptr [rbp + 3448], rdx
+                        cmp              eax, 104
+                                                                                        je    n03292_proc_value_α
+                                                                                        jmp   n03292_proc_value_α
+n03290_call_proc_staged_β:
+                                                                                        jmp   n03292_proc_value_α
+.Lx03291_0:
+                        .quad            .Lx03291_0_s
+.Lx03291_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03292_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03293_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3424], rax
+                        mov              qword ptr [rbp + 3432], rdx
+                                                                                        jmp   n03294_call_proc_staged_α
+.Lx03293_0:
+                        .quad            .Lx03293_0_s
+.Lx03293_0_s:
+                        .string          "movef"
+#-----------------------------------------------------------------------------------------------------------------------
+n03294_call_proc_staged_α:
+                        lea              rsi, [rbp + 3424]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03295_2
+.Lx03295_2:
+                        mov              qword ptr [rbp + 3376], rax
+                        mov              qword ptr [rbp + 3384], rdx
+                        cmp              eax, 104
+                                                                                        je    n03296_proc_value_α
+                                                                                        jmp   n03296_proc_value_α
+n03294_call_proc_staged_β:
+                                                                                        jmp   n03296_proc_value_α
+.Lx03295_0:
+                        .quad            .Lx03295_0_s
+.Lx03295_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03296_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03297_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3360], rax
+                        mov              qword ptr [rbp + 3368], rdx
+                                                                                        jmp   n03298_call_proc_staged_α
+.Lx03297_0:
+                        .quad            .Lx03297_0_s
+.Lx03297_0_s:
+                        .string          "mov11"
+#-----------------------------------------------------------------------------------------------------------------------
+n03298_call_proc_staged_α:
+                        lea              rsi, [rbp + 3360]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03299_2
+.Lx03299_2:
+                        mov              qword ptr [rbp + 3312], rax
+                        mov              qword ptr [rbp + 3320], rdx
+                        cmp              eax, 104
+                                                                                        je    n03300_proc_value_α
+                                                                                        jmp   n03300_proc_value_α
+n03298_call_proc_staged_β:
+                                                                                        jmp   n03300_proc_value_α
+.Lx03299_0:
+                        .quad            .Lx03299_0_s
+.Lx03299_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03300_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03301_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3296], rax
+                        mov              qword ptr [rbp + 3304], rdx
+                                                                                        jmp   n03302_call_proc_staged_α
+.Lx03301_0:
+                        .quad            .Lx03301_0_s
+.Lx03301_0_s:
+                        .string          "pos11"
+#-----------------------------------------------------------------------------------------------------------------------
+n03302_call_proc_staged_α:
+                        lea              rsi, [rbp + 3296]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03303_2
+.Lx03303_2:
+                        mov              qword ptr [rbp + 3248], rax
+                        mov              qword ptr [rbp + 3256], rdx
+                        cmp              eax, 104
+                                                                                        je    n03304_proc_value_α
+                                                                                        jmp   n03304_proc_value_α
+n03302_call_proc_staged_β:
+                                                                                        jmp   n03304_proc_value_α
+.Lx03303_0:
+                        .quad            .Lx03303_0_s
+.Lx03303_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03304_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03305_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3232], rax
+                        mov              qword ptr [rbp + 3240], rdx
+                                                                                        jmp   n03306_call_proc_staged_α
+.Lx03305_0:
+                        .quad            .Lx03305_0_s
+.Lx03305_0_s:
+                        .string          "tabf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03306_call_proc_staged_α:
+                        lea              rsi, [rbp + 3232]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03307_2
+.Lx03307_2:
+                        mov              qword ptr [rbp + 3184], rax
+                        mov              qword ptr [rbp + 3192], rdx
+                        cmp              eax, 104
+                                                                                        je    n03308_proc_value_α
+                                                                                        jmp   n03308_proc_value_α
+n03306_call_proc_staged_β:
+                                                                                        jmp   n03308_proc_value_α
+.Lx03307_0:
+                        .quad            .Lx03307_0_s
+.Lx03307_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03308_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03309_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3168], rax
+                        mov              qword ptr [rbp + 3176], rdx
+                                                                                        jmp   n03310_call_proc_staged_α
+.Lx03309_0:
+                        .quad            .Lx03309_0_s
+.Lx03309_0_s:
+                        .string          "matchf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03310_call_proc_staged_α:
+                        lea              rsi, [rbp + 3168]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03311_2
+.Lx03311_2:
+                        mov              qword ptr [rbp + 3120], rax
+                        mov              qword ptr [rbp + 3128], rdx
+                        cmp              eax, 104
+                                                                                        je    n03312_proc_value_α
+                                                                                        jmp   n03312_proc_value_α
+n03310_call_proc_staged_β:
+                                                                                        jmp   n03312_proc_value_α
+.Lx03311_0:
+                        .quad            .Lx03311_0_s
+.Lx03311_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03312_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03313_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3104], rax
+                        mov              qword ptr [rbp + 3112], rdx
+                                                                                        jmp   n03314_call_proc_staged_α
+.Lx03313_0:
+                        .quad            .Lx03313_0_s
+.Lx03313_0_s:
+                        .string          "tabmat"
+#-----------------------------------------------------------------------------------------------------------------------
+n03314_call_proc_staged_α:
+                        lea              rsi, [rbp + 3104]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03315_2
+.Lx03315_2:
+                        mov              qword ptr [rbp + 3056], rax
+                        mov              qword ptr [rbp + 3064], rdx
+                        cmp              eax, 104
+                                                                                        je    n03316_proc_value_α
+                                                                                        jmp   n03316_proc_value_α
+n03314_call_proc_staged_β:
+                                                                                        jmp   n03316_proc_value_α
+.Lx03315_0:
+                        .quad            .Lx03315_0_s
+.Lx03315_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03316_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03317_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 3040], rax
+                        mov              qword ptr [rbp + 3048], rdx
+                                                                                        jmp   n03318_call_proc_staged_α
+.Lx03317_0:
+                        .quad            .Lx03317_0_s
+.Lx03317_0_s:
+                        .string          "posf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03318_call_proc_staged_α:
+                        lea              rsi, [rbp + 3040]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03319_2
+.Lx03319_2:
+                        mov              qword ptr [rbp + 2992], rax
+                        mov              qword ptr [rbp + 3000], rdx
+                        cmp              eax, 104
+                                                                                        je    n03320_proc_value_α
+                                                                                        jmp   n03320_proc_value_α
+n03318_call_proc_staged_β:
+                                                                                        jmp   n03320_proc_value_α
+.Lx03319_0:
+                        .quad            .Lx03319_0_s
+.Lx03319_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03320_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03321_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2976], rax
+                        mov              qword ptr [rbp + 2984], rdx
+                                                                                        jmp   n03322_call_proc_staged_α
+.Lx03321_0:
+                        .quad            .Lx03321_0_s
+.Lx03321_0_s:
+                        .string          "anyf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03322_call_proc_staged_α:
+                        lea              rsi, [rbp + 2976]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03323_2
+.Lx03323_2:
+                        mov              qword ptr [rbp + 2928], rax
+                        mov              qword ptr [rbp + 2936], rdx
+                        cmp              eax, 104
+                                                                                        je    n03324_proc_value_α
+                                                                                        jmp   n03324_proc_value_α
+n03322_call_proc_staged_β:
+                                                                                        jmp   n03324_proc_value_α
+.Lx03323_0:
+                        .quad            .Lx03323_0_s
+.Lx03323_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03324_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03325_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2912], rax
+                        mov              qword ptr [rbp + 2920], rdx
+                                                                                        jmp   n03326_call_proc_staged_α
+.Lx03325_0:
+                        .quad            .Lx03325_0_s
+.Lx03325_0_s:
+                        .string          "manyf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03326_call_proc_staged_α:
+                        lea              rsi, [rbp + 2912]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03327_2
+.Lx03327_2:
+                        mov              qword ptr [rbp + 2864], rax
+                        mov              qword ptr [rbp + 2872], rdx
+                        cmp              eax, 104
+                                                                                        je    n03328_proc_value_α
+                                                                                        jmp   n03328_proc_value_α
+n03326_call_proc_staged_β:
+                                                                                        jmp   n03328_proc_value_α
+.Lx03327_0:
+                        .quad            .Lx03327_0_s
+.Lx03327_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03328_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03329_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2848], rax
+                        mov              qword ptr [rbp + 2856], rdx
+                                                                                        jmp   n03330_call_proc_staged_α
+.Lx03329_0:
+                        .quad            .Lx03329_0_s
+.Lx03329_0_s:
+                        .string          "uptof"
+#-----------------------------------------------------------------------------------------------------------------------
+n03330_call_proc_staged_α:
+                        lea              rsi, [rbp + 2848]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03331_2
+.Lx03331_2:
+                        mov              qword ptr [rbp + 2800], rax
+                        mov              qword ptr [rbp + 2808], rdx
+                        cmp              eax, 104
+                                                                                        je    n03332_proc_value_α
+                                                                                        jmp   n03332_proc_value_α
+n03330_call_proc_staged_β:
+                                                                                        jmp   n03332_proc_value_α
+.Lx03331_0:
+                        .quad            .Lx03331_0_s
+.Lx03331_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03332_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03333_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2784], rax
+                        mov              qword ptr [rbp + 2792], rdx
+                                                                                        jmp   n03334_call_proc_staged_α
+.Lx03333_0:
+                        .quad            .Lx03333_0_s
+.Lx03333_0_s:
+                        .string          "findf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03334_call_proc_staged_α:
+                        lea              rsi, [rbp + 2784]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03335_2
+.Lx03335_2:
+                        mov              qword ptr [rbp + 2736], rax
+                        mov              qword ptr [rbp + 2744], rdx
+                        cmp              eax, 104
+                                                                                        je    n03336_proc_value_α
+                                                                                        jmp   n03336_proc_value_α
+n03334_call_proc_staged_β:
+                                                                                        jmp   n03336_proc_value_α
+.Lx03335_0:
+                        .quad            .Lx03335_0_s
+.Lx03335_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03336_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03337_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2720], rax
+                        mov              qword ptr [rbp + 2728], rdx
+                                                                                        jmp   n03338_call_proc_staged_α
+.Lx03337_0:
+                        .quad            .Lx03337_0_s
+.Lx03337_0_s:
+                        .string          "balf"
+#-----------------------------------------------------------------------------------------------------------------------
+n03338_call_proc_staged_α:
+                        lea              rsi, [rbp + 2720]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03339_2
+.Lx03339_2:
+                        mov              qword ptr [rbp + 2672], rax
+                        mov              qword ptr [rbp + 2680], rdx
+                        cmp              eax, 104
+                                                                                        je    n03340_proc_value_α
+                                                                                        jmp   n03340_proc_value_α
+n03338_call_proc_staged_β:
+                                                                                        jmp   n03340_proc_value_α
+.Lx03339_0:
+                        .quad            .Lx03339_0_s
+.Lx03339_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03340_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03341_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2656], rax
+                        mov              qword ptr [rbp + 2664], rdx
+                                                                                        jmp   n03342_call_proc_staged_α
+.Lx03341_0:
+                        .quad            .Lx03341_0_s
+.Lx03341_0_s:
+                        .string          "tocset"
+#-----------------------------------------------------------------------------------------------------------------------
+n03342_call_proc_staged_α:
+                        lea              rsi, [rbp + 2656]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03343_2
+.Lx03343_2:
+                        mov              qword ptr [rbp + 2608], rax
+                        mov              qword ptr [rbp + 2616], rdx
+                        cmp              eax, 104
+                                                                                        je    n03344_proc_value_α
+                                                                                        jmp   n03344_proc_value_α
+n03342_call_proc_staged_β:
+                                                                                        jmp   n03344_proc_value_α
+.Lx03343_0:
+                        .quad            .Lx03343_0_s
+.Lx03343_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03344_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03345_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2592], rax
+                        mov              qword ptr [rbp + 2600], rdx
+                                                                                        jmp   n03346_call_proc_staged_α
+.Lx03345_0:
+                        .quad            .Lx03345_0_s
+.Lx03345_0_s:
+                        .string          "cssize"
+#-----------------------------------------------------------------------------------------------------------------------
+n03346_call_proc_staged_α:
+                        lea              rsi, [rbp + 2592]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03347_2
+.Lx03347_2:
+                        mov              qword ptr [rbp + 2544], rax
+                        mov              qword ptr [rbp + 2552], rdx
+                        cmp              eax, 104
+                                                                                        je    n03348_proc_value_α
+                                                                                        jmp   n03348_proc_value_α
+n03346_call_proc_staged_β:
+                                                                                        jmp   n03348_proc_value_α
+.Lx03347_0:
+                        .quad            .Lx03347_0_s
+.Lx03347_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03348_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03349_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2528], rax
+                        mov              qword ptr [rbp + 2536], rdx
+                                                                                        jmp   n03350_call_proc_staged_α
+.Lx03349_0:
+                        .quad            .Lx03349_0_s
+.Lx03349_0_s:
+                        .string          "cscompl"
+#-----------------------------------------------------------------------------------------------------------------------
+n03350_call_proc_staged_α:
+                        lea              rsi, [rbp + 2528]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03351_2
+.Lx03351_2:
+                        mov              qword ptr [rbp + 2480], rax
+                        mov              qword ptr [rbp + 2488], rdx
+                        cmp              eax, 104
+                                                                                        je    n03352_proc_value_α
+                                                                                        jmp   n03352_proc_value_α
+n03350_call_proc_staged_β:
+                                                                                        jmp   n03352_proc_value_α
+.Lx03351_0:
+                        .quad            .Lx03351_0_s
+.Lx03351_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03352_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03353_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2464], rax
+                        mov              qword ptr [rbp + 2472], rdx
+                                                                                        jmp   n03354_call_proc_staged_α
+.Lx03353_0:
+                        .quad            .Lx03353_0_s
+.Lx03353_0_s:
+                        .string          "lcreate"
+#-----------------------------------------------------------------------------------------------------------------------
+n03354_call_proc_staged_α:
+                        lea              rsi, [rbp + 2464]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03355_2
+.Lx03355_2:
+                        mov              qword ptr [rbp + 2416], rax
+                        mov              qword ptr [rbp + 2424], rdx
+                        cmp              eax, 104
+                                                                                        je    n03356_proc_value_α
+                                                                                        jmp   n03356_proc_value_α
+n03354_call_proc_staged_β:
+                                                                                        jmp   n03356_proc_value_α
+.Lx03355_0:
+                        .quad            .Lx03355_0_s
+.Lx03355_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03356_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03357_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2400], rax
+                        mov              qword ptr [rbp + 2408], rdx
+                                                                                        jmp   n03358_call_proc_staged_α
+.Lx03357_0:
+                        .quad            .Lx03357_0_s
+.Lx03357_0_s:
+                        .string          "lconst"
+#-----------------------------------------------------------------------------------------------------------------------
+n03358_call_proc_staged_α:
+                        lea              rsi, [rbp + 2400]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03359_2
+.Lx03359_2:
+                        mov              qword ptr [rbp + 2352], rax
+                        mov              qword ptr [rbp + 2360], rdx
+                        cmp              eax, 104
+                                                                                        je    n03360_proc_value_α
+                                                                                        jmp   n03360_proc_value_α
+n03358_call_proc_staged_β:
+                                                                                        jmp   n03360_proc_value_α
+.Lx03359_0:
+                        .quad            .Lx03359_0_s
+.Lx03359_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03360_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03361_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2336], rax
+                        mov              qword ptr [rbp + 2344], rdx
+                                                                                        jmp   n03362_call_proc_staged_α
+.Lx03361_0:
+                        .quad            .Lx03361_0_s
+.Lx03361_0_s:
+                        .string          "lcopy"
+#-----------------------------------------------------------------------------------------------------------------------
+n03362_call_proc_staged_α:
+                        lea              rsi, [rbp + 2336]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03363_2
+.Lx03363_2:
+                        mov              qword ptr [rbp + 2288], rax
+                        mov              qword ptr [rbp + 2296], rdx
+                        cmp              eax, 104
+                                                                                        je    n03364_proc_value_α
+                                                                                        jmp   n03364_proc_value_α
+n03362_call_proc_staged_β:
+                                                                                        jmp   n03364_proc_value_α
+.Lx03363_0:
+                        .quad            .Lx03363_0_s
+.Lx03363_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03364_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03365_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2272], rax
+                        mov              qword ptr [rbp + 2280], rdx
+                                                                                        jmp   n03366_call_proc_staged_α
+.Lx03365_0:
+                        .quad            .Lx03365_0_s
+.Lx03365_0_s:
+                        .string          "lsort"
+#-----------------------------------------------------------------------------------------------------------------------
+n03366_call_proc_staged_α:
+                        lea              rsi, [rbp + 2272]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03367_2
+.Lx03367_2:
+                        mov              qword ptr [rbp + 2224], rax
+                        mov              qword ptr [rbp + 2232], rdx
+                        cmp              eax, 104
+                                                                                        je    n03368_proc_value_α
+                                                                                        jmp   n03368_proc_value_α
+n03366_call_proc_staged_β:
+                                                                                        jmp   n03368_proc_value_α
+.Lx03367_0:
+                        .quad            .Lx03367_0_s
+.Lx03367_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03368_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03369_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2208], rax
+                        mov              qword ptr [rbp + 2216], rdx
+                                                                                        jmp   n03370_call_proc_staged_α
+.Lx03369_0:
+                        .quad            .Lx03369_0_s
+.Lx03369_0_s:
+                        .string          "lsize"
+#-----------------------------------------------------------------------------------------------------------------------
+n03370_call_proc_staged_α:
+                        lea              rsi, [rbp + 2208]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03371_2
+.Lx03371_2:
+                        mov              qword ptr [rbp + 2160], rax
+                        mov              qword ptr [rbp + 2168], rdx
+                        cmp              eax, 104
+                                                                                        je    n03372_proc_value_α
+                                                                                        jmp   n03372_proc_value_α
+n03370_call_proc_staged_β:
+                                                                                        jmp   n03372_proc_value_α
+.Lx03371_0:
+                        .quad            .Lx03371_0_s
+.Lx03371_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03372_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03373_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2144], rax
+                        mov              qword ptr [rbp + 2152], rdx
+                                                                                        jmp   n03374_call_proc_staged_α
+.Lx03373_0:
+                        .quad            .Lx03373_0_s
+.Lx03373_0_s:
+                        .string          "lpick"
+#-----------------------------------------------------------------------------------------------------------------------
+n03374_call_proc_staged_α:
+                        lea              rsi, [rbp + 2144]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03375_2
+.Lx03375_2:
+                        mov              qword ptr [rbp + 2096], rax
+                        mov              qword ptr [rbp + 2104], rdx
+                        cmp              eax, 104
+                                                                                        je    n03376_proc_value_α
+                                                                                        jmp   n03376_proc_value_α
+n03374_call_proc_staged_β:
+                                                                                        jmp   n03376_proc_value_α
+.Lx03375_0:
+                        .quad            .Lx03375_0_s
+.Lx03375_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03376_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03377_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2080], rax
+                        mov              qword ptr [rbp + 2088], rdx
+                                                                                        jmp   n03378_call_proc_staged_α
+.Lx03377_0:
+                        .quad            .Lx03377_0_s
+.Lx03377_0_s:
+                        .string          "lbang"
+#-----------------------------------------------------------------------------------------------------------------------
+n03378_call_proc_staged_α:
+                        lea              rsi, [rbp + 2080]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03379_2
+.Lx03379_2:
+                        mov              qword ptr [rbp + 2032], rax
+                        mov              qword ptr [rbp + 2040], rdx
+                        cmp              eax, 104
+                                                                                        je    n03380_proc_value_α
+                                                                                        jmp   n03380_proc_value_α
+n03378_call_proc_staged_β:
+                                                                                        jmp   n03380_proc_value_α
+.Lx03379_0:
+                        .quad            .Lx03379_0_s
+.Lx03379_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03380_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03381_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 2016], rax
+                        mov              qword ptr [rbp + 2024], rdx
+                                                                                        jmp   n03382_call_proc_staged_α
+.Lx03381_0:
+                        .quad            .Lx03381_0_s
+.Lx03381_0_s:
+                        .string          "lsubscr"
+#-----------------------------------------------------------------------------------------------------------------------
+n03382_call_proc_staged_α:
+                        lea              rsi, [rbp + 2016]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03383_2
+.Lx03383_2:
+                        mov              qword ptr [rbp + 1968], rax
+                        mov              qword ptr [rbp + 1976], rdx
+                        cmp              eax, 104
+                                                                                        je    n03384_proc_value_α
+                                                                                        jmp   n03384_proc_value_α
+n03382_call_proc_staged_β:
+                                                                                        jmp   n03384_proc_value_α
+.Lx03383_0:
+                        .quad            .Lx03383_0_s
+.Lx03383_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03384_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03385_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1952], rax
+                        mov              qword ptr [rbp + 1960], rdx
+                                                                                        jmp   n03386_call_proc_staged_α
+.Lx03385_0:
+                        .quad            .Lx03385_0_s
+.Lx03385_0_s:
+                        .string          "put1get1"
+#-----------------------------------------------------------------------------------------------------------------------
+n03386_call_proc_staged_α:
+                        lea              rsi, [rbp + 1952]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03387_2
+.Lx03387_2:
+                        mov              qword ptr [rbp + 1904], rax
+                        mov              qword ptr [rbp + 1912], rdx
+                        cmp              eax, 104
+                                                                                        je    n03388_proc_value_α
+                                                                                        jmp   n03388_proc_value_α
+n03386_call_proc_staged_β:
+                                                                                        jmp   n03388_proc_value_α
+.Lx03387_0:
+                        .quad            .Lx03387_0_s
+.Lx03387_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03388_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03389_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1888], rax
+                        mov              qword ptr [rbp + 1896], rdx
+                                                                                        jmp   n03390_call_proc_staged_α
+.Lx03389_0:
+                        .quad            .Lx03389_0_s
+.Lx03389_0_s:
+                        .string          "put2get2"
+#-----------------------------------------------------------------------------------------------------------------------
+n03390_call_proc_staged_α:
+                        lea              rsi, [rbp + 1888]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03391_2
+.Lx03391_2:
+                        mov              qword ptr [rbp + 1840], rax
+                        mov              qword ptr [rbp + 1848], rdx
+                        cmp              eax, 104
+                                                                                        je    n03392_proc_value_α
+                                                                                        jmp   n03392_proc_value_α
+n03390_call_proc_staged_β:
+                                                                                        jmp   n03392_proc_value_α
+.Lx03391_0:
+                        .quad            .Lx03391_0_s
+.Lx03391_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03392_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03393_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1824], rax
+                        mov              qword ptr [rbp + 1832], rdx
+                                                                                        jmp   n03394_call_proc_staged_α
+.Lx03393_0:
+                        .quad            .Lx03393_0_s
+.Lx03393_0_s:
+                        .string          "put3get3"
+#-----------------------------------------------------------------------------------------------------------------------
+n03394_call_proc_staged_α:
+                        lea              rsi, [rbp + 1824]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03395_2
+.Lx03395_2:
+                        mov              qword ptr [rbp + 1776], rax
+                        mov              qword ptr [rbp + 1784], rdx
+                        cmp              eax, 104
+                                                                                        je    n03396_proc_value_α
+                                                                                        jmp   n03396_proc_value_α
+n03394_call_proc_staged_β:
+                                                                                        jmp   n03396_proc_value_α
+.Lx03395_0:
+                        .quad            .Lx03395_0_s
+.Lx03395_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03396_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03397_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1760], rax
+                        mov              qword ptr [rbp + 1768], rdx
+                                                                                        jmp   n03398_call_proc_staged_α
+.Lx03397_0:
+                        .quad            .Lx03397_0_s
+.Lx03397_0_s:
+                        .string          "put4get4"
+#-----------------------------------------------------------------------------------------------------------------------
+n03398_call_proc_staged_α:
+                        lea              rsi, [rbp + 1760]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03399_2
+.Lx03399_2:
+                        mov              qword ptr [rbp + 1712], rax
+                        mov              qword ptr [rbp + 1720], rdx
+                        cmp              eax, 104
+                                                                                        je    n03400_proc_value_α
+                                                                                        jmp   n03400_proc_value_α
+n03398_call_proc_staged_β:
+                                                                                        jmp   n03400_proc_value_α
+.Lx03399_0:
+                        .quad            .Lx03399_0_s
+.Lx03399_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03400_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03401_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1696], rax
+                        mov              qword ptr [rbp + 1704], rdx
+                                                                                        jmp   n03402_call_proc_staged_α
+.Lx03401_0:
+                        .quad            .Lx03401_0_s
+.Lx03401_0_s:
+                        .string          "pushpop"
+#-----------------------------------------------------------------------------------------------------------------------
+n03402_call_proc_staged_α:
+                        lea              rsi, [rbp + 1696]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03403_2
+.Lx03403_2:
+                        mov              qword ptr [rbp + 1648], rax
+                        mov              qword ptr [rbp + 1656], rdx
+                        cmp              eax, 104
+                                                                                        je    n03404_proc_value_α
+                                                                                        jmp   n03404_proc_value_α
+n03402_call_proc_staged_β:
+                                                                                        jmp   n03404_proc_value_α
+.Lx03403_0:
+                        .quad            .Lx03403_0_s
+.Lx03403_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03404_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03405_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1632], rax
+                        mov              qword ptr [rbp + 1640], rdx
+                                                                                        jmp   n03406_call_proc_staged_α
+.Lx03405_0:
+                        .quad            .Lx03405_0_s
+.Lx03405_0_s:
+                        .string          "putget12"
+#-----------------------------------------------------------------------------------------------------------------------
+n03406_call_proc_staged_α:
+                        lea              rsi, [rbp + 1632]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03407_2
+.Lx03407_2:
+                        mov              qword ptr [rbp + 1584], rax
+                        mov              qword ptr [rbp + 1592], rdx
+                        cmp              eax, 104
+                                                                                        je    n03408_proc_value_α
+                                                                                        jmp   n03408_proc_value_α
+n03406_call_proc_staged_β:
+                                                                                        jmp   n03408_proc_value_α
+.Lx03407_0:
+                        .quad            .Lx03407_0_s
+.Lx03407_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03408_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03409_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1568], rax
+                        mov              qword ptr [rbp + 1576], rdx
+                                                                                        jmp   n03410_call_proc_staged_α
+.Lx03409_0:
+                        .quad            .Lx03409_0_s
+.Lx03409_0_s:
+                        .string          "pushpop12"
+#-----------------------------------------------------------------------------------------------------------------------
+n03410_call_proc_staged_α:
+                        lea              rsi, [rbp + 1568]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03411_2
+.Lx03411_2:
+                        mov              qword ptr [rbp + 1520], rax
+                        mov              qword ptr [rbp + 1528], rdx
+                        cmp              eax, 104
+                                                                                        je    n03412_proc_value_α
+                                                                                        jmp   n03412_proc_value_α
+n03410_call_proc_staged_β:
+                                                                                        jmp   n03412_proc_value_α
+.Lx03411_0:
+                        .quad            .Lx03411_0_s
+.Lx03411_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03412_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03413_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1504], rax
+                        mov              qword ptr [rbp + 1512], rdx
+                                                                                        jmp   n03414_call_proc_staged_α
+.Lx03413_0:
+                        .quad            .Lx03413_0_s
+.Lx03413_0_s:
+                        .string          "setcreate"
+#-----------------------------------------------------------------------------------------------------------------------
+n03414_call_proc_staged_α:
+                        lea              rsi, [rbp + 1504]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03415_2
+.Lx03415_2:
+                        mov              qword ptr [rbp + 1456], rax
+                        mov              qword ptr [rbp + 1464], rdx
+                        cmp              eax, 104
+                                                                                        je    n03416_proc_value_α
+                                                                                        jmp   n03416_proc_value_α
+n03414_call_proc_staged_β:
+                                                                                        jmp   n03416_proc_value_α
+.Lx03415_0:
+                        .quad            .Lx03415_0_s
+.Lx03415_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03416_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03417_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1440], rax
+                        mov              qword ptr [rbp + 1448], rdx
+                                                                                        jmp   n03418_call_proc_staged_α
+.Lx03417_0:
+                        .quad            .Lx03417_0_s
+.Lx03417_0_s:
+                        .string          "setcopy"
+#-----------------------------------------------------------------------------------------------------------------------
+n03418_call_proc_staged_α:
+                        lea              rsi, [rbp + 1440]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03419_2
+.Lx03419_2:
+                        mov              qword ptr [rbp + 1392], rax
+                        mov              qword ptr [rbp + 1400], rdx
+                        cmp              eax, 104
+                                                                                        je    n03420_proc_value_α
+                                                                                        jmp   n03420_proc_value_α
+n03418_call_proc_staged_β:
+                                                                                        jmp   n03420_proc_value_α
+.Lx03419_0:
+                        .quad            .Lx03419_0_s
+.Lx03419_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03420_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03421_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1376], rax
+                        mov              qword ptr [rbp + 1384], rdx
+                                                                                        jmp   n03422_call_proc_staged_α
+.Lx03421_0:
+                        .quad            .Lx03421_0_s
+.Lx03421_0_s:
+                        .string          "setmember"
+#-----------------------------------------------------------------------------------------------------------------------
+n03422_call_proc_staged_α:
+                        lea              rsi, [rbp + 1376]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03423_2
+.Lx03423_2:
+                        mov              qword ptr [rbp + 1328], rax
+                        mov              qword ptr [rbp + 1336], rdx
+                        cmp              eax, 104
+                                                                                        je    n03424_proc_value_α
+                                                                                        jmp   n03424_proc_value_α
+n03422_call_proc_staged_β:
+                                                                                        jmp   n03424_proc_value_α
+.Lx03423_0:
+                        .quad            .Lx03423_0_s
+.Lx03423_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03424_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03425_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1312], rax
+                        mov              qword ptr [rbp + 1320], rdx
+                                                                                        jmp   n03426_call_proc_staged_α
+.Lx03425_0:
+                        .quad            .Lx03425_0_s
+.Lx03425_0_s:
+                        .string          "setinsert"
+#-----------------------------------------------------------------------------------------------------------------------
+n03426_call_proc_staged_α:
+                        lea              rsi, [rbp + 1312]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03427_2
+.Lx03427_2:
+                        mov              qword ptr [rbp + 1264], rax
+                        mov              qword ptr [rbp + 1272], rdx
+                        cmp              eax, 104
+                                                                                        je    n03428_proc_value_α
+                                                                                        jmp   n03428_proc_value_α
+n03426_call_proc_staged_β:
+                                                                                        jmp   n03428_proc_value_α
+.Lx03427_0:
+                        .quad            .Lx03427_0_s
+.Lx03427_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03428_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03429_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1248], rax
+                        mov              qword ptr [rbp + 1256], rdx
+                                                                                        jmp   n03430_call_proc_staged_α
+.Lx03429_0:
+                        .quad            .Lx03429_0_s
+.Lx03429_0_s:
+                        .string          "setinsdel"
+#-----------------------------------------------------------------------------------------------------------------------
+n03430_call_proc_staged_α:
+                        lea              rsi, [rbp + 1248]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03431_2
+.Lx03431_2:
+                        mov              qword ptr [rbp + 1200], rax
+                        mov              qword ptr [rbp + 1208], rdx
+                        cmp              eax, 104
+                                                                                        je    n03432_proc_value_α
+                                                                                        jmp   n03432_proc_value_α
+n03430_call_proc_staged_β:
+                                                                                        jmp   n03432_proc_value_α
+.Lx03431_0:
+                        .quad            .Lx03431_0_s
+.Lx03431_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03432_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03433_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1184], rax
+                        mov              qword ptr [rbp + 1192], rdx
+                                                                                        jmp   n03434_call_proc_staged_α
+.Lx03433_0:
+                        .quad            .Lx03433_0_s
+.Lx03433_0_s:
+                        .string          "setbang"
+#-----------------------------------------------------------------------------------------------------------------------
+n03434_call_proc_staged_α:
+                        lea              rsi, [rbp + 1184]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03435_2
+.Lx03435_2:
+                        mov              qword ptr [rbp + 1136], rax
+                        mov              qword ptr [rbp + 1144], rdx
+                        cmp              eax, 104
+                                                                                        je    n03436_proc_value_α
+                                                                                        jmp   n03436_proc_value_α
+n03434_call_proc_staged_β:
+                                                                                        jmp   n03436_proc_value_α
+.Lx03435_0:
+                        .quad            .Lx03435_0_s
+.Lx03435_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03436_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03437_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1120], rax
+                        mov              qword ptr [rbp + 1128], rdx
+                                                                                        jmp   n03438_call_proc_staged_α
+.Lx03437_0:
+                        .quad            .Lx03437_0_s
+.Lx03437_0_s:
+                        .string          "setpick"
+#-----------------------------------------------------------------------------------------------------------------------
+n03438_call_proc_staged_α:
+                        lea              rsi, [rbp + 1120]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03439_2
+.Lx03439_2:
+                        mov              qword ptr [rbp + 1072], rax
+                        mov              qword ptr [rbp + 1080], rdx
+                        cmp              eax, 104
+                                                                                        je    n03440_proc_value_α
+                                                                                        jmp   n03440_proc_value_α
+n03438_call_proc_staged_β:
+                                                                                        jmp   n03440_proc_value_α
+.Lx03439_0:
+                        .quad            .Lx03439_0_s
+.Lx03439_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03440_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03441_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 1056], rax
+                        mov              qword ptr [rbp + 1064], rdx
+                                                                                        jmp   n03442_call_proc_staged_α
+.Lx03441_0:
+                        .quad            .Lx03441_0_s
+.Lx03441_0_s:
+                        .string          "tblcreate"
+#-----------------------------------------------------------------------------------------------------------------------
+n03442_call_proc_staged_α:
+                        lea              rsi, [rbp + 1056]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03443_2
+.Lx03443_2:
+                        mov              qword ptr [rbp + 1008], rax
+                        mov              qword ptr [rbp + 1016], rdx
+                        cmp              eax, 104
+                                                                                        je    n03444_proc_value_α
+                                                                                        jmp   n03444_proc_value_α
+n03442_call_proc_staged_β:
+                                                                                        jmp   n03444_proc_value_α
+.Lx03443_0:
+                        .quad            .Lx03443_0_s
+.Lx03443_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03444_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03445_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 992], rax
+                        mov              qword ptr [rbp + 1000], rdx
+                                                                                        jmp   n03446_call_proc_staged_α
+.Lx03445_0:
+                        .quad            .Lx03445_0_s
+.Lx03445_0_s:
+                        .string          "tblsub"
+#-----------------------------------------------------------------------------------------------------------------------
+n03446_call_proc_staged_α:
+                        lea              rsi, [rbp + 992]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03447_2
+.Lx03447_2:
+                        mov              qword ptr [rbp + 944], rax
+                        mov              qword ptr [rbp + 952], rdx
+                        cmp              eax, 104
+                                                                                        je    n03448_proc_value_α
+                                                                                        jmp   n03448_proc_value_α
+n03446_call_proc_staged_β:
+                                                                                        jmp   n03448_proc_value_α
+.Lx03447_0:
+                        .quad            .Lx03447_0_s
+.Lx03447_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03448_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03449_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 928], rax
+                        mov              qword ptr [rbp + 936], rdx
+                                                                                        jmp   n03450_call_proc_staged_α
+.Lx03449_0:
+                        .quad            .Lx03449_0_s
+.Lx03449_0_s:
+                        .string          "tblasgn"
+#-----------------------------------------------------------------------------------------------------------------------
+n03450_call_proc_staged_α:
+                        lea              rsi, [rbp + 928]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03451_2
+.Lx03451_2:
+                        mov              qword ptr [rbp + 880], rax
+                        mov              qword ptr [rbp + 888], rdx
+                        cmp              eax, 104
+                                                                                        je    n03452_proc_value_α
+                                                                                        jmp   n03452_proc_value_α
+n03450_call_proc_staged_β:
+                                                                                        jmp   n03452_proc_value_α
+.Lx03451_0:
+                        .quad            .Lx03451_0_s
+.Lx03451_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03452_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03453_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 864], rax
+                        mov              qword ptr [rbp + 872], rdx
+                                                                                        jmp   n03454_call_proc_staged_α
+.Lx03453_0:
+                        .quad            .Lx03453_0_s
+.Lx03453_0_s:
+                        .string          "recconstr"
+#-----------------------------------------------------------------------------------------------------------------------
+n03454_call_proc_staged_α:
+                        lea              rsi, [rbp + 864]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03455_2
+.Lx03455_2:
+                        mov              qword ptr [rbp + 816], rax
+                        mov              qword ptr [rbp + 824], rdx
+                        cmp              eax, 104
+                                                                                        je    n03456_proc_value_α
+                                                                                        jmp   n03456_proc_value_α
+n03454_call_proc_staged_β:
+                                                                                        jmp   n03456_proc_value_α
+.Lx03455_0:
+                        .quad            .Lx03455_0_s
+.Lx03455_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03456_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03457_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 800], rax
+                        mov              qword ptr [rbp + 808], rdx
+                                                                                        jmp   n03458_call_proc_staged_α
+.Lx03457_0:
+                        .quad            .Lx03457_0_s
+.Lx03457_0_s:
+                        .string          "reccopy"
+#-----------------------------------------------------------------------------------------------------------------------
+n03458_call_proc_staged_α:
+                        lea              rsi, [rbp + 800]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03459_2
+.Lx03459_2:
+                        mov              qword ptr [rbp + 752], rax
+                        mov              qword ptr [rbp + 760], rdx
+                        cmp              eax, 104
+                                                                                        je    n03460_proc_value_α
+                                                                                        jmp   n03460_proc_value_α
+n03458_call_proc_staged_β:
+                                                                                        jmp   n03460_proc_value_α
+.Lx03459_0:
+                        .quad            .Lx03459_0_s
+.Lx03459_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03460_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03461_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 736], rax
+                        mov              qword ptr [rbp + 744], rdx
+                                                                                        jmp   n03462_call_proc_staged_α
+.Lx03461_0:
+                        .quad            .Lx03461_0_s
+.Lx03461_0_s:
+                        .string          "recfield"
+#-----------------------------------------------------------------------------------------------------------------------
+n03462_call_proc_staged_α:
+                        lea              rsi, [rbp + 736]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03463_2
+.Lx03463_2:
+                        mov              qword ptr [rbp + 688], rax
+                        mov              qword ptr [rbp + 696], rdx
+                        cmp              eax, 104
+                                                                                        je    n03464_proc_value_α
+                                                                                        jmp   n03464_proc_value_α
+n03462_call_proc_staged_β:
+                                                                                        jmp   n03464_proc_value_α
+.Lx03463_0:
+                        .quad            .Lx03463_0_s
+.Lx03463_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03464_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03465_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 672], rax
+                        mov              qword ptr [rbp + 680], rdx
+                                                                                        jmp   n03466_call_proc_staged_α
+.Lx03465_0:
+                        .quad            .Lx03465_0_s
+.Lx03465_0_s:
+                        .string          "bigfield"
+#-----------------------------------------------------------------------------------------------------------------------
+n03466_call_proc_staged_α:
+                        lea              rsi, [rbp + 672]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03467_2
+.Lx03467_2:
+                        mov              qword ptr [rbp + 624], rax
+                        mov              qword ptr [rbp + 632], rdx
+                        cmp              eax, 104
+                                                                                        je    n03468_proc_value_α
+                                                                                        jmp   n03468_proc_value_α
+n03466_call_proc_staged_β:
+                                                                                        jmp   n03468_proc_value_α
+.Lx03467_0:
+                        .quad            .Lx03467_0_s
+.Lx03467_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03468_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03469_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 608], rax
+                        mov              qword ptr [rbp + 616], rdx
+                                                                                        jmp   n03470_call_proc_staged_α
+.Lx03469_0:
+                        .quad            .Lx03469_0_s
+.Lx03469_0_s:
+                        .string          "readz"
+#-----------------------------------------------------------------------------------------------------------------------
+n03470_call_proc_staged_α:
+                        lea              rsi, [rbp + 608]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03471_2
+.Lx03471_2:
+                        mov              qword ptr [rbp + 560], rax
+                        mov              qword ptr [rbp + 568], rdx
+                        cmp              eax, 104
+                                                                                        je    n03472_proc_value_α
+                                                                                        jmp   n03472_proc_value_α
+n03470_call_proc_staged_β:
+                                                                                        jmp   n03472_proc_value_α
+.Lx03471_0:
+                        .quad            .Lx03471_0_s
+.Lx03471_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03472_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03473_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 544], rax
+                        mov              qword ptr [rbp + 552], rdx
+                                                                                        jmp   n03474_call_proc_staged_α
+.Lx03473_0:
+                        .quad            .Lx03473_0_s
+.Lx03473_0_s:
+                        .string          "writecon"
+#-----------------------------------------------------------------------------------------------------------------------
+n03474_call_proc_staged_α:
+                        lea              rsi, [rbp + 544]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03475_2
+.Lx03475_2:
+                        mov              qword ptr [rbp + 496], rax
+                        mov              qword ptr [rbp + 504], rdx
+                        cmp              eax, 104
+                                                                                        je    n03476_proc_value_α
+                                                                                        jmp   n03476_proc_value_α
+n03474_call_proc_staged_β:
+                                                                                        jmp   n03476_proc_value_α
+.Lx03475_0:
+                        .quad            .Lx03475_0_s
+.Lx03475_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03476_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03477_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 480], rax
+                        mov              qword ptr [rbp + 488], rdx
+                                                                                        jmp   n03478_call_proc_staged_α
+.Lx03477_0:
+                        .quad            .Lx03477_0_s
+.Lx03477_0_s:
+                        .string          "writestr"
+#-----------------------------------------------------------------------------------------------------------------------
+n03478_call_proc_staged_α:
+                        lea              rsi, [rbp + 480]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03479_2
+.Lx03479_2:
+                        mov              qword ptr [rbp + 432], rax
+                        mov              qword ptr [rbp + 440], rdx
+                        cmp              eax, 104
+                                                                                        je    n03480_proc_value_α
+                                                                                        jmp   n03480_proc_value_α
+n03478_call_proc_staged_β:
+                                                                                        jmp   n03480_proc_value_α
+.Lx03479_0:
+                        .quad            .Lx03479_0_s
+.Lx03479_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03480_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03481_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 416], rax
+                        mov              qword ptr [rbp + 424], rdx
+                                                                                        jmp   n03482_call_proc_staged_α
+.Lx03481_0:
+                        .quad            .Lx03481_0_s
+.Lx03481_0_s:
+                        .string          "cxcreate"
+#-----------------------------------------------------------------------------------------------------------------------
+n03482_call_proc_staged_α:
+                        lea              rsi, [rbp + 416]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03483_2
+.Lx03483_2:
+                        mov              qword ptr [rbp + 368], rax
+                        mov              qword ptr [rbp + 376], rdx
+                        cmp              eax, 104
+                                                                                        je    n03484_proc_value_α
+                                                                                        jmp   n03484_proc_value_α
+n03482_call_proc_staged_β:
+                                                                                        jmp   n03484_proc_value_α
+.Lx03483_0:
+                        .quad            .Lx03483_0_s
+.Lx03483_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03484_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03485_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 352], rax
+                        mov              qword ptr [rbp + 360], rdx
+                                                                                        jmp   n03486_call_proc_staged_α
+.Lx03485_0:
+                        .quad            .Lx03485_0_s
+.Lx03485_0_s:
+                        .string          "cxget"
+#-----------------------------------------------------------------------------------------------------------------------
+n03486_call_proc_staged_α:
+                        lea              rsi, [rbp + 352]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03487_2
+.Lx03487_2:
+                        mov              qword ptr [rbp + 304], rax
+                        mov              qword ptr [rbp + 312], rdx
+                        cmp              eax, 104
+                                                                                        je    n03488_proc_value_α
+                                                                                        jmp   n03488_proc_value_α
+n03486_call_proc_staged_β:
+                                                                                        jmp   n03488_proc_value_α
+.Lx03487_0:
+                        .quad            .Lx03487_0_s
+.Lx03487_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03488_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03489_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 288], rax
+                        mov              qword ptr [rbp + 296], rdx
+                                                                                        jmp   n03490_call_proc_staged_α
+.Lx03489_0:
+                        .quad            .Lx03489_0_s
+.Lx03489_0_s:
+                        .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
+n03490_call_proc_staged_α:
+                        lea              rsi, [rbp + 288]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03491_2
+.Lx03491_2:
+                        mov              qword ptr [rbp + 240], rax
+                        mov              qword ptr [rbp + 248], rdx
+                        cmp              eax, 104
+                                                                                        je    n03492_proc_value_α
+                                                                                        jmp   n03492_proc_value_α
+n03490_call_proc_staged_β:
+                                                                                        jmp   n03492_proc_value_α
+.Lx03491_0:
+                        .quad            .Lx03491_0_s
+.Lx03491_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03492_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03493_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 224], rax
+                        mov              qword ptr [rbp + 232], rdx
+                                                                                        jmp   n03494_call_proc_staged_α
+.Lx03493_0:
+                        .quad            .Lx03493_0_s
+.Lx03493_0_s:
+                        .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
+n03494_call_proc_staged_α:
+                        lea              rsi, [rbp + 224]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03495_2
+.Lx03495_2:
+                        mov              qword ptr [rbp + 176], rax
+                        mov              qword ptr [rbp + 184], rdx
+                        cmp              eax, 104
+                                                                                        je    n03496_proc_value_α
+                                                                                        jmp   n03496_proc_value_α
+n03494_call_proc_staged_β:
+                                                                                        jmp   n03496_proc_value_α
+.Lx03495_0:
+                        .quad            .Lx03495_0_s
+.Lx03495_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03496_proc_value_α:
+                        mov              rdi, qword ptr [rip + .Lx03497_0]
+                        call             rt_proc_value@PLT
+                        mov              qword ptr [rbp + 160], rax
+                        mov              qword ptr [rbp + 168], rdx
+                                                                                        jmp   n03498_call_proc_staged_α
+.Lx03497_0:
+                        .quad            .Lx03497_0_s
+.Lx03497_0_s:
+                        .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
+n03498_call_proc_staged_α:
+                        lea              rsi, [rbp + 160]
+                        call             proc_report_dcα
+                                                                                        jmp   .Lx03499_2
+.Lx03499_2:
+                        mov              qword ptr [rbp + 112], rax
+                        mov              qword ptr [rbp + 120], rdx
+                        cmp              eax, 104
+                                                                                        je    n03500_keyword_icon_α
+                                                                                        jmp   n03500_keyword_icon_α
+n03498_call_proc_staged_β:
+                                                                                        jmp   n03500_keyword_icon_α
+.Lx03499_0:
+                        .quad            .Lx03499_0_s
+.Lx03499_0_s:
+                        .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
+n03500_keyword_icon_α:
+                        mov              rdi, qword ptr [rip + .Lx03501_0]               # sval
+                        call             rt_keyword_read@PLT
+                        cmp              eax, 104
+                                                                                        je    main_ω
+                        mov              qword ptr [rbp + 80], rax
+                        mov              qword ptr [rbp + 88], rdx
+                                                                                        jmp   n03502_call_builtin_icon_α
+n03500_keyword_icon_β:
+                                                                                        jmp   main_ω
+.Lx03501_0:
+                        .quad            .Lx03501_0_s
+.Lx03501_0_s:
+                        .string          "&errout"
+#-----------------------------------------------------------------------------------------------------------------------
+n03502_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 80]
+                        mov              qword ptr [rbp + 48], rax
+                        mov              rax, qword ptr [rbp + 88]
+                        mov              qword ptr [rbp + 56], rax
+                        .section         .rodata
+.Lrkfn6017:             .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn6017]                        # fn
+                        lea              rsi, [rbp + 48]                                # args
+                        mov              edx, 1                                         # nargs
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rbp + 40], rdx
+                        cmp              eax, 104
+                                                                                        je    main_ω
+                                                                                        jmp   main_γ
+n03502_call_builtin_icon_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 n02953_lit_real_α:
                         mov              qword ptr [rbp + 8976], 5                      # result
-                        mov              rax, qword ptr [rip + .Lx02998_0]
+                        mov              rax, qword ptr [rip + .Lx03503_0]
                         mov              qword ptr [rbp + 8984], rax
                                                                                         jmp   n02949_disjunction_as
 n02953_lit_real_β:
                                                                                         jmp   n02949_disjunction_af
-.Lx02998_0:
+.Lx03503_0:
                         .quad            4607182418800017408
 #-----------------------------------------------------------------------------------------------------------------------
 n02950_var_ref_α:
@@ -35916,19 +39579,19 @@ n02950_var_ref_α:
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 8912], rax
                         mov              qword ptr [rbp + 8920], rdx
-                                                                                        jmp   n02999_lit_integer_α
+                                                                                        jmp   n03504_lit_integer_α
 n02950_var_ref_β:
                                                                                         jmp   n02949_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
-n02999_lit_integer_α:
+n03504_lit_integer_α:
                         mov              qword ptr [rbp + 8928], 3                      # result
-                        mov              rax, qword ptr [rip + .Lx03000_0]
+                        mov              rax, qword ptr [rip + .Lx03505_0]
                         mov              qword ptr [rbp + 8936], rax
-                                                                                        jmp   n03001_subscript_α
-.Lx03000_0:
+                                                                                        jmp   n03506_subscript_α
+.Lx03505_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
-n03001_subscript_α:
+n03506_subscript_α:
                         mov              rdi, qword ptr [rbp + 8912]                    # base
                         mov              rsi, qword ptr [rbp + 8920]                    # base
                         mov              rdx, qword ptr [rbp + 8928]                    # idx
@@ -35938,9 +39601,9 @@ n03001_subscript_α:
                                                                                         je    n02949_disjunction_af
                         mov              qword ptr [rbp + 8944], rax
                         mov              qword ptr [rbp + 8952], rdx
-                                                                                        jmp   n03002_deref_α
+                                                                                        jmp   n03507_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
-n03002_deref_α:
+n03507_deref_α:
                         mov              rdi, qword ptr [rbp + 8944]                    # d
                         mov              rsi, qword ptr [rbp + 8952]                    # d
                         call             rt_deref@PLT
@@ -35949,3645 +39612,8 @@ n03002_deref_α:
                         mov              qword ptr [rbp + 8960], rax
                         mov              qword ptr [rbp + 8968], rdx
                                                                                         jmp   n02949_disjunction_as
-n03002_deref_β:
+n03507_deref_β:
                                                                                         jmp   n02949_disjunction_af
-#-----------------------------------------------------------------------------------------------------------------------
-n02982_var_α:
-                        mov              rax, qword ptr [rbp + 32]
-                        mov              qword ptr [rbp + 7904], rax
-                        mov              rax, qword ptr [rbp + 40]
-                        mov              qword ptr [rbp + 7912], rax
-                                                                                        jmp   n03003_call_builtin_icon_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03003_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 7904]
-                        mov              qword ptr [rbp + 7872], rax
-                        mov              rax, qword ptr [rbp + 7912]
-                        mov              qword ptr [rbp + 7880], rax
-                        .section         .rodata
-.Lrkfn5523:             .string          "sort"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn5523]                        # fn
-                        lea              rsi, [rbp + 7872]                              # args
-                        mov              edx, 1                                         # nargs
-                        call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 7856], rax
-                        mov              qword ptr [rbp + 7864], rdx
-                        cmp              eax, 104
-                                                                                        je    n03004_var_α
-                                                                                        jmp   n03005_lit_integer_α
-n03003_call_builtin_icon_β:
-                                                                                        jmp   n03004_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03005_lit_integer_α:
-                        mov              qword ptr [rbp + 7952], 3                      # result
-                        mov              rax, qword ptr [rip + .Lx03006_0]
-                        mov              qword ptr [rbp + 7960], rax
-                                                                                        jmp   n03007_var_α
-.Lx03006_0:
-                        .quad            1
-#-----------------------------------------------------------------------------------------------------------------------
-n03007_var_α:
-                        mov              rax, qword ptr [rbp + 32]
-                        mov              qword ptr [rbp + 8048], rax
-                        mov              rax, qword ptr [rbp + 40]
-                        mov              qword ptr [rbp + 8056], rax
-                                                                                        jmp   n03008_unop_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03008_unop_α:
-                        mov              rdi, qword ptr [rbp + 32]                      # lo
-                        mov              rsi, qword ptr [rbp + 40]                      # hi
-                        call             rt_size_d@PLT
-                        mov              qword ptr [rbp + 8032], rax
-                        mov              qword ptr [rbp + 8040], rdx
-                                                                                        jmp   n03009_lit_integer_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03009_lit_integer_α:
-                        mov              qword ptr [rbp + 8064], 3                      # result
-                        mov              rax, qword ptr [rip + .Lx03010_0]
-                        mov              qword ptr [rbp + 8072], rax
-                                                                                        jmp   n03011_coerce_numeric_α
-.Lx03010_0:
-                        .quad            1
-#-----------------------------------------------------------------------------------------------------------------------
-n03011_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 8032]
-                        cmp              eax, 5
-                                                                                        je    .Lx03012_1
-                        cmp              eax, 3
-                                                                                        jne   .Lx03012_0
-                        mov              eax, dword ptr [rbp + 8064]
-                        cmp              eax, 3
-                                                                                        jne   .Lx03012_0
-.Lx03012_1:
-                        mov              rax, qword ptr [rbp + 8032]
-                        mov              qword ptr [rbp + 8016], rax
-                        mov              rax, qword ptr [rbp + 8040]
-                        mov              qword ptr [rbp + 8024], rax
-                                                                                        jmp   n03013_binop_α
-.Lx03012_0:
-                        lea              rdi, [rbp + 8032]                              # self
-                        lea              rsi, [rbp + 8064]                              # other
-                        lea              rdx, [rbp + 8016]                              # out
-                        mov              rcx, 0                                         # codes
-                        call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n03013_binop_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03013_binop_α:
-                        mov              eax, dword ptr [rbp + 8016]
-                        cmp              eax, 3
-                                                                                        jne   .Lx03014_0
-                        mov              rax, qword ptr [rbp + 8024]
-                        mov              rcx, 1
-                        sub              rax, rcx
-                        mov              qword ptr [rbp + 8000], 3
-                        mov              qword ptr [rbp + 8008], rax
-                                                                                        jmp   n03015_lit_integer_α
-.Lx03014_0:
-                        mov              rdi, qword ptr [rbp + 8016]
-                        mov              rsi, qword ptr [rbp + 8024]
-                        mov              rdx, qword ptr [rbp + 8064]
-                        mov              rcx, qword ptr [rbp + 8072]
-                        call             rt_sub@PLT
-                        cmp              eax, 104
-                                                                                        je    n03004_var_α
-                        mov              qword ptr [rbp + 8000], rax
-                        mov              qword ptr [rbp + 8008], rdx
-                                                                                        jmp   n03015_lit_integer_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03015_lit_integer_α:
-                        mov              qword ptr [rbp + 8080], 3                      # result
-                        mov              rax, qword ptr [rip + .Lx03016_0]
-                        mov              qword ptr [rbp + 8088], rax
-                                                                                        jmp   n03017_coerce_numeric_α
-.Lx03016_0:
-                        .quad            2
-#-----------------------------------------------------------------------------------------------------------------------
-n03017_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 8000]
-                        cmp              eax, 5
-                                                                                        je    .Lx03018_1
-                        cmp              eax, 3
-                                                                                        jne   .Lx03018_0
-                        mov              eax, dword ptr [rbp + 8080]
-                        cmp              eax, 3
-                                                                                        jne   .Lx03018_0
-.Lx03018_1:
-                        mov              rax, qword ptr [rbp + 8000]
-                        mov              qword ptr [rbp + 7984], rax
-                        mov              rax, qword ptr [rbp + 8008]
-                        mov              qword ptr [rbp + 7992], rax
-                                                                                        jmp   n03019_binop_α
-.Lx03018_0:
-                        lea              rdi, [rbp + 8000]                              # self
-                        lea              rsi, [rbp + 8080]                              # other
-                        lea              rdx, [rbp + 7984]                              # out
-                        mov              rcx, 0                                         # codes
-                        call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n03019_binop_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03019_binop_α:
-                        mov              rdi, qword ptr [rbp + 7984]
-                        mov              rsi, qword ptr [rbp + 7992]
-                        mov              rdx, qword ptr [rbp + 8080]
-                        mov              rcx, qword ptr [rbp + 8088]
-                        call             rt_div@PLT
-                        cmp              eax, 104
-                                                                                        je    n03004_var_α
-                        mov              qword ptr [rbp + 7968], rax
-                        mov              qword ptr [rbp + 7976], rdx
-                                                                                        jmp   n03020_coerce_numeric_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03020_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 7968]
-                        cmp              eax, 5
-                                                                                        je    .Lx03021_1
-                        cmp              eax, 3
-                                                                                        jne   .Lx03021_0
-                        mov              eax, dword ptr [rbp + 7952]
-                        cmp              eax, 3
-                                                                                        jne   .Lx03021_0
-.Lx03021_1:
-                        mov              rax, qword ptr [rbp + 7968]
-                        mov              qword ptr [rbp + 7936], rax
-                        mov              rax, qword ptr [rbp + 7976]
-                        mov              qword ptr [rbp + 7944], rax
-                                                                                        jmp   n03022_binop_α
-.Lx03021_0:
-                        lea              rdi, [rbp + 7968]                              # self
-                        lea              rsi, [rbp + 7952]                              # other
-                        lea              rdx, [rbp + 7936]                              # out
-                        mov              rcx, 0                                         # codes
-                        call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n03022_binop_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03022_binop_α:
-                        mov              eax, dword ptr [rbp + 7936]
-                        cmp              eax, 3
-                                                                                        jne   .Lx03023_0
-                        mov              rax, 1
-                        mov              rcx, qword ptr [rbp + 7944]
-                        add              rax, rcx
-                        mov              qword ptr [rbp + 7920], 3
-                        mov              qword ptr [rbp + 7928], rax
-                                                                                        jmp   n03024_subscript_α
-.Lx03023_0:
-                        mov              rdi, qword ptr [rbp + 7952]
-                        mov              rsi, qword ptr [rbp + 7960]
-                        mov              rdx, qword ptr [rbp + 7936]
-                        mov              rcx, qword ptr [rbp + 7944]
-                        call             rt_add@PLT
-                        cmp              eax, 104
-                                                                                        je    n03004_var_α
-                        mov              qword ptr [rbp + 7920], rax
-                        mov              qword ptr [rbp + 7928], rdx
-                                                                                        jmp   n03024_subscript_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03024_subscript_α:
-                        mov              rdi, qword ptr [rbp + 7856]                    # base
-                        mov              rsi, qword ptr [rbp + 7864]                    # base
-                        mov              rdx, qword ptr [rbp + 7920]                    # idx
-                        mov              rcx, qword ptr [rbp + 7928]                    # idx
-                        call             rt_subscript_var@PLT
-                        cmp              eax, 104
-                                                                                        je    n03004_var_α
-                        mov              qword ptr [rbp + 8096], rax
-                        mov              qword ptr [rbp + 8104], rdx
-                                                                                        jmp   n03025_deref_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03025_deref_α:
-                        mov              rdi, qword ptr [rbp + 8096]                    # d
-                        mov              rsi, qword ptr [rbp + 8104]                    # d
-                        call             rt_deref@PLT
-                        cmp              eax, 104
-                                                                                        je    n03004_var_α
-                        mov              qword ptr [rbp + 8112], rax
-                        mov              qword ptr [rbp + 8120], rdx
-                                                                                        jmp   n03026_assign_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03026_assign_α:
-                        mov              rax, qword ptr [rbp + 8112]
-                        mov              rdx, qword ptr [rbp + 8120]
-                        mov              qword ptr [1879052304], rax                    # overhead
-                        mov              qword ptr [1879052312], rdx
-                                                                                        jmp   n03004_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03004_var_α:
-                        mov              rax, qword ptr [1879052304]                    # overhead
-                        mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rbp + 7792], rax                    # result
-                        mov              qword ptr [rbp + 7800], rdx
-                                                                                        jmp   n03027_lit_integer_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03027_lit_integer_α:
-                        mov              qword ptr [rbp + 7808], 3                      # result
-                        mov              rax, qword ptr [rip + .Lx03028_0]
-                        mov              qword ptr [rbp + 7816], rax
-                                                                                        jmp   n03029_call_builtin_icon_α
-.Lx03028_0:
-                        .quad            10
-#-----------------------------------------------------------------------------------------------------------------------
-n03029_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 7792]
-                        mov              qword ptr [rbp + 7744], rax
-                        mov              rax, qword ptr [rbp + 7800]
-                        mov              qword ptr [rbp + 7752], rax
-                        mov              rax, qword ptr [rbp + 7808]
-                        mov              qword ptr [rbp + 7760], rax
-                        mov              rax, qword ptr [rbp + 7816]
-                        mov              qword ptr [rbp + 7768], rax
-                        .section         .rodata
-.Lrkfn5545:             .string          "right"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn5545]                        # fn
-                        lea              rsi, [rbp + 7744]                              # args
-                        mov              edx, 2                                         # nargs
-                        call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 7728], rax
-                        mov              qword ptr [rbp + 7736], rdx
-                        cmp              eax, 104
-                                                                                        je    n03030_proc_value_α
-                                                                                        jmp   n03031_lit_string_α
-n03029_call_builtin_icon_β:
-                                                                                        jmp   n03030_proc_value_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03031_lit_string_α:
-                        mov              qword ptr [rbp + 7824], 2                      # result
-                        mov              dword ptr [rbp + 7828], 10
-                        mov              rax, qword ptr [rip + .Lx03032_0]
-                        mov              qword ptr [rbp + 7832], rax
-                                                                                        jmp   n03033_call_builtin_icon_α
-.Lx03032_0:
-                        .quad            .Lx03032_0_s
-.Lx03032_0_s:
-                        .string          "  overhead"
-#-----------------------------------------------------------------------------------------------------------------------
-n03033_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 7728]
-                        mov              qword ptr [rbp + 7680], rax
-                        mov              rax, qword ptr [rbp + 7736]
-                        mov              qword ptr [rbp + 7688], rax
-                        mov              rax, qword ptr [rbp + 7824]
-                        mov              qword ptr [rbp + 7696], rax
-                        mov              rax, qword ptr [rbp + 7832]
-                        mov              qword ptr [rbp + 7704], rax
-                        .section         .rodata
-.Lrkfn5548:             .string          "write"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn5548]                        # fn
-                        lea              rsi, [rbp + 7680]                              # args
-                        mov              edx, 2                                         # nargs
-                        call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 7664], rax
-                        mov              qword ptr [rbp + 7672], rdx
-                        cmp              eax, 104
-                                                                                        je    n03030_proc_value_α
-                                                                                        jmp   n03030_proc_value_α
-n03033_call_builtin_icon_β:
-                                                                                        jmp   n03030_proc_value_α
-#-----------------------------------------------------------------------------------------------------------------------
-n03030_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03034_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7648], rax
-                        mov              qword ptr [rbp + 7656], rdx
-                                                                                        jmp   n03035_call_proc_staged_α
-.Lx03034_0:
-                        .quad            .Lx03034_0_s
-.Lx03034_0_s:
-                        .string          "nothing"
-#-----------------------------------------------------------------------------------------------------------------------
-n03035_call_proc_staged_α:
-                        lea              rsi, [rbp + 7648]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03036_2
-.Lx03036_2:
-                        mov              qword ptr [rbp + 7600], rax
-                        mov              qword ptr [rbp + 7608], rdx
-                        cmp              eax, 104
-                                                                                        je    n03037_proc_value_α
-                                                                                        jmp   n03037_proc_value_α
-n03035_call_proc_staged_β:
-                                                                                        jmp   n03037_proc_value_α
-.Lx03036_0:
-                        .quad            .Lx03036_0_s
-.Lx03036_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03037_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03038_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7584], rax
-                        mov              qword ptr [rbp + 7592], rdx
-                                                                                        jmp   n03039_call_proc_staged_α
-.Lx03038_0:
-                        .quad            .Lx03038_0_s
-.Lx03038_0_s:
-                        .string          "nothing"
-#-----------------------------------------------------------------------------------------------------------------------
-n03039_call_proc_staged_α:
-                        lea              rsi, [rbp + 7584]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03040_2
-.Lx03040_2:
-                        mov              qword ptr [rbp + 7536], rax
-                        mov              qword ptr [rbp + 7544], rdx
-                        cmp              eax, 104
-                                                                                        je    n03041_proc_value_α
-                                                                                        jmp   n03041_proc_value_α
-n03039_call_proc_staged_β:
-                                                                                        jmp   n03041_proc_value_α
-.Lx03040_0:
-                        .quad            .Lx03040_0_s
-.Lx03040_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03041_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03042_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7520], rax
-                        mov              qword ptr [rbp + 7528], rdx
-                                                                                        jmp   n03043_call_proc_staged_α
-.Lx03042_0:
-                        .quad            .Lx03042_0_s
-.Lx03042_0_s:
-                        .string          "nothing"
-#-----------------------------------------------------------------------------------------------------------------------
-n03043_call_proc_staged_α:
-                        lea              rsi, [rbp + 7520]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03044_2
-.Lx03044_2:
-                        mov              qword ptr [rbp + 7472], rax
-                        mov              qword ptr [rbp + 7480], rdx
-                        cmp              eax, 104
-                                                                                        je    n03045_proc_value_α
-                                                                                        jmp   n03045_proc_value_α
-n03043_call_proc_staged_β:
-                                                                                        jmp   n03045_proc_value_α
-.Lx03044_0:
-                        .quad            .Lx03044_0_s
-.Lx03044_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03045_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03046_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7456], rax
-                        mov              qword ptr [rbp + 7464], rdx
-                                                                                        jmp   n03047_call_proc_staged_α
-.Lx03046_0:
-                        .quad            .Lx03046_0_s
-.Lx03046_0_s:
-                        .string          "globasgn"
-#-----------------------------------------------------------------------------------------------------------------------
-n03047_call_proc_staged_α:
-                        lea              rsi, [rbp + 7456]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03048_2
-.Lx03048_2:
-                        mov              qword ptr [rbp + 7408], rax
-                        mov              qword ptr [rbp + 7416], rdx
-                        cmp              eax, 104
-                                                                                        je    n03049_proc_value_α
-                                                                                        jmp   n03049_proc_value_α
-n03047_call_proc_staged_β:
-                                                                                        jmp   n03049_proc_value_α
-.Lx03048_0:
-                        .quad            .Lx03048_0_s
-.Lx03048_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03049_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03050_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7392], rax
-                        mov              qword ptr [rbp + 7400], rdx
-                                                                                        jmp   n03051_call_proc_staged_α
-.Lx03050_0:
-                        .quad            .Lx03050_0_s
-.Lx03050_0_s:
-                        .string          "statasgn"
-#-----------------------------------------------------------------------------------------------------------------------
-n03051_call_proc_staged_α:
-                        lea              rsi, [rbp + 7392]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03052_2
-.Lx03052_2:
-                        mov              qword ptr [rbp + 7344], rax
-                        mov              qword ptr [rbp + 7352], rdx
-                        cmp              eax, 104
-                                                                                        je    n03053_proc_value_α
-                                                                                        jmp   n03053_proc_value_α
-n03051_call_proc_staged_β:
-                                                                                        jmp   n03053_proc_value_α
-.Lx03052_0:
-                        .quad            .Lx03052_0_s
-.Lx03052_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03053_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03054_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7328], rax
-                        mov              qword ptr [rbp + 7336], rdx
-                                                                                        jmp   n03055_call_proc_staged_α
-.Lx03054_0:
-                        .quad            .Lx03054_0_s
-.Lx03054_0_s:
-                        .string          "loclasgn"
-#-----------------------------------------------------------------------------------------------------------------------
-n03055_call_proc_staged_α:
-                        lea              rsi, [rbp + 7328]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03056_2
-.Lx03056_2:
-                        mov              qword ptr [rbp + 7280], rax
-                        mov              qword ptr [rbp + 7288], rdx
-                        cmp              eax, 104
-                                                                                        je    n03057_proc_value_α
-                                                                                        jmp   n03057_proc_value_α
-n03055_call_proc_staged_β:
-                                                                                        jmp   n03057_proc_value_α
-.Lx03056_0:
-                        .quad            .Lx03056_0_s
-.Lx03056_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03057_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03058_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7264], rax
-                        mov              qword ptr [rbp + 7272], rdx
-                                                                                        jmp   n03059_call_proc_staged_α
-.Lx03058_0:
-                        .quad            .Lx03058_0_s
-.Lx03058_0_s:
-                        .string          "if0"
-#-----------------------------------------------------------------------------------------------------------------------
-n03059_call_proc_staged_α:
-                        lea              rsi, [rbp + 7264]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03060_2
-.Lx03060_2:
-                        mov              qword ptr [rbp + 7216], rax
-                        mov              qword ptr [rbp + 7224], rdx
-                        cmp              eax, 104
-                                                                                        je    n03061_proc_value_α
-                                                                                        jmp   n03061_proc_value_α
-n03059_call_proc_staged_β:
-                                                                                        jmp   n03061_proc_value_α
-.Lx03060_0:
-                        .quad            .Lx03060_0_s
-.Lx03060_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03061_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03062_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7200], rax
-                        mov              qword ptr [rbp + 7208], rdx
-                                                                                        jmp   n03063_call_proc_staged_α
-.Lx03062_0:
-                        .quad            .Lx03062_0_s
-.Lx03062_0_s:
-                        .string          "case3"
-#-----------------------------------------------------------------------------------------------------------------------
-n03063_call_proc_staged_α:
-                        lea              rsi, [rbp + 7200]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03064_2
-.Lx03064_2:
-                        mov              qword ptr [rbp + 7152], rax
-                        mov              qword ptr [rbp + 7160], rdx
-                        cmp              eax, 104
-                                                                                        je    n03065_proc_value_α
-                                                                                        jmp   n03065_proc_value_α
-n03063_call_proc_staged_β:
-                                                                                        jmp   n03065_proc_value_α
-.Lx03064_0:
-                        .quad            .Lx03064_0_s
-.Lx03064_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03065_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03066_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7136], rax
-                        mov              qword ptr [rbp + 7144], rdx
-                                                                                        jmp   n03067_call_proc_staged_α
-.Lx03066_0:
-                        .quad            .Lx03066_0_s
-.Lx03066_0_s:
-                        .string          "nulltest"
-#-----------------------------------------------------------------------------------------------------------------------
-n03067_call_proc_staged_α:
-                        lea              rsi, [rbp + 7136]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03068_2
-.Lx03068_2:
-                        mov              qword ptr [rbp + 7088], rax
-                        mov              qword ptr [rbp + 7096], rdx
-                        cmp              eax, 104
-                                                                                        je    n03069_proc_value_α
-                                                                                        jmp   n03069_proc_value_α
-n03067_call_proc_staged_β:
-                                                                                        jmp   n03069_proc_value_α
-.Lx03068_0:
-                        .quad            .Lx03068_0_s
-.Lx03068_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03069_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03070_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7072], rax
-                        mov              qword ptr [rbp + 7080], rdx
-                                                                                        jmp   n03071_call_proc_staged_α
-.Lx03070_0:
-                        .quad            .Lx03070_0_s
-.Lx03070_0_s:
-                        .string          "typef"
-#-----------------------------------------------------------------------------------------------------------------------
-n03071_call_proc_staged_α:
-                        lea              rsi, [rbp + 7072]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03072_2
-.Lx03072_2:
-                        mov              qword ptr [rbp + 7024], rax
-                        mov              qword ptr [rbp + 7032], rdx
-                        cmp              eax, 104
-                                                                                        je    n03073_proc_value_α
-                                                                                        jmp   n03073_proc_value_α
-n03071_call_proc_staged_β:
-                                                                                        jmp   n03073_proc_value_α
-.Lx03072_0:
-                        .quad            .Lx03072_0_s
-.Lx03072_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03073_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03074_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 7008], rax
-                        mov              qword ptr [rbp + 7016], rdx
-                                                                                        jmp   n03075_call_proc_staged_α
-.Lx03074_0:
-                        .quad            .Lx03074_0_s
-.Lx03074_0_s:
-                        .string          "imagef"
-#-----------------------------------------------------------------------------------------------------------------------
-n03075_call_proc_staged_α:
-                        lea              rsi, [rbp + 7008]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03076_2
-.Lx03076_2:
-                        mov              qword ptr [rbp + 6960], rax
-                        mov              qword ptr [rbp + 6968], rdx
-                        cmp              eax, 104
-                                                                                        je    n03077_proc_value_α
-                                                                                        jmp   n03077_proc_value_α
-n03075_call_proc_staged_β:
-                                                                                        jmp   n03077_proc_value_α
-.Lx03076_0:
-                        .quad            .Lx03076_0_s
-.Lx03076_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03077_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03078_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6944], rax
-                        mov              qword ptr [rbp + 6952], rdx
-                                                                                        jmp   n03079_call_proc_staged_α
-.Lx03078_0:
-                        .quad            .Lx03078_0_s
-.Lx03078_0_s:
-                        .string          "everyto"
-#-----------------------------------------------------------------------------------------------------------------------
-n03079_call_proc_staged_α:
-                        lea              rsi, [rbp + 6944]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03080_2
-.Lx03080_2:
-                        mov              qword ptr [rbp + 6896], rax
-                        mov              qword ptr [rbp + 6904], rdx
-                        cmp              eax, 104
-                                                                                        je    n03081_proc_value_α
-                                                                                        jmp   n03081_proc_value_α
-n03079_call_proc_staged_β:
-                                                                                        jmp   n03081_proc_value_α
-.Lx03080_0:
-                        .quad            .Lx03080_0_s
-.Lx03080_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03081_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03082_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6880], rax
-                        mov              qword ptr [rbp + 6888], rdx
-                                                                                        jmp   n03083_call_proc_staged_α
-.Lx03082_0:
-                        .quad            .Lx03082_0_s
-.Lx03082_0_s:
-                        .string          "everyalt"
-#-----------------------------------------------------------------------------------------------------------------------
-n03083_call_proc_staged_α:
-                        lea              rsi, [rbp + 6880]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03084_2
-.Lx03084_2:
-                        mov              qword ptr [rbp + 6832], rax
-                        mov              qword ptr [rbp + 6840], rdx
-                        cmp              eax, 104
-                                                                                        je    n03085_proc_value_α
-                                                                                        jmp   n03085_proc_value_α
-n03083_call_proc_staged_β:
-                                                                                        jmp   n03085_proc_value_α
-.Lx03084_0:
-                        .quad            .Lx03084_0_s
-.Lx03084_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03085_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03086_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6816], rax
-                        mov              qword ptr [rbp + 6824], rdx
-                                                                                        jmp   n03087_call_proc_staged_α
-.Lx03086_0:
-                        .quad            .Lx03086_0_s
-.Lx03086_0_s:
-                        .string          "conj5"
-#-----------------------------------------------------------------------------------------------------------------------
-n03087_call_proc_staged_α:
-                        lea              rsi, [rbp + 6816]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03088_2
-.Lx03088_2:
-                        mov              qword ptr [rbp + 6768], rax
-                        mov              qword ptr [rbp + 6776], rdx
-                        cmp              eax, 104
-                                                                                        je    n03089_proc_value_α
-                                                                                        jmp   n03089_proc_value_α
-n03087_call_proc_staged_β:
-                                                                                        jmp   n03089_proc_value_α
-.Lx03088_0:
-                        .quad            .Lx03088_0_s
-.Lx03088_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03089_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03090_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6752], rax
-                        mov              qword ptr [rbp + 6760], rdx
-                                                                                        jmp   n03091_call_proc_staged_α
-.Lx03090_0:
-                        .quad            .Lx03090_0_s
-.Lx03090_0_s:
-                        .string          "nullfunc"
-#-----------------------------------------------------------------------------------------------------------------------
-n03091_call_proc_staged_α:
-                        lea              rsi, [rbp + 6752]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03092_2
-.Lx03092_2:
-                        mov              qword ptr [rbp + 6704], rax
-                        mov              qword ptr [rbp + 6712], rdx
-                        cmp              eax, 104
-                                                                                        je    n03093_proc_value_α
-                                                                                        jmp   n03093_proc_value_α
-n03091_call_proc_staged_β:
-                                                                                        jmp   n03093_proc_value_α
-.Lx03092_0:
-                        .quad            .Lx03092_0_s
-.Lx03092_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03093_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03094_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6688], rax
-                        mov              qword ptr [rbp + 6696], rdx
-                                                                                        jmp   n03095_call_proc_staged_α
-.Lx03094_0:
-                        .quad            .Lx03094_0_s
-.Lx03094_0_s:
-                        .string          "listcall"
-#-----------------------------------------------------------------------------------------------------------------------
-n03095_call_proc_staged_α:
-                        lea              rsi, [rbp + 6688]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03096_2
-.Lx03096_2:
-                        mov              qword ptr [rbp + 6640], rax
-                        mov              qword ptr [rbp + 6648], rdx
-                        cmp              eax, 104
-                                                                                        je    n03097_proc_value_α
-                                                                                        jmp   n03097_proc_value_α
-n03095_call_proc_staged_β:
-                                                                                        jmp   n03097_proc_value_α
-.Lx03096_0:
-                        .quad            .Lx03096_0_s
-.Lx03096_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03097_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03098_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6624], rax
-                        mov              qword ptr [rbp + 6632], rdx
-                                                                                        jmp   n03099_call_proc_staged_α
-.Lx03098_0:
-                        .quad            .Lx03098_0_s
-.Lx03098_0_s:
-                        .string          "marshal"
-#-----------------------------------------------------------------------------------------------------------------------
-n03099_call_proc_staged_α:
-                        lea              rsi, [rbp + 6624]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03100_2
-.Lx03100_2:
-                        mov              qword ptr [rbp + 6576], rax
-                        mov              qword ptr [rbp + 6584], rdx
-                        cmp              eax, 104
-                                                                                        je    n03101_proc_value_α
-                                                                                        jmp   n03101_proc_value_α
-n03099_call_proc_staged_β:
-                                                                                        jmp   n03101_proc_value_α
-.Lx03100_0:
-                        .quad            .Lx03100_0_s
-.Lx03100_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03101_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03102_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6560], rax
-                        mov              qword ptr [rbp + 6568], rdx
-                                                                                        jmp   n03103_call_proc_staged_α
-.Lx03102_0:
-                        .quad            .Lx03102_0_s
-.Lx03102_0_s:
-                        .string          "evsusp"
-#-----------------------------------------------------------------------------------------------------------------------
-n03103_call_proc_staged_α:
-                        lea              rsi, [rbp + 6560]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03104_2
-.Lx03104_2:
-                        mov              qword ptr [rbp + 6512], rax
-                        mov              qword ptr [rbp + 6520], rdx
-                        cmp              eax, 104
-                                                                                        je    n03105_proc_value_α
-                                                                                        jmp   n03105_proc_value_α
-n03103_call_proc_staged_β:
-                                                                                        jmp   n03105_proc_value_α
-.Lx03104_0:
-                        .quad            .Lx03104_0_s
-.Lx03104_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03105_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03106_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6496], rax
-                        mov              qword ptr [rbp + 6504], rdx
-                                                                                        jmp   n03107_call_proc_staged_α
-.Lx03106_0:
-                        .quad            .Lx03106_0_s
-.Lx03106_0_s:
-                        .string          "tointeger"
-#-----------------------------------------------------------------------------------------------------------------------
-n03107_call_proc_staged_α:
-                        lea              rsi, [rbp + 6496]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03108_2
-.Lx03108_2:
-                        mov              qword ptr [rbp + 6448], rax
-                        mov              qword ptr [rbp + 6456], rdx
-                        cmp              eax, 104
-                                                                                        je    n03109_proc_value_α
-                                                                                        jmp   n03109_proc_value_α
-n03107_call_proc_staged_β:
-                                                                                        jmp   n03109_proc_value_α
-.Lx03108_0:
-                        .quad            .Lx03108_0_s
-.Lx03108_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03109_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03110_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6432], rax
-                        mov              qword ptr [rbp + 6440], rdx
-                                                                                        jmp   n03111_call_proc_staged_α
-.Lx03110_0:
-                        .quad            .Lx03110_0_s
-.Lx03110_0_s:
-                        .string          "intcoerce"
-#-----------------------------------------------------------------------------------------------------------------------
-n03111_call_proc_staged_α:
-                        lea              rsi, [rbp + 6432]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03112_2
-.Lx03112_2:
-                        mov              qword ptr [rbp + 6384], rax
-                        mov              qword ptr [rbp + 6392], rdx
-                        cmp              eax, 104
-                                                                                        je    n03113_proc_value_α
-                                                                                        jmp   n03113_proc_value_α
-n03111_call_proc_staged_β:
-                                                                                        jmp   n03113_proc_value_α
-.Lx03112_0:
-                        .quad            .Lx03112_0_s
-.Lx03112_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03113_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03114_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6368], rax
-                        mov              qword ptr [rbp + 6376], rdx
-                                                                                        jmp   n03115_call_proc_staged_α
-.Lx03114_0:
-                        .quad            .Lx03114_0_s
-.Lx03114_0_s:
-                        .string          "uplus"
-#-----------------------------------------------------------------------------------------------------------------------
-n03115_call_proc_staged_α:
-                        lea              rsi, [rbp + 6368]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03116_2
-.Lx03116_2:
-                        mov              qword ptr [rbp + 6320], rax
-                        mov              qword ptr [rbp + 6328], rdx
-                        cmp              eax, 104
-                                                                                        je    n03117_proc_value_α
-                                                                                        jmp   n03117_proc_value_α
-n03115_call_proc_staged_β:
-                                                                                        jmp   n03117_proc_value_α
-.Lx03116_0:
-                        .quad            .Lx03116_0_s
-.Lx03116_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03117_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03118_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6304], rax
-                        mov              qword ptr [rbp + 6312], rdx
-                                                                                        jmp   n03119_call_proc_staged_α
-.Lx03118_0:
-                        .quad            .Lx03118_0_s
-.Lx03118_0_s:
-                        .string          "tostring"
-#-----------------------------------------------------------------------------------------------------------------------
-n03119_call_proc_staged_α:
-                        lea              rsi, [rbp + 6304]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03120_2
-.Lx03120_2:
-                        mov              qword ptr [rbp + 6256], rax
-                        mov              qword ptr [rbp + 6264], rdx
-                        cmp              eax, 104
-                                                                                        je    n03121_proc_value_α
-                                                                                        jmp   n03121_proc_value_α
-n03119_call_proc_staged_β:
-                                                                                        jmp   n03121_proc_value_α
-.Lx03120_0:
-                        .quad            .Lx03120_0_s
-.Lx03120_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03121_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03122_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6240], rax
-                        mov              qword ptr [rbp + 6248], rdx
-                                                                                        jmp   n03123_call_proc_staged_α
-.Lx03122_0:
-                        .quad            .Lx03122_0_s
-.Lx03122_0_s:
-                        .string          "strcoerce"
-#-----------------------------------------------------------------------------------------------------------------------
-n03123_call_proc_staged_α:
-                        lea              rsi, [rbp + 6240]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03124_2
-.Lx03124_2:
-                        mov              qword ptr [rbp + 6192], rax
-                        mov              qword ptr [rbp + 6200], rdx
-                        cmp              eax, 104
-                                                                                        je    n03125_proc_value_α
-                                                                                        jmp   n03125_proc_value_α
-n03123_call_proc_staged_β:
-                                                                                        jmp   n03125_proc_value_α
-.Lx03124_0:
-                        .quad            .Lx03124_0_s
-.Lx03124_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03125_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03126_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6176], rax
-                        mov              qword ptr [rbp + 6184], rdx
-                                                                                        jmp   n03127_call_proc_staged_α
-.Lx03126_0:
-                        .quad            .Lx03126_0_s
-.Lx03126_0_s:
-                        .string          "absf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03127_call_proc_staged_α:
-                        lea              rsi, [rbp + 6176]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03128_2
-.Lx03128_2:
-                        mov              qword ptr [rbp + 6128], rax
-                        mov              qword ptr [rbp + 6136], rdx
-                        cmp              eax, 104
-                                                                                        je    n03129_proc_value_α
-                                                                                        jmp   n03129_proc_value_α
-n03127_call_proc_staged_β:
-                                                                                        jmp   n03129_proc_value_α
-.Lx03128_0:
-                        .quad            .Lx03128_0_s
-.Lx03128_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03129_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03130_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6112], rax
-                        mov              qword ptr [rbp + 6120], rdx
-                                                                                        jmp   n03131_call_proc_staged_α
-.Lx03130_0:
-                        .quad            .Lx03130_0_s
-.Lx03130_0_s:
-                        .string          "intadd"
-#-----------------------------------------------------------------------------------------------------------------------
-n03131_call_proc_staged_α:
-                        lea              rsi, [rbp + 6112]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03132_2
-.Lx03132_2:
-                        mov              qword ptr [rbp + 6064], rax
-                        mov              qword ptr [rbp + 6072], rdx
-                        cmp              eax, 104
-                                                                                        je    n03133_proc_value_α
-                                                                                        jmp   n03133_proc_value_α
-n03131_call_proc_staged_β:
-                                                                                        jmp   n03133_proc_value_α
-.Lx03132_0:
-                        .quad            .Lx03132_0_s
-.Lx03132_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03133_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03134_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 6048], rax
-                        mov              qword ptr [rbp + 6056], rdx
-                                                                                        jmp   n03135_call_proc_staged_α
-.Lx03134_0:
-                        .quad            .Lx03134_0_s
-.Lx03134_0_s:
-                        .string          "addfunc"
-#-----------------------------------------------------------------------------------------------------------------------
-n03135_call_proc_staged_α:
-                        lea              rsi, [rbp + 6048]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03136_2
-.Lx03136_2:
-                        mov              qword ptr [rbp + 6000], rax
-                        mov              qword ptr [rbp + 6008], rdx
-                        cmp              eax, 104
-                                                                                        je    n03137_proc_value_α
-                                                                                        jmp   n03137_proc_value_α
-n03135_call_proc_staged_β:
-                                                                                        jmp   n03137_proc_value_α
-.Lx03136_0:
-                        .quad            .Lx03136_0_s
-.Lx03136_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03137_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03138_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5984], rax
-                        mov              qword ptr [rbp + 5992], rdx
-                                                                                        jmp   n03139_call_proc_staged_α
-.Lx03138_0:
-                        .quad            .Lx03138_0_s
-.Lx03138_0_s:
-                        .string          "intpow"
-#-----------------------------------------------------------------------------------------------------------------------
-n03139_call_proc_staged_α:
-                        lea              rsi, [rbp + 5984]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03140_2
-.Lx03140_2:
-                        mov              qword ptr [rbp + 5936], rax
-                        mov              qword ptr [rbp + 5944], rdx
-                        cmp              eax, 104
-                                                                                        je    n03141_proc_value_α
-                                                                                        jmp   n03141_proc_value_α
-n03139_call_proc_staged_β:
-                                                                                        jmp   n03141_proc_value_α
-.Lx03140_0:
-                        .quad            .Lx03140_0_s
-.Lx03140_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03141_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03142_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5920], rax
-                        mov              qword ptr [rbp + 5928], rdx
-                                                                                        jmp   n03143_call_proc_staged_α
-.Lx03142_0:
-                        .quad            .Lx03142_0_s
-.Lx03142_0_s:
-                        .string          "intcmp"
-#-----------------------------------------------------------------------------------------------------------------------
-n03143_call_proc_staged_α:
-                        lea              rsi, [rbp + 5920]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03144_2
-.Lx03144_2:
-                        mov              qword ptr [rbp + 5872], rax
-                        mov              qword ptr [rbp + 5880], rdx
-                        cmp              eax, 104
-                                                                                        je    n03145_proc_value_α
-                                                                                        jmp   n03145_proc_value_α
-n03143_call_proc_staged_β:
-                                                                                        jmp   n03145_proc_value_α
-.Lx03144_0:
-                        .quad            .Lx03144_0_s
-.Lx03144_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03145_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03146_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5856], rax
-                        mov              qword ptr [rbp + 5864], rdx
-                                                                                        jmp   n03147_call_proc_staged_α
-.Lx03146_0:
-                        .quad            .Lx03146_0_s
-.Lx03146_0_s:
-                        .string          "rfact0"
-#-----------------------------------------------------------------------------------------------------------------------
-n03147_call_proc_staged_α:
-                        lea              rsi, [rbp + 5856]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03148_2
-.Lx03148_2:
-                        mov              qword ptr [rbp + 5808], rax
-                        mov              qword ptr [rbp + 5816], rdx
-                        cmp              eax, 104
-                                                                                        je    n03149_proc_value_α
-                                                                                        jmp   n03149_proc_value_α
-n03147_call_proc_staged_β:
-                                                                                        jmp   n03149_proc_value_α
-.Lx03148_0:
-                        .quad            .Lx03148_0_s
-.Lx03148_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03149_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03150_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5792], rax
-                        mov              qword ptr [rbp + 5800], rdx
-                                                                                        jmp   n03151_call_proc_staged_α
-.Lx03150_0:
-                        .quad            .Lx03150_0_s
-.Lx03150_0_s:
-                        .string          "rfact10"
-#-----------------------------------------------------------------------------------------------------------------------
-n03151_call_proc_staged_α:
-                        lea              rsi, [rbp + 5792]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03152_2
-.Lx03152_2:
-                        mov              qword ptr [rbp + 5744], rax
-                        mov              qword ptr [rbp + 5752], rdx
-                        cmp              eax, 104
-                                                                                        je    n03153_proc_value_α
-                                                                                        jmp   n03153_proc_value_α
-n03151_call_proc_staged_β:
-                                                                                        jmp   n03153_proc_value_α
-.Lx03152_0:
-                        .quad            .Lx03152_0_s
-.Lx03152_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03153_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03154_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5728], rax
-                        mov              qword ptr [rbp + 5736], rdx
-                                                                                        jmp   n03155_call_proc_staged_α
-.Lx03154_0:
-                        .quad            .Lx03154_0_s
-.Lx03154_0_s:
-                        .string          "rfib5"
-#-----------------------------------------------------------------------------------------------------------------------
-n03155_call_proc_staged_α:
-                        lea              rsi, [rbp + 5728]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03156_2
-.Lx03156_2:
-                        mov              qword ptr [rbp + 5680], rax
-                        mov              qword ptr [rbp + 5688], rdx
-                        cmp              eax, 104
-                                                                                        je    n03157_proc_value_α
-                                                                                        jmp   n03157_proc_value_α
-n03155_call_proc_staged_β:
-                                                                                        jmp   n03157_proc_value_α
-.Lx03156_0:
-                        .quad            .Lx03156_0_s
-.Lx03156_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03157_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03158_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5664], rax
-                        mov              qword ptr [rbp + 5672], rdx
-                                                                                        jmp   n03159_call_proc_staged_α
-.Lx03158_0:
-                        .quad            .Lx03158_0_s
-.Lx03158_0_s:
-                        .string          "prslow"
-#-----------------------------------------------------------------------------------------------------------------------
-n03159_call_proc_staged_α:
-                        lea              rsi, [rbp + 5664]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03160_2
-.Lx03160_2:
-                        mov              qword ptr [rbp + 5616], rax
-                        mov              qword ptr [rbp + 5624], rdx
-                        cmp              eax, 104
-                                                                                        je    n03161_proc_value_α
-                                                                                        jmp   n03161_proc_value_α
-n03159_call_proc_staged_β:
-                                                                                        jmp   n03161_proc_value_α
-.Lx03160_0:
-                        .quad            .Lx03160_0_s
-.Lx03160_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03161_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03162_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5600], rax
-                        mov              qword ptr [rbp + 5608], rdx
-                                                                                        jmp   n03163_call_proc_staged_α
-.Lx03162_0:
-                        .quad            .Lx03162_0_s
-.Lx03162_0_s:
-                        .string          "toreal"
-#-----------------------------------------------------------------------------------------------------------------------
-n03163_call_proc_staged_α:
-                        lea              rsi, [rbp + 5600]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03164_2
-.Lx03164_2:
-                        mov              qword ptr [rbp + 5552], rax
-                        mov              qword ptr [rbp + 5560], rdx
-                        cmp              eax, 104
-                                                                                        je    n03165_proc_value_α
-                                                                                        jmp   n03165_proc_value_α
-n03163_call_proc_staged_β:
-                                                                                        jmp   n03165_proc_value_α
-.Lx03164_0:
-                        .quad            .Lx03164_0_s
-.Lx03164_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03165_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03166_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5536], rax
-                        mov              qword ptr [rbp + 5544], rdx
-                                                                                        jmp   n03167_call_proc_staged_α
-.Lx03166_0:
-                        .quad            .Lx03166_0_s
-.Lx03166_0_s:
-                        .string          "realcoerce"
-#-----------------------------------------------------------------------------------------------------------------------
-n03167_call_proc_staged_α:
-                        lea              rsi, [rbp + 5536]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03168_2
-.Lx03168_2:
-                        mov              qword ptr [rbp + 5488], rax
-                        mov              qword ptr [rbp + 5496], rdx
-                        cmp              eax, 104
-                                                                                        je    n03169_proc_value_α
-                                                                                        jmp   n03169_proc_value_α
-n03167_call_proc_staged_β:
-                                                                                        jmp   n03169_proc_value_α
-.Lx03168_0:
-                        .quad            .Lx03168_0_s
-.Lx03168_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03169_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03170_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5472], rax
-                        mov              qword ptr [rbp + 5480], rdx
-                                                                                        jmp   n03171_call_proc_staged_α
-.Lx03170_0:
-                        .quad            .Lx03170_0_s
-.Lx03170_0_s:
-                        .string          "uplusr"
-#-----------------------------------------------------------------------------------------------------------------------
-n03171_call_proc_staged_α:
-                        lea              rsi, [rbp + 5472]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03172_2
-.Lx03172_2:
-                        mov              qword ptr [rbp + 5424], rax
-                        mov              qword ptr [rbp + 5432], rdx
-                        cmp              eax, 104
-                                                                                        je    n03173_proc_value_α
-                                                                                        jmp   n03173_proc_value_α
-n03171_call_proc_staged_β:
-                                                                                        jmp   n03173_proc_value_α
-.Lx03172_0:
-                        .quad            .Lx03172_0_s
-.Lx03172_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03173_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03174_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5408], rax
-                        mov              qword ptr [rbp + 5416], rdx
-                                                                                        jmp   n03175_call_proc_staged_α
-.Lx03174_0:
-                        .quad            .Lx03174_0_s
-.Lx03174_0_s:
-                        .string          "rtostring"
-#-----------------------------------------------------------------------------------------------------------------------
-n03175_call_proc_staged_α:
-                        lea              rsi, [rbp + 5408]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03176_2
-.Lx03176_2:
-                        mov              qword ptr [rbp + 5360], rax
-                        mov              qword ptr [rbp + 5368], rdx
-                        cmp              eax, 104
-                                                                                        je    n03177_proc_value_α
-                                                                                        jmp   n03177_proc_value_α
-n03175_call_proc_staged_β:
-                                                                                        jmp   n03177_proc_value_α
-.Lx03176_0:
-                        .quad            .Lx03176_0_s
-.Lx03176_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03177_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03178_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5344], rax
-                        mov              qword ptr [rbp + 5352], rdx
-                                                                                        jmp   n03179_call_proc_staged_α
-.Lx03178_0:
-                        .quad            .Lx03178_0_s
-.Lx03178_0_s:
-                        .string          "strcoercer"
-#-----------------------------------------------------------------------------------------------------------------------
-n03179_call_proc_staged_α:
-                        lea              rsi, [rbp + 5344]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03180_2
-.Lx03180_2:
-                        mov              qword ptr [rbp + 5296], rax
-                        mov              qword ptr [rbp + 5304], rdx
-                        cmp              eax, 104
-                                                                                        je    n03181_proc_value_α
-                                                                                        jmp   n03181_proc_value_α
-n03179_call_proc_staged_β:
-                                                                                        jmp   n03181_proc_value_α
-.Lx03180_0:
-                        .quad            .Lx03180_0_s
-.Lx03180_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03181_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03182_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              qword ptr [rbp + 5288], rdx
-                                                                                        jmp   n03183_call_proc_staged_α
-.Lx03182_0:
-                        .quad            .Lx03182_0_s
-.Lx03182_0_s:
-                        .string          "realcmp"
-#-----------------------------------------------------------------------------------------------------------------------
-n03183_call_proc_staged_α:
-                        lea              rsi, [rbp + 5280]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03184_2
-.Lx03184_2:
-                        mov              qword ptr [rbp + 5232], rax
-                        mov              qword ptr [rbp + 5240], rdx
-                        cmp              eax, 104
-                                                                                        je    n03185_proc_value_α
-                                                                                        jmp   n03185_proc_value_α
-n03183_call_proc_staged_β:
-                                                                                        jmp   n03185_proc_value_α
-.Lx03184_0:
-                        .quad            .Lx03184_0_s
-.Lx03184_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03185_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03186_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5216], rax
-                        mov              qword ptr [rbp + 5224], rdx
-                                                                                        jmp   n03187_call_proc_staged_α
-.Lx03186_0:
-                        .quad            .Lx03186_0_s
-.Lx03186_0_s:
-                        .string          "sqrtf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03187_call_proc_staged_α:
-                        lea              rsi, [rbp + 5216]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03188_2
-.Lx03188_2:
-                        mov              qword ptr [rbp + 5168], rax
-                        mov              qword ptr [rbp + 5176], rdx
-                        cmp              eax, 104
-                                                                                        je    n03189_proc_value_α
-                                                                                        jmp   n03189_proc_value_α
-n03187_call_proc_staged_β:
-                                                                                        jmp   n03189_proc_value_α
-.Lx03188_0:
-                        .quad            .Lx03188_0_s
-.Lx03188_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03189_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03190_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5152], rax
-                        mov              qword ptr [rbp + 5160], rdx
-                                                                                        jmp   n03191_call_proc_staged_α
-.Lx03190_0:
-                        .quad            .Lx03190_0_s
-.Lx03190_0_s:
-                        .string          "cosf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03191_call_proc_staged_α:
-                        lea              rsi, [rbp + 5152]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03192_2
-.Lx03192_2:
-                        mov              qword ptr [rbp + 5104], rax
-                        mov              qword ptr [rbp + 5112], rdx
-                        cmp              eax, 104
-                                                                                        je    n03193_proc_value_α
-                                                                                        jmp   n03193_proc_value_α
-n03191_call_proc_staged_β:
-                                                                                        jmp   n03193_proc_value_α
-.Lx03192_0:
-                        .quad            .Lx03192_0_s
-.Lx03192_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03193_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03194_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5088], rax
-                        mov              qword ptr [rbp + 5096], rdx
-                                                                                        jmp   n03195_call_proc_staged_α
-.Lx03194_0:
-                        .quad            .Lx03194_0_s
-.Lx03194_0_s:
-                        .string          "logf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03195_call_proc_staged_α:
-                        lea              rsi, [rbp + 5088]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03196_2
-.Lx03196_2:
-                        mov              qword ptr [rbp + 5040], rax
-                        mov              qword ptr [rbp + 5048], rdx
-                        cmp              eax, 104
-                                                                                        je    n03197_proc_value_α
-                                                                                        jmp   n03197_proc_value_α
-n03195_call_proc_staged_β:
-                                                                                        jmp   n03197_proc_value_α
-.Lx03196_0:
-                        .quad            .Lx03196_0_s
-.Lx03196_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03197_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03198_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 5024], rax
-                        mov              qword ptr [rbp + 5032], rdx
-                                                                                        jmp   n03199_call_proc_staged_α
-.Lx03198_0:
-                        .quad            .Lx03198_0_s
-.Lx03198_0_s:
-                        .string          "charf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03199_call_proc_staged_α:
-                        lea              rsi, [rbp + 5024]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03200_2
-.Lx03200_2:
-                        mov              qword ptr [rbp + 4976], rax
-                        mov              qword ptr [rbp + 4984], rdx
-                        cmp              eax, 104
-                                                                                        je    n03201_proc_value_α
-                                                                                        jmp   n03201_proc_value_α
-n03199_call_proc_staged_β:
-                                                                                        jmp   n03201_proc_value_α
-.Lx03200_0:
-                        .quad            .Lx03200_0_s
-.Lx03200_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03201_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03202_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4960], rax
-                        mov              qword ptr [rbp + 4968], rdx
-                                                                                        jmp   n03203_call_proc_staged_α
-.Lx03202_0:
-                        .quad            .Lx03202_0_s
-.Lx03202_0_s:
-                        .string          "ordf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03203_call_proc_staged_α:
-                        lea              rsi, [rbp + 4960]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03204_2
-.Lx03204_2:
-                        mov              qword ptr [rbp + 4912], rax
-                        mov              qword ptr [rbp + 4920], rdx
-                        cmp              eax, 104
-                                                                                        je    n03205_proc_value_α
-                                                                                        jmp   n03205_proc_value_α
-n03203_call_proc_staged_β:
-                                                                                        jmp   n03205_proc_value_α
-.Lx03204_0:
-                        .quad            .Lx03204_0_s
-.Lx03204_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03205_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03206_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4896], rax
-                        mov              qword ptr [rbp + 4904], rdx
-                                                                                        jmp   n03207_call_proc_staged_α
-.Lx03206_0:
-                        .quad            .Lx03206_0_s
-.Lx03206_0_s:
-                        .string          "strsize"
-#-----------------------------------------------------------------------------------------------------------------------
-n03207_call_proc_staged_α:
-                        lea              rsi, [rbp + 4896]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03208_2
-.Lx03208_2:
-                        mov              qword ptr [rbp + 4848], rax
-                        mov              qword ptr [rbp + 4856], rdx
-                        cmp              eax, 104
-                                                                                        je    n03209_proc_value_α
-                                                                                        jmp   n03209_proc_value_α
-n03207_call_proc_staged_β:
-                                                                                        jmp   n03209_proc_value_α
-.Lx03208_0:
-                        .quad            .Lx03208_0_s
-.Lx03208_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03209_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03210_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4832], rax
-                        mov              qword ptr [rbp + 4840], rdx
-                                                                                        jmp   n03211_call_proc_staged_α
-.Lx03210_0:
-                        .quad            .Lx03210_0_s
-.Lx03210_0_s:
-                        .string          "strpick"
-#-----------------------------------------------------------------------------------------------------------------------
-n03211_call_proc_staged_α:
-                        lea              rsi, [rbp + 4832]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03212_2
-.Lx03212_2:
-                        mov              qword ptr [rbp + 4784], rax
-                        mov              qword ptr [rbp + 4792], rdx
-                        cmp              eax, 104
-                                                                                        je    n03213_proc_value_α
-                                                                                        jmp   n03213_proc_value_α
-n03211_call_proc_staged_β:
-                                                                                        jmp   n03213_proc_value_α
-.Lx03212_0:
-                        .quad            .Lx03212_0_s
-.Lx03212_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03213_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03214_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4768], rax
-                        mov              qword ptr [rbp + 4776], rdx
-                                                                                        jmp   n03215_call_proc_staged_α
-.Lx03214_0:
-                        .quad            .Lx03214_0_s
-.Lx03214_0_s:
-                        .string          "strbang"
-#-----------------------------------------------------------------------------------------------------------------------
-n03215_call_proc_staged_α:
-                        lea              rsi, [rbp + 4768]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03216_2
-.Lx03216_2:
-                        mov              qword ptr [rbp + 4720], rax
-                        mov              qword ptr [rbp + 4728], rdx
-                        cmp              eax, 104
-                                                                                        je    n03217_proc_value_α
-                                                                                        jmp   n03217_proc_value_α
-n03215_call_proc_staged_β:
-                                                                                        jmp   n03217_proc_value_α
-.Lx03216_0:
-                        .quad            .Lx03216_0_s
-.Lx03216_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03217_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03218_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4704], rax
-                        mov              qword ptr [rbp + 4712], rdx
-                                                                                        jmp   n03219_call_proc_staged_α
-.Lx03218_0:
-                        .quad            .Lx03218_0_s
-.Lx03218_0_s:
-                        .string          "strsub"
-#-----------------------------------------------------------------------------------------------------------------------
-n03219_call_proc_staged_α:
-                        lea              rsi, [rbp + 4704]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03220_2
-.Lx03220_2:
-                        mov              qword ptr [rbp + 4656], rax
-                        mov              qword ptr [rbp + 4664], rdx
-                        cmp              eax, 104
-                                                                                        je    n03221_proc_value_α
-                                                                                        jmp   n03221_proc_value_α
-n03219_call_proc_staged_β:
-                                                                                        jmp   n03221_proc_value_α
-.Lx03220_0:
-                        .quad            .Lx03220_0_s
-.Lx03220_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03221_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03222_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4640], rax
-                        mov              qword ptr [rbp + 4648], rdx
-                                                                                        jmp   n03223_call_proc_staged_α
-.Lx03222_0:
-                        .quad            .Lx03222_0_s
-.Lx03222_0_s:
-                        .string          "substr"
-#-----------------------------------------------------------------------------------------------------------------------
-n03223_call_proc_staged_α:
-                        lea              rsi, [rbp + 4640]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03224_2
-.Lx03224_2:
-                        mov              qword ptr [rbp + 4592], rax
-                        mov              qword ptr [rbp + 4600], rdx
-                        cmp              eax, 104
-                                                                                        je    n03225_proc_value_α
-                                                                                        jmp   n03225_proc_value_α
-n03223_call_proc_staged_β:
-                                                                                        jmp   n03225_proc_value_α
-.Lx03224_0:
-                        .quad            .Lx03224_0_s
-.Lx03224_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03225_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03226_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4576], rax
-                        mov              qword ptr [rbp + 4584], rdx
-                                                                                        jmp   n03227_call_proc_staged_α
-.Lx03226_0:
-                        .quad            .Lx03226_0_s
-.Lx03226_0_s:
-                        .string          "subsasg"
-#-----------------------------------------------------------------------------------------------------------------------
-n03227_call_proc_staged_α:
-                        lea              rsi, [rbp + 4576]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03228_2
-.Lx03228_2:
-                        mov              qword ptr [rbp + 4528], rax
-                        mov              qword ptr [rbp + 4536], rdx
-                        cmp              eax, 104
-                                                                                        je    n03229_proc_value_α
-                                                                                        jmp   n03229_proc_value_α
-n03227_call_proc_staged_β:
-                                                                                        jmp   n03229_proc_value_α
-.Lx03228_0:
-                        .quad            .Lx03228_0_s
-.Lx03228_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03229_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03230_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4512], rax
-                        mov              qword ptr [rbp + 4520], rdx
-                                                                                        jmp   n03231_call_proc_staged_α
-.Lx03230_0:
-                        .quad            .Lx03230_0_s
-.Lx03230_0_s:
-                        .string          "strcmp"
-#-----------------------------------------------------------------------------------------------------------------------
-n03231_call_proc_staged_α:
-                        lea              rsi, [rbp + 4512]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03232_2
-.Lx03232_2:
-                        mov              qword ptr [rbp + 4464], rax
-                        mov              qword ptr [rbp + 4472], rdx
-                        cmp              eax, 104
-                                                                                        je    n03233_proc_value_α
-                                                                                        jmp   n03233_proc_value_α
-n03231_call_proc_staged_β:
-                                                                                        jmp   n03233_proc_value_α
-.Lx03232_0:
-                        .quad            .Lx03232_0_s
-.Lx03232_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03233_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03234_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4448], rax
-                        mov              qword ptr [rbp + 4456], rdx
-                                                                                        jmp   n03235_call_proc_staged_α
-.Lx03234_0:
-                        .quad            .Lx03234_0_s
-.Lx03234_0_s:
-                        .string          "strident"
-#-----------------------------------------------------------------------------------------------------------------------
-n03235_call_proc_staged_α:
-                        lea              rsi, [rbp + 4448]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03236_2
-.Lx03236_2:
-                        mov              qword ptr [rbp + 4400], rax
-                        mov              qword ptr [rbp + 4408], rdx
-                        cmp              eax, 104
-                                                                                        je    n03237_proc_value_α
-                                                                                        jmp   n03237_proc_value_α
-n03235_call_proc_staged_β:
-                                                                                        jmp   n03237_proc_value_α
-.Lx03236_0:
-                        .quad            .Lx03236_0_s
-.Lx03236_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03237_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03238_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4384], rax
-                        mov              qword ptr [rbp + 4392], rdx
-                                                                                        jmp   n03239_call_proc_staged_α
-.Lx03238_0:
-                        .quad            .Lx03238_0_s
-.Lx03238_0_s:
-                        .string          "concat"
-#-----------------------------------------------------------------------------------------------------------------------
-n03239_call_proc_staged_α:
-                        lea              rsi, [rbp + 4384]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03240_2
-.Lx03240_2:
-                        mov              qword ptr [rbp + 4336], rax
-                        mov              qword ptr [rbp + 4344], rdx
-                        cmp              eax, 104
-                                                                                        je    n03241_proc_value_α
-                                                                                        jmp   n03241_proc_value_α
-n03239_call_proc_staged_β:
-                                                                                        jmp   n03241_proc_value_α
-.Lx03240_0:
-                        .quad            .Lx03240_0_s
-.Lx03240_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03241_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03242_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4320], rax
-                        mov              qword ptr [rbp + 4328], rdx
-                                                                                        jmp   n03243_call_proc_staged_α
-.Lx03242_0:
-                        .quad            .Lx03242_0_s
-.Lx03242_0_s:
-                        .string          "reversef"
-#-----------------------------------------------------------------------------------------------------------------------
-n03243_call_proc_staged_α:
-                        lea              rsi, [rbp + 4320]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03244_2
-.Lx03244_2:
-                        mov              qword ptr [rbp + 4272], rax
-                        mov              qword ptr [rbp + 4280], rdx
-                        cmp              eax, 104
-                                                                                        je    n03245_proc_value_α
-                                                                                        jmp   n03245_proc_value_α
-n03243_call_proc_staged_β:
-                                                                                        jmp   n03245_proc_value_α
-.Lx03244_0:
-                        .quad            .Lx03244_0_s
-.Lx03244_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03245_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03246_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4256], rax
-                        mov              qword ptr [rbp + 4264], rdx
-                                                                                        jmp   n03247_call_proc_staged_α
-.Lx03246_0:
-                        .quad            .Lx03246_0_s
-.Lx03246_0_s:
-                        .string          "trimf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03247_call_proc_staged_α:
-                        lea              rsi, [rbp + 4256]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03248_2
-.Lx03248_2:
-                        mov              qword ptr [rbp + 4208], rax
-                        mov              qword ptr [rbp + 4216], rdx
-                        cmp              eax, 104
-                                                                                        je    n03249_proc_value_α
-                                                                                        jmp   n03249_proc_value_α
-n03247_call_proc_staged_β:
-                                                                                        jmp   n03249_proc_value_α
-.Lx03248_0:
-                        .quad            .Lx03248_0_s
-.Lx03248_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03249_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03250_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4192], rax
-                        mov              qword ptr [rbp + 4200], rdx
-                                                                                        jmp   n03251_call_proc_staged_α
-.Lx03250_0:
-                        .quad            .Lx03250_0_s
-.Lx03250_0_s:
-                        .string          "replf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03251_call_proc_staged_α:
-                        lea              rsi, [rbp + 4192]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03252_2
-.Lx03252_2:
-                        mov              qword ptr [rbp + 4144], rax
-                        mov              qword ptr [rbp + 4152], rdx
-                        cmp              eax, 104
-                                                                                        je    n03253_proc_value_α
-                                                                                        jmp   n03253_proc_value_α
-n03251_call_proc_staged_β:
-                                                                                        jmp   n03253_proc_value_α
-.Lx03252_0:
-                        .quad            .Lx03252_0_s
-.Lx03252_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03253_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03254_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4128], rax
-                        mov              qword ptr [rbp + 4136], rdx
-                                                                                        jmp   n03255_call_proc_staged_α
-.Lx03254_0:
-                        .quad            .Lx03254_0_s
-.Lx03254_0_s:
-                        .string          "leftf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03255_call_proc_staged_α:
-                        lea              rsi, [rbp + 4128]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03256_2
-.Lx03256_2:
-                        mov              qword ptr [rbp + 4080], rax
-                        mov              qword ptr [rbp + 4088], rdx
-                        cmp              eax, 104
-                                                                                        je    n03257_proc_value_α
-                                                                                        jmp   n03257_proc_value_α
-n03255_call_proc_staged_β:
-                                                                                        jmp   n03257_proc_value_α
-.Lx03256_0:
-                        .quad            .Lx03256_0_s
-.Lx03256_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03257_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03258_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4064], rax
-                        mov              qword ptr [rbp + 4072], rdx
-                                                                                        jmp   n03259_call_proc_staged_α
-.Lx03258_0:
-                        .quad            .Lx03258_0_s
-.Lx03258_0_s:
-                        .string          "centerf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03259_call_proc_staged_α:
-                        lea              rsi, [rbp + 4064]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03260_2
-.Lx03260_2:
-                        mov              qword ptr [rbp + 4016], rax
-                        mov              qword ptr [rbp + 4024], rdx
-                        cmp              eax, 104
-                                                                                        je    n03261_proc_value_α
-                                                                                        jmp   n03261_proc_value_α
-n03259_call_proc_staged_β:
-                                                                                        jmp   n03261_proc_value_α
-.Lx03260_0:
-                        .quad            .Lx03260_0_s
-.Lx03260_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03261_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03262_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 4000], rax
-                        mov              qword ptr [rbp + 4008], rdx
-                                                                                        jmp   n03263_call_proc_staged_α
-.Lx03262_0:
-                        .quad            .Lx03262_0_s
-.Lx03262_0_s:
-                        .string          "rightf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03263_call_proc_staged_α:
-                        lea              rsi, [rbp + 4000]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03264_2
-.Lx03264_2:
-                        mov              qword ptr [rbp + 3952], rax
-                        mov              qword ptr [rbp + 3960], rdx
-                        cmp              eax, 104
-                                                                                        je    n03265_proc_value_α
-                                                                                        jmp   n03265_proc_value_α
-n03263_call_proc_staged_β:
-                                                                                        jmp   n03265_proc_value_α
-.Lx03264_0:
-                        .quad            .Lx03264_0_s
-.Lx03264_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03265_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03266_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3936], rax
-                        mov              qword ptr [rbp + 3944], rdx
-                                                                                        jmp   n03267_call_proc_staged_α
-.Lx03266_0:
-                        .quad            .Lx03266_0_s
-.Lx03266_0_s:
-                        .string          "entabf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03267_call_proc_staged_α:
-                        lea              rsi, [rbp + 3936]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03268_2
-.Lx03268_2:
-                        mov              qword ptr [rbp + 3888], rax
-                        mov              qword ptr [rbp + 3896], rdx
-                        cmp              eax, 104
-                                                                                        je    n03269_proc_value_α
-                                                                                        jmp   n03269_proc_value_α
-n03267_call_proc_staged_β:
-                                                                                        jmp   n03269_proc_value_α
-.Lx03268_0:
-                        .quad            .Lx03268_0_s
-.Lx03268_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03269_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03270_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3872], rax
-                        mov              qword ptr [rbp + 3880], rdx
-                                                                                        jmp   n03271_call_proc_staged_α
-.Lx03270_0:
-                        .quad            .Lx03270_0_s
-.Lx03270_0_s:
-                        .string          "detabf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03271_call_proc_staged_α:
-                        lea              rsi, [rbp + 3872]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03272_2
-.Lx03272_2:
-                        mov              qword ptr [rbp + 3824], rax
-                        mov              qword ptr [rbp + 3832], rdx
-                        cmp              eax, 104
-                                                                                        je    n03273_proc_value_α
-                                                                                        jmp   n03273_proc_value_α
-n03271_call_proc_staged_β:
-                                                                                        jmp   n03273_proc_value_α
-.Lx03272_0:
-                        .quad            .Lx03272_0_s
-.Lx03272_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03273_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03274_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3808], rax
-                        mov              qword ptr [rbp + 3816], rdx
-                                                                                        jmp   n03275_call_proc_staged_α
-.Lx03274_0:
-                        .quad            .Lx03274_0_s
-.Lx03274_0_s:
-                        .string          "mapf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03275_call_proc_staged_α:
-                        lea              rsi, [rbp + 3808]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03276_2
-.Lx03276_2:
-                        mov              qword ptr [rbp + 3760], rax
-                        mov              qword ptr [rbp + 3768], rdx
-                        cmp              eax, 104
-                                                                                        je    n03277_proc_value_α
-                                                                                        jmp   n03277_proc_value_α
-n03275_call_proc_staged_β:
-                                                                                        jmp   n03277_proc_value_α
-.Lx03276_0:
-                        .quad            .Lx03276_0_s
-.Lx03276_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03277_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03278_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3744], rax
-                        mov              qword ptr [rbp + 3752], rdx
-                                                                                        jmp   n03279_call_proc_staged_α
-.Lx03278_0:
-                        .quad            .Lx03278_0_s
-.Lx03278_0_s:
-                        .string          "map1"
-#-----------------------------------------------------------------------------------------------------------------------
-n03279_call_proc_staged_α:
-                        lea              rsi, [rbp + 3744]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03280_2
-.Lx03280_2:
-                        mov              qword ptr [rbp + 3696], rax
-                        mov              qword ptr [rbp + 3704], rdx
-                        cmp              eax, 104
-                                                                                        je    n03281_proc_value_α
-                                                                                        jmp   n03281_proc_value_α
-n03279_call_proc_staged_β:
-                                                                                        jmp   n03281_proc_value_α
-.Lx03280_0:
-                        .quad            .Lx03280_0_s
-.Lx03280_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03281_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03282_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3680], rax
-                        mov              qword ptr [rbp + 3688], rdx
-                                                                                        jmp   n03283_call_proc_staged_α
-.Lx03282_0:
-                        .quad            .Lx03282_0_s
-.Lx03282_0_s:
-                        .string          "map2"
-#-----------------------------------------------------------------------------------------------------------------------
-n03283_call_proc_staged_α:
-                        lea              rsi, [rbp + 3680]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03284_2
-.Lx03284_2:
-                        mov              qword ptr [rbp + 3632], rax
-                        mov              qword ptr [rbp + 3640], rdx
-                        cmp              eax, 104
-                                                                                        je    n03285_proc_value_α
-                                                                                        jmp   n03285_proc_value_α
-n03283_call_proc_staged_β:
-                                                                                        jmp   n03285_proc_value_α
-.Lx03284_0:
-                        .quad            .Lx03284_0_s
-.Lx03284_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03285_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03286_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3616], rax
-                        mov              qword ptr [rbp + 3624], rdx
-                                                                                        jmp   n03287_call_proc_staged_α
-.Lx03286_0:
-                        .quad            .Lx03286_0_s
-.Lx03286_0_s:
-                        .string          "tablemap"
-#-----------------------------------------------------------------------------------------------------------------------
-n03287_call_proc_staged_α:
-                        lea              rsi, [rbp + 3616]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03288_2
-.Lx03288_2:
-                        mov              qword ptr [rbp + 3568], rax
-                        mov              qword ptr [rbp + 3576], rdx
-                        cmp              eax, 104
-                                                                                        je    n03289_proc_value_α
-                                                                                        jmp   n03289_proc_value_α
-n03287_call_proc_staged_β:
-                                                                                        jmp   n03289_proc_value_α
-.Lx03288_0:
-                        .quad            .Lx03288_0_s
-.Lx03288_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03289_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03290_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3552], rax
-                        mov              qword ptr [rbp + 3560], rdx
-                                                                                        jmp   n03291_call_proc_staged_α
-.Lx03290_0:
-                        .quad            .Lx03290_0_s
-.Lx03290_0_s:
-                        .string          "listmap"
-#-----------------------------------------------------------------------------------------------------------------------
-n03291_call_proc_staged_α:
-                        lea              rsi, [rbp + 3552]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03292_2
-.Lx03292_2:
-                        mov              qword ptr [rbp + 3504], rax
-                        mov              qword ptr [rbp + 3512], rdx
-                        cmp              eax, 104
-                                                                                        je    n03293_proc_value_α
-                                                                                        jmp   n03293_proc_value_α
-n03291_call_proc_staged_β:
-                                                                                        jmp   n03293_proc_value_α
-.Lx03292_0:
-                        .quad            .Lx03292_0_s
-.Lx03292_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03293_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03294_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3488], rax
-                        mov              qword ptr [rbp + 3496], rdx
-                                                                                        jmp   n03295_call_proc_staged_α
-.Lx03294_0:
-                        .quad            .Lx03294_0_s
-.Lx03294_0_s:
-                        .string          "nullscan"
-#-----------------------------------------------------------------------------------------------------------------------
-n03295_call_proc_staged_α:
-                        lea              rsi, [rbp + 3488]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03296_2
-.Lx03296_2:
-                        mov              qword ptr [rbp + 3440], rax
-                        mov              qword ptr [rbp + 3448], rdx
-                        cmp              eax, 104
-                                                                                        je    n03297_proc_value_α
-                                                                                        jmp   n03297_proc_value_α
-n03295_call_proc_staged_β:
-                                                                                        jmp   n03297_proc_value_α
-.Lx03296_0:
-                        .quad            .Lx03296_0_s
-.Lx03296_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03297_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03298_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3424], rax
-                        mov              qword ptr [rbp + 3432], rdx
-                                                                                        jmp   n03299_call_proc_staged_α
-.Lx03298_0:
-                        .quad            .Lx03298_0_s
-.Lx03298_0_s:
-                        .string          "movef"
-#-----------------------------------------------------------------------------------------------------------------------
-n03299_call_proc_staged_α:
-                        lea              rsi, [rbp + 3424]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03300_2
-.Lx03300_2:
-                        mov              qword ptr [rbp + 3376], rax
-                        mov              qword ptr [rbp + 3384], rdx
-                        cmp              eax, 104
-                                                                                        je    n03301_proc_value_α
-                                                                                        jmp   n03301_proc_value_α
-n03299_call_proc_staged_β:
-                                                                                        jmp   n03301_proc_value_α
-.Lx03300_0:
-                        .quad            .Lx03300_0_s
-.Lx03300_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03301_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03302_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3360], rax
-                        mov              qword ptr [rbp + 3368], rdx
-                                                                                        jmp   n03303_call_proc_staged_α
-.Lx03302_0:
-                        .quad            .Lx03302_0_s
-.Lx03302_0_s:
-                        .string          "mov11"
-#-----------------------------------------------------------------------------------------------------------------------
-n03303_call_proc_staged_α:
-                        lea              rsi, [rbp + 3360]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03304_2
-.Lx03304_2:
-                        mov              qword ptr [rbp + 3312], rax
-                        mov              qword ptr [rbp + 3320], rdx
-                        cmp              eax, 104
-                                                                                        je    n03305_proc_value_α
-                                                                                        jmp   n03305_proc_value_α
-n03303_call_proc_staged_β:
-                                                                                        jmp   n03305_proc_value_α
-.Lx03304_0:
-                        .quad            .Lx03304_0_s
-.Lx03304_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03305_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03306_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3296], rax
-                        mov              qword ptr [rbp + 3304], rdx
-                                                                                        jmp   n03307_call_proc_staged_α
-.Lx03306_0:
-                        .quad            .Lx03306_0_s
-.Lx03306_0_s:
-                        .string          "pos11"
-#-----------------------------------------------------------------------------------------------------------------------
-n03307_call_proc_staged_α:
-                        lea              rsi, [rbp + 3296]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03308_2
-.Lx03308_2:
-                        mov              qword ptr [rbp + 3248], rax
-                        mov              qword ptr [rbp + 3256], rdx
-                        cmp              eax, 104
-                                                                                        je    n03309_proc_value_α
-                                                                                        jmp   n03309_proc_value_α
-n03307_call_proc_staged_β:
-                                                                                        jmp   n03309_proc_value_α
-.Lx03308_0:
-                        .quad            .Lx03308_0_s
-.Lx03308_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03309_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03310_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3232], rax
-                        mov              qword ptr [rbp + 3240], rdx
-                                                                                        jmp   n03311_call_proc_staged_α
-.Lx03310_0:
-                        .quad            .Lx03310_0_s
-.Lx03310_0_s:
-                        .string          "tabf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03311_call_proc_staged_α:
-                        lea              rsi, [rbp + 3232]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03312_2
-.Lx03312_2:
-                        mov              qword ptr [rbp + 3184], rax
-                        mov              qword ptr [rbp + 3192], rdx
-                        cmp              eax, 104
-                                                                                        je    n03313_proc_value_α
-                                                                                        jmp   n03313_proc_value_α
-n03311_call_proc_staged_β:
-                                                                                        jmp   n03313_proc_value_α
-.Lx03312_0:
-                        .quad            .Lx03312_0_s
-.Lx03312_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03313_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03314_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3168], rax
-                        mov              qword ptr [rbp + 3176], rdx
-                                                                                        jmp   n03315_call_proc_staged_α
-.Lx03314_0:
-                        .quad            .Lx03314_0_s
-.Lx03314_0_s:
-                        .string          "matchf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03315_call_proc_staged_α:
-                        lea              rsi, [rbp + 3168]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03316_2
-.Lx03316_2:
-                        mov              qword ptr [rbp + 3120], rax
-                        mov              qword ptr [rbp + 3128], rdx
-                        cmp              eax, 104
-                                                                                        je    n03317_proc_value_α
-                                                                                        jmp   n03317_proc_value_α
-n03315_call_proc_staged_β:
-                                                                                        jmp   n03317_proc_value_α
-.Lx03316_0:
-                        .quad            .Lx03316_0_s
-.Lx03316_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03317_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03318_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3104], rax
-                        mov              qword ptr [rbp + 3112], rdx
-                                                                                        jmp   n03319_call_proc_staged_α
-.Lx03318_0:
-                        .quad            .Lx03318_0_s
-.Lx03318_0_s:
-                        .string          "tabmat"
-#-----------------------------------------------------------------------------------------------------------------------
-n03319_call_proc_staged_α:
-                        lea              rsi, [rbp + 3104]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03320_2
-.Lx03320_2:
-                        mov              qword ptr [rbp + 3056], rax
-                        mov              qword ptr [rbp + 3064], rdx
-                        cmp              eax, 104
-                                                                                        je    n03321_proc_value_α
-                                                                                        jmp   n03321_proc_value_α
-n03319_call_proc_staged_β:
-                                                                                        jmp   n03321_proc_value_α
-.Lx03320_0:
-                        .quad            .Lx03320_0_s
-.Lx03320_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03321_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03322_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 3040], rax
-                        mov              qword ptr [rbp + 3048], rdx
-                                                                                        jmp   n03323_call_proc_staged_α
-.Lx03322_0:
-                        .quad            .Lx03322_0_s
-.Lx03322_0_s:
-                        .string          "posf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03323_call_proc_staged_α:
-                        lea              rsi, [rbp + 3040]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03324_2
-.Lx03324_2:
-                        mov              qword ptr [rbp + 2992], rax
-                        mov              qword ptr [rbp + 3000], rdx
-                        cmp              eax, 104
-                                                                                        je    n03325_proc_value_α
-                                                                                        jmp   n03325_proc_value_α
-n03323_call_proc_staged_β:
-                                                                                        jmp   n03325_proc_value_α
-.Lx03324_0:
-                        .quad            .Lx03324_0_s
-.Lx03324_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03325_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03326_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2976], rax
-                        mov              qword ptr [rbp + 2984], rdx
-                                                                                        jmp   n03327_call_proc_staged_α
-.Lx03326_0:
-                        .quad            .Lx03326_0_s
-.Lx03326_0_s:
-                        .string          "anyf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03327_call_proc_staged_α:
-                        lea              rsi, [rbp + 2976]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03328_2
-.Lx03328_2:
-                        mov              qword ptr [rbp + 2928], rax
-                        mov              qword ptr [rbp + 2936], rdx
-                        cmp              eax, 104
-                                                                                        je    n03329_proc_value_α
-                                                                                        jmp   n03329_proc_value_α
-n03327_call_proc_staged_β:
-                                                                                        jmp   n03329_proc_value_α
-.Lx03328_0:
-                        .quad            .Lx03328_0_s
-.Lx03328_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03329_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03330_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2912], rax
-                        mov              qword ptr [rbp + 2920], rdx
-                                                                                        jmp   n03331_call_proc_staged_α
-.Lx03330_0:
-                        .quad            .Lx03330_0_s
-.Lx03330_0_s:
-                        .string          "manyf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03331_call_proc_staged_α:
-                        lea              rsi, [rbp + 2912]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03332_2
-.Lx03332_2:
-                        mov              qword ptr [rbp + 2864], rax
-                        mov              qword ptr [rbp + 2872], rdx
-                        cmp              eax, 104
-                                                                                        je    n03333_proc_value_α
-                                                                                        jmp   n03333_proc_value_α
-n03331_call_proc_staged_β:
-                                                                                        jmp   n03333_proc_value_α
-.Lx03332_0:
-                        .quad            .Lx03332_0_s
-.Lx03332_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03333_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03334_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2848], rax
-                        mov              qword ptr [rbp + 2856], rdx
-                                                                                        jmp   n03335_call_proc_staged_α
-.Lx03334_0:
-                        .quad            .Lx03334_0_s
-.Lx03334_0_s:
-                        .string          "uptof"
-#-----------------------------------------------------------------------------------------------------------------------
-n03335_call_proc_staged_α:
-                        lea              rsi, [rbp + 2848]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03336_2
-.Lx03336_2:
-                        mov              qword ptr [rbp + 2800], rax
-                        mov              qword ptr [rbp + 2808], rdx
-                        cmp              eax, 104
-                                                                                        je    n03337_proc_value_α
-                                                                                        jmp   n03337_proc_value_α
-n03335_call_proc_staged_β:
-                                                                                        jmp   n03337_proc_value_α
-.Lx03336_0:
-                        .quad            .Lx03336_0_s
-.Lx03336_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03337_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03338_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2784], rax
-                        mov              qword ptr [rbp + 2792], rdx
-                                                                                        jmp   n03339_call_proc_staged_α
-.Lx03338_0:
-                        .quad            .Lx03338_0_s
-.Lx03338_0_s:
-                        .string          "findf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03339_call_proc_staged_α:
-                        lea              rsi, [rbp + 2784]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03340_2
-.Lx03340_2:
-                        mov              qword ptr [rbp + 2736], rax
-                        mov              qword ptr [rbp + 2744], rdx
-                        cmp              eax, 104
-                                                                                        je    n03341_proc_value_α
-                                                                                        jmp   n03341_proc_value_α
-n03339_call_proc_staged_β:
-                                                                                        jmp   n03341_proc_value_α
-.Lx03340_0:
-                        .quad            .Lx03340_0_s
-.Lx03340_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03341_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03342_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2720], rax
-                        mov              qword ptr [rbp + 2728], rdx
-                                                                                        jmp   n03343_call_proc_staged_α
-.Lx03342_0:
-                        .quad            .Lx03342_0_s
-.Lx03342_0_s:
-                        .string          "balf"
-#-----------------------------------------------------------------------------------------------------------------------
-n03343_call_proc_staged_α:
-                        lea              rsi, [rbp + 2720]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03344_2
-.Lx03344_2:
-                        mov              qword ptr [rbp + 2672], rax
-                        mov              qword ptr [rbp + 2680], rdx
-                        cmp              eax, 104
-                                                                                        je    n03345_proc_value_α
-                                                                                        jmp   n03345_proc_value_α
-n03343_call_proc_staged_β:
-                                                                                        jmp   n03345_proc_value_α
-.Lx03344_0:
-                        .quad            .Lx03344_0_s
-.Lx03344_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03345_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03346_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2656], rax
-                        mov              qword ptr [rbp + 2664], rdx
-                                                                                        jmp   n03347_call_proc_staged_α
-.Lx03346_0:
-                        .quad            .Lx03346_0_s
-.Lx03346_0_s:
-                        .string          "tocset"
-#-----------------------------------------------------------------------------------------------------------------------
-n03347_call_proc_staged_α:
-                        lea              rsi, [rbp + 2656]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03348_2
-.Lx03348_2:
-                        mov              qword ptr [rbp + 2608], rax
-                        mov              qword ptr [rbp + 2616], rdx
-                        cmp              eax, 104
-                                                                                        je    n03349_proc_value_α
-                                                                                        jmp   n03349_proc_value_α
-n03347_call_proc_staged_β:
-                                                                                        jmp   n03349_proc_value_α
-.Lx03348_0:
-                        .quad            .Lx03348_0_s
-.Lx03348_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03349_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03350_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2592], rax
-                        mov              qword ptr [rbp + 2600], rdx
-                                                                                        jmp   n03351_call_proc_staged_α
-.Lx03350_0:
-                        .quad            .Lx03350_0_s
-.Lx03350_0_s:
-                        .string          "cssize"
-#-----------------------------------------------------------------------------------------------------------------------
-n03351_call_proc_staged_α:
-                        lea              rsi, [rbp + 2592]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03352_2
-.Lx03352_2:
-                        mov              qword ptr [rbp + 2544], rax
-                        mov              qword ptr [rbp + 2552], rdx
-                        cmp              eax, 104
-                                                                                        je    n03353_proc_value_α
-                                                                                        jmp   n03353_proc_value_α
-n03351_call_proc_staged_β:
-                                                                                        jmp   n03353_proc_value_α
-.Lx03352_0:
-                        .quad            .Lx03352_0_s
-.Lx03352_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03353_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03354_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2528], rax
-                        mov              qword ptr [rbp + 2536], rdx
-                                                                                        jmp   n03355_call_proc_staged_α
-.Lx03354_0:
-                        .quad            .Lx03354_0_s
-.Lx03354_0_s:
-                        .string          "cscompl"
-#-----------------------------------------------------------------------------------------------------------------------
-n03355_call_proc_staged_α:
-                        lea              rsi, [rbp + 2528]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03356_2
-.Lx03356_2:
-                        mov              qword ptr [rbp + 2480], rax
-                        mov              qword ptr [rbp + 2488], rdx
-                        cmp              eax, 104
-                                                                                        je    n03357_proc_value_α
-                                                                                        jmp   n03357_proc_value_α
-n03355_call_proc_staged_β:
-                                                                                        jmp   n03357_proc_value_α
-.Lx03356_0:
-                        .quad            .Lx03356_0_s
-.Lx03356_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03357_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03358_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2464], rax
-                        mov              qword ptr [rbp + 2472], rdx
-                                                                                        jmp   n03359_call_proc_staged_α
-.Lx03358_0:
-                        .quad            .Lx03358_0_s
-.Lx03358_0_s:
-                        .string          "lcreate"
-#-----------------------------------------------------------------------------------------------------------------------
-n03359_call_proc_staged_α:
-                        lea              rsi, [rbp + 2464]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03360_2
-.Lx03360_2:
-                        mov              qword ptr [rbp + 2416], rax
-                        mov              qword ptr [rbp + 2424], rdx
-                        cmp              eax, 104
-                                                                                        je    n03361_proc_value_α
-                                                                                        jmp   n03361_proc_value_α
-n03359_call_proc_staged_β:
-                                                                                        jmp   n03361_proc_value_α
-.Lx03360_0:
-                        .quad            .Lx03360_0_s
-.Lx03360_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03361_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03362_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2400], rax
-                        mov              qword ptr [rbp + 2408], rdx
-                                                                                        jmp   n03363_call_proc_staged_α
-.Lx03362_0:
-                        .quad            .Lx03362_0_s
-.Lx03362_0_s:
-                        .string          "lconst"
-#-----------------------------------------------------------------------------------------------------------------------
-n03363_call_proc_staged_α:
-                        lea              rsi, [rbp + 2400]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03364_2
-.Lx03364_2:
-                        mov              qword ptr [rbp + 2352], rax
-                        mov              qword ptr [rbp + 2360], rdx
-                        cmp              eax, 104
-                                                                                        je    n03365_proc_value_α
-                                                                                        jmp   n03365_proc_value_α
-n03363_call_proc_staged_β:
-                                                                                        jmp   n03365_proc_value_α
-.Lx03364_0:
-                        .quad            .Lx03364_0_s
-.Lx03364_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03365_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03366_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2336], rax
-                        mov              qword ptr [rbp + 2344], rdx
-                                                                                        jmp   n03367_call_proc_staged_α
-.Lx03366_0:
-                        .quad            .Lx03366_0_s
-.Lx03366_0_s:
-                        .string          "lcopy"
-#-----------------------------------------------------------------------------------------------------------------------
-n03367_call_proc_staged_α:
-                        lea              rsi, [rbp + 2336]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03368_2
-.Lx03368_2:
-                        mov              qword ptr [rbp + 2288], rax
-                        mov              qword ptr [rbp + 2296], rdx
-                        cmp              eax, 104
-                                                                                        je    n03369_proc_value_α
-                                                                                        jmp   n03369_proc_value_α
-n03367_call_proc_staged_β:
-                                                                                        jmp   n03369_proc_value_α
-.Lx03368_0:
-                        .quad            .Lx03368_0_s
-.Lx03368_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03369_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03370_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2272], rax
-                        mov              qword ptr [rbp + 2280], rdx
-                                                                                        jmp   n03371_call_proc_staged_α
-.Lx03370_0:
-                        .quad            .Lx03370_0_s
-.Lx03370_0_s:
-                        .string          "lsort"
-#-----------------------------------------------------------------------------------------------------------------------
-n03371_call_proc_staged_α:
-                        lea              rsi, [rbp + 2272]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03372_2
-.Lx03372_2:
-                        mov              qword ptr [rbp + 2224], rax
-                        mov              qword ptr [rbp + 2232], rdx
-                        cmp              eax, 104
-                                                                                        je    n03373_proc_value_α
-                                                                                        jmp   n03373_proc_value_α
-n03371_call_proc_staged_β:
-                                                                                        jmp   n03373_proc_value_α
-.Lx03372_0:
-                        .quad            .Lx03372_0_s
-.Lx03372_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03373_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03374_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2208], rax
-                        mov              qword ptr [rbp + 2216], rdx
-                                                                                        jmp   n03375_call_proc_staged_α
-.Lx03374_0:
-                        .quad            .Lx03374_0_s
-.Lx03374_0_s:
-                        .string          "lsize"
-#-----------------------------------------------------------------------------------------------------------------------
-n03375_call_proc_staged_α:
-                        lea              rsi, [rbp + 2208]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03376_2
-.Lx03376_2:
-                        mov              qword ptr [rbp + 2160], rax
-                        mov              qword ptr [rbp + 2168], rdx
-                        cmp              eax, 104
-                                                                                        je    n03377_proc_value_α
-                                                                                        jmp   n03377_proc_value_α
-n03375_call_proc_staged_β:
-                                                                                        jmp   n03377_proc_value_α
-.Lx03376_0:
-                        .quad            .Lx03376_0_s
-.Lx03376_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03377_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03378_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2144], rax
-                        mov              qword ptr [rbp + 2152], rdx
-                                                                                        jmp   n03379_call_proc_staged_α
-.Lx03378_0:
-                        .quad            .Lx03378_0_s
-.Lx03378_0_s:
-                        .string          "lpick"
-#-----------------------------------------------------------------------------------------------------------------------
-n03379_call_proc_staged_α:
-                        lea              rsi, [rbp + 2144]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03380_2
-.Lx03380_2:
-                        mov              qword ptr [rbp + 2096], rax
-                        mov              qword ptr [rbp + 2104], rdx
-                        cmp              eax, 104
-                                                                                        je    n03381_proc_value_α
-                                                                                        jmp   n03381_proc_value_α
-n03379_call_proc_staged_β:
-                                                                                        jmp   n03381_proc_value_α
-.Lx03380_0:
-                        .quad            .Lx03380_0_s
-.Lx03380_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03381_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03382_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2080], rax
-                        mov              qword ptr [rbp + 2088], rdx
-                                                                                        jmp   n03383_call_proc_staged_α
-.Lx03382_0:
-                        .quad            .Lx03382_0_s
-.Lx03382_0_s:
-                        .string          "lbang"
-#-----------------------------------------------------------------------------------------------------------------------
-n03383_call_proc_staged_α:
-                        lea              rsi, [rbp + 2080]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03384_2
-.Lx03384_2:
-                        mov              qword ptr [rbp + 2032], rax
-                        mov              qword ptr [rbp + 2040], rdx
-                        cmp              eax, 104
-                                                                                        je    n03385_proc_value_α
-                                                                                        jmp   n03385_proc_value_α
-n03383_call_proc_staged_β:
-                                                                                        jmp   n03385_proc_value_α
-.Lx03384_0:
-                        .quad            .Lx03384_0_s
-.Lx03384_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03385_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03386_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 2016], rax
-                        mov              qword ptr [rbp + 2024], rdx
-                                                                                        jmp   n03387_call_proc_staged_α
-.Lx03386_0:
-                        .quad            .Lx03386_0_s
-.Lx03386_0_s:
-                        .string          "lsubscr"
-#-----------------------------------------------------------------------------------------------------------------------
-n03387_call_proc_staged_α:
-                        lea              rsi, [rbp + 2016]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03388_2
-.Lx03388_2:
-                        mov              qword ptr [rbp + 1968], rax
-                        mov              qword ptr [rbp + 1976], rdx
-                        cmp              eax, 104
-                                                                                        je    n03389_proc_value_α
-                                                                                        jmp   n03389_proc_value_α
-n03387_call_proc_staged_β:
-                                                                                        jmp   n03389_proc_value_α
-.Lx03388_0:
-                        .quad            .Lx03388_0_s
-.Lx03388_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03389_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03390_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1952], rax
-                        mov              qword ptr [rbp + 1960], rdx
-                                                                                        jmp   n03391_call_proc_staged_α
-.Lx03390_0:
-                        .quad            .Lx03390_0_s
-.Lx03390_0_s:
-                        .string          "put1get1"
-#-----------------------------------------------------------------------------------------------------------------------
-n03391_call_proc_staged_α:
-                        lea              rsi, [rbp + 1952]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03392_2
-.Lx03392_2:
-                        mov              qword ptr [rbp + 1904], rax
-                        mov              qword ptr [rbp + 1912], rdx
-                        cmp              eax, 104
-                                                                                        je    n03393_proc_value_α
-                                                                                        jmp   n03393_proc_value_α
-n03391_call_proc_staged_β:
-                                                                                        jmp   n03393_proc_value_α
-.Lx03392_0:
-                        .quad            .Lx03392_0_s
-.Lx03392_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03393_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03394_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1888], rax
-                        mov              qword ptr [rbp + 1896], rdx
-                                                                                        jmp   n03395_call_proc_staged_α
-.Lx03394_0:
-                        .quad            .Lx03394_0_s
-.Lx03394_0_s:
-                        .string          "put2get2"
-#-----------------------------------------------------------------------------------------------------------------------
-n03395_call_proc_staged_α:
-                        lea              rsi, [rbp + 1888]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03396_2
-.Lx03396_2:
-                        mov              qword ptr [rbp + 1840], rax
-                        mov              qword ptr [rbp + 1848], rdx
-                        cmp              eax, 104
-                                                                                        je    n03397_proc_value_α
-                                                                                        jmp   n03397_proc_value_α
-n03395_call_proc_staged_β:
-                                                                                        jmp   n03397_proc_value_α
-.Lx03396_0:
-                        .quad            .Lx03396_0_s
-.Lx03396_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03397_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03398_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1824], rax
-                        mov              qword ptr [rbp + 1832], rdx
-                                                                                        jmp   n03399_call_proc_staged_α
-.Lx03398_0:
-                        .quad            .Lx03398_0_s
-.Lx03398_0_s:
-                        .string          "put3get3"
-#-----------------------------------------------------------------------------------------------------------------------
-n03399_call_proc_staged_α:
-                        lea              rsi, [rbp + 1824]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03400_2
-.Lx03400_2:
-                        mov              qword ptr [rbp + 1776], rax
-                        mov              qword ptr [rbp + 1784], rdx
-                        cmp              eax, 104
-                                                                                        je    n03401_proc_value_α
-                                                                                        jmp   n03401_proc_value_α
-n03399_call_proc_staged_β:
-                                                                                        jmp   n03401_proc_value_α
-.Lx03400_0:
-                        .quad            .Lx03400_0_s
-.Lx03400_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03401_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03402_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1760], rax
-                        mov              qword ptr [rbp + 1768], rdx
-                                                                                        jmp   n03403_call_proc_staged_α
-.Lx03402_0:
-                        .quad            .Lx03402_0_s
-.Lx03402_0_s:
-                        .string          "put4get4"
-#-----------------------------------------------------------------------------------------------------------------------
-n03403_call_proc_staged_α:
-                        lea              rsi, [rbp + 1760]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03404_2
-.Lx03404_2:
-                        mov              qword ptr [rbp + 1712], rax
-                        mov              qword ptr [rbp + 1720], rdx
-                        cmp              eax, 104
-                                                                                        je    n03405_proc_value_α
-                                                                                        jmp   n03405_proc_value_α
-n03403_call_proc_staged_β:
-                                                                                        jmp   n03405_proc_value_α
-.Lx03404_0:
-                        .quad            .Lx03404_0_s
-.Lx03404_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03405_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03406_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1696], rax
-                        mov              qword ptr [rbp + 1704], rdx
-                                                                                        jmp   n03407_call_proc_staged_α
-.Lx03406_0:
-                        .quad            .Lx03406_0_s
-.Lx03406_0_s:
-                        .string          "pushpop"
-#-----------------------------------------------------------------------------------------------------------------------
-n03407_call_proc_staged_α:
-                        lea              rsi, [rbp + 1696]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03408_2
-.Lx03408_2:
-                        mov              qword ptr [rbp + 1648], rax
-                        mov              qword ptr [rbp + 1656], rdx
-                        cmp              eax, 104
-                                                                                        je    n03409_proc_value_α
-                                                                                        jmp   n03409_proc_value_α
-n03407_call_proc_staged_β:
-                                                                                        jmp   n03409_proc_value_α
-.Lx03408_0:
-                        .quad            .Lx03408_0_s
-.Lx03408_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03409_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03410_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1632], rax
-                        mov              qword ptr [rbp + 1640], rdx
-                                                                                        jmp   n03411_call_proc_staged_α
-.Lx03410_0:
-                        .quad            .Lx03410_0_s
-.Lx03410_0_s:
-                        .string          "putget12"
-#-----------------------------------------------------------------------------------------------------------------------
-n03411_call_proc_staged_α:
-                        lea              rsi, [rbp + 1632]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03412_2
-.Lx03412_2:
-                        mov              qword ptr [rbp + 1584], rax
-                        mov              qword ptr [rbp + 1592], rdx
-                        cmp              eax, 104
-                                                                                        je    n03413_proc_value_α
-                                                                                        jmp   n03413_proc_value_α
-n03411_call_proc_staged_β:
-                                                                                        jmp   n03413_proc_value_α
-.Lx03412_0:
-                        .quad            .Lx03412_0_s
-.Lx03412_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03413_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03414_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1568], rax
-                        mov              qword ptr [rbp + 1576], rdx
-                                                                                        jmp   n03415_call_proc_staged_α
-.Lx03414_0:
-                        .quad            .Lx03414_0_s
-.Lx03414_0_s:
-                        .string          "pushpop12"
-#-----------------------------------------------------------------------------------------------------------------------
-n03415_call_proc_staged_α:
-                        lea              rsi, [rbp + 1568]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03416_2
-.Lx03416_2:
-                        mov              qword ptr [rbp + 1520], rax
-                        mov              qword ptr [rbp + 1528], rdx
-                        cmp              eax, 104
-                                                                                        je    n03417_proc_value_α
-                                                                                        jmp   n03417_proc_value_α
-n03415_call_proc_staged_β:
-                                                                                        jmp   n03417_proc_value_α
-.Lx03416_0:
-                        .quad            .Lx03416_0_s
-.Lx03416_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03417_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03418_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1504], rax
-                        mov              qword ptr [rbp + 1512], rdx
-                                                                                        jmp   n03419_call_proc_staged_α
-.Lx03418_0:
-                        .quad            .Lx03418_0_s
-.Lx03418_0_s:
-                        .string          "setcreate"
-#-----------------------------------------------------------------------------------------------------------------------
-n03419_call_proc_staged_α:
-                        lea              rsi, [rbp + 1504]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03420_2
-.Lx03420_2:
-                        mov              qword ptr [rbp + 1456], rax
-                        mov              qword ptr [rbp + 1464], rdx
-                        cmp              eax, 104
-                                                                                        je    n03421_proc_value_α
-                                                                                        jmp   n03421_proc_value_α
-n03419_call_proc_staged_β:
-                                                                                        jmp   n03421_proc_value_α
-.Lx03420_0:
-                        .quad            .Lx03420_0_s
-.Lx03420_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03421_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03422_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1440], rax
-                        mov              qword ptr [rbp + 1448], rdx
-                                                                                        jmp   n03423_call_proc_staged_α
-.Lx03422_0:
-                        .quad            .Lx03422_0_s
-.Lx03422_0_s:
-                        .string          "setcopy"
-#-----------------------------------------------------------------------------------------------------------------------
-n03423_call_proc_staged_α:
-                        lea              rsi, [rbp + 1440]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03424_2
-.Lx03424_2:
-                        mov              qword ptr [rbp + 1392], rax
-                        mov              qword ptr [rbp + 1400], rdx
-                        cmp              eax, 104
-                                                                                        je    n03425_proc_value_α
-                                                                                        jmp   n03425_proc_value_α
-n03423_call_proc_staged_β:
-                                                                                        jmp   n03425_proc_value_α
-.Lx03424_0:
-                        .quad            .Lx03424_0_s
-.Lx03424_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03425_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03426_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1376], rax
-                        mov              qword ptr [rbp + 1384], rdx
-                                                                                        jmp   n03427_call_proc_staged_α
-.Lx03426_0:
-                        .quad            .Lx03426_0_s
-.Lx03426_0_s:
-                        .string          "setmember"
-#-----------------------------------------------------------------------------------------------------------------------
-n03427_call_proc_staged_α:
-                        lea              rsi, [rbp + 1376]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03428_2
-.Lx03428_2:
-                        mov              qword ptr [rbp + 1328], rax
-                        mov              qword ptr [rbp + 1336], rdx
-                        cmp              eax, 104
-                                                                                        je    n03429_proc_value_α
-                                                                                        jmp   n03429_proc_value_α
-n03427_call_proc_staged_β:
-                                                                                        jmp   n03429_proc_value_α
-.Lx03428_0:
-                        .quad            .Lx03428_0_s
-.Lx03428_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03429_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03430_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1312], rax
-                        mov              qword ptr [rbp + 1320], rdx
-                                                                                        jmp   n03431_call_proc_staged_α
-.Lx03430_0:
-                        .quad            .Lx03430_0_s
-.Lx03430_0_s:
-                        .string          "setinsert"
-#-----------------------------------------------------------------------------------------------------------------------
-n03431_call_proc_staged_α:
-                        lea              rsi, [rbp + 1312]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03432_2
-.Lx03432_2:
-                        mov              qword ptr [rbp + 1264], rax
-                        mov              qword ptr [rbp + 1272], rdx
-                        cmp              eax, 104
-                                                                                        je    n03433_proc_value_α
-                                                                                        jmp   n03433_proc_value_α
-n03431_call_proc_staged_β:
-                                                                                        jmp   n03433_proc_value_α
-.Lx03432_0:
-                        .quad            .Lx03432_0_s
-.Lx03432_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03433_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03434_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1248], rax
-                        mov              qword ptr [rbp + 1256], rdx
-                                                                                        jmp   n03435_call_proc_staged_α
-.Lx03434_0:
-                        .quad            .Lx03434_0_s
-.Lx03434_0_s:
-                        .string          "setinsdel"
-#-----------------------------------------------------------------------------------------------------------------------
-n03435_call_proc_staged_α:
-                        lea              rsi, [rbp + 1248]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03436_2
-.Lx03436_2:
-                        mov              qword ptr [rbp + 1200], rax
-                        mov              qword ptr [rbp + 1208], rdx
-                        cmp              eax, 104
-                                                                                        je    n03437_proc_value_α
-                                                                                        jmp   n03437_proc_value_α
-n03435_call_proc_staged_β:
-                                                                                        jmp   n03437_proc_value_α
-.Lx03436_0:
-                        .quad            .Lx03436_0_s
-.Lx03436_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03437_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03438_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1184], rax
-                        mov              qword ptr [rbp + 1192], rdx
-                                                                                        jmp   n03439_call_proc_staged_α
-.Lx03438_0:
-                        .quad            .Lx03438_0_s
-.Lx03438_0_s:
-                        .string          "setbang"
-#-----------------------------------------------------------------------------------------------------------------------
-n03439_call_proc_staged_α:
-                        lea              rsi, [rbp + 1184]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03440_2
-.Lx03440_2:
-                        mov              qword ptr [rbp + 1136], rax
-                        mov              qword ptr [rbp + 1144], rdx
-                        cmp              eax, 104
-                                                                                        je    n03441_proc_value_α
-                                                                                        jmp   n03441_proc_value_α
-n03439_call_proc_staged_β:
-                                                                                        jmp   n03441_proc_value_α
-.Lx03440_0:
-                        .quad            .Lx03440_0_s
-.Lx03440_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03441_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03442_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1120], rax
-                        mov              qword ptr [rbp + 1128], rdx
-                                                                                        jmp   n03443_call_proc_staged_α
-.Lx03442_0:
-                        .quad            .Lx03442_0_s
-.Lx03442_0_s:
-                        .string          "setpick"
-#-----------------------------------------------------------------------------------------------------------------------
-n03443_call_proc_staged_α:
-                        lea              rsi, [rbp + 1120]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03444_2
-.Lx03444_2:
-                        mov              qword ptr [rbp + 1072], rax
-                        mov              qword ptr [rbp + 1080], rdx
-                        cmp              eax, 104
-                                                                                        je    n03445_proc_value_α
-                                                                                        jmp   n03445_proc_value_α
-n03443_call_proc_staged_β:
-                                                                                        jmp   n03445_proc_value_α
-.Lx03444_0:
-                        .quad            .Lx03444_0_s
-.Lx03444_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03445_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03446_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 1056], rax
-                        mov              qword ptr [rbp + 1064], rdx
-                                                                                        jmp   n03447_call_proc_staged_α
-.Lx03446_0:
-                        .quad            .Lx03446_0_s
-.Lx03446_0_s:
-                        .string          "tblcreate"
-#-----------------------------------------------------------------------------------------------------------------------
-n03447_call_proc_staged_α:
-                        lea              rsi, [rbp + 1056]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03448_2
-.Lx03448_2:
-                        mov              qword ptr [rbp + 1008], rax
-                        mov              qword ptr [rbp + 1016], rdx
-                        cmp              eax, 104
-                                                                                        je    n03449_proc_value_α
-                                                                                        jmp   n03449_proc_value_α
-n03447_call_proc_staged_β:
-                                                                                        jmp   n03449_proc_value_α
-.Lx03448_0:
-                        .quad            .Lx03448_0_s
-.Lx03448_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03449_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03450_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 992], rax
-                        mov              qword ptr [rbp + 1000], rdx
-                                                                                        jmp   n03451_call_proc_staged_α
-.Lx03450_0:
-                        .quad            .Lx03450_0_s
-.Lx03450_0_s:
-                        .string          "tblsub"
-#-----------------------------------------------------------------------------------------------------------------------
-n03451_call_proc_staged_α:
-                        lea              rsi, [rbp + 992]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03452_2
-.Lx03452_2:
-                        mov              qword ptr [rbp + 944], rax
-                        mov              qword ptr [rbp + 952], rdx
-                        cmp              eax, 104
-                                                                                        je    n03453_proc_value_α
-                                                                                        jmp   n03453_proc_value_α
-n03451_call_proc_staged_β:
-                                                                                        jmp   n03453_proc_value_α
-.Lx03452_0:
-                        .quad            .Lx03452_0_s
-.Lx03452_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03453_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03454_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 928], rax
-                        mov              qword ptr [rbp + 936], rdx
-                                                                                        jmp   n03455_call_proc_staged_α
-.Lx03454_0:
-                        .quad            .Lx03454_0_s
-.Lx03454_0_s:
-                        .string          "tblasgn"
-#-----------------------------------------------------------------------------------------------------------------------
-n03455_call_proc_staged_α:
-                        lea              rsi, [rbp + 928]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03456_2
-.Lx03456_2:
-                        mov              qword ptr [rbp + 880], rax
-                        mov              qword ptr [rbp + 888], rdx
-                        cmp              eax, 104
-                                                                                        je    n03457_proc_value_α
-                                                                                        jmp   n03457_proc_value_α
-n03455_call_proc_staged_β:
-                                                                                        jmp   n03457_proc_value_α
-.Lx03456_0:
-                        .quad            .Lx03456_0_s
-.Lx03456_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03457_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03458_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 864], rax
-                        mov              qword ptr [rbp + 872], rdx
-                                                                                        jmp   n03459_call_proc_staged_α
-.Lx03458_0:
-                        .quad            .Lx03458_0_s
-.Lx03458_0_s:
-                        .string          "recconstr"
-#-----------------------------------------------------------------------------------------------------------------------
-n03459_call_proc_staged_α:
-                        lea              rsi, [rbp + 864]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03460_2
-.Lx03460_2:
-                        mov              qword ptr [rbp + 816], rax
-                        mov              qword ptr [rbp + 824], rdx
-                        cmp              eax, 104
-                                                                                        je    n03461_proc_value_α
-                                                                                        jmp   n03461_proc_value_α
-n03459_call_proc_staged_β:
-                                                                                        jmp   n03461_proc_value_α
-.Lx03460_0:
-                        .quad            .Lx03460_0_s
-.Lx03460_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03461_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03462_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 800], rax
-                        mov              qword ptr [rbp + 808], rdx
-                                                                                        jmp   n03463_call_proc_staged_α
-.Lx03462_0:
-                        .quad            .Lx03462_0_s
-.Lx03462_0_s:
-                        .string          "reccopy"
-#-----------------------------------------------------------------------------------------------------------------------
-n03463_call_proc_staged_α:
-                        lea              rsi, [rbp + 800]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03464_2
-.Lx03464_2:
-                        mov              qword ptr [rbp + 752], rax
-                        mov              qword ptr [rbp + 760], rdx
-                        cmp              eax, 104
-                                                                                        je    n03465_proc_value_α
-                                                                                        jmp   n03465_proc_value_α
-n03463_call_proc_staged_β:
-                                                                                        jmp   n03465_proc_value_α
-.Lx03464_0:
-                        .quad            .Lx03464_0_s
-.Lx03464_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03465_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03466_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 736], rax
-                        mov              qword ptr [rbp + 744], rdx
-                                                                                        jmp   n03467_call_proc_staged_α
-.Lx03466_0:
-                        .quad            .Lx03466_0_s
-.Lx03466_0_s:
-                        .string          "recfield"
-#-----------------------------------------------------------------------------------------------------------------------
-n03467_call_proc_staged_α:
-                        lea              rsi, [rbp + 736]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03468_2
-.Lx03468_2:
-                        mov              qword ptr [rbp + 688], rax
-                        mov              qword ptr [rbp + 696], rdx
-                        cmp              eax, 104
-                                                                                        je    n03469_proc_value_α
-                                                                                        jmp   n03469_proc_value_α
-n03467_call_proc_staged_β:
-                                                                                        jmp   n03469_proc_value_α
-.Lx03468_0:
-                        .quad            .Lx03468_0_s
-.Lx03468_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03469_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03470_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 672], rax
-                        mov              qword ptr [rbp + 680], rdx
-                                                                                        jmp   n03471_call_proc_staged_α
-.Lx03470_0:
-                        .quad            .Lx03470_0_s
-.Lx03470_0_s:
-                        .string          "bigfield"
-#-----------------------------------------------------------------------------------------------------------------------
-n03471_call_proc_staged_α:
-                        lea              rsi, [rbp + 672]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03472_2
-.Lx03472_2:
-                        mov              qword ptr [rbp + 624], rax
-                        mov              qword ptr [rbp + 632], rdx
-                        cmp              eax, 104
-                                                                                        je    n03473_proc_value_α
-                                                                                        jmp   n03473_proc_value_α
-n03471_call_proc_staged_β:
-                                                                                        jmp   n03473_proc_value_α
-.Lx03472_0:
-                        .quad            .Lx03472_0_s
-.Lx03472_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03473_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03474_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 608], rax
-                        mov              qword ptr [rbp + 616], rdx
-                                                                                        jmp   n03475_call_proc_staged_α
-.Lx03474_0:
-                        .quad            .Lx03474_0_s
-.Lx03474_0_s:
-                        .string          "readz"
-#-----------------------------------------------------------------------------------------------------------------------
-n03475_call_proc_staged_α:
-                        lea              rsi, [rbp + 608]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03476_2
-.Lx03476_2:
-                        mov              qword ptr [rbp + 560], rax
-                        mov              qword ptr [rbp + 568], rdx
-                        cmp              eax, 104
-                                                                                        je    n03477_proc_value_α
-                                                                                        jmp   n03477_proc_value_α
-n03475_call_proc_staged_β:
-                                                                                        jmp   n03477_proc_value_α
-.Lx03476_0:
-                        .quad            .Lx03476_0_s
-.Lx03476_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03477_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03478_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 544], rax
-                        mov              qword ptr [rbp + 552], rdx
-                                                                                        jmp   n03479_call_proc_staged_α
-.Lx03478_0:
-                        .quad            .Lx03478_0_s
-.Lx03478_0_s:
-                        .string          "writecon"
-#-----------------------------------------------------------------------------------------------------------------------
-n03479_call_proc_staged_α:
-                        lea              rsi, [rbp + 544]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03480_2
-.Lx03480_2:
-                        mov              qword ptr [rbp + 496], rax
-                        mov              qword ptr [rbp + 504], rdx
-                        cmp              eax, 104
-                                                                                        je    n03481_proc_value_α
-                                                                                        jmp   n03481_proc_value_α
-n03479_call_proc_staged_β:
-                                                                                        jmp   n03481_proc_value_α
-.Lx03480_0:
-                        .quad            .Lx03480_0_s
-.Lx03480_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03481_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03482_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 480], rax
-                        mov              qword ptr [rbp + 488], rdx
-                                                                                        jmp   n03483_call_proc_staged_α
-.Lx03482_0:
-                        .quad            .Lx03482_0_s
-.Lx03482_0_s:
-                        .string          "writestr"
-#-----------------------------------------------------------------------------------------------------------------------
-n03483_call_proc_staged_α:
-                        lea              rsi, [rbp + 480]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03484_2
-.Lx03484_2:
-                        mov              qword ptr [rbp + 432], rax
-                        mov              qword ptr [rbp + 440], rdx
-                        cmp              eax, 104
-                                                                                        je    n03485_proc_value_α
-                                                                                        jmp   n03485_proc_value_α
-n03483_call_proc_staged_β:
-                                                                                        jmp   n03485_proc_value_α
-.Lx03484_0:
-                        .quad            .Lx03484_0_s
-.Lx03484_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03485_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03486_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 416], rax
-                        mov              qword ptr [rbp + 424], rdx
-                                                                                        jmp   n03487_call_proc_staged_α
-.Lx03486_0:
-                        .quad            .Lx03486_0_s
-.Lx03486_0_s:
-                        .string          "cxcreate"
-#-----------------------------------------------------------------------------------------------------------------------
-n03487_call_proc_staged_α:
-                        lea              rsi, [rbp + 416]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03488_2
-.Lx03488_2:
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
-                        cmp              eax, 104
-                                                                                        je    n03489_proc_value_α
-                                                                                        jmp   n03489_proc_value_α
-n03487_call_proc_staged_β:
-                                                                                        jmp   n03489_proc_value_α
-.Lx03488_0:
-                        .quad            .Lx03488_0_s
-.Lx03488_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03489_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03490_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 352], rax
-                        mov              qword ptr [rbp + 360], rdx
-                                                                                        jmp   n03491_call_proc_staged_α
-.Lx03490_0:
-                        .quad            .Lx03490_0_s
-.Lx03490_0_s:
-                        .string          "cxget"
-#-----------------------------------------------------------------------------------------------------------------------
-n03491_call_proc_staged_α:
-                        lea              rsi, [rbp + 352]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03492_2
-.Lx03492_2:
-                        mov              qword ptr [rbp + 304], rax
-                        mov              qword ptr [rbp + 312], rdx
-                        cmp              eax, 104
-                                                                                        je    n03493_proc_value_α
-                                                                                        jmp   n03493_proc_value_α
-n03491_call_proc_staged_β:
-                                                                                        jmp   n03493_proc_value_α
-.Lx03492_0:
-                        .quad            .Lx03492_0_s
-.Lx03492_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03493_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03494_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 288], rax
-                        mov              qword ptr [rbp + 296], rdx
-                                                                                        jmp   n03495_call_proc_staged_α
-.Lx03494_0:
-                        .quad            .Lx03494_0_s
-.Lx03494_0_s:
-                        .string          "nothing"
-#-----------------------------------------------------------------------------------------------------------------------
-n03495_call_proc_staged_α:
-                        lea              rsi, [rbp + 288]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03496_2
-.Lx03496_2:
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
-                        cmp              eax, 104
-                                                                                        je    n03497_proc_value_α
-                                                                                        jmp   n03497_proc_value_α
-n03495_call_proc_staged_β:
-                                                                                        jmp   n03497_proc_value_α
-.Lx03496_0:
-                        .quad            .Lx03496_0_s
-.Lx03496_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03497_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03498_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 224], rax
-                        mov              qword ptr [rbp + 232], rdx
-                                                                                        jmp   n03499_call_proc_staged_α
-.Lx03498_0:
-                        .quad            .Lx03498_0_s
-.Lx03498_0_s:
-                        .string          "nothing"
-#-----------------------------------------------------------------------------------------------------------------------
-n03499_call_proc_staged_α:
-                        lea              rsi, [rbp + 224]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03500_2
-.Lx03500_2:
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
-                        cmp              eax, 104
-                                                                                        je    n03501_proc_value_α
-                                                                                        jmp   n03501_proc_value_α
-n03499_call_proc_staged_β:
-                                                                                        jmp   n03501_proc_value_α
-.Lx03500_0:
-                        .quad            .Lx03500_0_s
-.Lx03500_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03501_proc_value_α:
-                        mov              rdi, qword ptr [rip + .Lx03502_0]
-                        call             rt_proc_value@PLT
-                        mov              qword ptr [rbp + 160], rax
-                        mov              qword ptr [rbp + 168], rdx
-                                                                                        jmp   n03503_call_proc_staged_α
-.Lx03502_0:
-                        .quad            .Lx03502_0_s
-.Lx03502_0_s:
-                        .string          "nothing"
-#-----------------------------------------------------------------------------------------------------------------------
-n03503_call_proc_staged_α:
-                        lea              rsi, [rbp + 160]
-                        call             proc_report_dcα
-                                                                                        jmp   .Lx03504_2
-.Lx03504_2:
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
-                        cmp              eax, 104
-                                                                                        je    n03505_keyword_icon_α
-                                                                                        jmp   n03505_keyword_icon_α
-n03503_call_proc_staged_β:
-                                                                                        jmp   n03505_keyword_icon_α
-.Lx03504_0:
-                        .quad            .Lx03504_0_s
-.Lx03504_0_s:
-                        .string          "report"
-#-----------------------------------------------------------------------------------------------------------------------
-n03505_keyword_icon_α:
-                        mov              rdi, qword ptr [rip + .Lx03506_0]               # sval
-                        call             rt_keyword_read@PLT
-                        cmp              eax, 104
-                                                                                        je    main_ω
-                        mov              qword ptr [rbp + 80], rax
-                        mov              qword ptr [rbp + 88], rdx
-                                                                                        jmp   n03507_call_builtin_icon_α
-n03505_keyword_icon_β:
-                                                                                        jmp   main_ω
-.Lx03506_0:
-                        .quad            .Lx03506_0_s
-.Lx03506_0_s:
-                        .string          "&errout"
-#-----------------------------------------------------------------------------------------------------------------------
-n03507_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 80]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              rax, qword ptr [rbp + 88]
-                        mov              qword ptr [rbp + 56], rax
-                        .section         .rodata
-.Lrkfn6023:             .string          "write"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn6023]                        # fn
-                        lea              rsi, [rbp + 48]                                # args
-                        mov              edx, 1                                         # nargs
-                        call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
-                        cmp              eax, 104
-                                                                                        je    main_ω
-                                                                                        jmp   main_γ
-n03507_call_builtin_icon_β:
-                                                                                        jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

@@ -109,13 +109,13 @@ n1_call_builtin_icon_β:
 n2_assign_α:
                         mov              rax, qword ptr [rbp + 336]
                         mov              rdx, qword ptr [rbp + 344]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 432], rax
+                        mov              qword ptr [rbp + 440], rdx
                                                                                         jmp   n3_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_var_ref_α:
                         mov              rax, 4294967336
-                        lea              rdx, [rbp + 32]
+                        lea              rdx, [rbp + 432]
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                                                                                         jmp   n4_lit_string_α
@@ -210,8 +210,8 @@ n10_to_β:
 n11_assign_α:
                         mov              rax, qword ptr [rbp + 80]
                         mov              rdx, qword ptr [rbp + 88]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx
+                        mov              qword ptr [rbp + 416], rax
+                        mov              qword ptr [rbp + 424], rdx
                                                                                         jmp   n12_bound_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_bound_α:
@@ -220,7 +220,7 @@ n12_bound_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_var_ref_α:
                         mov              rax, 4294967336
-                        lea              rdx, [rbp + 32]
+                        lea              rdx, [rbp + 432]
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n14_lit_string_α
@@ -261,8 +261,8 @@ n16_deref_α:
 n17_assign_α:
                         mov              rax, qword ptr [rbp + 240]
                         mov              rdx, qword ptr [rbp + 248]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 400], rax
+                        mov              qword ptr [rbp + 408], rdx
                                                                                         jmp   n18_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n18_unmark_α:
@@ -270,9 +270,9 @@ n18_unmark_α:
                                                                                         jmp   n10_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n19_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 400]
                         mov              qword ptr [rbp + 48], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 408]
                         mov              qword ptr [rbp + 56], rax
                                                                                         jmp   n20_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------

@@ -104,8 +104,8 @@ n2_to_β:
 n3_assign_α:
                         mov              rax, qword ptr [rbp + 96]
                         mov              rdx, qword ptr [rbp + 104]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx
+                        mov              qword ptr [rbp + 272], rax
+                        mov              qword ptr [rbp + 280], rdx
                                                                                         jmp   n4_bound_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_bound_α:
@@ -147,8 +147,8 @@ n7_binop_α:
 n8_assign_α:
                         mov              rax, qword ptr [rbp + 208]
                         mov              rdx, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 256], rax
+                        mov              qword ptr [rbp + 264], rdx
                                                                                         jmp   n9_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_unmark_α:
@@ -156,15 +156,15 @@ n9_unmark_α:
                                                                                         jmp   n2_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 256]
                         mov              qword ptr [rbp + 64], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 264]
                         mov              qword ptr [rbp + 72], rax
                                                                                         jmp   n11_unop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_unop_α:
-                        mov              rdi, qword ptr [rbp + 32]                      # lo
-                        mov              rsi, qword ptr [rbp + 40]                      # hi
+                        mov              rdi, qword ptr [rbp + 256]                     # lo
+                        mov              rsi, qword ptr [rbp + 264]                     # hi
                         call             rt_size_d@PLT
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx

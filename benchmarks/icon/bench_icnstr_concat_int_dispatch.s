@@ -110,8 +110,8 @@ n2_to_β:
 n3_assign_α:
                         mov              rax, qword ptr [rbp + 96]
                         mov              rdx, qword ptr [rbp + 104]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx
+                        mov              qword ptr [rbp + 320], rax
+                        mov              qword ptr [rbp + 328], rdx
                                                                                         jmp   n4_bound_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_bound_α:
@@ -130,9 +130,9 @@ n5_lit_string_α:
                         .string          "abcdefgh"
 #-----------------------------------------------------------------------------------------------------------------------
 n6_var_α:
-                        mov              rax, qword ptr [rbp + 16]
+                        mov              rax, qword ptr [rbp + 320]
                         mov              qword ptr [rbp + 272], rax
-                        mov              rax, qword ptr [rbp + 24]
+                        mov              rax, qword ptr [rbp + 328]
                         mov              qword ptr [rbp + 280], rax
                                                                                         jmp   n7_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -145,7 +145,7 @@ n7_lit_integer_α:
                         .quad            97
 #-----------------------------------------------------------------------------------------------------------------------
 n8_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 16]
+                        mov              eax, dword ptr [rbp + 320]
                         cmp              eax, 5
                                                                                         je    .Lx28_1
                         cmp              eax, 3
@@ -154,13 +154,13 @@ n8_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx28_0
 .Lx28_1:
-                        mov              rax, qword ptr [rbp + 16]
+                        mov              rax, qword ptr [rbp + 320]
                         mov              qword ptr [rbp + 256], rax
-                        mov              rax, qword ptr [rbp + 24]
+                        mov              rax, qword ptr [rbp + 328]
                         mov              qword ptr [rbp + 264], rax
                                                                                         jmp   n9_binop_α
 .Lx28_0:
-                        lea              rdi, [rbp + 16]                                # self
+                        lea              rdi, [rbp + 320]                               # self
                         lea              rsi, [rbp + 288]                               # other
                         lea              rdx, [rbp + 256]                               # out
                         mov              rcx, 0                                         # codes
@@ -192,8 +192,8 @@ n10_binop_α:
 n11_assign_α:
                         mov              rax, qword ptr [rbp + 208]
                         mov              rdx, qword ptr [rbp + 216]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 304], rax
+                        mov              qword ptr [rbp + 312], rdx
                                                                                         jmp   n12_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_unmark_α:
@@ -201,15 +201,15 @@ n12_unmark_α:
                                                                                         jmp   n2_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_var_α:
-                        mov              rax, qword ptr [rbp + 32]
+                        mov              rax, qword ptr [rbp + 304]
                         mov              qword ptr [rbp + 64], rax
-                        mov              rax, qword ptr [rbp + 40]
+                        mov              rax, qword ptr [rbp + 312]
                         mov              qword ptr [rbp + 72], rax
                                                                                         jmp   n14_unop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_unop_α:
-                        mov              rdi, qword ptr [rbp + 32]                      # lo
-                        mov              rsi, qword ptr [rbp + 40]                      # hi
+                        mov              rdi, qword ptr [rbp + 304]                     # lo
+                        mov              rsi, qword ptr [rbp + 312]                     # hi
                         call             rt_size_d@PLT
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx

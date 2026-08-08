@@ -458,8 +458,8 @@ n8_make_list_α:
 n9_assign_α:
                         mov              rax, qword ptr [rbp + 352]
                         mov              rdx, qword ptr [rbp + 360]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rbp + 656], rax
+                        mov              qword ptr [rbp + 664], rdx
                                                                                         jmp   n10_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_lit_integer_α:
@@ -509,8 +509,8 @@ n12_to_β:
 n13_assign_α:
                         mov              rax, qword ptr [rbp + 80]
                         mov              rdx, qword ptr [rbp + 88]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx
+                        mov              qword ptr [rbp + 640], rax
+                        mov              qword ptr [rbp + 648], rdx
                                                                                         jmp   n14_bound_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_bound_α:
@@ -519,15 +519,15 @@ n14_bound_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n15_var_ref_α:
                         mov              rax, 4294967336
-                        lea              rdx, [rbp + 32]
+                        lea              rdx, [rbp + 656]
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n16_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_var_α:
-                        mov              rax, qword ptr [rbp + 16]
+                        mov              rax, qword ptr [rbp + 640]
                         mov              qword ptr [rbp + 272], rax
-                        mov              rax, qword ptr [rbp + 24]
+                        mov              rax, qword ptr [rbp + 648]
                         mov              qword ptr [rbp + 280], rax
                                                                                         jmp   n17_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -540,7 +540,7 @@ n17_lit_integer_α:
                         .quad            8
 #-----------------------------------------------------------------------------------------------------------------------
 n18_coerce_numeric_α:
-                        mov              eax, dword ptr [rbp + 16]
+                        mov              eax, dword ptr [rbp + 640]
                         cmp              eax, 5
                                                                                         je    .Lx53_1
                         cmp              eax, 3
@@ -549,13 +549,13 @@ n18_coerce_numeric_α:
                         cmp              eax, 3
                                                                                         jne   .Lx53_0
 .Lx53_1:
-                        mov              rax, qword ptr [rbp + 16]
+                        mov              rax, qword ptr [rbp + 640]
                         mov              qword ptr [rbp + 256], rax
-                        mov              rax, qword ptr [rbp + 24]
+                        mov              rax, qword ptr [rbp + 648]
                         mov              qword ptr [rbp + 264], rax
                                                                                         jmp   n19_binop_α
 .Lx53_0:
-                        lea              rdi, [rbp + 16]                                # self
+                        lea              rdi, [rbp + 640]                               # self
                         lea              rsi, [rbp + 288]                               # other
                         lea              rdx, [rbp + 256]                               # out
                         mov              rcx, 0                                         # codes
@@ -652,8 +652,8 @@ n24_deref_α:
 n25_assign_α:
                         mov              rax, qword ptr [rbp + 336]
                         mov              rdx, qword ptr [rbp + 344]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 624], rax
+                        mov              qword ptr [rbp + 632], rdx
                                                                                         jmp   n26_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n26_unmark_α:
@@ -661,9 +661,9 @@ n26_unmark_α:
                                                                                         jmp   n12_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n27_var_α:
-                        mov              rax, qword ptr [rbp + 48]
+                        mov              rax, qword ptr [rbp + 624]
                         mov              qword ptr [rbp + 48], rax
-                        mov              rax, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 632]
                         mov              qword ptr [rbp + 56], rax
                                                                                         jmp   n28_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
