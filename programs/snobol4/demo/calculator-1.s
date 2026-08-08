@@ -727,7 +727,6 @@ n100_match_end_α:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 416
                                                                                         jmp   proc_LBL__DRF_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n101_statement_end_α:
