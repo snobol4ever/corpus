@@ -2673,19 +2673,17 @@ proc_item_β:
                                                                                         jmp   qword ptr [rbp + 768]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_item_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 880]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_item_ω:
-                        lea              rsp, [rbp + 880]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT

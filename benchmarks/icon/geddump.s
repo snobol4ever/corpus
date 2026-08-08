@@ -4133,6 +4133,7 @@ n00255_suspend_α:
                         add              rsp, 176
                                                                                         jmp   proc_gedwalk_γ
 n00255_suspend_β:
+                        sub              rsp, 176
                                                                                         jmp   n00256_disjunction_β
 #-----------------------------------------------------------------------------------------------------------------------
 n00260_var_α:
@@ -4260,19 +4261,17 @@ proc_gedwalk_β:
                                                                                         jmp   qword ptr [rbp + 208]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedwalk_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 272]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedwalk_ω:
-                        lea              rsp, [rbp + 272]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
@@ -4763,19 +4762,17 @@ proc_gedsub_β:
                                                                                         jmp   qword ptr [rbp + 672]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedsub_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 768]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedsub_ω:
-                        lea              rsp, [rbp + 768]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
@@ -4942,6 +4939,7 @@ n00304_suspend_α:
                         add              rsp, 128
                                                                                         jmp   proc_gedval_γ
 n00304_suspend_β:
+                        sub              rsp, 128
                                                                                         jmp   n00308_call_value_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedval_res:
@@ -4952,19 +4950,17 @@ proc_gedval_β:
                                                                                         jmp   qword ptr [rbp + 160]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedval_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 224]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedval_ω:
-                        lea              rsp, [rbp + 224]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
@@ -5145,6 +5141,7 @@ n00312_suspend_α:
                         add              rsp, 144
                                                                                         jmp   proc_gedref_γ
 n00312_suspend_β:
+                        sub              rsp, 144
                                                                                         jmp   n00316_call_value_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedref_res:
@@ -5155,19 +5152,17 @@ proc_gedref_β:
                                                                                         jmp   qword ptr [rbp + 176]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedref_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 240]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_gedref_ω:
-                        lea              rsp, [rbp + 240]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT

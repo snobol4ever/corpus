@@ -9618,6 +9618,7 @@ n00755_suspend_α:
                         add              rsp, 64
                                                                                         jmp   proc_susproc_γ
 n00755_suspend_β:
+                        sub              rsp, 64
                                                                                         jmp   n00759_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_susproc_res:
@@ -9628,19 +9629,17 @@ proc_susproc_β:
                                                                                         jmp   qword ptr [rbp + 96]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_susproc_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 160]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_susproc_ω:
-                        lea              rsp, [rbp + 160]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT

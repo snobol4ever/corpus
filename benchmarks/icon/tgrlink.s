@@ -1675,19 +1675,17 @@ proc_kgen_β:
                                                                                         jmp   qword ptr [rbp + 656]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_kgen_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 752]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_kgen_ω:
-                        lea              rsp, [rbp + 752]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
@@ -2606,6 +2604,7 @@ n00099_suspend_α:
                         add              rsp, 272
                                                                                         jmp   proc_aseq_γ
 n00099_suspend_β:
+                        sub              rsp, 272
                                                                                         jmp   n00121_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00121_var_α:
@@ -3006,19 +3005,17 @@ proc_aseq_β:
                                                                                         jmp   qword ptr [rbp + 672]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_aseq_γ:
-                        mov              rdi, qword ptr [rbp + 0]
-                        mov              rsi, qword ptr [rbp + 8]
                         mov              r14, rbp
-                        lea              rsp, [rbp + 768]
                         call             rt_gen_get_gamma_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
                         mov              rbp, rax
+                        mov              rdi, qword ptr [r14 + 0]
+                        mov              rsi, qword ptr [r14 + 8]
                         mov              rax, r14
                                                                                         jmp   r15
 #-----------------------------------------------------------------------------------------------------------------------
 proc_aseq_ω:
-                        lea              rsp, [rbp + 768]
                         call             rt_gen_get_omega_wire@PLT
                         mov              r15, rax
                         call             rt_gen_get_caller_rbp@PLT
