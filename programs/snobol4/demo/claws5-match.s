@@ -812,9 +812,6 @@ n68_match_begin_α:
                         mov              qword ptr [rbp + 432], r13                     # outer_Σ
                         mov              qword ptr [rbp + 440], r14                     # outer_δ
                         mov              qword ptr [rbp + 448], r15                     # outer_Δ
-                        lea              rcx, [rip + g_cap_gen]
-                        mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 456], rax                     # cap_gen
                         mov              qword ptr [rbp + 424], rbp                     # old_rbp
                         call             rt_match_enter@PLT
                         mov              r13, rax
@@ -847,7 +844,6 @@ n68_match_begin_af:
                         mov              r15, qword ptr [rbp + 448]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 456]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 424]                     # old_rbp
                                                                                         jmp   n67_assign_β
@@ -969,7 +965,6 @@ n70_match_end_α:
                         mov              r15, qword ptr [rbp + 448]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 456]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 424]                     # old_rbp
                                                                                         jmp   n71_statement_end_α

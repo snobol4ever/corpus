@@ -1765,9 +1765,6 @@ n105_match_begin_α:
                         mov              qword ptr [rbp + 688], r13                     # outer_Σ
                         mov              qword ptr [rbp + 696], r14                     # outer_δ
                         mov              qword ptr [rbp + 704], r15                     # outer_Δ
-                        lea              rcx, [rip + g_cap_gen]
-                        mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 712], rax                     # cap_gen
                         mov              qword ptr [rbp + 680], rbp                     # old_rbp
                         call             rt_match_enter@PLT
                         mov              r13, rax
@@ -1800,7 +1797,6 @@ n105_match_begin_af:
                         mov              r15, qword ptr [rbp + 704]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 712]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 680]                     # old_rbp
                                                                                         jmp   n104_assign_β
@@ -1922,7 +1918,6 @@ n107_match_end_α:
                         mov              r15, qword ptr [rbp + 704]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 712]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 680]                     # old_rbp
                                                                                         jmp   n108_statement_end_α
