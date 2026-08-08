@@ -1,0 +1,16 @@
+*  H31 [H] FENCE over ALT with capture: JSON key-value (renamed from 152)
+*  subject: '"age":42'
+*  FENCE(str | num | bool) — value rule; FENCE guards alternation, . captures
+*  SPITBOL: k=age s= n=42 b=  (conditional-assign inside FENCE committed)
+        ws     = SPAN(' ') | LEN(0)
+        digits = SPAN('0123456789')
+        str    = '"' BREAK('"') . SVAL '"'
+        num    = digits . NVAL
+        bool   = FENCE('true' | 'false') . BVAL
+        value  = FENCE(str | num | bool)
+        pair   = '"' BREAK('"') . KVAL '"' ws ':' ws value
+        s = '"age":42'
+        s POS(0) pair RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'k=' KVAL ' s=' SVAL ' n=' NVAL ' b=' BVAL   :(END)
+NO      OUTPUT = 'fail'
+END
