@@ -8,6 +8,7 @@ main:
                         call             core_lib_init@PLT
                         mov              r12, qword ptr [0x70000000]
                         xor              esi, esi
+                        xor              r14d, r14d
                         lea              rcx, [rip + .Lmain_zf_γ]
                         lea              rdx, [rip + .Lmain_zf_ω]
                                                                                         jmp   main_α
@@ -35,29 +36,6 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:
-                        sub              rsp, 176
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
                         mov              qword ptr [rbp + 128], 3                       # result
                         mov              rax, qword ptr [rip + .Lx13_0]
                         mov              qword ptr [rbp + 136], rax
@@ -90,10 +68,7 @@ n2_to_α:
                         mov              rax, qword ptr [rbp + 112]
                         mov              rcx, qword ptr [rbp + 152]
                         cmp              rax, rcx
-                                                                                        jle   .Lx16_240
-                        add              rsp, 176
-                                                                                        jmp   n10_var_α
-.Lx16_240:
+                                                                                        jg    n10_var_α
                         mov              qword ptr [rbp + 96], 3
                         mov              qword ptr [rbp + 104], rax
                                                                                         jmp   n3_assign_α

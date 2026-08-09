@@ -8,6 +8,7 @@ main:
                         call             core_lib_init@PLT
                         mov              r12, qword ptr [0x70000000]
                         xor              esi, esi
+                        xor              r14d, r14d
                         lea              rcx, [rip + .Lmain_zf_γ]
                         lea              rdx, [rip + .Lmain_zf_ω]
                                                                                         jmp   main_α
@@ -31,23 +32,14 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_keyword_icon_α:
-                        sub              rsp, 32
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
                         mov              rdi, qword ptr [rip + .Lx2_0]                  # sval
                         call             rt_keyword_read@PLT
                         cmp              eax, 104
-                                                                                        jne   .Lx2_240
-                        add              rsp, 32
-                                                                                        jmp   main_ω
-.Lx2_240:
+                                                                                        je    main_ω
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                                                                                         jmp   n1_call_builtin_icon_α
 n0_keyword_icon_β:
-                        add              rsp, 32
                                                                                         jmp   main_ω
 .Lx2_0:
                         .quad            .Lx2_0_s
@@ -70,14 +62,9 @@ n1_call_builtin_icon_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                         cmp              eax, 104
-                                                                                        jne   .Lx3_240
-                        add              rsp, 32
-                                                                                        jmp   main_ω
-.Lx3_240:
-                        add              rsp, 32
+                                                                                        je    main_ω
                                                                                         jmp   main_γ
 n1_call_builtin_icon_β:
-                        add              rsp, 32
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
