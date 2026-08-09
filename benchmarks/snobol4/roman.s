@@ -2337,8 +2337,53 @@ main_ω:
                         pop              rbp
                         mov              edi, 1
                         call             exit@PLT
+                        .section         .data
+                        .align           8
+fn_cell$ROMAN:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+ROMAN_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 104
+                        mov              rax, qword ptr [1879052288]                    # ROMAN
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052296]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052304]                    # N
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052312]
+                        mov              qword ptr [rbp + -72], rax
+                        mov              qword ptr [rbp + -96], 0
+                        mov              qword ptr [rbp + -88], 0
+                        xor              eax, eax                                       # ROMAN
+                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052296], rax
+                        xor              eax, eax                                       # N
+                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052312], rax
+                        movabs           rcx, 140693635977952
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S3]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   ROMAN_act_γ
+ROMAN_act_β:
+                        lea              rdi, [rip + .S2]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   ROMAN_act_ω
+.Lx336_0:
+                        .quad            .Lx336_0_s
+.Lx336_0_s:
+                        .string          "ROMAN"
                         .section         .rodata
 .S0:                    .string          "T"
 .S1:                    .string          "PATV$0"
+.S2:                    .string          "\2679*>"
+.S3:                    .string          "\233\342\003"
                         .text
                         .section         .note.GNU-stack,"",@progbits

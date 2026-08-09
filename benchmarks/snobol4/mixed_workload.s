@@ -2582,8 +2582,51 @@ main_ω:
                         pop              rbp
                         mov              edi, 1
                         call             exit@PLT
+                        .section         .data
+                        .align           8
+fn_cell$RSUM:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+RSUM_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 88
+                        mov              rax, qword ptr [1879052288]                    # RSUM
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052296]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052304]                    # N
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052312]
+                        mov              qword ptr [rbp + -72], rax
+                        xor              eax, eax                                       # RSUM
+                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052296], rax
+                        xor              eax, eax                                       # N
+                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052312], rax
+                        movabs           rcx, 140256719524576
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S3]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   RSUM_act_γ
+RSUM_act_β:
+                        lea              rdi, [rip + .S2]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   RSUM_act_ω
+.Lx450_0:
+                        .quad            .Lx450_0_s
+.Lx450_0_s:
+                        .string          "RSUM"
                         .section         .rodata
 .S0:                    .string          "WORD"
 .S1:                    .string          "PATV$0"
+.S2:                    .string          "\217?"
+.S3:                    .string          "\377\036\367\003"
                         .text
                         .section         .note.GNU-stack,"",@progbits
