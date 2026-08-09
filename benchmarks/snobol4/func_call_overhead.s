@@ -80,6 +80,11 @@ proc_LBL__INC_β:
                                                                                         jmp   proc_LBL__INC_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__INC_γ:
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__INC_ω:
                         call             rt_flat_ret_snap@PLT
@@ -119,6 +124,11 @@ proc_INC_β:
                                                                                         jmp   proc_INC_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_INC_γ:
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_INC_ω:
                         call             rt_flat_ret_snap@PLT
@@ -1011,6 +1021,8 @@ main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              edi, 1
@@ -1050,7 +1062,7 @@ INC_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 139921160626956
+                        movabs           rax, 139949451218252
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx205_2
@@ -1094,7 +1106,7 @@ INC_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139921160626956
+                        movabs           rax, 139949451218252
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx205_5

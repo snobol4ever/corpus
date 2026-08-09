@@ -141,6 +141,11 @@ proc_LBL__STORE_β:
                                                                                         jmp   proc_LBL__STORE_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__STORE_γ:
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__STORE_ω:
                         call             rt_flat_ret_snap@PLT
@@ -180,6 +185,11 @@ proc_STORE_β:
                                                                                         jmp   proc_STORE_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_STORE_γ:
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_STORE_ω:
                         call             rt_flat_ret_snap@PLT
@@ -1013,7 +1023,7 @@ n97_assign_β:
 n98_match_begin_α:
                         mov              rdi, qword ptr [rsp + 16]                      # var
                         mov              rsi, qword ptr [rsp + 24]
-                        sub              rsp, 48
+                        sub              rsp, 64
                         mov              qword ptr [rbp + -40], r13                     # outer_Σ
                         mov              qword ptr [rbp + -32], r14                     # outer_δ
                         mov              qword ptr [rbp + -24], r15                     # outer_Δ
@@ -1028,14 +1038,14 @@ n98_match_begin_α:
                         mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
                         mov              qword ptr [r12 + 16], 0
                         add              r12, 24                                        # cas_top
-                        mov              qword ptr [rbp + 672], rsp                     # zls2_mark
-                        mov              dword ptr [rbp + 656], 0                       # start_δ
+                        mov              qword ptr [rbp + -56], rsp                     # zls2_mark
+                        mov              dword ptr [rbp + -64], 0                       # start_δ
 .Lx220_0:
-                        mov              r14d, dword ptr [rbp + 656]
+                        mov              r14d, dword ptr [rbp + -64]
                                                                                         jmp   n99_match_defer_α
 n98_match_begin_β:
-                        add              dword ptr [rbp + 656], 1
-                        mov              eax, dword ptr [rbp + 656]
+                        add              dword ptr [rbp + -64], 1
+                        mov              eax, dword ptr [rbp + -64]
                         cmp              eax, r15d
                                                                                         jg    .Lx220_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -1046,7 +1056,7 @@ n98_match_begin_β:
 .Lx220_1:
 n98_match_begin_af:
                         sub              r12, 24                                        # cas_mark
-                        mov              rsp, qword ptr [rbp + 672]
+                        mov              rsp, qword ptr [rbp + -56]
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -1128,7 +1138,7 @@ n100_match_end_α:
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx223_9
-                        mov              rsp, qword ptr [rbp + 672]
+                        mov              rsp, qword ptr [rbp + -56]
                         push             r14
                         push             r15
                         push             r13
@@ -1223,7 +1233,7 @@ n105_assign_β:
 n106_match_begin_α:
                         mov              rdi, qword ptr [rsp + 16]                      # var
                         mov              rsi, qword ptr [rsp + 24]
-                        sub              rsp, 48
+                        sub              rsp, 64
                         mov              qword ptr [rbp + -40], r13                     # outer_Σ
                         mov              qword ptr [rbp + -32], r14                     # outer_δ
                         mov              qword ptr [rbp + -24], r15                     # outer_Δ
@@ -1238,14 +1248,14 @@ n106_match_begin_α:
                         mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
                         mov              qword ptr [r12 + 16], 0
                         add              r12, 24                                        # cas_top
-                        mov              qword ptr [rbp + 816], rsp                     # zls2_mark
-                        mov              dword ptr [rbp + 800], 0                       # start_δ
+                        mov              qword ptr [rbp + -56], rsp                     # zls2_mark
+                        mov              dword ptr [rbp + -64], 0                       # start_δ
 .Lx232_0:
-                        mov              r14d, dword ptr [rbp + 800]
+                        mov              r14d, dword ptr [rbp + -64]
                                                                                         jmp   n107_match_defer_α
 n106_match_begin_β:
-                        add              dword ptr [rbp + 800], 1
-                        mov              eax, dword ptr [rbp + 800]
+                        add              dword ptr [rbp + -64], 1
+                        mov              eax, dword ptr [rbp + -64]
                         cmp              eax, r15d
                                                                                         jg    .Lx232_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -1256,7 +1266,7 @@ n106_match_begin_β:
 .Lx232_1:
 n106_match_begin_af:
                         sub              r12, 24                                        # cas_mark
-                        mov              rsp, qword ptr [rbp + 816]
+                        mov              rsp, qword ptr [rbp + -56]
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -1335,7 +1345,7 @@ n108_match_end_α:
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx235_9
-                        mov              rsp, qword ptr [rbp + 816]
+                        mov              rsp, qword ptr [rbp + -56]
                         push             r14
                         push             r15
                         push             r13
@@ -1871,6 +1881,10 @@ main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
+                        mov              rsp, rbp
+                        pop              rbp
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rsp, rbp
@@ -1905,7 +1919,7 @@ STORE_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rax
-                        movabs           rax, 139755821163276
+                        movabs           rax, 139989462781260
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_2
@@ -1945,7 +1959,7 @@ STORE_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139755821163276
+                        movabs           rax, 139989462781260
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_5
