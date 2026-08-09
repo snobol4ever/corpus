@@ -526,7 +526,7 @@ n93_var_α:
 n94_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]                       # var
                         mov              rsi, qword ptr [rsp + 8]
-                        mov              qword ptr [rsp + 456], rbp                     # old_rbp
+                        mov              qword ptr [rsp + 536], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rsp + 48], r13                      # outer_Σ
                         mov              qword ptr [rsp + 56], r14                      # outer_δ
@@ -6168,7 +6168,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 1
@@ -6187,7 +6187,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 1
@@ -6206,7 +6206,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 1
@@ -6225,7 +6225,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 1
@@ -6244,7 +6244,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
                         mov              esi, 1
@@ -6263,7 +6263,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
                         mov              esi, 1
@@ -6282,7 +6282,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
                         mov              esi, 1
@@ -6301,7 +6301,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
-                        mov              esi, 4720
+                        mov              esi, 5024
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
                         mov              esi, 1
@@ -8795,13 +8795,13 @@ n964_assign_β:
 n965_match_begin_α:
                         mov              rdi, qword ptr [rsp + 16]                      # var
                         mov              rsi, qword ptr [rsp + 24]
-                        mov              qword ptr [rbp + 4400], r13                    # outer_Σ
-                        mov              qword ptr [rbp + 4408], r14                    # outer_δ
-                        mov              qword ptr [rbp + 4416], r15                    # outer_Δ
+                        mov              qword ptr [rbp + 4704], r13                    # outer_Σ
+                        mov              qword ptr [rbp + 4712], r14                    # outer_δ
+                        mov              qword ptr [rbp + 4720], r15                    # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 4424], rax                    # cap_gen
-                        mov              qword ptr [rbp + 4392], rbp                    # old_rbp
+                        mov              qword ptr [rbp + 4728], rax                    # cap_gen
+                        mov              qword ptr [rbp + 4696], rbp                    # old_rbp
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -8809,14 +8809,14 @@ n965_match_begin_α:
                         mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
                         mov              qword ptr [r12 + 16], 0
                         add              r12, 24                                        # cas_top
-                        mov              qword ptr [rbp + 4368], rsp                    # zls2_mark
-                        mov              dword ptr [rbp + 4352], 0                      # start_δ
+                        mov              qword ptr [rbp + 4672], rsp                    # zls2_mark
+                        mov              dword ptr [rbp + 4656], 0                      # start_δ
 .Lx1524_0:
-                        mov              r14d, dword ptr [rbp + 4352]
+                        mov              r14d, dword ptr [rbp + 4656]
                                                                                         jmp   n966_match_defer_α
 n965_match_begin_β:
-                        add              dword ptr [rbp + 4352], 1
-                        mov              eax, dword ptr [rbp + 4352]
+                        add              dword ptr [rbp + 4656], 1
+                        mov              eax, dword ptr [rbp + 4656]
                         cmp              eax, r15d
                                                                                         jg    .Lx1524_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -8827,15 +8827,15 @@ n965_match_begin_β:
 .Lx1524_1:
 n965_match_begin_af:
                         sub              r12, 24                                        # cas_mark
-                        mov              rsp, qword ptr [rbp + 4368]
-                        mov              r13, qword ptr [rbp + 4400]                    # outer_Σ
-                        mov              r14, qword ptr [rbp + 4408]                    # outer_δ
-                        mov              r15, qword ptr [rbp + 4416]                    # outer_Δ
+                        mov              rsp, qword ptr [rbp + 4672]
+                        mov              r13, qword ptr [rbp + 4704]                    # outer_Σ
+                        mov              r14, qword ptr [rbp + 4712]                    # outer_δ
+                        mov              r15, qword ptr [rbp + 4720]                    # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 4424]                    # cap_gen
+                        mov              rdx, qword ptr [rbp + 4728]                    # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 4392]                    # old_rbp
+                        mov              rbp, qword ptr [rbp + 4696]                    # old_rbp
                                                                                         jmp   n964_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n966_match_defer_α:
@@ -8851,7 +8851,7 @@ n966_match_defer_α:
 .Lx1525_4:
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rbp + 4352], eax
+                        mov              dword ptr [rbp + 4656], eax
                                                                                         jmp   n967_match_end_α
 .Lx1525_5:
                                                                                         jmp   n965_match_begin_β
@@ -8909,7 +8909,7 @@ n967_match_end_α:
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1527_9
-                        mov              rsp, qword ptr [rbp + 4368]
+                        mov              rsp, qword ptr [rbp + 4672]
                         push             r14
                         push             r15
                         push             r13
@@ -8950,13 +8950,13 @@ n967_match_end_α:
                         pop              r15
                         pop              r14
                         sub              r12, 24                                        # cas_mark
-                        mov              r13, qword ptr [rbp + 4400]                    # outer_Σ
-                        mov              r14, qword ptr [rbp + 4408]                    # outer_δ
-                        mov              r15, qword ptr [rbp + 4416]                    # outer_Δ
+                        mov              r13, qword ptr [rbp + 4704]                    # outer_Σ
+                        mov              r14, qword ptr [rbp + 4712]                    # outer_δ
+                        mov              r15, qword ptr [rbp + 4720]                    # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 4392]                    # old_rbp
+                        mov              rbp, qword ptr [rbp + 4696]                    # old_rbp
                                                                                         jmp   n968_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n968_statement_end_α:
@@ -12281,6 +12281,313 @@ main_ω:
                         pop              rbp
                         mov              edi, 1
                         call             exit@PLT
+                        .section         .data
+                        .align           8
+fn_cell$EMIT:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+EMIT_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 72
+                        mov              rax, qword ptr [1879052288]                    # EMIT
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052296]
+                        mov              qword ptr [rbp + -56], rax
+                        xor              eax, eax
+                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052296], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   EMIT_act_γ
+EMIT_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   EMIT_act_ω
+.Lx1863_0:
+                        .quad            .Lx1863_0_s
+.Lx1863_0_s:
+                        .string          "EMIT"
+                        .section         .data
+                        .align           8
+fn_cell$PSH:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+PSH_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 72
+                        mov              rax, qword ptr [1879052304]                    # PSH
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052312]
+                        mov              qword ptr [rbp + -56], rax
+                        xor              eax, eax
+                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052312], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   PSH_act_γ
+PSH_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   PSH_act_ω
+.Lx1864_0:
+                        .quad            .Lx1864_0_s
+.Lx1864_0_s:
+                        .string          "PSH"
+                        .section         .data
+                        .align           8
+fn_cell$DRF:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+DRF_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 88
+                        mov              rax, qword ptr [1879052320]                    # DRF
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052328]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052336]                    # nm
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052344]
+                        mov              qword ptr [rbp + -72], rax
+                        xor              eax, eax                                       # DRF
+                        mov              qword ptr [1879052320], rax
+                        mov              qword ptr [1879052328], rax
+                        xor              eax, eax                                       # nm
+                        mov              qword ptr [1879052336], rax
+                        mov              qword ptr [1879052344], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   DRF_act_γ
+DRF_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   DRF_act_ω
+.Lx1865_0:
+                        .quad            .Lx1865_0_s
+.Lx1865_0_s:
+                        .string          "DRF"
+                        .section         .data
+                        .align           8
+fn_cell$ADD:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+ADD_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 88
+                        mov              rax, qword ptr [1879052352]                    # ADD
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052360]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052368]                    # p1
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052376]
+                        mov              qword ptr [rbp + -72], rax
+                        xor              eax, eax                                       # ADD
+                        mov              qword ptr [1879052352], rax
+                        mov              qword ptr [1879052360], rax
+                        xor              eax, eax                                       # p1
+                        mov              qword ptr [1879052368], rax
+                        mov              qword ptr [1879052376], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   ADD_act_γ
+ADD_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   ADD_act_ω
+.Lx1866_0:
+                        .quad            .Lx1866_0_s
+.Lx1866_0_s:
+                        .string          "ADD"
+                        .section         .data
+                        .align           8
+fn_cell$SUB:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+SUB_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 88
+                        mov              rax, qword ptr [1879052384]                    # SUB
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052392]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052368]                    # p1
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052376]
+                        mov              qword ptr [rbp + -72], rax
+                        xor              eax, eax                                       # SUB
+                        mov              qword ptr [1879052384], rax
+                        mov              qword ptr [1879052392], rax
+                        xor              eax, eax                                       # p1
+                        mov              qword ptr [1879052368], rax
+                        mov              qword ptr [1879052376], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   SUB_act_γ
+SUB_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   SUB_act_ω
+.Lx1867_0:
+                        .quad            .Lx1867_0_s
+.Lx1867_0_s:
+                        .string          "SUB"
+                        .section         .data
+                        .align           8
+fn_cell$MUL:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+MUL_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 88
+                        mov              rax, qword ptr [1879052400]                    # MUL
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052408]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052368]                    # p1
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052376]
+                        mov              qword ptr [rbp + -72], rax
+                        xor              eax, eax                                       # MUL
+                        mov              qword ptr [1879052400], rax
+                        mov              qword ptr [1879052408], rax
+                        xor              eax, eax                                       # p1
+                        mov              qword ptr [1879052368], rax
+                        mov              qword ptr [1879052376], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   MUL_act_γ
+MUL_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   MUL_act_ω
+.Lx1868_0:
+                        .quad            .Lx1868_0_s
+.Lx1868_0_s:
+                        .string          "MUL"
+                        .section         .data
+                        .align           8
+fn_cell$DIV:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+DIV_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 88
+                        mov              rax, qword ptr [1879052416]                    # DIV
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052424]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052368]                    # p1
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052376]
+                        mov              qword ptr [rbp + -72], rax
+                        xor              eax, eax                                       # DIV
+                        mov              qword ptr [1879052416], rax
+                        mov              qword ptr [1879052424], rax
+                        xor              eax, eax                                       # p1
+                        mov              qword ptr [1879052368], rax
+                        mov              qword ptr [1879052376], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   DIV_act_γ
+DIV_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   DIV_act_ω
+.Lx1869_0:
+                        .quad            .Lx1869_0_s
+.Lx1869_0_s:
+                        .string          "DIV"
+                        .section         .data
+                        .align           8
+fn_cell$NEG:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+NEG_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 72
+                        mov              rax, qword ptr [1879052432]                    # NEG
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052440]
+                        mov              qword ptr [rbp + -56], rax
+                        xor              eax, eax
+                        mov              qword ptr [1879052432], rax
+                        mov              qword ptr [1879052440], rax
+                        movabs           rcx, 139984054112992
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S20]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   NEG_act_γ
+NEG_act_β:
+                        lea              rdi, [rip + .S19]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   NEG_act_ω
+.Lx1870_0:
+                        .quad            .Lx1870_0_s
+.Lx1870_0_s:
+                        .string          "NEG"
                         .section         .rodata
 .S0:                    .string          "*PSH"
 .S1:                    .string          "X"
@@ -12301,6 +12608,8 @@ main_ω:
 .S16:                   .string          "PAT$7$V2"
 .S17:                   .string          "*EMIT"
 .S18:                   .string          "PATV$0"
+.S19:                   .string          "\360\325N\003"
+.S20:                   .string          "\025nO\003"
                         .text
                         .section         .rodata
 .C0:

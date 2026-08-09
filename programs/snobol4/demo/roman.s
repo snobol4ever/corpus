@@ -1231,7 +1231,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1280
+                        mov              esi, 1344
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 1
@@ -1250,7 +1250,7 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 1280
+                        mov              esi, 1344
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 1
@@ -3044,8 +3044,96 @@ main_ω:
                         pop              rbp
                         mov              edi, 1
                         call             exit@PLT
+                        .section         .data
+                        .align           8
+fn_cell$ROMAN:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+ROMAN_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 104
+                        mov              rax, qword ptr [1879052288]                    # ROMAN
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052296]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052304]                    # N
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052312]
+                        mov              qword ptr [rbp + -72], rax
+                        mov              qword ptr [rbp + -96], 0
+                        mov              qword ptr [rbp + -88], 0
+                        xor              eax, eax                                       # ROMAN
+                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052296], rax
+                        xor              eax, eax                                       # N
+                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052312], rax
+                        movabs           rcx, 139694359827168
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S3]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   ROMAN_act_γ
+ROMAN_act_β:
+                        lea              rdi, [rip + .S2]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   ROMAN_act_ω
+.Lx429_0:
+                        .quad            .Lx429_0_s
+.Lx429_0_s:
+                        .string          "ROMAN"
+                        .section         .data
+                        .align           8
+fn_cell$TEST:
+                        .quad            rt_ab_undef_fn_stub
+                        .section         .text
+                        .intel_syntax    noprefix
+TEST_act_α:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 104
+                        mov              rax, qword ptr [1879052336]                    # TEST
+                        mov              qword ptr [rbp + -64], rax
+                        mov              rax, qword ptr [1879052344]
+                        mov              qword ptr [rbp + -56], rax
+                        mov              rax, qword ptr [1879052352]                    # I
+                        mov              qword ptr [rbp + -80], rax
+                        mov              rax, qword ptr [1879052360]
+                        mov              qword ptr [rbp + -72], rax
+                        mov              qword ptr [rbp + -96], 0
+                        mov              qword ptr [rbp + -88], 0
+                        xor              eax, eax                                       # TEST
+                        mov              qword ptr [1879052336], rax
+                        mov              qword ptr [1879052344], rax
+                        xor              eax, eax                                       # I
+                        mov              qword ptr [1879052352], rax
+                        mov              qword ptr [1879052360], rax
+                        movabs           rcx, 139694359827168
+                        mov              rax, qword ptr [rcx + 0]
+                        add              rax, 1
+                        mov              qword ptr [rcx + 0], rax
+                        lea              rdi, [rip + .S3]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   TEST_act_γ
+TEST_act_β:
+                        lea              rdi, [rip + .S2]
+                        call             rt_bomb@PLT
+                        ud2
+                                                                                        jmp   TEST_act_ω
+.Lx430_0:
+                        .quad            .Lx430_0_s
+.Lx430_0_s:
+                        .string          "TEST"
                         .section         .rodata
 .S0:                    .string          "UNITS"
 .S1:                    .string          "PATV$0"
+.S2:                    .string          "\3578"
+.S3:                    .string          ",\370\216\003"
                         .text
                         .section         .note.GNU-stack,"",@progbits
