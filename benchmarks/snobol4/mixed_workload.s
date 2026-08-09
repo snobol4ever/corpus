@@ -2619,7 +2619,7 @@ RSUM_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140392405372236
+                        movabs           rax, 140512224066892
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx453_2
@@ -2663,7 +2663,7 @@ RSUM_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140392405372236
+                        movabs           rax, 140512224066892
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx453_5

@@ -87,9 +87,13 @@ n4_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n2_match_begin_β
+                                                                                        je    .Lx41_240
+                        add              rsp, 16
+                                                                                        jmp   n2_match_begin_β
+.Lx41_240:
                                                                                         jmp   n5_match_assign_save_α
 n4_match_rpos_β:
+                        add              rsp, 16
                                                                                         jmp   n2_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_assign_save_α:
@@ -1682,9 +1686,13 @@ n159_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n157_match_begin_β
+                                                                                        je    .Lx288_240
+                        add              rsp, 16
+                                                                                        jmp   n157_match_begin_β
+.Lx288_240:
                                                                                         jmp   n160_match_assign_save_α
 n159_match_rpos_β:
+                        add              rsp, 16
                                                                                         jmp   n157_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n160_match_assign_save_α:
@@ -2397,7 +2405,7 @@ ROMAN_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140276441255244
+                        movabs           rax, 139653180276044
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx339_2
@@ -2441,7 +2449,7 @@ ROMAN_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140276441255244
+                        movabs           rax, 139653180276044
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx339_5
