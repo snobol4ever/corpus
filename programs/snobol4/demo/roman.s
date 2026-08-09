@@ -3070,7 +3070,7 @@ ROMAN_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rcx, 139694359827168
+                        movabs           rcx, 140406609277600
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -3113,7 +3113,7 @@ TEST_act_α:
                         xor              eax, eax                                       # I
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rax
-                        movabs           rcx, 139694359827168
+                        movabs           rcx, 140406609277600
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -3133,7 +3133,7 @@ TEST_act_β:
                         .section         .rodata
 .S0:                    .string          "UNITS"
 .S1:                    .string          "PATV$0"
-.S2:                    .string          "\3578"
-.S3:                    .string          ",\370\216\003"
+.S2:                    .string          "%\005\002"
+.S3:                    .string          "\342%P "
                         .text
                         .section         .note.GNU-stack,"",@progbits
