@@ -57,10 +57,12 @@ for f in "$DIR"/*.sno; do
     o=$(timeout 15s "$SBL" -b "$f" 2>/dev/null | tr '\n' '|')
 
     if [ "$MODE" = "compile" ]; then
-        s=$(timeout 60s bash -c '"$0" --compile "$1" -o "$2" </dev/null >/dev/null 2>&1 && "$2" </dev/null 2>/dev/null' \
-              "$SCRIP" "$f" "$TMP/a.out" 2>/dev/null | tr '\n' '|')
-        timeout 60s bash -c '"$0" --compile "$1" -o "$2" </dev/null >/dev/null 2>&1 && "$2" </dev/null >/dev/null 2>&1' \
-              "$SCRIP" "$f" "$TMP/a.out" 2>"$TMP/sh.err"
+        RTOUT="$(dirname "$SCRIP")/out"
+        rm -f "$TMP/a.out" "$TMP/a.out.s"
+        s=$(timeout 60s bash -c '"$0" --compile -o "$2.s" "$1" </dev/null >/dev/null 2>&1 && [ -s "$2.s" ] && gcc "$2.s" -no-pie -L "$3" -lscrip_rt -Wl,-rpath,"$3" -o "$2" 2>/dev/null && LD_LIBRARY_PATH="$3" "$2" </dev/null 2>/dev/null' \
+              "$SCRIP" "$f" "$TMP/a.out" "$RTOUT" 2>/dev/null | tr '\n' '|')
+        timeout 60s bash -c '[ -x "$1" ] && LD_LIBRARY_PATH="$2" "$1" </dev/null >/dev/null 2>&1' \
+              sh "$TMP/a.out" "$RTOUT" 2>"$TMP/sh.err"
     else
         s=$(timeout 15s bash -c '"$0" --run "$1" < /dev/null 2>/dev/null' "$SCRIP" "$f" 2>/dev/null | tr '\n' '|')
         timeout 15s bash -c '"$0" --run "$1" < /dev/null >/dev/null 2>&1' "$SCRIP" "$f" 2>"$TMP/sh.err"

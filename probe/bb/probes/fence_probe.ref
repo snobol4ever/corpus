@@ -1,0 +1,14 @@
+T1-plain: MATCH
+T1-fence: FAIL
+T2-plain: MATCH
+T2-fence: FAIL
+T3-plain: MATCH
+T3-fence: FAIL
+T4-plain: MATCH
+T4-fence: MATCH
+T5-plain: MATCH
+T5-fence: MATCH
+T6-plain: MATCH
+T6-fence: FAIL
+T7-fence: MATCH C1=a C2=bc
+T8-fence: MATCH
