@@ -1,0 +1,11 @@
+        P = LEN(1)
+        I = 1
+LOOP    'abcde' ? *P $ V                      :F(NO)
+        OUTPUT = V
+        P = LEN(1) LEN(1) LEN(1) LEN(1)
+        I = I + 1
+        LE(I,2)                               :S(LOOP)
+        OUTPUT = '=S'                         :(EN)
+NO      OUTPUT = '=F'
+EN
+END
