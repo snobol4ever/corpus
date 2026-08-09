@@ -5282,7 +5282,7 @@ n367_assign_β:
 n368_match_begin_α:
                         mov              rdi, qword ptr [rsp + 16]                      # var
                         mov              rsi, qword ptr [rsp + 24]
-                        sub              rsp, 48
+                        sub              rsp, 64
                         mov              qword ptr [rbp + -40], r13                     # outer_Σ
                         mov              qword ptr [rbp + -32], r14                     # outer_δ
                         mov              qword ptr [rbp + -24], r15                     # outer_Δ
@@ -5297,14 +5297,14 @@ n368_match_begin_α:
                         mov              qword ptr [r12 + 8], rsp                       # cas_rsp_mark
                         mov              qword ptr [r12 + 16], 0
                         add              r12, 24                                        # cas_top
-                        mov              qword ptr [rbp + 1424], rsp                    # zls2_mark
-                        mov              dword ptr [rbp + 1408], 0                      # start_δ
+                        mov              qword ptr [rbp + -56], rsp                     # zls2_mark
+                        mov              dword ptr [rbp + -64], 0                       # start_δ
 .Lx557_0:
-                        mov              r14d, dword ptr [rbp + 1408]
+                        mov              r14d, dword ptr [rbp + -64]
                                                                                         jmp   n369_match_defer_α
 n368_match_begin_β:
-                        add              dword ptr [rbp + 1408], 1
-                        mov              eax, dword ptr [rbp + 1408]
+                        add              dword ptr [rbp + -64], 1
+                        mov              eax, dword ptr [rbp + -64]
                         cmp              eax, r15d
                                                                                         jg    .Lx557_1
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
@@ -5315,7 +5315,7 @@ n368_match_begin_β:
 .Lx557_1:
 n368_match_begin_af:
                         sub              r12, 24                                        # cas_mark
-                        mov              rsp, qword ptr [rbp + 1424]
+                        mov              rsp, qword ptr [rbp + -56]
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -5397,7 +5397,7 @@ n370_match_end_α:
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx560_9
-                        mov              rsp, qword ptr [rbp + 1424]
+                        mov              rsp, qword ptr [rbp + -56]
                         push             r14
                         push             r15
                         push             r13
@@ -5579,6 +5579,10 @@ main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
+                        mov              rsp, rbp
+                        pop              rbp
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rsp, rbp
