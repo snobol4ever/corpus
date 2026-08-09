@@ -3965,6 +3965,7 @@ n591_match_assign_cond_α:
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n591_match_assign_cond_β:
                         sub              r12, 24
@@ -4093,6 +4094,7 @@ n602_match_assign_cond_α:
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$1_scanhit
 n602_match_assign_cond_β:
                         sub              r12, 24
@@ -5819,6 +5821,7 @@ n731_match_value_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n732_match_fence1_α:
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$6_scanhit
 n732_match_fence1_β:
                                                                                         jmp   proc_PAT$6_scanfail
@@ -5971,6 +5974,7 @@ n744_match_rpos_α:
                         add              rsp, 16
                                                                                         jmp   n742_match_arbno_β
 .Lx755_240:
+                        add              rsp, 48
                                                                                         jmp   proc_PAT$7_scanhit
 #-----------------------------------------------------------------------------------------------------------------------
 n745_match_defer_α:
@@ -12494,15 +12498,14 @@ EMIT_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1887_2
                         mov              rdi, qword ptr [rip + .Lx1887_0]
                         call             mon_emit_call_bin@PLT
 .Lx1887_2:
-                        mov              rax, qword ptr [rip + fn_cell$EMIT@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_EMIT_α
                                                                                         jmp   EMIT_act_γ
 .Lx1887_1:
                         movzx            r9, cl
@@ -12534,7 +12537,7 @@ EMIT_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1887_5
@@ -12585,15 +12588,14 @@ PSH_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1888_2
                         mov              rdi, qword ptr [rip + .Lx1888_0]
                         call             mon_emit_call_bin@PLT
 .Lx1888_2:
-                        mov              rax, qword ptr [rip + fn_cell$PSH@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_PSH_α
                                                                                         jmp   PSH_act_γ
 .Lx1888_1:
                         movzx            r9, cl
@@ -12625,7 +12627,7 @@ PSH_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1888_5
@@ -12683,15 +12685,14 @@ DRF_act_α:
                         xor              eax, eax                                       # nm
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1889_2
                         mov              rdi, qword ptr [rip + .Lx1889_0]
                         call             mon_emit_call_bin@PLT
 .Lx1889_2:
-                        mov              rax, qword ptr [rip + fn_cell$DRF@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_DRF_α
                                                                                         jmp   DRF_act_γ
 .Lx1889_1:
                         movzx            r9, cl
@@ -12727,7 +12728,7 @@ DRF_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1889_5
@@ -12785,15 +12786,14 @@ ADD_act_α:
                         xor              eax, eax                                       # p1
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1890_2
                         mov              rdi, qword ptr [rip + .Lx1890_0]
                         call             mon_emit_call_bin@PLT
 .Lx1890_2:
-                        mov              rax, qword ptr [rip + fn_cell$ADD@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_ADD_α
                                                                                         jmp   ADD_act_γ
 .Lx1890_1:
                         movzx            r9, cl
@@ -12829,7 +12829,7 @@ ADD_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1890_5
@@ -12887,15 +12887,14 @@ SUB_act_α:
                         xor              eax, eax                                       # p1
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1891_2
                         mov              rdi, qword ptr [rip + .Lx1891_0]
                         call             mon_emit_call_bin@PLT
 .Lx1891_2:
-                        mov              rax, qword ptr [rip + fn_cell$SUB@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_SUB_α
                                                                                         jmp   SUB_act_γ
 .Lx1891_1:
                         movzx            r9, cl
@@ -12931,7 +12930,7 @@ SUB_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1891_5
@@ -12989,15 +12988,14 @@ MUL_act_α:
                         xor              eax, eax                                       # p1
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1892_2
                         mov              rdi, qword ptr [rip + .Lx1892_0]
                         call             mon_emit_call_bin@PLT
 .Lx1892_2:
-                        mov              rax, qword ptr [rip + fn_cell$MUL@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_MUL_α
                                                                                         jmp   MUL_act_γ
 .Lx1892_1:
                         movzx            r9, cl
@@ -13033,7 +13031,7 @@ MUL_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1892_5
@@ -13091,15 +13089,14 @@ DIV_act_α:
                         xor              eax, eax                                       # p1
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1893_2
                         mov              rdi, qword ptr [rip + .Lx1893_0]
                         call             mon_emit_call_bin@PLT
 .Lx1893_2:
-                        mov              rax, qword ptr [rip + fn_cell$DIV@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_DIV_α
                                                                                         jmp   DIV_act_γ
 .Lx1893_1:
                         movzx            r9, cl
@@ -13135,7 +13132,7 @@ DIV_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1893_5
@@ -13186,15 +13183,14 @@ NEG_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052432], rax
                         mov              qword ptr [1879052440], rax
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1894_2
                         mov              rdi, qword ptr [rip + .Lx1894_0]
                         call             mon_emit_call_bin@PLT
 .Lx1894_2:
-                        mov              rax, qword ptr [rip + fn_cell$NEG@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_NEG_α
                                                                                         jmp   NEG_act_γ
 .Lx1894_1:
                         movzx            r9, cl
@@ -13226,7 +13222,7 @@ NEG_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139882623384972
+                        movabs           rax, 140557042310540
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx1894_5

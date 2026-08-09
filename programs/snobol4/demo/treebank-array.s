@@ -8503,6 +8503,7 @@ n1369_match_assign_cond_α:
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanhit
 n1369_match_assign_cond_β:
                         sub              r12, 24
@@ -8620,6 +8621,7 @@ n1377_match_span_α:
 .Lx1379_240:
                         mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n1377_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]
@@ -8745,6 +8747,7 @@ n1383_match_break_α:
 .Lx1386_1:
                         mov              dword ptr [rsp + 0], r14d
                         mov              r14d, ecx
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$2_scanhit
 n1383_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
@@ -9186,6 +9189,7 @@ n1399_match_lit_α:
                         cmp              eax, 41
                                                                                         jne   n1398_match_value_β
                         add              r14d, 1
+                        add              rsp, 96
                                                                                         jmp   proc_PAT$3_scanhit
 n1399_match_lit_β:
                         sub              r14d, 1
@@ -9773,6 +9777,7 @@ n1451_match_assign_cond_α:
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$4_scanhit
 n1451_match_assign_cond_β:
                         sub              r12, 24
@@ -20621,15 +20626,14 @@ stk_push_frame_act_α:
                         xor              eax, eax                                       # v
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3320_2
                         mov              rdi, qword ptr [rip + .Lx3320_0]
                         call             mon_emit_call_bin@PLT
 .Lx3320_2:
-                        mov              rax, qword ptr [rip + fn_cell$stk_push_frame@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_stk_push_frame_α
                                                                                         jmp   stk_push_frame_act_γ
 .Lx3320_1:
                         movzx            r9, cl
@@ -20665,7 +20669,7 @@ stk_push_frame_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3320_5
@@ -20725,15 +20729,14 @@ stk_push_item_act_α:
                         xor              eax, eax                                       # v
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3321_2
                         mov              rdi, qword ptr [rip + .Lx3321_0]
                         call             mon_emit_call_bin@PLT
 .Lx3321_2:
-                        mov              rax, qword ptr [rip + fn_cell$stk_push_item@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_stk_push_item_α
                                                                                         jmp   stk_push_item_act_γ
 .Lx3321_1:
                         movzx            r9, cl
@@ -20769,7 +20772,7 @@ stk_push_item_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3321_5
@@ -20831,15 +20834,14 @@ stk_pop_into_parent_act_α:
                         xor              eax, eax                                       # child
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3322_2
                         mov              rdi, qword ptr [rip + .Lx3322_0]
                         call             mon_emit_call_bin@PLT
 .Lx3322_2:
-                        mov              rax, qword ptr [rip + fn_cell$stk_pop_into_parent@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_stk_pop_into_parent_α
                                                                                         jmp   stk_pop_into_parent_act_γ
 .Lx3322_1:
                         movzx            r9, cl
@@ -20875,7 +20877,7 @@ stk_pop_into_parent_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3322_5
@@ -20935,15 +20937,14 @@ stk_pop_final_act_α:
                         xor              eax, eax                                       # var
                         mov              qword ptr [1879052432], rax
                         mov              qword ptr [1879052440], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3323_2
                         mov              rdi, qword ptr [rip + .Lx3323_0]
                         call             mon_emit_call_bin@PLT
 .Lx3323_2:
-                        mov              rax, qword ptr [rip + fn_cell$stk_pop_final@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_stk_pop_final_α
                                                                                         jmp   stk_pop_final_act_γ
 .Lx3323_1:
                         movzx            r9, cl
@@ -20979,7 +20980,7 @@ stk_pop_final_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3323_5
@@ -21037,15 +21038,14 @@ init_list_act_α:
                         xor              eax, eax                                       # v
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3324_2
                         mov              rdi, qword ptr [rip + .Lx3324_0]
                         call             mon_emit_call_bin@PLT
 .Lx3324_2:
-                        mov              rax, qword ptr [rip + fn_cell$init_list@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_init_list_α
                                                                                         jmp   init_list_act_γ
 .Lx3324_1:
                         movzx            r9, cl
@@ -21081,7 +21081,7 @@ init_list_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3324_5
@@ -21139,15 +21139,14 @@ Init_list_act_α:
                         xor              eax, eax                                       # vs
                         mov              qword ptr [1879052480], rax
                         mov              qword ptr [1879052488], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3325_2
                         mov              rdi, qword ptr [rip + .Lx3325_0]
                         call             mon_emit_call_bin@PLT
 .Lx3325_2:
-                        mov              rax, qword ptr [rip + fn_cell$Init_list@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_Init_list_α
                                                                                         jmp   Init_list_act_γ
 .Lx3325_1:
                         movzx            r9, cl
@@ -21183,7 +21182,7 @@ Init_list_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3325_5
@@ -21241,15 +21240,14 @@ push_list_act_α:
                         xor              eax, eax                                       # v
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3326_2
                         mov              rdi, qword ptr [rip + .Lx3326_0]
                         call             mon_emit_call_bin@PLT
 .Lx3326_2:
-                        mov              rax, qword ptr [rip + fn_cell$push_list@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_push_list_α
                                                                                         jmp   push_list_act_γ
 .Lx3326_1:
                         movzx            r9, cl
@@ -21285,7 +21283,7 @@ push_list_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3326_5
@@ -21343,15 +21341,14 @@ Push_list_act_α:
                         xor              eax, eax                                       # vs
                         mov              qword ptr [1879052480], rax
                         mov              qword ptr [1879052488], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3327_2
                         mov              rdi, qword ptr [rip + .Lx3327_0]
                         call             mon_emit_call_bin@PLT
 .Lx3327_2:
-                        mov              rax, qword ptr [rip + fn_cell$Push_list@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_Push_list_α
                                                                                         jmp   Push_list_act_γ
 .Lx3327_1:
                         movzx            r9, cl
@@ -21387,7 +21384,7 @@ Push_list_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3327_5
@@ -21445,15 +21442,14 @@ push_item_act_α:
                         xor              eax, eax                                       # v
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3328_2
                         mov              rdi, qword ptr [rip + .Lx3328_0]
                         call             mon_emit_call_bin@PLT
 .Lx3328_2:
-                        mov              rax, qword ptr [rip + fn_cell$push_item@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_push_item_α
                                                                                         jmp   push_item_act_γ
 .Lx3328_1:
                         movzx            r9, cl
@@ -21489,7 +21485,7 @@ push_item_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3328_5
@@ -21547,15 +21543,14 @@ Push_item_act_α:
                         xor              eax, eax                                       # vs
                         mov              qword ptr [1879052480], rax
                         mov              qword ptr [1879052488], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3329_2
                         mov              rdi, qword ptr [rip + .Lx3329_0]
                         call             mon_emit_call_bin@PLT
 .Lx3329_2:
-                        mov              rax, qword ptr [rip + fn_cell$Push_item@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_Push_item_α
                                                                                         jmp   Push_item_act_γ
 .Lx3329_1:
                         movzx            r9, cl
@@ -21591,7 +21586,7 @@ Push_item_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3329_5
@@ -21642,15 +21637,14 @@ pop_list_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052560], rax
                         mov              qword ptr [1879052568], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3330_2
                         mov              rdi, qword ptr [rip + .Lx3330_0]
                         call             mon_emit_call_bin@PLT
 .Lx3330_2:
-                        mov              rax, qword ptr [rip + fn_cell$pop_list@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_pop_list_α
                                                                                         jmp   pop_list_act_γ
 .Lx3330_1:
                         movzx            r9, cl
@@ -21682,7 +21676,7 @@ pop_list_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3330_5
@@ -21733,15 +21727,14 @@ Pop_list_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052576], rax
                         mov              qword ptr [1879052584], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3331_2
                         mov              rdi, qword ptr [rip + .Lx3331_0]
                         call             mon_emit_call_bin@PLT
 .Lx3331_2:
-                        mov              rax, qword ptr [rip + fn_cell$Pop_list@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_Pop_list_α
                                                                                         jmp   Pop_list_act_γ
 .Lx3331_1:
                         movzx            r9, cl
@@ -21773,7 +21766,7 @@ Pop_list_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3331_5
@@ -21831,15 +21824,14 @@ pop_final_act_α:
                         xor              eax, eax                                       # v
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3332_2
                         mov              rdi, qword ptr [rip + .Lx3332_0]
                         call             mon_emit_call_bin@PLT
 .Lx3332_2:
-                        mov              rax, qword ptr [rip + fn_cell$pop_final@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_pop_final_α
                                                                                         jmp   pop_final_act_γ
 .Lx3332_1:
                         movzx            r9, cl
@@ -21875,7 +21867,7 @@ pop_final_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3332_5
@@ -21933,15 +21925,14 @@ Pop_final_act_α:
                         xor              eax, eax                                       # vs
                         mov              qword ptr [1879052480], rax
                         mov              qword ptr [1879052488], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3333_2
                         mov              rdi, qword ptr [rip + .Lx3333_0]
                         call             mon_emit_call_bin@PLT
 .Lx3333_2:
-                        mov              rax, qword ptr [rip + fn_cell$Pop_final@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_Pop_final_α
                                                                                         jmp   Pop_final_act_γ
 .Lx3333_1:
                         movzx            r9, cl
@@ -21977,7 +21968,7 @@ Pop_final_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3333_5
@@ -22045,15 +22036,14 @@ node_repr_act_α:
                         xor              eax, eax                                       # f
                         mov              qword ptr [1879052640], rax
                         mov              qword ptr [1879052648], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3334_2
                         mov              rdi, qword ptr [rip + .Lx3334_0]
                         call             mon_emit_call_bin@PLT
 .Lx3334_2:
-                        mov              rax, qword ptr [rip + fn_cell$node_repr@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_node_repr_α
                                                                                         jmp   node_repr_act_γ
 .Lx3334_1:
                         movzx            r9, cl
@@ -22089,7 +22079,7 @@ node_repr_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3334_5
@@ -22163,15 +22153,14 @@ pp_node_act_α:
                         xor              eax, eax                                       # f
                         mov              qword ptr [1879052640], rax
                         mov              qword ptr [1879052648], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3335_2
                         mov              rdi, qword ptr [rip + .Lx3335_0]
                         call             mon_emit_call_bin@PLT
 .Lx3335_2:
-                        mov              rax, qword ptr [rip + fn_cell$pp_node@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_pp_node_α
                                                                                         jmp   pp_node_act_γ
 .Lx3335_1:
                         movzx            r9, cl
@@ -22207,7 +22196,7 @@ pp_node_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3335_5
@@ -22258,15 +22247,14 @@ pp_bank_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052800], rax
                         mov              qword ptr [1879052808], rax
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3336_2
                         mov              rdi, qword ptr [rip + .Lx3336_0]
                         call             mon_emit_call_bin@PLT
 .Lx3336_2:
-                        mov              rax, qword ptr [rip + fn_cell$pp_bank@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_pp_bank_α
                                                                                         jmp   pp_bank_act_γ
 .Lx3336_1:
                         movzx            r9, cl
@@ -22298,7 +22286,7 @@ pp_bank_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140360914550156
+                        movabs           rax, 139696505347468
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx3336_5
