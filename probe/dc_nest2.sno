@@ -1,0 +1,11 @@
+*  dc_nest2 [DCAP] nested immediate captures over DEFER operands
+*  ((*P $ X) (*Q $ Y)) $ Z  --  Z must span from *P's begin to *Q's end
+        P = LEN(2)
+        Q = LEN(3)
+        'ABCDEFG' ? ((*P $ X) (*Q $ Y)) $ Z            :F(NO)
+        OUTPUT = '=S'                                  :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'X=' X
+        OUTPUT = 'Y=' Y
+        OUTPUT = 'Z=' Z
+END
