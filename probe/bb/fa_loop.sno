@@ -1,0 +1,5 @@
+        N = 1
+LOOP    N = LT(N,5) N + 1        :F(DONE)
+        OUTPUT = 'step ' N       :(LOOP)
+DONE    OUTPUT = 'final ' N
+END
