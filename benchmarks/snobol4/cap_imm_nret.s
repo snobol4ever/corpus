@@ -1923,7 +1923,7 @@ STORE_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rax
-                        movabs           rax, 139973792873804
+                        movabs           rax, 140326691126668
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_2
@@ -1963,7 +1963,7 @@ STORE_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139973792873804
+                        movabs           rax, 140326691126668
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_5
