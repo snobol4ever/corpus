@@ -264,6 +264,7 @@ proc_PAT$2_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n16_match_fence1_α:
                         mov              qword ptr [rbp + 288], rsp
+                        mov              qword ptr [rbp + 320], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -271,13 +272,13 @@ n16_match_fence1_α:
 n16_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 288]
+                        mov              rsp, qword ptr [rbp + 320]
                                                                                         jmp   n17_match_alternate_α
 n16_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n16_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 288]
+                        mov              rsp, qword ptr [rbp + 320]
                                                                                         jmp   proc_PAT$2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_alternate_α:
@@ -315,6 +316,7 @@ n17_match_alternate_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n18_match_fence1_α:
                         mov              qword ptr [rbp + 128], rsp
+                        mov              qword ptr [rbp + 160], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -322,17 +324,18 @@ n18_match_fence1_α:
 n18_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 128]
+                        mov              rsp, qword ptr [rbp + 160]
                                                                                         jmp   n19_match_fence1_α
 n18_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n18_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 128]
+                        mov              rsp, qword ptr [rbp + 160]
                                                                                         jmp   n17_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
 n19_match_fence1_α:
                         mov              qword ptr [rbp + 16], rsp
+                        mov              qword ptr [rbp + 48], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -340,13 +343,13 @@ n19_match_fence1_α:
 n19_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 16]
+                        mov              rsp, qword ptr [rbp + 48]
                                                                                         jmp   proc_PAT$2_γ
 n19_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n19_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 16]
+                        mov              rsp, qword ptr [rbp + 48]
                                                                                         jmp   n18_match_fence1_β
 #-----------------------------------------------------------------------------------------------------------------------
 n20_match_alternate_α:
@@ -407,6 +410,7 @@ n22_match_any_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n23_match_fence1_α:
                         mov              qword ptr [rbp + 64], rsp
+                        mov              qword ptr [rbp + 96], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -414,13 +418,13 @@ n23_match_fence1_α:
 n23_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 64]
+                        mov              rsp, qword ptr [rbp + 96]
                                                                                         jmp   n24_match_span_α
 n23_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n23_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 64]
+                        mov              rsp, qword ptr [rbp + 96]
                                                                                         jmp   n22_match_any_β
 #-----------------------------------------------------------------------------------------------------------------------
 n24_match_span_α:
@@ -637,6 +641,7 @@ n33_match_any_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n34_match_fence1_α:
                         mov              qword ptr [rbp + 224], rsp
+                        mov              qword ptr [rbp + 256], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -644,13 +649,13 @@ n34_match_fence1_α:
 n34_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 224]
+                        mov              rsp, qword ptr [rbp + 256]
                                                                                         jmp   n17_match_alternate_s1
 n34_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n34_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 224]
+                        mov              rsp, qword ptr [rbp + 256]
                                                                                         jmp   n33_match_any_β
 #-----------------------------------------------------------------------------------------------------------------------
 n35_match_alternate_α:

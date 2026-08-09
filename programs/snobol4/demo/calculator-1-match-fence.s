@@ -995,6 +995,7 @@ n50_match_defer_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n51_match_fence1_α:
                         mov              qword ptr [rbp + 16], rsp
+                        mov              qword ptr [rbp + 48], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -1002,13 +1003,13 @@ n51_match_fence1_α:
 n51_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 16]
+                        mov              rsp, qword ptr [rbp + 48]
                                                                                         jmp   proc_PAT$4_γ
 n51_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n51_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 16]
+                        mov              rsp, qword ptr [rbp + 48]
                                                                                         jmp   n50_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n52_match_alternate_α:
@@ -1330,6 +1331,7 @@ n76_match_defer_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n77_match_fence1_α:
                         mov              qword ptr [rbp + 16], rsp
+                        mov              qword ptr [rbp + 48], rsp
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
@@ -1337,13 +1339,13 @@ n77_match_fence1_α:
 n77_match_fence1_as:
                         mov              rsp, rbp
                         pop              rbp
-                        mov              rsp, qword ptr [rbp + 16]
+                        mov              rsp, qword ptr [rbp + 48]
                                                                                         jmp   proc_PAT$5_γ
 n77_match_fence1_af:
                         mov              rsp, rbp
                         pop              rbp
 n77_match_fence1_β:
-                        mov              rsp, qword ptr [rbp + 16]
+                        mov              rsp, qword ptr [rbp + 48]
                                                                                         jmp   n76_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n78_match_alternate_α:
