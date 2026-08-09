@@ -274,7 +274,6 @@ n33_match_lit_α:
                         cmp              eax, 88
                                                                                         jne   n32_match_assign_imm_β
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n33_match_lit_β:
                         sub              r14d, 1
@@ -387,7 +386,6 @@ n46_match_lit_α:
                         cmp              eax, 88
                                                                                         jne   n45_match_assign_cond_β
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n46_match_lit_β:
                         sub              r14d, 1
@@ -1930,7 +1928,7 @@ STORE_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rax
-                        movabs           rax, 139909768928652
+                        movabs           rax, 139790086561164
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_2
@@ -1969,7 +1967,7 @@ STORE_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139909768928652
+                        movabs           rax, 139790086561164
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_5
