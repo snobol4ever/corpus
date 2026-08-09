@@ -3122,7 +3122,7 @@ ROMAN_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140388127194444
+                        movabs           rax, 139716061281676
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx435_2
@@ -3166,7 +3166,7 @@ ROMAN_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140388127194444
+                        movabs           rax, 139716061281676
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx435_5
@@ -3226,7 +3226,7 @@ TEST_act_α:
                         xor              eax, eax                                       # I
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rax
-                        movabs           rax, 140388127194444
+                        movabs           rax, 139716061281676
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx436_2
@@ -3270,7 +3270,7 @@ TEST_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140388127194444
+                        movabs           rax, 139716061281676
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx436_5
