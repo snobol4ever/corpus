@@ -1,0 +1,23 @@
+* cap_imm_nret2.sno
+* RTX-8 census workload: rt_cap_finish via immediate ($) capture targeting *FUNC() NRETURN.
+* PAT1: LEN(3) $ *STORE() 'X' -> rt_cap_open ARM B (varname[0]='*') -> c_rt_cap_open -> rt_cap_finish
+* PAT2: LEN(3) $ V 'X'        -> rt_cap_open ARM A (plain name) -> asm fast path
+* Each loop iteration hits BOTH paths, giving 100001 entries each with exact 2.00x scaling.
+* Minted 2026-08-09 per GOAL-SNOBOL4-RTX cursor item (2): trace the arm that calls rt_cap_finish.
+    &TRIM = 1
+    &STLIMIT = 1000000000
+    &ANCHOR = 0
+    DEFINE('STORE()')                    :(STORE_END)
+STORE   STORE = .SLOT                    :(NRETURN)
+STORE_END
+    S = 'abcXdefXghiX'
+    PAT1 = LEN(3) $ *STORE() 'X'
+    PAT2 = LEN(3) $ V 'X'
+    N = 0
+LOOP    S PAT1
+    S PAT2
+    N = LT(N, 100000) N + 1              :S(LOOP)
+    OUTPUT = 'n: ' N
+    OUTPUT = 'v: ' V
+    OUTPUT = 'slot: ' SLOT
+END
