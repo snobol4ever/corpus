@@ -1518,15 +1518,14 @@ FIB_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140086718217612
+                        movabs           rax, 140695563394444
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx230_2
                         mov              rdi, qword ptr [rip + .Lx230_0]
                         call             mon_emit_call_bin@PLT
 .Lx230_2:
-                        mov              rax, qword ptr [rip + fn_cell$FIB@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_FIB_α
                                                                                         jmp   FIB_act_γ
 .Lx230_1:
                         movzx            r9, cl
@@ -1562,7 +1561,7 @@ FIB_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140086718217612
+                        movabs           rax, 140695563394444
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx230_5

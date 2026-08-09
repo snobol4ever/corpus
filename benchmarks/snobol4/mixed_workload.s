@@ -476,6 +476,7 @@ n58_match_lit_α:
                         cmp              eax, 44
                                                                                         jne   n57_match_assign_cond_β
                         add              r14d, 1
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanhit
 n58_match_lit_β:
                         sub              r14d, 1
@@ -2622,15 +2623,14 @@ RSUM_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 140379036040588
+                        movabs           rax, 140473751821708
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx453_2
                         mov              rdi, qword ptr [rip + .Lx453_0]
                         call             mon_emit_call_bin@PLT
 .Lx453_2:
-                        mov              rax, qword ptr [rip + fn_cell$RSUM@GOTPCREL]
-                                                                                        jmp   rax
+                                                                                        jmp   proc_RSUM_α
                                                                                         jmp   RSUM_act_γ
 .Lx453_1:
                         movzx            r9, cl
@@ -2666,7 +2666,7 @@ RSUM_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140379036040588
+                        movabs           rax, 140473751821708
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx453_5
