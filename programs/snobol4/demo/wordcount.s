@@ -94,7 +94,6 @@ n5_match_span_α:
 .Lx15_240:
                         mov              dword ptr [rsp + 0], r14d
                         mov              r14d, eax
-                        add              rsp, 96
                                                                                         jmp   proc_PAT$0_scanhit
 n5_match_span_β:
                         mov              r14d, dword ptr [rsp + 0]
@@ -754,7 +753,11 @@ n58_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx135_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx135_10
                         mov              r13, qword ptr [rbp + 416]                     # outer_Σ
                         mov              r14, qword ptr [rbp + 424]                     # outer_δ
                         mov              r15, qword ptr [rbp + 432]                     # outer_Δ

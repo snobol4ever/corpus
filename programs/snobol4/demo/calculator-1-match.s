@@ -127,7 +127,6 @@ n5_match_span_α:
 .Lx7_240:
                         mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n5_match_span_β:
                         mov              r14d, dword ptr [rsp + 4]
@@ -2028,7 +2027,6 @@ n104_match_rpos_α:
                         add              rsp, 16
                                                                                         jmp   n102_match_arbno_β
 .Lx112_240:
-                        add              rsp, 48
                                                                                         jmp   proc_PAT$6_scanhit
 #-----------------------------------------------------------------------------------------------------------------------
 n105_match_defer_α:
@@ -3403,6 +3401,7 @@ n199_match_begin_af:
                         mov              rdx, qword ptr [rbp + -16]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + -48]                     # old_rbp
+                        add              rsp, 64
                                                                                         jmp   n198_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n200_match_defer_α:
@@ -3416,9 +3415,6 @@ n200_match_defer_α:
                         lea              rdx, [rip + .Lx331_5]
                                                                                         jmp   rax
 .Lx331_4:
-                        lea              rcx, [rip + g_scan_hit_start]
-                        mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rbp + 1008], eax
                                                                                         jmp   n201_match_end_α
 .Lx331_5:
                                                                                         jmp   n199_match_begin_β
@@ -3516,7 +3512,11 @@ n201_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx333_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx333_10
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ

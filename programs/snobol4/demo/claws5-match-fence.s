@@ -108,7 +108,6 @@ n4_match_rpos_α:
                         add              rsp, 16
                                                                                         jmp   n2_match_arbno_β
 .Lx21_240:
-                        add              rsp, 48
                                                                                         jmp   proc_PAT$0_scanhit
 n4_match_rpos_β:
                         add              rsp, 16
@@ -863,6 +862,7 @@ n68_match_begin_af:
                         mov              rdx, qword ptr [rbp + -16]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + -48]                     # old_rbp
+                        add              rsp, 64
                                                                                         jmp   n67_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n69_match_defer_α:
@@ -876,9 +876,6 @@ n69_match_defer_α:
                         lea              rdx, [rip + .Lx123_5]
                                                                                         jmp   rax
 .Lx123_4:
-                        lea              rcx, [rip + g_scan_hit_start]
-                        mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rbp + 384], eax
                                                                                         jmp   n70_match_end_α
 .Lx123_5:
                                                                                         jmp   n68_match_begin_β
@@ -976,7 +973,11 @@ n70_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx125_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx125_10
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
