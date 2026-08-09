@@ -106,11 +106,11 @@ n6_call_β:
                                                                                         jmp   n8_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_save_restore_α:
-                        mov              r9, qword ptr [1879048216]
-                        test             r9, r9
+                        mov              rcx, qword ptr [1879048216]
+                        test             rcx, rcx
                                                                                         je    .Lx21_0
                         mov              cl, 0
-                        mov              rax, qword ptr [r9 + -64]
+                        mov              rax, qword ptr [rcx + -64]
                                                                                         jmp   rax
 .Lx21_0:
                         call             rt_flat_ret_snap@PLT
@@ -120,11 +120,11 @@ n7_save_restore_α:
                                                                                         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 n8_save_restore_α:
-                        mov              r9, qword ptr [1879048216]
-                        test             r9, r9
+                        mov              rcx, qword ptr [1879048216]
+                        test             rcx, rcx
                                                                                         je    .Lx23_0
                         mov              cl, 2
-                        mov              rax, qword ptr [r9 + -64]
+                        mov              rax, qword ptr [rcx + -64]
                                                                                         jmp   rax
 .Lx23_0:
                         call             rt_flat_ret_snap@PLT
@@ -274,7 +274,6 @@ n33_match_lit_α:
                         cmp              eax, 88
                                                                                         jne   n32_match_assign_imm_β
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n33_match_lit_β:
                         sub              r14d, 1
@@ -387,7 +386,6 @@ n46_match_lit_α:
                         cmp              eax, 88
                                                                                         jne   n45_match_assign_cond_β
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n46_match_lit_β:
                         sub              r14d, 1
@@ -1067,6 +1065,7 @@ n98_match_begin_af:
                         mov              rdx, qword ptr [rbp + -16]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + -48]                     # old_rbp
+                        add              rsp, 64
                                                                                         jmp   n97_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n99_match_defer_α:
@@ -1080,9 +1079,6 @@ n99_match_defer_α:
                         lea              rdx, [rip + .Lx221_5]
                                                                                         jmp   rax
 .Lx221_4:
-                        lea              rcx, [rip + g_scan_hit_start]
-                        mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rbp + 656], eax
                                                                                         jmp   n100_match_end_α
 .Lx221_5:
                                                                                         jmp   n98_match_begin_β
@@ -1180,7 +1176,11 @@ n100_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx223_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx223_10
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -1279,6 +1279,7 @@ n106_match_begin_af:
                         mov              rdx, qword ptr [rbp + -16]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + -48]                     # old_rbp
+                        add              rsp, 64
                                                                                         jmp   n105_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n107_match_defer_α:
@@ -1389,7 +1390,11 @@ n108_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx235_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx235_10
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -1844,11 +1849,11 @@ n147_call_β:
                                                                                         jmp   n149_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n148_save_restore_α:
-                        mov              r9, qword ptr [1879048216]
-                        test             r9, r9
+                        mov              rcx, qword ptr [1879048216]
+                        test             rcx, rcx
                                                                                         je    .Lx292_0
                         mov              cl, 0
-                        mov              rax, qword ptr [r9 + -64]
+                        mov              rax, qword ptr [rcx + -64]
                                                                                         jmp   rax
 .Lx292_0:
                         call             rt_flat_ret_snap@PLT
@@ -1858,11 +1863,11 @@ n148_save_restore_α:
                                                                                         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 n149_save_restore_α:
-                        mov              r9, qword ptr [1879048216]
-                        test             r9, r9
+                        mov              rcx, qword ptr [1879048216]
+                        test             rcx, rcx
                                                                                         je    .Lx294_0
                         mov              cl, 2
-                        mov              rax, qword ptr [r9 + -64]
+                        mov              rax, qword ptr [rcx + -64]
                                                                                         jmp   rax
 .Lx294_0:
                         call             rt_flat_ret_snap@PLT
@@ -1923,7 +1928,7 @@ STORE_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rax
-                        movabs           rax, 140326691126668
+                        movabs           rax, 140150247243148
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_2
@@ -1963,7 +1968,7 @@ STORE_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140326691126668
+                        movabs           rax, 140150247243148
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_5

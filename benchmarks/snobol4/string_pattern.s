@@ -103,7 +103,6 @@ n3_match_lit_α:
                         cmp              eax, 44
                                                                                         jne   n2_match_assign_cond_β
                         add              r14d, 1
-                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_scanhit
 n3_match_lit_β:
                         sub              r14d, 1

@@ -274,7 +274,6 @@ n33_match_lit_α:
                         cmp              eax, 88
                                                                                         jne   n32_match_assign_imm_β
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanhit
 n33_match_lit_β:
                         sub              r14d, 1
@@ -401,7 +400,6 @@ n46_match_lit_α:
                         cmp              eax, 88
                                                                                         jne   n45_match_assign_imm_β
                         add              r14d, 1
-                        add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanhit
 n46_match_lit_β:
                         sub              r14d, 1
@@ -1081,6 +1079,7 @@ n98_match_begin_af:
                         mov              rdx, qword ptr [rbp + -16]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + -48]                     # old_rbp
+                        add              rsp, 64
                                                                                         jmp   n97_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n99_match_defer_α:
@@ -1094,9 +1093,6 @@ n99_match_defer_α:
                         lea              rdx, [rip + .Lx221_5]
                                                                                         jmp   rax
 .Lx221_4:
-                        lea              rcx, [rip + g_scan_hit_start]
-                        mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rbp + 656], eax
                                                                                         jmp   n100_match_end_α
 .Lx221_5:
                                                                                         jmp   n98_match_begin_β
@@ -1194,7 +1190,11 @@ n100_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx223_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx223_10
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -1293,6 +1293,7 @@ n106_match_begin_af:
                         mov              rdx, qword ptr [rbp + -16]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + -48]                     # old_rbp
+                        add              rsp, 64
                                                                                         jmp   n105_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n107_match_defer_α:
@@ -1403,7 +1404,11 @@ n108_match_end_α:
                         pop              r13
                         pop              r15
                         pop              r14
+.Lx235_10:
                         sub              r12, 24                                        # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx235_10
                         mov              r13, qword ptr [rbp + -40]                     # outer_Σ
                         mov              r14, qword ptr [rbp + -32]                     # outer_δ
                         mov              r15, qword ptr [rbp + -24]                     # outer_Δ
@@ -1937,7 +1942,7 @@ STORE_act_α:
                         xor              eax, eax
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rax
-                        movabs           rax, 140317245554060
+                        movabs           rax, 139966954061196
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_2
@@ -1977,7 +1982,7 @@ STORE_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 140317245554060
+                        movabs           rax, 139966954061196
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx297_5
