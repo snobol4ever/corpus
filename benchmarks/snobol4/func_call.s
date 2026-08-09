@@ -1028,7 +1028,7 @@ INC_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rcx, 140512695800544
+                        movabs           rcx, 140368847958688
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -1046,7 +1046,7 @@ INC_act_β:
 .Lx202_0_s:
                         .string          "INC"
                         .section         .rodata
-.S0:                    .string          "\341\277"
-.S1:                    .string          "\350\277"
+.S0:                    .string          "\250\206\003"
+.S1:                    .string          "\257\206\003"
                         .text
                         .section         .note.GNU-stack,"",@progbits

@@ -1501,7 +1501,7 @@ FIB_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rcx, 139863981675232
+                        movabs           rcx, 140489794908832
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -1519,7 +1519,7 @@ FIB_act_β:
 .Lx227_0_s:
                         .string          "FIB"
                         .section         .rodata
-.S0:                    .string          "zq\002"
-.S1:                    .string          "\204q\002"
+.S0:                    .string          "\271\353\003"
+.S1:                    .string          "\303\353\003"
                         .text
                         .section         .note.GNU-stack,"",@progbits

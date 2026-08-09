@@ -773,7 +773,7 @@ ADD1_act_α:
                         xor              eax, eax                                       # V
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rcx, 139645615723232
+                        movabs           rcx, 139945988715168
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -791,7 +791,7 @@ ADD1_act_β:
 .Lx163_0_s:
                         .string          "ADD1"
                         .section         .rodata
-.S0:                    .string          "\256\315\001"
-.S1:                    .string          "\264\315\001"
+.S0:                    .string          "\351i\003"
+.S1:                    .string          "\357i\003"
                         .text
                         .section         .note.GNU-stack,"",@progbits

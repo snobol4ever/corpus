@@ -2363,7 +2363,7 @@ ROMAN_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rcx, 140693635977952
+                        movabs           rcx, 139818551079584
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -2383,7 +2383,7 @@ ROMAN_act_β:
                         .section         .rodata
 .S0:                    .string          "T"
 .S1:                    .string          "PATV$0"
-.S2:                    .string          "\2679*>"
-.S3:                    .string          "\233\342\003"
+.S2:                    .string          "\237\031.$"
+.S3:                    .string          "\303B\002"
                         .text
                         .section         .note.GNU-stack,"",@progbits

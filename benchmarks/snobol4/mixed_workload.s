@@ -2606,7 +2606,7 @@ RSUM_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rcx, 140256719524576
+                        movabs           rcx, 140103363195552
                         mov              rax, qword ptr [rcx + 0]
                         add              rax, 1
                         mov              qword ptr [rcx + 0], rax
@@ -2626,7 +2626,7 @@ RSUM_act_β:
                         .section         .rodata
 .S0:                    .string          "WORD"
 .S1:                    .string          "PATV$0"
-.S2:                    .string          "\217?"
-.S3:                    .string          "\377\036\367\003"
+.S2:                    .string          "\004\333"
+.S3:                    .string          "t\253\256\015"
                         .text
                         .section         .note.GNU-stack,"",@progbits
