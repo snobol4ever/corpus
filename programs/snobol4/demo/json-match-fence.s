@@ -3466,9 +3466,13 @@ n232_lit_integer_α:
 n233_match_pos_α:
                         mov              rax, 0
                         cmp              r14d, eax
-                                                                                        jne   proc_PAT$10_scanfail
+                                                                                        je    .Lx238_240
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$10_scanfail
+.Lx238_240:
                                                                                         jmp   n234_match_defer_α
 n233_match_pos_β:
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$10_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n234_match_defer_α:
@@ -3562,7 +3566,10 @@ n236_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n234_match_defer_β
+                                                                                        je    .Lx241_240
+                        add              rsp, 16
+                                                                                        jmp   n234_match_defer_β
+.Lx241_240:
                         add              rsp, 48
                                                                                         jmp   proc_PAT$10_scanhit
 proc_PAT$10_scanhit:

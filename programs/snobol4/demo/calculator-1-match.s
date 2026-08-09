@@ -1953,9 +1953,13 @@ n100_lit_integer_α:
 n101_match_pos_α:
                         mov              rax, 0
                         cmp              r14d, eax
-                                                                                        jne   proc_PAT$6_scanfail
+                                                                                        je    .Lx108_240
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$6_scanfail
+.Lx108_240:
                                                                                         jmp   n102_match_arbno_α
 n101_match_pos_β:
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$6_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n102_match_arbno_α:
@@ -2020,7 +2024,10 @@ n104_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n102_match_arbno_β
+                                                                                        je    .Lx112_240
+                        add              rsp, 16
+                                                                                        jmp   n102_match_arbno_β
+.Lx112_240:
                         add              rsp, 48
                                                                                         jmp   proc_PAT$6_scanhit
 #-----------------------------------------------------------------------------------------------------------------------

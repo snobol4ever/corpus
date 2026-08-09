@@ -30,9 +30,13 @@ n0_lit_integer_β:
 n1_match_pos_α:
                         mov              rax, 0
                         cmp              r14d, eax
-                                                                                        jne   proc_PAT$0_scanfail
+                                                                                        je    .Lx17_240
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$0_scanfail
+.Lx17_240:
                                                                                         jmp   n2_match_arbno_α
 n1_match_pos_β:
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$0_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_arbno_α:
@@ -100,10 +104,14 @@ n4_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n2_match_arbno_β
+                                                                                        je    .Lx21_240
+                        add              rsp, 16
+                                                                                        jmp   n2_match_arbno_β
+.Lx21_240:
                         add              rsp, 48
                                                                                         jmp   proc_PAT$0_scanhit
 n4_match_rpos_β:
+                        add              rsp, 16
                                                                                         jmp   n2_match_arbno_β
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_alternate_α:

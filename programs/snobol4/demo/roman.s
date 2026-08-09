@@ -87,9 +87,13 @@ n4_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n2_match_begin_β
+                                                                                        je    .Lx45_240
+                        add              rsp, 16
+                                                                                        jmp   n2_match_begin_β
+.Lx45_240:
                                                                                         jmp   n5_match_assign_save_α
 n4_match_rpos_β:
+                        add              rsp, 16
                                                                                         jmp   n2_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_assign_save_α:
@@ -2054,9 +2058,13 @@ n212_match_rpos_α:
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx
-                                                                                        jne   n210_match_begin_β
+                                                                                        je    .Lx343_240
+                        add              rsp, 16
+                                                                                        jmp   n210_match_begin_β
+.Lx343_240:
                                                                                         jmp   n213_match_assign_save_α
 n212_match_rpos_β:
+                        add              rsp, 16
                                                                                         jmp   n210_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n213_match_assign_save_α:
@@ -3114,7 +3122,7 @@ ROMAN_act_α:
                         xor              eax, eax                                       # N
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rax
-                        movabs           rax, 139719620136268
+                        movabs           rax, 139860785741132
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx435_2
@@ -3158,7 +3166,7 @@ ROMAN_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139719620136268
+                        movabs           rax, 139860785741132
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx435_5
@@ -3218,7 +3226,7 @@ TEST_act_α:
                         xor              eax, eax                                       # I
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rax
-                        movabs           rax, 139719620136268
+                        movabs           rax, 139860785741132
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx436_2
@@ -3262,7 +3270,7 @@ TEST_act_α:
                         mov              r10, qword ptr [rbp + -16]
                         mov              r11, qword ptr [rbp + -24]
                         mov              rcx, qword ptr [rbp + -40]
-                        movabs           rax, 139719620136268
+                        movabs           rax, 139860785741132
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
                                                                                         je    .Lx436_5
