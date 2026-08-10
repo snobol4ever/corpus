@@ -4135,10 +4135,14 @@ proc_PAT$0_α:
                         sub              rsp, 144
                         mov              qword ptr [rsp + 120], rcx
                         mov              qword ptr [rsp + 128], rdx
-                        mov              qword ptr [rsp + 136], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 112], r8
                         mov              dword ptr [rsp + 104], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$0_attempt:
 proc_PAT$0_α_body:
                         lea              rax, [rip + n644_match_assign_cond_β]
@@ -4189,49 +4193,64 @@ n644_match_assign_cond_β:
                         sub              r12, 24
                                                                                         jmp   n643_match_any_β
 proc_PAT$0_scanhit:
-                        cmp              qword ptr [rbp + 112], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx651_0
-                        mov              ecx, dword ptr [rbp + 104]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx651_0:
                                                                                         jmp   proc_PAT$0_γ
 proc_PAT$0_scanfail:
-                        cmp              qword ptr [rbp + 112], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx652_0
-                        mov              eax, dword ptr [rbp + 104]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx652_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx652_0
-                        mov              dword ptr [rbp + 104], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 104], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$0_attempt
 .Lx652_0:
                                                                                         jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 120]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 128]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 112]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 104]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_β:
                                                                                         jmp   qword ptr [rbp + 80]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$0_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 120]
-                        mov              rbp, qword ptr [rbp + 136]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_ω:
-                        mov              rax, qword ptr [rbp + 128]
-                        lea              rsp, [rbp + 144]
-                        mov              rbp, qword ptr [rbp + 136]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 144
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$1_α
@@ -4239,10 +4258,14 @@ proc_PAT$1_α:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
                         mov              qword ptr [rsp + 112], rdx
-                        mov              qword ptr [rsp + 120], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 96], r8
                         mov              dword ptr [rsp + 88], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$1_attempt:
 proc_PAT$1_α_body:
                         lea              rax, [rip + n655_match_assign_cond_β]
@@ -4317,49 +4340,64 @@ n655_match_assign_cond_β:
                         sub              r12, 24
                                                                                         jmp   n654_match_span_β
 proc_PAT$1_scanhit:
-                        cmp              qword ptr [rbp + 96], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx662_0
-                        mov              ecx, dword ptr [rbp + 88]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx662_0:
                                                                                         jmp   proc_PAT$1_γ
 proc_PAT$1_scanfail:
-                        cmp              qword ptr [rbp + 96], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx663_0
-                        mov              eax, dword ptr [rbp + 88]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx663_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx663_0
-                        mov              dword ptr [rbp + 88], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 88], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$1_attempt
 .Lx663_0:
                                                                                         jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 104]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 112]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 96]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 88]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_β:
                                                                                         jmp   qword ptr [rbp + 64]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$1_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 104]
-                        mov              rbp, qword ptr [rbp + 120]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_ω:
-                        mov              rax, qword ptr [rbp + 112]
-                        lea              rsp, [rbp + 128]
-                        mov              rbp, qword ptr [rbp + 120]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 128
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$2_α
@@ -4367,10 +4405,14 @@ proc_PAT$2_α:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
                         mov              qword ptr [rsp + 160], rdx
-                        mov              qword ptr [rsp + 168], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 144], r8
                         mov              dword ptr [rsp + 136], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$2_attempt:
 proc_PAT$2_α_body:
                         lea              rax, [rip + proc_PAT$2_ω]
@@ -4674,49 +4716,64 @@ n670_match_defer_α:
 n670_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 proc_PAT$2_scanhit:
-                        cmp              qword ptr [rbp + 144], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx681_0
-                        mov              ecx, dword ptr [rbp + 136]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx681_0:
                                                                                         jmp   proc_PAT$2_γ
 proc_PAT$2_scanfail:
-                        cmp              qword ptr [rbp + 144], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx682_0
-                        mov              eax, dword ptr [rbp + 136]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx682_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx682_0
-                        mov              dword ptr [rbp + 136], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 136], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$2_attempt
 .Lx682_0:
                                                                                         jmp   proc_PAT$2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 152]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 160]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 144]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 136]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_β:
                                                                                         jmp   qword ptr [rbp + 112]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$2_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 152]
-                        mov              rbp, qword ptr [rbp + 168]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_ω:
-                        mov              rax, qword ptr [rbp + 160]
-                        lea              rsp, [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 168]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 176
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$3_α
@@ -4724,10 +4781,14 @@ proc_PAT$3_α:
                         sub              rsp, 256
                         mov              qword ptr [rsp + 232], rcx
                         mov              qword ptr [rsp + 240], rdx
-                        mov              qword ptr [rsp + 248], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 224], r8
                         mov              dword ptr [rsp + 216], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$3_attempt:
 proc_PAT$3_α_body:
                         lea              rax, [rip + proc_PAT$3_ω]
@@ -4986,49 +5047,64 @@ n691_match_defer_α:
 n691_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 proc_PAT$3_scanhit:
-                        cmp              qword ptr [rbp + 224], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx707_0
-                        mov              ecx, dword ptr [rbp + 216]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx707_0:
                                                                                         jmp   proc_PAT$3_γ
 proc_PAT$3_scanfail:
-                        cmp              qword ptr [rbp + 224], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx708_0
-                        mov              eax, dword ptr [rbp + 216]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx708_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx708_0
-                        mov              dword ptr [rbp + 216], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 216], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$3_attempt
 .Lx708_0:
                                                                                         jmp   proc_PAT$3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$3_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 232]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 240]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 224]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 216]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$3_β:
                                                                                         jmp   qword ptr [rbp + 192]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$3_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$3_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 232]
-                        mov              rbp, qword ptr [rbp + 248]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$3_ω:
-                        mov              rax, qword ptr [rbp + 240]
-                        lea              rsp, [rbp + 256]
-                        mov              rbp, qword ptr [rbp + 248]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 256
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$4_α
@@ -5036,10 +5112,14 @@ proc_PAT$4_α:
                         sub              rsp, 368
                         mov              qword ptr [rsp + 344], rcx
                         mov              qword ptr [rsp + 352], rdx
-                        mov              qword ptr [rsp + 360], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 336], r8
                         mov              dword ptr [rsp + 328], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$4_attempt:
 proc_PAT$4_α_body:
                         lea              rax, [rip + proc_PAT$4_ω]
@@ -5440,49 +5520,64 @@ n721_match_assign_cond_β:
                         sub              r12, 24
                                                                                         jmp   n720_match_defer_β
 proc_PAT$4_scanhit:
-                        cmp              qword ptr [rbp + 336], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx743_0
-                        mov              ecx, dword ptr [rbp + 328]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx743_0:
                                                                                         jmp   proc_PAT$4_γ
 proc_PAT$4_scanfail:
-                        cmp              qword ptr [rbp + 336], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx744_0
-                        mov              eax, dword ptr [rbp + 328]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx744_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx744_0
-                        mov              dword ptr [rbp + 328], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 328], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$4_attempt
 .Lx744_0:
                                                                                         jmp   proc_PAT$4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$4_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 344]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 352]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 336]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 328]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$4_β:
                                                                                         jmp   qword ptr [rbp + 304]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$4_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$4_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 344]
-                        mov              rbp, qword ptr [rbp + 360]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$4_ω:
-                        mov              rax, qword ptr [rbp + 352]
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 368
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$5_α
@@ -5490,10 +5585,14 @@ proc_PAT$5_α:
                         sub              rsp, 368
                         mov              qword ptr [rsp + 344], rcx
                         mov              qword ptr [rsp + 352], rdx
-                        mov              qword ptr [rsp + 360], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 336], r8
                         mov              dword ptr [rsp + 328], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$5_attempt:
 proc_PAT$5_α_body:
                         lea              rax, [rip + proc_PAT$5_ω]
@@ -5894,49 +5993,64 @@ n757_match_assign_cond_β:
                         sub              r12, 24
                                                                                         jmp   n756_match_defer_β
 proc_PAT$5_scanhit:
-                        cmp              qword ptr [rbp + 336], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx779_0
-                        mov              ecx, dword ptr [rbp + 328]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx779_0:
                                                                                         jmp   proc_PAT$5_γ
 proc_PAT$5_scanfail:
-                        cmp              qword ptr [rbp + 336], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx780_0
-                        mov              eax, dword ptr [rbp + 328]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx780_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx780_0
-                        mov              dword ptr [rbp + 328], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 328], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$5_attempt
 .Lx780_0:
                                                                                         jmp   proc_PAT$5_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$5_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 344]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 352]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 336]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 328]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$5_β:
                                                                                         jmp   qword ptr [rbp + 304]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$5_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$5_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 344]
-                        mov              rbp, qword ptr [rbp + 360]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$5_ω:
-                        mov              rax, qword ptr [rbp + 352]
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 368
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$6_α
@@ -5944,10 +6058,14 @@ proc_PAT$6_α:
                         sub              rsp, 160
                         mov              qword ptr [rsp + 136], rcx
                         mov              qword ptr [rsp + 144], rdx
-                        mov              qword ptr [rsp + 152], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 128], r8
                         mov              dword ptr [rsp + 120], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$6_attempt:
 proc_PAT$6_α_body:
                         lea              rax, [rip + proc_PAT$6_ω]
@@ -6028,49 +6146,64 @@ n784_match_fence1_α:
 n784_match_fence1_β:
                                                                                         jmp   proc_PAT$6_scanfail
 proc_PAT$6_scanhit:
-                        cmp              qword ptr [rbp + 128], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx790_0
-                        mov              ecx, dword ptr [rbp + 120]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx790_0:
                                                                                         jmp   proc_PAT$6_γ
 proc_PAT$6_scanfail:
-                        cmp              qword ptr [rbp + 128], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx791_0
-                        mov              eax, dword ptr [rbp + 120]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx791_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx791_0
-                        mov              dword ptr [rbp + 120], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 120], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$6_attempt
 .Lx791_0:
                                                                                         jmp   proc_PAT$6_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$6_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 136]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 144]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 128]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 120]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$6_β:
                                                                                         jmp   qword ptr [rbp + 96]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$6_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$6_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 136]
-                        mov              rbp, qword ptr [rbp + 152]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$6_ω:
-                        mov              rax, qword ptr [rbp + 144]
-                        lea              rsp, [rbp + 160]
-                        mov              rbp, qword ptr [rbp + 152]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 160
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$7_α
@@ -6078,10 +6211,14 @@ proc_PAT$7_α:
                         sub              rsp, 320
                         mov              qword ptr [rsp + 296], rcx
                         mov              qword ptr [rsp + 304], rdx
-                        mov              qword ptr [rsp + 312], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp + 288], r8
                         mov              dword ptr [rsp + 280], r14d
+                        mov              rax, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rax + 0], rsp
+                        mov              qword ptr [rax + 8], rcx
+                        mov              qword ptr [rax + 16], rdx
+                        mov              qword ptr [rax + 24], r8
+                        mov              dword ptr [rax + 32], r14d
 proc_PAT$7_attempt:
 proc_PAT$7_α_body:
                         lea              rax, [rip + proc_PAT$7_ω]
@@ -6417,49 +6554,64 @@ n801_match_assign_cond_β:
                         sub              r12, 24
                                                                                         jmp   n800_match_defer_β
 proc_PAT$7_scanhit:
-                        cmp              qword ptr [rbp + 288], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx815_0
-                        mov              ecx, dword ptr [rbp + 280]
-                        lea              rdx, [rip + g_scan_hit_start]
-                        mov              dword ptr [rdx + 0], ecx
+                        mov              ecx, dword ptr [rdx + 32]
+                        lea              rax, [rip + g_scan_hit_start]
+                        mov              dword ptr [rax + 0], ecx
 .Lx815_0:
                                                                                         jmp   proc_PAT$7_γ
 proc_PAT$7_scanfail:
-                        cmp              qword ptr [rbp + 288], 1
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        cmp              qword ptr [rdx + 24], 1
                                                                                         jne   .Lx816_0
-                        mov              eax, dword ptr [rbp + 280]
+                        mov              eax, dword ptr [rdx + 32]
                         inc              eax
                         cmp              eax, r15d
                                                                                         jg    .Lx816_0
                         mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         cmp              qword ptr [rcx + 0], 0
                                                                                         jne   .Lx816_0
-                        mov              dword ptr [rbp + 280], eax
+                        mov              dword ptr [rdx + 32], eax
+                        mov              rcx, qword ptr [rdx + 0]
+                        mov              dword ptr [rcx + 280], eax
                         mov              r14d, eax
-                        mov              rsp, rbp
+                        mov              rsp, rcx
                                                                                         jmp   proc_PAT$7_attempt
 .Lx816_0:
                                                                                         jmp   proc_PAT$7_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$7_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rax
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              qword ptr [rdx + 0], rax
+                        mov              rcx, qword ptr [rax + 296]
+                        mov              qword ptr [rdx + 8], rcx
+                        mov              rcx, qword ptr [rax + 304]
+                        mov              qword ptr [rdx + 16], rcx
+                        mov              rcx, qword ptr [rax + 288]
+                        mov              qword ptr [rdx + 24], rcx
+                        mov              ecx, dword ptr [rax + 280]
+                        mov              dword ptr [rdx + 32], ecx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$7_β:
                                                                                         jmp   qword ptr [rbp + 256]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$7_γ:
-                        push             rbp
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        push             qword ptr [rdx + 0]
                         lea              rax, [rip + proc_PAT$7_res]
                         push             rax
-                        mov              rax, qword ptr [rbp + 296]
-                        mov              rbp, qword ptr [rbp + 312]
+                        mov              rax, qword ptr [rdx + 8]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$7_ω:
-                        mov              rax, qword ptr [rbp + 304]
-                        lea              rsp, [rbp + 320]
-                        mov              rbp, qword ptr [rbp + 312]
+                        mov              rdx, qword ptr [rip + g_blob_ctx@GOTPCREL]
+                        mov              rax, qword ptr [rdx + 16]
+                        mov              rsp, qword ptr [rdx + 0]
+                        add              rsp, 320
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8
