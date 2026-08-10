@@ -1,0 +1,5 @@
+        VOWEL = ANY('AEIOU')
+        PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ')
+        'XXAY' ? PAT . N
+        OUTPUT = N
+END

@@ -1,0 +1,3 @@
+        'GRAY' ? ANY('AEIOU') SPAN('BCDFGHJKLMNPQRSTVWXYZ') . N
+        OUTPUT = N
+END
