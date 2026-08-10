@@ -1,0 +1,44 @@
+*-----------------------------------------------------------------------------------
+* ab_expr_define.sno -- WITNESS: DEFINE in EXPRESSION position gets no AB activation block.
+*
+* A DEFINE evaluated as a nested argument -- DIFFER(DEFINE('f(n)','entry')), the shape
+* used by crosscheck/rung10/1011_func_redefine.sno -- is hoist-registered by the lowerer
+* (lower_snobol4.c sno_prescan_expr, ~:2311) so the LEGACY call path finds it, but the AB
+* activation block + bind are minted ONLY on the statement path (~:2048-2070, gated on
+* sno_stmt_define finding a DEFINE in SUBJECT position).  So fn_cell$<FN> is never wired.
+*
+* Two distinct symptoms follow, and BOTH are covered below:
+*   NEW name       -> fn_cell holds rt_ab_undef_fn_stub  -> "Undefined function called"
+*   REDEFINED name -> fn_cell holds the PREVIOUS body     -> old body entered under the new
+*                     prototype's frame/save-set shape -> SIGSEGV (this is 1011's crash)
+*
+* AB=0 is ORACLE-EXACT here.  AB=1 diverges.  This witness therefore BLOCKS the
+* SCRIP_AB default-on flip: on the redefine case AB=1 is strictly WORSE than AB=0.
+*
+* ORTHOGONAL TO ab_name_alias.sno: that witness is about the entry null of save-set slot 0
+* and is fixed; this one is about the block never being minted.  Keep both.
+*-----------------------------------------------------------------------------------
+*       CONTROL -- statement-position DEFINE, same function shape.  Must stay green.
+        DEFINE('sp(sp)', 'sp_body')                     :(sp_end)
+sp_body sp = NE(sp,1) sp * sp(sp - 1)                   :(RETURN)
+sp_end
+        OUTPUT = 'control statement-position sp(4) = [' sp(4) ']   want 24'
+*       CASE 1 -- expression-position DEFINE of a NEW name
+        DIFFER(DEFINE('ep(ep)', 'ep_body'))             :F(ep_noted)
+ep_noted
+        :(ep_end)
+ep_body ep = NE(ep,1) ep * ep(ep - 1)                   :(RETURN)
+ep_end
+        OUTPUT = 'expr-position new  ep(4) = [' ep(4) ']   want 24'
+*       CASE 2 -- expression-position REDEFINE of an EXISTING name (1011's exact shape)
+        DEFINE('rd(n)')                                 :(rd_end)
+rd      rd = n * 2                                      :(RETURN)
+rd_end
+        OUTPUT = 'before redefine    rd(3) = [' rd(3) ']   want 6'
+        DIFFER(DEFINE('rd(rd)', 'rd2'))                 :F(rd_noted)
+rd_noted
+        :(rd2_end)
+rd2     rd = NE(rd,1) rd * rd(rd - 1)                   :(RETURN)
+rd2_end
+        OUTPUT = 'after  redefine    rd(4) = [' rd(4) ']   want 24'
+END
