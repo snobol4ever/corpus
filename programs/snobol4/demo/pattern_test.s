@@ -251,10 +251,10 @@ n11_lit_string_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_replace_α:
                         mov              rdi, qword ptr [rip + .Lx39_0]                 # name
-                        mov              rsi, qword ptr [rsp + 208]                     # sub_lo
-                        mov              rdx, qword ptr [rsp + 216]                     # sub_hi
-                        mov              ecx, dword ptr [rsp + 48]                      # start
-                        mov              r8, qword ptr [rsp + 72]                       # end
+                        mov              rsi, qword ptr [rsp + 224]                     # sub_lo
+                        mov              rdx, qword ptr [rsp + 232]                     # sub_hi
+                        mov              ecx, dword ptr [rsp + 64]                      # start
+                        mov              r8, qword ptr [rsp + 88]                       # end
                         lea              r9, [rsp + 0]                                  # lit_string
                         call             rt_match_replace@PLT
                                                                                         jmp   .Lx39_1
