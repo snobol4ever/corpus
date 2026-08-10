@@ -750,8 +750,8 @@ n37_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx99_0
-                        mov              cl, 2
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 2
                                                                                         jmp   rax
 .Lx99_0:
                         call             rt_flat_ret_snap@PLT
@@ -764,8 +764,8 @@ n38_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx101_0
-                        mov              cl, 0
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 0
                                                                                         jmp   rax
 .Lx101_0:
                         call             rt_flat_ret_snap@PLT
@@ -1066,8 +1066,8 @@ n118_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx150_0
-                        mov              cl, 0
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 0
                                                                                         jmp   rax
 .Lx150_0:
                         call             rt_flat_ret_snap@PLT
@@ -2712,8 +2712,8 @@ n243_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx391_0
-                        mov              cl, 2
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 2
                                                                                         jmp   rax
 .Lx391_0:
                         call             rt_flat_ret_snap@PLT
@@ -2726,8 +2726,8 @@ n244_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx393_0
-                        mov              cl, 0
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 0
                                                                                         jmp   rax
 .Lx393_0:
                         call             rt_flat_ret_snap@PLT
