@@ -403,8 +403,8 @@ n22_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx55_0
-                        mov              cl, 0
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 0
                                                                                         jmp   rax
 .Lx55_0:
                         call             rt_flat_ret_snap@PLT
@@ -1450,8 +1450,8 @@ n126_save_restore_α:
                         mov              rcx, qword ptr [1879048216]
                         test             rcx, rcx
                                                                                         je    .Lx225_0
-                        mov              cl, 0
                         mov              rax, qword ptr [rcx + -64]
+                        mov              ecx, 0
                                                                                         jmp   rax
 .Lx225_0:
                         call             rt_flat_ret_snap@PLT
