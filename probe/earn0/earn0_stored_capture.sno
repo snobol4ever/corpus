@@ -1,0 +1,15 @@
+*  earn0_stored_capture.sno - EARN-0 hand-check fallout (2026-08-11 s27).
+*  A stored composite pattern containing an IMMEDIATE capture. NO variable reference,
+*  all inline primitives, so this program runs to completion -- but the capture binds
+*  the NULL STRING instead of the matched character.
+*  Manual p.87: "Immediate assignment occurs whenever a subpattern matches, even if the
+*  entire pattern match ultimately fails" -- so V must be 'a' here.
+*  AT HEAD fc5b0754: prints MATCH V=[] where SPITBOL prints MATCH V=[a].
+*  Same producer/consumer family as the s22m desync recorded in bb_match_capture.cpp:29
+*  (fc cell vs rt_cap array), symptom differs (null bind vs swallowed prefix).
+        Q = POS(0) LEN(1) $ V LEN(2) RPOS(0)
+        'abc' Q                                  :S(Y)F(N)
+Y       OUTPUT = 'MATCH V=[' V ']'               :(D)
+N       OUTPUT = 'NOMATCH'
+D       OUTPUT = 'DONE'
+END
