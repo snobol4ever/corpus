@@ -393,8 +393,8 @@ n12_match_replace_α:
                         mov              rdi, qword ptr [rip + .Lx39_0]
                         mov              rsi, qword ptr [rsp + 224]
                         mov              rdx, qword ptr [rsp + 232]
-                        mov              ecx, dword ptr [rsp + 64]
-                        mov              r8, qword ptr [rsp + 88]
+                        mov              ecx, dword ptr [rsp + 48]
+                        mov              r8, qword ptr [rsp + 72]
                         lea              r9, [rsp + 0]                                  # lit_string
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]

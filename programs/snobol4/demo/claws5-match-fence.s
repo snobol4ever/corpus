@@ -46,51 +46,23 @@ n1_match_pos_β:
                                                                                         jmp   proc_PAT$0_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_arbno_α:
-                        mov              dword ptr [rbp + 64], r14d
-                        mov              dword ptr [rbp + 68], r14d
-                        mov              dword ptr [rbp + 72], 0
-                        mov              qword ptr [rbp + 88], rsp
-                        mov              qword ptr [rbp + 96], rbp
-                        mov              qword ptr [rbp + 80], 0
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n3_lit_integer_α
 n2_match_arbno_β:
-                        mov              r14d, dword ptr [rbp + 68]
-                        mov              rax, qword ptr [rbp + 80]
-                        sub              rsp, 240
-                        mov              qword ptr [rsp + 0], rbp
-                        mov              qword ptr [rsp + 8], r14
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rbp + 80], rsp
-                        mov              rbp, rsp
-                        add              rbp, 8
                                                                                         jmp   n5_match_alternate_α
 n2_match_arbno_as:
-                        mov              eax, dword ptr [rbp + 0]
+                        mov              eax, dword ptr [rsp + 4]
                         cmp              r14d, eax
                                                                                         je    n5_match_alternate_β
-                        mov              rbp, qword ptr [rbp + -8]
-                        mov              eax, dword ptr [rbp + 72]
-                        add              eax, 1
-                        mov              dword ptr [rbp + 72], eax
-                        mov              dword ptr [rbp + 68], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n3_lit_integer_α
 n2_match_arbno_af:
-                        mov              rax, qword ptr [rbp + 8]
-                        mov              rdx, qword ptr [rbp + -8]
-                        lea              rsp, [rbp + 232]
-                        mov              rbp, rdx
-                        mov              ecx, dword ptr [rbp + 72]
-                        test             ecx, ecx
-                                                                                        jz    .Lx19_2
-                        sub              ecx, 1
-                        mov              dword ptr [rbp + 72], ecx
-                        mov              qword ptr [rbp + 80], rax
-                        lea              rbp, [rax + 8]
-                                                                                        jmp   n5_match_alternate_β
-.Lx19_2:
-                        mov              r14d, dword ptr [rbp + 64]
-                        mov              rbp, qword ptr [rbp + 96]
-                        mov              rsp, qword ptr [rbp + 88]
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              r14d, eax
+                                                                                        jne   n5_match_alternate_β
+                        add              rsp, 16
                                                                                         jmp   n1_match_pos_β
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_integer_α:

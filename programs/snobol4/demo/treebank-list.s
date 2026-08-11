@@ -11102,7 +11102,7 @@ proc_PAT$1_α:
 proc_PAT$1_attempt:
 proc_PAT$1_α_body:
                         lea              rax, [rip + n1094_match_span_β]
-                        mov              qword ptr [rbp + 16], rax
+                        mov              qword ptr [rsp + 16], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n1094_match_span_α:
                         sub              rsp, 16
@@ -11155,11 +11155,11 @@ n1094_match_span_α:
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 .Lx1096_240:
-                        mov              dword ptr [rsp + 4], r14d
+                        mov              dword ptr [rsp + 20], r14d
                         mov              r14d, ecx
                                                                                         jmp   proc_PAT$1_scanhit
 n1094_match_span_β:
-                        mov              r14d, dword ptr [rsp + 4]
+                        mov              r14d, dword ptr [rsp + 20]
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_scanfail
 proc_PAT$1_scanhit:
@@ -11202,7 +11202,7 @@ proc_PAT$1_res:
                         mov              qword ptr [rdx + 8], rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_β:
-                                                                                        jmp   qword ptr [rbp + 16]
+                                                                                        jmp   qword ptr [rax + -24]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_γ:
                         mov              rdx, qword ptr [rip + g_zctx@GOTPCREL]
@@ -11248,7 +11248,7 @@ proc_PAT$2_α:
 proc_PAT$2_attempt:
 proc_PAT$2_α_body:
                         lea              rax, [rip + proc_PAT$2_ω]
-                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rsp + 32], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n1099_match_notany_α:
                         mov              eax, r14d
@@ -11308,11 +11308,11 @@ n1100_match_break_α:
                         add              ecx, 1
                                                                                         jmp   .Lx1103_0
 .Lx1103_1:
-                        mov              dword ptr [rsp + 0], r14d
+                        mov              dword ptr [rsp + 16], r14d
                         mov              r14d, ecx
                                                                                         jmp   proc_PAT$2_scanhit
 n1100_match_break_β:
-                        mov              r14d, dword ptr [rsp + 0]
+                        mov              r14d, dword ptr [rsp + 16]
                         add              rsp, 16
                                                                                         jmp   n1099_match_notany_β
 proc_PAT$2_scanhit:
@@ -11355,7 +11355,7 @@ proc_PAT$2_res:
                         mov              qword ptr [rdx + 8], rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_β:
-                                                                                        jmp   qword ptr [rbp + 32]
+                                                                                        jmp   qword ptr [rax + -24]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_γ:
                         mov              rdx, qword ptr [rip + g_zctx@GOTPCREL]
@@ -11860,53 +11860,23 @@ n1112_match_value_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n1113_match_arbno_α:
-                        mov              dword ptr [rbp + 176], r14d
-                        mov              dword ptr [rbp + 180], r14d
-                        mov              dword ptr [rbp + 184], 0
-                        mov              qword ptr [rbp + 200], rsp
-                        mov              qword ptr [rbp + 208], rbp
-                        mov              qword ptr [rbp + 192], 0
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n1114_call_α
 n1113_match_arbno_β:
-                        mov              r14d, dword ptr [rbp + 180]
-                        mov              rax, qword ptr [rbp + 192]
-                        sub              rsp, 272
-                        mov              qword ptr [rsp + 0], rbp
-                        mov              qword ptr [rsp + 8], r14
-                        mov              qword ptr [rsp + 16], rax
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 136], rax
-                        mov              qword ptr [rbp + 192], rsp
-                        mov              rbp, rsp
-                        add              rbp, -200
                                                                                         jmp   n1117_match_defer_α
 n1113_match_arbno_as:
-                        mov              eax, dword ptr [rbp + 208]
+                        mov              eax, dword ptr [rsp + 4]
                         cmp              r14d, eax
                                                                                         je    n1113_match_arbno_af
-                        mov              rbp, qword ptr [rbp + 200]
-                        mov              eax, dword ptr [rbp + 184]
-                        add              eax, 1
-                        mov              dword ptr [rbp + 184], eax
-                        mov              dword ptr [rbp + 180], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n1114_call_α
 n1113_match_arbno_af:
-                        mov              rax, qword ptr [rbp + 216]
-                        mov              rdx, qword ptr [rbp + 200]
-                        lea              rsp, [rbp + 472]
-                        mov              rbp, rdx
-                        mov              ecx, dword ptr [rbp + 184]
-                        test             ecx, ecx
-                                                                                        jz    .Lx1140_2
-                        sub              ecx, 1
-                        mov              dword ptr [rbp + 184], ecx
-                        mov              qword ptr [rbp + 192], rax
-                        lea              rbp, [rax + -200]
-                                                                                        jmp   n1113_match_arbno_af
-.Lx1140_2:
-                        mov              r14d, dword ptr [rbp + 176]
-                        mov              rbp, qword ptr [rbp + 208]
-                        mov              rsp, qword ptr [rbp + 200]
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              r14d, eax
+                                                                                        jne   n1113_match_arbno_af
+                        add              rsp, 16
                                                                                         jmp   n1112_match_value_β
 #-----------------------------------------------------------------------------------------------------------------------
 n1114_call_α:
@@ -13661,51 +13631,23 @@ n1171_match_value_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n1172_match_arbno_α:
-                        mov              dword ptr [rbp + 192], r14d
-                        mov              dword ptr [rbp + 196], r14d
-                        mov              dword ptr [rbp + 200], 0
-                        mov              qword ptr [rbp + 216], rsp
-                        mov              qword ptr [rbp + 224], rbp
-                        mov              qword ptr [rbp + 208], 0
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n1173_lit_string_α
 n1172_match_arbno_β:
-                        mov              r14d, dword ptr [rbp + 196]
-                        mov              rax, qword ptr [rbp + 208]
-                        sub              rsp, 240
-                        mov              qword ptr [rsp + 0], rbp
-                        mov              qword ptr [rsp + 8], r14
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rbp + 208], rsp
-                        mov              rbp, rsp
-                        add              rbp, -216
                                                                                         jmp   n1178_lit_string_α
 n1172_match_arbno_as:
-                        mov              eax, dword ptr [rbp + 224]
+                        mov              eax, dword ptr [rsp + 4]
                         cmp              r14d, eax
                                                                                         je    n1172_match_arbno_af
-                        mov              rbp, qword ptr [rbp + 216]
-                        mov              eax, dword ptr [rbp + 200]
-                        add              eax, 1
-                        mov              dword ptr [rbp + 200], eax
-                        mov              dword ptr [rbp + 196], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n1173_lit_string_α
 n1172_match_arbno_af:
-                        mov              rax, qword ptr [rbp + 232]
-                        mov              rdx, qword ptr [rbp + 216]
-                        lea              rsp, [rbp + 456]
-                        mov              rbp, rdx
-                        mov              ecx, dword ptr [rbp + 200]
-                        test             ecx, ecx
-                                                                                        jz    .Lx1197_2
-                        sub              ecx, 1
-                        mov              dword ptr [rbp + 200], ecx
-                        mov              qword ptr [rbp + 208], rax
-                        lea              rbp, [rax + -216]
-                                                                                        jmp   n1172_match_arbno_af
-.Lx1197_2:
-                        mov              r14d, dword ptr [rbp + 192]
-                        mov              rbp, qword ptr [rbp + 224]
-                        mov              rsp, qword ptr [rbp + 216]
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              r14d, eax
+                                                                                        jne   n1172_match_arbno_af
+                        add              rsp, 16
                                                                                         jmp   n1171_match_value_β
 #-----------------------------------------------------------------------------------------------------------------------
 n1173_lit_string_α:
@@ -14282,51 +14224,23 @@ n1180_match_value_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n1181_match_arbno_α:
-                        mov              dword ptr [rbp + 336], r14d
-                        mov              dword ptr [rbp + 340], r14d
-                        mov              dword ptr [rbp + 344], 0
-                        mov              qword ptr [rbp + 360], rsp
-                        mov              qword ptr [rbp + 368], rbp
-                        mov              qword ptr [rbp + 352], 0
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n1182_match_defer_α
 n1181_match_arbno_β:
-                        mov              r14d, dword ptr [rbp + 340]
-                        mov              rax, qword ptr [rbp + 352]
-                        sub              rsp, 64
-                        mov              qword ptr [rsp + 0], rbp
-                        mov              qword ptr [rsp + 8], r14
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rbp + 352], rsp
-                        mov              rbp, rsp
-                        add              rbp, -360
                                                                                         jmp   n1185_match_defer_α
 n1181_match_arbno_as:
-                        mov              eax, dword ptr [rbp + 368]
+                        mov              eax, dword ptr [rsp + 4]
                         cmp              r14d, eax
                                                                                         je    n1185_match_defer_β
-                        mov              rbp, qword ptr [rbp + 360]
-                        mov              eax, dword ptr [rbp + 344]
-                        add              eax, 1
-                        mov              dword ptr [rbp + 344], eax
-                        mov              dword ptr [rbp + 340], r14d
+                        mov              dword ptr [rsp + 4], r14d
                                                                                         jmp   n1182_match_defer_α
 n1181_match_arbno_af:
-                        mov              rax, qword ptr [rbp + 376]
-                        mov              rdx, qword ptr [rbp + 360]
-                        lea              rsp, [rbp + 424]
-                        mov              rbp, rdx
-                        mov              ecx, dword ptr [rbp + 344]
-                        test             ecx, ecx
-                                                                                        jz    .Lx1209_2
-                        sub              ecx, 1
-                        mov              dword ptr [rbp + 344], ecx
-                        mov              qword ptr [rbp + 352], rax
-                        lea              rbp, [rax + -360]
-                                                                                        jmp   n1185_match_defer_β
-.Lx1209_2:
-                        mov              r14d, dword ptr [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 368]
-                        mov              rsp, qword ptr [rbp + 360]
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              r14d, eax
+                                                                                        jne   n1185_match_defer_β
+                        add              rsp, 16
                                                                                         jmp   n1180_match_value_β
 #-----------------------------------------------------------------------------------------------------------------------
 n1182_match_defer_α:
