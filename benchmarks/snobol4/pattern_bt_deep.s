@@ -77,24 +77,6 @@ n2_match_span_α:
                         cmp              byte ptr [rdi+rsi], 0
                                                                                         je    .Lx13_1
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx13_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx13_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx13_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx13_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx13_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx13_1
-                        add              ecx, 1
                                                                                         jmp   .Lx13_0
 .Lx13_1:
                         cmp              ecx, r14d

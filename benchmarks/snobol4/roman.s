@@ -703,36 +703,6 @@ n19_match_break_α:
                         movsxd           rcx, r14d
 .Lx65_0:
                         cmp              ecx, r15d
-                                                                                        jl    .Lx65_237
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
-.Lx65_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx65_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx65_238
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
-.Lx65_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx65_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx65_239
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
-.Lx65_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx65_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
                                                                                         jl    .Lx65_240
                         add              rsp, 16
                         add              rsp, 16
@@ -3196,36 +3166,6 @@ n173_match_break_α:
                         sub              rsp, 16
                         movsxd           rcx, r14d
 .Lx309_0:
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx309_237
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n171_match_defer_β
-.Lx309_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx309_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx309_238
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n171_match_defer_β
-.Lx309_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx309_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx309_239
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n171_match_defer_β
-.Lx309_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx309_1
-                        add              ecx, 1
                         cmp              ecx, r15d
                                                                                         jl    .Lx309_240
                         add              rsp, 16

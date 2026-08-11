@@ -643,36 +643,6 @@ n56_match_break_α:
                         movsxd           rcx, r14d
 .Lx62_0:
                         cmp              ecx, r15d
-                                                                                        jl    .Lx62_237
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$0_ω
-.Lx62_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx62_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx62_238
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$0_ω
-.Lx62_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx62_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx62_239
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$0_ω
-.Lx62_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 44
-                                                                                        je    .Lx62_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
                                                                                         jl    .Lx62_240
                         add              rsp, 16
                         add              rsp, 16
