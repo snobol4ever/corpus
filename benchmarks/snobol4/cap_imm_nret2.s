@@ -356,11 +356,11 @@ proc_PAT$0_α:
 proc_PAT$0_attempt:
 proc_PAT$0_α_body:
                         lea              rax, [rip + proc_PAT$0_ω]
-                        mov              qword ptr [rbp + 80], rax
+                        mov              qword ptr [rsp + 80], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n30_match_assign_save_α:
                         sub              rsp, 16
-                        mov              dword ptr [rbp + 48], r14d
+                        mov              dword ptr [rsp + 64], r14d
                                                                                         jmp   n31_match_len_α
 n30_match_assign_save_β:
                         add              rsp, 16
@@ -382,7 +382,7 @@ n31_match_len_β:
                                                                                         jmp   proc_PAT$0_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n32_match_assign_imm_α:
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rsp + 48]
                         lea              rdi, [rip + .S0]
                         mov              esi, eax
                         mov              edx, r14d
@@ -548,7 +548,7 @@ proc_PAT$0_res:
                         mov              qword ptr [rdx + 8], rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_β:
-                                                                                        jmp   qword ptr [rbp + 80]
+                                                                                        jmp   qword ptr [rax + -24]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
                         mov              rdx, qword ptr [rip + g_zctx@GOTPCREL]
@@ -594,11 +594,11 @@ proc_PAT$1_α:
 proc_PAT$1_attempt:
 proc_PAT$1_α_body:
                         lea              rax, [rip + proc_PAT$1_ω]
-                        mov              qword ptr [rbp + 80], rax
+                        mov              qword ptr [rsp + 80], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n43_match_assign_save_α:
                         sub              rsp, 16
-                        mov              dword ptr [rbp + 48], r14d
+                        mov              dword ptr [rsp + 64], r14d
                                                                                         jmp   n44_match_len_α
 n43_match_assign_save_β:
                         add              rsp, 16
@@ -620,7 +620,7 @@ n44_match_len_β:
                                                                                         jmp   proc_PAT$1_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n45_match_assign_imm_α:
-                        mov              eax, dword ptr [rbp + 48]
+                        mov              eax, dword ptr [rsp + 48]
                         lea              rdi, [rip + .S1]
                         mov              esi, eax
                         mov              edx, r14d
@@ -786,7 +786,7 @@ proc_PAT$1_res:
                         mov              qword ptr [rdx + 8], rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_β:
-                                                                                        jmp   qword ptr [rbp + 80]
+                                                                                        jmp   qword ptr [rax + -24]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_γ:
                         mov              rdx, qword ptr [rip + g_zctx@GOTPCREL]
