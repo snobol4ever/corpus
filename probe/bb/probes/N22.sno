@@ -1,0 +1,10 @@
+*  N22 [N] ARBNO supplies 0 instances
+*  subject: ''
+*  pattern: POS(0) ARBNO('ab') RPOS(0)
+
+        SUBJ = ''
+        SUBJ ? POS(0) ARBNO('ab') RPOS(0)                      :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

@@ -1,0 +1,10 @@
+*  N24 [N] ARBNO supplies 2 instances
+*  subject: 'abab'
+*  pattern: POS(0) ARBNO('ab') RPOS(0)
+
+        SUBJ = 'abab'
+        SUBJ ? POS(0) ARBNO('ab') RPOS(0)                      :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

@@ -1,0 +1,10 @@
+*  N30 [N] body kind literal/LEN
+*  subject: 'ab,ab'
+*  pattern: POS(0) 'ab' ARBNO(',' LEN(2)) RPOS(0)
+
+        SUBJ = 'ab,ab'
+        SUBJ ? POS(0) 'ab' ARBNO(',' LEN(2)) RPOS(0)           :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN
+END

@@ -1,8 +1,8 @@
-# BB PROBE SUITE — 141 SNOBOL4 probes with pinned SPITBOL goldens
+# BB PROBE SUITE — 161 SNOBOL4 probes with pinned SPITBOL goldens
 
 ```
-probes/<ID>.sno      the probe                      141
-probes/<ID>.ref      SPITBOL golden (sbl -b)        141
+probes/<ID>.sno      the probe                      161
+probes/<ID>.ref      SPITBOL golden (sbl -b)        161
 gen_probes.py        regenerates families L A N X D F
 gen_probes_fence.py  regenerates families G H
 mkrefs.sh            regenerate / --verify the goldens
@@ -82,7 +82,7 @@ bash mkrefs.sh --verify            ; echo $?     # -> 0
 |---|---|---|
 | L (20) | leaf & sequence, no ARBNO/ALT | 4 |
 | A (13) | alternation, incl. three arm-resume discriminators | **0** |
-| N (21) | single-level ARBNO, capture in every position | 5 |
+| N (31) | single-level ARBNO, capture in every position; N22-N31 = instance-count + body-kind rows | 5 |
 | X (11) | nested ARBNO, manual's LIST and PAIRS, recursion | **0** |
 | D (13) | deferred `*`, trivial upward to recursive patterns | 4 |
 | F (6) | fence basics | 5 |

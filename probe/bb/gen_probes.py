@@ -91,6 +91,20 @@ p("N19","N","ARBNO of a SEQUENCE body",              "ababab","POS(0) ARBNO('a' 
 p("N20","N","ARBNO of a captured SEQUENCE body",     "ababab","POS(0) ARBNO(('a' 'b') . W) RPOS(0)",
    ["W = '<unset>'"], ["OUTPUT = 'W=' W"])
 p("N21","N","two sibling ARBNOs",                    "aabb", "POS(0) ARBNO('a') $ OUTPUT ARBNO('b') $ OUTPUT RPOS(0)")
+# --- N22..N26 INSTANCE COUNT.  One variable: how many instances ARBNO must supply.
+# The whole family above uses a SPAN or LEN(1) body, so the suite was dark to this.
+p("N22","N","ARBNO supplies 0 instances",            "",     "POS(0) ARBNO('ab') RPOS(0)")
+p("N23","N","ARBNO supplies 1 instance",             "ab",   "POS(0) ARBNO('ab') RPOS(0)")
+p("N24","N","ARBNO supplies 2 instances",            "abab", "POS(0) ARBNO('ab') RPOS(0)")
+p("N25","N","ARBNO supplies 3 instances",            "ababab","POS(0) ARBNO('ab') RPOS(0)")
+p("N26","N","ARBNO supplies 3 instances, width 1",   "aaa",  "POS(0) ARBNO('a') RPOS(0)")
+# --- N27..N31 BODY KIND.  One variable: the kind of the two fixed-width bodies.
+# N27 SPAN/SPAN is the negative control -- the only kind the suite covered before.
+p("N27","N","body kind SPAN/SPAN (control)",         "ab,ab","POS(0) SPAN('ab') ARBNO(',' SPAN('ab')) RPOS(0)")
+p("N28","N","body kind literal/literal",             "ab,ab","POS(0) 'ab' ARBNO(',' 'ab') RPOS(0)")
+p("N29","N","body kind LEN/LEN",                     "ab,ab","POS(0) LEN(2) ARBNO(',' LEN(2)) RPOS(0)")
+p("N30","N","body kind literal/LEN",                 "ab,ab","POS(0) 'ab' ARBNO(',' LEN(2)) RPOS(0)")
+p("N31","N","body kind LEN/literal",                 "ab,ab","POS(0) LEN(2) ARBNO(',' 'ab') RPOS(0)")
 
 # ============================ FAMILY X -- nested ARBNO ======================
 p("X01","X","nested ARBNO, degenerate inner",        "abc",  "POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0)")
