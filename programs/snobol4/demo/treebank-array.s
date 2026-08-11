@@ -13113,36 +13113,6 @@ n1375_match_span_α:
                                                                                         jmp   .Lx1377_1
 .Lx1377_10:
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx1377_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx1377_11
-                        cmp              esi, 10
-                                                                                        je    .Lx1377_11
-                                                                                        jmp   .Lx1377_1
-.Lx1377_11:
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx1377_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx1377_12
-                        cmp              esi, 10
-                                                                                        je    .Lx1377_12
-                                                                                        jmp   .Lx1377_1
-.Lx1377_12:
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx1377_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx1377_13
-                        cmp              esi, 10
-                                                                                        je    .Lx1377_13
-                                                                                        jmp   .Lx1377_1
-.Lx1377_13:
-                        add              ecx, 1
                                                                                         jmp   .Lx1377_0
 .Lx1377_1:
                         cmp              ecx, r14d
@@ -13201,33 +13171,6 @@ n1379_match_break_α:
                         lea              rdi, [rip + .C0]
                         movsxd           rcx, r14d
 .Lx1382_0:
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx1382_237
-                        add              rsp, 16
-                                                                                        jmp   n1378_match_notany_β
-.Lx1382_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx1382_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx1382_238
-                        add              rsp, 16
-                                                                                        jmp   n1378_match_notany_β
-.Lx1382_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx1382_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx1382_239
-                        add              rsp, 16
-                                                                                        jmp   n1378_match_notany_β
-.Lx1382_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx1382_1
-                        add              ecx, 1
                         cmp              ecx, r15d
                                                                                         jl    .Lx1382_240
                         add              rsp, 16

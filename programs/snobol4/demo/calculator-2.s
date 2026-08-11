@@ -6797,24 +6797,6 @@ n652_match_span_α:
                         cmp              byte ptr [rdi+rsi], 0
                                                                                         je    .Lx657_1
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx657_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx657_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx657_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx657_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx657_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx657_1
-                        add              ecx, 1
                                                                                         jmp   .Lx657_0
 .Lx657_1:
                         cmp              ecx, r14d

@@ -6522,24 +6522,6 @@ n599_match_span_α:
                         cmp              byte ptr [rdi+rsi], 0
                                                                                         je    .Lx604_1
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx604_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx604_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx604_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx604_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx604_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx604_1
-                        add              ecx, 1
                                                                                         jmp   .Lx604_0
 .Lx604_1:
                         cmp              ecx, r14d

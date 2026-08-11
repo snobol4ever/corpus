@@ -19,36 +19,6 @@ n0_match_span_α:
                                                                                         jmp   .Lx2_1
 .Lx2_10:
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx2_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx2_11
-                        cmp              esi, 10
-                                                                                        je    .Lx2_11
-                                                                                        jmp   .Lx2_1
-.Lx2_11:
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx2_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx2_12
-                        cmp              esi, 10
-                                                                                        je    .Lx2_12
-                                                                                        jmp   .Lx2_1
-.Lx2_12:
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx2_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx2_13
-                        cmp              esi, 10
-                                                                                        je    .Lx2_13
-                                                                                        jmp   .Lx2_1
-.Lx2_13:
-                        add              ecx, 1
                                                                                         jmp   .Lx2_0
 .Lx2_1:
                         cmp              ecx, r14d
@@ -107,33 +77,6 @@ n4_match_break_α:
                         lea              rdi, [rip + .C0]
                         movsxd           rcx, r14d
 .Lx7_0:
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx7_237
-                        add              rsp, 16
-                                                                                        jmp   n3_match_notany_β
-.Lx7_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx7_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx7_238
-                        add              rsp, 16
-                                                                                        jmp   n3_match_notany_β
-.Lx7_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx7_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx7_239
-                        add              rsp, 16
-                                                                                        jmp   n3_match_notany_β
-.Lx7_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx7_1
-                        add              ecx, 1
                         cmp              ecx, r15d
                                                                                         jl    .Lx7_240
                         add              rsp, 16

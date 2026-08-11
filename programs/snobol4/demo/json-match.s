@@ -53,24 +53,6 @@ n2_match_span_α:
                         cmp              byte ptr [rdi+rsi], 0
                                                                                         je    .Lx8_1
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx8_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx8_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx8_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx8_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx8_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx8_1
-                        add              ecx, 1
                                                                                         jmp   .Lx8_0
 .Lx8_1:
                         cmp              ecx, r14d
@@ -110,33 +92,6 @@ n9_match_break_α:
                         lea              rdi, [rip + .C1]
                         movsxd           rcx, r14d
 .Lx11_0:
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx11_237
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$1_ω
-.Lx11_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx11_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx11_238
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$1_ω
-.Lx11_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx11_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx11_239
-                        add              rsp, 16
-                                                                                        jmp   proc_PAT$1_ω
-.Lx11_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx11_1
-                        add              ecx, 1
                         cmp              ecx, r15d
                                                                                         jl    .Lx11_240
                         add              rsp, 16
@@ -355,24 +310,6 @@ n20_match_span_α:
                         cmp              byte ptr [rdi+rsi], 0
                                                                                         je    .Lx55_1
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx55_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx55_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx55_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx55_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx55_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx55_1
-                        add              ecx, 1
                                                                                         jmp   .Lx55_0
 .Lx55_1:
                         cmp              ecx, r14d
@@ -512,24 +449,6 @@ n28_match_span_α:
                         cmp              byte ptr [rdi+rsi], 0
                                                                                         je    .Lx70_1
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx70_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx70_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx70_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx70_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx70_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx70_1
-                        add              ecx, 1
                                                                                         jmp   .Lx70_0
 .Lx70_1:
                         cmp              ecx, r14d
@@ -617,24 +536,6 @@ n33_match_span_α:
                         lea              rdi, [rip + .C2]
                         movsxd           rcx, r14d
 .Lx80_0:
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx80_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx80_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx80_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx80_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx80_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        je    .Lx80_1
-                        add              ecx, 1
                         cmp              ecx, r15d
                                                                                         jge   .Lx80_1
                         movzx            esi, byte ptr [r13+rcx]

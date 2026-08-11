@@ -11038,36 +11038,6 @@ n1092_match_span_α:
                                                                                         jmp   .Lx1094_1
 .Lx1094_10:
                         add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx1094_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx1094_11
-                        cmp              esi, 10
-                                                                                        je    .Lx1094_11
-                                                                                        jmp   .Lx1094_1
-.Lx1094_11:
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx1094_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx1094_12
-                        cmp              esi, 10
-                                                                                        je    .Lx1094_12
-                                                                                        jmp   .Lx1094_1
-.Lx1094_12:
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jge   .Lx1094_1
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 32
-                                                                                        je    .Lx1094_13
-                        cmp              esi, 10
-                                                                                        je    .Lx1094_13
-                                                                                        jmp   .Lx1094_1
-.Lx1094_13:
-                        add              ecx, 1
                                                                                         jmp   .Lx1094_0
 .Lx1094_1:
                         cmp              ecx, r14d
@@ -11126,33 +11096,6 @@ n1096_match_break_α:
                         lea              rdi, [rip + .C0]
                         movsxd           rcx, r14d
 .Lx1099_0:
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx1099_237
-                        add              rsp, 16
-                                                                                        jmp   n1095_match_notany_β
-.Lx1099_237:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx1099_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx1099_238
-                        add              rsp, 16
-                                                                                        jmp   n1095_match_notany_β
-.Lx1099_238:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx1099_1
-                        add              ecx, 1
-                        cmp              ecx, r15d
-                                                                                        jl    .Lx1099_239
-                        add              rsp, 16
-                                                                                        jmp   n1095_match_notany_β
-.Lx1099_239:
-                        movzx            esi, byte ptr [r13+rcx]
-                        cmp              byte ptr [rdi+rsi], 0
-                                                                                        jnz   .Lx1099_1
-                        add              ecx, 1
                         cmp              ecx, r15d
                                                                                         jl    .Lx1099_240
                         add              rsp, 16
