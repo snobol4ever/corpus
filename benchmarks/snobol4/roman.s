@@ -538,8 +538,8 @@ n17_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx61_0
                         mov              r8d, 0
-                        lea              rcx, [rip + .Lx61_4]
-                        lea              rdx, [rip + .Lx61_5]
+                        lea              r10, [rip + .Lx61_4]
+                        lea              r11, [rip + .Lx61_5]
                                                                                         jmp   rax
 .Lx61_4:
                                                                                         jmp   n18_match_assign_save_α
@@ -3032,8 +3032,8 @@ n171_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx305_0
                         mov              r8d, 0
-                        lea              rcx, [rip + .Lx305_4]
-                        lea              rdx, [rip + .Lx305_5]
+                        lea              r10, [rip + .Lx305_4]
+                        lea              r11, [rip + .Lx305_5]
                                                                                         jmp   rax
 .Lx305_4:
                                                                                         jmp   n172_match_assign_save_α
