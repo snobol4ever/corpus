@@ -1,0 +1,9 @@
+*  rtx_func_11_include.sno -- WITNESS for RTX-FUNC-11.
+*  Two-sided: this (-INCLUDE) arm SEGVs under SCRIP mode 3 and mode 4;
+*  the byte-identical inline arm (rtx_func_11_inline.sno) is correct.
+*  SPITBOL oracle runs BOTH arms correctly -- .ref is the oracle output.
+-INCLUDE 'rtx_func_11_inc.sno'
+    OUTPUT = 'i=' i
+    OUTPUT = 'B=' B
+    OUTPUT = 'DONE'
+END
