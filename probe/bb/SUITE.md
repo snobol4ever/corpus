@@ -82,7 +82,7 @@ bash mkrefs.sh --verify            ; echo $?     # -> 0
 |---|---|---|
 | L (20) | leaf & sequence, no ARBNO/ALT | 4 |
 | A (13) | alternation, incl. three arm-resume discriminators | **0** |
-| N (31) | single-level ARBNO, capture in every position; N22-N31 = instance-count + body-kind rows | 5 |
+| N (33) | single-level ARBNO, capture in every position; N22-N31 = instance-count + body-kind rows; N32-N33 = ALTERNATION and ANY bodies (the two legacy-route entrances the N22-N31 set missed: N32 enters via sq=0, every other row enters via k0=1) | 7 |
 | X (11) | nested ARBNO, manual's LIST and PAIRS, recursion | **0** |
 | D (13) | deferred `*`, trivial upward to recursive patterns | 4 |
 | F (6) | fence basics | 5 |
