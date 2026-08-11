@@ -1,0 +1,18 @@
+*  earn0_cap_after_varlen.sno - EARN-0 row-completion fallout (2026-08-11 s27).
+*  CAPTURE AFTER A VARIABLE-LENGTH PRIMITIVE READS THE PRIMITIVE'S `consumed`
+*  COUNTER AS delta0, so the bound substring starts at the CONSUMED COUNT instead
+*  of the MATCH START.  Convicted by prediction on four witnesses (two stated in
+*  advance, exact strings).  Here: '+' at index 4 so start p=5; ARB matches 'ef'
+*  so consumed n=2.  SPITBOL binds 'ef'.  SCRIP binds [n, p+n) = [2,7) = 'cd+ef'.
+*  The 9 templates writing FR(x86_scratch_off) as a consumed counter are the
+*  candidate blast radius: arb bal break breakx rem rtab span span_var tab.
+*  WHY THE CORPUS MISSES IT: every PASSING capture test binds after fixed-length
+*  LEN (058/059/060), which has no consumed counter.  ⛔ NOT the 061 variable-ARG
+*  class (FINDING-2026-08-10d) -- adjacent, distinct, separately owned.
+*  ⛔ NOT ROOT-CAUSED IN SOURCE: mechanism convicted by arithmetic, not stepped.
+        S = 'abcd+efg'
+        S ANY('+') ARB . R 'g'                   :S(Y)F(N)
+Y       OUTPUT = 'R=[' R ']'                     :(D)
+N       OUTPUT = 'NOMATCH'
+D       OUTPUT = 'DONE'
+END

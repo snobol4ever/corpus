@@ -1,0 +1,12 @@
+*  earn0_cap_after_bal.sno - same mechanism, BAL arm (2026-08-11 s27).
+*  BAL's CURSOR IS CORRECT (measured separately with @: cursor_after_BAL agrees
+*  with the oracle on both 'AB+(14-2)*C' and '(X)Y').  Only the CAPTURE is wrong,
+*  which is what makes this the capture-delta0 defect and not a BAL defect.
+*  Here: BAL starts at p=3, consumes n=4 ('(cd)').  SPITBOL binds '(cd)'.
+*  SCRIP binds [n, p+n) = [4,7) = 'cd)' -- PREDICTED IN ADVANCE, then measured.
+        S = 'ab+(cd)ef'
+        S ANY('+') BAL . R 'e'                   :S(Y)F(N)
+Y       OUTPUT = 'R=[' R ']'                     :(D)
+N       OUTPUT = 'NOMATCH'
+D       OUTPUT = 'DONE'
+END
