@@ -353,8 +353,8 @@ n10_match_replace_α:
                         mov              rdi, qword ptr [rip + .Lx55_0]
                         mov              rsi, qword ptr [rbp + 240]
                         mov              rdx, qword ptr [rbp + 248]
-                        mov              ecx, dword ptr [rbp + 32]
-                        mov              r8, qword ptr [rbp + 56]
+                        mov              ecx, dword ptr [rbp + 48]
+                        mov              r8, qword ptr [rbp + 72]
                         lea              r9, [rsp + 0]                                  # lit_string
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -3519,8 +3519,8 @@ n216_match_replace_α:
                         mov              rdi, qword ptr [rip + .Lx347_0]
                         mov              rsi, qword ptr [rbp + 240]
                         mov              rdx, qword ptr [rbp + 248]
-                        mov              ecx, dword ptr [rbp + 32]
-                        mov              r8, qword ptr [rbp + 56]
+                        mov              ecx, dword ptr [rbp + 48]
+                        mov              r8, qword ptr [rbp + 72]
                         lea              r9, [rsp + 0]                                  # lit_string
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
