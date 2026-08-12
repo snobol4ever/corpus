@@ -1,0 +1,10 @@
+*  l3_breakx_clean.sno - L-3 blast-radius probe (2026-08-12 s33).
+*  BREAKX: p=2 n=3, forced to extend. defect-formula [Xb]. MEASURED oracle = CLEAN CONTROL.
+*  PREDICTION STATED BEFORE MEASURING - do not 'simplify' the subject:
+*  a success-expecting or same-answer subject re-hides this row (FINDING-08-12 s3).
+        S = 'q+aXbXz'
+        S ANY('+') BREAKX('X') . R 'Xz'                     :S(Y)F(N)
+Y       OUTPUT = 'R=[' R ']'                     :(D)
+N       OUTPUT = 'NOMATCH'
+D       OUTPUT = 'DONE'
+END

@@ -1,0 +1,11 @@
+*  l4_span_varg_hang.sno - L-3 blast-radius probe (2026-08-12 s33).
+*  L-4/061 NOT L-3: SPAN(V) with a plain variable arg HANGS rc=124 at 52545cbf. SPAN(*V) identical, so the STAR IS NOT THE DISCRIMINATOR - a variable arg is.
+*  PREDICTION STATED BEFORE MEASURING - do not 'simplify' the subject:
+*  a success-expecting or same-answer subject re-hides this row (FINDING-08-12 s3).
+        V = 'ab'
+        S = 'q+aabbz'
+        S ANY('+') SPAN(V) . R 'z'              :S(Y)F(N)
+Y       OUTPUT = 'R=[' R ']'                     :(D)
+N       OUTPUT = 'NOMATCH'
+D       OUTPUT = 'DONE'
+END
