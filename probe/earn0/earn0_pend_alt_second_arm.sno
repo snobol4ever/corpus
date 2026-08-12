@@ -1,0 +1,8 @@
+* Control C: pending in the SECOND alternation arm
+ &ANCHOR = 1
+ X = 'untouched'
+ 'AC' ( 'AB' | ('A' . X) 'C' ) :F(NO)
+ OUTPUT = 'MATCH X=' X :(FIN)
+NO OUTPUT = 'FAIL X=' X
+FIN
+END
