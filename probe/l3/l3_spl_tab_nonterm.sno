@@ -1,0 +1,6 @@
+	S = 'XXXXXXXXXX+efgYYYY'
+	S LEN(2) TAB(14)  = '*'	:S(Y)F(N)
+Y	OUTPUT = 'S=[' S ']'	:(D)
+N	OUTPUT = 'NOMATCH'
+D	OUTPUT = 'DONE'
+END
