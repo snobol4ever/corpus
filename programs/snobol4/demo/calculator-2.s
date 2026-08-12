@@ -6805,11 +6805,11 @@ n652_match_span_α:
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_ω
 .Lx657_240:
-                        mov              dword ptr [rsp + 20], r14d
+                        mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
                                                                                         jmp   n653_match_assign_cond_α
 n652_match_span_β:
-                        mov              r14d, dword ptr [rsp + 20]
+                        mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_ω

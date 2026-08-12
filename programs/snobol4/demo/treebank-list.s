@@ -11045,11 +11045,11 @@ n1092_match_span_α:
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_ω
 .Lx1094_240:
-                        mov              dword ptr [rsp + 20], r14d
+                        mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
                                                                                         jmp   proc_PAT$1_γ
 n1092_match_span_β:
-                        mov              r14d, dword ptr [rsp + 20]
+                        mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11107,11 +11107,11 @@ n1096_match_break_α:
                         add              ecx, 1
                                                                                         jmp   .Lx1099_0
 .Lx1099_1:
-                        mov              dword ptr [rsp + 16], r14d
+                        mov              dword ptr [rsp + 0], r14d
                         mov              r14d, ecx
                                                                                         jmp   proc_PAT$2_γ
 n1096_match_break_β:
-                        mov              r14d, dword ptr [rsp + 16]
+                        mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                                                                                         jmp   n1095_match_notany_β
 #-----------------------------------------------------------------------------------------------------------------------

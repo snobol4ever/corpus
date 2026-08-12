@@ -13120,11 +13120,11 @@ n1375_match_span_α:
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_ω
 .Lx1377_240:
-                        mov              dword ptr [rsp + 20], r14d
+                        mov              dword ptr [rsp + 4], r14d
                         mov              r14d, ecx
                                                                                         jmp   proc_PAT$1_γ
 n1375_match_span_β:
-                        mov              r14d, dword ptr [rsp + 20]
+                        mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16
                                                                                         jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13182,11 +13182,11 @@ n1379_match_break_α:
                         add              ecx, 1
                                                                                         jmp   .Lx1382_0
 .Lx1382_1:
-                        mov              dword ptr [rsp + 16], r14d
+                        mov              dword ptr [rsp + 0], r14d
                         mov              r14d, ecx
                                                                                         jmp   proc_PAT$2_γ
 n1379_match_break_β:
-                        mov              r14d, dword ptr [rsp + 16]
+                        mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                                                                                         jmp   n1378_match_notany_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14920,20 +14920,20 @@ n1440_match_lit_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1441_match_bal_α:
                         sub              rsp, 16
-                        mov              dword ptr [rsp + 16], 0
+                        mov              dword ptr [rsp + 0], 0
                         mov              eax, r14d
-                        mov              dword ptr [rsp + 20], eax
-                        mov              dword ptr [rsp + 24], 0
+                        mov              dword ptr [rsp + 4], eax
+                        mov              dword ptr [rsp + 8], 0
 n1441_match_bal_β:
 .Lx1449_0:
-                        mov              eax, dword ptr [rsp + 20]
-                        add              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 4]
+                        add              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jge   .Lx1449_3
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
-                        add              dword ptr [rsp + 16], 1
-                        mov              edx, dword ptr [rsp + 24]
+                        add              dword ptr [rsp + 0], 1
+                        mov              edx, dword ptr [rsp + 8]
                         cmp              esi, 40
                                                                                         jne   .Lx1449_1
                         add              edx, 1
@@ -14945,15 +14945,15 @@ n1441_match_bal_β:
                         cmp              edx, 0
                                                                                         jl    .Lx1449_3
 .Lx1449_2:
-                        mov              dword ptr [rsp + 24], edx
+                        mov              dword ptr [rsp + 8], edx
                         test             edx, edx
                                                                                         jne   .Lx1449_0
-                        mov              eax, dword ptr [rsp + 20]
-                        add              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 4]
+                        add              eax, dword ptr [rsp + 0]
                         mov              r14d, eax
                                                                                         jmp   n1442_match_lit_α
 .Lx1449_3:
-                        mov              eax, dword ptr [rsp + 20]
+                        mov              eax, dword ptr [rsp + 4]
                         mov              r14d, eax
                         add              rsp, 16
                                                                                         jmp   n1440_match_lit_β
