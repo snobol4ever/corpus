@@ -1,0 +1,29 @@
+*  earn0_disc_arbno_star_fence_positive.sno - DISCRIMINATING SIBLING for the
+*  ARBNO(*cmd)-FENCE family (2026-08-12 s29).
+*
+*  WHY THIS EXISTS. crosscheck/patterns 119 / 129 / 148 / 149 all use this exact
+*  cmd/outer idiom and all assert on the FAILURE branch (:S(BAD)F(GOOD)) -- their
+*  expected outcome is that the match FAILS. A test that asserts FAILURE is passed by
+*  ANY defect that causes failure, including total loss of the pattern: a degenerate
+*  ARBNO(null) cannot span a multi-character subject between POS(0) and RPOS(0), so it
+*  fails too, and prints the very same 'GOOD' string. Honest FENCE sealing and total
+*  pattern loss are INDISTINGUISHABLE there.
+*
+*  THIS witness inverts the polarity: subject 'aa' makes the CORRECT answer a MATCH.
+*    honest  : ARBNO(FENCE('a'|'ab')) takes 'a' then 'a' -> cursor 2 -> RPOS(0) -> MATCH
+*    degenerate: ARBNO(null) matches only the empty string -> POS(0)..RPOS(0) on 'aa' -> FAIL
+*  The separation is PROVEN by the poisoned control beside this file, which flips the
+*  oracle's answer -- a discriminator whose arms give the same oracle answer is not one.
+*
+*  AT HEAD fc5b0754: SPITBOL MATCHES, SCRIP FAILS. Deterministic, rc=0, wrong answer.
+*  ⇒ SCRIP cannot span 'aa' with this idiom, so 119/129/148/149 pass for a reason
+*  unrelated to the seal they claim to test.
+*  ⛔ DO NOT "fix" this by changing the subject back to one that fails. That is the
+*  vacuity this witness exists to prevent.
+        cmd   = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s     = 'aa'
+        s POS(0) *outer RPOS(0)                               :S(GOOD)F(BAD)
+GOOD    OUTPUT = 'arbno-star-cmd spanned aa'                  :(END)
+BAD     OUTPUT = 'FAILED: pattern did not span aa'
+END
