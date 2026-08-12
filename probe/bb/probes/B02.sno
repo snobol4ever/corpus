@@ -1,0 +1,13 @@
+*  B02 [B] FLAT pattern, TWO pending-capture nodes (no ALT, no ARBNO)
+*  subject: 'abcd'
+*  pattern: POS(0) LEN(2) . P LEN(2) . Q
+
+        SUBJ = 'abcd'
+        P = '<unset>'
+        Q = '<unset>'
+        SUBJ ? POS(0) LEN(2) . P LEN(2) . Q             :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'P=' P
+        OUTPUT = 'Q=' Q
+END
