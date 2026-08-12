@@ -49,18 +49,32 @@ for f in "$DIR"/*.sno; do
     desc="$(sed -n '1s/^\*  [A-Z0-9]* \[.\] //p' "$f")"
     [ -f "$ref" ] || { NOREF=$((NOREF+1)); printf '  ⚠  %-5s NO .ref — run mkrefs.sh\n' "$id"; continue; }
 
+    stage=""
     if [ "$MODE" = "compile" ]; then
-        RTOUT="$(dirname "$SCRIP")/out"
-        timeout 90s bash -c '"$0" --compile "$1" </dev/null >"$2.s" 2>/dev/null && [ -s "$2.s" ] && gcc "$2.s" -no-pie -L "$4" -lscrip_rt -Wl,-rpath,"$4" -o "$2" 2>/dev/null && LD_LIBRARY_PATH="$4" "$2" </dev/null >"$3" 2>/dev/null' \
-            "$SCRIP" "$f" "$TMP/a.out" "$TMP/got" "$RTOUT" 2>"$TMP/sh.err"
+        RTOUT="$(dirname "$SCRIP")/out"; RUNTO="${RUNTO:-90}"
+        : > "$TMP/sh.err"; : > "$TMP/e.compile"; : > "$TMP/e.link"; : > "$TMP/e.run"
+        timeout 90s "$SCRIP" --compile "$f" </dev/null > "$TMP/a.out.s" 2>"$TMP/e.compile"; rc=$?
+        if   [ "$rc" -ne 0 ];             then stage="COMPILE"
+        elif [ ! -s "$TMP/a.out.s" ];     then rc=1; stage="EMPTY-ASM"
+        else
+            gcc "$TMP/a.out.s" -no-pie -L "$RTOUT" -lscrip_rt -Wl,-rpath,"$RTOUT" -o "$TMP/a.out" 2>"$TMP/e.link"; rc=$?
+            if [ "$rc" -ne 0 ]; then stage="LINK"
+            else
+                timeout "${RUNTO}s" bash -c 'LD_LIBRARY_PATH="$3" "$0" </dev/null >"$1" 2>"$2"' \
+                    "$TMP/a.out" "$TMP/got" "$TMP/e.run" "$RTOUT" 2>"$TMP/sh.err"
+                rc=$?; [ "$rc" -ne 0 ] && stage="RUN"
+            fi
+        fi
     else
         timeout 15s bash -c '"$0" --run "$1" </dev/null >"$2" 2>/dev/null' \
             "$SCRIP" "$f" "$TMP/got" 2>"$TMP/sh.err"
+        rc=$?
     fi
-    rc=$?; why=""
+    why=""
     [ "$rc" -ge 128 ] && why="signal $((rc-128))"
     [ "$rc" -eq 124 ] && why="TIMEOUT"
     grep -qiE 'segmentation|abort|bus error' "$TMP/sh.err" 2>/dev/null && why="CRASH"
+    [ -n "$stage" ] && why="${stage}${why:+ / $why}"
     [ -f "$TMP/got" ] || : > "$TMP/got"
 
     ok=0
@@ -82,6 +96,12 @@ for f in "$DIR"/*.sno; do
             printf '  ❌ %-5s REGRESSION%s: %s\n' "$id" "${why:+ ($why)}" "$desc"
             printf '       want=[%s]\n       got =[%s]\n' \
                    "$(tr '\n' '|' < "$ref" | head -c 100)" "$(tr '\n' '|' < "$TMP/got" | head -c 100)"
+            if [ "${VERBOSE:-0}" = "1" ]; then
+                for e in compile link run; do
+                    [ -s "$TMP/e.$e" ] && printf '       %s.stderr: %s\n' "$e" "$(head -c 200 < "$TMP/e.$e" | tr '\n' ' ')"
+                done
+                [ -s "$TMP/sh.err" ] && printf '       shell: %s\n' "$(head -c 200 < "$TMP/sh.err" | tr '\n' ' ')"
+            fi
         fi
     fi
 done
