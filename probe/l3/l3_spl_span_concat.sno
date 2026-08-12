@@ -1,0 +1,8 @@
+	A = '<'
+	B = '>'
+	S = 'XXXXXXXXXX+efgYYYY'
+	S ANY('+') SPAN('ef') 'g' = A '-' B	:S(Y)F(N)
+Y	OUTPUT = 'S=[' S ']'	:(D)
+N	OUTPUT = 'NOMATCH'
+D	OUTPUT = 'DONE'
+END
