@@ -346,16 +346,16 @@ n10_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n9_match_defer_β
+                                                                                        jg    n6_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 41
-                                                                                        jne   n9_match_defer_β
+                                                                                        jne   n6_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n6_match_alternate_s2
 n10_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n9_match_defer_β
+                                                                                        jmp   n6_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_defer_α:
                         mov              rax, qword ptr [r9 + 160]                      # PAT$2$V1
@@ -2744,7 +2744,7 @@ n96_match_defer_α:
 .Lx104_4:
                                                                                         jmp   n92_match_arbno_as
 .Lx104_5:
-                                                                                        jmp   n95_match_defer_β
+                                                                                        jmp   n92_match_arbno_af
 .Lx104_0:
                         push             r14
                         push             r15
@@ -2878,7 +2878,7 @@ n96_match_defer_α:
                         mov              r10,  qword ptr [r11 + 56]
                         mov              r11,  qword ptr [r11 + 64]
                         test             eax, eax
-                                                                                        js    n95_match_defer_β
+                                                                                        js    n92_match_arbno_af
                         mov              r14d, eax
                         lea              rax, [rip + .Lx104_6]
                         sub              rsp, 8
@@ -2886,7 +2886,7 @@ n96_match_defer_α:
                                                                                         jmp   n92_match_arbno_as
 .Lx104_6:
                         add              rsp, 16
-                                                                                        jmp   n95_match_defer_β
+                                                                                        jmp   n92_match_arbno_af
 n96_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------

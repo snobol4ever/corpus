@@ -341,7 +341,7 @@ n10_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n10_match_arbno_af
                         add              rsp, 16
-                                                                                        jmp   n9_match_defer_β
+                                                                                        jmp   proc_PAT$2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_lit_α:
                         mov              eax, r14d

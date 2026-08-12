@@ -341,7 +341,7 @@ n10_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n12_match_defer_β
                         add              rsp, 16
-                                                                                        jmp   n9_match_defer_β
+                                                                                        jmp   proc_PAT$2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_lit_α:
                         mov              eax, r14d
@@ -572,7 +572,7 @@ n13_match_alternate_af:
                         mov              rax, qword ptr [rbp + 160]
                                                                                         jmp   rax
 .Lx25_19:
-                                                                                        jmp   n12_match_defer_β
+                                                                                        jmp   n10_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n14_match_defer_α:
                         mov              rax, qword ptr [r9 + 112]                      # PAT$2$V2

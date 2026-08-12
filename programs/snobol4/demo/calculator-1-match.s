@@ -349,16 +349,16 @@ n10_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n9_match_defer_β
+                                                                                        jg    n6_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 41
-                                                                                        jne   n9_match_defer_β
+                                                                                        jne   n6_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n6_match_alternate_s2
 n10_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n9_match_defer_β
+                                                                                        jmp   n6_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_defer_α:
                         mov              rax, qword ptr [r9 + 160]                      # PAT$2$V1
@@ -1836,16 +1836,16 @@ n46_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n45_match_defer_β
+                                                                                        jg    n42_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 47
-                                                                                        jne   n45_match_defer_β
+                                                                                        jne   n42_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n47_match_defer_α
 n46_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n45_match_defer_β
+                                                                                        jmp   n42_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n47_match_defer_α:
                         lea              rsi, [rip + g_sno_defer_cells+24]
@@ -2229,16 +2229,16 @@ n50_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n49_match_defer_β
+                                                                                        jg    n42_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 42
-                                                                                        jne   n49_match_defer_β
+                                                                                        jne   n42_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n51_match_defer_α
 n50_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n49_match_defer_β
+                                                                                        jmp   n42_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n51_match_defer_α:
                         lea              rsi, [rip + g_sno_defer_cells+32]
@@ -2871,16 +2871,16 @@ n69_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n68_match_defer_β
+                                                                                        jg    n65_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 45
-                                                                                        jne   n68_match_defer_β
+                                                                                        jne   n65_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n70_match_defer_α
 n69_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n68_match_defer_β
+                                                                                        jmp   n65_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n70_match_defer_α:
                         lea              rsi, [rip + g_sno_defer_cells+40]
@@ -3264,16 +3264,16 @@ n73_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n72_match_defer_β
+                                                                                        jg    n65_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 43
-                                                                                        jne   n72_match_defer_β
+                                                                                        jne   n65_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n74_match_defer_α
 n73_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n72_match_defer_β
+                                                                                        jmp   n65_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n74_match_defer_α:
                         lea              rsi, [rip + g_sno_defer_cells+48]
@@ -3769,7 +3769,7 @@ n94_match_defer_α:
 .Lx102_4:
                                                                                         jmp   n90_match_arbno_as
 .Lx102_5:
-                                                                                        jmp   n93_match_defer_β
+                                                                                        jmp   n90_match_arbno_af
 .Lx102_0:
                         push             r14
                         push             r15
@@ -3903,7 +3903,7 @@ n94_match_defer_α:
                         mov              r10,  qword ptr [r11 + 56]
                         mov              r11,  qword ptr [r11 + 64]
                         test             eax, eax
-                                                                                        js    n93_match_defer_β
+                                                                                        js    n90_match_arbno_af
                         mov              r14d, eax
                         lea              rax, [rip + .Lx102_6]
                         sub              rsp, 8
@@ -3911,7 +3911,7 @@ n94_match_defer_α:
                                                                                         jmp   n90_match_arbno_as
 .Lx102_6:
                         add              rsp, 16
-                                                                                        jmp   n93_match_defer_β
+                                                                                        jmp   n90_match_arbno_af
 n94_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------

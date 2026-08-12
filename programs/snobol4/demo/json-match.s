@@ -864,7 +864,7 @@ n90_match_alternate_af:
                         mov              rax, qword ptr [rbp + 48]
                                                                                         jmp   rax
 .Lx100_19:
-                                                                                        jmp   n89_match_defer_β
+                                                                                        jmp   proc_PAT$3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n91_goto_α:
                                                                                         jmp   n90_match_alternate_af
@@ -1206,7 +1206,7 @@ n116_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n118_match_defer_β
                         add              rsp, 16
-                                                                                        jmp   n115_match_defer_β
+                                                                                        jmp   proc_PAT$4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n117_match_lit_α:
                         mov              eax, r14d
@@ -1443,7 +1443,7 @@ n119_match_defer_α:
 .Lx128_4:
                                                                                         jmp   n116_match_arbno_as
 .Lx128_5:
-                                                                                        jmp   n118_match_defer_β
+                                                                                        jmp   n116_match_arbno_af
 .Lx128_0:
                         push             r14
                         push             r15
@@ -1577,7 +1577,7 @@ n119_match_defer_α:
                         mov              r10,  qword ptr [r11 + 56]
                         mov              r11,  qword ptr [r11 + 64]
                         test             eax, eax
-                                                                                        js    n118_match_defer_β
+                                                                                        js    n116_match_arbno_af
                         mov              r14d, eax
                         lea              rax, [rip + .Lx128_6]
                         sub              rsp, 8
@@ -1585,7 +1585,7 @@ n119_match_defer_α:
                                                                                         jmp   n116_match_arbno_as
 .Lx128_6:
                         add              rsp, 16
-                                                                                        jmp   n118_match_defer_β
+                                                                                        jmp   n116_match_arbno_af
 n119_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1840,7 +1840,8 @@ n130_match_defer_α:
                                                                                         jmp   n131_match_defer_α
 .Lx135_5:
                         add              rsp, 16
-                                                                                        jmp   n129_match_defer_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$5_ω
 .Lx135_0:
                         push             r14
                         push             r15
@@ -1976,7 +1977,8 @@ n130_match_defer_α:
                         test             eax, eax
                                                                                         jns   .Lx135_240
                         add              rsp, 16
-                                                                                        jmp   n129_match_defer_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$5_ω
 .Lx135_240:
                         mov              r14d, eax
                         lea              rax, [rip + .Lx135_6]
@@ -1986,7 +1988,8 @@ n130_match_defer_α:
 .Lx135_6:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n129_match_defer_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$5_ω
 n130_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2029,7 +2032,8 @@ n131_match_defer_α:
                                                                                         jmp   n132_match_lit_α
 .Lx136_5:
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                        add              rsp, 32
+                                                                                        jmp   proc_PAT$5_ω
 .Lx136_0:
                         push             r14
                         push             r15
@@ -2165,7 +2169,8 @@ n131_match_defer_α:
                         test             eax, eax
                                                                                         jns   .Lx136_240
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                        add              rsp, 32
+                                                                                        jmp   proc_PAT$5_ω
 .Lx136_240:
                         mov              r14d, eax
                         lea              rax, [rip + .Lx136_6]
@@ -2175,7 +2180,8 @@ n131_match_defer_α:
 .Lx136_6:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                        add              rsp, 32
+                                                                                        jmp   proc_PAT$5_ω
 n131_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2183,16 +2189,16 @@ n132_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n131_match_defer_β
+                                                                                        jg    proc_PAT$5_ω
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 58
-                                                                                        jne   n131_match_defer_β
+                                                                                        jne   proc_PAT$5_ω
                         add              r14d, 1
                                                                                         jmp   n133_match_defer_α
 n132_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n131_match_defer_β
+                                                                                        jmp   proc_PAT$5_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n133_match_defer_α:
                         sub              rsp, 16
@@ -2863,7 +2869,7 @@ n146_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n147_match_lit_β
                         add              rsp, 16
-                                                                                        jmp   n145_match_defer_β
+                                                                                        jmp   n141_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n147_match_lit_α:
                         mov              eax, r14d
@@ -3542,7 +3548,7 @@ n169_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n170_match_lit_β
                         add              rsp, 16
-                                                                                        jmp   n168_match_defer_β
+                                                                                        jmp   n164_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n170_match_lit_α:
                         mov              eax, r14d
@@ -4890,7 +4896,8 @@ n207_match_defer_α:
                                                                                         jmp   n208_match_defer_α
 .Lx210_5:
                         add              rsp, 16
-                                                                                        jmp   n206_match_defer_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$9_ω
 .Lx210_0:
                         push             r14
                         push             r15
@@ -5026,7 +5033,8 @@ n207_match_defer_α:
                         test             eax, eax
                                                                                         jns   .Lx210_240
                         add              rsp, 16
-                                                                                        jmp   n206_match_defer_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$9_ω
 .Lx210_240:
                         mov              r14d, eax
                         lea              rax, [rip + .Lx210_6]
@@ -5036,7 +5044,8 @@ n207_match_defer_α:
 .Lx210_6:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n206_match_defer_β
+                        add              rsp, 16
+                                                                                        jmp   proc_PAT$9_ω
 n207_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5079,7 +5088,8 @@ n208_match_defer_α:
                                                                                         jmp   proc_PAT$9_γ
 .Lx211_5:
                         add              rsp, 16
-                                                                                        jmp   n207_match_defer_β
+                        add              rsp, 32
+                                                                                        jmp   proc_PAT$9_ω
 .Lx211_0:
                         push             r14
                         push             r15
@@ -5215,7 +5225,8 @@ n208_match_defer_α:
                         test             eax, eax
                                                                                         jns   .Lx211_240
                         add              rsp, 16
-                                                                                        jmp   n207_match_defer_β
+                        add              rsp, 32
+                                                                                        jmp   proc_PAT$9_ω
 .Lx211_240:
                         mov              r14d, eax
                         lea              rax, [rip + .Lx211_6]
@@ -5225,7 +5236,8 @@ n208_match_defer_α:
 .Lx211_6:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n207_match_defer_β
+                        add              rsp, 32
+                                                                                        jmp   proc_PAT$9_ω
 n208_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5478,7 +5490,7 @@ n216_match_rpos_α:
                         cmp              r14d, ecx
                                                                                         je    .Lx221_240
                         add              rsp, 16
-                                                                                        jmp   n214_match_defer_β
+                                                                                        jmp   proc_PAT$10_ω
 .Lx221_240:
                                                                                         jmp   proc_PAT$10_γ
 #-----------------------------------------------------------------------------------------------------------------------

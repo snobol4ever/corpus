@@ -7109,16 +7109,16 @@ n664_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n663_match_defer_β
+                                                                                        jg    n660_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 41
-                                                                                        jne   n663_match_defer_β
+                                                                                        jne   n660_match_alternate_af
                         add              r14d, 1
                                                                                         jmp   n660_match_alternate_s2
 n664_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n663_match_defer_β
+                                                                                        jmp   n660_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n665_match_defer_α:
                         mov              rax, qword ptr [r9 + 528]                      # PAT$2$V1
@@ -8216,7 +8216,7 @@ n702_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n703_match_alternate_β
                         add              rsp, 16
-                                                                                        jmp   n701_match_defer_β
+                                                                                        jmp   proc_PAT$4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n703_match_alternate_α:
                         mov              dword ptr [rbp + 112], r14d
@@ -9023,7 +9023,7 @@ n736_match_arbno_af:
                         cmp              r14d, eax
                                                                                         jne   n737_match_alternate_β
                         add              rsp, 16
-                                                                                        jmp   n735_match_defer_β
+                                                                                        jmp   proc_PAT$5_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n737_match_alternate_α:
                         mov              dword ptr [rbp + 112], r14d
@@ -10058,7 +10058,7 @@ n784_match_defer_α:
 .Lx795_4:
                                                                                         jmp   n785_match_assign_save_α
 .Lx795_5:
-                                                                                        jmp   n783_match_defer_β
+                                                                                        jmp   n780_match_arbno_af
 .Lx795_0:
                         push             r14
                         push             r15
@@ -10192,7 +10192,7 @@ n784_match_defer_α:
                         mov              r10,  qword ptr [r11 + 56]
                         mov              r11,  qword ptr [r11 + 64]
                         test             eax, eax
-                                                                                        js    n783_match_defer_β
+                                                                                        js    n780_match_arbno_af
                         mov              r14d, eax
                         lea              rax, [rip + .Lx795_6]
                         sub              rsp, 8
@@ -10200,7 +10200,7 @@ n784_match_defer_α:
                                                                                         jmp   n785_match_assign_save_α
 .Lx795_6:
                         add              rsp, 16
-                                                                                        jmp   n783_match_defer_β
+                                                                                        jmp   n780_match_arbno_af
 n784_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10240,7 +10240,7 @@ n785_match_assign_save_β:
                         mov              r9,   qword ptr [r11 + 48]
                         mov              r10,  qword ptr [r11 + 56]
                         mov              r11,  qword ptr [r11 + 64]
-                                                                                        jmp   n784_match_defer_β
+                                                                                        jmp   n780_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n786_match_defer_α:
                         mov              rax, qword ptr [r9 + 688]                      # PAT$7$V2
