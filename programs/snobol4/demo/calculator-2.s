@@ -145,10 +145,10 @@ n5_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx28_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -318,10 +318,10 @@ n13_lit_string_α:
 n14_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd42:             .string          "SNO$NAME"
                         .section         .text
@@ -384,10 +384,10 @@ n17_lit_string_α:
 n18_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd48:             .string          "SNO$NRET"
                         .section         .text
@@ -684,10 +684,10 @@ n65_lit_string_α:
 n66_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd87:             .string          "SNO$NRET"
                         .section         .text
@@ -987,25 +987,25 @@ n99_match_rpos_α:
                                                                                         jmp   n100_match_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n100_match_end_α:
-                        mov              r10, r12
+                        mov              r8, r12
 .Lx126_9:
-                        sub              r10, 24
-                        mov              rax, qword ptr [r10 + 0]
+                        sub              r8, 24
+                        mov              rax, qword ptr [r8 + 0]
                         test             rax, rax
                                                                                         jne   .Lx126_9
-                        mov              rsp, qword ptr [r10 + 8]
+                        mov              rsp, qword ptr [r8 + 8]
                         push             r14
                         push             r15
                         push             r13
                         sub              rsp, 8
                         mov              rsi, r12
-                        mov              r10, rsi
+                        mov              r8, rsi
 .Lx126_5:
-                        sub              r10, 24
-                        mov              rax, qword ptr [r10 + 0]
+                        sub              r8, 24
+                        mov              rax, qword ptr [r8 + 0]
                         test             rax, rax
                                                                                         jne   .Lx126_5
-                        lea              rdi, [r10 + 24]
+                        lea              rdi, [r8 + 24]
                         mov              rdx, r13
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -1507,10 +1507,10 @@ n151_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx189_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -1877,10 +1877,10 @@ n168_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx211_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -2072,10 +2072,10 @@ n174_lit_string_α:
 n175_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd221:            .string          "SNO$NAME"
                         .section         .text
@@ -2138,10 +2138,10 @@ n178_lit_string_α:
 n179_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd227:            .string          "SNO$NRET"
                         .section         .text
@@ -2427,10 +2427,10 @@ n237_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx275_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -2797,10 +2797,10 @@ n254_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx297_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -2992,10 +2992,10 @@ n260_lit_string_α:
 n261_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd307:            .string          "SNO$NAME"
                         .section         .text
@@ -3058,10 +3058,10 @@ n264_lit_string_α:
 n265_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd313:            .string          "SNO$NRET"
                         .section         .text
@@ -3347,10 +3347,10 @@ n323_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx361_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -3717,10 +3717,10 @@ n340_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx383_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -3912,10 +3912,10 @@ n346_lit_string_α:
 n347_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd393:            .string          "SNO$NAME"
                         .section         .text
@@ -3978,10 +3978,10 @@ n350_lit_string_α:
 n351_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd399:            .string          "SNO$NRET"
                         .section         .text
@@ -4267,10 +4267,10 @@ n409_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx447_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -4637,10 +4637,10 @@ n426_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx469_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -4832,10 +4832,10 @@ n432_lit_string_α:
 n433_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd479:            .string          "SNO$NAME"
                         .section         .text
@@ -4898,10 +4898,10 @@ n436_lit_string_α:
 n437_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd485:            .string          "SNO$NRET"
                         .section         .text
@@ -5187,10 +5187,10 @@ n495_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx540_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -5471,14 +5471,14 @@ n509_lit_string_β:
 n510_call_α:
                         sub              rsp, 16
                         sub              rsp, 32
-                        mov              r10, qword ptr [rsp + 64]
-                        mov              r11, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
-                        mov              r10, qword ptr [rsp + 48]
-                        mov              r11, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 16], r10
-                        mov              qword ptr [rsp + 24], r11
+                        mov              r8, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 8], r8
+                        mov              r8, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], r8
+                        mov              r8, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], r8
                         .section         .rodata
 .Lrkfnzd560:            .string          "IDENT"
                         .section         .text
@@ -5694,10 +5694,10 @@ n525_lit_string_α:
 n526_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd583:            .string          "SNO$NAME"
                         .section         .text
@@ -5760,10 +5760,10 @@ n529_lit_string_α:
 n530_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd589:            .string          "SNO$NRET"
                         .section         .text
@@ -9635,10 +9635,10 @@ n769_lit_integer_α:
 n770_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lbynamefnzd287:        .string          "CHAR"
                         .section         .text
@@ -11138,6 +11138,7 @@ main:
                         mov              edx, 44
                         call             gva_register@PLT
                         mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                                         jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11310,10 +11311,10 @@ n834_lit_integer_α:
 n835_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1351:           .string          "ARRAY"
                         .section         .text
@@ -11458,10 +11459,10 @@ n847_lit_string_α:
 n848_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1371:           .string          "SNO$MKPAT"
                         .section         .text
@@ -11532,10 +11533,10 @@ n852_lit_string_α:
 n853_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1379:           .string          "SNO$MKPAT"
                         .section         .text
@@ -11643,10 +11644,10 @@ n861_lit_string_β:
 n862_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1391:           .string          "SNO$MKPAT"
                         .section         .text
@@ -11734,10 +11735,10 @@ n868_lit_string_β:
 n869_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1401:           .string          "SNO$MKPAT"
                         .section         .text
@@ -11861,10 +11862,10 @@ n879_lit_string_β:
 n880_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1415:           .string          "SNO$MKPAT"
                         .section         .text
@@ -11988,10 +11989,10 @@ n890_lit_string_β:
 n891_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1429:           .string          "SNO$MKPAT"
                         .section         .text
@@ -12060,10 +12061,10 @@ n895_lit_string_α:
 n896_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1437:           .string          "SNO$MKPAT"
                         .section         .text
@@ -12189,10 +12190,10 @@ n906_lit_string_β:
 n907_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1451:           .string          "SNO$MKPAT"
                         .section         .text
@@ -12274,14 +12275,14 @@ n912_lit_integer_β:
 n913_call_α:
                         sub              rsp, 16
                         sub              rsp, 32
-                        mov              r10, qword ptr [rsp + 64]
-                        mov              r11, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
-                        mov              r10, qword ptr [rsp + 48]
-                        mov              r11, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 16], r10
-                        mov              qword ptr [rsp + 24], r11
+                        mov              r8, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 8], r8
+                        mov              r8, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], r8
+                        mov              r8, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], r8
                         .section         .rodata
 .Lrkfnzd1460:           .string          "SNO$KWSET"
                         .section         .text
@@ -12340,10 +12341,10 @@ n916_lit_integer_α:
 n917_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lbynamefnzd416:        .string          "CHAR"
                         .section         .text
@@ -12945,10 +12946,10 @@ n958_var_α:
 n959_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1524:           .string          "SIZE"
                         .section         .text
@@ -13222,10 +13223,10 @@ n976_var_α:
 n977_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1552:           .string          "SIZE"
                         .section         .text
@@ -13941,10 +13942,10 @@ n1010_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n1011_match_end_α:
-                        mov              r10, r12
+                        mov              r8, r12
 .Lx1602_9:
-                        sub              r10, 24
-                        mov              rax, qword ptr [r10 + 0]
+                        sub              r8, 24
+                        mov              rax, qword ptr [r8 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1602_9
                         mov              rsp, qword ptr [rbp + -56]
@@ -13953,13 +13954,13 @@ n1011_match_end_α:
                         push             r13
                         sub              rsp, 8
                         mov              rsi, r12
-                        mov              r10, rsi
+                        mov              r8, rsi
 .Lx1602_5:
-                        sub              r10, 24
-                        mov              rax, qword ptr [r10 + 0]
+                        sub              r8, 24
+                        mov              rax, qword ptr [r8 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1602_5
-                        lea              rdi, [r10 + 24]
+                        lea              rdi, [r8 + 24]
                         mov              rdx, r13
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -14677,10 +14678,10 @@ n1047_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1653_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -14850,10 +14851,10 @@ n1055_lit_string_α:
 n1056_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1667:           .string          "SNO$NAME"
                         .section         .text
@@ -14916,10 +14917,10 @@ n1059_lit_string_α:
 n1060_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1673:           .string          "SNO$NRET"
                         .section         .text
@@ -15323,25 +15324,25 @@ n1086_match_rpos_α:
                                                                                         jmp   n1087_match_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1087_match_end_α:
-                        mov              r10, r12
+                        mov              r8, r12
 .Lx1710_9:
-                        sub              r10, 24
-                        mov              rax, qword ptr [r10 + 0]
+                        sub              r8, 24
+                        mov              rax, qword ptr [r8 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1710_9
-                        mov              rsp, qword ptr [r10 + 8]
+                        mov              rsp, qword ptr [r8 + 8]
                         push             r14
                         push             r15
                         push             r13
                         sub              rsp, 8
                         mov              rsi, r12
-                        mov              r10, rsi
+                        mov              r8, rsi
 .Lx1710_5:
-                        sub              r10, 24
-                        mov              rax, qword ptr [r10 + 0]
+                        sub              r8, 24
+                        mov              rax, qword ptr [r8 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1710_5
-                        lea              rdi, [r10 + 24]
+                        lea              rdi, [r8 + 24]
                         mov              rdx, r13
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -15779,10 +15780,10 @@ n1108_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1738_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -16149,10 +16150,10 @@ n1125_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1760_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -16344,10 +16345,10 @@ n1131_lit_string_α:
 n1132_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1770:           .string          "SNO$NAME"
                         .section         .text
@@ -16546,10 +16547,10 @@ n1142_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1783_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -16916,10 +16917,10 @@ n1159_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1805_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -17111,10 +17112,10 @@ n1165_lit_string_α:
 n1166_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1815:           .string          "SNO$NAME"
                         .section         .text
@@ -17313,10 +17314,10 @@ n1176_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1828_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -17683,10 +17684,10 @@ n1193_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1850_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -17878,10 +17879,10 @@ n1199_lit_string_α:
 n1200_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1860:           .string          "SNO$NAME"
                         .section         .text
@@ -18080,10 +18081,10 @@ n1210_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1873_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -18450,10 +18451,10 @@ n1227_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1895_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -18645,10 +18646,10 @@ n1233_lit_string_α:
 n1234_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1905:           .string          "SNO$NAME"
                         .section         .text
@@ -18847,10 +18848,10 @@ n1244_call_α:
                         mov              r11,  qword ptr [r11 + 64]
                         test             rax, rax
                                                                                         je    .Lx1918_5
-                        lea              r10, [rip + g_call_args]
-                        mov              rax, qword ptr [r10 + 0]
+                        lea              r8, [rip + g_call_args]
+                        mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 48], rax                       # nm
-                        mov              rax, qword ptr [r10 + 8]
+                        mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 56], rax
                         mov              qword ptr [g_rtcc_block + 0], rax
                         mov              rax, qword ptr [rip + g_rtcc_block@GOTPCREL]
@@ -19131,14 +19132,14 @@ n1258_lit_string_β:
 n1259_call_α:
                         sub              rsp, 16
                         sub              rsp, 32
-                        mov              r10, qword ptr [rsp + 64]
-                        mov              r11, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
-                        mov              r10, qword ptr [rsp + 48]
-                        mov              r11, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 16], r10
-                        mov              qword ptr [rsp + 24], r11
+                        mov              r8, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 8], r8
+                        mov              r8, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], r8
+                        mov              r8, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], r8
                         .section         .rodata
 .Lrkfnzd1938:           .string          "IDENT"
                         .section         .text
@@ -19354,10 +19355,10 @@ n1274_lit_string_α:
 n1275_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
-                        mov              r10, qword ptr [rsp + 32]
-                        mov              r11, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 0], r10
-                        mov              qword ptr [rsp + 8], r11
+                        mov              r8, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], r8
+                        mov              r8, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], r8
                         .section         .rodata
 .Lrkfnzd1961:           .string          "SNO$NAME"
                         .section         .text
