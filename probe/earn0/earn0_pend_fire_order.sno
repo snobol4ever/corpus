@@ -1,0 +1,7 @@
+* W4: two pendings on the SAME variable - fire order is chronological (last wins) or reverse? Oracle decides.
+ &ANCHOR = 1
+ 'AB' ('A' . X) ('B' . X) :F(NO)
+ OUTPUT = 'MATCH X=' X :(FIN)
+NO OUTPUT = 'FAIL X=' X
+FIN
+END

@@ -1,0 +1,8 @@
+* W3: pending created LEFT of a bare FENCE (inside the region FENCE1's commit whack discards) must survive.
+ &ANCHOR = 1
+ X = 'untouched'
+ 'AZ' ('A' . X) FENCE 'Z' :F(NO)
+ OUTPUT = 'MATCH X=' X :(FIN)
+NO OUTPUT = 'FAIL X=' X
+FIN
+END

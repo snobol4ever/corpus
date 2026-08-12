@@ -1,0 +1,8 @@
+* W2: negative control - overall match FAILS, so the pending must NEVER fire.
+ &ANCHOR = 1
+ X = 'untouched'
+ 'AB' FENCE('A' . X) 'Z' :F(NO)
+ OUTPUT = 'MATCH X=' X :(FIN)
+NO OUTPUT = 'FAIL X=' X
+FIN
+END

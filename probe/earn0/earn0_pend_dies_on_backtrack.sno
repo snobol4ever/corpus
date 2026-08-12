@@ -1,0 +1,8 @@
+* W5: a pending created in a sub-path that is BACKTRACKED PAST must be discarded, even though the overall match succeeds.
+ &ANCHOR = 1
+ X = 'untouched'
+ 'AC' ( ('A' . X) 'B' | 'AC' ) :F(NO)
+ OUTPUT = 'MATCH X=' X :(FIN)
+NO OUTPUT = 'FAIL X=' X
+FIN
+END
