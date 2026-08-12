@@ -1,0 +1,15 @@
+*  G27 [G] ARB drawn out by a following literal, WITH conditional capture
+*  subject: 'MOUNTAIN'
+*  pattern: 'O' ARB . OUTPUT 'A'
+*  SPITBOL manual Ch.6 p.64 -- the manual's OWN canonical ARB example, verbatim.
+*  ARB must expand from null until the following 'A' matches, and the captured
+*  span is what ARB finally settled on: 'UNT' (between the 'O' of MOUNTAIN and
+*  the 'A' of ...TAIN).  Oracle prints UNT.
+*  ⛔ WRONG-ANSWER witness, NOT a crash witness: a defective build prints a
+*  SHORT capture (observed 'NT' at HEAD 2026-08-12, i.e. the capture starts one
+*  char late) and still EXITS 0.  Every crash/rc-based gate is blind to it --
+*  this probe exists because RULES.md's "exit 0 is NOT exoneration" class had no
+*  member on any board.  First recorded RBP-EARN s39; minted BOARD 2026-08-12.
+
+        'MOUNTAIN' 'O' ARB . OUTPUT 'A'
+END
