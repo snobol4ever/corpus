@@ -189,7 +189,7 @@ proc_PAT$0_ω:
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
-.Lstartup_pname0:       .string          "LBL__RSUM"
+.Lstartup_pname0:       .string          "RSUM"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]

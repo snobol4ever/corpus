@@ -143,7 +143,7 @@ ROMAN_omega:            mov              rcx, qword ptr [rsp + 48]
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
-.Lstartup_pname0:       .string          "LBL__ROMAN"
+.Lstartup_pname0:       .string          "ROMAN"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]

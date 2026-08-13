@@ -332,7 +332,7 @@ proc_PAT$1_ω:
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
-.Lstartup_pname0:       .string          "LBL__STORE"
+.Lstartup_pname0:       .string          "STORE"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
