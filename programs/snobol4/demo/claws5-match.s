@@ -851,12 +851,18 @@ n67_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx121_0
                         mov              r8d, 1
+                        mov              qword ptr [rbp + 464], r10
+                        mov              qword ptr [rbp + 472], r11
                         lea              r10, [rip + .Lx121_4]
                         lea              r11, [rip + .Lx121_5]
                                                                                         jmp   rax
 .Lx121_4:
+                        mov              r10, qword ptr [rbp + 464]
+                        mov              r11, qword ptr [rbp + 472]
                                                                                         jmp   n68_match_end_α
 .Lx121_5:
+                        mov              r10, qword ptr [rbp + 464]
+                        mov              r11, qword ptr [rbp + 472]
                                                                                         jmp   n66_match_begin_β
 .Lx121_0:
                         push             r14

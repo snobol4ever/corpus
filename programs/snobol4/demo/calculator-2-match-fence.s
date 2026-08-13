@@ -193,12 +193,18 @@ n9_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx18_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 96], r10
+                        mov              qword ptr [rbp + 104], r11
                         lea              r10, [rip + .Lx18_4]
                         lea              r11, [rip + .Lx18_5]
                                                                                         jmp   rax
 .Lx18_4:
+                        mov              r10, qword ptr [rbp + 96]
+                        mov              r11, qword ptr [rbp + 104]
                                                                                         jmp   n10_match_lit_α
 .Lx18_5:
+                        mov              r10, qword ptr [rbp + 96]
+                        mov              r11, qword ptr [rbp + 104]
                                                                                         jmp   n8_match_lit_β
 .Lx18_0:
                         push             r14
@@ -391,12 +397,18 @@ n11_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx21_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 64], r10
+                        mov              qword ptr [rbp + 72], r11
                         lea              r10, [rip + .Lx21_4]
                         lea              r11, [rip + .Lx21_5]
                                                                                         jmp   rax
 .Lx21_4:
+                        mov              r10, qword ptr [rbp + 64]
+                        mov              r11, qword ptr [rbp + 72]
                                                                                         jmp   n6_match_alternate_s1
 .Lx21_5:
+                        mov              r10, qword ptr [rbp + 64]
+                        mov              r11, qword ptr [rbp + 72]
                                                                                         jmp   n6_match_alternate_af
 .Lx21_0:
                         push             r14
@@ -574,12 +586,18 @@ n12_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx22_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 48], r10
+                        mov              qword ptr [rbp + 56], r11
                         lea              r10, [rip + .Lx22_4]
                         lea              r11, [rip + .Lx22_5]
                                                                                         jmp   rax
 .Lx22_4:
+                        mov              r10, qword ptr [rbp + 48]
+                        mov              r11, qword ptr [rbp + 56]
                                                                                         jmp   n6_match_alternate_s0
 .Lx22_5:
+                        mov              r10, qword ptr [rbp + 48]
+                        mov              r11, qword ptr [rbp + 56]
                                                                                         jmp   n6_match_alternate_af
 .Lx22_0:
                         push             r14
@@ -1023,12 +1041,18 @@ n27_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx34_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 48], r10
+                        mov              qword ptr [rbp + 56], r11
                         lea              r10, [rip + .Lx34_4]
                         lea              r11, [rip + .Lx34_5]
                                                                                         jmp   rax
 .Lx34_4:
+                        mov              r10, qword ptr [rbp + 48]
+                        mov              r11, qword ptr [rbp + 56]
                                                                                         jmp   n23_match_alternate_s0
 .Lx34_5:
+                        mov              r10, qword ptr [rbp + 48]
+                        mov              r11, qword ptr [rbp + 56]
                                                                                         jmp   n23_match_alternate_af
 .Lx34_0:
                         push             r14
@@ -1230,12 +1254,18 @@ n35_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx39_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 16], r10
+                        mov              qword ptr [rbp + 24], r11
                         lea              r10, [rip + .Lx39_4]
                         lea              r11, [rip + .Lx39_5]
                                                                                         jmp   rax
 .Lx39_4:
+                        mov              r10, qword ptr [rbp + 16]
+                        mov              r11, qword ptr [rbp + 24]
                                                                                         jmp   n36_match_arbno_α
 .Lx39_5:
+                        mov              r10, qword ptr [rbp + 16]
+                        mov              r11, qword ptr [rbp + 24]
                         add              rsp, 16
                                                                                         jmp   proc_PAT$4_ω
 .Lx39_0:
@@ -1447,12 +1477,18 @@ n38_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx44_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 128], r10
+                        mov              qword ptr [rbp + 136], r11
                         lea              r10, [rip + .Lx44_4]
                         lea              r11, [rip + .Lx44_5]
                                                                                         jmp   rax
 .Lx44_4:
+                        mov              r10, qword ptr [rbp + 128]
+                        mov              r11, qword ptr [rbp + 136]
                                                                                         jmp   n36_match_arbno_as
 .Lx44_5:
+                        mov              r10, qword ptr [rbp + 128]
+                        mov              r11, qword ptr [rbp + 136]
                                                                                         jmp   n37_match_any_β
 .Lx44_0:
                         push             r14
@@ -1654,12 +1690,18 @@ n45_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx49_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 16], r10
+                        mov              qword ptr [rbp + 24], r11
                         lea              r10, [rip + .Lx49_4]
                         lea              r11, [rip + .Lx49_5]
                                                                                         jmp   rax
 .Lx49_4:
+                        mov              r10, qword ptr [rbp + 16]
+                        mov              r11, qword ptr [rbp + 24]
                                                                                         jmp   n46_match_arbno_α
 .Lx49_5:
+                        mov              r10, qword ptr [rbp + 16]
+                        mov              r11, qword ptr [rbp + 24]
                         add              rsp, 16
                                                                                         jmp   proc_PAT$5_ω
 .Lx49_0:
@@ -1871,12 +1913,18 @@ n48_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx54_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 128], r10
+                        mov              qword ptr [rbp + 136], r11
                         lea              r10, [rip + .Lx54_4]
                         lea              r11, [rip + .Lx54_5]
                                                                                         jmp   rax
 .Lx54_4:
+                        mov              r10, qword ptr [rbp + 128]
+                        mov              r11, qword ptr [rbp + 136]
                                                                                         jmp   n46_match_arbno_as
 .Lx54_5:
+                        mov              r10, qword ptr [rbp + 128]
+                        mov              r11, qword ptr [rbp + 136]
                                                                                         jmp   n47_match_any_β
 .Lx54_0:
                         push             r14
@@ -2129,12 +2177,18 @@ n60_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx68_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 128], r10
+                        mov              qword ptr [rbp + 136], r11
                         lea              r10, [rip + .Lx68_4]
                         lea              r11, [rip + .Lx68_5]
                                                                                         jmp   rax
 .Lx68_4:
+                        mov              r10, qword ptr [rbp + 128]
+                        mov              r11, qword ptr [rbp + 136]
                                                                                         jmp   n61_match_defer_α
 .Lx68_5:
+                        mov              r10, qword ptr [rbp + 128]
+                        mov              r11, qword ptr [rbp + 136]
                                                                                         jmp   n57_match_arbno_af
 .Lx68_0:
                         push             r14
@@ -2312,12 +2366,18 @@ n61_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx69_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 160], r10
+                        mov              qword ptr [rbp + 168], r11
                         lea              r10, [rip + .Lx69_4]
                         lea              r11, [rip + .Lx69_5]
                                                                                         jmp   rax
 .Lx69_4:
+                        mov              r10, qword ptr [rbp + 160]
+                        mov              r11, qword ptr [rbp + 168]
                                                                                         jmp   n57_match_arbno_as
 .Lx69_5:
+                        mov              r10, qword ptr [rbp + 160]
+                        mov              r11, qword ptr [rbp + 168]
                                                                                         jmp   n57_match_arbno_af
 .Lx69_0:
                         push             r14
@@ -3863,12 +3923,18 @@ n149_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx276_0
                         mov              r8d, 1
+                        mov              qword ptr [rbp + 1056], r10
+                        mov              qword ptr [rbp + 1064], r11
                         lea              r10, [rip + .Lx276_4]
                         lea              r11, [rip + .Lx276_5]
                                                                                         jmp   rax
 .Lx276_4:
+                        mov              r10, qword ptr [rbp + 1056]
+                        mov              r11, qword ptr [rbp + 1064]
                                                                                         jmp   n150_match_end_α
 .Lx276_5:
+                        mov              r10, qword ptr [rbp + 1056]
+                        mov              r11, qword ptr [rbp + 1064]
                                                                                         jmp   n148_match_begin_β
 .Lx276_0:
                         push             r14
