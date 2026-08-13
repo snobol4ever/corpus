@@ -1444,12 +1444,18 @@ n94_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx204_0
                         mov              r8d, 1
+                        mov              qword ptr [rbp + 720], r10
+                        mov              qword ptr [rbp + 728], r11
                         lea              r10, [rip + .Lx204_4]
                         lea              r11, [rip + .Lx204_5]
                                                                                         jmp   rax
 .Lx204_4:
+                        mov              r10, qword ptr [rbp + 720]
+                        mov              r11, qword ptr [rbp + 728]
                                                                                         jmp   n95_match_end_α
 .Lx204_5:
+                        mov              r10, qword ptr [rbp + 720]
+                        mov              r11, qword ptr [rbp + 728]
                                                                                         jmp   n93_match_begin_β
 .Lx204_0:
                         push             r14
@@ -1924,12 +1930,18 @@ n102_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx216_0
                         mov              r8d, 0
+                        mov              qword ptr [rbp + 864], r10
+                        mov              qword ptr [rbp + 872], r11
                         lea              r10, [rip + .Lx216_4]
                         lea              r11, [rip + .Lx216_5]
                                                                                         jmp   rax
 .Lx216_4:
+                        mov              r10, qword ptr [rbp + 864]
+                        mov              r11, qword ptr [rbp + 872]
                                                                                         jmp   n103_match_end_α
 .Lx216_5:
+                        mov              r10, qword ptr [rbp + 864]
+                        mov              r11, qword ptr [rbp + 872]
                                                                                         jmp   n101_match_begin_β
 .Lx216_0:
                         push             r14

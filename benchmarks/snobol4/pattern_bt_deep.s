@@ -860,12 +860,18 @@ n61_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx160_0
                         mov              r8d, 1
+                        mov              qword ptr [rbp + 528], r10
+                        mov              qword ptr [rbp + 536], r11
                         lea              r10, [rip + .Lx160_4]
                         lea              r11, [rip + .Lx160_5]
                                                                                         jmp   rax
 .Lx160_4:
+                        mov              r10, qword ptr [rbp + 528]
+                        mov              r11, qword ptr [rbp + 536]
                                                                                         jmp   n62_match_end_α
 .Lx160_5:
+                        mov              r10, qword ptr [rbp + 528]
+                        mov              r11, qword ptr [rbp + 536]
                                                                                         jmp   n60_match_begin_β
 .Lx160_0:
                         push             r14

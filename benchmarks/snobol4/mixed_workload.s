@@ -1458,15 +1458,21 @@ n112_match_defer_α:
                         test             rax, rax
                                                                                         jz    .Lx274_0
                         mov              r8d, 1
+                        mov              qword ptr [rbp + 800], r10
+                        mov              qword ptr [rbp + 808], r11
                         lea              r10, [rip + .Lx274_4]
                         lea              r11, [rip + .Lx274_5]
                                                                                         jmp   rax
 .Lx274_4:
+                        mov              r10, qword ptr [rbp + 800]
+                        mov              r11, qword ptr [rbp + 808]
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
                         mov              dword ptr [rbp + 688], eax
                                                                                         jmp   n113_match_end_α
 .Lx274_5:
+                        mov              r10, qword ptr [rbp + 800]
+                        mov              r11, qword ptr [rbp + 808]
                                                                                         jmp   n111_match_begin_β
 .Lx274_0:
                         push             r14
