@@ -1545,15 +1545,19 @@ n141_match_alternate_α: sub              rsp, 32
                         mov              qword ptr [rsp + 16], rax;           jmp   n145_match_defer_α
 .Lx152_21:              lea              rax, [rip + .Lx152_19]
                         mov              qword ptr [rsp + 16], rax;           jmp   n143_match_defer_α
-n141_match_alternate_s0: lea              rax, [rip + .Lx152_40]
+n141_match_alternate_s0:
+                        lea              rax, [rip + .Lx152_40]
                         mov              qword ptr [rsp + 8], rax;            jmp   n141_match_alternate_as
-n141_match_alternate_s1: lea              rax, [rip + .Lx152_41]
+n141_match_alternate_s1:
+                        lea              rax, [rip + .Lx152_41]
                         mov              qword ptr [rsp + 8], rax;            jmp   n141_match_alternate_as
 .Lx152_40:                                                                    jmp   n144_goto_β
 .Lx152_41:                                                                    jmp   n143_match_defer_β
-n141_match_alternate_as:                                                      jmp   n142_match_lit_α
+n141_match_alternate_as:
+                                                                              jmp   n142_match_lit_α
 n141_match_alternate_β: mov              rax, qword ptr [rsp + 8];            jmp   rax
-n141_match_alternate_af: mov              r14d, dword ptr [rsp + 0]
+n141_match_alternate_af:
+                        mov              r14d, dword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16];           jmp   rax
 .Lx152_19:              add              rsp, 32;                             jmp   n140_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1981,15 +1985,19 @@ n164_match_alternate_α: sub              rsp, 32
                         mov              qword ptr [rsp + 16], rax;           jmp   n168_match_defer_α
 .Lx175_21:              lea              rax, [rip + .Lx175_19]
                         mov              qword ptr [rsp + 16], rax;           jmp   n166_match_defer_α
-n164_match_alternate_s0: lea              rax, [rip + .Lx175_40]
+n164_match_alternate_s0:
+                        lea              rax, [rip + .Lx175_40]
                         mov              qword ptr [rsp + 8], rax;            jmp   n164_match_alternate_as
-n164_match_alternate_s1: lea              rax, [rip + .Lx175_41]
+n164_match_alternate_s1:
+                        lea              rax, [rip + .Lx175_41]
                         mov              qword ptr [rsp + 8], rax;            jmp   n164_match_alternate_as
 .Lx175_40:                                                                    jmp   n167_goto_β
 .Lx175_41:                                                                    jmp   n166_match_defer_β
-n164_match_alternate_as:                                                      jmp   n165_match_lit_α
+n164_match_alternate_as:
+                                                                              jmp   n165_match_lit_α
 n164_match_alternate_β: mov              rax, qword ptr [rsp + 8];            jmp   rax
-n164_match_alternate_af: mov              r14d, dword ptr [rsp + 0]
+n164_match_alternate_af:
+                        mov              r14d, dword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16];           jmp   rax
 .Lx175_19:              add              rsp, 32;                             jmp   n163_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2420,19 +2428,26 @@ n186_match_alternate_α: sub              rsp, 32
                         mov              qword ptr [rsp + 16], rax;           jmp   n188_match_lit_α
 .Lx195_26:              lea              rax, [rip + .Lx195_19]
                         mov              qword ptr [rsp + 16], rax;           jmp   n187_match_lit_α
-n186_match_alternate_s0: lea              rax, [rip + .Lx195_40]
+n186_match_alternate_s0:
+                        lea              rax, [rip + .Lx195_40]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
-n186_match_alternate_s1: lea              rax, [rip + .Lx195_41]
+n186_match_alternate_s1:
+                        lea              rax, [rip + .Lx195_41]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
-n186_match_alternate_s2: lea              rax, [rip + .Lx195_42]
+n186_match_alternate_s2:
+                        lea              rax, [rip + .Lx195_42]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
-n186_match_alternate_s3: lea              rax, [rip + .Lx195_43]
+n186_match_alternate_s3:
+                        lea              rax, [rip + .Lx195_43]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
-n186_match_alternate_s4: lea              rax, [rip + .Lx195_44]
+n186_match_alternate_s4:
+                        lea              rax, [rip + .Lx195_44]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
-n186_match_alternate_s5: lea              rax, [rip + .Lx195_45]
+n186_match_alternate_s5:
+                        lea              rax, [rip + .Lx195_45]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
-n186_match_alternate_s6: lea              rax, [rip + .Lx195_46]
+n186_match_alternate_s6:
+                        lea              rax, [rip + .Lx195_46]
                         mov              qword ptr [rsp + 8], rax;            jmp   n186_match_alternate_as
 .Lx195_40:                                                                    jmp   n193_match_defer_β
 .Lx195_41:                                                                    jmp   n192_match_defer_β
@@ -2441,9 +2456,11 @@ n186_match_alternate_s6: lea              rax, [rip + .Lx195_46]
 .Lx195_44:                                                                    jmp   n189_match_lit_β
 .Lx195_45:                                                                    jmp   n188_match_lit_β
 .Lx195_46:                                                                    jmp   n187_match_lit_β
-n186_match_alternate_as:                                                      jmp   proc_PAT$8_γ
+n186_match_alternate_as:
+                                                                              jmp   proc_PAT$8_γ
 n186_match_alternate_β: mov              rax, qword ptr [rsp + 8];            jmp   rax
-n186_match_alternate_af: mov              r14d, dword ptr [rsp + 0]
+n186_match_alternate_af:
+                        mov              r14d, dword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16];           jmp   rax
 .Lx195_19:              add              rsp, 32;                             jmp   proc_PAT$8_ω
 #-----------------------------------------------------------------------------------------------------------------------
