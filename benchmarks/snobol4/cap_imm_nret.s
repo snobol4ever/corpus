@@ -33,6 +33,11 @@ STORE_alpha:            mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 32], rcx
                         lea              r10, [rip + STORE_gamma]
                         lea              r11, [rip + STORE_omega]
+                        sub              rsp, 8
+                        push             r11
+                        push             r10
+                        push             rbp
+                        mov              rbp, rsp
                         lea              rax, [rip + STORE_body];             jmp   rax
 STORE_gamma:            mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
@@ -1744,13 +1749,16 @@ n118_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n119_statement_end_α:   add              rsp, 48;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-RETURN:                 lea              rdi, [rip + .S4]
-                        call             rt_bomb@PLT
-                        ud2
+RETURN:                 mov              rsp, rbp
+                        pop              rbp
+                        pop              rcx
+                        add              rsp, 16;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-FRETURN:                lea              rdi, [rip + .S5]
-                        call             rt_bomb@PLT
-                        ud2
+FRETURN:                mov              rsp, rbp
+                        pop              rbp
+                        add              rsp, 8
+                        pop              rcx
+                        add              rsp, 8;                              jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 NRETURN:                sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2               # result
@@ -1809,7 +1817,5 @@ main_ω:
 .S1:                    .string          "*STORE"
 .S2:                    .string          "PATV$0"
 .S3:                    .string          "PATV$1"
-.S4:                    .string          "BOMB-RETURN: descent complete, coming-out frozen (s58 RSP-only) \342\200\224 UNKNOWN STACK DEPTH: the rsp-resident record cannot be found from here without a frame anchor"
-.S5:                    .string          "BOMB-FRETURN: descent complete, coming-out frozen (s58 RSP-only) \342\200\224 UNKNOWN STACK DEPTH: the rsp-resident record cannot be found from here without a frame anchor"
                         .text
                         .section         .note.GNU-stack,"",@progbits
