@@ -10,18 +10,7 @@ n1_goto_deferred_α:     lea              rax, [rip + stk_push_frame_body];    j
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-stk_push_frame_alpha:   mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx8_2
-                        mov              eax, 16
-.Lx8_2:                 sub              rsp, 64
-                        add              rsp, rax
+stk_push_frame_alpha:   sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # stk_push_frame
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -31,19 +20,23 @@ stk_push_frame_alpha:   mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx8_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 16]             # v
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx8_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 16]             # v
                         mov              qword ptr [r9 + 16], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 24]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 24]
                         mov              qword ptr [r9 + 24], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx8_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx8_41
 .Lx8_10:                mov              rax, qword ptr [r9 + 16]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 24]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
 .Lx8_41:                lea              r10, [rip + stk_push_frame_gamma]
@@ -57,77 +50,51 @@ stk_push_frame_alpha:   mov              rcx, qword ptr [rsp + 0]
 stk_push_frame_gamma:   mov              rdi, qword ptr [r9 + 0]              # stk_push_frame
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx8_75
-                        mov              eax, 16
-.Lx8_75:                lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 8], rax
-                        cmp              rcx, 0;                              jbe   .Lx8_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx8_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx8_110
-.Lx8_80:                mov              rax, qword ptr [r8 + 0]
+.Lx8_80:                mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx8_110:               mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx8_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx8_3:                 mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 stk_push_frame_omega:   mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx8_145
-                        mov              eax, 16
-.Lx8_145:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 0], rax              # stk_push_frame
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 8], rax
-                        cmp              rcx, 0;                              jbe   .Lx8_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx8_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx8_180
-.Lx8_150:               mov              rax, qword ptr [r8 + 0]
+.Lx8_150:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx8_180:               mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx8_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx8_4:                 mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -141,18 +108,7 @@ n10_goto_deferred_α:    lea              rax, [rip + stk_push_item_body];     j
                                                                               jmp   n11_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_save_restore_α:
-stk_push_item_alpha:    mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 32
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 2;                              jbe   .Lx17_2
-                        mov              eax, 32
-.Lx17_2:                sub              rsp, 80
-                        add              rsp, rax
+stk_push_item_alpha:    sub              rsp, 80
                         mov              rax, qword ptr [r9 + 32]             # stk_push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 40]
@@ -162,34 +118,40 @@ stk_push_item_alpha:    mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx17_10
-                        mov              rax, qword ptr [r8 + 64]
-                        mov              rdx, qword ptr [r9 + 16]             # v
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
+                        cmp              rdx, 0;                              jbe   .Lx17_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 16]             # v
                         mov              qword ptr [r9 + 16], rax
-                        mov              qword ptr [r8 + 64], rdx
-                        mov              rax, qword ptr [r8 + 72]
-                        mov              rdx, qword ptr [r9 + 24]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 24]
                         mov              qword ptr [r9 + 24], rax
-                        mov              qword ptr [r8 + 72], rdx;            jmp   .Lx17_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx17_41
 .Lx17_10:               mov              rax, qword ptr [r9 + 16]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 24]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx17_41:               cmp              rcx, 1;                              jbe   .Lx17_11
-                        mov              rax, qword ptr [r8 + 80]
-                        mov              rdx, qword ptr [r9 + 48]             # cur
+.Lx17_41:               cmp              rdx, 1;                              jbe   .Lx17_11
+                        mov              rdi, qword ptr [rcx + 32]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 48]             # cur
                         mov              qword ptr [r9 + 48], rax
-                        mov              qword ptr [r8 + 80], rdx
-                        mov              rax, qword ptr [r8 + 88]
-                        mov              rdx, qword ptr [r9 + 56]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 56]
                         mov              qword ptr [r9 + 56], rax
-                        mov              qword ptr [r8 + 88], rdx;            jmp   .Lx17_42
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx17_42
 .Lx17_11:               mov              rax, qword ptr [r9 + 48]
-                        mov              qword ptr [r8 + 16], rax
+                        mov              qword ptr [rsp + 64], rax
                         mov              rax, qword ptr [r9 + 56]
-                        mov              qword ptr [r8 + 24], rax
+                        mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
 .Lx17_42:               lea              r10, [rip + stk_push_item_gamma]
@@ -203,95 +165,73 @@ stk_push_item_alpha:    mov              rcx, qword ptr [rsp + 0]
 stk_push_item_gamma:    mov              rdi, qword ptr [r9 + 32]             # stk_push_item
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 2;                              jbe   .Lx17_75
-                        mov              eax, 32
-.Lx17_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 32], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 40], rax
-                        cmp              rcx, 0;                              jbe   .Lx17_80
-                        mov              rax, qword ptr [r8 + 64]
+                        cmp              rdx, 0;                              jbe   .Lx17_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 72]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx17_110
-.Lx17_80:               mov              rax, qword ptr [r8 + 0]
+.Lx17_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
-.Lx17_110:              cmp              rcx, 1;                              jbe   .Lx17_81
-                        mov              rax, qword ptr [r8 + 80]
+.Lx17_110:              cmp              rdx, 1;                              jbe   .Lx17_81
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 48], rax             # cur
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 56], rax;            jmp   .Lx17_111
-.Lx17_81:               mov              rax, qword ptr [r8 + 16]
+.Lx17_81:               mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 48], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [r9 + 56], rax
 .Lx17_111:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 112
-                        cmp              rcx, 2;                              jbe   .Lx17_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx17_3:                mov              rcx, qword ptr [r8 + 48]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 80
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 stk_push_item_omega:    mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 2;                              jbe   .Lx17_145
-                        mov              eax, 32
-.Lx17_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 32], rax             # stk_push_item
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 40], rax
-                        cmp              rcx, 0;                              jbe   .Lx17_150
-                        mov              rax, qword ptr [r8 + 64]
+                        cmp              rdx, 0;                              jbe   .Lx17_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 72]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx17_180
-.Lx17_150:              mov              rax, qword ptr [r8 + 0]
+.Lx17_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
-.Lx17_180:              cmp              rcx, 1;                              jbe   .Lx17_151
-                        mov              rax, qword ptr [r8 + 80]
+.Lx17_180:              cmp              rdx, 1;                              jbe   .Lx17_151
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 48], rax             # cur
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 56], rax;            jmp   .Lx17_181
-.Lx17_151:              mov              rax, qword ptr [r8 + 16]
+.Lx17_151:              mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 48], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [r9 + 56], rax
 .Lx17_181:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 112
-                        cmp              rcx, 2;                              jbe   .Lx17_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx17_4:                mov              rcx, qword ptr [r8 + 56]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 80
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -307,18 +247,7 @@ n19_goto_deferred_α:    lea              rax, [rip + stk_pop_into_parent_body]
 #-----------------------------------------------------------------------------------------------------------------------
 n20_save_restore_α:
 stk_pop_into_parent_alpha:
-                        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 48
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 3;                              jbe   .Lx26_2
-                        mov              eax, 48
-.Lx26_2:                sub              rsp, 96
-                        add              rsp, rax
+                        sub              rsp, 96
                         mov              rax, qword ptr [r9 + 64]             # stk_pop_into_parent
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 72]
@@ -328,49 +257,57 @@ stk_pop_into_parent_alpha:
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx26_10
-                        mov              rax, qword ptr [r8 + 80]
-                        mov              rdx, qword ptr [r9 + 80]             # child
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 96]
+                        cmp              rdx, 0;                              jbe   .Lx26_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 80]             # child
                         mov              qword ptr [r9 + 80], rax
-                        mov              qword ptr [r8 + 80], rdx
-                        mov              rax, qword ptr [r8 + 88]
-                        mov              rdx, qword ptr [r9 + 88]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 88]
                         mov              qword ptr [r9 + 88], rax
-                        mov              qword ptr [r8 + 88], rdx;            jmp   .Lx26_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx26_41
 .Lx26_10:               mov              rax, qword ptr [r9 + 80]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 88]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx26_41:               cmp              rcx, 1;                              jbe   .Lx26_11
-                        mov              rax, qword ptr [r8 + 96]
-                        mov              rdx, qword ptr [r9 + 96]             # par
+.Lx26_41:               cmp              rdx, 1;                              jbe   .Lx26_11
+                        mov              rdi, qword ptr [rcx + 32]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 96]             # par
                         mov              qword ptr [r9 + 96], rax
-                        mov              qword ptr [r8 + 96], rdx
-                        mov              rax, qword ptr [r8 + 104]
-                        mov              rdx, qword ptr [r9 + 104]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 104]
                         mov              qword ptr [r9 + 104], rax
-                        mov              qword ptr [r8 + 104], rdx;           jmp   .Lx26_42
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx26_42
 .Lx26_11:               mov              rax, qword ptr [r9 + 96]
-                        mov              qword ptr [r8 + 16], rax
+                        mov              qword ptr [rsp + 64], rax
                         mov              rax, qword ptr [r9 + 104]
-                        mov              qword ptr [r8 + 24], rax
+                        mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 96], 0
                         mov              qword ptr [r9 + 104], 0
-.Lx26_42:               cmp              rcx, 2;                              jbe   .Lx26_12
-                        mov              rax, qword ptr [r8 + 112]
-                        mov              rdx, qword ptr [r9 + 112]            # n
+.Lx26_42:               cmp              rdx, 2;                              jbe   .Lx26_12
+                        mov              rdi, qword ptr [rcx + 40]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 112]            # n
                         mov              qword ptr [r9 + 112], rax
-                        mov              qword ptr [r8 + 112], rdx
-                        mov              rax, qword ptr [r8 + 120]
-                        mov              rdx, qword ptr [r9 + 120]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 120]
                         mov              qword ptr [r9 + 120], rax
-                        mov              qword ptr [r8 + 120], rdx;           jmp   .Lx26_43
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx26_43
 .Lx26_12:               mov              rax, qword ptr [r9 + 112]
-                        mov              qword ptr [r8 + 32], rax
+                        mov              qword ptr [rsp + 80], rax
                         mov              rax, qword ptr [r9 + 120]
-                        mov              qword ptr [r8 + 40], rax
+                        mov              qword ptr [rsp + 88], rax
                         mov              qword ptr [r9 + 112], 0
                         mov              qword ptr [r9 + 120], 0
 .Lx26_43:               lea              r10, [rip + stk_pop_into_parent_gamma]
@@ -386,114 +323,96 @@ stk_pop_into_parent_gamma:
                         mov              rdi, qword ptr [r9 + 64]             # stk_pop_into_parent
                         mov              rsi, qword ptr [r9 + 72]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 3;                              jbe   .Lx26_75
-                        mov              eax, 48
-.Lx26_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 96]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 64], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 72], rax
-                        cmp              rcx, 0;                              jbe   .Lx26_80
-                        mov              rax, qword ptr [r8 + 80]
+                        cmp              rdx, 0;                              jbe   .Lx26_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 80], rax             # child
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 88], rax;            jmp   .Lx26_110
-.Lx26_80:               mov              rax, qword ptr [r8 + 0]
+.Lx26_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 80], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 88], rax
-.Lx26_110:              cmp              rcx, 1;                              jbe   .Lx26_81
-                        mov              rax, qword ptr [r8 + 96]
+.Lx26_110:              cmp              rdx, 1;                              jbe   .Lx26_81
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 96], rax             # par
-                        mov              rax, qword ptr [r8 + 104]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 104], rax;           jmp   .Lx26_111
-.Lx26_81:               mov              rax, qword ptr [r8 + 16]
+.Lx26_81:               mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 96], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [r9 + 104], rax
-.Lx26_111:              cmp              rcx, 2;                              jbe   .Lx26_82
-                        mov              rax, qword ptr [r8 + 112]
+.Lx26_111:              cmp              rdx, 2;                              jbe   .Lx26_82
+                        mov              r11, qword ptr [rcx + 40]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 112], rax            # n
-                        mov              rax, qword ptr [r8 + 120]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 120], rax;           jmp   .Lx26_112
-.Lx26_82:               mov              rax, qword ptr [r8 + 32]
+.Lx26_82:               mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [r9 + 112], rax
-                        mov              rax, qword ptr [r8 + 40]
+                        mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [r9 + 120], rax
 .Lx26_112:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 128
-                        cmp              rcx, 3;                              jbe   .Lx26_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx26_3:                mov              rcx, qword ptr [r8 + 64]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 96
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 stk_pop_into_parent_omega:
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 3;                              jbe   .Lx26_145
-                        mov              eax, 48
-.Lx26_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 96]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 64], rax             # stk_pop_into_parent
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 72], rax
-                        cmp              rcx, 0;                              jbe   .Lx26_150
-                        mov              rax, qword ptr [r8 + 80]
+                        cmp              rdx, 0;                              jbe   .Lx26_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 80], rax             # child
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 88], rax;            jmp   .Lx26_180
-.Lx26_150:              mov              rax, qword ptr [r8 + 0]
+.Lx26_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 80], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 88], rax
-.Lx26_180:              cmp              rcx, 1;                              jbe   .Lx26_151
-                        mov              rax, qword ptr [r8 + 96]
+.Lx26_180:              cmp              rdx, 1;                              jbe   .Lx26_151
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 96], rax             # par
-                        mov              rax, qword ptr [r8 + 104]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 104], rax;           jmp   .Lx26_181
-.Lx26_151:              mov              rax, qword ptr [r8 + 16]
+.Lx26_151:              mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 96], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [r9 + 104], rax
-.Lx26_181:              cmp              rcx, 2;                              jbe   .Lx26_152
-                        mov              rax, qword ptr [r8 + 112]
+.Lx26_181:              cmp              rdx, 2;                              jbe   .Lx26_152
+                        mov              r11, qword ptr [rcx + 40]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 112], rax            # n
-                        mov              rax, qword ptr [r8 + 120]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 120], rax;           jmp   .Lx26_182
-.Lx26_152:              mov              rax, qword ptr [r8 + 32]
+.Lx26_152:              mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [r9 + 112], rax
-                        mov              rax, qword ptr [r8 + 40]
+                        mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [r9 + 120], rax
 .Lx26_182:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 128
-                        cmp              rcx, 3;                              jbe   .Lx26_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx26_4:                mov              rcx, qword ptr [r8 + 72]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 96
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -507,18 +426,7 @@ n28_goto_deferred_α:    lea              rax, [rip + stk_pop_final_body];     j
                                                                               jmp   n29_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_save_restore_α:
-stk_pop_final_alpha:    mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 32
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 2;                              jbe   .Lx35_2
-                        mov              eax, 32
-.Lx35_2:                sub              rsp, 80
-                        add              rsp, rax
+stk_pop_final_alpha:    sub              rsp, 80
                         mov              rax, qword ptr [r9 + 128]            # stk_pop_final
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 136]
@@ -528,34 +436,40 @@ stk_pop_final_alpha:    mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx35_10
-                        mov              rax, qword ptr [r8 + 64]
-                        mov              rdx, qword ptr [r9 + 144]            # var
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
+                        cmp              rdx, 0;                              jbe   .Lx35_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 144]            # var
                         mov              qword ptr [r9 + 144], rax
-                        mov              qword ptr [r8 + 64], rdx
-                        mov              rax, qword ptr [r8 + 72]
-                        mov              rdx, qword ptr [r9 + 152]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 152]
                         mov              qword ptr [r9 + 152], rax
-                        mov              qword ptr [r8 + 72], rdx;            jmp   .Lx35_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx35_41
 .Lx35_10:               mov              rax, qword ptr [r9 + 144]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 152]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 144], 0
                         mov              qword ptr [r9 + 152], 0
-.Lx35_41:               cmp              rcx, 1;                              jbe   .Lx35_11
-                        mov              rax, qword ptr [r8 + 80]
-                        mov              rdx, qword ptr [r9 + 80]             # child
+.Lx35_41:               cmp              rdx, 1;                              jbe   .Lx35_11
+                        mov              rdi, qword ptr [rcx + 32]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 80]             # child
                         mov              qword ptr [r9 + 80], rax
-                        mov              qword ptr [r8 + 80], rdx
-                        mov              rax, qword ptr [r8 + 88]
-                        mov              rdx, qword ptr [r9 + 88]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 88]
                         mov              qword ptr [r9 + 88], rax
-                        mov              qword ptr [r8 + 88], rdx;            jmp   .Lx35_42
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx35_42
 .Lx35_11:               mov              rax, qword ptr [r9 + 80]
-                        mov              qword ptr [r8 + 16], rax
+                        mov              qword ptr [rsp + 64], rax
                         mov              rax, qword ptr [r9 + 88]
-                        mov              qword ptr [r8 + 24], rax
+                        mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
 .Lx35_42:               lea              r10, [rip + stk_pop_final_gamma]
@@ -569,95 +483,73 @@ stk_pop_final_alpha:    mov              rcx, qword ptr [rsp + 0]
 stk_pop_final_gamma:    mov              rdi, qword ptr [r9 + 128]            # stk_pop_final
                         mov              rsi, qword ptr [r9 + 136]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 2;                              jbe   .Lx35_75
-                        mov              eax, 32
-.Lx35_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 128], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 136], rax
-                        cmp              rcx, 0;                              jbe   .Lx35_80
-                        mov              rax, qword ptr [r8 + 64]
+                        cmp              rdx, 0;                              jbe   .Lx35_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 144], rax            # var
-                        mov              rax, qword ptr [r8 + 72]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 152], rax;           jmp   .Lx35_110
-.Lx35_80:               mov              rax, qword ptr [r8 + 0]
+.Lx35_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 144], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 152], rax
-.Lx35_110:              cmp              rcx, 1;                              jbe   .Lx35_81
-                        mov              rax, qword ptr [r8 + 80]
+.Lx35_110:              cmp              rdx, 1;                              jbe   .Lx35_81
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 80], rax             # child
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 88], rax;            jmp   .Lx35_111
-.Lx35_81:               mov              rax, qword ptr [r8 + 16]
+.Lx35_81:               mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 80], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [r9 + 88], rax
 .Lx35_111:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 112
-                        cmp              rcx, 2;                              jbe   .Lx35_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx35_3:                mov              rcx, qword ptr [r8 + 48]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 80
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 stk_pop_final_omega:    mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 2;                              jbe   .Lx35_145
-                        mov              eax, 32
-.Lx35_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 128], rax            # stk_pop_final
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 136], rax
-                        cmp              rcx, 0;                              jbe   .Lx35_150
-                        mov              rax, qword ptr [r8 + 64]
+                        cmp              rdx, 0;                              jbe   .Lx35_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 144], rax            # var
-                        mov              rax, qword ptr [r8 + 72]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 152], rax;           jmp   .Lx35_180
-.Lx35_150:              mov              rax, qword ptr [r8 + 0]
+.Lx35_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 144], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 152], rax
-.Lx35_180:              cmp              rcx, 1;                              jbe   .Lx35_151
-                        mov              rax, qword ptr [r8 + 80]
+.Lx35_180:              cmp              rdx, 1;                              jbe   .Lx35_151
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 80], rax             # child
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 88], rax;            jmp   .Lx35_181
-.Lx35_151:              mov              rax, qword ptr [r8 + 16]
+.Lx35_151:              mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 80], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [r9 + 88], rax
 .Lx35_181:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 112
-                        cmp              rcx, 2;                              jbe   .Lx35_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx35_4:                mov              rcx, qword ptr [r8 + 56]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 80
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -671,18 +563,7 @@ n37_goto_deferred_α:    lea              rax, [rip + init_list_body];         j
                                                                               jmp   n38_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n38_save_restore_α:
-init_list_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx44_2
-                        mov              eax, 16
-.Lx44_2:                sub              rsp, 64
-                        add              rsp, rax
+init_list_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 160]            # init_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 168]
@@ -692,19 +573,23 @@ init_list_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx44_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 16]             # v
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx44_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 16]             # v
                         mov              qword ptr [r9 + 16], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 24]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 24]
                         mov              qword ptr [r9 + 24], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx44_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx44_41
 .Lx44_10:               mov              rax, qword ptr [r9 + 16]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 24]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
 .Lx44_41:               lea              r10, [rip + init_list_gamma]
@@ -718,77 +603,51 @@ init_list_alpha:        mov              rcx, qword ptr [rsp + 0]
 init_list_gamma:        mov              rdi, qword ptr [r9 + 160]            # init_list
                         mov              rsi, qword ptr [r9 + 168]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx44_75
-                        mov              eax, 16
-.Lx44_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 160], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 168], rax
-                        cmp              rcx, 0;                              jbe   .Lx44_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx44_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx44_110
-.Lx44_80:               mov              rax, qword ptr [r8 + 0]
+.Lx44_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx44_110:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx44_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx44_3:                mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 init_list_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx44_145
-                        mov              eax, 16
-.Lx44_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 160], rax            # init_list
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 168], rax
-                        cmp              rcx, 0;                              jbe   .Lx44_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx44_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx44_180
-.Lx44_150:              mov              rax, qword ptr [r8 + 0]
+.Lx44_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx44_180:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx44_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx44_4:                mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -802,18 +661,7 @@ n46_goto_deferred_α:    lea              rax, [rip + Init_list_body];         j
                                                                               jmp   n47_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n47_save_restore_α:
-Init_list_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx53_2
-                        mov              eax, 16
-.Lx53_2:                sub              rsp, 64
-                        add              rsp, rax
+Init_list_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 176]            # Init_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 184]
@@ -823,19 +671,23 @@ Init_list_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx53_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 192]            # vs
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx53_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 192]            # vs
                         mov              qword ptr [r9 + 192], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 200]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 200]
                         mov              qword ptr [r9 + 200], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx53_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx53_41
 .Lx53_10:               mov              rax, qword ptr [r9 + 192]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 200]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
 .Lx53_41:               lea              r10, [rip + Init_list_gamma]
@@ -849,77 +701,51 @@ Init_list_alpha:        mov              rcx, qword ptr [rsp + 0]
 Init_list_gamma:        mov              rdi, qword ptr [r9 + 176]            # Init_list
                         mov              rsi, qword ptr [r9 + 184]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx53_75
-                        mov              eax, 16
-.Lx53_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 176], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 184], rax
-                        cmp              rcx, 0;                              jbe   .Lx53_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx53_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx53_110
-.Lx53_80:               mov              rax, qword ptr [r8 + 0]
+.Lx53_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx53_110:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx53_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx53_3:                mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 Init_list_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx53_145
-                        mov              eax, 16
-.Lx53_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 176], rax            # Init_list
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 184], rax
-                        cmp              rcx, 0;                              jbe   .Lx53_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx53_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx53_180
-.Lx53_150:              mov              rax, qword ptr [r8 + 0]
+.Lx53_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx53_180:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx53_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx53_4:                mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -933,18 +759,7 @@ n55_goto_deferred_α:    lea              rax, [rip + push_list_body];         j
                                                                               jmp   n56_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n56_save_restore_α:
-push_list_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx62_2
-                        mov              eax, 16
-.Lx62_2:                sub              rsp, 64
-                        add              rsp, rax
+push_list_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 208]            # push_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 216]
@@ -954,19 +769,23 @@ push_list_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx62_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 16]             # v
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx62_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 16]             # v
                         mov              qword ptr [r9 + 16], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 24]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 24]
                         mov              qword ptr [r9 + 24], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx62_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx62_41
 .Lx62_10:               mov              rax, qword ptr [r9 + 16]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 24]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
 .Lx62_41:               lea              r10, [rip + push_list_gamma]
@@ -980,77 +799,51 @@ push_list_alpha:        mov              rcx, qword ptr [rsp + 0]
 push_list_gamma:        mov              rdi, qword ptr [r9 + 208]            # push_list
                         mov              rsi, qword ptr [r9 + 216]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx62_75
-                        mov              eax, 16
-.Lx62_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 208], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 216], rax
-                        cmp              rcx, 0;                              jbe   .Lx62_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx62_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx62_110
-.Lx62_80:               mov              rax, qword ptr [r8 + 0]
+.Lx62_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx62_110:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx62_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx62_3:                mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 push_list_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx62_145
-                        mov              eax, 16
-.Lx62_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 208], rax            # push_list
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 216], rax
-                        cmp              rcx, 0;                              jbe   .Lx62_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx62_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx62_180
-.Lx62_150:              mov              rax, qword ptr [r8 + 0]
+.Lx62_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx62_180:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx62_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx62_4:                mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1064,18 +857,7 @@ n64_goto_deferred_α:    lea              rax, [rip + Push_list_body];         j
                                                                               jmp   n65_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n65_save_restore_α:
-Push_list_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx71_2
-                        mov              eax, 16
-.Lx71_2:                sub              rsp, 64
-                        add              rsp, rax
+Push_list_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 224]            # Push_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 232]
@@ -1085,19 +867,23 @@ Push_list_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx71_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 192]            # vs
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx71_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 192]            # vs
                         mov              qword ptr [r9 + 192], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 200]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 200]
                         mov              qword ptr [r9 + 200], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx71_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx71_41
 .Lx71_10:               mov              rax, qword ptr [r9 + 192]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 200]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
 .Lx71_41:               lea              r10, [rip + Push_list_gamma]
@@ -1111,77 +897,51 @@ Push_list_alpha:        mov              rcx, qword ptr [rsp + 0]
 Push_list_gamma:        mov              rdi, qword ptr [r9 + 224]            # Push_list
                         mov              rsi, qword ptr [r9 + 232]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx71_75
-                        mov              eax, 16
-.Lx71_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 224], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 232], rax
-                        cmp              rcx, 0;                              jbe   .Lx71_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx71_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx71_110
-.Lx71_80:               mov              rax, qword ptr [r8 + 0]
+.Lx71_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx71_110:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx71_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx71_3:                mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 Push_list_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx71_145
-                        mov              eax, 16
-.Lx71_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 224], rax            # Push_list
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 232], rax
-                        cmp              rcx, 0;                              jbe   .Lx71_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx71_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx71_180
-.Lx71_150:              mov              rax, qword ptr [r8 + 0]
+.Lx71_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx71_180:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx71_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx71_4:                mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1195,18 +955,7 @@ n73_goto_deferred_α:    lea              rax, [rip + push_item_body];         j
                                                                               jmp   n74_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n74_save_restore_α:
-push_item_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx80_2
-                        mov              eax, 16
-.Lx80_2:                sub              rsp, 64
-                        add              rsp, rax
+push_item_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 240]            # push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 248]
@@ -1216,19 +965,23 @@ push_item_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx80_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 16]             # v
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx80_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 16]             # v
                         mov              qword ptr [r9 + 16], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 24]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 24]
                         mov              qword ptr [r9 + 24], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx80_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx80_41
 .Lx80_10:               mov              rax, qword ptr [r9 + 16]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 24]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
 .Lx80_41:               lea              r10, [rip + push_item_gamma]
@@ -1242,77 +995,51 @@ push_item_alpha:        mov              rcx, qword ptr [rsp + 0]
 push_item_gamma:        mov              rdi, qword ptr [r9 + 240]            # push_item
                         mov              rsi, qword ptr [r9 + 248]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx80_75
-                        mov              eax, 16
-.Lx80_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 240], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 248], rax
-                        cmp              rcx, 0;                              jbe   .Lx80_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx80_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx80_110
-.Lx80_80:               mov              rax, qword ptr [r8 + 0]
+.Lx80_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx80_110:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx80_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx80_3:                mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 push_item_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx80_145
-                        mov              eax, 16
-.Lx80_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 240], rax            # push_item
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 248], rax
-                        cmp              rcx, 0;                              jbe   .Lx80_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx80_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx80_180
-.Lx80_150:              mov              rax, qword ptr [r8 + 0]
+.Lx80_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx80_180:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx80_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx80_4:                mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1326,18 +1053,7 @@ n82_goto_deferred_α:    lea              rax, [rip + Push_item_body];         j
                                                                               jmp   n83_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n83_save_restore_α:
-Push_item_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx89_2
-                        mov              eax, 16
-.Lx89_2:                sub              rsp, 64
-                        add              rsp, rax
+Push_item_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 256]            # Push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 264]
@@ -1347,19 +1063,23 @@ Push_item_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx89_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 192]            # vs
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx89_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 192]            # vs
                         mov              qword ptr [r9 + 192], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 200]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 200]
                         mov              qword ptr [r9 + 200], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx89_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx89_41
 .Lx89_10:               mov              rax, qword ptr [r9 + 192]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 200]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
 .Lx89_41:               lea              r10, [rip + Push_item_gamma]
@@ -1373,77 +1093,51 @@ Push_item_alpha:        mov              rcx, qword ptr [rsp + 0]
 Push_item_gamma:        mov              rdi, qword ptr [r9 + 256]            # Push_item
                         mov              rsi, qword ptr [r9 + 264]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx89_75
-                        mov              eax, 16
-.Lx89_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 256], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 264], rax
-                        cmp              rcx, 0;                              jbe   .Lx89_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx89_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx89_110
-.Lx89_80:               mov              rax, qword ptr [r8 + 0]
+.Lx89_80:               mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx89_110:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx89_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx89_3:                mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 Push_item_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx89_145
-                        mov              eax, 16
-.Lx89_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 256], rax            # Push_item
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 264], rax
-                        cmp              rcx, 0;                              jbe   .Lx89_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx89_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx89_180
-.Lx89_150:              mov              rax, qword ptr [r8 + 0]
+.Lx89_150:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx89_180:              mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx89_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx89_4:                mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1457,18 +1151,7 @@ n91_goto_deferred_α:    lea              rax, [rip + pop_list_body];          j
                                                                               jmp   n92_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n92_save_restore_α:
-pop_list_alpha:         mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 0
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx98_2
-                        mov              eax, 0
-.Lx98_2:                sub              rsp, 48
-                        add              rsp, rax
+pop_list_alpha:         sub              rsp, 48
                         mov              rax, qword ptr [r9 + 272]            # pop_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 280]
@@ -1478,6 +1161,8 @@ pop_list_alpha:         mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         lea              r10, [rip + pop_list_gamma]
                         lea              r11, [rip + pop_list_omega]
                         sub              rsp, 8
@@ -1489,59 +1174,29 @@ pop_list_alpha:         mov              rcx, qword ptr [rsp + 0]
 pop_list_gamma:         mov              rdi, qword ptr [r9 + 272]
                         mov              rsi, qword ptr [r9 + 280]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx98_75
-                        mov              eax, 0
-.Lx98_75:               lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 272], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 280], rax
                         mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 80
-                        cmp              rcx, 0;                              jbe   .Lx98_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx98_3:                mov              rcx, qword ptr [r8 + 16]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 pop_list_omega:         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx98_145
-                        mov              eax, 0
-.Lx98_145:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 272], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 280], rax
                         mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 80
-                        cmp              rcx, 0;                              jbe   .Lx98_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx98_4:                mov              rcx, qword ptr [r8 + 24]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 48
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1555,18 +1210,7 @@ n100_goto_deferred_α:   lea              rax, [rip + Pop_list_body];          j
                                                                               jmp   n101_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n101_save_restore_α:
-Pop_list_alpha:         mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 0
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx107_2
-                        mov              eax, 0
-.Lx107_2:               sub              rsp, 48
-                        add              rsp, rax
+Pop_list_alpha:         sub              rsp, 48
                         mov              rax, qword ptr [r9 + 288]            # Pop_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 296]
@@ -1576,6 +1220,8 @@ Pop_list_alpha:         mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         lea              r10, [rip + Pop_list_gamma]
                         lea              r11, [rip + Pop_list_omega]
                         sub              rsp, 8
@@ -1587,59 +1233,29 @@ Pop_list_alpha:         mov              rcx, qword ptr [rsp + 0]
 Pop_list_gamma:         mov              rdi, qword ptr [r9 + 288]
                         mov              rsi, qword ptr [r9 + 296]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx107_75
-                        mov              eax, 0
-.Lx107_75:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 288], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 296], rax
                         mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 80
-                        cmp              rcx, 0;                              jbe   .Lx107_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx107_3:               mov              rcx, qword ptr [r8 + 16]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 Pop_list_omega:         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx107_145
-                        mov              eax, 0
-.Lx107_145:             lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 288], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 296], rax
                         mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 80
-                        cmp              rcx, 0;                              jbe   .Lx107_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx107_4:               mov              rcx, qword ptr [r8 + 24]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 48
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1653,18 +1269,7 @@ n109_goto_deferred_α:   lea              rax, [rip + pop_final_body];         j
                                                                               jmp   n110_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n110_save_restore_α:
-pop_final_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx116_2
-                        mov              eax, 16
-.Lx116_2:               sub              rsp, 64
-                        add              rsp, rax
+pop_final_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 304]            # pop_final
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 312]
@@ -1674,19 +1279,23 @@ pop_final_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx116_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 16]             # v
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx116_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 16]             # v
                         mov              qword ptr [r9 + 16], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 24]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 24]
                         mov              qword ptr [r9 + 24], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx116_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx116_41
 .Lx116_10:              mov              rax, qword ptr [r9 + 16]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 24]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
 .Lx116_41:              lea              r10, [rip + pop_final_gamma]
@@ -1700,77 +1309,51 @@ pop_final_alpha:        mov              rcx, qword ptr [rsp + 0]
 pop_final_gamma:        mov              rdi, qword ptr [r9 + 304]            # pop_final
                         mov              rsi, qword ptr [r9 + 312]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx116_75
-                        mov              eax, 16
-.Lx116_75:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 304], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 312], rax
-                        cmp              rcx, 0;                              jbe   .Lx116_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx116_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx116_110
-.Lx116_80:              mov              rax, qword ptr [r8 + 0]
+.Lx116_80:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx116_110:             mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx116_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx116_3:               mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 pop_final_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx116_145
-                        mov              eax, 16
-.Lx116_145:             lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 304], rax            # pop_final
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 312], rax
-                        cmp              rcx, 0;                              jbe   .Lx116_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx116_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 16], rax             # v
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx116_180
-.Lx116_150:             mov              rax, qword ptr [r8 + 0]
+.Lx116_150:             mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Lx116_180:             mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx116_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx116_4:               mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1784,18 +1367,7 @@ n118_goto_deferred_α:   lea              rax, [rip + Pop_final_body];         j
                                                                               jmp   n119_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n119_save_restore_α:
-Pop_final_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx125_2
-                        mov              eax, 16
-.Lx125_2:               sub              rsp, 64
-                        add              rsp, rax
+Pop_final_alpha:        sub              rsp, 64
                         mov              rax, qword ptr [r9 + 320]            # Pop_final
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 328]
@@ -1805,19 +1377,23 @@ Pop_final_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
-                        cmp              rcx, 0;                              jbe   .Lx125_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 192]            # vs
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        cmp              rdx, 0;                              jbe   .Lx125_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 192]            # vs
                         mov              qword ptr [r9 + 192], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 200]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 200]
                         mov              qword ptr [r9 + 200], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx125_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx125_41
 .Lx125_10:              mov              rax, qword ptr [r9 + 192]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [r9 + 200]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
 .Lx125_41:              lea              r10, [rip + Pop_final_gamma]
@@ -1831,77 +1407,51 @@ Pop_final_alpha:        mov              rcx, qword ptr [rsp + 0]
 Pop_final_gamma:        mov              rdi, qword ptr [r9 + 320]            # Pop_final
                         mov              rsi, qword ptr [r9 + 328]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx125_75
-                        mov              eax, 16
-.Lx125_75:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 320], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 328], rax
-                        cmp              rcx, 0;                              jbe   .Lx125_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx125_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx125_110
-.Lx125_80:              mov              rax, qword ptr [r8 + 0]
+.Lx125_80:              mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx125_110:             mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx125_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx125_3:               mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 Pop_final_omega:        mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx125_145
-                        mov              eax, 16
-.Lx125_145:             lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 320], rax            # Pop_final
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 328], rax
-                        cmp              rcx, 0;                              jbe   .Lx125_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx125_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 192], rax            # vs
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 200], rax;           jmp   .Lx125_180
-.Lx125_150:             mov              rax, qword ptr [r8 + 0]
+.Lx125_150:             mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [r9 + 192], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 200], rax
 .Lx125_180:             mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 96
-                        cmp              rcx, 1;                              jbe   .Lx125_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx125_4:               mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -1915,18 +1465,7 @@ n127_goto_deferred_α:   lea              rax, [rip + node_repr_body];         j
                                                                               jmp   n128_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n128_save_restore_α:
-node_repr_alpha:        mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 16
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx134_2
-                        mov              eax, 16
-.Lx134_2:               sub              rsp, 144
-                        add              rsp, rax
+node_repr_alpha:        sub              rsp, 144
                         mov              rax, qword ptr [r9 + 368]            # r
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 376]
@@ -1966,19 +1505,23 @@ node_repr_alpha:        mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 96], r10
                         mov              qword ptr [rsp + 104], r11
                         mov              qword ptr [rsp + 112], rcx
-                        cmp              rcx, 0;                              jbe   .Lx134_10
-                        mov              rax, qword ptr [r8 + 48]
-                        mov              rdx, qword ptr [r9 + 352]            # f
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 144]
+                        cmp              rdx, 0;                              jbe   .Lx134_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 352]            # f
                         mov              qword ptr [r9 + 352], rax
-                        mov              qword ptr [r8 + 48], rdx
-                        mov              rax, qword ptr [r8 + 56]
-                        mov              rdx, qword ptr [r9 + 360]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 360]
                         mov              qword ptr [r9 + 360], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lx134_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx134_41
 .Lx134_10:              mov              rax, qword ptr [r9 + 352]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 128], rax
                         mov              rax, qword ptr [r9 + 360]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 136], rax
                         mov              qword ptr [r9 + 352], 0
                         mov              qword ptr [r9 + 360], 0
 .Lx134_41:              lea              r10, [rip + node_repr_gamma]
@@ -1992,15 +1535,8 @@ node_repr_alpha:        mov              rcx, qword ptr [rsp + 0]
 node_repr_gamma:        mov              rdi, qword ptr [r9 + 336]            # node_repr
                         mov              rsi, qword ptr [r9 + 344]
                         mov              rcx, qword ptr [rsp + 112]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx134_75
-                        mov              eax, 16
-.Lx134_75:              lea              r8, [rsp + 128]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 144]
                         mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [r9 + 336], rax
                         mov              rax, qword ptr [rsp + 88]
@@ -2025,39 +1561,26 @@ node_repr_gamma:        mov              rdi, qword ptr [r9 + 336]            # 
                         mov              qword ptr [r9 + 368], rax            # r
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 376], rax
-                        cmp              rcx, 0;                              jbe   .Lx134_80
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx134_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 352], rax            # f
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 360], rax;           jmp   .Lx134_110
-.Lx134_80:              mov              rax, qword ptr [r8 + 0]
+.Lx134_80:              mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [r9 + 352], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [r9 + 360], rax
 .Lx134_110:             mov              r10, qword ptr [rsp + 96]
                         mov              r11, qword ptr [rsp + 104]
-                        mov              eax, 176
-                        cmp              rcx, 1;                              jbe   .Lx134_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 160
-.Lx134_3:               mov              rcx, qword ptr [r8 + 32]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 144
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 node_repr_omega:        mov              rcx, qword ptr [rsp + 112]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 1;                              jbe   .Lx134_145
-                        mov              eax, 16
-.Lx134_145:             lea              r8, [rsp + 128]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 144]
                         mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [r9 + 336], rax            # node_repr
                         mov              rax, qword ptr [rsp + 88]
@@ -2082,27 +1605,21 @@ node_repr_omega:        mov              rcx, qword ptr [rsp + 112]
                         mov              qword ptr [r9 + 368], rax            # r
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 376], rax
-                        cmp              rcx, 0;                              jbe   .Lx134_150
-                        mov              rax, qword ptr [r8 + 48]
+                        cmp              rdx, 0;                              jbe   .Lx134_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 352], rax            # f
-                        mov              rax, qword ptr [r8 + 56]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 360], rax;           jmp   .Lx134_180
-.Lx134_150:             mov              rax, qword ptr [r8 + 0]
+.Lx134_150:             mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [r9 + 352], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [r9 + 360], rax
 .Lx134_180:             mov              r10, qword ptr [rsp + 96]
                         mov              r11, qword ptr [rsp + 104]
-                        mov              eax, 176
-                        cmp              rcx, 1;                              jbe   .Lx134_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 160
-.Lx134_4:               mov              rcx, qword ptr [r8 + 40]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 144
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -2116,18 +1633,7 @@ n136_goto_deferred_α:   lea              rax, [rip + pp_node_body];           j
                                                                               jmp   n137_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n137_save_restore_α:
-pp_node_alpha:          mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 48
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 3;                              jbe   .Lx143_2
-                        mov              eax, 48
-.Lx143_2:               sub              rsp, 192
-                        add              rsp, rax
+pp_node_alpha:          sub              rsp, 192
                         mov              rax, qword ptr [r9 + 368]            # r
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 376]
@@ -2173,49 +1679,57 @@ pp_node_alpha:          mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 112], r10
                         mov              qword ptr [rsp + 120], r11
                         mov              qword ptr [rsp + 128], rcx
-                        cmp              rcx, 0;                              jbe   .Lx143_10
-                        mov              rax, qword ptr [r8 + 80]
-                        mov              rdx, qword ptr [r9 + 352]            # f
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 192]
+                        cmp              rdx, 0;                              jbe   .Lx143_10
+                        mov              rdi, qword ptr [rcx + 24]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 352]            # f
                         mov              qword ptr [r9 + 352], rax
-                        mov              qword ptr [r8 + 80], rdx
-                        mov              rax, qword ptr [r8 + 88]
-                        mov              rdx, qword ptr [r9 + 360]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 360]
                         mov              qword ptr [r9 + 360], rax
-                        mov              qword ptr [r8 + 88], rdx;            jmp   .Lx143_41
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx143_41
 .Lx143_10:              mov              rax, qword ptr [r9 + 352]
-                        mov              qword ptr [r8 + 0], rax
+                        mov              qword ptr [rsp + 144], rax
                         mov              rax, qword ptr [r9 + 360]
-                        mov              qword ptr [r8 + 8], rax
+                        mov              qword ptr [rsp + 152], rax
                         mov              qword ptr [r9 + 352], 0
                         mov              qword ptr [r9 + 360], 0
-.Lx143_41:              cmp              rcx, 1;                              jbe   .Lx143_11
-                        mov              rax, qword ptr [r8 + 96]
-                        mov              rdx, qword ptr [r9 + 448]            # indent
+.Lx143_41:              cmp              rdx, 1;                              jbe   .Lx143_11
+                        mov              rdi, qword ptr [rcx + 32]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 448]            # indent
                         mov              qword ptr [r9 + 448], rax
-                        mov              qword ptr [r8 + 96], rdx
-                        mov              rax, qword ptr [r8 + 104]
-                        mov              rdx, qword ptr [r9 + 456]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 456]
                         mov              qword ptr [r9 + 456], rax
-                        mov              qword ptr [r8 + 104], rdx;           jmp   .Lx143_42
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx143_42
 .Lx143_11:              mov              rax, qword ptr [r9 + 448]
-                        mov              qword ptr [r8 + 16], rax
+                        mov              qword ptr [rsp + 160], rax
                         mov              rax, qword ptr [r9 + 456]
-                        mov              qword ptr [r8 + 24], rax
+                        mov              qword ptr [rsp + 168], rax
                         mov              qword ptr [r9 + 448], 0
                         mov              qword ptr [r9 + 456], 0
-.Lx143_42:              cmp              rcx, 2;                              jbe   .Lx143_12
-                        mov              rax, qword ptr [r8 + 112]
-                        mov              rdx, qword ptr [r9 + 464]            # suffix
+.Lx143_42:              cmp              rdx, 2;                              jbe   .Lx143_12
+                        mov              rdi, qword ptr [rcx + 40]
+                        add              rdi, r8
+                        mov              rax, qword ptr [rdi + 0]
+                        mov              rsi, qword ptr [r9 + 464]            # suffix
                         mov              qword ptr [r9 + 464], rax
-                        mov              qword ptr [r8 + 112], rdx
-                        mov              rax, qword ptr [r8 + 120]
-                        mov              rdx, qword ptr [r9 + 472]
+                        mov              qword ptr [rdi + 0], rsi
+                        mov              rax, qword ptr [rdi + 8]
+                        mov              rsi, qword ptr [r9 + 472]
                         mov              qword ptr [r9 + 472], rax
-                        mov              qword ptr [r8 + 120], rdx;           jmp   .Lx143_43
+                        mov              qword ptr [rdi + 8], rsi;            jmp   .Lx143_43
 .Lx143_12:              mov              rax, qword ptr [r9 + 464]
-                        mov              qword ptr [r8 + 32], rax
+                        mov              qword ptr [rsp + 176], rax
                         mov              rax, qword ptr [r9 + 472]
-                        mov              qword ptr [r8 + 40], rax
+                        mov              qword ptr [rsp + 184], rax
                         mov              qword ptr [r9 + 464], 0
                         mov              qword ptr [r9 + 472], 0
 .Lx143_43:              lea              r10, [rip + pp_node_gamma]
@@ -2229,15 +1743,8 @@ pp_node_alpha:          mov              rcx, qword ptr [rsp + 0]
 pp_node_gamma:          mov              rdi, qword ptr [r9 + 432]            # pp_node
                         mov              rsi, qword ptr [r9 + 440]
                         mov              rcx, qword ptr [rsp + 128]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 3;                              jbe   .Lx143_75
-                        mov              eax, 48
-.Lx143_75:              lea              r8, [rsp + 144]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 192]
                         mov              rax, qword ptr [rsp + 96]
                         mov              qword ptr [r9 + 432], rax
                         mov              rax, qword ptr [rsp + 104]
@@ -2266,57 +1773,48 @@ pp_node_gamma:          mov              rdi, qword ptr [r9 + 432]            # 
                         mov              qword ptr [r9 + 368], rax            # r
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 376], rax
-                        cmp              rcx, 0;                              jbe   .Lx143_80
-                        mov              rax, qword ptr [r8 + 80]
+                        cmp              rdx, 0;                              jbe   .Lx143_80
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 352], rax            # f
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 360], rax;           jmp   .Lx143_110
-.Lx143_80:              mov              rax, qword ptr [r8 + 0]
+.Lx143_80:              mov              rax, qword ptr [rsp + 144]
                         mov              qword ptr [r9 + 352], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 152]
                         mov              qword ptr [r9 + 360], rax
-.Lx143_110:             cmp              rcx, 1;                              jbe   .Lx143_81
-                        mov              rax, qword ptr [r8 + 96]
+.Lx143_110:             cmp              rdx, 1;                              jbe   .Lx143_81
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 448], rax            # indent
-                        mov              rax, qword ptr [r8 + 104]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 456], rax;           jmp   .Lx143_111
-.Lx143_81:              mov              rax, qword ptr [r8 + 16]
+.Lx143_81:              mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [r9 + 448], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 168]
                         mov              qword ptr [r9 + 456], rax
-.Lx143_111:             cmp              rcx, 2;                              jbe   .Lx143_82
-                        mov              rax, qword ptr [r8 + 112]
+.Lx143_111:             cmp              rdx, 2;                              jbe   .Lx143_82
+                        mov              r11, qword ptr [rcx + 40]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 464], rax            # suffix
-                        mov              rax, qword ptr [r8 + 120]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 472], rax;           jmp   .Lx143_112
-.Lx143_82:              mov              rax, qword ptr [r8 + 32]
+.Lx143_82:              mov              rax, qword ptr [rsp + 176]
                         mov              qword ptr [r9 + 464], rax
-                        mov              rax, qword ptr [r8 + 40]
+                        mov              rax, qword ptr [rsp + 184]
                         mov              qword ptr [r9 + 472], rax
 .Lx143_112:             mov              r10, qword ptr [rsp + 112]
                         mov              r11, qword ptr [rsp + 120]
-                        mov              eax, 224
-                        cmp              rcx, 3;                              jbe   .Lx143_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 176
-.Lx143_3:               mov              rcx, qword ptr [r8 + 64]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 192
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 pp_node_omega:          mov              rcx, qword ptr [rsp + 128]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 3;                              jbe   .Lx143_145
-                        mov              eax, 48
-.Lx143_145:             lea              r8, [rsp + 144]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 192]
                         mov              rax, qword ptr [rsp + 96]
                         mov              qword ptr [r9 + 432], rax            # pp_node
                         mov              rax, qword ptr [rsp + 104]
@@ -2345,45 +1843,43 @@ pp_node_omega:          mov              rcx, qword ptr [rsp + 128]
                         mov              qword ptr [r9 + 368], rax            # r
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 376], rax
-                        cmp              rcx, 0;                              jbe   .Lx143_150
-                        mov              rax, qword ptr [r8 + 80]
+                        cmp              rdx, 0;                              jbe   .Lx143_150
+                        mov              r11, qword ptr [rcx + 24]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 352], rax            # f
-                        mov              rax, qword ptr [r8 + 88]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 360], rax;           jmp   .Lx143_180
-.Lx143_150:             mov              rax, qword ptr [r8 + 0]
+.Lx143_150:             mov              rax, qword ptr [rsp + 144]
                         mov              qword ptr [r9 + 352], rax
-                        mov              rax, qword ptr [r8 + 8]
+                        mov              rax, qword ptr [rsp + 152]
                         mov              qword ptr [r9 + 360], rax
-.Lx143_180:             cmp              rcx, 1;                              jbe   .Lx143_151
-                        mov              rax, qword ptr [r8 + 96]
+.Lx143_180:             cmp              rdx, 1;                              jbe   .Lx143_151
+                        mov              r11, qword ptr [rcx + 32]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 448], rax            # indent
-                        mov              rax, qword ptr [r8 + 104]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 456], rax;           jmp   .Lx143_181
-.Lx143_151:             mov              rax, qword ptr [r8 + 16]
+.Lx143_151:             mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [r9 + 448], rax
-                        mov              rax, qword ptr [r8 + 24]
+                        mov              rax, qword ptr [rsp + 168]
                         mov              qword ptr [r9 + 456], rax
-.Lx143_181:             cmp              rcx, 2;                              jbe   .Lx143_152
-                        mov              rax, qword ptr [r8 + 112]
+.Lx143_181:             cmp              rdx, 2;                              jbe   .Lx143_152
+                        mov              r11, qword ptr [rcx + 40]
+                        add              r11, r8
+                        mov              rax, qword ptr [r11 + 0]
                         mov              qword ptr [r9 + 464], rax            # suffix
-                        mov              rax, qword ptr [r8 + 120]
+                        mov              rax, qword ptr [r11 + 8]
                         mov              qword ptr [r9 + 472], rax;           jmp   .Lx143_182
-.Lx143_152:             mov              rax, qword ptr [r8 + 32]
+.Lx143_152:             mov              rax, qword ptr [rsp + 176]
                         mov              qword ptr [r9 + 464], rax
-                        mov              rax, qword ptr [r8 + 40]
+                        mov              rax, qword ptr [rsp + 184]
                         mov              qword ptr [r9 + 472], rax
 .Lx143_182:             mov              r10, qword ptr [rsp + 112]
                         mov              r11, qword ptr [rsp + 120]
-                        mov              eax, 224
-                        cmp              rcx, 3;                              jbe   .Lx143_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 176
-.Lx143_4:               mov              rcx, qword ptr [r8 + 72]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 192
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -2397,18 +1893,7 @@ n145_goto_deferred_α:   lea              rax, [rip + pp_bank_body];           j
                                                                               jmp   n146_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n146_save_restore_α:
-pp_bank_alpha:          mov              rcx, qword ptr [rsp + 0]
-                        mov              r8, rsp
-                        sub              r8, 0
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx152_2
-                        mov              eax, 0
-.Lx152_2:               sub              rsp, 48
-                        add              rsp, rax
+pp_bank_alpha:          sub              rsp, 48
                         mov              rax, qword ptr [r9 + 512]            # pp_bank
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 520]
@@ -2418,6 +1903,8 @@ pp_bank_alpha:          mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         mov              qword ptr [rsp + 32], rcx
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         lea              r10, [rip + pp_bank_gamma]
                         lea              r11, [rip + pp_bank_omega]
                         sub              rsp, 8
@@ -2429,59 +1916,29 @@ pp_bank_alpha:          mov              rcx, qword ptr [rsp + 0]
 pp_bank_gamma:          mov              rdi, qword ptr [r9 + 512]
                         mov              rsi, qword ptr [r9 + 520]
                         mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx152_75
-                        mov              eax, 0
-.Lx152_75:              lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 512], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 520], rax
                         mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 80
-                        cmp              rcx, 0;                              jbe   .Lx152_3
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx152_3:               mov              rcx, qword ptr [r8 + 16]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
 pp_bank_omega:          mov              rcx, qword ptr [rsp + 32]
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        cmp              rcx, 0;                              jbe   .Lx152_145
-                        mov              eax, 0
-.Lx152_145:             lea              r8, [rsp + 48]
-                        sub              r8, rax
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
                         mov              qword ptr [r9 + 512], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 520], rax
                         mov              r10, qword ptr [rsp + 16]
                         mov              r11, qword ptr [rsp + 24]
-                        mov              eax, 80
-                        cmp              rcx, 0;                              jbe   .Lx152_4
-                        mov              rax, rcx
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, rax
-                        add              rax, 80
-.Lx152_4:               mov              rcx, qword ptr [r8 + 24]
-                        add              rsp, rax
+                        mov              rcx, qword ptr [rcx + 16]
+                        add              rsp, 48
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
@@ -2861,17 +2318,12 @@ n173_lit_string_α:      sub              rsp, 16
 .Lx198_0_s:             .string          "tag"
 #-----------------------------------------------------------------------------------------------------------------------
 n174_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # lit_string
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx200_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig200z]
                         lea              rax, [rip + Push_list_alpha];        jmp   rax
+.Lsig200z:              .quad            1
+                        .quad            .Lx200_2
+                        .quad            .Lx200_2
+                        .quad            16
 .Lx200_2:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx200_240
@@ -2932,13 +2384,11 @@ n176_match_arbno_as:
 n176_match_arbno_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n177_call_α:            sub              rsp, 16
-                        sub              rsp, 32
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx205_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig205z]
                         lea              rax, [rip + Pop_list_alpha];         jmp   rax
+.Lsig205z:              .quad            0
+                        .quad            .Lx205_2
+                        .quad            .Lx205_2
 .Lx205_2:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx205_240
@@ -3274,17 +2724,12 @@ n187_lit_string_α:      mov              qword ptr [rsp + 416], 2             #
 .Lx220_0:               .quad            .Lx220_0_s
 .Lx220_0_s:             .string          "wrd"
 #-----------------------------------------------------------------------------------------------------------------------
-n188_call_α:            sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 464]
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 472]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx222_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+n188_call_α:            lea              rcx, [rip + .Lsig222]
                         lea              rax, [rip + Push_item_alpha];        jmp   rax
+.Lsig222:               .quad            1
+                        .quad            .Lx222_2
+                        .quad            .Lx222_2
+                        .quad            416
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
                         test             eax, eax;                            jne   .Lx222_20
@@ -6544,17 +5989,12 @@ n488_var_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n489_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n489_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # var
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1332_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1332z]
                         lea              rax, [rip + stk_push_frame_alpha];   jmp   rax
+.Lsig1332z:             .quad            1
+                        .quad            .Lx1332_2
+                        .quad            .Lx1332_2
+                        .quad            16
 .Lx1332_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1332_240
@@ -6792,17 +6232,12 @@ n515_var_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n516_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n516_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # var
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1376_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1376z]
                         lea              rax, [rip + stk_push_item_alpha];    jmp   rax
+.Lsig1376z:             .quad            1
+                        .quad            .Lx1376_2
+                        .quad            .Lx1376_2
+                        .quad            16
 .Lx1376_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1376_240
@@ -7034,14 +6469,12 @@ pop_list_body:                                                                jm
 n541_statement_begin_β:                                                       jmp   n545_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n542_call_α:            sub              rsp, 16
-                        sub              rsp, 32
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1419_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1419z]
                         lea              rax, [rip + stk_pop_into_parent_alpha]
                                                                               jmp   rax
+.Lsig1419z:             .quad            0
+                        .quad            .Lx1419_2
+                        .quad            .Lx1419_2
 .Lx1419_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1419_240
@@ -7240,17 +6673,12 @@ n566_var_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n567_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n567_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # var
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1461_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1461z]
                         lea              rax, [rip + stk_pop_final_alpha];    jmp   rax
+.Lsig1461z:             .quad            1
+                        .quad            .Lx1461_2
+                        .quad            .Lx1461_2
+                        .quad            16
 .Lx1461_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1461_240
@@ -8152,17 +7580,12 @@ n654_deref_α:           sub              rsp, 16
 n654_deref_β:           add              rsp, 16;                             jmp   n653_subscript_β
 #-----------------------------------------------------------------------------------------------------------------------
 n655_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # deref
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1583_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1583z]
                         lea              rax, [rip + node_repr_alpha];        jmp   rax
+.Lsig1583z:             .quad            1
+                        .quad            .Lx1583_2
+                        .quad            .Lx1583_2
+                        .quad            16
 .Lx1583_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1583_240
@@ -8622,17 +8045,12 @@ n698_var_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n699_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n699_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # var
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1647_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1647z]
                         lea              rax, [rip + node_repr_alpha];        jmp   rax
+.Lsig1647z:             .quad            1
+                        .quad            .Lx1647_2
+                        .quad            .Lx1647_2
+                        .quad            16
 .Lx1647_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1647_240
@@ -9581,25 +8999,14 @@ n789_lit_string_β:      add              rsp, 16;                             j
 .Lx1768_0_s:            .string          ","
 #-----------------------------------------------------------------------------------------------------------------------
 n790_call_α:            sub              rsp, 16
-                        sub              rsp, 80
-                        mov              rax, qword ptr [rsp + 160]           # deref
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              rax, qword ptr [rsp + 112]           # binop
-                        mov              qword ptr [rsp + 48], rax
-                        mov              rax, qword ptr [rsp + 120]
-                        mov              qword ptr [rsp + 56], rax
-                        mov              rax, qword ptr [rsp + 96]            # lit_string
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rax, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              eax, 3
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1770_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1770z]
                         lea              rax, [rip + pp_node_alpha];          jmp   rax
+.Lsig1770z:             .quad            3
+                        .quad            .Lx1770_2
+                        .quad            .Lx1770_2
+                        .quad            80
+                        .quad            32
+                        .quad            16
 .Lx1770_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1770_240
@@ -9794,25 +9201,14 @@ n809_binop_α:           sub              rsp, 16
 n809_binop_β:           add              rsp, 16;                             jmp   n808_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n810_call_α:            sub              rsp, 16
-                        sub              rsp, 80
-                        mov              rax, qword ptr [rsp + 192]           # deref
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 200]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              rax, qword ptr [rsp + 144]           # binop
-                        mov              qword ptr [rsp + 48], rax
-                        mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [rsp + 56], rax
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rax, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              eax, 3
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1795_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1795z]
                         lea              rax, [rip + pp_node_alpha];          jmp   rax
+.Lsig1795z:             .quad            3
+                        .quad            .Lx1795_2
+                        .quad            .Lx1795_2
+                        .quad            112
+                        .quad            64
+                        .quad            16
 .Lx1795_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1795_240
@@ -9892,25 +9288,14 @@ n822_lit_string_β:      add              rsp, 16;                             j
 .Lx1816_0_s:            .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n823_call_α:            sub              rsp, 16
-                        sub              rsp, 80
-                        mov              rax, qword ptr [rsp + 128]           # var
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 136]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              rax, qword ptr [rsp + 112]           # lit_integer
-                        mov              qword ptr [rsp + 48], rax
-                        mov              rax, qword ptr [rsp + 120]
-                        mov              qword ptr [rsp + 56], rax
-                        mov              rax, qword ptr [rsp + 96]            # lit_string
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rax, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 72], rax
-                        mov              eax, 3
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1818_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1818z]
                         lea              rax, [rip + pp_node_alpha];          jmp   rax
+.Lsig1818z:             .quad            3
+                        .quad            .Lx1818_2
+                        .quad            .Lx1818_2
+                        .quad            48
+                        .quad            32
+                        .quad            16
 .Lx1818_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1818_240
@@ -10326,17 +9711,12 @@ n873_lit_string_α:      sub              rsp, 16
 .Lx1893_0_s:            .string          "bank"
 #-----------------------------------------------------------------------------------------------------------------------
 n874_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # lit_string
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1895_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1895z]
                         lea              rax, [rip + init_list_alpha];        jmp   rax
+.Lsig1895z:             .quad            1
+                        .quad            .Lx1895_2
+                        .quad            .Lx1895_2
+                        .quad            16
 .Lx1895_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1895_240
@@ -10368,17 +9748,12 @@ n878_lit_string_α:      sub              rsp, 16
 .Lx1901_0_s:            .string          "BANK"
 #-----------------------------------------------------------------------------------------------------------------------
 n879_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # lit_string
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1903_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1903z]
                         lea              rax, [rip + stk_push_frame_alpha];   jmp   rax
+.Lsig1903z:             .quad            1
+                        .quad            .Lx1903_2
+                        .quad            .Lx1903_2
+                        .quad            16
 .Lx1903_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1903_240
@@ -10741,17 +10116,12 @@ n897_lit_string_α:      sub              rsp, 16
 .Lx1931_0_s:            .string          "ROOT"
 #-----------------------------------------------------------------------------------------------------------------------
 n898_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # lit_string
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1933_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1933z]
                         lea              rax, [rip + stk_push_frame_alpha];   jmp   rax
+.Lsig1933z:             .quad            1
+                        .quad            .Lx1933_2
+                        .quad            .Lx1933_2
+                        .quad            16
 .Lx1933_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1933_240
@@ -11043,14 +10413,12 @@ n909_statement_begin_α:                                                       j
 n909_statement_begin_β:                                                       jmp   n886_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n910_call_α:            sub              rsp, 16
-                        sub              rsp, 32
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1952_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1952z]
                         lea              rax, [rip + stk_pop_into_parent_alpha]
                                                                               jmp   rax
+.Lsig1952z:             .quad            0
+                        .quad            .Lx1952_2
+                        .quad            .Lx1952_2
 .Lx1952_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1952_240
@@ -11126,14 +10494,12 @@ n919_statement_begin_α:                                                       j
 n919_statement_begin_β:                                                       jmp   n886_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n920_call_α:            sub              rsp, 16
-                        sub              rsp, 32
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1967_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1967z]
                         lea              rax, [rip + stk_pop_into_parent_alpha]
                                                                               jmp   rax
+.Lsig1967z:             .quad            0
+                        .quad            .Lx1967_2
+                        .quad            .Lx1967_2
 .Lx1967_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1967_240
@@ -11277,17 +10643,12 @@ n936_lit_string_α:      sub              rsp, 16
 .Lx1990_0_s:            .string          "bank"
 #-----------------------------------------------------------------------------------------------------------------------
 n937_call_α:            sub              rsp, 16
-                        sub              rsp, 48
-                        mov              rax, qword ptr [rsp + 64]            # lit_string
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              eax, 1
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1992_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1992z]
                         lea              rax, [rip + stk_pop_final_alpha];    jmp   rax
+.Lsig1992z:             .quad            1
+                        .quad            .Lx1992_2
+                        .quad            .Lx1992_2
+                        .quad            16
 .Lx1992_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1992_240
@@ -11311,13 +10672,11 @@ n940_statement_begin_α:                                                       j
 n940_statement_begin_β:                                                       jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n941_call_α:            sub              rsp, 16
-                        sub              rsp, 32
-                        mov              eax, 0
-                        mov              qword ptr [rsp + 0], rax
-                        lea              rax, [rip + .Lx1999_2]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rax
+                        lea              rcx, [rip + .Lsig1999z]
                         lea              rax, [rip + pp_bank_alpha];          jmp   rax
+.Lsig1999z:             .quad            0
+                        .quad            .Lx1999_2
+                        .quad            .Lx1999_2
 .Lx1999_2:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            jne   .Lx1999_240
