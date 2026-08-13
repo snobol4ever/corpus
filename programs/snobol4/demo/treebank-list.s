@@ -9757,21 +9757,22 @@ n1166_match_fence1_β:
                                                                                         jmp   n1161_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n1167_match_alternate_α:
-                        mov              dword ptr [rsp + 256], r14d
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], r14d
                         lea              rax, [rip + .Lx1198_21]
-                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 16], rax
                                                                                         jmp   n1175_match_defer_α
 .Lx1198_21:
                         lea              rax, [rip + .Lx1198_19]
-                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 16], rax
                                                                                         jmp   n1169_match_assign_save_α
 n1167_match_alternate_s0:
                         lea              rax, [rip + .Lx1198_40]
-                        mov              qword ptr [rsp + 264], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1167_match_alternate_as
 n1167_match_alternate_s1:
                         lea              rax, [rip + .Lx1198_41]
-                        mov              qword ptr [rsp + 264], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1167_match_alternate_as
 .Lx1198_40:
                                                                                         jmp   n1175_match_defer_β
@@ -9780,13 +9781,14 @@ n1167_match_alternate_s1:
 n1167_match_alternate_as:
                                                                                         jmp   n1166_match_fence1_as
 n1167_match_alternate_β:
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [rsp + 8]
                                                                                         jmp   rax
 n1167_match_alternate_af:
-                        mov              r14d, dword ptr [rsp + 256]
-                        mov              rax, qword ptr [rsp + 272]
+                        mov              r14d, dword ptr [rsp + 0]
+                        mov              rax, qword ptr [rsp + 16]
                                                                                         jmp   rax
 .Lx1198_19:
+                        add              rsp, 32
                                                                                         jmp   n1166_match_fence1_af
 #-----------------------------------------------------------------------------------------------------------------------
 n1168_goto_α:

@@ -11801,21 +11801,22 @@ n1446_match_fence1_β:
                                                                                         jmp   n1441_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n1447_match_alternate_α:
-                        mov              dword ptr [rsp + 256], r14d
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], r14d
                         lea              rax, [rip + .Lx1478_21]
-                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 16], rax
                                                                                         jmp   n1455_match_defer_α
 .Lx1478_21:
                         lea              rax, [rip + .Lx1478_19]
-                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 16], rax
                                                                                         jmp   n1449_match_assign_save_α
 n1447_match_alternate_s0:
                         lea              rax, [rip + .Lx1478_40]
-                        mov              qword ptr [rsp + 264], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1447_match_alternate_as
 n1447_match_alternate_s1:
                         lea              rax, [rip + .Lx1478_41]
-                        mov              qword ptr [rsp + 264], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1447_match_alternate_as
 .Lx1478_40:
                                                                                         jmp   n1455_match_defer_β
@@ -11824,13 +11825,14 @@ n1447_match_alternate_s1:
 n1447_match_alternate_as:
                                                                                         jmp   n1446_match_fence1_as
 n1447_match_alternate_β:
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [rsp + 8]
                                                                                         jmp   rax
 n1447_match_alternate_af:
-                        mov              r14d, dword ptr [rsp + 256]
-                        mov              rax, qword ptr [rsp + 272]
+                        mov              r14d, dword ptr [rsp + 0]
+                        mov              rax, qword ptr [rsp + 16]
                                                                                         jmp   rax
 .Lx1478_19:
+                        add              rsp, 32
                                                                                         jmp   n1446_match_fence1_af
 #-----------------------------------------------------------------------------------------------------------------------
 n1448_goto_α:

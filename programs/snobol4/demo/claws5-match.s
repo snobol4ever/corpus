@@ -76,21 +76,22 @@ n4_match_rpos_β:
                                                                                         jmp   n2_match_arbno_β
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_alternate_α:
-                        mov              dword ptr [rsp + 128], r14d
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], r14d
                         lea              rax, [rip + .Lx23_21]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 16], rax
                                                                                         jmp   n14_match_span_α
 .Lx23_21:
                         lea              rax, [rip + .Lx23_19]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 16], rax
                                                                                         jmp   n8_match_notany_α
 n5_match_alternate_s0:
                         lea              rax, [rip + .Lx23_40]
-                        mov              qword ptr [rsp + 136], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n5_match_alternate_as
 n5_match_alternate_s1:
                         lea              rax, [rip + .Lx23_41]
-                        mov              qword ptr [rsp + 136], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n5_match_alternate_as
 .Lx23_40:
                                                                                         jmp   n13_goto_β
@@ -99,13 +100,14 @@ n5_match_alternate_s1:
 n5_match_alternate_as:
                                                                                         jmp   n6_match_span_α
 n5_match_alternate_β:
-                        mov              rax, qword ptr [rsp + 136]
+                        mov              rax, qword ptr [rsp + 8]
                                                                                         jmp   rax
 n5_match_alternate_af:
-                        mov              r14d, dword ptr [rsp + 128]
-                        mov              rax, qword ptr [rsp + 144]
+                        mov              r14d, dword ptr [rsp + 0]
+                        mov              rax, qword ptr [rsp + 16]
                                                                                         jmp   rax
 .Lx23_19:
+                        add              rsp, 32
                                                                                         jmp   n2_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_span_α:
