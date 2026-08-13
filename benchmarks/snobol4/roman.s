@@ -422,9 +422,11 @@ n25_match_rpos_α:       mov              rax, 1
                                                                               jmp   n26_match_assign_save_α
 n25_match_rpos_β:                                                             jmp   n24_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n26_match_assign_save_α: sub              rsp, 16
+n26_match_assign_save_α:
+                        sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n27_match_len_α
-n26_match_assign_save_β: add              rsp, 16;                            jmp   n24_match_begin_β
+n26_match_assign_save_β:
+                        add              rsp, 16;                             jmp   n24_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n27_match_len_α:        mov              eax, r14d
                         add              eax, 1
@@ -434,7 +436,8 @@ n27_match_len_α:        mov              eax, r14d
 n27_match_len_β:        sub              r14d, 1
                         add              rsp, 16;                             jmp   n24_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n28_match_assign_cond_α: mov              eax, dword ptr [rsp + 0]
+n28_match_assign_cond_α:
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S0]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -443,7 +446,8 @@ n28_match_assign_cond_α: mov              eax, dword ptr [rsp + 0]
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24;                             jmp   n29_match_end_α
-n28_match_assign_cond_β: sub              r12, 24;                            jmp   n27_match_len_β
+n28_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n27_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n29_match_end_α:        mov              r8, r12
 .Lx135_9:               sub              r8, 24
@@ -801,9 +805,11 @@ n38_match_defer_α:      lea              rdi, [rip + .S1]
 .Lx148_6:               add              rsp, 16;                             jmp   n37_match_begin_β
 n38_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n39_match_assign_save_α: sub              rsp, 16
+n39_match_assign_save_α:
+                        sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n40_match_break_α
-n39_match_assign_save_β: add              rsp, 16;                            jmp   n37_match_begin_β
+n39_match_assign_save_β:
+                        add              rsp, 16;                             jmp   n37_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n40_match_break_α:      sub              rsp, 16
                         movsxd           rcx, r14d
@@ -819,7 +825,8 @@ n40_match_break_β:      mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n37_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n41_match_assign_cond_α: mov              eax, dword ptr [rsp + 16]
+n41_match_assign_cond_α:
+                        mov              eax, dword ptr [rsp + 16]
                         lea              rcx, [rip + .S0]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -828,7 +835,8 @@ n41_match_assign_cond_α: mov              eax, dword ptr [rsp + 16]
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24;                             jmp   n42_match_end_α
-n41_match_assign_cond_β: sub              r12, 24;                            jmp   n40_match_break_β
+n41_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n40_match_break_β
 #-----------------------------------------------------------------------------------------------------------------------
 n42_match_end_α:        mov              r8, r12
 .Lx156_9:               sub              r8, 24

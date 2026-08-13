@@ -216,9 +216,11 @@ proc_PAT$0_ω:
 proc_PAT$1_α:
 proc_PAT$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n20_match_assign_save_α: sub              rsp, 16
+n20_match_assign_save_α:
+                        sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n21_match_len_α
-n20_match_assign_save_β: add              rsp, 16;                            jmp   proc_PAT$1_ω
+n20_match_assign_save_β:
+                        add              rsp, 16;                             jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n21_match_len_α:        mov              eax, r14d
                         add              eax, 3

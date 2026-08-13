@@ -216,9 +216,11 @@ proc_PAT$0_ω:
 proc_PAT$1_α:
 proc_PAT$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n20_match_assign_save_α: sub              rsp, 16
+n20_match_assign_save_α:
+                        sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n21_match_len_α
-n20_match_assign_save_β: add              rsp, 16;                            jmp   proc_PAT$1_ω
+n20_match_assign_save_β:
+                        add              rsp, 16;                             jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n21_match_len_α:        mov              eax, r14d
                         add              eax, 3
@@ -228,7 +230,8 @@ n21_match_len_α:        mov              eax, r14d
 n21_match_len_β:        sub              r14d, 3
                         add              rsp, 16;                             jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n22_match_assign_cond_α: mov              eax, dword ptr [rsp + 0]
+n22_match_assign_cond_α:
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S1]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -237,7 +240,8 @@ n22_match_assign_cond_α: mov              eax, dword ptr [rsp + 0]
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
                         add              r12, 24;                             jmp   n23_match_lit_α
-n22_match_assign_cond_β: sub              r12, 24;                            jmp   n21_match_len_β
+n22_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n21_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n23_match_lit_α:        mov              eax, r14d
                         add              eax, 1
