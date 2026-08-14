@@ -1,0 +1,12 @@
+*  dv_nreturn_imm: $ *FUNC() -- immediate capture into an NRETURN computed name (manual Ch.7 PUSH/STK example)
+        DEFINE('PUSH(X)')                                :(PUSH_END)
+        STK = TABLE()
+PUSH    STK[0] = STK[0] + 1
+        PUSH = .STK[STK[0]]
+        $PUSH = X                                        :(NRETURN)
+PUSH_END
+        'ABCDE' ? LEN(2) $ *PUSH()                        :F(NO)
+        OUTPUT = 'M ' STK[1]                              :(EN)
+NO      OUTPUT = 'F'
+EN
+END
