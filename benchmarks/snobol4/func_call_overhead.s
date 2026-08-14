@@ -41,11 +41,8 @@ INC_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 24], 0
 .Lx8_41:                lea              r10, [rip + INC_gamma]
                         lea              r11, [rip + INC_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + INC_body];               jmp   rax
 INC_gamma:              mov              rdi, qword ptr [r9 + 0]              # INC
                         mov              rsi, qword ptr [r9 + 8]
@@ -333,7 +330,7 @@ n26_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 0], rax              # INC
                         mov              qword ptr [r9 + 8], rdx;             jmp   n27_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n27_statement_end_α:                                                          jmp   RETURN
+n27_statement_end_α:    add              rsp, 48;                             jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n28_statement_begin_α:                                                        jmp   n29_statement_end_α
 n28_statement_begin_β:                                                        jmp   n30_statement_begin_α
@@ -749,10 +746,8 @@ n75_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n76_statement_end_α:    add              rsp, 80;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-RETURN:                 mov              rsp, rbp
-                        pop              rbp
-                        pop              rcx
-                        add              rsp, 16;                             jmp   rcx
+RETURN:                 pop              rcx
+                        add              rsp, 8;                              jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
