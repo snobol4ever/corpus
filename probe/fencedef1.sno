@@ -1,0 +1,8 @@
+        DEFINE('F(S)')                                        :(F.END)
+F       S ? POS(0) FENCE(ARBNO('z')) 'ab' RPOS(0)            :F(FRETURN)
+        F = 'matched'                                         :(RETURN)
+F.END
+        OUTPUT = F('ab')                                      :S(OK)F(NO)
+OK      OUTPUT = 'T1 ok'                                      :(END)
+NO      OUTPUT = 'T1 failed'
+END

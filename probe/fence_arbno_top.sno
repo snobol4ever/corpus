@@ -1,0 +1,4 @@
+ 'ab' ? POS(0) FENCE(ARBNO('z')) 'ab' RPOS(0)                :S(A)F(B)
+A OUTPUT = 'ok'                                               :(END)
+B OUTPUT = 'no'
+END
