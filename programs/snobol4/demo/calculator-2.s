@@ -24,11 +24,8 @@ EMIT_alpha:             sub              rsp, 48
                         lea              r8, [rsp + 48]
                         lea              r10, [rip + EMIT_gamma]
                         lea              r11, [rip + EMIT_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + EMIT_body];              jmp   rax
 EMIT_gamma:             mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
@@ -83,11 +80,8 @@ PSH_alpha:              sub              rsp, 48
                         lea              r8, [rsp + 48]
                         lea              r10, [rip + PSH_gamma]
                         lea              r11, [rip + PSH_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + PSH_body];               jmp   rax
 PSH_gamma:              mov              rdi, qword ptr [r9 + 16]
                         mov              rsi, qword ptr [r9 + 24]
@@ -159,11 +153,8 @@ DRF_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 56], 0
 .Lx26_41:               lea              r10, [rip + DRF_gamma]
                         lea              r11, [rip + DRF_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + DRF_body];               jmp   rax
 DRF_gamma:              mov              rdi, qword ptr [r9 + 32]             # DRF
                         mov              rsi, qword ptr [r9 + 40]
@@ -257,11 +248,8 @@ ADD_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx35_41:               lea              r10, [rip + ADD_gamma]
                         lea              r11, [rip + ADD_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + ADD_body];               jmp   rax
 ADD_gamma:              mov              rdi, qword ptr [r9 + 64]             # ADD
                         mov              rsi, qword ptr [r9 + 72]
@@ -355,11 +343,8 @@ SUB_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx44_41:               lea              r10, [rip + SUB_gamma]
                         lea              r11, [rip + SUB_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + SUB_body];               jmp   rax
 SUB_gamma:              mov              rdi, qword ptr [r9 + 96]             # SUB
                         mov              rsi, qword ptr [r9 + 104]
@@ -453,11 +438,8 @@ MUL_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx53_41:               lea              r10, [rip + MUL_gamma]
                         lea              r11, [rip + MUL_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + MUL_body];               jmp   rax
 MUL_gamma:              mov              rdi, qword ptr [r9 + 112]            # MUL
                         mov              rsi, qword ptr [r9 + 120]
@@ -551,11 +533,8 @@ DIV_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx62_41:               lea              r10, [rip + DIV_gamma]
                         lea              r11, [rip + DIV_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + DIV_body];               jmp   rax
 DIV_gamma:              mov              rdi, qword ptr [r9 + 128]            # DIV
                         mov              rsi, qword ptr [r9 + 136]
@@ -649,11 +628,8 @@ SGN_alpha:              sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx71_41:               lea              r10, [rip + SGN_gamma]
                         lea              r11, [rip + SGN_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + SGN_body];               jmp   rax
 SGN_gamma:              mov              rdi, qword ptr [r9 + 144]            # SGN
                         mov              rsi, qword ptr [r9 + 152]
@@ -3495,7 +3471,7 @@ n245_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 0], rax              # EMIT
                         mov              qword ptr [r9 + 8], rdx;             jmp   n246_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n246_statement_end_α:                                                         jmp   NRETURN
+n246_statement_end_α:   add              rsp, 32;                             jmp   NRETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n247_statement_begin_α:                                                       jmp   n248_statement_end_α
 n247_statement_begin_β:                                                       jmp   n249_statement_begin_α
@@ -7728,65 +7704,53 @@ n688_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n689_statement_end_α:   add              rsp, 80;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-RETURN:                 mov              rsp, rbp
-                        pop              rbp
-                        pop              rcx
-                        add              rsp, 16;                             jmp   rcx
-#-----------------------------------------------------------------------------------------------------------------------
-FRETURN:                mov              rsp, rbp
-                        pop              rbp
-                        add              rsp, 8
-                        pop              rcx
+RETURN:                 pop              rcx
                         add              rsp, 8;                              jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-NRETURN:                sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 0
+FRETURN:                add              rsp, 8
+                        pop              rcx;                                 jmp   rcx
+#-----------------------------------------------------------------------------------------------------------------------
+NRETURN:                mov              qword ptr [rsp + 32], 2              # result
+                        mov              dword ptr [rsp + 36], 0
                         mov              rax, qword ptr [rip + .Lx1371_0]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n693_call_α
+                        mov              qword ptr [rsp + 40], rax;           jmp   n693_call_α
 .Lx1371_0:              .quad            .Lx1371_0_s
 .Lx1371_0_s:            .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
-n693_call_α:            sub              rsp, 16
-                        sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+n693_call_α:            mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 64], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 72], rax
                         .section         .rodata
-.Lrkfnzd1373:           .string          "SNO$NRET"
+.Lrkfn1373:             .string          "SNO$NRET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd1373]
-                        lea              rsi, [rsp + 0]
+                        lea              rdi, [rip + .Lrkfn1373]
+                        lea              rsi, [rsp + 64]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
+                        cmp              eax, 104;                            je    FRETURN
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx1372_240
-                        add              rsp, 16
-                        add              rsp, 48;                             jmp   FRETURN
-.Lx1372_240:            mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   RETURN
-n693_call_β:            add              rsp, 16
-                        add              rsp, 48;                             jmp   FRETURN
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   RETURN
+n693_call_β:                                                                  jmp   FRETURN
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        add              rsp, 16
+                        add              rsp, 0
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        add              rsp, 16
+                        add              rsp, 0
                         mov              edi, 1
                         call             exit@PLT
                         .section         .rodata

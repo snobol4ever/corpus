@@ -53,11 +53,8 @@ list_reverse_alpha:     sub              rsp, 96
                         mov              qword ptr [r9 + 24], 0
 .Lx8_41:                lea              r10, [rip + list_reverse_gamma]
                         lea              r11, [rip + list_reverse_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + list_reverse_body];      jmp   rax
 list_reverse_gamma:     mov              rdi, qword ptr [r9 + 0]              # list_reverse
                         mov              rsi, qword ptr [r9 + 8]
@@ -167,11 +164,8 @@ stk_push_frame_alpha:   sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx17_41:               lea              r10, [rip + stk_push_frame_gamma]
                         lea              r11, [rip + stk_push_frame_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + stk_push_frame_body];    jmp   rax
 stk_push_frame_gamma:   mov              rdi, qword ptr [r9 + 64]             # stk_push_frame
                         mov              rsi, qword ptr [r9 + 72]
@@ -265,11 +259,8 @@ stk_push_item_alpha:    sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx26_41:               lea              r10, [rip + stk_push_item_gamma]
                         lea              r11, [rip + stk_push_item_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + stk_push_item_body];     jmp   rax
 stk_push_item_gamma:    mov              rdi, qword ptr [r9 + 96]             # stk_push_item
                         mov              rsi, qword ptr [r9 + 104]
@@ -365,11 +356,8 @@ stk_pop_into_parent_alpha:
                         mov              qword ptr [r9 + 136], 0
 .Lx35_41:               lea              r10, [rip + stk_pop_into_parent_gamma]
                         lea              r11, [rip + stk_pop_into_parent_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + stk_pop_into_parent_body]
                                                                               jmp   rax
 stk_pop_into_parent_gamma:
@@ -466,11 +454,8 @@ stk_pop_final_alpha:    sub              rsp, 64
                         mov              qword ptr [r9 + 168], 0
 .Lx44_41:               lea              r10, [rip + stk_pop_final_gamma]
                         lea              r11, [rip + stk_pop_final_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + stk_pop_final_body];     jmp   rax
 stk_pop_final_gamma:    mov              rdi, qword ptr [r9 + 144]            # stk_pop_final
                         mov              rsi, qword ptr [r9 + 152]
@@ -564,11 +549,8 @@ init_list_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx53_41:               lea              r10, [rip + init_list_gamma]
                         lea              r11, [rip + init_list_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + init_list_body];         jmp   rax
 init_list_gamma:        mov              rdi, qword ptr [r9 + 176]            # init_list
                         mov              rsi, qword ptr [r9 + 184]
@@ -662,11 +644,8 @@ Init_list_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 216], 0
 .Lx62_41:               lea              r10, [rip + Init_list_gamma]
                         lea              r11, [rip + Init_list_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + Init_list_body];         jmp   rax
 Init_list_gamma:        mov              rdi, qword ptr [r9 + 192]            # Init_list
                         mov              rsi, qword ptr [r9 + 200]
@@ -760,11 +739,8 @@ push_list_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx71_41:               lea              r10, [rip + push_list_gamma]
                         lea              r11, [rip + push_list_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + push_list_body];         jmp   rax
 push_list_gamma:        mov              rdi, qword ptr [r9 + 224]            # push_list
                         mov              rsi, qword ptr [r9 + 232]
@@ -858,11 +834,8 @@ Push_list_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 216], 0
 .Lx80_41:               lea              r10, [rip + Push_list_gamma]
                         lea              r11, [rip + Push_list_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + Push_list_body];         jmp   rax
 Push_list_gamma:        mov              rdi, qword ptr [r9 + 240]            # Push_list
                         mov              rsi, qword ptr [r9 + 248]
@@ -956,11 +929,8 @@ push_item_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx89_41:               lea              r10, [rip + push_item_gamma]
                         lea              r11, [rip + push_item_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + push_item_body];         jmp   rax
 push_item_gamma:        mov              rdi, qword ptr [r9 + 256]            # push_item
                         mov              rsi, qword ptr [r9 + 264]
@@ -1054,11 +1024,8 @@ Push_item_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 216], 0
 .Lx98_41:               lea              r10, [rip + Push_item_gamma]
                         lea              r11, [rip + Push_item_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + Push_item_body];         jmp   rax
 Push_item_gamma:        mov              rdi, qword ptr [r9 + 272]            # Push_item
                         mov              rsi, qword ptr [r9 + 280]
@@ -1135,11 +1102,8 @@ pop_list_alpha:         sub              rsp, 48
                         lea              r8, [rsp + 48]
                         lea              r10, [rip + pop_list_gamma]
                         lea              r11, [rip + pop_list_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + pop_list_body];          jmp   rax
 pop_list_gamma:         mov              rdi, qword ptr [r9 + 288]
                         mov              rsi, qword ptr [r9 + 296]
@@ -1194,11 +1158,8 @@ Pop_list_alpha:         sub              rsp, 48
                         lea              r8, [rsp + 48]
                         lea              r10, [rip + Pop_list_gamma]
                         lea              r11, [rip + Pop_list_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + Pop_list_body];          jmp   rax
 Pop_list_gamma:         mov              rdi, qword ptr [r9 + 304]
                         mov              rsi, qword ptr [r9 + 312]
@@ -1270,11 +1231,8 @@ pop_final_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 88], 0
 .Lx125_41:              lea              r10, [rip + pop_final_gamma]
                         lea              r11, [rip + pop_final_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + pop_final_body];         jmp   rax
 pop_final_gamma:        mov              rdi, qword ptr [r9 + 320]            # pop_final
                         mov              rsi, qword ptr [r9 + 328]
@@ -1368,11 +1326,8 @@ Pop_final_alpha:        sub              rsp, 64
                         mov              qword ptr [r9 + 216], 0
 .Lx134_41:              lea              r10, [rip + Pop_final_gamma]
                         lea              r11, [rip + Pop_final_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + Pop_final_body];         jmp   rax
 Pop_final_gamma:        mov              rdi, qword ptr [r9 + 336]            # Pop_final
                         mov              rsi, qword ptr [r9 + 344]
@@ -1484,11 +1439,8 @@ node_repr_alpha:        sub              rsp, 112
                         mov              qword ptr [r9 + 376], 0
 .Lx143_41:              lea              r10, [rip + node_repr_gamma]
                         lea              r11, [rip + node_repr_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + node_repr_body];         jmp   rax
 node_repr_gamma:        mov              rdi, qword ptr [r9 + 352]            # node_repr
                         mov              rsi, qword ptr [r9 + 360]
@@ -1664,11 +1616,8 @@ pp_node_alpha:          sub              rsp, 160
                         mov              qword ptr [r9 + 472], 0
 .Lx152_43:              lea              r10, [rip + pp_node_gamma]
                         lea              r11, [rip + pp_node_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + pp_node_body];           jmp   rax
 pp_node_gamma:          mov              rdi, qword ptr [r9 + 432]            # pp_node
                         mov              rsi, qword ptr [r9 + 440]
@@ -1838,11 +1787,8 @@ pp_bank_alpha:          sub              rsp, 64
                         mov              qword ptr [r9 + 56], 0
 .Lx161_41:              lea              r10, [rip + pp_bank_gamma]
                         lea              r11, [rip + pp_bank_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + pp_bank_body];           jmp   rax
 pp_bank_gamma:          mov              rdi, qword ptr [r9 + 512]            # pp_bank
                         mov              rsi, qword ptr [r9 + 520]
@@ -4590,7 +4536,7 @@ n323_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 0], rax              # list_reverse
                         mov              qword ptr [r9 + 8], rdx;             jmp   n324_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n324_statement_end_α:                                                         jmp   RETURN
+n324_statement_end_α:   add              rsp, 16;                             jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n325_statement_begin_α:                                                       jmp   n326_statement_end_α
 n325_statement_begin_β:                                                       jmp   n327_statement_begin_α
@@ -5751,7 +5697,7 @@ n438_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 176], rax            # init_list
                         mov              qword ptr [r9 + 184], rdx;           jmp   n439_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n439_statement_end_α:                                                         jmp   NRETURN
+n439_statement_end_α:   add              rsp, 32;                             jmp   NRETURN
 #=======================================================================================================================
 # Init_list      Init_list      =  EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9225,66 +9171,53 @@ n796_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n797_statement_end_α:   add              rsp, 16;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-RETURN:                 mov              rsp, rbp
-                        pop              rbp
-                        pop              rcx
-                        add              rsp, 16;                             jmp   rcx
-#-----------------------------------------------------------------------------------------------------------------------
-FRETURN:                mov              rsp, rbp
-                        pop              rbp
-                        add              rsp, 8
-                        pop              rcx
+RETURN:                 pop              rcx
                         add              rsp, 8;                              jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-NRETURN:                sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 0
+FRETURN:                add              rsp, 8
+                        pop              rcx;                                 jmp   rcx
+#-----------------------------------------------------------------------------------------------------------------------
+NRETURN:                mov              qword ptr [rsp + 32], 2              # result
+                        mov              dword ptr [rsp + 36], 0
                         mov              rax, qword ptr [rip + .Lx1623_0]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n801_call_α
+                        mov              qword ptr [rsp + 40], rax;           jmp   n801_call_α
 .Lx1623_0:              .quad            .Lx1623_0_s
 .Lx1623_0_s:            .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
-n801_call_α:            sub              rsp, 16
-                        sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+n801_call_α:            mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 64], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 72], rax
                         .section         .rodata
-.Lrkfnzd1625:           .string          "SNO$NRET"
+.Lrkfn1625:             .string          "SNO$NRET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd1625]
-                        lea              rsi, [rsp + 0]
+                        lea              rdi, [rip + .Lrkfn1625]
+                        lea              rsi, [rsp + 64]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
+                        cmp              eax, 104;                            je    FRETURN
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx1624_240
-                        add              rsp, 16
-                        add              rsp, 48;                             jmp   FRETURN
-.Lx1624_240:            mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 64;                             jmp   RETURN
-n801_call_β:            add              rsp, 16
-                        add              rsp, 48;                             jmp   FRETURN
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   RETURN
+n801_call_β:                                                                  jmp   FRETURN
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        add              rsp, 16
+                        add              rsp, 0
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        add              rsp, 16
+                        add              rsp, 0
                         mov              edi, 1
                         call             exit@PLT
                         .section         .rodata

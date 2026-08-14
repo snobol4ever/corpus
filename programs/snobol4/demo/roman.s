@@ -47,11 +47,8 @@ ROMAN_alpha:            sub              rsp, 80
                         mov              qword ptr [r9 + 24], 0
 .Lx8_41:                lea              r10, [rip + ROMAN_gamma]
                         lea              r11, [rip + ROMAN_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + ROMAN_body];             jmp   rax
 ROMAN_gamma:            mov              rdi, qword ptr [r9 + 0]              # ROMAN
                         mov              rsi, qword ptr [r9 + 8]
@@ -170,11 +167,8 @@ TEST_alpha:             sub              rsp, 80
                         mov              qword ptr [r9 + 88], 0
 .Lx17_42:               lea              r10, [rip + TEST_gamma]
                         lea              r11, [rip + TEST_omega]
-                        sub              rsp, 8
                         push             r11
                         push             r10
-                        push             rbp
-                        mov              rbp, rsp
                         lea              rax, [rip + TEST_body];              jmp   rax
 TEST_gamma:             mov              rdi, qword ptr [r9 + 48]             # TEST
                         mov              rsi, qword ptr [r9 + 56]
@@ -1001,7 +995,7 @@ n59_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 0], rax              # ROMAN
                         mov              qword ptr [r9 + 8], rdx;             jmp   n60_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n60_statement_end_α:                                                          jmp   RETURN
+n60_statement_end_α:    add              rsp, 112;                            jmp   RETURN
 #=======================================================================================================================
 # 	ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1432,16 +1426,11 @@ n114_statement_begin_β:                                                       j
 #-----------------------------------------------------------------------------------------------------------------------
 n115_statement_end_α:                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-RETURN:                 mov              rsp, rbp
-                        pop              rbp
-                        pop              rcx
-                        add              rsp, 16;                             jmp   rcx
-#-----------------------------------------------------------------------------------------------------------------------
-FRETURN:                mov              rsp, rbp
-                        pop              rbp
-                        add              rsp, 8
-                        pop              rcx
+RETURN:                 pop              rcx
                         add              rsp, 8;                              jmp   rcx
+#-----------------------------------------------------------------------------------------------------------------------
+FRETURN:                add              rsp, 8
+                        pop              rcx;                                 jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
