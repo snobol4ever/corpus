@@ -1,0 +1,8 @@
+* dv_arbno_defer: ARBNO(*P) -- defer inside ARBNO body (W-4 bomb-defer-unsafe class)
+        P = 'AB'
+        S = 'ABABABC'
+        S ? POS(0) ARBNO(*P) 'C' RPOS(0)                :F(NO)
+        OUTPUT = 'M'                                    :(EN)
+NO      OUTPUT = 'F'
+EN
+END

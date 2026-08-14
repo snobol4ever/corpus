@@ -1,0 +1,8 @@
+* dv_defer_cond: (*P) . VAR -- conditional capture crossing a DEFER
+        P = 'BC'
+        S = 'ABCD'
+        S ? 'A' (*P) . X                                :F(NO)
+        OUTPUT = 'M ' X                                 :(EN)
+NO      OUTPUT = 'F'
+EN
+END
