@@ -1,0 +1,11 @@
+*  arbdef1.sno — ARBNO-RBP suspension-leak witness (Lon rung 2026-08-14).
+*  F's body runs a SUCCESSFUL match whose ARBNO suspends with count>=1 (never exhausts),
+*  then RETURN fires the FN_RBP floater (mov rsp,rbp; pop rbp).  If ARBNO's live rbp
+*  leaked past the match, the floater teardown reads the dead ARBNO frame.  Called twice
+*  so a stale-rbp survivor from call 1 poisons call 2.  Expected: T1 ab / T2 ab.
+        DEFINE('F(S)')                  :(MAIN)
+F       S POS(0) ARBNO(SPAN('ab') 'c') 'ab' RPOS(0) :F(FRETURN)
+        F = 'ok'                        :(RETURN)
+MAIN    OUTPUT = IDENT(F('abcab'),'ok') 'T1 ab'
+        OUTPUT = IDENT(F('abcabcab'),'ok') 'T2 ab'
+END
