@@ -1,0 +1,6 @@
+*  s68 witness: top-level goto arm, no DEFINE -- does the loop leak rsp?
+        N = 0
+LOOP    N = N + 1
+        LT(N, 200000)                 :S(LOOP)
+        OUTPUT = 'done ' N
+END
