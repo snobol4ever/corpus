@@ -1,0 +1,13 @@
+*  mrbp_result_control.sno - CONTROL for the START-δ/RESULT capture family (s71).
+*  A whole-pattern value capture over a stored pattern with NO deferred component.
+*  fc_walk_range admits every kind here, so sno_cap_fc REGISTERS the pair and the
+*  capture gets its fc cell (measured: SAVE save_active=1, COND fc_disp=0).
+*  Manual p.128: "(SUBJECT ? PATTERN) performs pattern matching and returns the
+*  substring matched, or failure as its value."
+*  THIS MUST STAY GREEN.  It is the sibling that proves the value form itself works;
+*  if it ever reddens, the defect moved out of the defer class and into the base path.
+        Q = LEN(3)
+        S = 'ABCDEF'
+        V = (S ? Q)
+        OUTPUT = 'V=[' V ']'
+END

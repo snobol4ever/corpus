@@ -1,0 +1,20 @@
+*  mrbp_result_value.sno - MINIMAL REPRODUCER (s71): the embedded match VALUE is
+*  silently bound to the NULL STRING when the pattern carries a deferred component.
+*  Manual p.128 (Binary Operator Extensions): "(SUBJECT ? PATTERN) performs pattern
+*  matching and returns the substring matched, or failure as its value."
+*  Oracle prints V=[ABC].  SCRIP prints V=[] on BOTH arms (SCRIP_MATCH_RBP=1 and =0)
+*  and in BOTH modes -- the match SUCCEEDS, only its value is lost, so this is a
+*  SILENT WRONG-ANSWER class, never a crash.
+*  SOLE DELTA vs mrbp_result_control.sno: the "$ W" immediate assignment inside Q,
+*  which is what puts an IR_MATCH_DEFER in the graph.
+*  ROOT CAUSE: fc_walk_range (lower_snobol4.c) has no IR_MATCH_DEFER case, so it
+*  hits "default: lin = 0", sno_cap_fc returns without calling fc_save_register /
+*  fc_cond_register_with_save, and the capture falls to the flat rt_cap path with no
+*  cell.  MEASURED via SCRIP_CAP_DIAG=1: the RESULT pair reads save_active=0 /
+*  fc_disp=-1 here, against save_active=1 / fc_disp=0 in the control.
+        Q = LEN(3) $ W
+        S = 'ABCDEF'
+        V = (S ? Q)
+        OUTPUT = 'V=[' V ']'
+        OUTPUT = 'W=[' W ']'
+END
