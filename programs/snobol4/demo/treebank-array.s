@@ -3598,9 +3598,6 @@ n242_match_begin_α:     mov              rdi, qword ptr [rsp + 0]             #
                         mov              qword ptr [rsp + 48], r13            # outer_Σ
                         mov              qword ptr [rsp + 56], r14            # outer_δ
                         mov              qword ptr [rsp + 64], r15            # outer_Δ
-                        lea              rcx, [rip + g_cap_gen]
-                        mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rsp + 72], rax            # cap_gen
                         mov              qword ptr [rsp + 40], rsp            # old____
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3614,7 +3611,6 @@ n242_match_begin_α:     mov              rdi, qword ptr [rsp + 0]             #
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [r12 + 0], 0               # cas_top
                         mov              qword ptr [r12 + 8], rsp             # cas_rsp_mark
-                        mov              qword ptr [r12 + 16], 0
                         add              r12, 24                              # cas_top
                         mov              rax, rsp
                         sub              rsp, 32
@@ -3638,7 +3634,6 @@ n242_match_begin_af:    sub              r12, 24                              # 
                         mov              r15, qword ptr [rsp + 64]            # outer_Δ
                         mov              rdi, r13
                         mov              rsi, r15
-                        mov              rdx, qword ptr [rsp + 72]            # cap_gen
                         mov              qword ptr [rip + rtccb+56], r10
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56];     jmp   n248_statement_end_α
@@ -9846,9 +9841,6 @@ n890_match_begin_α:     mov              rdi, qword ptr [rsp + 16]            #
                         mov              qword ptr [rsp + 7664], r13          # outer_Σ
                         mov              qword ptr [rsp + 7672], r14          # outer_δ
                         mov              qword ptr [rsp + 7680], r15          # outer_Δ
-                        lea              rcx, [rip + g_cap_gen]
-                        mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rsp + 7688], rax          # cap_gen
                         mov              qword ptr [rsp + 7656], rsp          # old____
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9862,7 +9854,6 @@ n890_match_begin_α:     mov              rdi, qword ptr [rsp + 16]            #
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [r12 + 0], 0               # cas_top
                         mov              qword ptr [r12 + 8], rsp             # cas_rsp_mark
-                        mov              qword ptr [r12 + 16], 0
                         add              r12, 24                              # cas_top
                         mov              qword ptr [rsp + 7632], rsp          # zls2_mark
                         mov              dword ptr [rsp + 7616], 0            # start_δ
@@ -9875,14 +9866,16 @@ n890_match_begin_β:     add              dword ptr [rsp + 7616], 1
                         cmp              rax, 0;                              jne   .Lx1920_1
                                                                               jmp   .Lx1920_0
 .Lx1920_1:
-n890_match_begin_af:    sub              r12, 24                              # cas_mark
-                        mov              rsp, qword ptr [rsp + 7632]
+n890_match_begin_af:
+.Lx1920_2:              sub              r12, 24                              # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax;                            jne   .Lx1920_2
+                        mov              rsp, qword ptr [r12 + 8]             # cas_rsp_mark
                         mov              r13, qword ptr [rsp + 7664]          # outer_Σ
                         mov              r14, qword ptr [rsp + 7672]          # outer_δ
                         mov              r15, qword ptr [rsp + 7680]          # outer_Δ
                         mov              rdi, r13
                         mov              rsi, r15
-                        mov              rdx, qword ptr [rsp + 7688]          # cap_gen
                         mov              qword ptr [rip + rtccb+56], r10
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56];     jmp   n889_assign_β
@@ -10178,9 +10171,6 @@ n905_match_begin_α:     mov              rdi, qword ptr [rsp + 16]            #
                         mov              qword ptr [rsp + 7904], r13          # outer_Σ
                         mov              qword ptr [rsp + 7912], r14          # outer_δ
                         mov              qword ptr [rsp + 7920], r15          # outer_Δ
-                        lea              rcx, [rip + g_cap_gen]
-                        mov              eax, dword ptr [rcx + 0]
-                        mov              qword ptr [rsp + 7928], rax          # cap_gen
                         mov              qword ptr [rsp + 7896], rsp          # old____
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10194,7 +10184,6 @@ n905_match_begin_α:     mov              rdi, qword ptr [rsp + 16]            #
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [r12 + 0], 0               # cas_top
                         mov              qword ptr [r12 + 8], rsp             # cas_rsp_mark
-                        mov              qword ptr [r12 + 16], 0
                         add              r12, 24                              # cas_top
                         mov              qword ptr [rsp + 7872], rsp          # zls2_mark
                         mov              dword ptr [rsp + 7856], 0            # start_δ
@@ -10207,14 +10196,16 @@ n905_match_begin_β:     add              dword ptr [rsp + 7856], 1
                         cmp              rax, 0;                              jne   .Lx1943_1
                                                                               jmp   .Lx1943_0
 .Lx1943_1:
-n905_match_begin_af:    sub              r12, 24                              # cas_mark
-                        mov              rsp, qword ptr [rsp + 7872]
+n905_match_begin_af:
+.Lx1943_2:              sub              r12, 24                              # cas_mark
+                        mov              rax, qword ptr [r12 + 0]
+                        test             rax, rax;                            jne   .Lx1943_2
+                        mov              rsp, qword ptr [r12 + 8]             # cas_rsp_mark
                         mov              r13, qword ptr [rsp + 7904]          # outer_Σ
                         mov              r14, qword ptr [rsp + 7912]          # outer_δ
                         mov              r15, qword ptr [rsp + 7920]          # outer_Δ
                         mov              rdi, r13
                         mov              rsi, r15
-                        mov              rdx, qword ptr [rsp + 7928]          # cap_gen
                         mov              qword ptr [rip + rtccb+56], r10
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56];     jmp   n904_assign_β
