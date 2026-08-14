@@ -1,0 +1,8 @@
+*  v4  ALT2, capture INSIDE arm 1          (s65c: SIGSEGV)
+        SUBJ = 'xycd'
+        W = '<unset>'
+        SUBJ ? POS(0) ('xy' . W | 'pq')                 :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END

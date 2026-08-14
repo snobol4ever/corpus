@@ -1,0 +1,8 @@
+*  v3  ALT2, capture OUTSIDE alternation   (s65c: PASS)
+        SUBJ = 'xycd'
+        W = '<unset>'
+        SUBJ ? POS(0) ('ab' | 'xy') . W                 :F(NO)
+        OUTPUT = '=S'                                   :(EN)
+NO      OUTPUT = '=F'
+EN      OUTPUT = 'W=' W
+END
