@@ -1,0 +1,12 @@
+*  GREEN CONTROL (s106) -- ALT in a DEFINE body with NO call in the arm => PASS.  The ALT alone
+*  GOAL-SNOBOL4-100 R-4(b)/eager-call witness set (s106).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  is not the ingredient.
+        DEFINE('mk(s)c')                :(mk_end)
+mk      c = s
+        mk = ('A' | c)                  :(RETURN)
+mk_end
+        'A' mk('a')                     :F(NO)
+        OUTPUT = 'MATCHED e4'           :(FIN)
+NO      OUTPUT = 'NOMATCH'
+FIN
+END

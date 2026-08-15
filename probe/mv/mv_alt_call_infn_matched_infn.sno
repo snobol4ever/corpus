@@ -1,0 +1,11 @@
+*  RED (s106) -- build AND match inside the SAME DEFINE body.  Proves the function RETURN
+*  GOAL-SNOBOL4-100 R-4(b)/eager-call witness set (s106).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  boundary is NOT an ingredient (cf. mv_ctl_alt_call_infn_built_only, green).
+        DEFINE('mk(s)c,p')              :(mk_end)
+mk      c = s
+        p = (REPLACE(c,&LCASE,&UCASE) | c)
+        'A' p                           :F(FRETURN)
+        mk = 'inner-ok'                 :(RETURN)
+mk_end
+        OUTPUT = mk('a')
+END

@@ -1,0 +1,21 @@
+*  RED (s106) -- THE SEMANTIC WITNESS, NO CRASH.  A bare call in an ALT arm of a pattern-valued
+*  GOAL-SNOBOL4-100 R-4(b)/eager-call witness set (s106).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  expression must be called AT PATTERN CONSTRUCTION TIME (manual p.86 "captures the value at
+*  the time of pattern construction"; p.134 "Without it, PUSH() is called when the pattern is
+*  first constructed").  SCRIP defers it into the PAT$ blob and calls it at MATCH time.
+*  Oracle: CALLED up / BUILT / MATCHED.   SCRIP: BUILT / CALLED up / MATCHED.
+*  Top level, so it does NOT crash -- this is the pure ordering divergence, and it proves the
+*  "green" top-level controls beside this file are green ONLY because up() is side-effect free.
+        DEFINE('up(up)')                :(up_end)
+up      OUTPUT = 'CALLED up'
+        up = REPLACE(up, &LCASE, &UCASE)  :(RETURN)
+up_end
+        c = 'a'
+        P = LEN(0)
+        P = P (up(c) | c)
+        OUTPUT = 'BUILT'
+        'A' P                           :F(NO)
+        OUTPUT = 'MATCHED'              :(FIN)
+NO      OUTPUT = 'NOMATCH'
+FIN
+END
