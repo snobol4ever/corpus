@@ -132,9 +132,9 @@ n9_match_assign_cond_α: mov              eax, dword ptr [rsp + 0]
                         add              r12, 24;                             jmp   n10_match_end_α
 n9_match_assign_cond_β: sub              r12, 24;                             jmp   n8_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
-n10_match_end_α:        mov              eax, dword ptr [rsp + 16]
-                        mov              dword ptr [rsp + 128], eax
-                        mov              qword ptr [rsp + 152], r14
+n10_match_end_α:        mov              eax, dword ptr [rbp + -40]           # repl_start
+                        mov              dword ptr [rbp + -48], eax
+                        mov              qword ptr [rbp + -56], r14           # repl_end
                         push             r14
                         push             r15
                         push             r13
@@ -206,6 +206,11 @@ n10_match_end_α:        mov              eax, dword ptr [rsp + 16]
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
+                        mov              eax, dword ptr [rbp + -48]           # repl_start
+                        mov              dword ptr [r12 + 0], eax
+                        mov              rax, qword ptr [rbp + -56]           # repl_end
+                        mov              qword ptr [r12 + 8], rax
+                        add              r12, 16
                         mov              rdi, r13
                         mov              rsi, r15
                         mov              qword ptr [rip + rtccb+56], r10
@@ -223,10 +228,11 @@ n11_lit_string_α:       sub              rsp, 16
 .Lx37_0_s:              .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_replace_α:    mov              rdi, qword ptr [rip + .Lx39_0]
-                        mov              rsi, qword ptr [rsp + 224]
-                        mov              rdx, qword ptr [rsp + 232]
-                        mov              ecx, dword ptr [rsp + 64]
-                        mov              r8, qword ptr [rsp + 88]
+                        mov              rsi, qword ptr [rsp + 16]            # var
+                        mov              rdx, qword ptr [rsp + 24]
+                        mov              ecx, dword ptr [r12 + -16]           # repl_start
+                        mov              r8, qword ptr [r12 + -8]             # repl_end
+                        sub              r12, 16
                         lea              r9, [rsp + 0]                        # lit_string
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -235,7 +241,8 @@ n12_match_replace_α:    mov              rdi, qword ptr [rip + .Lx39_0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx39_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 16;                             jmp   .Lx39_1
 .Lx39_0:                .quad            .Lx39_0_s
 .Lx39_0_s:              .string          "STR"
 .Lx39_1:                                                                      jmp   n13_statement_end_α
