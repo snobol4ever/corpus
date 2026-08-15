@@ -1,0 +1,10 @@
+* dv_defer_nested: (*P $ X 'D') . Y -- NESTED capture, inner IMM crossing a DEFER,
+* outer COND wrapping the whole span (inner frame opens+closes INSIDE the outer
+* COND's still-open SAVE..COND span -- checks LIFO nesting, not just sequencing).
+        P = 'BC'
+        S = 'ABCDE'
+        S ? 'A' (*P $ X 'D') . Y                :F(NO)
+        OUTPUT = 'M ' X ' ' Y                   :(EN)
+NO      OUTPUT = 'F'
+EN
+END
