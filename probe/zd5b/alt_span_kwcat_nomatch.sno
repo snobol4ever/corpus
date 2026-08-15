@@ -1,0 +1,7 @@
+        digits = '0123456789'
+        epsilon =
+        s = 'Name'
+        s POS(0) ANY(&UCASE &LCASE) (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0)  :S(OK)F(NO)
+OK      OUTPUT = 'MATCHED'         :(END)
+NO      OUTPUT = 'NOMATCH'
+END
