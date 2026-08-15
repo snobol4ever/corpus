@@ -3,83 +3,56 @@
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_setup_α
 proc_setup_α:
+                        sub              rsp, 80
+                        mov              qword ptr [rsp + 56], rcx
+                        mov              qword ptr [rsp + 64], rdx
+                        mov              rdi, rsp
+                        mov              esi, 0
+                        mov              edx, 0
+                        call             rt_icn_zframe_args_install@PLT
 proc_setup_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 5
+n0_lit_string_α:        mov              qword ptr [rsp + 16], 2              # result
+                        mov              dword ptr [rsp + 20], 5
                         mov              rax, qword ptr [rip + .Lx2_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_assign_α
-.Lx2_0:
-                        .quad            .Lx2_0_s
-.Lx2_0_s:
-                        .string          "hello"
+                        mov              qword ptr [rsp + 24], rax;           jmp   n1_assign_α
+.Lx2_0:                 .quad            .Lx2_0_s
+.Lx2_0_s:               .string          "hello"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_assign_α:
-                        mov              rax, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052288], rax                    # greeting
-                        mov              qword ptr [1879052296], rdx
-                        add              rsp, 16
-                                                                                        jmp   proc_setup_ω
+n1_assign_α:            mov              rax, qword ptr [rsp + 16]
+                        mov              rdx, qword ptr [rsp + 24]
+                        mov              qword ptr [r9 + 0], rax              # greeting
+                        mov              qword ptr [r9 + 8], rdx;             jmp   proc_setup_γ
 #-----------------------------------------------------------------------------------------------------------------------
 proc_setup_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
 proc_setup_β:
-                                                                                        jmp   proc_setup_ω
+                                                                              jmp   proc_setup_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_setup_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rcx, qword ptr [rsp + 56]
+                        add              rsp, 80;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_setup_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              rcx, qword ptr [rsp + 64]
+                        add              rsp, 80;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_setup_dcα:
                         pop              r11
-                        sub              rsp, 96
-                        mov              qword ptr [rsp + 72], rbp
-                        mov              rbp, rsp
-                        mov              qword ptr [rsp + 48], r11
-                        lea              rax, [rip + .Lx4_2]
-                        mov              qword ptr [rsp + 56], rax
-                        lea              rax, [rip + .Lx4_3]
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rdi, rbp                                       # fb
-                        mov              esi, 32                                        # suffix_off
-                        mov              edx, 48                                        # region_bytes
-                        mov              ecx, 0                                         # np
-                        mov              r8d, 0                                         # nargs
-                        mov              r9d, 0                                         # idx
-                        call             rt_pl_dc_prep@PLT
-                                                                                        jmp   proc_setup_α_body
-.Lx4_2:
-                        mov              rdx, qword ptr [rsp + 0]
-                        mov              rcx, rsp
-                        add              rcx, -80
-                        mov              r11, qword ptr [rsp + -32]
-                        mov              rbp, qword ptr [rsp + -8]
-                        add              rsp, 16
                         push             r11
-                                                                                        jmp   rt_pl_dc_leave_γ@PLT
-.Lx4_3:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, rsp
-                        add              rsi, -80
-                        mov              r11, qword ptr [rsp + -32]
-                        mov              rbp, qword ptr [rsp + -8]
-                        add              rsp, 16
                         push             r11
-                                                                                        jmp   rt_pl_dc_leave_ω@PLT
+                        lea              rcx, [rip + .Lx4_2]
+                        lea              rdx, [rip + .Lx4_3];                 jmp   proc_setup_α
+.Lx4_2:                 pop              r11
+                        pop              r11;                                 jmp   r11
+.Lx4_3:                 pop              r11
+                        pop              r11
+                        mov              eax, 104
+                        xor              edx, edx;                            jmp   r11
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -126,79 +99,87 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 1
                         call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
                         xor              esi, esi
-                                                                                        jmp   main_α
+                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
+                        sub              rsp, 144
+                        mov              qword ptr [rsp + 120], rcx
+                        mov              qword ptr [rsp + 128], rdx
+                        mov              rdi, rsp
+                        mov              esi, 0
+                        mov              edx, 0
+                        call             rt_icn_zframe_args_install@PLT
 main_α_body:
-                        push             rbp
-                        mov              rbp, rsp
-                        sub              rsp, 8
 #-----------------------------------------------------------------------------------------------------------------------
-n5_call_proc_staged_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        call             proc_setup_dcα
-                                                                                        jmp   .Lx9_2
-.Lx9_2:
+n5_call_proc_staged_α:  call             proc_setup_dcα;                      jmp   .Lx9_2
+.Lx9_2:                 mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        mov              ecx, dword ptr [rcx + 0]
+                        cmp              ecx, 0;                              je    .Lx9_29
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              edx, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_nret_fix@PLT
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
-                        cmp              eax, 104
-                                                                                        je    n6_var_α
-                                                                                        jmp   n6_var_α
-n5_call_proc_staged_β:
-                                                                                        jmp   n6_var_α
-.Lx9_0:
-                        .quad            .Lx9_0_s
-.Lx9_0_s:
-                        .string          "setup"
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              rdx, qword ptr [rsp + 72]
+.Lx9_29:                mov              qword ptr [rsp + 64], rax
+                        mov              qword ptr [rsp + 72], rdx
+                        cmp              eax, 104;                            je    n6_var_α
+                                                                              jmp   n6_var_α
+n5_call_proc_staged_β:                                                        jmp   n6_var_α
+.Lx9_0:                 .quad            .Lx9_0_s
+.Lx9_0_s:               .string          "setup"
 #-----------------------------------------------------------------------------------------------------------------------
-n6_var_α:
-                        mov              rax, qword ptr [1879052288]                    # greeting
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n7_call_builtin_icon_α
+n6_var_α:               mov              rax, qword ptr [r9 + 0]              # greeting
+                        mov              rdx, qword ptr [r9 + 8]
+                        mov              qword ptr [rsp + 48], rax            # result
+                        mov              qword ptr [rsp + 56], rdx;           jmp   n7_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
-n7_call_builtin_icon_α:
-                        mov              rax, qword ptr [rsp + 0]
+n7_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [rsp + 8]
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lrkfn12:               .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn12]                          # fn
-                        lea              rsi, [rsp + 16]                                # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfn12]
+                        lea              rsi, [rsp + 16]
+                        mov              edx, 1
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104
-                                                                                        jne   .Lx11_240
-                        add              rsp, 16
-                                                                                        jmp   main_ω
-.Lx11_240:
-                        add              rsp, 16
-                                                                                        jmp   main_ω
-n7_call_builtin_icon_β:
-                        add              rsp, 16
-                                                                                        jmp   main_ω
+                        cmp              eax, 104;                            je    main_ω
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   main_γ
+n7_call_builtin_icon_β:                                                       jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
-                                                                                        jmp   main_ω
+                                                                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              rsp, rbp
-                        pop              rbp
+                        and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
-                        pop              rbp
+                        and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
                         .section         .note.GNU-stack,"",@progbits
