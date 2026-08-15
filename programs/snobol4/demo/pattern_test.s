@@ -62,8 +62,6 @@ n5_var_α:               sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_begin_α:       mov              rdi, qword ptr [rsp + 0]             # var
                         mov              rsi, qword ptr [rsp + 8]
-                        mov              qword ptr [rsp + 208], rdi
-                        mov              qword ptr [rsp + 216], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark

@@ -317,6 +317,8 @@ main:
 main_α:
 main_α_body:
                         sub              rsp, 0
+#=======================================================================================================================
+#         <stmt 1, line 1: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n18_statement_begin_α:                                                        jmp   n19_statement_end_α
 n18_statement_begin_β:                                                        jmp   n20_statement_begin_α
@@ -370,8 +372,6 @@ n26_var_α:              sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n27_match_begin_α:      mov              rdi, qword ptr [rsp + 0]             # var
                         mov              rsi, qword ptr [rsp + 8]
-                        mov              qword ptr [rsp + 240], rdi
-                        mov              qword ptr [rsp + 248], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark
@@ -980,6 +980,8 @@ n61_statement_begin_α:                                                        j
 n61_statement_begin_β:                                                        jmp   n63_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n62_statement_end_α:                                                          jmp   n63_statement_begin_α
+#=======================================================================================================================
+# ROMAN_END  <stmt 10, line 23: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n63_statement_begin_α:                                                        jmp   n64_statement_end_α
 n63_statement_begin_β:                                                        jmp   n65_statement_begin_α
@@ -1238,6 +1240,8 @@ n90_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 72], rdx;            jmp   n91_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n91_statement_end_α:    add              rsp, 48;                             jmp   TEST_body
+#=======================================================================================================================
+# TEST_END  <stmt 16, line 30: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n92_statement_begin_α:                                                        jmp   n93_statement_end_α
 n92_statement_begin_β:                                                        jmp   n94_statement_begin_α

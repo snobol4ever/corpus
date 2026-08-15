@@ -4,20 +4,26 @@
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:
 proc_PAT$0_α_body:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 40
+                        mov              qword ptr [rbp + -8], r10
+                        mov              qword ptr [rbp + -16], r11
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_pos_α:         mov              rax, 0
                         cmp              r14d, eax;                           jne   proc_PAT$0_ω
                                                                               jmp   n1_match_arbno_α
 n0_match_pos_β:                                                               jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n1_match_arbno_α:       lea              rdi, [rip + .S1]
-                        call             rt_bomb@PLT
-                        ud2
-n1_match_arbno_β:       lea              rdi, [rip + .S0]
-                        call             rt_bomb@PLT
-                        ud2
-n1_match_arbno_as:
-n1_match_arbno_af:
+n1_match_arbno_α:       mov              dword ptr [rbp + -32], r14d
+                        mov              dword ptr [rbp + -28], r14d;         jmp   n2_match_rpos_α
+n1_match_arbno_β:                                                             jmp   n3_match_alternate_α
+n1_match_arbno_as:      mov              eax, dword ptr [rbp + -28]
+                        cmp              r14d, eax;                           je    n3_match_alternate_β
+                        mov              dword ptr [rbp + -28], r14d;         jmp   n2_match_rpos_α
+n1_match_arbno_af:      mov              eax, dword ptr [rbp + -32]
+                        cmp              r14d, eax;                           jne   n3_match_alternate_β
+                                                                              jmp   n0_match_pos_β
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_rpos_α:        mov              rax, 0
                         mov              ecx, r15d
@@ -139,20 +145,27 @@ n13_match_lit_β:        sub              r14d, 10;                            j
 proc_PAT$0_res:
                         mov              r10, qword ptr [rsp + 8]
                         mov              r11, qword ptr [rsp + 16]
+                        mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_β:
                                                                               jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
-                        sub              rsp, 8
+                        mov              r10, qword ptr [rbp + -8]
+                        mov              r11, qword ptr [rbp + -16]
+                        push             rbp
                         push             r11
                         push             r10
                         lea              rax, [rip + proc_PAT$0_res]
-                        push             rax;                                 jmp   r10
+                        push             rax
+                        mov              rbp, qword ptr [rbp + 0];            jmp   r10
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_ω:
-                                                                              jmp   r11
+                        mov              r10, qword ptr [rbp + -8]
+                        mov              r11, qword ptr [rbp + -16]
+                        mov              rsp, rbp
+                        pop              rbp;                                 jmp   r11
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -518,7 +531,7 @@ n62_match_begin_af:     mov              r12, qword ptr [rbp + -8]            # 
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n61_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
-n63_match_defer_α:      lea              rdi, [rip + .S2]
+n63_match_defer_α:      lea              rdi, [rip + .S0]
                         xor              esi, esi
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -538,7 +551,7 @@ n63_match_defer_α:      lea              rdi, [rip + .S2]
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S2]
+                        lea              rdi, [rip + .S0]
                         xor              esi, esi
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -820,9 +833,7 @@ main_ω:
                         mov              edi, 1
                         call             exit@PLT
                         .section         .rodata
-.S0:                    .string          "IR_MATCH_ARBNO: unreachable beta (defer-unsafe decline)"
-.S1:                    .string          "IR_MATCH_ARBNO: body contains a DEFER unsafe for the plain-frameless arm, and emit_match_rbp() is off -- ARBNO-FRAME slot unavailable (SCRIP_MATCH_RBP=0)"
-.S2:                    .string          "PATV$0"
+.S0:                    .string          "PATV$0"
                         .text
                         .section         .rodata
 .C0:                    .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

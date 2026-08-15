@@ -477,20 +477,26 @@ pp_mem_omega:           mov              rcx, qword ptr [rsp + 336]
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:
 proc_PAT$0_α_body:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 120
+                        mov              qword ptr [rbp + -8], r10
+                        mov              qword ptr [rbp + -16], r11
 #-----------------------------------------------------------------------------------------------------------------------
 n27_match_pos_α:        mov              rax, 0
                         cmp              r14d, eax;                           jne   proc_PAT$0_ω
                                                                               jmp   n28_match_arbno_α
 n27_match_pos_β:                                                              jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n28_match_arbno_α:      lea              rdi, [rip + .S1]
-                        call             rt_bomb@PLT
-                        ud2
-n28_match_arbno_β:      lea              rdi, [rip + .S0]
-                        call             rt_bomb@PLT
-                        ud2
-n28_match_arbno_as:
-n28_match_arbno_af:
+n28_match_arbno_α:      mov              dword ptr [rbp + -32], r14d
+                        mov              dword ptr [rbp + -28], r14d;         jmp   n29_match_rpos_α
+n28_match_arbno_β:                                                            jmp   n30_match_alternate_α
+n28_match_arbno_as:     mov              eax, dword ptr [rbp + -28]
+                        cmp              r14d, eax;                           je    n30_match_alternate_β
+                        mov              dword ptr [rbp + -28], r14d;         jmp   n29_match_rpos_α
+n28_match_arbno_af:     mov              eax, dword ptr [rbp + -32]
+                        cmp              r14d, eax;                           jne   n30_match_alternate_β
+                                                                              jmp   n27_match_pos_β
 #-----------------------------------------------------------------------------------------------------------------------
 n29_match_rpos_α:       mov              rax, 0
                         mov              ecx, r15d
@@ -535,9 +541,7 @@ n32_goto_α:                                                                   j
 n32_goto_β:                                                                   jmp   n30_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n33_match_assign_save_α:
-                        lea              rdi, [rip + .S2]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              dword ptr [rbp + -80], r14d;         jmp   n34_match_notany_α
 n33_match_assign_save_β:
                                                                               jmp   n30_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
@@ -562,10 +566,17 @@ n35_match_break_β:      mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16;                             jmp   n34_match_notany_β
 #-----------------------------------------------------------------------------------------------------------------------
 n36_match_assign_cond_α:
-                        lea              rdi, [rip + .S3]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              eax, dword ptr [rbp + -80]
+                        lea              rcx, [rip + .S0]
+                        mov              qword ptr [r12 + 0], rcx
+                        mov              esi, eax
+                        mov              qword ptr [r12 + 8], rsi
+                        mov              edx, r14d
+                        sub              edx, eax
+                        mov              qword ptr [r12 + 16], rdx
+                        add              r12, 24;                             jmp   n37_match_lit_α
 n36_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n36_match_assign_cond_α
 #-----------------------------------------------------------------------------------------------------------------------
 n37_match_lit_α:        mov              eax, r14d
                         add              eax, 1
@@ -577,9 +588,7 @@ n37_match_lit_α:        mov              eax, r14d
 n37_match_lit_β:        sub              r14d, 1;                             jmp   n36_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
 n38_match_assign_save_α:
-                        lea              rdi, [rip + .S2]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              dword ptr [rbp + -96], r14d;         jmp   n39_match_any_α
 n38_match_assign_save_β:
                                                                               jmp   n37_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -607,15 +616,20 @@ n40_match_span_β:       mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16;                             jmp   n39_match_any_β
 #-----------------------------------------------------------------------------------------------------------------------
 n41_match_assign_cond_α:
-                        lea              rdi, [rip + .S3]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              eax, dword ptr [rbp + -96]
+                        lea              rcx, [rip + .S1]
+                        mov              qword ptr [r12 + 0], rcx
+                        mov              esi, eax
+                        mov              qword ptr [r12 + 8], rsi
+                        mov              edx, r14d
+                        sub              edx, eax
+                        mov              qword ptr [r12 + 16], rdx
+                        add              r12, 24;                             jmp   n42_match_assign_save_α
 n41_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n41_match_assign_cond_α
 #-----------------------------------------------------------------------------------------------------------------------
 n42_match_assign_save_α:
-                        lea              rdi, [rip + .S2]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              dword ptr [rbp + -112], r14d;        jmp   n43_match_defer_α
 n42_match_assign_save_β:
                                                                               jmp   n41_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -644,7 +658,7 @@ n43_match_defer_α:      mov              rax, qword ptr [r9 + 592]            #
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S4]
+                        lea              rdi, [rip + .S2]
                         xor              esi, esi
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -723,18 +737,23 @@ n43_match_defer_α:      mov              rax, qword ptr [r9 + 592]            #
 n43_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n44_match_assign_cond_α:
-                        lea              rdi, [rip + .S3]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              eax, dword ptr [rbp + -112]
+                        lea              rcx, [rip + .S3]
+                        mov              qword ptr [r12 + 0], rcx
+                        mov              esi, eax
+                        mov              qword ptr [r12 + 8], rsi
+                        mov              edx, r14d
+                        sub              edx, eax
+                        mov              qword ptr [r12 + 16], rdx
+                        add              r12, 24;                             jmp   n30_match_alternate_s1
 n44_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n43_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n45_goto_α:                                                                   jmp   n30_match_alternate_af
 n45_goto_β:                                                                   jmp   n30_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n46_match_assign_save_α:
-                        lea              rdi, [rip + .S2]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              dword ptr [rbp + -48], r14d;         jmp   n47_match_span_α
 n46_match_assign_save_β:
                                                                               jmp   n30_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
@@ -753,10 +772,17 @@ n47_match_span_β:       mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16;                             jmp   n46_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n48_match_assign_cond_α:
-                        lea              rdi, [rip + .S3]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              eax, dword ptr [rbp + -48]
+                        lea              rcx, [rip + .S4]
+                        mov              qword ptr [r12 + 0], rcx
+                        mov              esi, eax
+                        mov              qword ptr [r12 + 8], rsi
+                        mov              edx, r14d
+                        sub              edx, eax
+                        mov              qword ptr [r12 + 16], rdx
+                        add              r12, 24;                             jmp   n49_match_lit_α
 n48_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n47_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
 n49_match_lit_α:        mov              eax, r14d
                         add              eax, 10
@@ -773,9 +799,7 @@ n49_match_lit_α:        mov              eax, r14d
 n49_match_lit_β:        sub              r14d, 10;                            jmp   n48_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
 n50_match_assign_save_α:
-                        lea              rdi, [rip + .S2]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              dword ptr [rbp + -64], r14d;         jmp   n51_match_defer_α
 n50_match_assign_save_β:
                                                                               jmp   n49_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -883,28 +907,42 @@ n51_match_defer_α:      mov              rax, qword ptr [r9 + 576]            #
 n51_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n52_match_assign_cond_α:
-                        lea              rdi, [rip + .S3]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              eax, dword ptr [rbp + -64]
+                        lea              rcx, [rip + .S6]
+                        mov              qword ptr [r12 + 0], rcx
+                        mov              esi, eax
+                        mov              qword ptr [r12 + 8], rsi
+                        mov              edx, r14d
+                        sub              edx, eax
+                        mov              qword ptr [r12 + 16], rdx
+                        add              r12, 24;                             jmp   n30_match_alternate_s0
 n52_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n51_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_res:
                         mov              r10, qword ptr [rsp + 8]
                         mov              r11, qword ptr [rsp + 16]
+                        mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_β:
                                                                               jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
-                        sub              rsp, 8
+                        mov              r10, qword ptr [rbp + -8]
+                        mov              r11, qword ptr [rbp + -16]
+                        push             rbp
                         push             r11
                         push             r10
                         lea              rax, [rip + proc_PAT$0_res]
-                        push             rax;                                 jmp   r10
+                        push             rax
+                        mov              rbp, qword ptr [rbp + 0];            jmp   r10
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_ω:
-                                                                              jmp   r11
+                        mov              r10, qword ptr [rbp + -8]
+                        mov              r11, qword ptr [rbp + -16]
+                        mov              rsp, rbp
+                        pop              rbp;                                 jmp   r11
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -1101,8 +1139,6 @@ n99_keyword_snobol4_α:  sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n100_match_begin_α:     mov              rdi, qword ptr [rsp + 0]             # keyword_snobol4
                         mov              rsi, qword ptr [rsp + 8]
-                        mov              qword ptr [rsp + 256], rdi
-                        mov              qword ptr [rsp + 264], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark
@@ -1164,7 +1200,7 @@ n103_match_len_β:       sub              r14d, 1
 #-----------------------------------------------------------------------------------------------------------------------
 n104_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 0]
-                        lea              rcx, [rip + .S6]
+                        lea              rcx, [rip + .S7]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
                         mov              qword ptr [r12 + 8], rsi
@@ -1484,6 +1520,8 @@ n133_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 8], rdx;             jmp   n134_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n134_statement_end_α:   add              rsp, 32;                             jmp   NRETURN
+#=======================================================================================================================
+# new_sent_end  <stmt 8, line 17: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n135_statement_begin_α:                                                       jmp   n136_statement_end_α
 n135_statement_begin_β:                                                       jmp   n137_statement_begin_α
@@ -2445,6 +2483,8 @@ n213_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 24], rdx;            jmp   n214_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n214_statement_end_α:   add              rsp, 32;                             jmp   NRETURN
+#=======================================================================================================================
+# add_tok_end  <stmt 16, line 26: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n215_statement_begin_α:                                                       jmp   n216_statement_end_α
 n215_statement_begin_β:                                                       jmp   n217_statement_begin_α
@@ -3827,8 +3867,6 @@ n368_var_α:             sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n369_match_begin_α:     mov              rdi, qword ptr [rsp + 0]             # var
                         mov              rsi, qword ptr [rsp + 8]
-                        mov              qword ptr [rsp + 3344], rdi
-                        mov              qword ptr [rsp + 3352], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark
@@ -5815,6 +5853,8 @@ n558_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 40], rdx;            jmp   n559_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n559_statement_end_α:   add              rsp, 32;                             jmp   RETURN
+#=======================================================================================================================
+# pp_mem_end  <stmt 63, line 74: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n560_statement_begin_α:                                                       jmp   n561_statement_end_α
 n560_statement_begin_β:                                                       jmp   n562_statement_begin_α
@@ -6431,12 +6471,14 @@ n626_assign_α:          mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 496], rax            # src
                         mov              qword ptr [r9 + 504], rdx;           jmp   n627_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n627_statement_end_α:                                                         jmp   n628_statement_begin_α
+n627_statement_end_α:   add              rsp, 80;                             jmp   n628_statement_begin_α
+#=======================================================================================================================
+# slurp_done  <stmt 75, line 87: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n628_statement_begin_α:                                                       jmp   n629_statement_end_α
-n628_statement_begin_β: add              rsp, 80;                             jmp   n630_statement_begin_α
+n628_statement_begin_β:                                                       jmp   n630_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n629_statement_end_α:   add              rsp, 80;                             jmp   n630_statement_begin_α
+n629_statement_end_α:                                                         jmp   n630_statement_begin_α
 #=======================================================================================================================
 #                 mem             =   TABLE()
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6655,7 +6697,7 @@ n651_match_begin_af:    mov              r12, qword ptr [rbp + -8]            # 
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n650_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
-n652_match_defer_α:     lea              rdi, [rip + .S7]
+n652_match_defer_α:     lea              rdi, [rip + .S8]
                         xor              esi, esi
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -6675,7 +6717,7 @@ n652_match_defer_α:     lea              rdi, [rip + .S7]
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S7]
+                        lea              rdi, [rip + .S8]
                         xor              esi, esi
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -7056,14 +7098,15 @@ main_ω:
                         mov              edi, 1
                         call             exit@PLT
                         .section         .rodata
-.S0:                    .string          "IR_MATCH_ARBNO: unreachable beta (defer-unsafe decline)"
-.S1:                    .string          "IR_MATCH_ARBNO: body contains a DEFER unsafe for the plain-frameless arm, and emit_match_rbp() is off -- ARBNO-FRAME slot unavailable (SCRIP_MATCH_RBP=0)"
-.S2:                    .string          "IR_MATCH_CAPTURE_SAVE: hazard crosses a DEFER-unsafe boundary but op_cap_frame_off is unavailable (no enclosing MATCH_BEGIN in scope, or SCRIP_MATCH_RBP=0) -- CAPTURE never pushes its own activation frame (s88 revert: the s81/s83 own-transient-rbp arm crossed over with an ARBNO nested in its own span and corrupted the yield cursor, D11). Honest decline, matching bb_match_arbno.cpp's identical boundary bomb."
-.S3:                    .string          "IR_MATCH_CAPTURE_COND: hazard crosses a DEFER-unsafe boundary but op_cap_frame_off is unavailable -- CAPTURE never pushes its own activation frame (s88 revert), see IR_MATCH_CAPTURE_SAVE's bomb for the full rationale."
-.S4:                    .string          "PAT$0$V1"
+.S0:                    .string          "wrd"
+.S1:                    .string          "tag"
+.S2:                    .string          "PAT$0$V1"
+.S3:                    .string          "*add_tok"
+.S4:                    .string          "num"
 .S5:                    .string          "PAT$0$V0"
-.S6:                    .string          "nl"
-.S7:                    .string          "PATV$0"
+.S6:                    .string          "*new_sent"
+.S7:                    .string          "nl"
+.S8:                    .string          "PATV$0"
                         .text
                         .section         .rodata
 .C0:                    .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
