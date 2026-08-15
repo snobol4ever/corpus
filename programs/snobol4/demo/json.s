@@ -1359,14 +1359,14 @@ n120_match_lit_β:                                                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n121_match_span_α:      mov              dword ptr [rsp + 48], 0
                         mov              r8, qword ptr [rsp + 88]
-                        mov              r9d, dword ptr [rsp + 84]
 .Lx130_0:               mov              eax, r14d
                         add              eax, dword ptr [rsp + 48]
                         cmp              eax, r15d;                           jge   .Lx130_1
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
+                        mov              eax, dword ptr [rsp + 84]
                         mov              edx, 0
-.Lx130_2:               cmp              edx, r9d;                            jge   .Lx130_1
+.Lx130_2:               cmp              edx, eax;                            jge   .Lx130_1
                         movzx            edi, byte ptr [r8 + rdx]
                         cmp              esi, edi;                            je    .Lx130_3
                         add              edx, 1;                              jmp   .Lx130_2
@@ -1612,9 +1612,9 @@ n141_match_any_α:       mov              eax, r14d
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              r8, qword ptr [rsp + 88]
-                        mov              r9d, dword ptr [rsp + 84]
+                        mov              ecx, dword ptr [rsp + 84]
                         mov              edx, 0
-.Lx160_5:               cmp              edx, r9d;                            jge   n134_match_alternate_af
+.Lx160_5:               cmp              edx, ecx;                            jge   n134_match_alternate_af
                         movzx            edi, byte ptr [r8 + rdx]
                         cmp              esi, edi;                            je    .Lx160_6
                         add              edx, 1;                              jmp   .Lx160_5
@@ -2192,15 +2192,15 @@ n188_match_span_α:      sub              rsp, 16
                         test             rax, rax;                            jns   .Lx227_239
                         add              rsp, 16;                             jmp   n187_match_fence1_β
 .Lx227_239:             mov              r8, qword ptr [rsp + 0]
-                        mov              r9d, dword ptr [rsp + 8]
                         mov              dword ptr [rsp + 0], 0
 .Lx227_0:               mov              eax, r14d
                         add              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d;                           jge   .Lx227_1
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
+                        mov              eax, dword ptr [rsp + 8]
                         mov              edx, 0
-.Lx227_2:               cmp              edx, r9d;                            jge   .Lx227_1
+.Lx227_2:               cmp              edx, eax;                            jge   .Lx227_1
                         movzx            edi, byte ptr [r8 + rdx]
                         cmp              esi, edi;                            je    .Lx227_3
                         add              edx, 1;                              jmp   .Lx227_2
@@ -2300,15 +2300,15 @@ n196_match_span_α:      lea              rdi, [rip + .S5]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            js    n195_match_lit_β
                         mov              r8, qword ptr [rsp + 224]
-                        mov              r9d, dword ptr [rsp + 232]
                         mov              dword ptr [rsp + 224], 0
 .Lx242_0:               mov              eax, r14d
                         add              eax, dword ptr [rsp + 224]
                         cmp              eax, r15d;                           jge   .Lx242_1
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
+                        mov              eax, dword ptr [rsp + 232]
                         mov              edx, 0
-.Lx242_2:               cmp              edx, r9d;                            jge   .Lx242_1
+.Lx242_2:               cmp              edx, eax;                            jge   .Lx242_1
                         movzx            edi, byte ptr [r8 + rdx]
                         cmp              esi, edi;                            je    .Lx242_3
                         add              edx, 1;                              jmp   .Lx242_2
@@ -2375,15 +2375,15 @@ n201_match_span_α:      lea              rdi, [rip + .S5]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            js    n199_match_alternate_af
                         mov              r8, qword ptr [rsp + 320]
-                        mov              r9d, dword ptr [rsp + 328]
                         mov              dword ptr [rsp + 320], 0
 .Lx252_0:               mov              eax, r14d
                         add              eax, dword ptr [rsp + 320]
                         cmp              eax, r15d;                           jge   .Lx252_1
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
+                        mov              eax, dword ptr [rsp + 328]
                         mov              edx, 0
-.Lx252_2:               cmp              edx, r9d;                            jge   .Lx252_1
+.Lx252_2:               cmp              edx, eax;                            jge   .Lx252_1
                         movzx            edi, byte ptr [r8 + rdx]
                         cmp              esi, edi;                            je    .Lx252_3
                         add              edx, 1;                              jmp   .Lx252_2
@@ -11086,14 +11086,14 @@ n791_match_lit_β:                                                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n792_match_break_α:     mov              dword ptr [rsp + 3888], 0
                         mov              r8, qword ptr [rsp + 3976]
-                        mov              r9d, dword ptr [rsp + 3972]
 .Lx2185_0:              mov              eax, r14d
                         add              eax, dword ptr [rsp + 3888]
                         cmp              eax, r15d;                           jge   n781_match_alternate_af
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
+                        mov              eax, dword ptr [rsp + 3972]
                         mov              edx, 0
-.Lx2185_2:              cmp              edx, r9d;                            jge   .Lx2185_3
+.Lx2185_2:              cmp              edx, eax;                            jge   .Lx2185_3
                         movzx            edi, byte ptr [r8 + rdx]
                         cmp              esi, edi;                            je    .Lx2185_1
                         add              edx, 1;                              jmp   .Lx2185_2
