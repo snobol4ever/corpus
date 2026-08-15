@@ -1,0 +1,5 @@
+        DEFINE('S()')          :(A)
+S       S = .G                 :(NRETURN)
+A       'AB' ? LEN(1) . S()
+        OUTPUT = 'g=' G
+END

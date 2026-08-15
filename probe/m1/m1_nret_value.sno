@@ -1,0 +1,6 @@
+        DEFINE('F()')          :(A)
+F       F = .G                 :(NRETURN)
+A       G = 5
+        dummy = F()
+        OUTPUT = 'ok ' dummy
+END
