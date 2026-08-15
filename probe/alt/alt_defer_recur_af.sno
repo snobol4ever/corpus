@@ -36,6 +36,30 @@
 * candidate store conditioned on the effective address, or an ignore-count spin
 * to the exact instance, per RULES.md MONITOR-FIRST step (2).
 *
+*
+* ⭐ ROOT CAUSE CONVICTED (s101, gdb, this witness): the 32 bytes the ALT reads
+* as its carve are a BLOB GAMMA-SUSPENSION RECORD.  Conditional breakpoint
+*   break n3_match_alternate_af if *(int*)$rsp > 100000
+* stops with rsp=0x7fffffffe830 and the quad:
+*   [rsp+ 0] = proc_PAT$1_res        (blob resume entry)
+*   [rsp+ 8] = n6_match_defer_alpha+134   (r10 / gamma wire)
+*   [rsp+16] = n6_match_defer_alpha+139   (r11 / omega wire)
+*   [rsp+24] = 0x7fffffffe8a8             (saved rbp)
+* i.e. exactly the CLASS D {res, r10, r11, rbp} record of the s97 R-4(b)
+* blob-activation design — same 32-byte size as the ALT carve, sitting at the
+* ALT's carve address.  So a blob activation's whack RELEASED spine memory the
+* live enclosing ALT still owns, and the next gamma suspension reused it; the
+* ALT then reads res as its cursor (a code address) and spins.  Spine
+* use-after-free, not a depth-formula error (see FALSIFIED above).
+*
+* CURE DIRECTION (matches Lon's s95 ruling + the landed R-4(f) FENCE1
+* precedent): an ALT whose arm can suspend an activation cannot keep its
+* {cursor, beta, af} cells on the spine at all — they want ACTIVATION-FRAME
+* SLOTS via the shared frame_slot_scan registry (alt_frame_candidate ->
+* alt_frame_slot -> op_alt_frame_off, mirroring fence_frame_candidate /
+* fence_frame_slot / op_fence_frame_off, emit.cpp:732/2311, template
+* bb_match_fence1.cpp:51/61).  Static arms keep the RSP quads byte-identical.
+*
 * Owns (same class, to be re-measured against this witness once it is green):
 * demos TIMEOUT block calculator-1-match / calculator-2* / json-match* (6 rows,
 * all recursive deferred grammars).
