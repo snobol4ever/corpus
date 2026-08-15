@@ -1,0 +1,11 @@
+	digits = '0123456789'
+	epsilon = ''
+	arr = ARRAY('1:1')
+	arr[1] = 'alpha'
+	objProto = PROTOTYPE(arr)
+	OUTPUT = 'proto=[' objProto ']'
+	objProto POS(0) (('+' | '-' | epsilon) SPAN(digits)) . iMin ':' (('+' | '-' | epsilon) SPAN(digits)) . iMax RPOS(0)	:S(OK)F(NO)
+OK	OUTPUT = 'iMin=' iMin ' iMax=' iMax	:(D)
+NO	OUTPUT = 'NOMATCH'
+D
+END
