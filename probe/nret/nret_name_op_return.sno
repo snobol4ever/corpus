@@ -1,8 +1,8 @@
         DEFINE('G()')                    :(GEND)
-G       G = .dummy                       :(RETURN)
+G       G = .DUMMY                       :(RETURN)
 GEND
-        dummy = 'VAL'
-        g = G()
-        OUTPUT = 'G_ret=[' g ']'
-        OUTPUT = 'dt=' DATATYPE(g)
+        DUMMY = 'VAL'
+        RV = G()
+        OUTPUT = 'G_ret=[' RV ']'
+        OUTPUT = 'dt=' DATATYPE(RV)
 END
