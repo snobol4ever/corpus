@@ -1,0 +1,3 @@
+        'b' ? 'a' | ('b' . Y)
+        OUTPUT = Y
+END

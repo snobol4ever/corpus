@@ -1,0 +1,3 @@
+        'ab' ? ('a' . X) 'b'
+        OUTPUT = X
+END
