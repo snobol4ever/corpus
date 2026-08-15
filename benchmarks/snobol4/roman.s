@@ -394,8 +394,8 @@ n28_match_assign_cond_β:
                         sub              r12, 24;                             jmp   n27_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n29_match_end_α:        mov              eax, dword ptr [rsp + 16]
-                        mov              dword ptr [rsp + 304], eax
-                        mov              qword ptr [rsp + 328], r14
+                        mov              dword ptr [rsp + 336], eax
+                        mov              qword ptr [rsp + 360], r14
                         push             r14
                         push             r15
                         push             r13
