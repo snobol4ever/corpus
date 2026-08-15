@@ -1676,7 +1676,7 @@ n163_match_break_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_sg_scan_nonmember@PLT
+                        call             rt_sg_scan_member@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11370,8 +11370,8 @@ n818_match_assign_cond_β:
                         sub              r12, 24;                             jmp   n817_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n819_match_end_α:       mov              eax, dword ptr [rsp + 16]
-                        mov              dword ptr [rsp + 4336], eax
-                        mov              qword ptr [rsp + 4360], r14
+                        mov              dword ptr [rsp + 4368], eax
+                        mov              qword ptr [rsp + 4392], r14
                         push             r14
                         push             r15
                         push             r13

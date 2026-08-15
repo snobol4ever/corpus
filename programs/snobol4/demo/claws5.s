@@ -3930,8 +3930,8 @@ n371_match_lit_α:       mov              eax, r14d
 n371_match_lit_β:       sub              r14d, 1;                             jmp   n370_match_arb_β
 #-----------------------------------------------------------------------------------------------------------------------
 n372_match_end_α:       mov              eax, dword ptr [rsp + 16]
-                        mov              dword ptr [rsp + 3264], eax
-                        mov              qword ptr [rsp + 3288], r14
+                        mov              dword ptr [rsp + 3296], eax
+                        mov              qword ptr [rsp + 3320], r14
                         push             r14
                         push             r15
                         push             r13

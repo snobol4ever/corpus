@@ -133,8 +133,8 @@ n9_match_assign_cond_α: mov              eax, dword ptr [rsp + 0]
 n9_match_assign_cond_β: sub              r12, 24;                             jmp   n8_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_end_α:        mov              eax, dword ptr [rsp + 16]
-                        mov              dword ptr [rsp + 96], eax
-                        mov              qword ptr [rsp + 120], r14
+                        mov              dword ptr [rsp + 128], eax
+                        mov              qword ptr [rsp + 152], r14
                         push             r14
                         push             r15
                         push             r13

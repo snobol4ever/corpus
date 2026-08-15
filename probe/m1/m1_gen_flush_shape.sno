@@ -1,0 +1,12 @@
+        nl = CHAR(10)
+        DEFINE('F(str,outNm)outline')          :(F_END)
+F       F = .dummy
+        outNm = IDENT(outNm) .OUTPUT
+        $'$B' = DIFFER($'$B') $'$B' str
+        $'$B' = IDENT($'$B') str
+        $'$B' BREAK(nl) . outline nl REM . $'$B'   :F(NRETURN)
+        $outNm = outline                       :(NRETURN)
+F_END
+        F('line1' nl)
+        OUTPUT = 'after'
+END

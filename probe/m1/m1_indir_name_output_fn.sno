@@ -1,0 +1,7 @@
+        DEFINE('F(str,outNm)')          :(F_END)
+F       F = .dummy
+        outNm = IDENT(outNm) .OUTPUT
+        $outNm = str                    :(NRETURN)
+F_END
+        F('hello')
+END

@@ -448,8 +448,8 @@ n31_match_assign_cond_β:
                         sub              r12, 24;                             jmp   n30_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n32_match_end_α:        mov              eax, dword ptr [rsp + 16]
-                        mov              dword ptr [rsp + 112], eax
-                        mov              qword ptr [rsp + 136], r14
+                        mov              dword ptr [rsp + 144], eax
+                        mov              qword ptr [rsp + 168], r14
                         push             r14
                         push             r15
                         push             r13
