@@ -1357,27 +1357,33 @@ n119_match_alternate_af:
 n120_match_lit_α:                                                             jmp   n119_match_alternate_s1
 n120_match_lit_β:                                                             jmp   n119_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
-n121_match_span_α:      mov              dword ptr [rsp + 48], 0
-                        mov              r8, qword ptr [rsp + 88]
-.Lx130_0:               mov              eax, r14d
-                        add              eax, dword ptr [rsp + 48]
+n121_match_span_α:      sub              rsp, 16
+                        mov              dword ptr [rsp + 64], r14d
+.Lx130_0:               mov              eax, dword ptr [rsp + 64]
                         cmp              eax, r15d;                           jge   .Lx130_1
                         movsxd           rcx, eax
-                        movzx            esi, byte ptr [r13+rcx]
-                        mov              eax, dword ptr [rsp + 84]
-                        mov              edx, 0
-.Lx130_2:               cmp              edx, eax;                            jge   .Lx130_1
-                        movzx            edi, byte ptr [r8 + rdx]
-                        cmp              esi, edi;                            je    .Lx130_3
-                        add              edx, 1;                              jmp   .Lx130_2
-.Lx130_3:               add              dword ptr [rsp + 48], 1;             jmp   .Lx130_0
-.Lx130_1:               mov              eax, dword ptr [rsp + 48]
-                        test             eax, eax;                            jle   n119_match_alternate_af
-                        mov              edx, r14d
-                        mov              dword ptr [rsp + 52], edx
-                        add              edx, eax
-                        mov              r14d, edx;                           jmp   n119_match_alternate_s0
-n121_match_span_β:      mov              r14d, dword ptr [rsp + 52];          jmp   n119_match_alternate_af
+                        movzx            edi, byte ptr [r13+rcx]
+                        mov              rsi, qword ptr [rsp + 56]            # coerce_string
+                        mov              edx, dword ptr [rsp + 52]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_sg_member@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            je    .Lx130_1
+                        mov              eax, dword ptr [rsp + 64]
+                        add              eax, 1
+                        mov              dword ptr [rsp + 64], eax;           jmp   .Lx130_0
+.Lx130_1:               mov              eax, dword ptr [rsp + 64]
+                        cmp              eax, r14d;                           jne   .Lx130_240
+                        add              rsp, 16;                             jmp   n119_match_alternate_af
+.Lx130_240:             mov              dword ptr [rsp + 64], r14d
+                        mov              r14d, eax;                           jmp   n119_match_alternate_s0
+n121_match_span_β:      mov              r14d, dword ptr [rsp + 64]
+                        add              rsp, 16;                             jmp   n119_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_res:
                         mov              r10, qword ptr [rsp + 8]
@@ -1611,14 +1617,19 @@ n141_match_any_α:       mov              eax, r14d
                         cmp              eax, r15d;                           jge   n134_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
-                        mov              r8, qword ptr [rsp + 88]
-                        mov              ecx, dword ptr [rsp + 84]
-                        mov              edx, 0
-.Lx160_5:               cmp              edx, ecx;                            jge   n134_match_alternate_af
-                        movzx            edi, byte ptr [r8 + rdx]
-                        cmp              esi, edi;                            je    .Lx160_6
-                        add              edx, 1;                              jmp   .Lx160_5
-.Lx160_6:               add              r14d, 1;                             jmp   n134_match_alternate_s0
+                        mov              edi, esi
+                        mov              rsi, qword ptr [rsp + 56]            # coerce_string
+                        mov              edx, dword ptr [rsp + 52]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_sg_member@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            je    n134_match_alternate_af
+                        add              r14d, 1;                             jmp   n134_match_alternate_s0
 n141_match_any_β:       sub              r14d, 1;                             jmp   n134_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_res:
@@ -11084,25 +11095,24 @@ n790_statement_end_β:   add              rsp, 112;                            j
 n791_match_lit_α:                                                             jmp   n781_match_alternate_s1
 n791_match_lit_β:                                                             jmp   n781_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
-n792_match_break_α:     mov              dword ptr [rsp + 3888], 0
-                        mov              r8, qword ptr [rsp + 3976]
-.Lx2185_0:              mov              eax, r14d
-                        add              eax, dword ptr [rsp + 3888]
-                        cmp              eax, r15d;                           jge   n781_match_alternate_af
-                        movsxd           rcx, eax
-                        movzx            esi, byte ptr [r13+rcx]
-                        mov              eax, dword ptr [rsp + 3972]
-                        mov              edx, 0
-.Lx2185_2:              cmp              edx, eax;                            jge   .Lx2185_3
-                        movzx            edi, byte ptr [r8 + rdx]
-                        cmp              esi, edi;                            je    .Lx2185_1
-                        add              edx, 1;                              jmp   .Lx2185_2
-.Lx2185_3:              add              dword ptr [rsp + 3888], 1;           jmp   .Lx2185_0
-.Lx2185_1:              mov              eax, r14d
-                        add              eax, dword ptr [rsp + 3888]
-                        mov              dword ptr [rsp + 3888], r14d
+n792_match_break_α:     sub              rsp, 16
+                        mov              edi, r14d
+                        mov              rsi, qword ptr [rsp + 136]           # coerce_string
+                        mov              edx, dword ptr [rsp + 132]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_sg_scan_member@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              eax, r15d;                           jl    .Lx2185_240
+                        add              rsp, 16;                             jmp   n781_match_alternate_af
+.Lx2185_240:            mov              dword ptr [rsp + 3904], r14d
                         mov              r14d, eax;                           jmp   n781_match_alternate_s0
-n792_match_break_β:     mov              r14d, dword ptr [rsp + 3888];        jmp   n781_match_alternate_af
+n792_match_break_β:     mov              r14d, dword ptr [rsp + 3904]
+                        add              rsp, 16;                             jmp   n781_match_alternate_af
 #=======================================================================================================================
 #                 r               =   r seg
 #-----------------------------------------------------------------------------------------------------------------------
