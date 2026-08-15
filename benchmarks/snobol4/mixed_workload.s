@@ -586,6 +586,8 @@ n51_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 8], rdx;             jmp   n52_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n52_statement_end_α:    add              rsp, 96;                             jmp   RETURN
+#=======================================================================================================================
+# RSUM_END  <stmt 6, line 10: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n53_statement_begin_α:                                                        jmp   n54_statement_end_α
 n53_statement_begin_β:                                                        jmp   n55_statement_begin_α
@@ -816,8 +818,6 @@ n84_assign_β:                                                                 j
 #-----------------------------------------------------------------------------------------------------------------------
 n85_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            # var
                         mov              rsi, qword ptr [rsp + 24]
-                        mov              qword ptr [rsp + 848], rdi
-                        mov              qword ptr [rsp + 856], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark

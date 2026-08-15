@@ -553,8 +553,6 @@ n58_assign_β:                                                                 j
 #-----------------------------------------------------------------------------------------------------------------------
 n59_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            # var
                         mov              rsi, qword ptr [rsp + 24]
-                        mov              qword ptr [rsp + 656], rdi
-                        mov              qword ptr [rsp + 664], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark

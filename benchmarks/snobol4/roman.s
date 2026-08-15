@@ -318,8 +318,6 @@ n23_var_α:              sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n24_match_begin_α:      mov              rdi, qword ptr [rsp + 0]             # var
                         mov              rsi, qword ptr [rsp + 8]
-                        mov              qword ptr [rsp + 432], rdi
-                        mov              qword ptr [rsp + 440], rsi
                         push             rbp
                         mov              rbp, rsp
                         push             r12                                  # cas_mark
@@ -907,6 +905,8 @@ n52_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 8], rdx;             jmp   n53_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n53_statement_end_α:    add              rsp, 112;                            jmp   RETURN
+#=======================================================================================================================
+# ROMAN_END  <stmt 7, line 13: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n54_statement_begin_α:                                                        jmp   n55_statement_end_α
 n54_statement_begin_β:                                                        jmp   n56_statement_begin_α
