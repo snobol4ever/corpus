@@ -1769,7 +1769,7 @@ main_ω:
                         .section         .rodata
 .S0:                    .string          "PAT$2$V0"
 .S1:                    .string          "IR_MATCH_ARBNO: unreachable beta (defer-unsafe decline)"
-.S2:                    .string          "IR_MATCH_ARBNO: body contains a suspend-capable DEFER (pat_static=0) -- anchor-relative slot not yet implemented (W-4)"
+.S2:                    .string          "IR_MATCH_ARBNO: body contains a DEFER unsafe for the plain-frameless arm, and emit_match_rbp() is off -- ARBNO-FRAME slot unavailable (SCRIP_MATCH_RBP=0)"
 .S3:                    .string          "PAT$2$V1"
 .S4:                    .string          "PAT$2$V2"
 .S5:                    .string          "group"

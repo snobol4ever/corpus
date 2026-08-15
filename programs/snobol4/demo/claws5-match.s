@@ -820,8 +820,8 @@ main_ω:
                         mov              edi, 1
                         call             exit@PLT
                         .section         .rodata
-.S0:                    .string          "IR_MATCH_ARBNO: unreachable beta (k0-defer decline)"
-.S1:                    .string          "IR_MATCH_ARBNO: body contains a write-once DEFER -- K0 frontier-invariance not established for a runtime-invoked body (W-7 companion)"
+.S0:                    .string          "IR_MATCH_ARBNO: unreachable beta (defer-unsafe decline)"
+.S1:                    .string          "IR_MATCH_ARBNO: body contains a DEFER unsafe for the plain-frameless arm, and emit_match_rbp() is off -- ARBNO-FRAME slot unavailable (SCRIP_MATCH_RBP=0)"
 .S2:                    .string          "PATV$0"
                         .text
                         .section         .rodata

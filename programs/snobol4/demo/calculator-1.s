@@ -7564,7 +7564,7 @@ main_ω:
 .S12:                   .string          "*SUB"
 .S13:                   .string          "*ADD"
 .S14:                   .string          "IR_MATCH_ARBNO: unreachable beta (defer-unsafe decline)"
-.S15:                   .string          "IR_MATCH_ARBNO: body contains a suspend-capable DEFER (pat_static=0) -- anchor-relative slot not yet implemented (W-4)"
+.S15:                   .string          "IR_MATCH_ARBNO: body contains a DEFER unsafe for the plain-frameless arm, and emit_match_rbp() is off -- ARBNO-FRAME slot unavailable (SCRIP_MATCH_RBP=0)"
 .S16:                   .string          "PAT$7$V0"
 .S17:                   .string          "PAT$7$V1"
 .S18:                   .string          "PAT$7$V2"
