@@ -1,0 +1,28 @@
+
+
+
+opsyn_used_op_err156.sno(7) : ERROR 156 -- opsyn first arg is not correct operator name
+opsyn_used_op_err156.sno(7) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+
+
+in file              opsyn_used_op_err156.sno
+in file              opsyn_used_op_err156.sno
+in line              7
+in line              7
+in statement         4
+in statement         4
+stmts executed       3
+stmts executed       3
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11808
+memory left (bytes)  1036760
+
+

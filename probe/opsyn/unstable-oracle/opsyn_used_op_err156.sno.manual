@@ -1,0 +1,9 @@
+*  OPSYN of a USED operator is ERROR 156 (manual p.116: "OPSYN first arg is not correct operator name";
+*  p.271 error list).  SPITBOL forbids redefining + - * / ** etc. -- and says so explicitly so that the
+*  compiler MAY assume their identity.  SCRIP must raise 156 here, not silently accept.
+        DEFINE('PLUS(a,b)')                                 :(p_end)
+PLUS    PLUS           =   a + b                            :(RETURN)
+p_end
+        OPSYN('+', 'PLUS', 2)
+        OUTPUT         =   1 + 2
+END

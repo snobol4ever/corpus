@@ -1,0 +1,4 @@
+*  OPSYN'd unused UNARY operator (manual p.116: OPSYN('!','ANY',1); unused unary set = ! % / # = |).
+        OPSYN('!', 'ANY', 1)
+        'ABC321'       ?   !'3C' . OUTPUT
+END

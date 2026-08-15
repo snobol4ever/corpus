@@ -1,0 +1,12 @@
+*  An OPSYN'd operator is rebindable at RUNTIME, repeatedly -- so no call site may cache its meaning.
+        DEFINE('cat(a,b)')                                  :(cat_end)
+cat     cat            =   a b                              :(RETURN)
+cat_end
+        DEFINE('rev(a,b)')                                  :(rev_end)
+rev     rev            =   b a                              :(RETURN)
+rev_end
+        OPSYN('&', 'cat', 2)
+        OUTPUT         =   'abc' & 'def'
+        OPSYN('&', 'rev', 2)
+        OUTPUT         =   'abc' & 'def'
+END
