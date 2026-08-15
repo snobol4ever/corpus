@@ -1,0 +1,22 @@
+*  RED (s105) -- THE case_driver CLASS, driver-free 18-line reduction of beauty_suite
+*  GOAL-SNOBOL4-100 R-2 / R-8 witness set (s105).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  case.sno's icase().  SIG11 both modes: stack exhaustion inside proc_PAT$0_alpha with
+*  r10/r11 correctly seated (so NOT the MV glue defect -- a second, stacked ingredient).
+               DEFINE('lwr(lwr)')                                                   :(lwr_end)
+lwr            lwr            =   REPLACE(lwr, &UCASE, &LCASE)                      :(RETURN)
+lwr_end
+               DEFINE('upr(upr)')                                                   :(upr_end)
+upr            upr            =   REPLACE(upr, &LCASE, &UCASE)                      :(RETURN)
+upr_end
+               DEFINE('icase(str)letter,character')                                 :(icase_end)
+icase          IDENT(str)                                                           :S(RETURN)
+               str            POS(0) ANY(&UCASE &LCASE) . letter =                  :F(icase1)
+               icase          =   icase (upr(letter) | lwr(letter))                 :(icase)
+icase1         str            POS(0) LEN(1) . character =
+               icase          =   icase character                                   :(icase)
+icase_end
+        'Hello' icase('hello')                             :S(P7)
+        OUTPUT = 'FAIL: no match'                          :(T7)
+P7      OUTPUT = 'PASS: icase matches'
+T7
+END

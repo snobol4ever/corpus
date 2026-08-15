@@ -1,0 +1,12 @@
+*  MV-BLOB-GLUE REGRESSION GUARD (was SIG11 both modes pre-86a73598): a program-defined
+*  GOAL-SNOBOL4-100 R-2 / R-8 witness set (s105).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  function called DIRECTLY as the pattern.  Manual p.104: a defined function may appear
+*  'anywhere its value is needed -- in the subject, pattern, or replacement fields'.
+        DEFINE('F()')                                   :(FEND)
+F       F = LEN(2)                                      :(RETURN)
+FEND
+        'ABCDE' F()                                     :F(NOM)
+        OUTPUT = 'MATCHED nocapture'                    :(FIN)
+NOM     OUTPUT = 'NOMATCH'
+FIN
+END

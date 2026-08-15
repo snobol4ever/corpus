@@ -1,0 +1,13 @@
+*  GREEN CONTROL: call inside an ALTERNATION at TOP LEVEL (no DEFINE'd fn, no loop).
+*  GOAL-SNOBOL4-100 R-2 / R-8 witness set (s105).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  Passes -- so the enclosing function body is load-bearing.
+        DEFINE('up(up)')                :(up_end)
+up      up = REPLACE(up, &LCASE, &UCASE)  :(RETURN)
+up_end
+        P = LEN(0)
+        P = P (up('a') | 'a')
+        'A' P                           :F(NO)
+        OUTPUT = 'MATCHED alt-call-top' :(FIN)
+NO      OUTPUT = 'NOMATCH'
+FIN
+END

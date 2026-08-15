@@ -1,0 +1,10 @@
+*  MV-BLOB-GLUE GUARD: call-as-pattern whose returned pattern carries a capture.
+*  GOAL-SNOBOL4-100 R-2 / R-8 witness set (s105).  Oracle: /home/claude/x64/bin/sbl -b <file>
+        DEFINE('F()')                                   :(FEND)
+F       F = LEN(2) . X                                  :(RETURN)
+FEND
+        'ABCDE' F()                                     :F(NOM)
+        OUTPUT = 'MATCHED X=[' X ']'                    :(FIN)
+NOM     OUTPUT = 'NOMATCH'
+FIN
+END

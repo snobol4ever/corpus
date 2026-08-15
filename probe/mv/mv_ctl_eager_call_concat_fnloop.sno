@@ -1,0 +1,16 @@
+*  GREEN CONTROL for mv_eager_call_in_alt_fnloop: same fn goto loop, call in CONCAT
+*  GOAL-SNOBOL4-100 R-2 / R-8 witness set (s105).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  instead of ALTERNATION.  Passes -- so the alternation is load-bearing.
+        DEFINE('up(up)')                :(up_end)
+up      up = REPLACE(up, &LCASE, &UCASE)  :(RETURN)
+up_end
+        DEFINE('mk(s)c')                :(mk_end)
+mk      IDENT(s)                        :S(RETURN)
+        s POS(0) LEN(1) . c =
+        mk = mk up(c)                   :(mk)
+mk_end
+        'AB' mk('ab')                   :F(NO)
+        OUTPUT = 'MATCHED call-concat'  :(FIN)
+NO      OUTPUT = 'NOMATCH'
+FIN
+END

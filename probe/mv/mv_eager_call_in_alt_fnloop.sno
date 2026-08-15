@@ -1,0 +1,19 @@
+*  RED (s105) -- MINIMAL form of the icase class: an EAGER function call inside an
+*  GOAL-SNOBOL4-100 R-2 / R-8 witness set (s105).  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  ALTERNATION that is appended to the accumulating result variable inside a DEFINE'd
+*  function's goto loop.  Remove ANY ONE of those three ingredients and it passes --
+*  see the three green controls beside this file.  This is the s98/s100 'eager-call'
+*  class named for case_driver, now reduced to 12 lines.
+        DEFINE('up(up)')                :(up_end)
+up      up = REPLACE(up, &LCASE, &UCASE)  :(RETURN)
+up_end
+        DEFINE('mk(s)c')                :(mk_end)
+mk      IDENT(s)                        :S(RETURN)
+        s POS(0) LEN(1) . c =
+        mk = mk (up(c) | c)             :(mk)
+mk_end
+        'Ab' mk('ab')                   :F(NO)
+        OUTPUT = 'MATCHED nested-call'  :(FIN)
+NO      OUTPUT = 'NOMATCH'
+FIN
+END
