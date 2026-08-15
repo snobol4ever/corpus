@@ -1,0 +1,65 @@
+*------------------------------------------------------------------------------
+* alt_defer_recur_af.sno — RED witness (s101).  A recursive deferred pattern
+* through an ALT arm: the ALT's all-fail edge reads a saved cursor cell that
+* holds a DEFER RESUME ADDRESS, so the cursor becomes a code address, every
+* later box fails (cursor >> subject end) and the match SPINS FOREVER.
+*
+*     A  =  V | '(' *A ')'        second arm defers back into the same pattern
+*
+* SCRIP prints MATCHED 1/2/3 then HANGS on the 4th (the FAILING match — the
+* one that actually takes the af edge).  Oracle prints all four lines in well
+* under a second.  Reproduces in m3 and m4.
+*
+* MEASURED (m4, gdb, s101):
+*   - the ALT carves 32B at alpha {cursor+0, beta resume+8, af resume+16, pad}
+*     and af does  mov r14d,[rsp+0]  /  mov rax,[rsp+16]; jmp rax
+*   - while spinning on calculator-1-match.sno, r14 = 0x402495 = the ADDRESS
+*     of n30_match_defer_beta, and [rsp+0] held that same code address
+*   - r15 (subject length) and r12 (arena) were correct throughout, and rsp
+*     was STABLE — this is a non-progressing spin, NOT runaway recursion
+*
+* ⛔ FALSIFIED, DO NOT RE-CHASE (s101): "the af edge runs at the wrong DEPTH".
+* An interleaved alpha/af rsp trace over one run (gdb, breakpoints on both
+* labels, 14 stops) shows every af executing exactly 32 bytes below its own
+* alpha — i.e. AT its own post-carve depth, self-consistent at every recursion
+* level.  The first measurement that suggested otherwise (alpha 0x7fffffffe890
+* vs af 0x7fffffffe450, "1088 bytes deeper") compared TWO DIFFERENT RECURSION
+* INSTANCES and is void — the RULES.md "passing sibling is not evidence"
+* trap in its depth spelling.
+*
+* SO THE HUNT IS: who WRITES the ALT's saved-cursor cell after alpha stored it?
+* Prime suspect class is a store at a computed, un-rebased [rsp+K] that ALIASES
+* another construct's carve — the s99/s100 flat-coordinate family (e.g. the
+* `mov qword ptr [rsp + 16], rax` defer-record store seen beside the defer
+* alpha in calculator-1-match.s at line 475, which moves NO rsp).  HW
+* watchpoints do not work in this container: convict with a breakpoint on each
+* candidate store conditioned on the effective address, or an ignore-count spin
+* to the exact instance, per RULES.md MONITOR-FIRST step (2).
+*
+* Owns (same class, to be re-measured against this witness once it is green):
+* demos TIMEOUT block calculator-1-match / calculator-2* / json-match* (6 rows,
+* all recursive deferred grammars).
+*------------------------------------------------------------------------------
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        A              =  V | '(' *A ')'
+        P              =  POS(0) A RPOS(0)
+*------------------------------------------------------------------------------
+        S1             =  'x'
+        S2             =  '(y)'
+        S3             =  '((z))'
+        S4             =  '(w'
+*------------------------------------------------------------------------------
+        S1  P                                                                  :F(F1)
+        OUTPUT         =  'MATCHED 1'                                          :(T2)
+F1      OUTPUT         =  'NOMATCH 1'
+T2      S2  P                                                                  :F(F2)
+        OUTPUT         =  'MATCHED 2'                                          :(T3)
+F2      OUTPUT         =  'NOMATCH 2'
+T3      S3  P                                                                  :F(F3)
+        OUTPUT         =  'MATCHED 3'                                          :(T4)
+F3      OUTPUT         =  'NOMATCH 3'
+T4      S4  P                                                                  :F(F4)
+        OUTPUT         =  'MATCHED 4'                                          :(DONE)
+F4      OUTPUT         =  'NOMATCH 4'
+DONE
+END
