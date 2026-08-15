@@ -1,0 +1,8 @@
+        DEFINE('F()')                    :(FEND)
+F       F = .dummy                       :(NRETURN)
+FEND
+        'ABCDE' ? LEN(2) . *F()          :F(BAD)
+        OUTPUT = 'dummy=' dummy
+        :(END)
+BAD     OUTPUT = 'NOMATCH'
+END

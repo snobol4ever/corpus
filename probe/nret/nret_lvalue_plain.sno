@@ -1,0 +1,6 @@
+        DEFINE('F()')                    :(FEND)
+F       F = .dummy                       :(NRETURN)
+FEND
+        F() = 43
+        OUTPUT = 'A dummy=' dummy
+END

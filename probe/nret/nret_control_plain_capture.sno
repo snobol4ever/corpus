@@ -1,0 +1,4 @@
+        'ABCDE' ? LEN(2) . x             :F(C1)
+        OUTPUT = 'C x=' x                :(END)
+C1      OUTPUT = 'C NOMATCH'
+END

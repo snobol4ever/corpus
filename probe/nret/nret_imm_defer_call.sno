@@ -1,0 +1,7 @@
+        DEFINE('F()')                    :(FEND)
+F       F = .dummy                       :(NRETURN)
+FEND
+        'ABCDE' ? LEN(3) $ *F()          :F(D1)
+        OUTPUT = 'D dummy=' dummy        :(END)
+D1      OUTPUT = 'D NOMATCH'
+END

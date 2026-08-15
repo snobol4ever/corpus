@@ -667,17 +667,10 @@ n73_match_any_β:        sub              r14d, 1
                         add              rsp, 16;                             jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n74_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 0]
-                        lea              rcx, [rip + .S0]
-                        mov              qword ptr [r12 + 0], rcx
-                        mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
-                        mov              edx, r14d
-                        sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24;                             jmp   proc_PAT$0_γ
+                        lea              rdi, [rip + .S0]
+                        call             rt_bomb@PLT
+                        ud2
 n74_match_assign_cond_β:
-                        sub              r12, 24;                             jmp   n73_match_any_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_res:
                         mov              r10, qword ptr [rsp + 8]
@@ -724,17 +717,10 @@ n82_match_span_β:       mov              r14d, dword ptr [rsp + 4]
                         add              rsp, 16;                             jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n83_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 16]
-                        lea              rcx, [rip + .S0]
-                        mov              qword ptr [r12 + 0], rcx
-                        mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
-                        mov              edx, r14d
-                        sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24;                             jmp   proc_PAT$1_γ
+                        lea              rdi, [rip + .S0]
+                        call             rt_bomb@PLT
+                        ud2
 n83_match_assign_cond_β:
-                        sub              r12, 24;                             jmp   n82_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_res:
                         mov              r10, qword ptr [rsp + 8]
@@ -7760,7 +7746,7 @@ main_ω:
                         mov              edi, 1
                         call             exit@PLT
                         .section         .rodata
-.S0:                    .string          "*PSH"
+.S0:                    .string          "IR_MATCH_CAPTURE_COND: computed-name (*VAR/NRETURN) target not yet rebuilt -- blocked on the :(NRETURN) lowering bug (s82), see this file's header comment"
 .S1:                    .string          "X"
 .S2:                    .string          "PAT$2$V1"
 .S3:                    .string          "PAT$2$V0"
