@@ -1,0 +1,12 @@
+* rtcc_span_gva_defer -- s101 witness: the charset-loop templates carried needle-len in r9d,
+* killing the RC-5 GVA claim; the next GVA reader with no intervening veneer reload crashed.
+* Shape: SPAN(var) INLINE guts (clobbers r9 pre-fix) -> *GV defer alpha reads GV via [r9+off].
+* Pre-fix: SIGSEGV both modes. Post-fix: MATCHED, oracle-equal.
+        CS = 'a'
+        GV = 'b'
+        S = 'aab'
+        S SPAN(CS) *GV                          :S(OK)F(BAD)
+OK      OUTPUT = 'MATCHED'                      :(DONE)
+BAD     OUTPUT = 'FAILED'
+DONE
+END
