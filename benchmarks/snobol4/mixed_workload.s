@@ -976,7 +976,9 @@ n86_match_defer_α:      lea              rdi, [rip + .S1]
 .Lx272_6:               add              rsp, 16;                             jmp   n85_match_begin_β
 n86_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n87_match_end_α:        mov              qword ptr [rsp + 728], r14
+n87_match_end_α:        mov              eax, dword ptr [rbp + -40]           # repl_start
+                        mov              dword ptr [rbp + -48], eax
+                        mov              qword ptr [rbp + -56], r14           # repl_end
                         push             r14
                         push             r15
                         push             r13
@@ -1048,6 +1050,11 @@ n87_match_end_α:        mov              qword ptr [rsp + 728], r14
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
+                        mov              eax, dword ptr [rbp + -48]           # repl_start
+                        mov              dword ptr [r12 + 0], eax
+                        mov              rax, qword ptr [rbp + -56]           # repl_end
+                        mov              qword ptr [r12 + 8], rax
+                        add              r12, 16
                         mov              rdi, r13
                         mov              rsi, r15
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1065,10 +1072,11 @@ n88_lit_string_α:       sub              rsp, 16
 .Lx275_0_s:             .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n89_match_replace_α:    mov              rdi, qword ptr [rip + .Lx277_0]
-                        mov              rsi, qword ptr [rsp + 864]
-                        mov              rdx, qword ptr [rsp + 872]
-                        mov              ecx, dword ptr [rsp + 720]
-                        mov              r8, qword ptr [rsp + 744]
+                        mov              rsi, qword ptr [rsp + 32]            # var
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              ecx, dword ptr [r12 + -16]           # repl_start
+                        mov              r8, qword ptr [r12 + -8]             # repl_end
+                        sub              r12, 16
                         lea              r9, [rsp + 0]                        # lit_string
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1077,7 +1085,8 @@ n89_match_replace_α:    mov              rdi, qword ptr [rip + .Lx277_0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx277_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 16;                             jmp   .Lx277_1
 .Lx277_0:               .quad            .Lx277_0_s
 .Lx277_0_s:             .string          "DATA"
 .Lx277_1:                                                                     jmp   n90_statement_end_α
