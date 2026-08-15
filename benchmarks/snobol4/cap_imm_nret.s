@@ -182,17 +182,10 @@ n21_match_len_β:        sub              r14d, 3
                         add              rsp, 16;                             jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n22_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 0]
-                        lea              rcx, [rip + .S1]
-                        mov              qword ptr [r12 + 0], rcx
-                        mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
-                        mov              edx, r14d
-                        sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24;                             jmp   n23_match_lit_α
+                        lea              rdi, [rip + .S1]
+                        call             rt_bomb@PLT
+                        ud2
 n22_match_assign_cond_β:
-                        sub              r12, 24;                             jmp   n21_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n23_match_lit_α:        mov              eax, r14d
                         add              eax, 1
@@ -1540,7 +1533,7 @@ main_ω:
                         call             exit@PLT
                         .section         .rodata
 .S0:                    .string          "V"
-.S1:                    .string          "*STORE"
+.S1:                    .string          "IR_MATCH_CAPTURE_COND: computed-name (*VAR/NRETURN) target not yet rebuilt -- blocked on the :(NRETURN) lowering bug (s82), see this file's header comment"
 .S2:                    .string          "PATV$0"
 .S3:                    .string          "PATV$1"
                         .text
