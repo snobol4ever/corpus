@@ -2321,8 +2321,8 @@ n175_match_value_α:     lea              rdi, [rsp + 0]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            jz    .Lx201_0
                         mov              r8d, 0
-                        lea              rcx, [rip + .Lx201_4]
-                        lea              rdx, [rip + .Lx201_5];               jmp   rax
+                        lea              r10, [rip + .Lx201_4]
+                        lea              r11, [rip + .Lx201_5];               jmp   rax
 .Lx201_4:                                                                     jmp   n176_match_arbno_α
 .Lx201_5:                                                                     jmp   n172_match_assign_cond_β
 .Lx201_0:               lea              rdi, [rsp + 0]
@@ -2405,8 +2405,8 @@ n178_match_value_α:     lea              rdi, [rsp + 0]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            jz    .Lx206_0
                         mov              r8d, 0
-                        lea              rcx, [rip + .Lx206_4]
-                        lea              rdx, [rip + .Lx206_5];               jmp   rax
+                        lea              r10, [rip + .Lx206_4]
+                        lea              r11, [rip + .Lx206_5];               jmp   rax
 .Lx206_4:                                                                     jmp   n179_match_lit_α
 .Lx206_5:                                                                     jmp   n176_match_arbno_β
 .Lx206_0:               lea              rdi, [rsp + 0]
@@ -2806,8 +2806,8 @@ n189_match_value_α:     lea              rdi, [rsp + 368]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            jz    .Lx223_0
                         mov              r8d, 0
-                        lea              rcx, [rip + .Lx223_4]
-                        lea              rdx, [rip + .Lx223_5];               jmp   rax
+                        lea              r10, [rip + .Lx223_4]
+                        lea              r11, [rip + .Lx223_5];               jmp   rax
 .Lx223_4:                                                                     jmp   n182_match_alternate_s1
 .Lx223_5:                                                                     jmp   n186_match_assign_cond_β
 .Lx223_0:               lea              rdi, [rsp + 368]

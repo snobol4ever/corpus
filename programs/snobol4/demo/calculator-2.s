@@ -2380,8 +2380,8 @@ n201_match_value_α:     lea              rdi, [rsp + 0]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            jz    .Lx205_0
                         mov              r8d, 0
-                        lea              rcx, [rip + .Lx205_4]
-                        lea              rdx, [rip + .Lx205_5];               jmp   rax
+                        lea              r10, [rip + .Lx205_4]
+                        lea              r11, [rip + .Lx205_5];               jmp   rax
 .Lx205_4:                                                                     jmp   n202_match_fence1_α
 .Lx205_5:                                                                     jmp   proc_PAT$6_ω
 .Lx205_0:               lea              rdi, [rsp + 0]
