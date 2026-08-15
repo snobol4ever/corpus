@@ -1,0 +1,8 @@
+        DEFINE('u(u)')	:(ue)
+u       u = REPLACE(u,'ab','AB')	:(RETURN)
+ue      P = 'x' | u('b')
+        'B' ? P	:S(K)
+        OUTPUT = 'nm'	:(E)
+K       OUTPUT = 'ok'
+E
+END

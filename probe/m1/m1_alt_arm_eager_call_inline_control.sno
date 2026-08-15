@@ -1,0 +1,8 @@
+        DEFINE('u(u)')	:(ue)
+u       OUTPUT = 'CALLED'
+        u = REPLACE(u,'ab','AB')	:(RETURN)
+ue      'B' ? 'x' | u('b')	:S(K)
+        OUTPUT = 'nm'	:(E)
+K       OUTPUT = 'ok'
+E
+END
