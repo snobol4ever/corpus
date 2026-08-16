@@ -20,6 +20,17 @@
 #                 the slot the landing actually wrote (steady+80, NOT steady+88), and re-enters at the
 #                 slot where the callee actually parked its resume address (base+192, NOT base+0).
 #
+# ⭐ CONFIRMED ON A SECOND, STRUCTURALLY DIFFERENT WITNESS (s234): rung03_suspend_return (`suspend 1;
+# return 2;`) carries a RETURN path as well as a suspend.  Same six edits, its own five offsets
+#   kt=112 · gamma-wire 88 · omega-wire 96 · free slot 104 · resume slot 48 · caller park 136->128
+# take it from **rc=139 SEGV, no output** to **rc=0 printing `2 done`** (oracle `1 2 done`).  Control
+# flow, the return path and program exit are all correct; the one missing line is the FIRST suspended
+# value, which is the separately-recorded descriptor-publication defect (the suspend box publishes both
+# DESCR words as the integer and never sets the type word -- measured identical in the UNPATCHED
+# baseline, so it is pre-existing and downstream of Z-3, not caused by this transform).
+# Its resume slot 48 is the very offset the s230 goal text quoted as if it were a constant -- it is this
+# program's layout.  TWO witnesses, two layouts, one transform: that is the generalization claim.
+#
 # OFFSETS ARE THIS PROGRAM'S LAYOUT (kt=304, resume slot 192, free slot 296).  They are not constants of
 # the design -- re-derive them from the emitted .s for any other program.  The DESIGN facts are: gamma
 # retains, omega frees, the base is published in a register, and the park/resume slots must agree.
