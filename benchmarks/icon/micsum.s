@@ -2133,7 +2133,23 @@ proc_dofile_dcα:
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
+                        .globl           main
+main:
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             main_init
+                        mov              rdi, qword ptr [rsp]
+                        add              rdi, 8
+                        mov              esi, dword ptr [rsp + 8]
+                        sub              esi, 1
+                        call             rt_main_args_stage@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
+main_init:
                         sub              rsp, 8
                         .section         .rodata
 .Lstartup_pname0:       .string          "dofile"
@@ -2159,23 +2175,6 @@ proc_startup:
                         call             rt_proc_set_dcfn@PLT
                         add              rsp, 8
                         ret
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              rdi, qword ptr [rsp]
-                        add              rdi, 8
-                        mov              esi, dword ptr [rsp + 8]
-                        sub              esi, 1
-                        call             rt_main_args_stage@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                        xor              r14d, r14d
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 816
