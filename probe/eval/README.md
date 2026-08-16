@@ -50,14 +50,37 @@ inside a program-defined function body.
 Crash is the same wild-jump signature (`rip=_rtld_global`) but frame #1 is `0x0`,
 not the `0x41ad68` of the s112 instance — a different instance of the class.
 
-**HYPOTHESIS, EXPLICITLY UNTESTED — DO NOT INHERIT IT AS FACT:** a constant EVAL
-argument may let the lowerer/optimizer fold or pre-mint the chain at COMPILE time,
-re-entering the emitter while the enclosing proc's graph is the emit context
-(`eval_build_chain` calls `emit_chain` and saves/restores `g_emit_cfg` +
-`g_frame_active`, which is exactly the state a recursive emit would disturb).
-MEASURE IT before writing code: breakpoint `eval_build_chain` on `ev_fn_literal`
-and check whether it fires during COMPILATION or during RUN.  That single
-observation confirms or kills the hypothesis outright.
+**⛔⛔ THE s113 HYPOTHESIS IS FALSIFIED — MEASURED, DO NOT RE-DERIVE IT.** This file
+previously guessed that a constant argument let the lowerer/optimizer fold or
+pre-mint the chain at COMPILE time, re-entering the emitter inside the enclosing
+proc's emit context. **THAT IS WRONG.** gdb on `ev_fn_literal` shows
+`eval_build_chain` firing at **RUN time**, from generated code, through the
+ordinary runtime path — no compile-time fold anywhere:
+
+    #0 eval_build_chain (s="1 + 2")           runtime_eval.c:233
+    #1 eval_string_transient                  runtime_eval.c:308
+    #2 _eval_str_impl_fn                      driver_hooks.c:6
+    #3 EVAL_fn                                pattern_match.c:442
+    #4 try_call_builtin_by_name (fn="EVAL")   by_name_dispatch.c:6901
+    #5 rt_call_arr_impl · #6 rt_call_arr      by_name_dispatch.c:4699/4652
+    #7 0x00007fffee4012ae in ??               <- COMPILED BLOB, i.e. the proc body
+
+**⭐ THE REAL SIGNATURE IS `rip = 0x0000000000000002`, AND IT NAMES THE DEFECT.**
+Not `_rtld_global` this time. `2` is the value the chain's own γ epilogue loads —
+`add rsp,K · mov $0x2,%eax · ret` — so **the chain returned into its own DT tag**:
+the return address `rt_chain_enter_v` pushed was NOT at `[rsp]` when the `ret`
+executed. The chain's stack motion is UNBALANCED when it is built while the
+program is already inside a proc activation (`fc_tables_reset`/`zls_reset` run at
+`eval_build_chain` entry, and the chain's K derives from a graph lowered in that
+state).
+
+**ROUTE FOR THE NEXT SEAT — this is now an arithmetic question, not a mystery.**
+Disassemble the `ev_fn_literal` chain at its `fn` pointer and sum its carves vs
+releases (the top-level EVAL chain balances exactly: `sub 16 x3` then `add 48`,
+then `add 0` at the shared epilogue). Compare against `ev_fn_var`, which PASSES in
+the identical function context — **that is the passing sibling, one variable away,
+and the asm diff of the two chains should convict directly.** Do NOT start from
+`{γ,ω}` depth or the call-arm family; both were measured irrelevant at s112/s113.
 
 ## Beauty self-host state at s113
 Oracle `sbl -bf beauty.sno < beauty.sno` = **622 lines, rc=0**, md5
