@@ -28,3 +28,28 @@ control is green.
 WHY IT MATTERS: this is on the M1 critical path.  Bisecting beauty's `Parse` shows
 `Parse = *Command` SIGSEGVs while `Parse = ARBNO(*Command)` silently mismatches — two
 distinct defects stacked under the one-line `Parse Error` divergence.
+
+## s119 ASM DIFF — THE MECHANISM, MEASURED (not theory any more)
+
+`scrip --compile` on the RED witness vs the concat control (they differ by ONE composition):
+
+RED `C = *D` mints an EXPR$ thunk with **NO ACTIVATION FRAME**:
+```
+proc_EXPR$0_γ:    jmp   r10        <-- nothing ever seated these
+proc_EXPR$0_ω:    jmp   r11
+```
+GREEN `C = *D 'b'` has the proper blob frame — `mov rbp,[rbp]; jmp r10` at γ and
+`pop rbp; jmp r11` at ω — i.e. the s97 R-4(b) CLASS D activation whose base-32 frame
+{saved rbp, entry-wire r10, entry-wire r11, pad} SAVES AND RESTORES THE ENTRY WIRES.
+`pop rbp` count: RED 2, GREEN 3.  The bare-deferred shape never receives that frame,
+so γ/ω jump through r10=r11=0 => `jmp 0` => PC=0.  That is the crash, exactly.
+
+## THIS IS THE LONG-OPEN `*DIFFER(X)` EXPR$ CLASS, WITH A 5-LINE INSTRUMENT
+
+`defval_bare_predicate_red.sno` (`X='q'; C=*DIFFER(X); 'a' C`) is the shape carried open
+since s117 as `f6d` / `t6m` / `fence_probe` ("*DIFFER(X) EXPR$ thunks, Error 22").  It
+SIGSEGVs here with the SAME frameless-thunk fingerprint.  The inherited note said they
+"need the name-cell staging, not the entry fix" — that remains plausible for the Error-22
+manifestation, but the CRASH manifestation is the missing blob activation frame, and this
+witness is far smaller than any driver.  NEXT SEAT: apply the s97 blob-scope
+`frame_slot_scan` arm to the bare-deferred EXPR$ shape and re-run all four RED witnesses.
