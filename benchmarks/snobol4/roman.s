@@ -566,13 +566,13 @@ n30_match_assign_save_α:
                         sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n31_match_break_α
 n30_match_assign_save_β:
-                        add              rsp, 16;                             jmp   n28_match_begin_β
+                        add              rsp, 16;                             jmp   n29_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n31_match_break_α:      sub              rsp, 16
                         movsxd           rcx, r14d
 .Lx144_0:               cmp              ecx, r15d;                           jl    .Lx144_240
                         add              rsp, 16
-                        add              rsp, 16;                             jmp   n28_match_begin_β
+                        add              rsp, 16;                             jmp   n29_match_defer_β
 .Lx144_240:             movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lx144_1
                         add              ecx, 1;                              jmp   .Lx144_0
@@ -580,7 +580,7 @@ n31_match_break_α:      sub              rsp, 16
                         mov              r14d, ecx;                           jmp   n32_match_assign_cond_α
 n31_match_break_β:      mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                        add              rsp, 16;                             jmp   n28_match_begin_β
+                        add              rsp, 16;                             jmp   n29_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n32_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 16]
