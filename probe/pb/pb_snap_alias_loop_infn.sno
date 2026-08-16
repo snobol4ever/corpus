@@ -1,0 +1,13 @@
+*  RED (s106) -- same class inside a DEFINE body (the shape the s105 case_driver hunt reached
+*  by a different route).  The DEFINE body is NOT an ingredient: pb_snap_alias_loop_main is
+*  the same defect in main.  Also SIG11 under BOTH killswitch arms.
+        DEFINE('mk(s)c')                :(mk_end)
+mk      IDENT(s)                        :S(RETURN)
+        s POS(0) LEN(1) . c =
+        mk = mk ('X' | c)               :(mk)
+mk_end
+        'ab' mk('ab')                   :F(NO)
+        OUTPUT = 'MATCHED r1'           :(FIN)
+NO      OUTPUT = 'NOMATCH r1'
+FIN
+END

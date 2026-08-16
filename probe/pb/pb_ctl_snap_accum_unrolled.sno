@@ -1,0 +1,14 @@
+*  GREEN CONTROL (s106) -- the SAME two accumulations UNROLLED into two DISTINCT SITES => PASS.
+*  Repeated accumulation is sound; SAME-SITE RE-EXECUTION is the ingredient.  This control is
+*  what convicts the per-site cell rather than the accumulation or the ALT.
+        DEFINE('mk(s)c')                :(mk_end)
+mk      s POS(0) LEN(1) . c =
+        mk = mk ('X' | c)
+        s POS(0) LEN(1) . c =
+        mk = mk ('X' | c)               :(RETURN)
+mk_end
+        'ab' mk('ab')                   :F(NO)
+        OUTPUT = 'MATCHED r2'           :(FIN)
+NO      OUTPUT = 'NOMATCH r2'
+FIN
+END

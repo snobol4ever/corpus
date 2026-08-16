@@ -1,0 +1,18 @@
+*  RED (s106) -- PB-1s SNAPSHOT ALIASING, THE MINIMAL FORM: 9 lines, IN MAIN, no DEFINE, no
+*  function call.  A pattern-valued statement RE-EXECUTED AT THE SAME SITE (goto loop) that
+*  accumulates an ALT arm holding a snapshot-deferred plain ref.  PB-1s mints ONE hidden
+*  PATV$k global PER SITE (static g_snapctr at LOWER time, lower_snobol4.c ~1998), so every
+*  iteration re-assigns the SAME cell while the already-built pattern objects still DEFER-read
+*  it.  Manual p.86: each construction freezes ITS OWN value -- one cell per site cannot do that.
+*  ⛔ PRE-EXISTING: SIG11 under BOTH arms of SCRIP_PAT_EAGER_CALL (=1 and =0) -- NOT caused by
+*  the s106 eager-call fix.  Oracle: /home/claude/x64/bin/sbl -b <file>
+        s = 'ab'
+        mk = LEN(0)
+LP      IDENT(s)                        :S(DONE)
+        s POS(0) LEN(1) . c =
+        mk = mk ('X' | c)               :(LP)
+DONE    'ab' mk                         :F(NO)
+        OUTPUT = 'MATCHED r3'           :(FIN)
+NO      OUTPUT = 'NOMATCH r3'
+FIN
+END
