@@ -174,10 +174,17 @@ n21_match_len_β:        sub              r14d, 3
                         add              rsp, 16;                             jmp   proc_PAT$1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n22_match_assign_cond_α:
-                        lea              rdi, [rip + .S1]
-                        call             rt_bomb@PLT
-                        ud2
+                        mov              eax, dword ptr [rsp + 0]
+                        lea              rcx, [rip + .S1]
+                        mov              qword ptr [r12 + 0], rcx
+                        mov              esi, eax
+                        mov              qword ptr [r12 + 8], rsi
+                        mov              edx, r14d
+                        sub              edx, eax
+                        mov              qword ptr [r12 + 16], rdx
+                        add              r12, 24;                             jmp   n23_match_lit_α
 n22_match_assign_cond_β:
+                        sub              r12, 24;                             jmp   n21_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n23_match_lit_α:        mov              eax, r14d
                         add              eax, 1
@@ -777,12 +784,15 @@ n79_match_defer_α:      lea              rdi, [rip + .S2]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_defer_get_pat_fn@PLT
+                        call             rt_defer_get_pat_dtp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            jz    .Lx200_0
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx200_14
+                        mov              rax, qword ptr [rdx + 0]
+.Lx200_14:              test             rax, rax;                            jz    .Lx200_0
                         mov              r8d, 1
                         lea              r10, [rip + .Lx200_4]
                         lea              r11, [rip + .Lx200_5];               jmp   rax
@@ -1023,12 +1033,15 @@ n87_match_defer_α:      lea              rdi, [rip + .S3]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_defer_get_pat_fn@PLT
+                        call             rt_defer_get_pat_dtp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            jz    .Lx212_0
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx212_14
+                        mov              rax, qword ptr [rdx + 0]
+.Lx212_14:              test             rax, rax;                            jz    .Lx212_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx212_4]
                         lea              r11, [rip + .Lx212_5];               jmp   rax
@@ -1509,7 +1522,7 @@ main_ω:
                         call             exit@PLT
                         .section         .rodata
 .S0:                    .string          "V"
-.S1:                    .string          "IR_MATCH_CAPTURE_COND: computed-name (*VAR/NRETURN) target not yet rebuilt -- blocked on the :(NRETURN) lowering bug (s82), see this file's header comment"
+.S1:                    .string          "*STORE"
 .S2:                    .string          "PATV$0"
 .S3:                    .string          "PATV$1"
                         .text

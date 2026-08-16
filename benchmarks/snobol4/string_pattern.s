@@ -598,12 +598,15 @@ n60_match_defer_α:      lea              rdi, [rip + .S1]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_defer_get_pat_fn@PLT
+                        call             rt_defer_get_pat_dtp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            jz    .Lx162_0
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx162_14
+                        mov              rax, qword ptr [rdx + 0]
+.Lx162_14:              test             rax, rax;                            jz    .Lx162_0
                         mov              r8d, 1
                         lea              r10, [rip + .Lx162_4]
                         lea              r11, [rip + .Lx162_5];               jmp   rax
