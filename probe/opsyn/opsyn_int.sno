@@ -1,0 +1,6 @@
+        DEFINE('R(t,n)')
+        OPSYN('&', 'R', 2)
+        OUTPUT = 1 & 2
+        :(END)
+R       R = EVAL("1 + 2")                              :(RETURN)
+END

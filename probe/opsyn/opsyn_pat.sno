@@ -1,0 +1,6 @@
+        DEFINE('R(t,n)')
+        OPSYN('&', 'R', 2)
+        OUTPUT = DATATYPE('a' & 'b')
+        :(END)
+R       R = EVAL("LEN(1)")                             :(RETURN)
+END
