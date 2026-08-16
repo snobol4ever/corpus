@@ -1,0 +1,5 @@
+        DEFINE('F(A)')                   :(FEND)
+F       F = A + 1                        :(RETURN)
+FEND
+        OUTPUT = 'R=' F(4)
+END
