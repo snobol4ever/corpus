@@ -1,0 +1,18 @@
+procedure main(args);
+   local r;
+   r := opt2(args);
+   write("flist size=", *r);
+end
+procedure opt2(arg);
+   local x,i,c,otab,flist,o,p;
+   otab := table();
+   flist := [];
+   while x := get(arg) do
+      x ? {
+         if ="-" & not pos(0) then {
+            write("dash");
+            }
+         else put(flist,x)
+         };
+   return flist;
+end

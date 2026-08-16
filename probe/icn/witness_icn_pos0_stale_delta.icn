@@ -1,0 +1,6 @@
+procedure main();
+   local s;
+   s := "-n10";
+   s ? { if ="-" then write("A match"); };
+   s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N"); };
+end
