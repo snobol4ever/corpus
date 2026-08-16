@@ -1,0 +1,4 @@
+                  'aaa'          POS(0) ARBNO('a') RPOS(0)                         :S(OK)F(NO)
+OK                OUTPUT         =  'MATCH'                                        :(END)
+NO                OUTPUT         =  'NOMATCH'                                      :(END)
+END
