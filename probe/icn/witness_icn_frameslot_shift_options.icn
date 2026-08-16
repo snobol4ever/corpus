@@ -1,0 +1,19 @@
+# WITNESS: the ROOT BLOCKER of 7 of 8 headline Icon benchmarks, minimized.
+# ipl options() does `x ? { if ="-" ... while c := move(1) ... find(c,optstring) }`.
+# The tab(match) carve corrupts the `optstring` PARAMETER to "" before find()
+# reads it; because "" is non-null the `/optstring := string(&letters)` default
+# never fires, find() searches an empty string, and every option is rejected.
+# Oracle-verified against Arizona Icon 9.5.25a.
+procedure opts(arg,optstring);
+   local c;
+   arg ? {
+      if ="-" then {
+         while c := move(1) do
+            write("c=",image(c)," optstring=",image(optstring),
+                  " find=",image(find(c,optstring)));
+      };
+   };
+end
+procedure main();
+   opts("-n10","n+");
+end

@@ -1,0 +1,16 @@
+# WITNESS: scan-family FORTH carve shifts live PARAMETER slots (Z-3/Z-4 class).
+# `="-"` desugars to tab(match("-")) = TWO scan-family boxes = two 16B carves.
+# Every later rsp-relative param read is then 32 bytes (2 DESCRs) low:
+# r returns p's value, s returns q's, and p/q read off the end as ""/&null.
+# Extends the s234b argument-slot collision finding: the victims are not only
+# operand-list slots but LIVE PARAMETER slots of the enclosing activation.
+procedure t(p,q,r,s);
+   write("entry:       p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
+   p ? {
+      if ="-" then
+         write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
+   };
+end
+procedure main();
+   t("-n10","AA","BB","CC");
+end
