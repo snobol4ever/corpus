@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_dofile_α
-proc_dofile_α:
+FN__dofile:
                         sub              rsp, 3296
                         mov              qword ptr [rsp + 3272], rcx
                         mov              qword ptr [rsp + 3280], rdx
@@ -2127,7 +2126,7 @@ proc_dofile_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx00093_2]
-                        lea              rdx, [rip + .Lx00093_3];               jmp   proc_dofile_α
+                        lea              rdx, [rip + .Lx00093_3];               jmp   FN__dofile
 .Lx00093_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00093_3:               pop              r11
@@ -2141,7 +2140,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_dofile_α]
+                        lea              rsi, [rip + FN__dofile]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 2
@@ -2175,6 +2174,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:

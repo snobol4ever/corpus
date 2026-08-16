@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_tabulate_α
-proc_tabulate_α:
+FN__tabulate:
                         sub              rsp, 1504
                         mov              qword ptr [rsp + 1480], rcx
                         mov              qword ptr [rsp + 1488], rdx
@@ -952,7 +951,7 @@ proc_tabulate_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx00017_2]
-                        lea              rdx, [rip + .Lx00017_3];               jmp   proc_tabulate_α
+                        lea              rdx, [rip + .Lx00017_3];               jmp   FN__tabulate
 .Lx00017_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00017_3:               pop              r11
@@ -960,8 +959,7 @@ proc_tabulate_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_format_α
-proc_format_α:
+FN__format:
                         sub              rsp, 960
                         mov              qword ptr [rsp + 936], rcx
                         mov              qword ptr [rsp + 944], rdx
@@ -1662,7 +1660,7 @@ proc_format_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx00082_2]
-                        lea              rdx, [rip + .Lx00082_3];               jmp   proc_format_α
+                        lea              rdx, [rip + .Lx00082_3];               jmp   FN__format
 .Lx00082_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00082_3:               pop              r11
@@ -1670,8 +1668,7 @@ proc_format_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_item_α
-proc_item_α:
+FN__item:
 proc_item_α_body:
                         lea              rax, [rip + n00083_suspend_β]
                         mov              qword ptr [rsp + 768], rax
@@ -2225,8 +2222,7 @@ proc_item_ω:
                         mov              eax, 104
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_options_α
-proc_options_α:
+FN__options:
                         sub              rsp, 2928
                         mov              qword ptr [rsp + 2904], rcx
                         mov              qword ptr [rsp + 2912], rdx
@@ -3794,7 +3790,7 @@ proc_options_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx00277_2]
-                        lea              rdx, [rip + .Lx00277_3];               jmp   proc_options_α
+                        lea              rdx, [rip + .Lx00277_3];               jmp   FN__options
 .Lx00277_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00277_3:               pop              r11
@@ -3802,8 +3798,7 @@ proc_options_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Init___α
-proc_Init___α:
+FN__Init__:
                         sub              rsp, 496
                         mov              qword ptr [rsp + 472], rcx
                         mov              qword ptr [rsp + 480], rdx
@@ -4109,7 +4104,7 @@ proc_Init___dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx00309_2]
-                        lea              rdx, [rip + .Lx00309_3];               jmp   proc_Init___α
+                        lea              rdx, [rip + .Lx00309_3];               jmp   FN__Init__
 .Lx00309_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00309_3:               pop              r11
@@ -4117,8 +4112,7 @@ proc_Init___dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Term___α
-proc_Term___α:
+FN__Term__:
                         sub              rsp, 528
                         mov              qword ptr [rsp + 504], rcx
                         mov              qword ptr [rsp + 512], rdx
@@ -4413,7 +4407,7 @@ proc_Term___dcα:
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx00336_2]
-                        lea              rdx, [rip + .Lx00336_3];               jmp   proc_Term___α
+                        lea              rdx, [rip + .Lx00336_3];               jmp   FN__Term__
 .Lx00336_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00336_3:               pop              r11
@@ -4421,8 +4415,7 @@ proc_Term___dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Collections___α
-proc_Collections___α:
+FN__Collections__:
                         sub              rsp, 976
                         mov              qword ptr [rsp + 952], rcx
                         mov              qword ptr [rsp + 960], rdx
@@ -4901,7 +4894,7 @@ proc_Collections___dcα:
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx00385_2]
-                        lea              rdx, [rip + .Lx00385_3];               jmp   proc_Collections___α
+                        lea              rdx, [rip + .Lx00385_3];               jmp   FN__Collections__
 .Lx00385_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00385_3:               pop              r11
@@ -4909,8 +4902,7 @@ proc_Collections___dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Regions___α
-proc_Regions___α:
+FN__Regions__:
                         sub              rsp, 944
                         mov              qword ptr [rsp + 920], rcx
                         mov              qword ptr [rsp + 928], rdx
@@ -5378,7 +5370,7 @@ proc_Regions___dcα:
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx00432_2]
-                        lea              rdx, [rip + .Lx00432_3];               jmp   proc_Regions___α
+                        lea              rdx, [rip + .Lx00432_3];               jmp   FN__Regions__
 .Lx00432_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00432_3:               pop              r11
@@ -5386,8 +5378,7 @@ proc_Regions___dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Signature___α
-proc_Signature___α:
+FN__Signature__:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
                         mov              qword ptr [rsp + 288], rdx
@@ -5555,7 +5546,7 @@ proc_Signature___dcα:
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx00443_2]
-                        lea              rdx, [rip + .Lx00443_3];               jmp   proc_Signature___α
+                        lea              rdx, [rip + .Lx00443_3];               jmp   FN__Signature__
 .Lx00443_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00443_3:               pop              r11
@@ -5563,8 +5554,7 @@ proc_Signature___dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Storage___α
-proc_Storage___α:
+FN__Storage__:
                         sub              rsp, 944
                         mov              qword ptr [rsp + 920], rcx
                         mov              qword ptr [rsp + 928], rdx
@@ -6032,7 +6022,7 @@ proc_Storage___dcα:
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx00490_2]
-                        lea              rdx, [rip + .Lx00490_3];              jmp   proc_Storage___α
+                        lea              rdx, [rip + .Lx00490_3];              jmp   FN__Storage__
 .Lx00490_2:              pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00490_3:              pop              r11
@@ -6040,8 +6030,7 @@ proc_Storage___dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Time___α
-proc_Time___α:
+FN__Time__:
                         sub              rsp, 304
                         mov              qword ptr [rsp + 280], rcx
                         mov              qword ptr [rsp + 288], rdx
@@ -6267,7 +6256,7 @@ proc_Time___dcα:
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx00511_2]
-                        lea              rdx, [rip + .Lx00511_3];              jmp   proc_Time___α
+                        lea              rdx, [rip + .Lx00511_3];              jmp   FN__Time__
 .Lx00511_2:              pop              r11
                         pop              r11;                                 jmp   r11
 .Lx00511_3:              pop              r11
@@ -6281,7 +6270,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_tabulate_α]
+                        lea              rsi, [rip + FN__tabulate]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 2
@@ -6303,7 +6292,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + proc_format_α]
+                        lea              rsi, [rip + FN__format]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 1
@@ -6325,7 +6314,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + proc_item_α]
+                        lea              rsi, [rip + FN__item]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 0
@@ -6347,7 +6336,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname3]
-                        lea              rsi, [rip + proc_options_α]
+                        lea              rsi, [rip + FN__options]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 2
@@ -6369,7 +6358,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname4]
-                        lea              rsi, [rip + proc_Init___α]
+                        lea              rsi, [rip + FN__Init__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
                         mov              esi, 1
@@ -6391,7 +6380,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname5]
-                        lea              rsi, [rip + proc_Term___α]
+                        lea              rsi, [rip + FN__Term__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
                         mov              esi, 0
@@ -6413,7 +6402,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname6]
-                        lea              rsi, [rip + proc_Collections___α]
+                        lea              rsi, [rip + FN__Collections__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
                         mov              esi, 0
@@ -6435,7 +6424,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname7]
-                        lea              rsi, [rip + proc_Regions___α]
+                        lea              rsi, [rip + FN__Regions__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
                         mov              esi, 0
@@ -6457,7 +6446,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname8]
-                        lea              rsi, [rip + proc_Signature___α]
+                        lea              rsi, [rip + FN__Signature__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname8]
                         mov              esi, 0
@@ -6479,7 +6468,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname9]
-                        lea              rsi, [rip + proc_Storage___α]
+                        lea              rsi, [rip + FN__Storage__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname9]
                         mov              esi, 0
@@ -6501,7 +6490,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname10]
-                        lea              rsi, [rip + proc_Time___α]
+                        lea              rsi, [rip + FN__Time__]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname10]
                         mov              esi, 0
@@ -6576,6 +6565,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
