@@ -1,0 +1,9 @@
+        DEFINE('PC()')
+        DEFINE('nP()')
+        :(MAIN)
+PC      PC = .dummy                             :(NRETURN)
+nP      nP = LEN(1) . *PC()                     :(RETURN)
+MAIN    P = nP()
+        'abc' ? P
+        OUTPUT = 'dummy=' dummy
+END

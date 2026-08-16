@@ -1,0 +1,14 @@
+        DEFINE('PC()')
+        DEFINE('nP()')
+        :(MAIN)
+PC      $'#N' = 1
+        PC = .dummy                             :(NRETURN)
+nP      nP = epsilon . *PC()                    :(RETURN)
+MAIN    epsilon = LEN(0)
+        E1 = 'y'
+        E = nP() (*E1 | 'x')
+        Src = 'x'
+        Src POS(0) *E RPOS(0)                   :F(ERR)
+        OUTPUT = 'matched'                      :(END)
+ERR     OUTPUT = 'Parse Error'
+END
