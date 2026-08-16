@@ -1,0 +1,7 @@
+        DEFINE('R(t,n)')
+        OPSYN('&', 'R', 2)
+        OUTPUT = 'a' & 'b'
+        :(END)
+R       OUTPUT = 'IN-BODY'
+        R = 'CONST'                                    :(RETURN)
+END

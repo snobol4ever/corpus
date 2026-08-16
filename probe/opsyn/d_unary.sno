@@ -1,0 +1,6 @@
+        DEFINE('U(s)')
+        OPSYN('!', 'U', 1)
+        OUTPUT = !'x'
+        :(END)
+U       U = 'UN-' s                                    :(RETURN)
+END

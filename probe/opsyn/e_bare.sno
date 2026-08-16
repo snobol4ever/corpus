@@ -1,0 +1,7 @@
+        DEFINE('R(t,n)')
+        OPSYN('&', 'R', 2)
+        X = 'a' & 'b'
+        OUTPUT = X
+        :(END)
+R       R = 'CONST'                                    :(RETURN)
+END

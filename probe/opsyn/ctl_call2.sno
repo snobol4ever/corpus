@@ -1,0 +1,5 @@
+        DEFINE('R(t,n)')
+        OUTPUT = R('a','b')
+        :(END)
+R       R = 'GOT-' t n                                 :(RETURN)
+END
