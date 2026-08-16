@@ -1,0 +1,8 @@
+#  Exactly ONE operand is lost per scan-family call (one 16B carve = one 16B slot),
+#  and the damage COMPOUNDS with multiple scan calls in one list.
+#  Line 1 oracle: ABC112D   (only "C", the immediate predecessor, is lost)
+#  Line 2 oracle: A1B12     (two carves, two victims)
+procedure main();
+   "112 xy" ? { write("A", "B", "C", tab(4), "D"); };
+   "112 xy" ? { write("A", tab(2), "B", tab(4)); };
+end

@@ -1,0 +1,20 @@
+#  Not write()-specific and not literal-specific: a user-defined procedure loses
+#  its argument, a LIST CONSTRUCTOR loses its element, and a VARIABLE operand is
+#  lost just as a literal is.
+#  Line 3 note: hoisting the scan call out (x := tab(4)) does NOT reliably avoid
+#  the defect -- measured SCRIP "C112C" vs oracle "A112C", i.e. the shifted read
+#  picked up a neighbouring slot rather than dropping to empty.  Hoisting helped
+#  in the /tmp probe where BOTH the literal and the read were staged post-carve;
+#  it does not help when the operand was written pre-carve.  Do not record
+#  "hoist to a variable" as a workaround without re-measuring the exact shape.
+#  Oracle:  f:A/112/C  |  A 112 C  |  A112C
+procedure f(a, b, c);
+   write("f:", a, "/", b, "/", c);
+end
+procedure main();
+   local L, v, x;
+   "112 xy" ? { f("A", tab(4), "C"); };
+   "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]); };
+   v := "A";
+   "112 xy" ? { x := tab(4); write(v, x, "C"); };
+end
