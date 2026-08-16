@@ -7,80 +7,70 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
                         xor              esi, esi
-                        xor              r14d, r14d
-                        lea              rcx, [rip + .Lmain_zf_γ]
-                        lea              rdx, [rip + .Lmain_zf_ω]
-                                                                                        jmp   main_α
-.Lmain_zf_γ:
-                        xor              edi, edi
-                        call             exit@PLT
-.Lmain_zf_ω:
-                        mov              edi, 1
-                        call             exit@PLT
+                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
                         mov              qword ptr [rsp + 112], rdx
-                        mov              qword ptr [rsp + 120], rbp
-                        mov              rbp, rsp
-                        lea              rdi, [rbp + 0]
-                        xor              eax, eax
-                        mov              ecx, 96
-                        rep stosb
+                        mov              rdi, rsp
+                        mov              esi, 0
+                        mov              edx, 0
+                        call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_keyword_icon_α:
-                        mov              rdi, qword ptr [rip + .Lx2_0]                  # sval
+n0_keyword_icon_α:      mov              rdi, qword ptr [rip + .Lx2_0]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_keyword_read@PLT
-                        cmp              eax, 104
-                                                                                        je    main_ω
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
-                                                                                        jmp   n1_call_builtin_icon_α
-n0_keyword_icon_β:
-                                                                                        jmp   main_ω
-.Lx2_0:
-                        .quad            .Lx2_0_s
-.Lx2_0_s:
-                        .string          "&version"
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              eax, 104;                            je    main_ω
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx;           jmp   n1_call_builtin_icon_α
+n0_keyword_icon_β:                                                            jmp   main_ω
+.Lx2_0:                 .quad            .Lx2_0_s
+.Lx2_0_s:               .string          "&version"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 24], rax
+n1_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lrkfn4:                .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn4]                           # fn
-                        lea              rsi, [rbp + 16]                                # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfn4]
+                        lea              rsi, [rsp + 16]
+                        mov              edx, 1
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
-                        cmp              eax, 104
-                                                                                        je    main_ω
-                                                                                        jmp   main_γ
-n1_call_builtin_icon_β:
-                                                                                        jmp   main_ω
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              eax, 104;                            je    main_ω
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   main_γ
+n1_call_builtin_icon_β:                                                       jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
-                                                                                        jmp   main_ω
+                                                                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              rdi, rax
-                        mov              rsi, rdx
-                        lea              rsp, [rbp + 128]
-                        mov              rcx, qword ptr [rbp + 104]
-                        mov              rbp, qword ptr [rbp + 120]
-                                                                                        jmp   rcx
+                        and              rsp, -16
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        lea              rsp, [rbp + 128]
-                        mov              rcx, qword ptr [rbp + 112]
-                        mov              rbp, qword ptr [rbp + 120]
-                                                                                        jmp   rcx
+                        and              rsp, -16
+                        mov              edi, 1
+                        call             exit@PLT
                         .section         .note.GNU-stack,"",@progbits
