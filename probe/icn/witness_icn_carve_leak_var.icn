@@ -1,0 +1,6 @@
+procedure main();
+   local s;
+   s := "-n10";
+   s ? { tab(match("-")); };
+   write("s=[", s, "] *s=", *s);
+end
