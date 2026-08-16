@@ -1,0 +1,17 @@
+*  RETURN contract, SPITBOL manual Ch.8 p.103-104, both halves:
+*   (1) "a function may return a value by assigning it to a variable with
+*        the same name as the function"
+*   (2) "when the function returns, the dummy arguments are restored to
+*        their original values" (locals likewise)
+        DEFINE('F(A)L')                          :(FEND)
+F       L = A + 100
+        F = A + 1                                :(RETURN)
+FEND
+        A = 'OUTER-A'
+        L = 'OUTER-L'
+        OUTPUT = 'R1=' F(4)
+        OUTPUT = 'A=' A
+        OUTPUT = 'L=' L
+        OUTPUT = 'R2=' F(10)
+        OUTPUT = 'A=' A
+END
