@@ -1,6 +1,23 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
+                        .globl           main
+main:
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             main_init
+                        mov              edi, 6
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 6
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
+main_init:
                         sub              rsp, 8
                         add              rsp, 8
                         ret
@@ -21,29 +38,10 @@ __gva_names:
                         .quad            .Lgvan5
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              edi, 6
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 6
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
                         sub              rsp, 0
-#=======================================================================================================================
-#         <stmt 1, line 1: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:                                                         jmp   n1_statement_end_α
 n0_statement_begin_β:                                                         jmp   n2_statement_begin_α
@@ -75,6 +73,7 @@ n3_define_β:                                                                  j
 .Lx107_1:               .quad            .Lx107_1_s
 .Lx107_1_s:             .string          "N,UNITS"
                                                                               jmp   .Lx108_245
+#-----------------------------------------------------------------------------------------------------------------------
 ROMAN_α:                sub              rsp, 80
                         mov              rax, qword ptr [r9 + 32]             # UNITS
                         mov              qword ptr [rsp + 0], rax
@@ -176,8 +175,6 @@ ROMAN_ω:                mov              rcx, qword ptr [rsp + 48]
 .Lx108_245:
 #-----------------------------------------------------------------------------------------------------------------------
 n4_statement_end_α:                                                           jmp   n45_statement_begin_α
-#=======================================================================================================================
-# 	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 #-----------------------------------------------------------------------------------------------------------------------
 n5_statement_begin_α:                                                         jmp   n6_statement_end_α
 n5_statement_begin_β:                                                         jmp   n7_statement_begin_α
@@ -379,14 +376,12 @@ n16_match_replace_α:    mov              rdi, qword ptr [rip + .Lx130_0]
 .Lx130_0_s:             .string          "N"
 .Lx130_1:                                                                     jmp   n17_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n17_statement_end_α:    add              rsp, 16;                             jmp   n18_statement_begin_α
-#=======================================================================================================================
-# 	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
+n17_statement_end_α:                                                          jmp   n18_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n18_statement_begin_α:                                                        jmp   n19_statement_end_α
-n18_statement_begin_β:                                                        jmp   n20_statement_begin_α
+n18_statement_begin_β:  add              rsp, 48;                             jmp   n20_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n19_statement_end_α:                                                          jmp   n20_statement_begin_α
+n19_statement_end_α:    add              rsp, 16;                             jmp   n20_statement_begin_α
 #=======================================================================================================================
 # 	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
 #-----------------------------------------------------------------------------------------------------------------------
@@ -671,14 +666,12 @@ n29_match_end_α:        push             r14
                         mov              rsp, rbp                             # frame_whack
                         pop              rbp;                                 jmp   n30_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n30_statement_end_α:    add              rsp, 32;                             jmp   n31_statement_begin_α
-#=======================================================================================================================
-# 	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
+n30_statement_end_α:                                                          jmp   n31_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n31_statement_begin_α:                                                        jmp   n32_statement_end_α
-n31_statement_begin_β:                                                        jmp   n33_statement_begin_α
+n31_statement_begin_β:  add              rsp, 64;                             jmp   n33_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n32_statement_end_α:                                                          jmp   n33_statement_begin_α
+n32_statement_end_α:    add              rsp, 32;                             jmp   n33_statement_begin_α
 #=======================================================================================================================
 # 	ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS
 #-----------------------------------------------------------------------------------------------------------------------
@@ -810,8 +803,6 @@ n41_assign_α:           mov              rax, qword ptr [rsp + 0]             #
                         mov              qword ptr [r9 + 8], rdx;             jmp   n42_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n42_statement_end_α:    add              rsp, 112;                            jmp   RETURN
-#=======================================================================================================================
-# 	ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS
 #-----------------------------------------------------------------------------------------------------------------------
 n43_statement_begin_α:                                                        jmp   n44_statement_end_α
 n43_statement_begin_β:                                                        jmp   n45_statement_begin_α
@@ -824,8 +815,6 @@ n45_statement_begin_α:                                                        j
 n45_statement_begin_β:                                                        jmp   n47_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n46_statement_end_α:                                                          jmp   n47_statement_begin_α
-#=======================================================================================================================
-# 	ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS
 #-----------------------------------------------------------------------------------------------------------------------
 n47_statement_begin_α:                                                        jmp   n48_statement_end_α
 n47_statement_begin_β:                                                        jmp   n49_statement_begin_α
@@ -857,6 +846,7 @@ n50_define_β:                                                                 j
 .Lx188_1:               .quad            .Lx188_1_s
 .Lx188_1_s:             .string          "I,J"
                                                                               jmp   .Lx189_245
+#-----------------------------------------------------------------------------------------------------------------------
 TEST_α:                 sub              rsp, 80
                         mov              rax, qword ptr [r9 + 48]             # TEST
                         mov              qword ptr [rsp + 0], rax
@@ -1474,14 +1464,12 @@ n94_call_β:                                                                   j
 .Lx257_0:               .quad            .Lx257_0_s
 .Lx257_0_s:             .string          "TEST"
 #-----------------------------------------------------------------------------------------------------------------------
-n95_statement_end_α:    add              rsp, 48;                             jmp   n96_statement_begin_α
-#=======================================================================================================================
-# 	TEST(1900,2100)
+n95_statement_end_α:                                                          jmp   n96_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n96_statement_begin_α:                                                        jmp   n97_statement_end_α
-n96_statement_begin_β:                                                        jmp   main_γ
+n96_statement_begin_β:  add              rsp, 48;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n97_statement_end_α:                                                          jmp   main_γ
+n97_statement_end_α:    add              rsp, 48;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 RETURN:                 pop              rcx
                         add              rsp, 8;                              jmp   rcx

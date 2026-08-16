@@ -468,7 +468,24 @@ proc_PAT$0_ω:
                         mov              r11, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
-proc_startup:
+                        .globl           main
+main:
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             main_init
+                        mov              edi, 38
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 38
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
+main_init:
                         sub              rsp, 8
                         .section         .rodata
 .Lstartup_pname6:       .string          "PAT$0"
@@ -572,23 +589,6 @@ __gva_names:
                         .quad            .Lgvan37
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              edi, 38
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 38
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -826,6 +826,7 @@ n89_define_β:                                                                 j
 .Lx682_1:               .quad            .Lx682_1_s
 .Lx682_1_s:             .string          ""
                                                                               jmp   .Lx683_245
+#-----------------------------------------------------------------------------------------------------------------------
 new_sent_α:             sub              rsp, 48
                         mov              rax, qword ptr [r9 + 0]              # new_sent
                         mov              qword ptr [rsp + 0], rax
@@ -1069,6 +1070,7 @@ n111_define_β:                                                                j
 .Lx718_1:               .quad            .Lx718_1_s
 .Lx718_1_s:             .string          ""
                                                                               jmp   .Lx719_245
+#-----------------------------------------------------------------------------------------------------------------------
 add_tok_α:              sub              rsp, 48
                         mov              rax, qword ptr [r9 + 16]             # add_tok
                         mov              qword ptr [rsp + 0], rax
@@ -2103,6 +2105,7 @@ n191_define_β:                                                                j
 .Lx820_1:               .quad            .Lx820_1_s
 .Lx820_1_s:             .string          "mem,ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns"
                                                                               jmp   .Lx821_245
+#-----------------------------------------------------------------------------------------------------------------------
 pp_mem_α:               sub              rsp, 368
                         mov              rax, qword ptr [r9 + 64]             # ssk
                         mov              qword ptr [rsp + 0], rax

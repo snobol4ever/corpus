@@ -5490,7 +5490,24 @@ proc_PAT$12_ω:
                         mov              r11, qword ptr [rbp + -16]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
-proc_startup:
+                        .globl           main
+main:
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             main_init
+                        mov              edi, 118
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 118
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
+main_init:
                         sub              rsp, 8
                         .section         .rodata
 .Lclassspec0:           .string          "jobj(otab,okeys,onum)"
@@ -5997,23 +6014,6 @@ __gva_names:
                         .quad            .Lgvan117
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              edi, 118
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 118
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -8149,6 +8149,7 @@ n577_define_β:                                                                j
 .Lx1938_1:              .quad            .Lx1938_1_s
 .Lx1938_1_s:            .string          "n"
                                                                               jmp   .Lx1939_245
+#-----------------------------------------------------------------------------------------------------------------------
 jutf8_α:                sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # jutf8
                         mov              qword ptr [rsp + 0], rax
@@ -9193,6 +9194,7 @@ n642_define_β:                                                                j
 .Lx2028_1:              .quad            .Lx2028_1_s
 .Lx2028_1_s:            .string          "s,r,seg,ec,hx,n"
                                                                               jmp   .Lx2029_245
+#-----------------------------------------------------------------------------------------------------------------------
 jdec_α:                 sub              rsp, 144
                         mov              rax, qword ptr [r9 + 64]             # r
                         mov              qword ptr [rsp + 0], rax
@@ -11289,6 +11291,7 @@ n766_define_β:                                                                j
 .Lx2204_1:              .quad            .Lx2204_1_s
 .Lx2204_1_s:            .string          "v"
                                                                               jmp   .Lx2205_245
+#-----------------------------------------------------------------------------------------------------------------------
 vpush_α:                sub              rsp, 64
                         mov              rax, qword ptr [r9 + 128]            # vpush
                         mov              qword ptr [rsp + 0], rax
@@ -11799,6 +11802,7 @@ n807_define_β:                                                                j
 .Lx2268_1:              .quad            .Lx2268_1_s
 .Lx2268_1_s:            .string          ""
                                                                               jmp   .Lx2269_245
+#-----------------------------------------------------------------------------------------------------------------------
 pobj_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 160]            # pobj
                         mov              qword ptr [rsp + 0], rax
@@ -12350,6 +12354,7 @@ n858_define_β:                                                                j
 .Lx2343_1:              .quad            .Lx2343_1_s
 .Lx2343_1_s:            .string          ""
                                                                               jmp   .Lx2344_245
+#-----------------------------------------------------------------------------------------------------------------------
 parr_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 176]            # parr
                         mov              qword ptr [rsp + 0], rax
@@ -12901,6 +12906,7 @@ n909_define_β:                                                                j
 .Lx2418_1:              .quad            .Lx2418_1_s
 .Lx2418_1_s:            .string          ""
                                                                               jmp   .Lx2419_245
+#-----------------------------------------------------------------------------------------------------------------------
 ekey_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 192]            # ekey
                         mov              qword ptr [rsp + 0], rax
@@ -13211,6 +13217,7 @@ n933_define_β:                                                                j
 .Lx2456_1:              .quad            .Lx2456_1_s
 .Lx2456_1_s:            .string          "vb,kb,n,t,ka,i"
                                                                               jmp   .Lx2457_245
+#-----------------------------------------------------------------------------------------------------------------------
 eobj_α:                 sub              rsp, 144
                         mov              rax, qword ptr [r9 + 208]            # eobj
                         mov              qword ptr [rsp + 0], rax
@@ -14876,6 +14883,7 @@ n1054_define_β:                                                               j
 .Lx2627_1:              .quad            .Lx2627_1_s
 .Lx2627_1_s:            .string          "vb,n,a,i"
                                                                               jmp   .Lx2628_245
+#-----------------------------------------------------------------------------------------------------------------------
 earr_α:                 sub              rsp, 112
                         mov              rax, qword ptr [r9 + 304]            # earr
                         mov              qword ptr [rsp + 0], rax
@@ -16098,6 +16106,7 @@ n1142_define_β:                                                               j
 .Lx2755_1:              .quad            .Lx2755_1_s
 .Lx2755_1_s:            .string          ""
                                                                               jmp   .Lx2756_245
+#-----------------------------------------------------------------------------------------------------------------------
 estr_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 336]            # estr
                         mov              qword ptr [rsp + 0], rax
@@ -16408,6 +16417,7 @@ n1164_define_β:                                                               j
 .Lx2792_1:              .quad            .Lx2792_1_s
 .Lx2792_1_s:            .string          ""
                                                                               jmp   .Lx2793_245
+#-----------------------------------------------------------------------------------------------------------------------
 enum_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 352]            # enum
                         mov              qword ptr [rsp + 0], rax
@@ -17094,6 +17104,7 @@ n1211_define_β:                                                               j
 .Lx2868_1:              .quad            .Lx2868_1_s
 .Lx2868_1_s:            .string          ""
                                                                               jmp   .Lx2869_245
+#-----------------------------------------------------------------------------------------------------------------------
 etru_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 368]            # etru
                         mov              qword ptr [rsp + 0], rax
@@ -17371,6 +17382,7 @@ n1232_define_β:                                                               j
 .Lx2903_1:              .quad            .Lx2903_1_s
 .Lx2903_1_s:            .string          ""
                                                                               jmp   .Lx2904_245
+#-----------------------------------------------------------------------------------------------------------------------
 efal_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 384]            # efal
                         mov              qword ptr [rsp + 0], rax
@@ -17648,6 +17660,7 @@ n1253_define_β:                                                               j
 .Lx2938_1:              .quad            .Lx2938_1_s
 .Lx2938_1_s:            .string          ""
                                                                               jmp   .Lx2939_245
+#-----------------------------------------------------------------------------------------------------------------------
 enul_α:                 sub              rsp, 48
                         mov              rax, qword ptr [r9 + 400]            # enul
                         mov              qword ptr [rsp + 0], rax
