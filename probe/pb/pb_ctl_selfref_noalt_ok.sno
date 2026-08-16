@@ -1,0 +1,17 @@
+*  ============================================================================
+*  CONTROL for the PB-1s per-site snapshot class (s107).  GREEN -- must stay green.
+*  Each control removes exactly ONE ingredient from pb_selfref_alt_cycle.sno.
+*  ============================================================================
+*  INGREDIENT REMOVED: the ALT.  `mk = mk 'x'` lowers to IR_BINOP (binop=11) with NO
+*  SNO$MKPAT and NO PAT$n$V cell -- the value is consumed eagerly, so no cycle exists.
+*  This is what proves the ALT's role is to FORCE THE BLOB ROUTE, nothing more.
+        mk = LEN(0)
+        n = 0
+LP      n = n + 1
+        mk = mk 'x'
+        LT(n,2)                         :S(LP)
+        'xx' mk                         :F(NO)
+        OUTPUT = 'MATCHED noalt'        :(FIN)
+NO      OUTPUT = 'NOMATCH noalt'
+FIN
+END

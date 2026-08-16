@@ -1,0 +1,38 @@
+*  ============================================================================
+*  PB-1s PER-SITE SNAPSHOT CELL -- root cause verified s107 (Claude Opus 5).
+*  A pattern-valued statement that needs an MKPAT blob (an ALT is enough) has
+*  every plain variable reference snapshotted into a hidden global named per
+*  LOWERING SITE: "PAT$<blob>$V<i>" (lower_snobol4.c:2222 and :2504, "%s$V%d").
+*  The built pattern DEFER-reads that global BY NAME at match time.
+*  Manual p.85-86: each construction freezes ITS OWN values at construction
+*  time ("NPAT captures the value of variable N at the time of pattern
+*  construction"); only unary * defers.  One cell per SITE cannot do that.
+*  Oracle: /home/claude/x64/bin/sbl -b <file>
+*  ============================================================================
+*  RED -- SIG11 both modes (m3 == m4).  Self-referential accumulation at ONE site,
+*  executed TWICE.  Iteration 2 stores into PAT$1$V0 a pattern that ITSELF defers to
+*  PAT$1$V0 => cyclic structure => unbounded match recursion (~67MB stack) => SIG11.
+*  NOTE: contains NO variable reference in the ALT -- pure literals.  This FALSIFIES
+*  the s106 label "an ALT arm holding a snapshot-deferred plain ref": the plain ref is
+*  not an ingredient.  The ingredients are (1) an ALT (forces the MKPAT blob route),
+*  (2) SELF-REFERENCE of the assignment target, (3) the SAME site run twice.
+*
+*  ⭐ THIS IS THE MINIMAL FORM OF beauty_suite/case_driver (Milestone 1 blocker).
+*  case.sno:23 is this shape verbatim:
+*        icase = icase (upr(letter) | lwr(letter))      :(icase)
+*  self-reference + ALT + goto loop back to the SAME site.  FINGERPRINT MATCH: both
+*  this witness and case_driver.sno die at rsp=0x7ffffbffeff0 with an unwalkable
+*  backtrace (~67MB of stack consumed) -- the same exhaustion depth to the byte.
+*  ⛔ The upr()/lwr() CALLS IN THE ARMS ARE INCIDENTAL.  s98 / s105 / s106 each
+*  labelled case_driver an "eager call" defect; three sessions chased the calls.
+*  This witness crashes with pure literals and no call anywhere.
+        mk = LEN(0)
+        n = 0
+LP      n = n + 1
+        mk = mk ('X' | 'y')
+        LT(n,2)                         :S(LP)
+        'Xy' mk                         :F(NO)
+        OUTPUT = 'MATCHED cycle'        :(FIN)
+NO      OUTPUT = 'NOMATCH cycle'
+FIN
+END

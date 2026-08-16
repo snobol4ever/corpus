@@ -1,0 +1,14 @@
+*  ============================================================================
+*  CONTROL for the PB-1s per-site snapshot class (s107).  GREEN -- must stay green.
+*  Each control removes exactly ONE ingredient from pb_selfref_alt_cycle.sno.
+*  ============================================================================
+*  INGREDIENT REMOVED: site reuse.  Unrolled to TWO sites => two distinct cells
+*  (PAT$1$V0, PAT$2$V0) => no cycle.  Convicts the PER-SITE naming specifically.
+        mk = LEN(0)
+        mk = mk ('X' | 'y')
+        mk = mk ('X' | 'y')
+        'Xy' mk                         :F(NO)
+        OUTPUT = 'MATCHED unrolled'     :(FIN)
+NO      OUTPUT = 'NOMATCH unrolled'
+FIN
+END
