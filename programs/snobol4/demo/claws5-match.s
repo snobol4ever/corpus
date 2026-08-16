@@ -294,8 +294,7 @@ n22_match_arbno_as:     mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n26_match_alternate_β
                         mov              dword ptr [rbp + -60], r14d;         jmp   n23_match_rpos_α
 n22_match_arbno_af:     mov              eax, dword ptr [rbp + -64]
-                        cmp              r14d, eax;                           jne   n26_match_alternate_β
-                                                                              jmp   n21_match_pos_β
+                        cmp              r14d, eax;                           jmp   n21_match_pos_β
 #-----------------------------------------------------------------------------------------------------------------------
 n23_match_rpos_α:       mov              rax, 0
                         mov              ecx, r15d

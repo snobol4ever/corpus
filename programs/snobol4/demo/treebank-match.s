@@ -25,7 +25,7 @@ PAT$0_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_β:
-                                                                              jmp   PAT$0_ω
+                                                                              jmp   n0_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_γ:
                         sub              rsp, 8
@@ -68,7 +68,7 @@ PAT$1_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$1_β:
-                                                                              jmp   PAT$1_ω
+                                                                              jmp   n4_match_break_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$1_γ:
                         sub              rsp, 8
@@ -156,8 +156,7 @@ n10_match_arbno_as:     mov              eax, dword ptr [rbp + -28]
                         cmp              r14d, eax;                           je    n12_match_defer_β
                         mov              dword ptr [rbp + -28], r14d;         jmp   n11_match_lit_α
 n10_match_arbno_af:     mov              eax, dword ptr [rbp + -32]
-                        cmp              r14d, eax;                           jne   n12_match_defer_β
-                                                                              jmp   PAT$2_ω
+                        cmp              r14d, eax;                           jmp   n9_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_lit_α:        mov              eax, r14d
                         add              eax, 1
@@ -232,7 +231,7 @@ n13_match_alternate_as:                                                       jm
 n13_match_alternate_β:  mov              rax, qword ptr [rsp + 8];            jmp   rax
 n13_match_alternate_af: mov              r14d, dword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16];           jmp   rax
-.Lx25_19:               add              rsp, 32;                             jmp   n10_match_arbno_af
+.Lx25_19:               add              rsp, 32;                             jmp   n12_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n14_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 2
@@ -345,7 +344,7 @@ PAT$2_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$2_β:
-                                                                              jmp   PAT$2_ω
+                                                                              jmp   n11_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$2_γ:
                         mov              r10, qword ptr [rbp + -8]
@@ -384,14 +383,14 @@ n29_match_arbno_as:     mov              eax, dword ptr [rbp + -28]
                         cmp              r14d, eax;                           je    n31_match_arbno_β
                         mov              dword ptr [rbp + -28], r14d;         jmp   n30_match_rpos_α
 n29_match_arbno_af:     mov              eax, dword ptr [rbp + -32]
-                        cmp              r14d, eax;                           jne   n31_match_arbno_β
-                                                                              jmp   n28_match_pos_β
+                        cmp              r14d, eax;                           jmp   n28_match_pos_β
 #-----------------------------------------------------------------------------------------------------------------------
 n30_match_rpos_α:       mov              rax, 0
                         mov              ecx, r15d
                         sub              ecx, eax
                         cmp              r14d, ecx;                           jne   n29_match_arbno_β
                                                                               jmp   PAT$3_γ
+n30_match_rpos_β:                                                             jmp   n29_match_arbno_β
 #-----------------------------------------------------------------------------------------------------------------------
 n31_match_arbno_α:      mov              dword ptr [rbp + -48], r14d
                         mov              dword ptr [rbp + -44], r14d;         jmp   n32_match_defer_α
@@ -400,8 +399,7 @@ n31_match_arbno_as:     mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n33_match_defer_β
                         mov              dword ptr [rbp + -44], r14d;         jmp   n32_match_defer_α
 n31_match_arbno_af:     mov              eax, dword ptr [rbp + -48]
-                        cmp              r14d, eax;                           jne   n33_match_defer_β
-                                                                              jmp   n29_match_arbno_af
+                        cmp              r14d, eax;                           jmp   n29_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n32_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 0
@@ -514,7 +512,7 @@ PAT$3_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_β:
-                                                                              jmp   PAT$3_ω
+                                                                              jmp   n30_match_rpos_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_γ:
                         mov              r10, qword ptr [rbp + -8]
