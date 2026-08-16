@@ -1,0 +1,15 @@
+*  s114 WITNESS A -- the ADDRESS-ALIASING pair, arm 0 (NO padding statement).
+*  `F = EVAL('<literal>')` inside a DEFINE'd function.  m3 prints 2, oracle 3.
+*  Its twin ev_pad_alias_1.sno is THIS PROGRAM PLUS ONE UNRELATED ASSIGNMENT and
+*  prints 3.  The EVAL chain is byte-identical in both (n=6, region=64, jmp=1);
+*  only `armed` moves, 2/6 here vs 6/6 there (SCRIP_LP_DIAG=1).  The planner's
+*  per-node admission is therefore ADDRESS-DEPENDENT: the chain's freshly
+*  malloc'd IR_t land on nodes a previously-emitted graph freed, and stale
+*  pointer-keyed state declines them.  m4 prints 3 (its runtime process never
+*  lowered a main graph) so this is ALSO a GOAL-MODE34-IDENTICAL violation with
+*  m4 standing as the working reference for identical IR.
+        DEFINE('F(x)')
+        OUTPUT = F('ignored')
+        :(END)
+F       F = EVAL('1 + 2')                              :(RETURN)
+END
