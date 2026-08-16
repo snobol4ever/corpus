@@ -1,0 +1,19 @@
+*  seam_defer_rightmost_red — beauty.sno:225's shape: the rightmost element is a FUNCTION
+*  CALL in pattern position (IR_MATCH_DEFER), whose beta is `jmp qword ptr [rsp]` — a
+*  resume-THROUGH-RECORD, not a self-undo.  s124's first hypothesis was that entering it
+*  from PAT$N_beta would be a wild jump; MEASUREMENT REFUTED THAT — the record is live at
+*  seam arrival because the res stub restores rsp to the frontier the defer's own gamma
+*  left it at.  Kept as the standing witness for tier 3 of the carrier whitelist.
+        DEFINE('nPush()')                                     :(NPUSH_END)
+nPush   nPush = ''                                            :(RETURN)
+NPUSH_END
+        DEFINE('nPop()')                                      :(NPOP_END)
+nPop    nPop = ''                                             :(RETURN)
+NPOP_END
+        Command = 'a'
+        Parse   = nPush() ARBNO(*Command) nPop()
+        Src     = 'aaa'
+        Src POS(0) *Parse RPOS(0)                             :S(OK)F(NO)
+OK      OUTPUT = 'MATCH'                                      :(END)
+NO      OUTPUT = 'NOMATCH'
+END
