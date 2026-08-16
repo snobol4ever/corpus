@@ -6,6 +6,11 @@ FN__dofile:
                         mov              qword ptr [rsp + 3272], rcx
                         mov              qword ptr [rsp + 3280], rdx
                         mov              rdi, rsp
+                        add              rdi, 2960
+                        xor              eax, eax
+                        mov              ecx, 128
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 8
                         call             rt_icn_zframe_args_install@PLT
@@ -2180,6 +2185,11 @@ main_α:
                         sub              rsp, 816
                         mov              qword ptr [rsp + 792], rcx
                         mov              qword ptr [rsp + 800], rdx
+                        mov              rdi, rsp
+                        add              rdi, 688
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2

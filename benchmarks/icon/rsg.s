@@ -6,6 +6,11 @@ FN__alts:
                         mov              qword ptr [rsp + 584], rcx
                         mov              qword ptr [rsp + 592], rdx
                         mov              rdi, rsp
+                        add              rdi, 512
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
@@ -923,6 +928,11 @@ FN__defnon:
                         mov              qword ptr [rsp + 664], rcx
                         mov              qword ptr [rsp + 672], rdx
                         mov              rdi, rsp
+                        add              rdi, 576
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
@@ -1414,6 +1424,11 @@ FN__gener:
                         sub              rsp, 1856
                         mov              qword ptr [rsp + 1832], rcx
                         mov              qword ptr [rsp + 1840], rdx
+                        mov              rdi, rsp
+                        add              rdi, 1712
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
@@ -2391,6 +2406,11 @@ FN__generate:
                         mov              qword ptr [rsp + 952], rcx
                         mov              qword ptr [rsp + 960], rdx
                         mov              rdi, rsp
+                        add              rdi, 848
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
@@ -2919,6 +2939,11 @@ FN__getrhs:
                         mov              qword ptr [rsp + 360], rcx
                         mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
+                        add              rdi, 288
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
@@ -3123,6 +3148,11 @@ FN__grammar:
                         sub              rsp, 1536
                         mov              qword ptr [rsp + 1512], rcx
                         mov              qword ptr [rsp + 1520], rdx
+                        mov              rdi, rsp
+                        add              rdi, 1376
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
@@ -4068,6 +4098,11 @@ FN__listimage:
                         mov              qword ptr [rsp + 376], rcx
                         mov              qword ptr [rsp + 384], rdx
                         mov              rdi, rsp
+                        add              rdi, 272
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
@@ -4421,6 +4456,11 @@ FN__pwrite:
                         sub              rsp, 1808
                         mov              qword ptr [rsp + 1784], rcx
                         mov              qword ptr [rsp + 1792], rdx
+                        mov              rdi, rsp
+                        add              rdi, 1664
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 2
@@ -5308,6 +5348,11 @@ FN__source:
                         mov              qword ptr [rsp + 824], rcx
                         mov              qword ptr [rsp + 832], rdx
                         mov              rdi, rsp
+                        add              rdi, 720
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
@@ -5736,6 +5781,11 @@ FN__symimage:
                         mov              qword ptr [rsp + 632], rcx
                         mov              qword ptr [rsp + 640], rdx
                         mov              rdi, rsp
+                        add              rdi, 576
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -6088,6 +6138,11 @@ FN__syms:
                         sub              rsp, 960
                         mov              qword ptr [rsp + 936], rcx
                         mov              qword ptr [rsp + 944], rdx
+                        mov              rdi, rsp
+                        add              rdi, 864
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 1
@@ -6775,6 +6830,11 @@ FN__options:
                         sub              rsp, 2928
                         mov              qword ptr [rsp + 2904], rcx
                         mov              qword ptr [rsp + 2912], rdx
+                        mov              rdi, rsp
+                        add              rdi, 2608
+                        xor              eax, eax
+                        mov              ecx, 128
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 7
@@ -8352,6 +8412,11 @@ FN__Init__:
                         mov              qword ptr [rsp + 472], rcx
                         mov              qword ptr [rsp + 480], rdx
                         mov              rdi, rsp
+                        add              rdi, 400
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -8666,6 +8731,11 @@ FN__Term__:
                         mov              qword ptr [rsp + 504], rcx
                         mov              qword ptr [rsp + 512], rdx
                         mov              rdi, rsp
+                        add              rdi, 448
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -8968,6 +9038,11 @@ FN__Collections__:
                         sub              rsp, 976
                         mov              qword ptr [rsp + 952], rcx
                         mov              qword ptr [rsp + 960], rdx
+                        mov              rdi, rsp
+                        add              rdi, 880
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
@@ -9455,6 +9530,11 @@ FN__Regions__:
                         sub              rsp, 944
                         mov              qword ptr [rsp + 920], rcx
                         mov              qword ptr [rsp + 928], rdx
+                        mov              rdi, rsp
+                        add              rdi, 848
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
@@ -10107,6 +10187,11 @@ FN__Storage__:
                         sub              rsp, 944
                         mov              qword ptr [rsp + 920], rcx
                         mov              qword ptr [rsp + 928], rdx
+                        mov              rdi, rsp
+                        add              rdi, 848
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
@@ -11408,6 +11493,11 @@ main_α:
                         sub              rsp, 3168
                         mov              qword ptr [rsp + 3144], rcx
                         mov              qword ptr [rsp + 3152], rdx
+                        mov              rdi, rsp
+                        add              rdi, 2992
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 4

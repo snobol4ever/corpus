@@ -6,6 +6,11 @@ FN__event:
                         mov              qword ptr [rsp + 952], rcx
                         mov              qword ptr [rsp + 960], rdx
                         mov              rdi, rsp
+                        add              rdi, 832
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
@@ -893,6 +898,11 @@ FN__gedload:
                         sub              rsp, 2832
                         mov              qword ptr [rsp + 2808], rcx
                         mov              qword ptr [rsp + 2816], rdx
+                        mov              rdi, rsp
+                        add              rdi, 2496
+                        xor              eax, eax
+                        mov              ecx, 144
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 8
@@ -2369,6 +2379,11 @@ FN__gedscan:
                         sub              rsp, 1440
                         mov              qword ptr [rsp + 1416], rcx
                         mov              qword ptr [rsp + 1424], rdx
+                        mov              rdi, rsp
+                        add              rdi, 1248
+                        xor              eax, eax
+                        mov              ecx, 64
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 4
@@ -4276,6 +4291,11 @@ FN__gedfnf:
                         mov              qword ptr [rsp + 1288], rcx
                         mov              qword ptr [rsp + 1296], rdx
                         mov              rdi, rsp
+                        add              rdi, 1152
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
@@ -5211,6 +5231,11 @@ FN__gedlnf:
                         mov              qword ptr [rsp + 1144], rcx
                         mov              qword ptr [rsp + 1152], rdx
                         mov              rdi, rsp
+                        add              rdi, 1008
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
@@ -6030,6 +6055,11 @@ FN__geddate:
                         sub              rsp, 2752
                         mov              qword ptr [rsp + 2728], rcx
                         mov              qword ptr [rsp + 2736], rdx
+                        mov              rdi, rsp
+                        add              rdi, 2592
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 3
@@ -8110,6 +8140,11 @@ main_α:
                         sub              rsp, 5248
                         mov              qword ptr [rsp + 5224], rcx
                         mov              qword ptr [rsp + 5232], rdx
+                        mov              rdi, rsp
+                        add              rdi, 4896
+                        xor              eax, eax
+                        mov              ecx, 128
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 10

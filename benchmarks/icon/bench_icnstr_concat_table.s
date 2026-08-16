@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 632], rcx
                         mov              qword ptr [rsp + 640], rdx
                         mov              rdi, rsp
+                        add              rdi, 512
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
