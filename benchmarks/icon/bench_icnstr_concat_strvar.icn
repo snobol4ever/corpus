@@ -1,0 +1,6 @@
+procedure main()
+  local i, t, s;
+  s := "ijklmnop";
+  every i := 1 to 2000000 do { t := "abcdefgh" || s; }
+  write(*t);
+end

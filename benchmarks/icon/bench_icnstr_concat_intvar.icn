@@ -1,0 +1,6 @@
+procedure main()
+  local i, t, n;
+  n := 12345;
+  every i := 1 to 2000000 do { t := "abcdefgh" || n; }
+  write(*t);
+end
