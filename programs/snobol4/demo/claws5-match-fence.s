@@ -9,6 +9,7 @@ proc_PAT$0_α_body:
                         sub              rsp, 40
                         mov              qword ptr [rbp + -8], r10
                         mov              qword ptr [rbp + -16], r11
+                        mov              qword ptr [rbp + -24], rdx
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_pos_α:         mov              rax, 0
                         cmp              r14d, eax;                           jne   proc_PAT$0_ω
@@ -536,12 +537,15 @@ n63_match_defer_α:      lea              rdi, [rip + .S0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_defer_get_pat_fn@PLT
+                        call             rt_defer_get_pat_dtp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            jz    .Lx116_0
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx116_14
+                        mov              rax, qword ptr [rdx + 0]
+.Lx116_14:              test             rax, rax;                            jz    .Lx116_0
                         mov              r8d, 1
                         lea              r10, [rip + .Lx116_4]
                         lea              r11, [rip + .Lx116_5];               jmp   rax
