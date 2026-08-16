@@ -312,7 +312,31 @@ n29_lit_integer_β:      add              rsp, 16;                             j
 .Lx105_0:               .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n30_binop_α:            sub              rsp, 16
-                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              eax, dword ptr [rsp + 32]            # var
+                        mov              ecx, dword ptr [rsp + 16]            # lit_integer
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx106_2
+                        mov              rax, qword ptr [rsp + 40]            # var
+                        mov              rdx, qword ptr [rsp + 24]            # lit_integer
+                        add              rax, rdx
+                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rsp + 8], rax;            jmp   .Lx106_7
+.Lx106_2:               and              edx, 1;                              jz    .Lx106_0
+                        mov              rsi, qword ptr [rsp + 40]            # var
+                        mov              rdi, qword ptr [rsp + 24]            # lit_integer
+                        cmp              eax, 5;                              je    .Lx106_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx106_4
+.Lx106_3:               movq             xmm0, rsi
+.Lx106_4:               cmp              ecx, 5;                              je    .Lx106_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx106_6
+.Lx106_5:               movq             xmm1, rdi
+.Lx106_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 0], 5               # result
+                        mov              qword ptr [rsp + 8], rax
+.Lx106_7:                                                                     jmp   n31_binop_α
+.Lx106_0:               mov              rdi, qword ptr [rsp + 32]            # var
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # lit_integer
                         mov              rcx, qword ptr [rsp + 24]
@@ -526,7 +550,31 @@ n54_var_α:              sub              rsp, 16
 n54_var_β:              add              rsp, 16;                             jmp   n53_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n55_binop_α:            sub              rsp, 16
-                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              eax, dword ptr [rsp + 32]            # var
+                        mov              ecx, dword ptr [rsp + 16]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx143_2
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 24]
+                        sub              rax, rdx
+                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rsp + 8], rax;            jmp   .Lx143_7
+.Lx143_2:               and              edx, 1;                              jz    .Lx143_0
+                        mov              rsi, qword ptr [rsp + 40]            # var
+                        mov              rdi, qword ptr [rsp + 24]
+                        cmp              eax, 5;                              je    .Lx143_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx143_4
+.Lx143_3:               movq             xmm0, rsi
+.Lx143_4:               cmp              ecx, 5;                              je    .Lx143_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx143_6
+.Lx143_5:               movq             xmm1, rdi
+.Lx143_6:               subsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 0], 5               # result
+                        mov              qword ptr [rsp + 8], rax
+.Lx143_7:                                                                     jmp   n56_binop_α
+.Lx143_0:               mov              rdi, qword ptr [rsp + 32]            # var
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
