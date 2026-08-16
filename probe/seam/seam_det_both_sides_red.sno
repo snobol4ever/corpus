@@ -1,0 +1,8 @@
+*  seam_det_both_sides_red — beauty's structural shape with NO function calls: generator buried mid-SEQ.
+        Command = 'a'
+        Parse   = LEN(0) ARBNO(*Command) LEN(0)
+        Src     = 'aaa'
+        Src POS(0) *Parse RPOS(0)                             :S(OK)F(NO)
+OK      OUTPUT = 'MATCH'                                      :(END)
+NO      OUTPUT = 'NOMATCH'
+END
