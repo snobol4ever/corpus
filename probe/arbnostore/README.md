@@ -138,3 +138,5 @@ report it, do not average it away.
 `.ref` files are live SPITBOL x64 oracle output (`sbl -b`), regenerable, never pinned goldens.
 
 Watermark at mint (SCRIP `07f8cbbc`): 3 RED / 4 GREEN, stable over 12 runs each.
+
+- `defer_star_arb_red` — manual p.122 shape: `Q = *P 'X'` with P=ARB stored; the star-of-generator resume through the blob.  RED at default; GREEN under `SCRIP_DEFER_RESUME=1` (s121).  Was the SEQ-RESUME-GATE comment's own named hang (`rc=124`), now a clean extend.

@@ -1,0 +1,6 @@
+	P = ARB
+	Q = *P 'X'
+	'aaX' POS(0) Q RPOS(0)	:S(OK)F(NO)
+OK	OUTPUT = 'MATCH'	:(END)
+NO	OUTPUT = 'NOMATCH'	:(END)
+END
