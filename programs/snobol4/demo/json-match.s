@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$0_α
-proc_PAT$0_α:
+FN__PAT$0:
 proc_PAT$0_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_alternate_α:   sub              rsp, 32
@@ -55,8 +54,7 @@ proc_PAT$0_γ:
 proc_PAT$0_ω:
                                                                               jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$1_α
-proc_PAT$1_α:
+FN__PAT$1:
 proc_PAT$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_match_break_α:       sub              rsp, 16
@@ -90,8 +88,7 @@ proc_PAT$1_γ:
 proc_PAT$1_ω:
                                                                               jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$2_α
-proc_PAT$2_α:
+FN__PAT$2:
 proc_PAT$2_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -378,8 +375,7 @@ proc_PAT$2_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$3_α
-proc_PAT$3_α:
+FN__PAT$3:
 proc_PAT$3_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -595,8 +591,7 @@ proc_PAT$3_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$4_α
-proc_PAT$4_α:
+FN__PAT$4:
 proc_PAT$4_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -973,8 +968,7 @@ proc_PAT$4_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$5_α
-proc_PAT$5_α:
+FN__PAT$5:
 proc_PAT$5_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -1458,8 +1452,7 @@ proc_PAT$5_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$6_α
-proc_PAT$6_α:
+FN__PAT$6:
 proc_PAT$6_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -1867,8 +1860,7 @@ proc_PAT$6_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$7_α
-proc_PAT$7_α:
+FN__PAT$7:
 proc_PAT$7_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -2286,8 +2278,7 @@ proc_PAT$7_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$8_α
-proc_PAT$8_α:
+FN__PAT$8:
 proc_PAT$8_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -2818,8 +2809,7 @@ proc_PAT$8_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$9_α
-proc_PAT$9_α:
+FN__PAT$9:
 proc_PAT$9_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -3188,8 +3178,7 @@ proc_PAT$9_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$10_α
-proc_PAT$10_α:
+FN__PAT$10:
 proc_PAT$10_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -3347,7 +3336,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_PAT$0_α]
+                        lea              rsi, [rip + FN__PAT$0]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -3369,7 +3358,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + proc_PAT$1_α]
+                        lea              rsi, [rip + FN__PAT$1]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 0
@@ -3391,7 +3380,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + proc_PAT$2_α]
+                        lea              rsi, [rip + FN__PAT$2]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 0
@@ -3413,7 +3402,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname3]
-                        lea              rsi, [rip + proc_PAT$3_α]
+                        lea              rsi, [rip + FN__PAT$3]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 0
@@ -3432,7 +3421,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname4]
-                        lea              rsi, [rip + proc_PAT$4_α]
+                        lea              rsi, [rip + FN__PAT$4]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
                         mov              esi, 0
@@ -3451,7 +3440,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname5]
-                        lea              rsi, [rip + proc_PAT$5_α]
+                        lea              rsi, [rip + FN__PAT$5]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
                         mov              esi, 0
@@ -3470,7 +3459,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname6]
-                        lea              rsi, [rip + proc_PAT$6_α]
+                        lea              rsi, [rip + FN__PAT$6]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
                         mov              esi, 0
@@ -3489,7 +3478,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname7]
-                        lea              rsi, [rip + proc_PAT$7_α]
+                        lea              rsi, [rip + FN__PAT$7]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
                         mov              esi, 0
@@ -3508,7 +3497,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname8]
-                        lea              rsi, [rip + proc_PAT$8_α]
+                        lea              rsi, [rip + FN__PAT$8]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname8]
                         mov              esi, 0
@@ -3527,7 +3516,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname9]
-                        lea              rsi, [rip + proc_PAT$9_α]
+                        lea              rsi, [rip + FN__PAT$9]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname9]
                         mov              esi, 0
@@ -3546,7 +3535,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname10]
-                        lea              rsi, [rip + proc_PAT$10_α]
+                        lea              rsi, [rip + FN__PAT$10]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname10]
                         mov              esi, 0

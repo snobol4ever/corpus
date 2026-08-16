@@ -1,16 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_stk_push_frame_α
-proc_stk_push_frame_α:
+FN__stk_push_frame:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_save_restore_α:                                                            jmp   n1_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_goto_deferred_α:     lea              rax, [rip + stk_push_frame_body];    jmp   rax
+n1_goto_deferred_α:     lea              rax, [rip + LBL__stk_push_frame];    jmp   rax
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-stk_push_frame_alpha:   sub              rsp, 64
+stk_push_frame_α:       sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # stk_push_frame
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -39,12 +38,12 @@ stk_push_frame_alpha:   sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx8_41:                lea              r10, [rip + stk_push_frame_gamma]
-                        lea              r11, [rip + stk_push_frame_omega]
+.Lx8_41:                lea              r10, [rip + stk_push_frame_γ]
+                        lea              r11, [rip + stk_push_frame_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + stk_push_frame_body];    jmp   rax
-stk_push_frame_gamma:   mov              rdi, qword ptr [r9 + 0]              # stk_push_frame
+                        lea              rax, [rip + LBL__stk_push_frame];    jmp   rax
+stk_push_frame_γ:       mov              rdi, qword ptr [r9 + 0]              # stk_push_frame
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -70,7 +69,7 @@ stk_push_frame_gamma:   mov              rdi, qword ptr [r9 + 0]              # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-stk_push_frame_omega:   mov              rcx, qword ptr [rsp + 32]
+stk_push_frame_ω:       mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -96,16 +95,15 @@ stk_push_frame_omega:   mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_stk_push_item_α
-proc_stk_push_item_α:
+FN__stk_push_item:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_save_restore_α:                                                            jmp   n10_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n10_goto_deferred_α:    lea              rax, [rip + stk_push_item_body];     jmp   rax
+n10_goto_deferred_α:    lea              rax, [rip + LBL__stk_push_item];     jmp   rax
                                                                               jmp   n11_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_save_restore_α:
-stk_push_item_alpha:    sub              rsp, 80
+stk_push_item_α:        sub              rsp, 80
                         mov              rax, qword ptr [r9 + 32]             # stk_push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 40]
@@ -151,12 +149,12 @@ stk_push_item_alpha:    sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx17_42:               lea              r10, [rip + stk_push_item_gamma]
-                        lea              r11, [rip + stk_push_item_omega]
+.Lx17_42:               lea              r10, [rip + stk_push_item_γ]
+                        lea              r11, [rip + stk_push_item_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + stk_push_item_body];     jmp   rax
-stk_push_item_gamma:    mov              rdi, qword ptr [r9 + 32]             # stk_push_item
+                        lea              rax, [rip + LBL__stk_push_item];     jmp   rax
+stk_push_item_γ:        mov              rdi, qword ptr [r9 + 32]             # stk_push_item
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -193,7 +191,7 @@ stk_push_item_gamma:    mov              rdi, qword ptr [r9 + 32]             # 
                         add              rsp, 80
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-stk_push_item_omega:    mov              rcx, qword ptr [rsp + 32]
+stk_push_item_ω:        mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 80]
                         mov              rax, qword ptr [rsp + 0]
@@ -230,18 +228,16 @@ stk_push_item_omega:    mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_stk_pop_into_parent_α
-proc_stk_pop_into_parent_α:
+FN__stk_pop_into_parent:
 #-----------------------------------------------------------------------------------------------------------------------
 n18_save_restore_α:                                                           jmp   n19_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n19_goto_deferred_α:    lea              rax, [rip + stk_pop_into_parent_body]
+n19_goto_deferred_α:    lea              rax, [rip + LBL__stk_pop_into_parent]
                                                                               jmp   rax
                                                                               jmp   n20_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n20_save_restore_α:
-stk_pop_into_parent_alpha:
-                        sub              rsp, 96
+stk_pop_into_parent_α:  sub              rsp, 96
                         mov              rax, qword ptr [r9 + 64]             # stk_pop_into_parent
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 72]
@@ -304,14 +300,13 @@ stk_pop_into_parent_alpha:
                         mov              qword ptr [rsp + 88], rax
                         mov              qword ptr [r9 + 112], 0
                         mov              qword ptr [r9 + 120], 0
-.Lx26_43:               lea              r10, [rip + stk_pop_into_parent_gamma]
-                        lea              r11, [rip + stk_pop_into_parent_omega]
+.Lx26_43:               lea              r10, [rip + stk_pop_into_parent_γ]
+                        lea              r11, [rip + stk_pop_into_parent_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + stk_pop_into_parent_body]
+                        lea              rax, [rip + LBL__stk_pop_into_parent]
                                                                               jmp   rax
-stk_pop_into_parent_gamma:
-                        mov              rdi, qword ptr [r9 + 64]             # stk_pop_into_parent
+stk_pop_into_parent_γ:  mov              rdi, qword ptr [r9 + 64]             # stk_pop_into_parent
                         mov              rsi, qword ptr [r9 + 72]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -359,8 +354,7 @@ stk_pop_into_parent_gamma:
                         add              rsp, 96
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-stk_pop_into_parent_omega:
-                        mov              rcx, qword ptr [rsp + 32]
+stk_pop_into_parent_ω:  mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 96]
                         mov              rax, qword ptr [rsp + 0]
@@ -408,16 +402,15 @@ stk_pop_into_parent_omega:
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_stk_pop_final_α
-proc_stk_pop_final_α:
+FN__stk_pop_final:
 #-----------------------------------------------------------------------------------------------------------------------
 n27_save_restore_α:                                                           jmp   n28_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n28_goto_deferred_α:    lea              rax, [rip + stk_pop_final_body];     jmp   rax
+n28_goto_deferred_α:    lea              rax, [rip + LBL__stk_pop_final];     jmp   rax
                                                                               jmp   n29_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_save_restore_α:
-stk_pop_final_alpha:    sub              rsp, 80
+stk_pop_final_α:        sub              rsp, 80
                         mov              rax, qword ptr [r9 + 128]            # stk_pop_final
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 136]
@@ -463,12 +456,12 @@ stk_pop_final_alpha:    sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx35_42:               lea              r10, [rip + stk_pop_final_gamma]
-                        lea              r11, [rip + stk_pop_final_omega]
+.Lx35_42:               lea              r10, [rip + stk_pop_final_γ]
+                        lea              r11, [rip + stk_pop_final_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + stk_pop_final_body];     jmp   rax
-stk_pop_final_gamma:    mov              rdi, qword ptr [r9 + 128]            # stk_pop_final
+                        lea              rax, [rip + LBL__stk_pop_final];     jmp   rax
+stk_pop_final_γ:        mov              rdi, qword ptr [r9 + 128]            # stk_pop_final
                         mov              rsi, qword ptr [r9 + 136]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -505,7 +498,7 @@ stk_pop_final_gamma:    mov              rdi, qword ptr [r9 + 128]            # 
                         add              rsp, 80
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-stk_pop_final_omega:    mov              rcx, qword ptr [rsp + 32]
+stk_pop_final_ω:        mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 80]
                         mov              rax, qword ptr [rsp + 0]
@@ -542,16 +535,15 @@ stk_pop_final_omega:    mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_init_list_α
-proc_init_list_α:
+FN__init_list:
 #-----------------------------------------------------------------------------------------------------------------------
 n36_save_restore_α:                                                           jmp   n37_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n37_goto_deferred_α:    lea              rax, [rip + init_list_body];         jmp   rax
+n37_goto_deferred_α:    lea              rax, [rip + LBL__init_list];         jmp   rax
                                                                               jmp   n38_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n38_save_restore_α:
-init_list_alpha:        sub              rsp, 64
+init_list_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 160]            # init_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 168]
@@ -580,12 +572,12 @@ init_list_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx44_41:               lea              r10, [rip + init_list_gamma]
-                        lea              r11, [rip + init_list_omega]
+.Lx44_41:               lea              r10, [rip + init_list_γ]
+                        lea              r11, [rip + init_list_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + init_list_body];         jmp   rax
-init_list_gamma:        mov              rdi, qword ptr [r9 + 160]            # init_list
+                        lea              rax, [rip + LBL__init_list];         jmp   rax
+init_list_γ:            mov              rdi, qword ptr [r9 + 160]            # init_list
                         mov              rsi, qword ptr [r9 + 168]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -611,7 +603,7 @@ init_list_gamma:        mov              rdi, qword ptr [r9 + 160]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-init_list_omega:        mov              rcx, qword ptr [rsp + 32]
+init_list_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -637,16 +629,15 @@ init_list_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Init_list_α
-proc_Init_list_α:
+FN__Init_list:
 #-----------------------------------------------------------------------------------------------------------------------
 n45_save_restore_α:                                                           jmp   n46_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n46_goto_deferred_α:    lea              rax, [rip + Init_list_body];         jmp   rax
+n46_goto_deferred_α:    lea              rax, [rip + LBL__Init_list];         jmp   rax
                                                                               jmp   n47_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n47_save_restore_α:
-Init_list_alpha:        sub              rsp, 64
+Init_list_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 176]            # Init_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 184]
@@ -675,12 +666,12 @@ Init_list_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
-.Lx53_41:               lea              r10, [rip + Init_list_gamma]
-                        lea              r11, [rip + Init_list_omega]
+.Lx53_41:               lea              r10, [rip + Init_list_γ]
+                        lea              r11, [rip + Init_list_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + Init_list_body];         jmp   rax
-Init_list_gamma:        mov              rdi, qword ptr [r9 + 176]            # Init_list
+                        lea              rax, [rip + LBL__Init_list];         jmp   rax
+Init_list_γ:            mov              rdi, qword ptr [r9 + 176]            # Init_list
                         mov              rsi, qword ptr [r9 + 184]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -706,7 +697,7 @@ Init_list_gamma:        mov              rdi, qword ptr [r9 + 176]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-Init_list_omega:        mov              rcx, qword ptr [rsp + 32]
+Init_list_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -732,16 +723,15 @@ Init_list_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_push_list_α
-proc_push_list_α:
+FN__push_list:
 #-----------------------------------------------------------------------------------------------------------------------
 n54_save_restore_α:                                                           jmp   n55_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n55_goto_deferred_α:    lea              rax, [rip + push_list_body];         jmp   rax
+n55_goto_deferred_α:    lea              rax, [rip + LBL__push_list];         jmp   rax
                                                                               jmp   n56_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n56_save_restore_α:
-push_list_alpha:        sub              rsp, 64
+push_list_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 208]            # push_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 216]
@@ -770,12 +760,12 @@ push_list_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx62_41:               lea              r10, [rip + push_list_gamma]
-                        lea              r11, [rip + push_list_omega]
+.Lx62_41:               lea              r10, [rip + push_list_γ]
+                        lea              r11, [rip + push_list_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + push_list_body];         jmp   rax
-push_list_gamma:        mov              rdi, qword ptr [r9 + 208]            # push_list
+                        lea              rax, [rip + LBL__push_list];         jmp   rax
+push_list_γ:            mov              rdi, qword ptr [r9 + 208]            # push_list
                         mov              rsi, qword ptr [r9 + 216]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -801,7 +791,7 @@ push_list_gamma:        mov              rdi, qword ptr [r9 + 208]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-push_list_omega:        mov              rcx, qword ptr [rsp + 32]
+push_list_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -827,16 +817,15 @@ push_list_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Push_list_α
-proc_Push_list_α:
+FN__Push_list:
 #-----------------------------------------------------------------------------------------------------------------------
 n63_save_restore_α:                                                           jmp   n64_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n64_goto_deferred_α:    lea              rax, [rip + Push_list_body];         jmp   rax
+n64_goto_deferred_α:    lea              rax, [rip + LBL__Push_list];         jmp   rax
                                                                               jmp   n65_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n65_save_restore_α:
-Push_list_alpha:        sub              rsp, 64
+Push_list_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 224]            # Push_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 232]
@@ -865,12 +854,12 @@ Push_list_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
-.Lx71_41:               lea              r10, [rip + Push_list_gamma]
-                        lea              r11, [rip + Push_list_omega]
+.Lx71_41:               lea              r10, [rip + Push_list_γ]
+                        lea              r11, [rip + Push_list_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + Push_list_body];         jmp   rax
-Push_list_gamma:        mov              rdi, qword ptr [r9 + 224]            # Push_list
+                        lea              rax, [rip + LBL__Push_list];         jmp   rax
+Push_list_γ:            mov              rdi, qword ptr [r9 + 224]            # Push_list
                         mov              rsi, qword ptr [r9 + 232]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -896,7 +885,7 @@ Push_list_gamma:        mov              rdi, qword ptr [r9 + 224]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-Push_list_omega:        mov              rcx, qword ptr [rsp + 32]
+Push_list_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -922,16 +911,15 @@ Push_list_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_push_item_α
-proc_push_item_α:
+FN__push_item:
 #-----------------------------------------------------------------------------------------------------------------------
 n72_save_restore_α:                                                           jmp   n73_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n73_goto_deferred_α:    lea              rax, [rip + push_item_body];         jmp   rax
+n73_goto_deferred_α:    lea              rax, [rip + LBL__push_item];         jmp   rax
                                                                               jmp   n74_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n74_save_restore_α:
-push_item_alpha:        sub              rsp, 64
+push_item_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 240]            # push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 248]
@@ -960,12 +948,12 @@ push_item_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx80_41:               lea              r10, [rip + push_item_gamma]
-                        lea              r11, [rip + push_item_omega]
+.Lx80_41:               lea              r10, [rip + push_item_γ]
+                        lea              r11, [rip + push_item_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + push_item_body];         jmp   rax
-push_item_gamma:        mov              rdi, qword ptr [r9 + 240]            # push_item
+                        lea              rax, [rip + LBL__push_item];         jmp   rax
+push_item_γ:            mov              rdi, qword ptr [r9 + 240]            # push_item
                         mov              rsi, qword ptr [r9 + 248]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -991,7 +979,7 @@ push_item_gamma:        mov              rdi, qword ptr [r9 + 240]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-push_item_omega:        mov              rcx, qword ptr [rsp + 32]
+push_item_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -1017,16 +1005,15 @@ push_item_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Push_item_α
-proc_Push_item_α:
+FN__Push_item:
 #-----------------------------------------------------------------------------------------------------------------------
 n81_save_restore_α:                                                           jmp   n82_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n82_goto_deferred_α:    lea              rax, [rip + Push_item_body];         jmp   rax
+n82_goto_deferred_α:    lea              rax, [rip + LBL__Push_item];         jmp   rax
                                                                               jmp   n83_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n83_save_restore_α:
-Push_item_alpha:        sub              rsp, 64
+Push_item_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 256]            # Push_item
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 264]
@@ -1055,12 +1042,12 @@ Push_item_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
-.Lx89_41:               lea              r10, [rip + Push_item_gamma]
-                        lea              r11, [rip + Push_item_omega]
+.Lx89_41:               lea              r10, [rip + Push_item_γ]
+                        lea              r11, [rip + Push_item_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + Push_item_body];         jmp   rax
-Push_item_gamma:        mov              rdi, qword ptr [r9 + 256]            # Push_item
+                        lea              rax, [rip + LBL__Push_item];         jmp   rax
+Push_item_γ:            mov              rdi, qword ptr [r9 + 256]            # Push_item
                         mov              rsi, qword ptr [r9 + 264]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1086,7 +1073,7 @@ Push_item_gamma:        mov              rdi, qword ptr [r9 + 256]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-Push_item_omega:        mov              rcx, qword ptr [rsp + 32]
+Push_item_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -1112,16 +1099,15 @@ Push_item_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_pop_list_α
-proc_pop_list_α:
+FN__pop_list:
 #-----------------------------------------------------------------------------------------------------------------------
 n90_save_restore_α:                                                           jmp   n91_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n91_goto_deferred_α:    lea              rax, [rip + pop_list_body];          jmp   rax
+n91_goto_deferred_α:    lea              rax, [rip + LBL__pop_list];          jmp   rax
                                                                               jmp   n92_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n92_save_restore_α:
-pop_list_alpha:         sub              rsp, 48
+pop_list_α:             sub              rsp, 48
                         mov              rax, qword ptr [r9 + 272]            # pop_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 280]
@@ -1133,12 +1119,12 @@ pop_list_alpha:         sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + pop_list_gamma]
-                        lea              r11, [rip + pop_list_omega]
+                        lea              r10, [rip + pop_list_γ]
+                        lea              r11, [rip + pop_list_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + pop_list_body];          jmp   rax
-pop_list_gamma:         mov              rdi, qword ptr [r9 + 272]
+                        lea              rax, [rip + LBL__pop_list];          jmp   rax
+pop_list_γ:             mov              rdi, qword ptr [r9 + 272]
                         mov              rsi, qword ptr [r9 + 280]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1153,7 +1139,7 @@ pop_list_gamma:         mov              rdi, qword ptr [r9 + 272]
                         add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-pop_list_omega:         mov              rcx, qword ptr [rsp + 32]
+pop_list_ω:             mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
@@ -1168,16 +1154,15 @@ pop_list_omega:         mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Pop_list_α
-proc_Pop_list_α:
+FN__Pop_list:
 #-----------------------------------------------------------------------------------------------------------------------
 n99_save_restore_α:                                                           jmp   n100_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n100_goto_deferred_α:   lea              rax, [rip + Pop_list_body];          jmp   rax
+n100_goto_deferred_α:   lea              rax, [rip + LBL__Pop_list];          jmp   rax
                                                                               jmp   n101_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n101_save_restore_α:
-Pop_list_alpha:         sub              rsp, 48
+Pop_list_α:             sub              rsp, 48
                         mov              rax, qword ptr [r9 + 288]            # Pop_list
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 296]
@@ -1189,12 +1174,12 @@ Pop_list_alpha:         sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + Pop_list_gamma]
-                        lea              r11, [rip + Pop_list_omega]
+                        lea              r10, [rip + Pop_list_γ]
+                        lea              r11, [rip + Pop_list_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + Pop_list_body];          jmp   rax
-Pop_list_gamma:         mov              rdi, qword ptr [r9 + 288]
+                        lea              rax, [rip + LBL__Pop_list];          jmp   rax
+Pop_list_γ:             mov              rdi, qword ptr [r9 + 288]
                         mov              rsi, qword ptr [r9 + 296]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1209,7 +1194,7 @@ Pop_list_gamma:         mov              rdi, qword ptr [r9 + 288]
                         add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-Pop_list_omega:         mov              rcx, qword ptr [rsp + 32]
+Pop_list_ω:             mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
@@ -1224,16 +1209,15 @@ Pop_list_omega:         mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_pop_final_α
-proc_pop_final_α:
+FN__pop_final:
 #-----------------------------------------------------------------------------------------------------------------------
 n108_save_restore_α:                                                          jmp   n109_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n109_goto_deferred_α:   lea              rax, [rip + pop_final_body];         jmp   rax
+n109_goto_deferred_α:   lea              rax, [rip + LBL__pop_final];         jmp   rax
                                                                               jmp   n110_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n110_save_restore_α:
-pop_final_alpha:        sub              rsp, 64
+pop_final_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 304]            # pop_final
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 312]
@@ -1262,12 +1246,12 @@ pop_final_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx116_41:              lea              r10, [rip + pop_final_gamma]
-                        lea              r11, [rip + pop_final_omega]
+.Lx116_41:              lea              r10, [rip + pop_final_γ]
+                        lea              r11, [rip + pop_final_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + pop_final_body];         jmp   rax
-pop_final_gamma:        mov              rdi, qword ptr [r9 + 304]            # pop_final
+                        lea              rax, [rip + LBL__pop_final];         jmp   rax
+pop_final_γ:            mov              rdi, qword ptr [r9 + 304]            # pop_final
                         mov              rsi, qword ptr [r9 + 312]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1293,7 +1277,7 @@ pop_final_gamma:        mov              rdi, qword ptr [r9 + 304]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-pop_final_omega:        mov              rcx, qword ptr [rsp + 32]
+pop_final_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -1319,16 +1303,15 @@ pop_final_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_Pop_final_α
-proc_Pop_final_α:
+FN__Pop_final:
 #-----------------------------------------------------------------------------------------------------------------------
 n117_save_restore_α:                                                          jmp   n118_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n118_goto_deferred_α:   lea              rax, [rip + Pop_final_body];         jmp   rax
+n118_goto_deferred_α:   lea              rax, [rip + LBL__Pop_final];         jmp   rax
                                                                               jmp   n119_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n119_save_restore_α:
-Pop_final_alpha:        sub              rsp, 64
+Pop_final_α:            sub              rsp, 64
                         mov              rax, qword ptr [r9 + 320]            # Pop_final
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 328]
@@ -1357,12 +1340,12 @@ Pop_final_alpha:        sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 192], 0
                         mov              qword ptr [r9 + 200], 0
-.Lx125_41:              lea              r10, [rip + Pop_final_gamma]
-                        lea              r11, [rip + Pop_final_omega]
+.Lx125_41:              lea              r10, [rip + Pop_final_γ]
+                        lea              r11, [rip + Pop_final_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + Pop_final_body];         jmp   rax
-Pop_final_gamma:        mov              rdi, qword ptr [r9 + 320]            # Pop_final
+                        lea              rax, [rip + LBL__Pop_final];         jmp   rax
+Pop_final_γ:            mov              rdi, qword ptr [r9 + 320]            # Pop_final
                         mov              rsi, qword ptr [r9 + 328]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1388,7 +1371,7 @@ Pop_final_gamma:        mov              rdi, qword ptr [r9 + 320]            # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-Pop_final_omega:        mov              rcx, qword ptr [rsp + 32]
+Pop_final_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -1414,16 +1397,15 @@ Pop_final_omega:        mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_node_repr_α
-proc_node_repr_α:
+FN__node_repr:
 #-----------------------------------------------------------------------------------------------------------------------
 n126_save_restore_α:                                                          jmp   n127_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n127_goto_deferred_α:   lea              rax, [rip + node_repr_body];         jmp   rax
+n127_goto_deferred_α:   lea              rax, [rip + LBL__node_repr];         jmp   rax
                                                                               jmp   n128_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n128_save_restore_α:
-node_repr_alpha:        sub              rsp, 144
+node_repr_α:            sub              rsp, 144
                         mov              rax, qword ptr [r9 + 368]            # r
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 376]
@@ -1482,12 +1464,12 @@ node_repr_alpha:        sub              rsp, 144
                         mov              qword ptr [rsp + 136], rax
                         mov              qword ptr [r9 + 352], 0
                         mov              qword ptr [r9 + 360], 0
-.Lx134_41:              lea              r10, [rip + node_repr_gamma]
-                        lea              r11, [rip + node_repr_omega]
+.Lx134_41:              lea              r10, [rip + node_repr_γ]
+                        lea              r11, [rip + node_repr_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + node_repr_body];         jmp   rax
-node_repr_gamma:        mov              rdi, qword ptr [r9 + 336]            # node_repr
+                        lea              rax, [rip + LBL__node_repr];         jmp   rax
+node_repr_γ:            mov              rdi, qword ptr [r9 + 336]            # node_repr
                         mov              rsi, qword ptr [r9 + 344]
                         mov              rcx, qword ptr [rsp + 112]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1533,7 +1515,7 @@ node_repr_gamma:        mov              rdi, qword ptr [r9 + 336]            # 
                         add              rsp, 144
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-node_repr_omega:        mov              rcx, qword ptr [rsp + 112]
+node_repr_ω:            mov              rcx, qword ptr [rsp + 112]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 144]
                         mov              rax, qword ptr [rsp + 80]
@@ -1579,16 +1561,15 @@ node_repr_omega:        mov              rcx, qword ptr [rsp + 112]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_pp_node_α
-proc_pp_node_α:
+FN__pp_node:
 #-----------------------------------------------------------------------------------------------------------------------
 n135_save_restore_α:                                                          jmp   n136_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n136_goto_deferred_α:   lea              rax, [rip + pp_node_body];           jmp   rax
+n136_goto_deferred_α:   lea              rax, [rip + LBL__pp_node];           jmp   rax
                                                                               jmp   n137_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n137_save_restore_α:
-pp_node_alpha:          sub              rsp, 192
+pp_node_α:              sub              rsp, 192
                         mov              rax, qword ptr [r9 + 368]            # r
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 376]
@@ -1687,12 +1668,12 @@ pp_node_alpha:          sub              rsp, 192
                         mov              qword ptr [rsp + 184], rax
                         mov              qword ptr [r9 + 464], 0
                         mov              qword ptr [r9 + 472], 0
-.Lx143_43:              lea              r10, [rip + pp_node_gamma]
-                        lea              r11, [rip + pp_node_omega]
+.Lx143_43:              lea              r10, [rip + pp_node_γ]
+                        lea              r11, [rip + pp_node_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + pp_node_body];           jmp   rax
-pp_node_gamma:          mov              rdi, qword ptr [r9 + 432]            # pp_node
+                        lea              rax, [rip + LBL__pp_node];           jmp   rax
+pp_node_γ:              mov              rdi, qword ptr [r9 + 432]            # pp_node
                         mov              rsi, qword ptr [r9 + 440]
                         mov              rcx, qword ptr [rsp + 128]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1764,7 +1745,7 @@ pp_node_gamma:          mov              rdi, qword ptr [r9 + 432]            # 
                         add              rsp, 192
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-pp_node_omega:          mov              rcx, qword ptr [rsp + 128]
+pp_node_ω:              mov              rcx, qword ptr [rsp + 128]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 192]
                         mov              rax, qword ptr [rsp + 96]
@@ -1836,16 +1817,15 @@ pp_node_omega:          mov              rcx, qword ptr [rsp + 128]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_pp_bank_α
-proc_pp_bank_α:
+FN__pp_bank:
 #-----------------------------------------------------------------------------------------------------------------------
 n144_save_restore_α:                                                          jmp   n145_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n145_goto_deferred_α:   lea              rax, [rip + pp_bank_body];           jmp   rax
+n145_goto_deferred_α:   lea              rax, [rip + LBL__pp_bank];           jmp   rax
                                                                               jmp   n146_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n146_save_restore_α:
-pp_bank_alpha:          sub              rsp, 48
+pp_bank_α:              sub              rsp, 48
                         mov              rax, qword ptr [r9 + 512]            # pp_bank
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 520]
@@ -1857,12 +1837,12 @@ pp_bank_alpha:          sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + pp_bank_gamma]
-                        lea              r11, [rip + pp_bank_omega]
+                        lea              r10, [rip + pp_bank_γ]
+                        lea              r11, [rip + pp_bank_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + pp_bank_body];           jmp   rax
-pp_bank_gamma:          mov              rdi, qword ptr [r9 + 512]
+                        lea              rax, [rip + LBL__pp_bank];           jmp   rax
+pp_bank_γ:              mov              rdi, qword ptr [r9 + 512]
                         mov              rsi, qword ptr [r9 + 520]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -1877,7 +1857,7 @@ pp_bank_gamma:          mov              rdi, qword ptr [r9 + 512]
                         add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-pp_bank_omega:          mov              rcx, qword ptr [rsp + 32]
+pp_bank_ω:              mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
@@ -1892,8 +1872,7 @@ pp_bank_omega:          mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$0_α
-proc_PAT$0_α:
+FN__PAT$0:
 proc_PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -2053,8 +2032,7 @@ proc_PAT$0_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$1_α
-proc_PAT$1_α:
+FN__PAT$1:
 proc_PAT$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n161_match_span_α:      sub              rsp, 16
@@ -2090,8 +2068,7 @@ proc_PAT$1_γ:
 proc_PAT$1_ω:
                                                                               jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$2_α
-proc_PAT$2_α:
+FN__PAT$2:
 proc_PAT$2_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n164_match_notany_α:    mov              eax, r14d
@@ -2134,8 +2111,7 @@ proc_PAT$2_γ:
 proc_PAT$2_ω:
                                                                               jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$3_α
-proc_PAT$3_α:
+FN__PAT$3:
 proc_PAT$3_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -3001,8 +2977,7 @@ proc_PAT$3_ω:
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$4_α
-proc_PAT$4_α:
+FN__PAT$4:
 proc_PAT$4_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n212_match_assign_save_α:
@@ -3102,7 +3077,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + stk_push_frame_body]
+                        lea              rsi, [rip + LBL__stk_push_frame]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -3118,7 +3093,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + stk_push_item_body]
+                        lea              rsi, [rip + LBL__stk_push_item]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 0
@@ -3134,7 +3109,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + stk_pop_into_parent_body]
+                        lea              rsi, [rip + LBL__stk_pop_into_parent]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 0
@@ -3150,7 +3125,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname3]
-                        lea              rsi, [rip + stk_pop_final_body]
+                        lea              rsi, [rip + LBL__stk_pop_final]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 0
@@ -3166,7 +3141,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname4]
-                        lea              rsi, [rip + init_list_body]
+                        lea              rsi, [rip + LBL__init_list]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
                         mov              esi, 0
@@ -3182,7 +3157,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname5]
-                        lea              rsi, [rip + Init_list_body]
+                        lea              rsi, [rip + LBL__Init_list]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
                         mov              esi, 0
@@ -3198,7 +3173,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname6]
-                        lea              rsi, [rip + push_list_body]
+                        lea              rsi, [rip + LBL__push_list]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
                         mov              esi, 0
@@ -3214,7 +3189,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname7]
-                        lea              rsi, [rip + Push_list_body]
+                        lea              rsi, [rip + LBL__Push_list]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
                         mov              esi, 0
@@ -3230,7 +3205,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname8]
-                        lea              rsi, [rip + push_item_body]
+                        lea              rsi, [rip + LBL__push_item]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname8]
                         mov              esi, 0
@@ -3246,7 +3221,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname9]
-                        lea              rsi, [rip + Push_item_body]
+                        lea              rsi, [rip + LBL__Push_item]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname9]
                         mov              esi, 0
@@ -3262,7 +3237,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname10]
-                        lea              rsi, [rip + pop_list_body]
+                        lea              rsi, [rip + LBL__pop_list]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname10]
                         mov              esi, 0
@@ -3278,7 +3253,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname11]
-                        lea              rsi, [rip + Pop_list_body]
+                        lea              rsi, [rip + LBL__Pop_list]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname11]
                         mov              esi, 0
@@ -3294,7 +3269,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname12]
-                        lea              rsi, [rip + pop_final_body]
+                        lea              rsi, [rip + LBL__pop_final]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname12]
                         mov              esi, 0
@@ -3310,7 +3285,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname13]
-                        lea              rsi, [rip + Pop_final_body]
+                        lea              rsi, [rip + LBL__Pop_final]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname13]
                         mov              esi, 0
@@ -3326,7 +3301,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname14]
-                        lea              rsi, [rip + node_repr_body]
+                        lea              rsi, [rip + LBL__node_repr]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname14]
                         mov              esi, 0
@@ -3342,7 +3317,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname15]
-                        lea              rsi, [rip + pp_node_body]
+                        lea              rsi, [rip + LBL__pp_node]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname15]
                         mov              esi, 0
@@ -3358,7 +3333,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname16]
-                        lea              rsi, [rip + pp_bank_body]
+                        lea              rsi, [rip + LBL__pp_bank]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname16]
                         mov              esi, 0
@@ -3374,7 +3349,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname34]
-                        lea              rsi, [rip + proc_PAT$0_α]
+                        lea              rsi, [rip + FN__PAT$0]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname34]
                         mov              esi, 0
@@ -3393,7 +3368,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname35]
-                        lea              rsi, [rip + proc_PAT$1_α]
+                        lea              rsi, [rip + FN__PAT$1]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname35]
                         mov              esi, 0
@@ -3415,7 +3390,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname36]
-                        lea              rsi, [rip + proc_PAT$2_α]
+                        lea              rsi, [rip + FN__PAT$2]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname36]
                         mov              esi, 0
@@ -3437,7 +3412,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname37]
-                        lea              rsi, [rip + proc_PAT$3_α]
+                        lea              rsi, [rip + FN__PAT$3]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname37]
                         mov              esi, 0
@@ -3456,7 +3431,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname38]
-                        lea              rsi, [rip + proc_PAT$4_α]
+                        lea              rsi, [rip + FN__PAT$4]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname38]
                         mov              esi, 0
@@ -3962,7 +3937,7 @@ n257_func_activate_α:   mov              rdi, qword ptr [rip + .Lx996_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_stk_push_frame_α]
+                        lea              r9, [rip + FN__stk_push_frame]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3981,7 +3956,7 @@ n258_statement_end_α:                                                         j
 #=======================================================================================================================
 # stk_push_frame frame_id              =  frame_id + 1
 #-----------------------------------------------------------------------------------------------------------------------
-stk_push_frame_body:                                                          jmp   n260_var_α
+LBL__stk_push_frame:                                                          jmp   n260_var_α
 n259_statement_begin_β:                                                       jmp   n265_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n260_var_α:             sub              rsp, 16
@@ -4382,7 +4357,7 @@ n300_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1059_0]
                         mov              edx, 2
                         mov              ecx, 2
                         mov              r8d, 0
-                        lea              r9, [rip + proc_stk_push_item_α]
+                        lea              r9, [rip + FN__stk_push_item]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4401,7 +4376,7 @@ n301_statement_end_α:                                                         j
 #=======================================================================================================================
 # stk_push_item  cur                  =  head(stk)
 #-----------------------------------------------------------------------------------------------------------------------
-stk_push_item_body:                                                           jmp   n303_var_α
+LBL__stk_push_item:                                                           jmp   n303_var_α
 n302_statement_begin_β:                                                       jmp   n307_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n303_var_α:             sub              rsp, 16
@@ -4823,7 +4798,7 @@ n340_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1114_0]
                         mov              edx, 3
                         mov              ecx, 3
                         mov              r8d, 0
-                        lea              r9, [rip + proc_stk_pop_into_parent_α]
+                        lea              r9, [rip + FN__stk_pop_into_parent]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4842,7 +4817,7 @@ n341_statement_end_α:                                                         j
 #=======================================================================================================================
 # stk_pop_into_parent  <stmt 22, line 33: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-stk_pop_into_parent_body:
+LBL__stk_pop_into_parent:
                                                                               jmp   n343_statement_end_α
 n342_statement_begin_β:                                                       jmp   n344_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5393,7 +5368,7 @@ n395_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1194_0]
                         mov              edx, 2
                         mov              ecx, 2
                         mov              r8d, 0
-                        lea              r9, [rip + proc_stk_pop_final_α]
+                        lea              r9, [rip + FN__stk_pop_final]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -5412,7 +5387,7 @@ n396_statement_end_α:                                                         j
 #=======================================================================================================================
 # stk_pop_final  child                =  head(stk)
 #-----------------------------------------------------------------------------------------------------------------------
-stk_pop_final_body:                                                           jmp   n398_var_α
+LBL__stk_pop_final:                                                           jmp   n398_var_α
 n397_statement_begin_β:                                                       jmp   n402_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n398_var_α:             sub              rsp, 16
@@ -5642,7 +5617,7 @@ n421_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1237_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_init_list_α]
+                        lea              r9, [rip + FN__init_list]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -5669,7 +5644,7 @@ n424_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1243_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_Init_list_α]
+                        lea              r9, [rip + FN__Init_list]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -5688,7 +5663,7 @@ n425_statement_end_α:                                                         j
 #=======================================================================================================================
 # init_list      $v             =
 #-----------------------------------------------------------------------------------------------------------------------
-init_list_body:                                                               jmp   n427_var_α
+LBL__init_list:                                                               jmp   n427_var_α
 n426_statement_begin_β:                                                       jmp   n432_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n427_var_α:             sub              rsp, 16
@@ -5949,7 +5924,7 @@ n456_statement_end_α:   add              rsp, 32;                             j
 #=======================================================================================================================
 # Init_list      Init_list      =  EVAL('epsilon . *init_list(' vs ')')  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-Init_list_body:                                                               jmp   n458_lit_string_α
+LBL__Init_list:                                                               jmp   n458_lit_string_α
 n457_statement_begin_β:                                                       jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n458_lit_string_α:      sub              rsp, 16
@@ -6063,7 +6038,7 @@ n469_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1315_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_push_list_α]
+                        lea              r9, [rip + FN__push_list]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6090,7 +6065,7 @@ n472_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1321_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_Push_list_α]
+                        lea              r9, [rip + FN__Push_list]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6109,7 +6084,7 @@ n473_statement_end_α:                                                         j
 #=======================================================================================================================
 # push_list      dummy          =  stk_push_frame(v)
 #-----------------------------------------------------------------------------------------------------------------------
-push_list_body:                                                               jmp   n475_var_α
+LBL__push_list:                                                               jmp   n475_var_α
 n474_statement_begin_β:                                                       jmp   n479_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n475_var_α:             sub              rsp, 16
@@ -6120,7 +6095,7 @@ n475_var_α:             sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n476_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1328z]
-                        lea              rax, [rip + stk_push_frame_alpha];   jmp   rax
+                        lea              rax, [rip + stk_push_frame_α];       jmp   rax
 .Lsig1328z:             .quad            1
                         .quad            .Lx1328_2
                         .quad            .Lx1328_2
@@ -6212,7 +6187,7 @@ n483_statement_end_α:   add              rsp, 32;                             j
 #=======================================================================================================================
 # Push_list      Push_list      =  EVAL('epsilon . *push_list(' vs ')')  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-Push_list_body:                                                               jmp   n485_lit_string_α
+LBL__Push_list:                                                               jmp   n485_lit_string_α
 n484_statement_begin_β:                                                       jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n485_lit_string_α:      sub              rsp, 16
@@ -6326,7 +6301,7 @@ n496_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1359_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_push_item_α]
+                        lea              r9, [rip + FN__push_item]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6353,7 +6328,7 @@ n499_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1365_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_Push_item_α]
+                        lea              r9, [rip + FN__Push_item]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6372,7 +6347,7 @@ n500_statement_end_α:                                                         j
 #=======================================================================================================================
 # push_item      dummy          =  stk_push_item(v)
 #-----------------------------------------------------------------------------------------------------------------------
-push_item_body:                                                               jmp   n502_var_α
+LBL__push_item:                                                               jmp   n502_var_α
 n501_statement_begin_β:                                                       jmp   n506_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n502_var_α:             sub              rsp, 16
@@ -6383,7 +6358,7 @@ n502_var_α:             sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n503_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1372z]
-                        lea              rax, [rip + stk_push_item_alpha];    jmp   rax
+                        lea              rax, [rip + stk_push_item_α];        jmp   rax
 .Lsig1372z:             .quad            1
                         .quad            .Lx1372_2
                         .quad            .Lx1372_2
@@ -6475,7 +6450,7 @@ n510_statement_end_α:   add              rsp, 32;                             j
 #=======================================================================================================================
 # Push_item      Push_item      =  EVAL('epsilon . *push_item(' vs ')')  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-Push_item_body:                                                               jmp   n512_lit_string_α
+LBL__Push_item:                                                               jmp   n512_lit_string_α
 n511_statement_begin_β:                                                       jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n512_lit_string_α:      sub              rsp, 16
@@ -6589,7 +6564,7 @@ n523_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1403_0]
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + proc_pop_list_α]
+                        lea              r9, [rip + FN__pop_list]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6616,7 +6591,7 @@ n526_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1409_0]
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + proc_Pop_list_α]
+                        lea              r9, [rip + FN__Pop_list]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6635,13 +6610,12 @@ n527_statement_end_α:                                                         j
 #=======================================================================================================================
 # pop_list       dummy          =  stk_pop_into_parent()
 #-----------------------------------------------------------------------------------------------------------------------
-pop_list_body:                                                                jmp   n529_call_α
+LBL__pop_list:                                                                jmp   n529_call_α
 n528_statement_begin_β:                                                       jmp   n532_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n529_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1415z]
-                        lea              rax, [rip + stk_pop_into_parent_alpha]
-                                                                              jmp   rax
+                        lea              rax, [rip + stk_pop_into_parent_α];  jmp   rax
 .Lsig1415z:             .quad            0
                         .quad            .Lx1415_2
                         .quad            .Lx1415_2
@@ -6731,7 +6705,7 @@ n536_statement_end_α:   add              rsp, 32;                             j
 #=======================================================================================================================
 # Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-Pop_list_body:                                                                jmp   n538_var_α
+LBL__Pop_list:                                                                jmp   n538_var_α
 n537_statement_begin_β:                                                       jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n538_var_α:             sub              rsp, 16
@@ -6820,7 +6794,7 @@ n548_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1445_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_pop_final_α]
+                        lea              r9, [rip + FN__pop_final]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6847,7 +6821,7 @@ n551_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1451_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_Pop_final_α]
+                        lea              r9, [rip + FN__Pop_final]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6866,7 +6840,7 @@ n552_statement_end_α:                                                         j
 #=======================================================================================================================
 # pop_final      dummy          =  stk_pop_final(v)
 #-----------------------------------------------------------------------------------------------------------------------
-pop_final_body:                                                               jmp   n554_var_α
+LBL__pop_final:                                                               jmp   n554_var_α
 n553_statement_begin_β:                                                       jmp   n558_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n554_var_α:             sub              rsp, 16
@@ -6877,7 +6851,7 @@ n554_var_α:             sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n555_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1458z]
-                        lea              rax, [rip + stk_pop_final_alpha];    jmp   rax
+                        lea              rax, [rip + stk_pop_final_α];        jmp   rax
 .Lsig1458z:             .quad            1
                         .quad            .Lx1458_2
                         .quad            .Lx1458_2
@@ -6969,7 +6943,7 @@ n562_statement_end_α:   add              rsp, 32;                             j
 #=======================================================================================================================
 # Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-Pop_final_body:                                                               jmp   n564_lit_string_α
+LBL__Pop_final:                                                               jmp   n564_lit_string_α
 n563_statement_begin_β:                                                       jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n564_lit_string_α:      sub              rsp, 16
@@ -7083,7 +7057,7 @@ n575_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1489_0]
                         mov              edx, 6
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_node_repr_α]
+                        lea              r9, [rip + FN__node_repr]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7102,7 +7076,7 @@ n576_statement_end_α:                                                         j
 #=======================================================================================================================
 # node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
 #-----------------------------------------------------------------------------------------------------------------------
-node_repr_body:                                                               jmp   n578_var_α
+LBL__node_repr:                                                               jmp   n578_var_α
 n577_statement_begin_β:                                                       jmp   n594_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n578_var_α:             sub              rsp, 16
@@ -7828,7 +7802,7 @@ n642_deref_β:           add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n643_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1580z]
-                        lea              rax, [rip + node_repr_alpha];        jmp   rax
+                        lea              rax, [rip + node_repr_α];            jmp   rax
 .Lsig1580z:             .quad            1
                         .quad            .Lx1580_2
                         .quad            .Lx1580_2
@@ -7962,7 +7936,7 @@ n660_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1606_0]
                         mov              edx, 9
                         mov              ecx, 3
                         mov              r8d, 0
-                        lea              r9, [rip + proc_pp_node_α]
+                        lea              r9, [rip + FN__pp_node]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7981,7 +7955,7 @@ n661_statement_end_α:                                                         j
 #=======================================================================================================================
 # pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
 #-----------------------------------------------------------------------------------------------------------------------
-pp_node_body:                                                                 jmp   n663_var_α
+LBL__pp_node:                                                                 jmp   n663_var_α
 n662_statement_begin_β:                                                       jmp   n685_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n663_var_α:             sub              rsp, 16
@@ -8313,7 +8287,7 @@ n686_var_α:             sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n687_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1644z]
-                        lea              rax, [rip + node_repr_alpha];        jmp   rax
+                        lea              rax, [rip + node_repr_α];            jmp   rax
 .Lsig1644z:             .quad            1
                         .quad            .Lx1644_2
                         .quad            .Lx1644_2
@@ -9357,7 +9331,7 @@ n777_lit_string_β:      add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n778_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1767z]
-                        lea              rax, [rip + pp_node_alpha];          jmp   rax
+                        lea              rax, [rip + pp_node_α];              jmp   rax
 .Lsig1767z:             .quad            3
                         .quad            .Lx1767_2
                         .quad            .Lx1767_2
@@ -9601,7 +9575,7 @@ n797_binop_β:           add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n798_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1792z]
-                        lea              rax, [rip + pp_node_alpha];          jmp   rax
+                        lea              rax, [rip + pp_node_α];              jmp   rax
 .Lsig1792z:             .quad            3
                         .quad            .Lx1792_2
                         .quad            .Lx1792_2
@@ -9661,7 +9635,7 @@ n805_func_activate_α:   mov              rdi, qword ptr [rip + .Lx1806_0]
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + proc_pp_bank_α]
+                        lea              r9, [rip + FN__pp_bank]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9680,7 +9654,7 @@ n806_statement_end_α:                                                         j
 #=======================================================================================================================
 # pp_bank        pp_node(bank, 0, '')
 #-----------------------------------------------------------------------------------------------------------------------
-pp_bank_body:                                                                 jmp   n808_var_α
+LBL__pp_bank:                                                                 jmp   n808_var_α
 n807_statement_begin_β:                                                       jmp   n813_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n808_var_α:             sub              rsp, 16
@@ -9708,7 +9682,7 @@ n810_lit_string_β:      add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n811_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1815z]
-                        lea              rax, [rip + pp_node_alpha];          jmp   rax
+                        lea              rax, [rip + pp_node_α];              jmp   rax
 .Lsig1815z:             .quad            3
                         .quad            .Lx1815_2
                         .quad            .Lx1815_2
@@ -9908,7 +9882,7 @@ n830_statement_begin_β:                                                       j
 #-----------------------------------------------------------------------------------------------------------------------
 n831_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1849z]
-                        lea              rax, [rip + Pop_list_alpha];         jmp   rax
+                        lea              rax, [rip + Pop_list_α];             jmp   rax
 .Lsig1849z:             .quad            0
                         .quad            .Lx1849_2
                         .quad            .Lx1849_2
@@ -9968,7 +9942,7 @@ n835_lit_string_β:      add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n836_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1855z]
-                        lea              rax, [rip + Push_item_alpha];        jmp   rax
+                        lea              rax, [rip + Push_item_α];            jmp   rax
 .Lsig1855z:             .quad            1
                         .quad            .Lx1855_2
                         .quad            .Lx1855_2
@@ -10028,7 +10002,7 @@ n840_lit_string_β:      add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n841_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1861z]
-                        lea              rax, [rip + Push_list_alpha];        jmp   rax
+                        lea              rax, [rip + Push_list_α];            jmp   rax
 .Lsig1861z:             .quad            1
                         .quad            .Lx1861_2
                         .quad            .Lx1861_2
@@ -10301,7 +10275,7 @@ n870_lit_string_α:      sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n871_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1904z]
-                        lea              rax, [rip + init_list_alpha];        jmp   rax
+                        lea              rax, [rip + init_list_α];            jmp   rax
 .Lsig1904z:             .quad            1
                         .quad            .Lx1904_2
                         .quad            .Lx1904_2
@@ -10356,7 +10330,7 @@ n875_lit_string_α:      sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n876_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1912z]
-                        lea              rax, [rip + stk_push_frame_alpha];   jmp   rax
+                        lea              rax, [rip + stk_push_frame_α];       jmp   rax
 .Lsig1912z:             .quad            1
                         .quad            .Lx1912_2
                         .quad            .Lx1912_2
@@ -10731,7 +10705,7 @@ n894_lit_string_α:      sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n895_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1942z]
-                        lea              rax, [rip + stk_push_frame_alpha];   jmp   rax
+                        lea              rax, [rip + stk_push_frame_α];       jmp   rax
 .Lsig1942z:             .quad            1
                         .quad            .Lx1942_2
                         .quad            .Lx1942_2
@@ -11028,8 +11002,7 @@ n906_statement_begin_β:                                                       j
 #-----------------------------------------------------------------------------------------------------------------------
 n907_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1961z]
-                        lea              rax, [rip + stk_pop_into_parent_alpha]
-                                                                              jmp   rax
+                        lea              rax, [rip + stk_pop_into_parent_α];  jmp   rax
 .Lsig1961z:             .quad            0
                         .quad            .Lx1961_2
                         .quad            .Lx1961_2
@@ -11127,8 +11100,7 @@ n916_statement_begin_β:                                                       j
 #-----------------------------------------------------------------------------------------------------------------------
 n917_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1976z]
-                        lea              rax, [rip + stk_pop_into_parent_alpha]
-                                                                              jmp   rax
+                        lea              rax, [rip + stk_pop_into_parent_α];  jmp   rax
 .Lsig1976z:             .quad            0
                         .quad            .Lx1976_2
                         .quad            .Lx1976_2
@@ -11318,7 +11290,7 @@ n933_lit_string_α:      sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n934_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig2001z]
-                        lea              rax, [rip + stk_pop_final_alpha];    jmp   rax
+                        lea              rax, [rip + stk_pop_final_α];        jmp   rax
 .Lsig2001z:             .quad            1
                         .quad            .Lx2001_2
                         .quad            .Lx2001_2
@@ -11365,7 +11337,7 @@ n937_statement_begin_β:                                                       j
 #-----------------------------------------------------------------------------------------------------------------------
 n938_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig2008z]
-                        lea              rax, [rip + pp_bank_alpha];          jmp   rax
+                        lea              rax, [rip + pp_bank_α];              jmp   rax
 .Lsig2008z:             .quad            0
                         .quad            .Lx2008_2
                         .quad            .Lx2008_2

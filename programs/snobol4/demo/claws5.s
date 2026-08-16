@@ -1,16 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_new_sent_α
-proc_new_sent_α:
+FN__new_sent:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_save_restore_α:                                                            jmp   n1_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_goto_deferred_α:     lea              rax, [rip + new_sent_body];          jmp   rax
+n1_goto_deferred_α:     lea              rax, [rip + LBL__new_sent];          jmp   rax
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-new_sent_alpha:         sub              rsp, 48
+new_sent_α:             sub              rsp, 48
                         mov              rax, qword ptr [r9 + 0]              # new_sent
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -22,12 +21,12 @@ new_sent_alpha:         sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + new_sent_gamma]
-                        lea              r11, [rip + new_sent_omega]
+                        lea              r10, [rip + new_sent_γ]
+                        lea              r11, [rip + new_sent_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + new_sent_body];          jmp   rax
-new_sent_gamma:         mov              rdi, qword ptr [r9 + 0]
+                        lea              rax, [rip + LBL__new_sent];          jmp   rax
+new_sent_γ:             mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -42,7 +41,7 @@ new_sent_gamma:         mov              rdi, qword ptr [r9 + 0]
                         add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-new_sent_omega:         mov              rcx, qword ptr [rsp + 32]
+new_sent_ω:             mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
@@ -57,16 +56,15 @@ new_sent_omega:         mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_add_tok_α
-proc_add_tok_α:
+FN__add_tok:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_save_restore_α:                                                            jmp   n10_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n10_goto_deferred_α:    lea              rax, [rip + add_tok_body];           jmp   rax
+n10_goto_deferred_α:    lea              rax, [rip + LBL__add_tok];           jmp   rax
                                                                               jmp   n11_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_save_restore_α:
-add_tok_alpha:          sub              rsp, 48
+add_tok_α:              sub              rsp, 48
                         mov              rax, qword ptr [r9 + 16]             # add_tok
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 24]
@@ -78,12 +76,12 @@ add_tok_alpha:          sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + add_tok_gamma]
-                        lea              r11, [rip + add_tok_omega]
+                        lea              r10, [rip + add_tok_γ]
+                        lea              r11, [rip + add_tok_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + add_tok_body];           jmp   rax
-add_tok_gamma:          mov              rdi, qword ptr [r9 + 16]
+                        lea              rax, [rip + LBL__add_tok];           jmp   rax
+add_tok_γ:              mov              rdi, qword ptr [r9 + 16]
                         mov              rsi, qword ptr [r9 + 24]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -98,7 +96,7 @@ add_tok_gamma:          mov              rdi, qword ptr [r9 + 16]
                         add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-add_tok_omega:          mov              rcx, qword ptr [rsp + 32]
+add_tok_ω:              mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
@@ -113,16 +111,15 @@ add_tok_omega:          mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_pp_mem_α
-proc_pp_mem_α:
+FN__pp_mem:
 #-----------------------------------------------------------------------------------------------------------------------
 n18_save_restore_α:                                                           jmp   n19_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n19_goto_deferred_α:    lea              rax, [rip + pp_mem_body];            jmp   rax
+n19_goto_deferred_α:    lea              rax, [rip + LBL__pp_mem];            jmp   rax
                                                                               jmp   n20_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n20_save_restore_α:
-pp_mem_alpha:           sub              rsp, 368
+pp_mem_α:               sub              rsp, 368
                         mov              rax, qword ptr [r9 + 64]             # ssk
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 72]
@@ -265,12 +262,12 @@ pp_mem_alpha:           sub              rsp, 368
                         mov              qword ptr [rsp + 360], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx26_41:               lea              r10, [rip + pp_mem_gamma]
-                        lea              r11, [rip + pp_mem_omega]
+.Lx26_41:               lea              r10, [rip + pp_mem_γ]
+                        lea              r11, [rip + pp_mem_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + pp_mem_body];            jmp   rax
-pp_mem_gamma:           mov              rdi, qword ptr [r9 + 32]             # pp_mem
+                        lea              rax, [rip + LBL__pp_mem];            jmp   rax
+pp_mem_γ:               mov              rdi, qword ptr [r9 + 32]             # pp_mem
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 336]
                         mov              rdx, qword ptr [rcx + 0]
@@ -372,7 +369,7 @@ pp_mem_gamma:           mov              rdi, qword ptr [r9 + 32]             # 
                         add              rsp, 368
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-pp_mem_omega:           mov              rcx, qword ptr [rsp + 336]
+pp_mem_ω:               mov              rcx, qword ptr [rsp + 336]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 368]
                         mov              rax, qword ptr [rsp + 304]
@@ -474,8 +471,7 @@ pp_mem_omega:           mov              rcx, qword ptr [rsp + 336]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$0_α
-proc_PAT$0_α:
+FN__PAT$0:
 proc_PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
@@ -953,7 +949,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + new_sent_body]
+                        lea              rsi, [rip + LBL__new_sent]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -969,7 +965,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + add_tok_body]
+                        lea              rsi, [rip + LBL__add_tok]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 0
@@ -985,7 +981,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + pp_mem_body]
+                        lea              rsi, [rip + LBL__pp_mem]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 0
@@ -1001,7 +997,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname6]
-                        lea              rsi, [rip + proc_PAT$0_α]
+                        lea              rsi, [rip + FN__PAT$0]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
                         mov              esi, 0
@@ -1337,7 +1333,7 @@ n116_func_activate_α:   mov              rdi, qword ptr [rip + .Lx709_0]
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + proc_new_sent_α]
+                        lea              r9, [rip + FN__new_sent]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1356,7 +1352,7 @@ n117_statement_end_α:                                                         j
 #=======================================================================================================================
 # new_sent        sentno          =  +num
 #-----------------------------------------------------------------------------------------------------------------------
-new_sent_body:                                                                jmp   n119_var_α
+LBL__new_sent:                                                                jmp   n119_var_α
 n118_statement_begin_β:                                                       jmp   n123_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n119_var_α:             sub              rsp, 16
@@ -1533,7 +1529,7 @@ n138_func_activate_α:   mov              rdi, qword ptr [rip + .Lx744_0]
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + proc_add_tok_α]
+                        lea              r9, [rip + FN__add_tok]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1552,7 +1548,7 @@ n139_statement_end_α:                                                         j
 #=======================================================================================================================
 # add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
 #-----------------------------------------------------------------------------------------------------------------------
-add_tok_body:                                                                 jmp   n141_var_α
+LBL__add_tok:                                                                 jmp   n141_var_α
 n140_statement_begin_β:                                                       jmp   n187_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n141_var_α:             sub              rsp, 16
@@ -2520,7 +2516,7 @@ n218_func_activate_α:   mov              rdi, qword ptr [rip + .Lx845_0]
                         mov              edx, 20
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_pp_mem_α]
+                        lea              r9, [rip + FN__pp_mem]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2539,7 +2535,7 @@ n219_statement_end_α:                                                         j
 #=======================================================================================================================
 # pp_mem          ssk             =   SORT(mem)
 #-----------------------------------------------------------------------------------------------------------------------
-pp_mem_body:                                                                  jmp   n221_var_α
+LBL__pp_mem:                                                                  jmp   n221_var_α
 n220_statement_begin_β:                                                       jmp   n225_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n221_var_α:             sub              rsp, 16
@@ -7220,7 +7216,7 @@ n669_var_α:             sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n670_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig1466z]
-                        lea              rax, [rip + pp_mem_alpha];           jmp   rax
+                        lea              rax, [rip + pp_mem_α];               jmp   rax
 .Lsig1466z:             .quad            1
                         .quad            .Lx1466_2
                         .quad            .Lx1466_2
