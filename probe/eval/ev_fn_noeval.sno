@@ -1,0 +1,5 @@
+        DEFINE('H()')
+        OUTPUT = H()
+        :(END)
+H       H = 42                                         :(RETURN)
+END
