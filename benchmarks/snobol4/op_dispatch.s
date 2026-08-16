@@ -1,18 +1,5 @@
                         .intel_syntax    noprefix
                         .text
-                        .section         .rodata
-.Lgvan0:                .string          "T1"
-.Lgvan1:                .string          "N"
-.Lgvan2:                .string          "OUTER"
-.Lgvan3:                .string          "T2"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .quad            .Lgvan2
-                        .quad            .Lgvan3
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
@@ -29,6 +16,19 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "T1"
+.Lgvan1:                .string          "N"
+.Lgvan2:                .string          "OUTER"
+.Lgvan3:                .string          "T2"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .quad            .Lgvan2
+                        .quad            .Lgvan3
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:

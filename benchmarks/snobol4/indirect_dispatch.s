@@ -1,6 +1,23 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
+                        .globl           main
+main:
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             main_init
+                        mov              edi, 6
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 6
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
+main_init:
                         sub              rsp, 8
                         add              rsp, 8
                         ret
@@ -21,23 +38,6 @@ __gva_names:
                         .quad            .Lgvan5
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              edi, 6
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 6
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -122,6 +122,7 @@ n6_define_β:                                                                  j
 .Lx64_1:                .quad            .Lx64_1_s
 .Lx64_1_s:              .string          "V"
                                                                               jmp   .Lx65_245
+#-----------------------------------------------------------------------------------------------------------------------
 ADD1_α:                 sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # ADD1
                         mov              qword ptr [rsp + 0], rax

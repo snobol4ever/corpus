@@ -1,5 +1,21 @@
                         .intel_syntax    noprefix
                         .text
+                        .globl           main
+main:
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        mov              edi, 6
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 6
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "T1"
 .Lgvan1:                .string          "OUTER"
@@ -17,22 +33,6 @@ __gva_names:
                         .quad            .Lgvan5
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        mov              edi, 6
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 6
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
