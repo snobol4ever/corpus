@@ -1,16 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_INC_α
-proc_INC_α:
+FN__INC:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_save_restore_α:                                                            jmp   n1_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_goto_deferred_α:     lea              rax, [rip + INC_body];               jmp   rax
+n1_goto_deferred_α:     lea              rax, [rip + LBL__INC];               jmp   rax
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-INC_alpha:              sub              rsp, 64
+INC_α:                  sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # INC
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -39,12 +38,12 @@ INC_alpha:              sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx8_41:                lea              r10, [rip + INC_gamma]
-                        lea              r11, [rip + INC_omega]
+.Lx8_41:                lea              r10, [rip + INC_γ]
+                        lea              r11, [rip + INC_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + INC_body];               jmp   rax
-INC_gamma:              mov              rdi, qword ptr [r9 + 0]              # INC
+                        lea              rax, [rip + LBL__INC];               jmp   rax
+INC_γ:                  mov              rdi, qword ptr [r9 + 0]              # INC
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -70,7 +69,7 @@ INC_gamma:              mov              rdi, qword ptr [r9 + 0]              # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-INC_omega:              mov              rcx, qword ptr [rsp + 32]
+INC_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -102,7 +101,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + INC_body]
+                        lea              rsi, [rip + LBL__INC]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -271,7 +270,7 @@ n20_func_activate_α:    mov              rdi, qword ptr [rip + .Lx97_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_INC_α]
+                        lea              r9, [rip + FN__INC]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -290,7 +289,7 @@ n21_statement_end_α:                                                          j
 #=======================================================================================================================
 # INC     INC = N + 1                    :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-INC_body:                                                                     jmp   n23_var_α
+LBL__INC:                                                                     jmp   n23_var_α
 n22_statement_begin_β:                                                        jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n23_var_α:              sub              rsp, 16
@@ -608,7 +607,7 @@ n55_var_α:              sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n56_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig152z]
-                        lea              rax, [rip + INC_alpha];              jmp   rax
+                        lea              rax, [rip + INC_α];                  jmp   rax
 .Lsig152z:              .quad            1
                         .quad            .Lx152_2
                         .quad            .Lx152_2

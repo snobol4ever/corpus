@@ -1,16 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_RSUM_α
-proc_RSUM_α:
+FN__RSUM:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_save_restore_α:                                                            jmp   n1_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_goto_deferred_α:     lea              rax, [rip + RSUM_body];              jmp   rax
+n1_goto_deferred_α:     lea              rax, [rip + LBL__RSUM];              jmp   rax
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-RSUM_alpha:             sub              rsp, 64
+RSUM_α:                 sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # RSUM
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -39,12 +38,12 @@ RSUM_alpha:             sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx8_41:                lea              r10, [rip + RSUM_gamma]
-                        lea              r11, [rip + RSUM_omega]
+.Lx8_41:                lea              r10, [rip + RSUM_γ]
+                        lea              r11, [rip + RSUM_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + RSUM_body];              jmp   rax
-RSUM_gamma:             mov              rdi, qword ptr [r9 + 0]              # RSUM
+                        lea              rax, [rip + LBL__RSUM];              jmp   rax
+RSUM_γ:                 mov              rdi, qword ptr [r9 + 0]              # RSUM
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -70,7 +69,7 @@ RSUM_gamma:             mov              rdi, qword ptr [r9 + 0]              # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-RSUM_omega:             mov              rcx, qword ptr [rsp + 32]
+RSUM_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -96,8 +95,7 @@ RSUM_omega:             mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$0_α
-proc_PAT$0_α:
+FN__PAT$0:
 proc_PAT$0_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_match_assign_save_α: sub              rsp, 16
@@ -164,7 +162,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + RSUM_body]
+                        lea              rsi, [rip + LBL__RSUM]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -180,7 +178,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + proc_PAT$0_α]
+                        lea              rsi, [rip + FN__PAT$0]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 0
@@ -372,7 +370,7 @@ n32_func_activate_α:    mov              rdi, qword ptr [rip + .Lx190_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_RSUM_α]
+                        lea              r9, [rip + FN__RSUM]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -391,7 +389,7 @@ n33_statement_end_α:                                                          j
 #=======================================================================================================================
 # RSUM    RSUM = EQ(N,0) 0               :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-RSUM_body:                                                                    jmp   n35_var_α
+LBL__RSUM:                                                                    jmp   n35_var_α
 n34_statement_begin_β:                                                        jmp   n44_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n35_var_α:              sub              rsp, 16
@@ -572,7 +570,7 @@ n48_binop_β:            add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n49_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig215z]
-                        lea              rax, [rip + RSUM_alpha];             jmp   rax
+                        lea              rax, [rip + RSUM_α];                 jmp   rax
 .Lsig215z:              .quad            1
                         .quad            .Lx215_2
                         .quad            .Lx215_2
@@ -1641,7 +1639,7 @@ n136_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n137_call_α:            sub              rsp, 16
                         lea              rcx, [rip + .Lsig343z]
-                        lea              rax, [rip + RSUM_alpha];             jmp   rax
+                        lea              rax, [rip + RSUM_α];                 jmp   rax
 .Lsig343z:              .quad            1
                         .quad            .Lx343_2
                         .quad            .Lx343_2

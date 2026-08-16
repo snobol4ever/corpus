@@ -1,16 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_STORE_α
-proc_STORE_α:
+FN__STORE:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_save_restore_α:                                                            jmp   n1_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_goto_deferred_α:     lea              rax, [rip + STORE_body];             jmp   rax
+n1_goto_deferred_α:     lea              rax, [rip + LBL__STORE];             jmp   rax
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-STORE_alpha:            sub              rsp, 48
+STORE_α:                sub              rsp, 48
                         mov              rax, qword ptr [r9 + 0]              # STORE
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -22,12 +21,12 @@ STORE_alpha:            sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + STORE_gamma]
-                        lea              r11, [rip + STORE_omega]
+                        lea              r10, [rip + STORE_γ]
+                        lea              r11, [rip + STORE_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + STORE_body];             jmp   rax
-STORE_gamma:            mov              rdi, qword ptr [r9 + 0]
+                        lea              rax, [rip + LBL__STORE];             jmp   rax
+STORE_γ:                mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -42,7 +41,7 @@ STORE_gamma:            mov              rdi, qword ptr [r9 + 0]
                         add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-STORE_omega:            mov              rcx, qword ptr [rsp + 32]
+STORE_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         mov              rax, qword ptr [rsp + 0]
@@ -57,8 +56,7 @@ STORE_omega:            mov              rcx, qword ptr [rsp + 32]
                         xor              edx, edx;                            jmp   rcx
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$0_α
-proc_PAT$0_α:
+FN__PAT$0:
 proc_PAT$0_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_match_assign_save_α: sub              rsp, 16
@@ -155,8 +153,7 @@ proc_PAT$0_γ:
 proc_PAT$0_ω:
                                                                               jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_PAT$1_α
-proc_PAT$1_α:
+FN__PAT$1:
 proc_PAT$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n20_match_assign_save_α:
@@ -219,7 +216,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + STORE_body]
+                        lea              rsi, [rip + LBL__STORE]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -235,7 +232,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + proc_PAT$0_α]
+                        lea              rsi, [rip + FN__PAT$0]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 0
@@ -257,7 +254,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname3]
-                        lea              rsi, [rip + proc_PAT$1_α]
+                        lea              rsi, [rip + FN__PAT$1]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 0
@@ -492,7 +489,7 @@ n47_func_activate_α:    mov              rdi, qword ptr [rip + .Lx150_0]
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + proc_STORE_α]
+                        lea              r9, [rip + FN__STORE]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -511,7 +508,7 @@ n48_statement_end_α:                                                          j
 #=======================================================================================================================
 # STORE   STORE = .SLOT                    :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-STORE_body:                                                                   jmp   n50_lit_string_α
+LBL__STORE:                                                                   jmp   n50_lit_string_α
 n49_statement_begin_β:                                                        jmp   NRETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n50_lit_string_α:       sub              rsp, 16

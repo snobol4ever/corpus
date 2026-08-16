@@ -1,16 +1,15 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_ADD1_α
-proc_ADD1_α:
+FN__ADD1:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_save_restore_α:                                                            jmp   n1_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_goto_deferred_α:     lea              rax, [rip + ADD1_body];              jmp   rax
+n1_goto_deferred_α:     lea              rax, [rip + LBL__ADD1];              jmp   rax
                                                                               jmp   n2_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_save_restore_α:
-ADD1_alpha:             sub              rsp, 64
+ADD1_α:                 sub              rsp, 64
                         mov              rax, qword ptr [r9 + 0]              # ADD1
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 8]
@@ -39,12 +38,12 @@ ADD1_alpha:             sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx8_41:                lea              r10, [rip + ADD1_gamma]
-                        lea              r11, [rip + ADD1_omega]
+.Lx8_41:                lea              r10, [rip + ADD1_γ]
+                        lea              r11, [rip + ADD1_ω]
                         push             r11
                         push             r10
-                        lea              rax, [rip + ADD1_body];              jmp   rax
-ADD1_gamma:             mov              rdi, qword ptr [r9 + 0]              # ADD1
+                        lea              rax, [rip + LBL__ADD1];              jmp   rax
+ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              # ADD1
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
@@ -70,7 +69,7 @@ ADD1_gamma:             mov              rdi, qword ptr [r9 + 0]              # 
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
-ADD1_omega:             mov              rcx, qword ptr [rsp + 32]
+ADD1_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
                         mov              rax, qword ptr [rsp + 0]
@@ -102,7 +101,7 @@ proc_startup:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + ADD1_body]
+                        lea              rsi, [rip + LBL__ADD1]
                         call             rt_proc_set_fn@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 0
@@ -218,7 +217,7 @@ n15_func_activate_α:    mov              rdi, qword ptr [rip + .Lx73_0]
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + proc_ADD1_α]
+                        lea              r9, [rip + FN__ADD1]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -237,7 +236,7 @@ n16_statement_end_α:                                                          j
 #=======================================================================================================================
 # ADD1    ADD1 = V + 1                    :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
-ADD1_body:                                                                    jmp   n18_var_α
+LBL__ADD1:                                                                    jmp   n18_var_α
 n17_statement_begin_β:                                                        jmp   RETURN
 #-----------------------------------------------------------------------------------------------------------------------
 n18_var_α:              sub              rsp, 16
