@@ -128,3 +128,38 @@ inside a function body, i.e. Defect C.
 - `:< C >` with spaces fails to parse while `:<C>` parses and transfers correctly.
 
 Every `.sno` here has a live-`sbl` `.ref` beside it.
+
+## s114 — CLASS-C frame landed; the residual is a ONE-CELL OFFSET, not a wild jump
+
+`ev_fn_sum_1_2` · `ev_fn_sum_1_5` · `ev_fn_sum_10_20` (live `sbl` refs).
+
+The s113 cursor routed Defect C as "the data face — no frame".  That half is now
+fixed (SCRIP `57972743`, `xa_flat_class_c/chain_prologue/chain_epilogue`,
+killswitch `SCRIP_CHAIN_FRAME=0`).  What is left underneath it is SHARPER and
+is stated as MEASURED FACT, not theory:
+
+| probe | oracle | scrip m3 | scrip m4 |
+|---|---|---|---|
+| `EVAL('1 + 2')` in a DEFINE | 3 | **2** | 3 |
+| `EVAL('1 + 5')` in a DEFINE | 6 | **5** | 6 |
+| `EVAL('10 + 20')` in a DEFINE | 30 | **20** | 30 |
+
+**The chain returns the SECOND OPERAND, never the sum** — three literal pairs,
+one signature.  This is a one-cell (16B) displacement in the declined nodes'
+FRQ reads inside the CLASS-C frame: they read the ADD's right operand cell
+instead of its result cell.  It is NOT a control-flow defect; the chain now
+enters, runs and returns cleanly (rc=0 where it was rc=139).
+
+⛔ **m4 PASSES all three, in BOTH killswitch arms.**  So this is ALSO a
+GOAL-MODE34-IDENTICAL violation, and m4 is the working reference to diff
+against — the cheapest discriminating experiment for the next seat is the
+m3-vs-m4 asm diff of the same chain, not another gdb descent.
+
+⛔ Do NOT re-derive: chain emission state is IDENTICAL between the passing
+top-level `EVAL` (`ev_min_arith`) and the failing in-DEFINE shape — measured
+with `SCRIP_CHAIN_DIAG=1`, both `pos=0 kt=112 jmp=1 pat=0`.  The divergence is
+at RUN time, in the frame's read offsets, not at emission.
+
+ALSO MINTED, NOT FOLDED IN: `EVAL("'ab' 'cd'")` (a concatenation of two string
+literals) is a SCRIP **parse error** while the oracle accepts it — a front-end
+gap in `parse_expr_pat_from_str`, unrelated to the frame.

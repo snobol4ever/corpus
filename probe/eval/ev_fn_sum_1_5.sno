@@ -1,0 +1,10 @@
+*   s114 WITNESS — EVAL of a LITERAL ARITHMETIC expression inside a DEFINE'd function.
+*   m3 returns the SECOND OPERAND, never the sum (1+2=2, 1+5=5, 10+20=20): a one-cell
+*   offset error in the CLASS-C frame's declined-node reads.  m4 PASSES — m3-only,
+*   so this is also a GOAL-MODE34-IDENTICAL violation.  Pre-existing under
+*   SCRIP_CHAIN_FRAME=0, where the same shape is an unanalyzable SIG11 instead.
+        DEFINE('F(x)')
+        OUTPUT = F('ignored')
+        :(END)
+F       F = EVAL('1 + 5')                              :(RETURN)
+END
