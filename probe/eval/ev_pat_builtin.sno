@@ -1,0 +1,2 @@
+        OUTPUT = DATATYPE(EVAL('LEN(0)'))
+END

@@ -1,0 +1,11 @@
+        DEFINE('Reduce(t,n)')                     :(REND)
+Reduce  Reduce = 'R<' t ',' n '>'                 :(RETURN)
+REND
+        epsilon = LEN(0)
+        t = 'TT'
+        n = 'NN'
+        reduce = EVAL('epsilon . *Reduce("x", "y")')
+        OUTPUT = 'DT=' DATATYPE(reduce)
+        'abc' ? reduce
+        OUTPUT = 'OK'
+END
