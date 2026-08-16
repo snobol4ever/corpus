@@ -1,0 +1,18 @@
+*---------------------------------------------------------------------------------------------------
+* WITNESS (s119) -- GenTab re-seeds an EMPTIED buffer with pure spaces, dropping the marker.
+* When Gen()'s str ENDS in nl the remainder is EMPTY, so Gen20's DIFFER fails and no marker is
+* prepended; the following GenTab() then writes straight to $'$B', bypassing Gen's line-44 path
+* ($'$B' = IDENT($'$B') $'$X' ind str) which is the ONE AUTHORITY for "a fresh line starts with
+* the marker". The line then goes out at FULL indent width with NO '+'.
+* This is the root cause of the five dropped markers in beauty.sno self-host (163,188,201,207,220):
+* pp_Call does  Gen('(' nl) ; IncLevel() ; GenTab() ; pp(c[2])  -- exactly this sequence.
+* RED before the s119 GenTab fix: second line came out "    BBB" (4 spaces, no '+').
+*---------------------------------------------------------------------------------------------------
+-INCLUDE 'Gen.inc'
+                  nl             =  CHAR(10)
+                  GenSetCont('+')
+                  SetLevel(4)
+                  Gen('AAA' nl)
+                  GenTab()
+                  Gen('BBB' nl)
+END

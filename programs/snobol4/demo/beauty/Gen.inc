@@ -51,6 +51,7 @@ Gen10          $'$B'          BREAK(nl) . outline nl REM . $'$B'                
 Gen20          $'$B'          =  DIFFER($'$B') $'$C' ind $'$B'                      :(NRETURN)
 GenTab         GenTab         =  .dummy
                pos            =  IDENT(pos) $'#L'
+               $'$B'          =  IDENT($'$B') $'$X'
                $'$B'          =  $'$B' ' ' DUPL(' ', pos - SIZE($'$B') - 1)         :S(NRETURN)
                $'$B'          =  $'$B' ' '                                          :(NRETURN)
 GenSetCont     GenSetCont     =  .dummy
