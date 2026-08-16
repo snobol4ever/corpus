@@ -1,0 +1,5 @@
+	PROTO = 'F(N)'
+	DEFINE(PROTO)	:(FEND)
+F	F = N + 1	:(RETURN)
+FEND	OUTPUT = F(2)
+END
