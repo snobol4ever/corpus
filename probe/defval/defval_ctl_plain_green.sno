@@ -1,0 +1,5 @@
+                  C              =  'a'
+                  'a'            *C                                                 :S(OK)F(NO)
+OK                OUTPUT         =  'MATCH'                                         :(END)
+NO                OUTPUT         =  'NOMATCH'                                       :(END)
+END
