@@ -74,13 +74,45 @@ program is already inside a proc activation (`fc_tables_reset`/`zls_reset` run a
 `eval_build_chain` entry, and the chain's K derives from a graph lowered in that
 state).
 
-**ROUTE FOR THE NEXT SEAT — this is now an arithmetic question, not a mystery.**
-Disassemble the `ev_fn_literal` chain at its `fn` pointer and sum its carves vs
-releases (the top-level EVAL chain balances exactly: `sub 16 x3` then `add 48`,
-then `add 0` at the shared epilogue). Compare against `ev_fn_var`, which PASSES in
-the identical function context — **that is the passing sibling, one variable away,
-and the asm diff of the two chains should convict directly.** Do NOT start from
-`{γ,ω}` depth or the call-arm family; both were measured irrelevant at s112/s113.
+**⭐⭐⭐ ROOT CAUSE FOUND — DEFECT C IS DEFECT A's OTHER HALF. ONE HOLE, TWO SYMPTOMS.**
+The asm diff against the passing sibling convicts on sight.
+
+`ev_fn_var` (PASSES) — every box carves its own cell, balanced FORTH spine:
+
+    sub $0x10,%rsp · movq $3,(%rsp) · ... · sub $0x10,%rsp · movq $3,(%rsp) · ...
+
+`ev_fn_literal` (SIG11) — box 1 carves and IMMEDIATELY RELEASES, then every later
+box addresses FLAT, ABOVE rsp:
+
+    sub $0x10,%rsp · movq $3,(%rsp) · mov rax,0x8(%rsp) · add $0x10,%rsp   <- released
+    movq $3,0x30(%rsp)                                                     <- writes rsp+48
+    mov 0x20(%rsp),%rdi · mov 0x28(%rsp),%rsi · mov 0x30(%rsp),%rdx · mov 0x38(%rsp),%rcx
+
+Those flat `[rsp+N]` slots address the frame `flat_frame_bytes` reserves — **112
+bytes, measured at `emit_chain`** — i.e. the frame **`xa_flat_prologue` used to
+carve before CARVE-KILL (`ef9a7d2c`/`1ba33ea6`) deleted it.** With no prologue the
+chain writes straight over its own caller's frame, which is why the return address
+is gone and `ret` lands on the DT tag (`rip=0x2`).
+
+So the s113 EVAL work found ONE structural hole with TWO faces:
+  * **A — control flow:** no wire header, chain has no way home (fixed by giving the
+    ret-ending chain a return address: `rt_chain_enter_v`).
+  * **C — data:** no frame, so the DECLINED-ZD (flat-addressing) arm writes above rsp.
+`ev_fn_var` survives only because its graph is FULLY ZD-armed — every box owns its
+cell and nothing addresses the missing frame. The literal argument is incidental:
+it changes whether the ZD planner arms every box, nothing more. **Do not chase
+"literal vs variable" as a semantic distinction — it is a proxy for ZD-armed vs
+declined.**
+
+**THE FIX IS TO RESTORE THE PRODUCER HALF, and it is a real rung, not a patch:**
+emit `sub rsp, flat_frame_bytes` + the 32B `{γ,ω}` wire header at α for
+`flat_jmp_entry` chains, and the matching release at γ/ω. The **reference
+embodiment already exists and is live**: emit.cpp's `flat_lcl_proc` arm
+(~`:2741` TEXT / `:2746` BINARY) does exactly this, wire header at
+`[kt-24]`/`[kt-16]`/`[kt-8]`. ⛔ This is SHARED codegen — PAT$ blobs and Icon
+graphs ride the same arming — so it needs the full ladder: MD5 blast radius, the
+`bb_probes` 185/188 watermark, and Icon's own watermark before any default flip.
+Land it behind a killswitch and A/B it; do not flip a shared default on one board.
 
 ## Beauty self-host state at s113
 Oracle `sbl -bf beauty.sno < beauty.sno` = **622 lines, rc=0**, md5
