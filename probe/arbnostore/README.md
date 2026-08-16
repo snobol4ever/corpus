@@ -140,3 +140,23 @@ report it, do not average it away.
 Watermark at mint (SCRIP `07f8cbbc`): 3 RED / 4 GREEN, stable over 12 runs each.
 
 - `defer_star_arb_red` — manual p.122 shape: `Q = *P 'X'` with P=ARB stored; the star-of-generator resume through the blob.  RED at default; GREEN under `SCRIP_DEFER_RESUME=1` (s121).  Was the SEQ-RESUME-GATE comment's own named hang (`rc=124`), now a clean extend.
+
+## s123 — THE FOUR CROSSCHECK BREAKERS ARE NOT A SEAL FAILURE (new witness below)
+
+`arbno_defer_altarg_red.sno` is the **discriminating control** that 148/119/129/149 never had.
+Same shape, **no FENCE anywhere**: `cmd = ('a' | 'ab')`, `outer = ARBNO(*cmd)`, `'ab' POS(0) *outer RPOS(0)`.
+
+| arm | result |
+|---|---|
+| oracle `sbl -b` | `match` (backtrack into the placed instance takes its 2nd alternative) |
+| SCRIP default | `nomatch` — silent wrong answer, beauty's own class |
+| `SCRIP_DEFER_RESUME=1` | **rc=139 SIGSEGV, identical to all four fence witnesses** |
+
+So the crash is the **ARBNO retry-unwind over-pop** (`af` → `defer_β` double-pops an already
+unwound activation; rbp then climbs one caller frame per lap to 0), NOT seal visibility.
+FENCE is incidental to those four names. Full mechanism + gdb trace:
+`.github/FINDING-2026-08-16-s123-arbno-retry-unwind-overpop.md`.
+
+⛔ This probe stays RED until **R-4(a)** (dynamic-K ARBNO activation frame) lands — its oracle
+answer needs per-instance retained choice points. Expect 8 green + this one red; do not let it
+block the arbnostore gate.
