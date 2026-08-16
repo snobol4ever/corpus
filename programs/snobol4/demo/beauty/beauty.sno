@@ -160,7 +160,7 @@ START
 +                                   ($'[' *ExprList $']' | $'<' *ExprList $'>')
 +                                   FENCE(*Expr16 | epsilon)
                   Expr17         =  FENCE(
-                                      nPush()
++                                     nPush()
 +                                     $'('
 +                                     *Expr
 +                                     ($',' *XList ("','" & 'nTop() + 1') | epsilon ("'()'" & 1))
@@ -185,7 +185,7 @@ START
 +                                   ':'
 +                                   *Gray
 +                                   FENCE(
-                                      *Target ("*(':' Brackets)" & 1) epsilon ~ ''
++                                     *Target ("*(':' Brackets)" & 1) epsilon ~ ''
 +                                   | *SorF
 +                                     *Target
 +                                     ("*(':' sf Brackets)" & 1)
@@ -198,13 +198,13 @@ START
 +                                   ( *White
 +                                     *Expr14
 +                                     FENCE(
-                                        epsilon ~ ''
++                                       epsilon ~ ''
 +                                       *White
 +                                       ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
 +                                     | ($'?' | *White)
 +                                       *Expr1
 +                                       FENCE(
-                                          *White ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
++                                         *White ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
 +                                       | epsilon ~ '' epsilon ~ ''
 +                                       )
 +                                     | epsilon ~ '' epsilon ~ '' epsilon ~ ''
@@ -217,7 +217,7 @@ START
                   Commands       =  *Command FENCE(*Commands | epsilon)
                   Command        =  nInc()
 +                                   FENCE(
-                                      *Comment ~ 'comment' ("'Comment'" & 1) nl
++                                     *Comment ~ 'comment' ("'Comment'" & 1) nl
 +                                   | *Control ~ 'control' ("'Control'" & 1) (nl | ';')
 +                                   | *Stmt ("'Stmt'" & 7) (nl | ';')
 +                                   )

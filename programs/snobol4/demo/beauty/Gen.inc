@@ -44,9 +44,11 @@ Gen            Gen            =  .dummy
                $'$B'          =  IDENT($'$B') $'$X' ind str
                $'$B'          BREAK(nl) . outline nl REM . $'$B'                    :F(NRETURN)
                $'$X'          =  $'$C'
+               indent         GT($'#L', 0) LEN($'#L' - SIZE($'$C')) . ind
                $outNm         =  outline
-Gen10          $'$B'          BREAK(nl) . outline nl REM . $'$B'                    :F(NRETURN)
+Gen10          $'$B'          BREAK(nl) . outline nl REM . $'$B'                    :F(Gen20)
                $outNm         =  $'$C' ind outline                                  :(Gen10)
+Gen20          $'$B'          =  DIFFER($'$B') $'$C' ind $'$B'                      :(NRETURN)
 GenTab         GenTab         =  .dummy
                pos            =  IDENT(pos) $'#L'
                $'$B'          =  $'$B' ' ' DUPL(' ', pos - SIZE($'$B') - 1)         :S(NRETURN)
