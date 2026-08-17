@@ -743,11 +743,14 @@ n70_match_defer_α:      lea              rdi, [rip + .S2]
                         pop              r15
                         pop              r14
                         test             eax, eax;                            js    n69_match_begin_β
+                        mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lx192_6]
-                        sub              rsp, 8
+                        push             rcx
                         push             rax;                                 jmp   n71_match_end_α
-.Lx192_6:               add              rsp, 16;                             jmp   n69_match_begin_β
+.Lx192_6:               add              rsp, 8
+                        pop              rax
+                        mov              r14d, eax;                           jmp   n69_match_begin_β
 n70_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n71_match_end_α:        push             r14
@@ -897,11 +900,14 @@ n78_match_defer_α:      lea              rdi, [rip + .S3]
                         pop              r15
                         pop              r14
                         test             eax, eax;                            js    n77_match_begin_β
+                        mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lx204_6]
-                        sub              rsp, 8
+                        push             rcx
                         push             rax;                                 jmp   n79_match_end_α
-.Lx204_6:               add              rsp, 16;                             jmp   n77_match_begin_β
+.Lx204_6:               add              rsp, 8
+                        pop              rax
+                        mov              r14d, eax;                           jmp   n77_match_begin_β
 n78_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n79_match_end_α:        push             r14
