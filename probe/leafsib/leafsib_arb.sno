@@ -1,0 +1,11 @@
+*  leafsib arb - s131 SIBLING WIDENING witness, modelled EXACTLY on
+*  clobarm/clob_altarm_arm2direct_red.sno (the SPAN witness s130 cured).
+*  arm1 ('zz') fails outright, so arm2's scratch-cell leaf runs on the FIRST
+*  pass with NO backtrack and NO choice-record resume.  RED under the DEFAULT
+*  arm == this sibling carries the same unowned flat suspension cell as SPAN.
+        t = ('zz' . K | ARB . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
