@@ -5,7 +5,7 @@
 *  the placed instance — TWO stacked 32B arm records, the "two-deep records do not yet compose"
 *  class (s126). Refused by the _nc==1 gate; expected default = rip-0 honest bomb until the
 *  rbp-relative-choice-records rung lands.
-*  Oracle: re-entry picks 'ab' then 'bd' => cursor 4 => RPOS(0) => match.
+*  Oracle (RE-VERIFIED live sbl s128 -- the earlier line here claimed `match` and MEASURED WRONG): nomatch.
         cmd   = ('a' | 'ab') ('d' | 'bd')
         outer = ARBNO(*cmd)
         s     = 'adbd'
