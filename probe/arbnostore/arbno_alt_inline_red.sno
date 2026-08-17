@@ -1,0 +1,5 @@
+        s     = 'ab'
+        s POS(0) ARBNO('a' | 'ab') RPOS(0)                    :S(BAD)F(GOOD)
+BAD     OUTPUT = 'match'                                      :(END)
+GOOD    OUTPUT = 'nomatch'
+END
