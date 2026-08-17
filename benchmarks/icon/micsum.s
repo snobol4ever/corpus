@@ -14,7 +14,7 @@ FN__dofile:
                         mov              esi, 2
                         mov              edx, 8
                         call             rt_icn_zframe_args_install@PLT
-proc_dofile_α_body:
+dofile_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_make_list_α:         lea              rdi, [rsp + 2960]
                         mov              esi, 0
@@ -2080,26 +2080,26 @@ n00091_call_builtin_icon_β:
                                                                               jmp   n00092_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00092_return_α:          mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_dofile_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   dofile_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dofile_res:
+dofile_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dofile_β:
-                                                                              jmp   proc_dofile_ω
+dofile_β:
+                                                                              jmp   dofile_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dofile_γ:
+dofile_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 3272]
                         add              rsp, 3296;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dofile_ω:
+dofile_ω:
                         mov              rcx, qword ptr [rsp + 3280]
                         add              rsp, 3296;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dofile_dcα:
+dofile_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -2158,26 +2158,23 @@ main_init:
                         sub              rsp, 8
                         .section         .rodata
 .Lstartup_pname0:       .string          "dofile"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__dofile
+                        .quad            dofile_dcα
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            3088
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + FN__dofile]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 2
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 3088
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_dofile_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2327,7 +2324,7 @@ n00110_var_α:             mov              rax, qword ptr [rsp + 688]
 n00111_call_proc_staged_α:
                         lea              rsi, [rsp + 400]
                         lea              rdx, [rsp + 416]
-                        call             proc_dofile_dcα;                     jmp   .Lx00112_2
+                        call             dofile_dcα;                          jmp   .Lx00112_2
 .Lx00112_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00112_29
@@ -2540,7 +2537,7 @@ n00125_lit_string_α:      mov              qword ptr [rsp + 160], 2            
 n00127_call_proc_staged_α:
                         lea              rsi, [rsp + 128]
                         lea              rdx, [rsp + 160]
-                        call             proc_dofile_dcα;                     jmp   .Lx00128_2
+                        call             dofile_dcα;                          jmp   .Lx00128_2
 .Lx00128_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00128_29

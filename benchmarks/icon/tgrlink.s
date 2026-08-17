@@ -14,7 +14,7 @@ FN__loadfile:
                         mov              esi, 0
                         mov              edx, 6
                         call             rt_icn_zframe_args_install@PLT
-proc_loadfile_α_body:
+loadfile_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_call_builtin_icon_α: .section         .rodata
 .Lrkfn81:               .string          "table"
@@ -100,7 +100,7 @@ n6_var_α:               mov              rax, qword ptr [rsp + 1664]
                         mov              qword ptr [rsp + 1256], rax;         jmp   n7_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_call_proc_staged_α:  lea              rsi, [rsp + 1248]
-                        call             proc_crack_dcα;                      jmp   .Lx92_2
+                        call             crack_dcα;                           jmp   .Lx92_2
 .Lx92_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx92_29
@@ -882,7 +882,7 @@ n71_goto_α:                                                                   j
 n71_goto_β:                                                                   jmp   n72_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n72_return_α:           mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_loadfile_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   loadfile_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n73_var_α:              mov              rax, qword ptr [r9 + 0]              # ifile
                         mov              rdx, qword ptr [r9 + 8]
@@ -993,24 +993,24 @@ n79_call_builtin_icon_α:
 n79_call_builtin_icon_β:
                                                                               jmp   n2_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
-proc_loadfile_res:
+loadfile_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_loadfile_β:
-                                                                              jmp   proc_loadfile_ω
+loadfile_β:
+                                                                              jmp   loadfile_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_loadfile_γ:
+loadfile_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1800]
                         add              rsp, 1824;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_loadfile_ω:
+loadfile_ω:
                         mov              rcx, qword ptr [rsp + 1808]
                         add              rsp, 1824;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_loadfile_dcα:
+loadfile_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -1024,7 +1024,7 @@ proc_loadfile_dcα:
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
 FN__kgen:
-proc_kgen_α_body:
+kgen_α_body:
                         lea              rax, [rip + n00016_suspend_β]
                         mov              qword ptr [rsp + 656], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1289,13 +1289,13 @@ n00043_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 104;                            je    proc_kgen_ω
+                        cmp              eax, 104;                            je    kgen_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n00044_assign_α
 n00043_call_builtin_icon_β:
-                                                                              jmp   proc_kgen_ω
+                                                                              jmp   kgen_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n00044_assign_α:          mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56]
@@ -1340,25 +1340,25 @@ n00016_suspend_α:         lea              rax, [rip + n00016_suspend_β]
                         mov              rax, qword ptr [rsp + 112]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 120]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_kgen_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   kgen_γ
 n00016_suspend_β:                                                               jmp   n00051_goto_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00051_goto_α:                                                                  jmp   n00041_var_α
 n00051_goto_β:                                                                  jmp   n00041_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-proc_kgen_res:
+kgen_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_kgen_β:
+kgen_β:
                                                                               jmp   n00016_suspend_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_kgen_γ:
+kgen_γ:
                         add              rsp, 0
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-proc_kgen_ω:
+kgen_ω:
                         add              rsp, 0
                         mov              eax, 104
                         ret
@@ -1376,7 +1376,7 @@ FN__dumpcode:
                         mov              esi, 1
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
-proc_dumpcode_α_body:
+dumpcode_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00052_var_ref_α:         mov              rax, 4294967336
                         mov              rdx, 1879052352                      # chtab
@@ -1720,7 +1720,7 @@ n00084_call_proc_staged_α:
                         lea              rsi, [rsp + 720]
                         lea              rdx, [rsp + 736]
                         lea              rcx, [rsp + 752]
-                        call             proc_putchain_dcα;                   jmp   .Lx00085_2
+                        call             putchain_dcα;                        jmp   .Lx00085_2
 .Lx00085_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00085_29
@@ -1851,7 +1851,7 @@ n00095_call_proc_staged_α:
                         lea              rsi, [rsp + 464]
                         lea              rdx, [rsp + 480]
                         lea              rcx, [rsp + 496]
-                        call             proc_putchain_dcα;                   jmp   .Lx00096_2
+                        call             putchain_dcα;                        jmp   .Lx00096_2
 .Lx00096_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00096_29
@@ -1882,26 +1882,26 @@ n00095_call_proc_staged_β:
 n00072_unmark_α:          mov              rsp, qword ptr [rsp + 224];          jmp   n00060_proc_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 n00062_return_α:          mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_dumpcode_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   dumpcode_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dumpcode_res:
+dumpcode_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dumpcode_β:
-                                                                              jmp   proc_dumpcode_ω
+dumpcode_β:
+                                                                              jmp   dumpcode_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dumpcode_γ:
+dumpcode_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1144]
                         add              rsp, 1168;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dumpcode_ω:
+dumpcode_ω:
                         mov              rcx, qword ptr [rsp + 1152]
                         add              rsp, 1168;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_dumpcode_dcα:
+dumpcode_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -1930,7 +1930,7 @@ proc_dumpcode_dcα:
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
 FN__aseq:
-proc_aseq_α_body:
+aseq_α_body:
                         lea              rax, [rip + n00098_suspend_β]
                         mov              qword ptr [rsp + 672], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2150,7 +2150,7 @@ n00098_suspend_α:         lea              rax, [rip + n00098_suspend_β]
                         mov              rax, qword ptr [rsp + 416]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 424]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_aseq_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   aseq_γ
 n00098_suspend_β:                                                               jmp   n00120_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00120_var_α:             mov              rax, qword ptr [rsp + 688]
@@ -2163,7 +2163,7 @@ n00121_suspend_α:         lea              rax, [rip + n00121_suspend_β]
                         mov              rax, qword ptr [rsp + 400]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 408]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_aseq_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   aseq_γ
 n00121_suspend_β:                                                               jmp   n00122_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00122_var_α:             mov              rax, qword ptr [rsp + 704]
@@ -2348,7 +2348,7 @@ n00139_suspend_α:         lea              rax, [rip + n00139_suspend_β]
                         mov              rax, qword ptr [rsp + 240]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 248]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_aseq_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   aseq_γ
 n00139_suspend_β:                                                               jmp   n00137_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n00130_lit_integer_α:     mov              qword ptr [rsp + 160], 3             # result
@@ -2466,7 +2466,7 @@ n00151_suspend_α:         lea              rax, [rip + n00151_suspend_β]
                         mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 136]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_aseq_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   aseq_γ
 n00151_suspend_β:                                                               jmp   n00148_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n00149_var_α:             mov              rax, qword ptr [rsp + 688]
@@ -2533,7 +2533,7 @@ n00156_binop_α:           mov              eax, dword ptr [rsp + 64]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_add@PLT
-                        cmp              eax, 104;                            je    proc_aseq_ω
+                        cmp              eax, 104;                            je    aseq_ω
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -2574,7 +2574,7 @@ n00160_to_α:              mov              rdi, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 32], rax
 .Lx00161_0:               mov              rax, qword ptr [rsp + 32]
                         mov              rcx, qword ptr [rsp + 120]
-                        cmp              rax, rcx;                            jg    proc_aseq_ω
+                        cmp              rax, rcx;                            jg    aseq_ω
                         mov              qword ptr [rsp + 16], 3
                         mov              qword ptr [rsp + 24], rax;           jmp   n00162_suspend_α
 n00160_to_β:              inc              qword ptr [rsp + 32];                jmp   .Lx00161_0
@@ -2584,22 +2584,22 @@ n00162_suspend_α:         lea              rax, [rip + n00162_suspend_β]
                         mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 24]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_aseq_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   aseq_γ
 n00162_suspend_β:                                                               jmp   n00160_to_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_aseq_res:
+aseq_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_aseq_β:
+aseq_β:
                                                                               jmp   n00098_suspend_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_aseq_γ:
+aseq_γ:
                         add              rsp, 0
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-proc_aseq_ω:
+aseq_ω:
                         add              rsp, 0
                         mov              eax, 104
                         ret
@@ -2617,7 +2617,7 @@ FN__putchain:
                         mov              esi, 3
                         mov              edx, 12
                         call             rt_icn_zframe_args_install@PLT
-proc_putchain_α_body:
+putchain_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00163_disjunction_α:     mov              qword ptr [rsp + 3296], 0
                         mov              qword ptr [rsp + 3304], 0
@@ -2978,7 +2978,7 @@ n00196_var_α:             mov              rax, qword ptr [rsp + 48]
 #-----------------------------------------------------------------------------------------------------------------------
 n00197_call_proc_staged_α:
                         lea              rsi, [rsp + 2800]
-                        call             proc_putdel_dcα;                     jmp   .Lx00198_2
+                        call             putdel_dcα;                          jmp   .Lx00198_2
 .Lx00198_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00198_29
@@ -3018,7 +3018,7 @@ n00199_var_α:             mov              rax, qword ptr [rsp + 3584]
 #-----------------------------------------------------------------------------------------------------------------------
 n00201_call_proc_staged_α:
                         lea              rsi, [rsp + 2544]
-                        call             proc_successor_dcα;                  jmp   .Lx00202_2
+                        call             successor_dcα;                       jmp   .Lx00202_2
 .Lx00202_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00202_29
@@ -3098,7 +3098,7 @@ n00208_var_α:             mov              rax, qword ptr [rsp + 48]
 #-----------------------------------------------------------------------------------------------------------------------
 n00209_call_proc_staged_α:
                         lea              rsi, [rsp + 2640]
-                        call             proc_putdel_dcα;                     jmp   .Lx00210_2
+                        call             putdel_dcα;                          jmp   .Lx00210_2
 .Lx00210_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00210_29
@@ -3140,7 +3140,7 @@ n00212_conjunction_α:     mov              rax, qword ptr [rsp + 2576]
 n00212_conjunction_β:                                                           jmp   n00199_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00203_call_proc_staged_α:
-                        call             proc_collapse_dcα;                   jmp   .Lx00213_2
+                        call             collapse_dcα;                        jmp   .Lx00213_2
 .Lx00213_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00213_29
@@ -5108,7 +5108,7 @@ n00381_call_builtin_icon_β:
                                                                               jmp   n00386_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00386_return_α:          mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_putchain_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   putchain_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n00164_var_α:             mov              rax, qword ptr [r9 + 80]             # done
                         mov              rdx, qword ptr [r9 + 88]
@@ -5152,26 +5152,26 @@ n00388_call_builtin_icon_β:
                                                                               jmp   n00163_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
 n00389_return_α:          mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_putchain_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   putchain_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putchain_res:
+putchain_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putchain_β:
-                                                                              jmp   proc_putchain_ω
+putchain_β:
+                                                                              jmp   putchain_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putchain_γ:
+putchain_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 3880]
                         add              rsp, 3904;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putchain_ω:
+putchain_ω:
                         mov              rcx, qword ptr [rsp + 3888]
                         add              rsp, 3904;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putchain_dcα:
+putchain_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -5238,7 +5238,7 @@ FN__putdel:
                         mov              esi, 1
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
-proc_putdel_α_body:
+putdel_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00391_disjunction_α:     mov              qword ptr [rsp + 1312], 0
                         mov              qword ptr [rsp + 1320], 0
@@ -5298,7 +5298,7 @@ n00400_var_α:             mov              rax, qword ptr [rsp + 1552]
 #-----------------------------------------------------------------------------------------------------------------------
 n00401_call_proc_staged_α:
                         lea              rsi, [rsp + 1104]
-                        call             proc_crack_dcα;                      jmp   .Lx00402_2
+                        call             crack_dcα;                           jmp   .Lx00402_2
 .Lx00402_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx00402_29
@@ -6078,7 +6078,7 @@ n00410_var_α:             mov              rax, qword ptr [rsp + 1536]
 n00471_return_α:          mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_putdel_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   putdel_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n00399_lit_string_α:      mov              qword ptr [rsp + 1280], 2            # result
                         mov              dword ptr [rsp + 1284], 7
@@ -6243,24 +6243,24 @@ n00482_call_builtin_icon_α:
 n00482_call_builtin_icon_β:
                                                                               jmp   n00391_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putdel_res:
+putdel_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putdel_β:
-                                                                              jmp   proc_putdel_ω
+putdel_β:
+                                                                              jmp   putdel_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putdel_γ:
+putdel_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1656]
                         add              rsp, 1680;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putdel_ω:
+putdel_ω:
                         mov              rcx, qword ptr [rsp + 1664]
                         add              rsp, 1680;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_putdel_dcα:
+putdel_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -6301,7 +6301,7 @@ FN__collapse:
                         mov              esi, 0
                         mov              edx, 13
                         call             rt_icn_zframe_args_install@PLT
-proc_collapse_α_body:
+collapse_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00484_disjunction_α:    mov              qword ptr [rsp + 2864], 0
                         mov              qword ptr [rsp + 2872], 0
@@ -8881,7 +8881,7 @@ n00721_binop_test_α:     mov              eax, dword ptr [rsp + 3056]
 n00626_unmark_α:         mov              rsp, qword ptr [rsp + 112];          jmp   n00544_to_β
 #-----------------------------------------------------------------------------------------------------------------------
 n00546_return_α:         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_collapse_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   collapse_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n00485_var_α:            mov              rax, qword ptr [r9 + 16]             # maxerr
                         mov              rdx, qword ptr [r9 + 24]
@@ -8946,26 +8946,26 @@ n00725_binop_test_α:     mov              eax, dword ptr [rsp + 2912]
                         mov              qword ptr [rsp + 2904], rax;         jmp   n00727_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00727_return_α:         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   proc_collapse_γ
+                        mov              qword ptr [rsp + 8], 0;              jmp   collapse_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_collapse_res:
+collapse_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_collapse_β:
-                                                                              jmp   proc_collapse_ω
+collapse_β:
+                                                                              jmp   collapse_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_collapse_γ:
+collapse_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 3384]
                         add              rsp, 3408;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_collapse_ω:
+collapse_ω:
                         mov              rcx, qword ptr [rsp + 3392]
                         add              rsp, 3408;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_collapse_dcα:
+collapse_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -8991,7 +8991,7 @@ FN__successor:
                         mov              esi, 1
                         mov              edx, 6
                         call             rt_icn_zframe_args_install@PLT
-proc_successor_α_body:
+successor_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00729_var_ref_α:        mov              rax, 4294967336
                         mov              rdx, 1879052352                      # chtab
@@ -9323,7 +9323,7 @@ n00739_disjunction_af:   add              dword ptr [rsp + 64], 1
                         mov              eax, dword ptr [rsp + 64]
                         cmp              eax, 1;                              je    n00763_lit_integer_α
                         cmp              eax, 2;                              je    n00764_lit_integer_α
-                                                                              jmp   proc_successor_ω
+                                                                              jmp   successor_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n00762_assign_α:         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56]
@@ -9552,7 +9552,7 @@ n00796_var_α:            mov              rax, qword ptr [rsp + 1424]
 n00797_return_α:         mov              rax, qword ptr [rsp + 544]
                         mov              rdx, qword ptr [rsp + 552]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_successor_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   successor_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n00782_var_α:            mov              rax, qword ptr [rsp + 1408]
                         mov              qword ptr [rsp + 480], rax
@@ -9684,7 +9684,7 @@ n00807_var_α:            mov              rax, qword ptr [rsp + 1408]
 n00808_return_α:         mov              rax, qword ptr [rsp + 288]
                         mov              rdx, qword ptr [rsp + 296]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_successor_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   successor_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n00770_goto_α:                                                                 jmp   n00776_unmark_α
 n00770_goto_β:                                                                 jmp   n00776_unmark_α
@@ -9857,24 +9857,24 @@ n00760_lit_integer_α:    mov              qword ptr [rsp + 80], 3              
 n00760_lit_integer_β:                                                          jmp   n00739_disjunction_af
 .Lx00823_0:              .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
-proc_successor_res:
+successor_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_successor_β:
-                                                                              jmp   proc_successor_ω
+successor_β:
+                                                                              jmp   successor_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_successor_γ:
+successor_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1624]
                         add              rsp, 1648;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_successor_ω:
+successor_ω:
                         mov              rcx, qword ptr [rsp + 1632]
                         add              rsp, 1648;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_successor_dcα:
+successor_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -9915,7 +9915,7 @@ FN__crack:
                         mov              esi, 1
                         mov              edx, 6
                         call             rt_icn_zframe_args_install@PLT
-proc_crack_α_body:
+crack_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00825_disjunction_α:    mov              qword ptr [rsp + 2576], 0
                         mov              qword ptr [rsp + 2584], 0
@@ -12186,26 +12186,26 @@ n01004_var_α:            mov              rax, qword ptr [r9 + 128]            
 n01031_return_α:         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_crack_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   crack_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_crack_res:
+crack_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_crack_β:
-                                                                              jmp   proc_crack_ω
+crack_β:
+                                                                              jmp   crack_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_crack_γ:
+crack_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 2936]
                         add              rsp, 2960;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_crack_ω:
+crack_ω:
                         mov              rcx, qword ptr [rsp + 2944]
                         add              rsp, 2960;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_crack_dcα:
+crack_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -12246,7 +12246,7 @@ FN__options:
                         mov              esi, 2
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
-proc_options_α_body:
+options_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n01033_var_ref_α:        mov              rax, 4294967336
                         lea              rdx, [rsp + 32]
@@ -13755,26 +13755,26 @@ n01173_var_α:            mov              rax, qword ptr [rsp + 2608]
 n01175_return_α:         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_options_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   options_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_options_res:
+options_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_options_β:
-                                                                              jmp   proc_options_ω
+options_β:
+                                                                              jmp   options_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_options_γ:
+options_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 2904]
                         add              rsp, 2928;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_options_ω:
+options_ω:
                         mov              rcx, qword ptr [rsp + 2912]
                         add              rsp, 2928;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_options_dcα:
+options_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -13845,224 +13845,194 @@ main_init:
                         call             record_register@PLT
                         .section         .rodata
 .Lstartup_pname0:       .string          "loadfile"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__loadfile
+                        .quad            loadfile_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1680
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + FN__loadfile]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1680
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_loadfile_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname1:       .string          "kgen"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            FN__kgen
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            704
+                        .long            24
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + FN__kgen]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 704
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 1
-                        call             rt_proc_set_generator@PLT
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname2:       .string          "dumpcode"
+                        .align           8
+.Lstartup_prec2:
+                        .quad            .Lstartup_pname2
+                        .quad            FN__dumpcode
+                        .quad            dumpcode_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            992
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + FN__dumpcode]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        mov              esi, 992
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname2]
-                        lea              rsi, [rip + proc_dumpcode_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec2]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname3:       .string          "aseq"
+                        .align           8
+.Lstartup_prec3:
+                        .quad            .Lstartup_pname3
+                        .quad            FN__aseq
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            720
+                        .long            24
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        lea              rsi, [rip + FN__aseq]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 720
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname3]
-                        mov              esi, 1
-                        call             rt_proc_set_generator@PLT
+                        lea              rdi, [rip + .Lstartup_prec3]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname4:       .string          "putchain"
+                        .align           8
+.Lstartup_prec4:
+                        .quad            .Lstartup_pname4
+                        .quad            FN__putchain
+                        .quad            putchain_dcα
+                        .quad            0
+                        .quad            0
+                        .long            3
+                        .long            0
+                        .long            3616
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        lea              rsi, [rip + FN__putchain]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        mov              esi, 3
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        mov              esi, 3616
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname4]
-                        lea              rsi, [rip + proc_putchain_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec4]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname5:       .string          "putdel"
+                        .align           8
+.Lstartup_prec5:
+                        .quad            .Lstartup_pname5
+                        .quad            FN__putdel
+                        .quad            putdel_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            1568
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname5]
-                        lea              rsi, [rip + FN__putdel]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname5]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname5]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname5]
-                        mov              esi, 1568
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname5]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname5]
-                        lea              rsi, [rip + proc_putdel_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec5]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname6:       .string          "collapse"
+                        .align           8
+.Lstartup_prec6:
+                        .quad            .Lstartup_pname6
+                        .quad            FN__collapse
+                        .quad            collapse_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            3152
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname6]
-                        lea              rsi, [rip + FN__collapse]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname6]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname6]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname6]
-                        mov              esi, 3152
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname6]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname6]
-                        lea              rsi, [rip + proc_collapse_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec6]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname7:       .string          "successor"
+                        .align           8
+.Lstartup_prec7:
+                        .quad            .Lstartup_pname7
+                        .quad            FN__successor
+                        .quad            successor_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            1488
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname7]
-                        lea              rsi, [rip + FN__successor]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname7]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname7]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname7]
-                        mov              esi, 1488
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname7]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname7]
-                        lea              rsi, [rip + proc_successor_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec7]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname8:       .string          "crack"
+                        .align           8
+.Lstartup_prec8:
+                        .quad            .Lstartup_pname8
+                        .quad            FN__crack
+                        .quad            crack_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            2800
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname8]
-                        lea              rsi, [rip + FN__crack]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname8]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname8]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname8]
-                        mov              esi, 2800
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname8]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname8]
-                        lea              rsi, [rip + proc_crack_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec8]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lstartup_pname9:       .string          "options"
+                        .align           8
+.Lstartup_prec9:
+                        .quad            .Lstartup_pname9
+                        .quad            FN__options
+                        .quad            options_dcα
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            2736
+                        .long            16
+                        .long            0
+                        .long            0
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname9]
-                        lea              rsi, [rip + FN__options]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname9]
-                        mov              esi, 2
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname9]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname9]
-                        mov              esi, 2736
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname9]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname9]
-                        lea              rsi, [rip + proc_options_dcα]
-                        call             rt_proc_set_dcfn@PLT
+                        lea              rdi, [rip + .Lstartup_prec9]
+                        call             rt_proc_register_rec@PLT
                         add              rsp, 8
                         ret
                         .section         .rodata
@@ -14121,7 +14091,7 @@ n01178_lit_string_α:     mov              qword ptr [rsp + 2192], 2            
 n01180_call_proc_staged_α:
                         lea              rsi, [rsp + 2176]
                         lea              rdx, [rsp + 2192]
-                        call             proc_options_dcα;                    jmp   .Lx01181_2
+                        call             options_dcα;                         jmp   .Lx01181_2
 .Lx01181_2:              mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx01181_29
@@ -15116,7 +15086,7 @@ n01290_assign_α:         mov              rax, qword ptr [rsp + 336]
                         mov              qword ptr [r9 + 56], rdx;            jmp   n01271_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
 n01271_call_proc_staged_α:
-                        call             proc_loadfile_dcα;                   jmp   .Lx01291_2
+                        call             loadfile_dcα;                        jmp   .Lx01291_2
 .Lx01291_2:              mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx01291_29
@@ -15307,7 +15277,7 @@ n01297_proc_gen_β:       call             rt_gen_spine_resume_enter@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 n01299_call_proc_staged_α:
                         lea              rsi, [rsp + 80]
-                        call             proc_dumpcode_dcα;                   jmp   .Lx01300_2
+                        call             dumpcode_dcα;                        jmp   .Lx01300_2
 .Lx01300_2:              mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx01300_29
