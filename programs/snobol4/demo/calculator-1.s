@@ -1468,7 +1468,7 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             main_init
+                        call             module_init
                         mov              edi, 41
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -1479,162 +1479,6 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
-main_init:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname16:      .string          "PAT$0"
-                        .align           8
-.Lstartup_prec16:
-                        .quad            .Lstartup_pname16
-                        .quad            FN__PAT$0
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            96
-                        .long            18
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec16]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname17:      .string          "PAT$1"
-                        .align           8
-.Lstartup_prec17:
-                        .quad            .Lstartup_pname17
-                        .quad            FN__PAT$1
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            80
-                        .long            18
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec17]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname18:      .string          "PAT$2"
-                        .align           8
-.Lstartup_prec18:
-                        .quad            .Lstartup_pname18
-                        .quad            FN__PAT$2
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            128
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec18]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname19:      .string          "PAT$3"
-                        .align           8
-.Lstartup_prec19:
-                        .quad            .Lstartup_pname19
-                        .quad            FN__PAT$3
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            176
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec19]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname20:      .string          "PAT$4"
-                        .align           8
-.Lstartup_prec20:
-                        .quad            .Lstartup_pname20
-                        .quad            FN__PAT$4
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec20]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname21:      .string          "PAT$5"
-                        .align           8
-.Lstartup_prec21:
-                        .quad            .Lstartup_pname21
-                        .quad            FN__PAT$5
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec21]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname22:      .string          "PAT$6"
-                        .align           8
-.Lstartup_prec22:
-                        .quad            .Lstartup_pname22
-                        .quad            FN__PAT$6
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            64
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec22]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname23:      .string          "PAT$7"
-                        .align           8
-.Lstartup_prec23:
-                        .quad            .Lstartup_pname23
-                        .quad            FN__PAT$7
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            240
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec23]
-                        call             rt_proc_register_rec@PLT
-                        add              rsp, 8
-                        ret
                         .section         .rodata
 .Lgvan0:                .string          "EMIT"
 .Lgvan1:                .string          "PSH"
@@ -6922,6 +6766,162 @@ main_ω:
                         add              rsp, 0
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname16:      .string          "PAT$0"
+                        .align           8
+.Lstartup_prec16:
+                        .quad            .Lstartup_pname16
+                        .quad            FN__PAT$0
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            96
+                        .long            18
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec16]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname17:      .string          "PAT$1"
+                        .align           8
+.Lstartup_prec17:
+                        .quad            .Lstartup_pname17
+                        .quad            FN__PAT$1
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            80
+                        .long            18
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec17]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname18:      .string          "PAT$2"
+                        .align           8
+.Lstartup_prec18:
+                        .quad            .Lstartup_pname18
+                        .quad            FN__PAT$2
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            128
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec18]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname19:      .string          "PAT$3"
+                        .align           8
+.Lstartup_prec19:
+                        .quad            .Lstartup_pname19
+                        .quad            FN__PAT$3
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            176
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec19]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname20:      .string          "PAT$4"
+                        .align           8
+.Lstartup_prec20:
+                        .quad            .Lstartup_pname20
+                        .quad            FN__PAT$4
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec20]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname21:      .string          "PAT$5"
+                        .align           8
+.Lstartup_prec21:
+                        .quad            .Lstartup_pname21
+                        .quad            FN__PAT$5
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec21]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname22:      .string          "PAT$6"
+                        .align           8
+.Lstartup_prec22:
+                        .quad            .Lstartup_pname22
+                        .quad            FN__PAT$6
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            64
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec22]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname23:      .string          "PAT$7"
+                        .align           8
+.Lstartup_prec23:
+                        .quad            .Lstartup_pname23
+                        .quad            FN__PAT$7
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            240
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec23]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .rodata
 .S0:                    .string          "*PSH"
 .S1:                    .string          "X"

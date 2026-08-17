@@ -6,7 +6,7 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             main_init
+                        call             module_init
                         mov              edi, 6
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -17,10 +17,6 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
-main_init:
-                        sub              rsp, 8
-                        add              rsp, 8
-                        ret
                         .section         .rodata
 .Lgvan0:                .string          "ROMAN"
 .Lgvan1:                .string          "N"
@@ -1355,6 +1351,10 @@ main_ω:
                         add              rsp, 0
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        add              rsp, 8
+                        ret
                         .section         .rodata
 .S0:                    .string          "UNITS"
 .S1:                    .string          "PATV$0"
