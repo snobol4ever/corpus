@@ -1,0 +1,18 @@
+*  m1_defer_SPAN.sno -- FINDING-2026-08-17-s139 sec.2 table, row 2 (defer_SPAN).
+*
+*  Same shape as m1_defer_ALT.sno but Sp DROPS the LEN(0) alternate --
+*  no alternation is present at all.  This is the row that proved the
+*  s137 discriminator "ALT vs no-ALT" was wrong: defer_SPAN FAILs on scrip
+*  too, so ALT is not the cause -- a CARVING defer target is.
+*  Subject carries a TRAILING SPACE so Sp=SPAN(' ') has something to carve.
+*  Oracle (SPITBOL x64 sbl -b): ok.  scrip HEAD @ s139: FAIL.
+         &ANCHOR      =  1
+         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+         Sp           =  SPAN(' ')
+         Command      =  Word *Sp
+         L            =  ARBNO(*Command)
+         Src          =  'START HERE '
+         Src          POS(0) L RPOS(0)                            :F(FA)
+         OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END

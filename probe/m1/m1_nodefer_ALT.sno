@@ -1,0 +1,17 @@
+*  m1_nodefer_ALT.sno -- FINDING-2026-08-17-s139 sec.2 table, row 5 (nodefer_ALT).
+*
+*  Same alternation Sp = SPAN(' ') | LEN(0) as m1_defer_ALT.sno, defined as
+*  its own statement, but Command references it UNDEFERRED (plain Sp, not
+*  *Sp) -- isolates "an ALT-valued pattern variable in ARBNO body position"
+*  from "an ALT reached THROUGH a defer".  STANDING GREEN COUNTER-WITNESS.
+*  Oracle (SPITBOL x64 sbl -b): ok.  scrip HEAD @ s139: ok (already passes).
+         &ANCHOR      =  1
+         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+         Sp           =  SPAN(' ') | LEN(0)
+         Command      =  Word Sp
+         L            =  ARBNO(*Command)
+         Src          =  'START HERE'
+         Src          POS(0) L RPOS(0)                            :F(FA)
+         OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END

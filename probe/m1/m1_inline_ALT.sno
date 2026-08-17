@@ -1,0 +1,17 @@
+*  m1_inline_ALT.sno -- FINDING-2026-08-17-s139 sec.2 table, row 4 (inline_ALT).
+*
+*  Same ALT as m1_defer_ALT.sno (SPAN(' ') | LEN(0)) but written INLINE in
+*  Command instead of behind a separate defer *Sp.  STANDING GREEN COUNTER-
+*  WITNESS: isolates "ALT reached through a defer boundary" from "ALT" itself
+*  -- if this ever FAILs where m1_defer_ALT does not, the defect moved to
+*  plain ALT-in-ARBNO, not the defer mechanism.
+*  Oracle (SPITBOL x64 sbl -b): ok.  scrip HEAD @ s139: ok (already passes).
+         &ANCHOR      =  1
+         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+         Command      =  Word (SPAN(' ') | LEN(0))
+         L            =  ARBNO(*Command)
+         Src          =  'START HERE'
+         Src          POS(0) L RPOS(0)                            :F(FA)
+         OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END

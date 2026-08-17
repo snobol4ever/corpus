@@ -1,0 +1,21 @@
+*  m1_defer_ALT.sno -- FINDING-2026-08-17-s139 sec.2 table, row 1 (defer_ALT).
+*
+*  ARBNO body defers to *Command; Command's tail is an UNDEFERRED alternation
+*  Sp = SPAN(' ') | LEN(0).  Isolates "ALT reachable through an ARBNO-body
+*  defer" from beauty's larger shape (m1_beauty_arbno_defer_min.sno).
+*  Oracle (SPITBOL x64 sbl -b): ok.  scrip HEAD @ s139: FAIL.
+*  Sibling set -- change exactly ONE ingredient at a time:
+*    m1_defer_SPAN  -- Sp loses the LEN(0) alternate (no ALT at all)
+*    m1_defer_LEN0  -- Sp loses the SPAN alternate (no ALT, no carve)
+*    m1_inline_ALT  -- the alternation moves inline, no separate defer
+*    m1_nodefer_ALT -- Command uses Sp directly, not *Sp (no defer at all)
+         &ANCHOR      =  1
+         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+         Sp           =  SPAN(' ') | LEN(0)
+         Command      =  Word *Sp
+         L            =  ARBNO(*Command)
+         Src          =  'START HERE'
+         Src          POS(0) L RPOS(0)                            :F(FA)
+         OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END
