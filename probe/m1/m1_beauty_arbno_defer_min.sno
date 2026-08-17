@@ -1,0 +1,41 @@
+*  m1_beauty_arbno_defer_min.sno — THE BEAUTY SELF-HOST BLOCKER, ablated to its ingredients (s137).
+*
+*  Provenance: beauty.sno stops after 7 correct lines and prints its own 'Parse Error' from
+*
+*        Src   POS(0) *Parse *Space RPOS(0)          :F(mainErr1)      (beauty.sno:611/615)
+*
+*  parsing the single bare line "START".  Parse is (beauty.sno:225)
+*
+*        Parse = nPush() ARBNO(*Command) ("'Parse'" & 'nTop()') nPop()
+*
+*  i.e. an ARBNO whose BODY IS A DEFERRED PATTERN REFERENCE, reached through a DEFER, with
+*  function calls in pattern position on both sides.  This file keeps exactly those ingredients and
+*  nothing else: no include files, no tables, no pp().  SPITBOL is the oracle (.ref beside it).
+         &ANCHOR      =  1
+         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+         Space        =  SPAN(' ') | LEN(0)
+*  Command is the recursive body: one word, optionally followed by more.
+         Command      =  Word *Space
+*  Parse mirrors beauty's shape: ARBNO over a DEFERRED body, wrapped by defers on both sides.
+         Parse        =  ARBNO(*Command)
+*  A: the bare-label line that beauty was parsing when it failed.
+         Src          =  'START'
+         Src          POS(0) *Parse *Space RPOS(0)                :F(FA)
+         OUTPUT       =  'A ok'                                   :(B)
+FA       OUTPUT       =  'A FAIL'
+*  B: two words — forces ARBNO to take a SECOND iteration through the defer.
+B        Src          =  'START HERE'
+         Src          POS(0) *Parse *Space RPOS(0)                :F(FB)
+         OUTPUT       =  'B ok'                                   :(C)
+FB       OUTPUT       =  'B FAIL'
+*  C: three words — third iteration; a per-iteration slot that is overwritten shows up here.
+C        Src          =  'ONE TWO THREE'
+         Src          POS(0) *Parse *Space RPOS(0)                :F(FC)
+         OUTPUT       =  'C ok'                                   :(D)
+FC       OUTPUT       =  'C FAIL'
+*  D: zero words — ARBNO must match the null string and RPOS(0) must still close.
+D        Src          =
+         Src          POS(0) *Parse *Space RPOS(0)                :F(FD)
+         OUTPUT       =  'D ok'                                   :(END)
+FD       OUTPUT       =  'D FAIL'
+END
