@@ -1,0 +1,17 @@
+*  frame_cross_blob_alt - backtrack must CROSS a blob boundary: *Q exhausts, the
+*  retry belongs to *P's interior ALT.  s124 beauty-residue item 2 (the '*Parse
+*  *Space' nesting at beauty.sno:614) reduced, no ARBNO required.
+*  ⛔ v1 of this witness used P=('x'|'xy') literals-only: sno_pat_inline_ok folds
+*  that INLINE, no blob is ever minted, and it passed while exercising NOTHING
+*  (the s122 exoneration trap).  The deferred alternate *A2 (manual p.86) defeats
+*  the fold so P is a real blob.
+*  Oracle trace on 'xyyz': P='x', Q fails both arms at 'yyz'; re-enter P => 'xy';
+*  Q at 'yz' takes 'yz'; RPOS(0) => MATCH.
+        A2 = 'xy'
+        P = ('x' | *A2)
+        Q = ('z' | 'yz')
+        s = 'xyyz'
+        s POS(0) *P *Q RPOS(0)                                :S(G)F(B)
+G       OUTPUT = 'match'                                      :(END)
+B       OUTPUT = 'nomatch'
+END

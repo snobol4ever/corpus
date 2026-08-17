@@ -1,0 +1,14 @@
+*  frame_recursive_list - RECURSION => unbounded LIFO frame chain (Lon ruling s125:
+*  unbounded stack growth, determined by syntax, gets an RBP frame; LIFO).
+*  This is the manual's OWN canonical recursive pattern (p.122): a list of digit
+*  spans or nested lists.  Depth 3 nesting on the match; malformed input must fail.
+        ITEM = SPAN('0123456789') | *LIST
+        LIST = '(' ITEM ARBNO(',' ITEM) ')'
+        TEST = POS(0) LIST RPOS(0)
+        '(12,(3,45,(6)),78)' ? TEST                           :S(G1)F(B1)
+G1      OUTPUT = 'match1'                                     :(T2)
+B1      OUTPUT = 'nomatch1'
+T2      '(12,(34)' ? TEST                                     :S(B2)F(G2)
+B2      OUTPUT = 'match2'                                     :(END)
+G2      OUTPUT = 'nomatch2'
+END
