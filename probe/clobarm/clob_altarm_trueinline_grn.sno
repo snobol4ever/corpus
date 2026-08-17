@@ -1,0 +1,9 @@
+*  clobarm D - the PASSING-SIBLING candidate: same ALT+capture backtrack written
+*  INLINE in the match statement (no pattern variable => no PAT$ blob).
+*  If this passes, the inline ALT path already unwinds the capture arena on arm
+*  resume and its spelling is the model for the blob path.
+        s = 'iffoo'
+        s POS(0) ('if' . K | SPAN('abcdefghijklmnopqrstuvwxyz') . I) RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END

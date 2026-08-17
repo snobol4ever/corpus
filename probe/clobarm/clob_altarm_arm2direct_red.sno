@@ -1,0 +1,10 @@
+*  clobarm E - DISCRIMINATOR: is the mis-priced SPAN cell s128's defect or pre-existing?
+*  arm1 ('zz') fails outright, so arm2's SPAN runs on the FIRST pass with NO backtrack
+*  and NO choice-record resume. If this corrupts under the DEFAULT (OFF) arm, the
+*  zd mis-pricing is PRE-EXISTING and s128 merely made it reachable.
+        t = ('zz' . K | SPAN('abcdefghijklmnopqrstuvwxyz') . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END

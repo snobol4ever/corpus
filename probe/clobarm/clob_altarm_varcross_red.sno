@@ -1,0 +1,11 @@
+*  clobarm A - outer ALT whose arm interiors cross into other pattern VARIABLES.
+*  arm1 (a . K) matches 'if', RPOS(0) fails, scanner must fall through to arm2 (b . I).
+*  No FENCE: isolates the wire-crossing (IR_MATCH_VALUE) from 124's fence.
+        a = 'if'
+        b = SPAN('abcdefghijklmnopqrstuvwxyz')
+        t = (a . K | b . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
