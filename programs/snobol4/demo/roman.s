@@ -456,11 +456,14 @@ n25_match_defer_α:      lea              rdi, [rip + .S1]
                         pop              r15
                         pop              r14
                         test             eax, eax;                            js    n24_match_begin_β
+                        mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lx144_6]
-                        sub              rsp, 8
+                        push             rcx
                         push             rax;                                 jmp   n26_match_assign_save_α
-.Lx144_6:               add              rsp, 16;                             jmp   n24_match_begin_β
+.Lx144_6:               add              rsp, 8
+                        pop              rax
+                        mov              r14d, eax;                           jmp   n24_match_begin_β
 n25_match_defer_β:                                                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n26_match_assign_save_α:
