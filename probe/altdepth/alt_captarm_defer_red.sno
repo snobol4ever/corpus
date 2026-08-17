@@ -1,0 +1,11 @@
+*  alt_captarm_defer_red — minted s127. The NON-LEAF ALT-carrier depth class, minimal beauty shape:
+*  ARBNO(*cmd) where cmd's arms CARVE INTERIOR STATE (captures). sn4_blob_choice_scan._lf=0 ==>
+*  carrier refused ==> PAT$β dead-ends at ω ==> no backtrack into the placed instance.
+*  Oracle: instance 1 'a' (X='a'), RPOS(0) fails, backtrack INTO instance retries 'ab' (X='ab') => match ab.
+        cmd   = 'a' . X | 'ab' . X
+        outer = ARBNO(*cmd)
+        s     = 'ab'
+        s POS(0) *outer RPOS(0)                               :S(G)F(B)
+G       OUTPUT = 'match ' X                                   :(END)
+B       OUTPUT = 'nomatch'
+END

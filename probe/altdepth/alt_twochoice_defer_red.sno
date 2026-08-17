@@ -1,0 +1,15 @@
+*  alt_twochoice_defer_red — minted s127 (corrected same-session: first cut's backtrack stayed
+*  INTRA-activation through ALT1's own arm chain and went green at default). This shape forces
+*  EXTERNAL re-entry into a SUSPENDED two-record interior: instance 1 places 'a'+'d' (yield 2),
+*  the extension from 2 fails, and the retry must resume ALT2 (exhaust) then ALT1 ('ab') inside
+*  the placed instance — TWO stacked 32B arm records, the "two-deep records do not yet compose"
+*  class (s126). Refused by the _nc==1 gate; expected default = rip-0 honest bomb until the
+*  rbp-relative-choice-records rung lands.
+*  Oracle: re-entry picks 'ab' then 'bd' => cursor 4 => RPOS(0) => match.
+        cmd   = ('a' | 'ab') ('d' | 'bd')
+        outer = ARBNO(*cmd)
+        s     = 'adbd'
+        s POS(0) *outer RPOS(0)                               :S(G)F(B)
+G       OUTPUT = 'match'                                      :(END)
+B       OUTPUT = 'nomatch'
+END
