@@ -1,34 +1,17 @@
-*------------------------------------------------------------------------------
-* claws5-match.sno — claws5 pattern match ONLY: whole file in memory, ONE BIG
-* MATCH, zero side effects (no captures, no deferred calls, no tables).
-* The pattern is claws5.sno's claws with all conditional assignments and
-* (epsilon . *fn()) elements stripped; language recognized is identical.
-* Run: sbl -b -d512m -i64m (with -CASE 0 prepend) claws5-match.sno < CLAWS5inTASA.dat
-*      snobol4 -b -f -d 8m -P 4m -S 4m claws5-match.sno < CLAWS5inTASA.dat
-*      scrip --run claws5-match.sno < CLAWS5inTASA.dat
-*------------------------------------------------------------------------------
-*------------------------------------------------------------------------------
-                &TRIM          =  0
-*------------------------------------------------------------------------------
-*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
-*  newlines come back in-string (separator below widened to SPAN(' ' CHAR(10)))
-                INPUT(.INPUT, 9, '[-f0 -r1000000]')
-                src             =   INPUT                       :F(fail)
-*------------------------------------------------------------------------------
-                claws           =
-+               POS(0)
-+               ARBNO(
-+                ( SPAN('0123456789') '_CRD :_PUN'
-+                | NOTANY('_') BREAK('_')
-+                  '_'
-+                  ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ') SPAN('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-+                )
-+                SPAN(' ' CHAR(10))
-+               )
-+               RPOS(0)
-*------------------------------------------------------------------------------
-                src             claws                           :F(fail)
-                OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
-fail            OUTPUT          =  'Pattern match failed'
-*------------------------------------------------------------------------------
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     ( (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r1000000]')
+        src     =   INPUT  :F(error)
+        src     ?   claws  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
 END

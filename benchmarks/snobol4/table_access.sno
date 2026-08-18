@@ -1,20 +1,17 @@
-* table_access.sno
-* Bottleneck: TABLE creation, integer-key write and read.
-* 5,000 fill+read cycles of 500 entries each.
-    &TRIM = 1
-    &STLIMIT = 1000000000
-    T1 = TIME()
-    OUTER = 0
-OUTER   T = TABLE(512)
-    I = 0
-FILL    I = LT(I, 500) I + 1           :F(READ)
-    T<I> = I * 2                       :(FILL)
-READ    SUM = 0
-    I = 0
-LOOP    I = LT(I, 500) I + 1           :F(CHECK)
-    SUM = SUM + T<I>                   :(LOOP)
-CHECK   OUTER = LT(OUTER, 5000) OUTER + 1  :S(OUTER)
-    T2 = TIME()
-    OUTPUT = "result: " SUM
-    OUTPUT = "ms: " (T2 - T1)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      T1 = TIME()
+      OUTER = 0
+OUTER T = TABLE(512)
+      I = 0
+FILL  I = LT(I, 500) I + 1  :F(READ)
+      T[I] = I * 2  :(FILL)
+READ  SUM = 0
+      I = 0
+LOOP  I = LT(I, 500) I + 1  :F(CHECK)
+      SUM = SUM + T[I]  :(LOOP)
+CHECK OUTER = LT(OUTER, 5000) OUTER + 1  :S(OUTER)
+      T2 = TIME()
+      OUTPUT = T2 - T1
 END

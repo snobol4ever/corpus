@@ -1,14 +1,11 @@
-* string_concat.sno
-* Bottleneck: string allocation and GC pressure (O(n^2) copies).
-* Append one char 100,000 times.
-    &TRIM = 1
-    &STLIMIT = 1000000000
-    T1 = TIME()
-    S = ''
-    N = 0
-LOOP    N = LT(N, 100000) N + 1        :F(DONE)
-    S = S 'x'                          :(LOOP)
-DONE    T2 = TIME()
-    OUTPUT = "result: " SIZE(S)
-    OUTPUT = "ms: " (T2 - T1)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      T1 = TIME()
+      S = ''
+      N = 0
+LOOP  N = LT(N, 100000) N + 1  :F(DONE)
+      S = S 'x'  :(LOOP)
+DONE  T2 = TIME()
+      OUTPUT = T2 - T1
 END

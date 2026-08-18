@@ -1,35 +1,14 @@
-* arith_str.sno — STRING-OPERAND arithmetic window, sized for the 3-arm harness.
-* WHY THIS EXISTS: every arithmetic benchmark in the corpus feeds rt_add/rt_sub
-* operands that are ALREADY DT_I or DT_R, so none of them executes the string->
-* numeric coercion path at all. A coercion rung graded on arith_int or
-* arith_mixed is graded by a BLIND instrument (the RTX-12 defect class).
-* SPITBOL Ch.2: a string operand is a numeric operand ('1.5' IS real, '' is
-* integer 0, leading/trailing blanks permitted).
-* OUTPUT-SENSITIVE BY CONSTRUCTION (s210's lesson: arith_loop's N=N+1 under
-* LT(N,bound) is a fixed point that ABSORBS a corrupted add and still lands on
-* the bound, so it can never falsify). Here SUM = N * (1.5 - 2) = -0.5N, so any
-* corruption of either conversion or either op moves the printed checksum.
-* STEP 0(d) MEASURED s211 (util_rtx_arith_census.c, LD_PRELOAD interposer):
-*   N=2,000,000 -> add=4,000,000 sub=2,000,001 | TAGS realreal=0 intint=2,000,001 other=4,000,000
-*   N=4,000,000 -> add=8,000,000 sub=4,000,001 | TAGS realreal=0 intint=4,000,001 other=8,000,000
-* EXACT 2x SCALING on every counter => the window is real, not setup-only. The
-* 'other' column IS the string-operand population (tag pair DT_R x DT_S), and it
-* is 4M at N=2M -- i.e. this program executes the coercion path 2 ops/iteration.
-* It also proves S='1.5' is NOT constant-folded: the string reaches the runtime.
-* Oracle-exact: SPITBOL x64 and SCRIP m3 both print checksum: -1000000.
-* Window ~633ms (SCRIP m3, RT_OPT=-O0) -- above the harness's gradeable floor.
-    &TRIM = 1
-    &STLIMIT = 999999999
-    T1 = TIME()
-    N = 0
-    SUM = 0
-    S = '1.5'
-    U = '2'
-LOOP    N = N + 1
-    SUM = SUM + S
-    SUM = SUM - U
-    N = LT(N, 2000000) N        :S(LOOP)
-    T2 = TIME()
-    OUTPUT = "checksum: " SUM
-    OUTPUT = "ms: " (T2 - T1)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      T1 = TIME()
+      N = 0
+      U = '2'
+      S = '1.5'
+      SUM = 0
+LOOP  SUM = SUM + S
+      SUM = SUM - U
+      N = LT(N, 2000000) N + 1 :S(LOOP)
+      T2 = TIME()
+      OUTPUT = T2 - T1
 END

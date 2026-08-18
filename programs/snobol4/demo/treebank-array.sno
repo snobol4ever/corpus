@@ -122,9 +122,74 @@ pp_node_end
 pp_bank        pp_node(bank, 0, '')
                pp_bank        =  .dummy                     :(RETURN)
 pp_bank_end
-*------------------------------------------------------------------------------
+ def init_list(v): return λ(f"{v} = None")
+                         + λ(f"tags = dict()")
+                         + λ(f"stack = []")
+  def push_list(v): return λ(f"count_tag({v})")
+                         + λ(f"stack.append(list())")
+                         + λ(f"stack[-1].append({v})")
+  def push_item(v): return λ(f"stack[-1].append({v})")
+  def pop_list():   return λ(f"stack[-2].append(tuple(stack.pop()))")
+  def pop_final(v): return λ(f"{v} = tuple(stack.pop())")
+**------------------------------------------------------------------------------
+               DATA('list(t,v,n,c)')
+               DEFINE('Append(x,y)')
+               DEFINE('Prepend(x,y)')
+               DEFINE('Insert(x,y,place)c,i')
+               DEFINE('Remove(x,place)c,i')                                         :(TreeEnd)
+Append         Append         =    Insert(x, y, n(x) + 1)                           :(RETURN)
+Prepend        Prepend        =    Insert(x, y, 1)                                  :(RETURN)
+Insert         Insert         =    x
+               c              =    ARRAY('1:' n(x) + 1)
+               i              =    0
+Insert1        i              =    LT(i, place - 1) i + 1                           :F(Insert2)
+               c[i]           =    c(x)[i]                                          :(Insert1)
+Insert2        c[i + 1]       =    y
+Insert3        i              =    LT(i, n(x)) i + 1                                :F(Insert4)
+               c[i + 1]       =    c(x)[i]                                          :(Insert3)
+Insert4        n(x)           =    n(x) + 1
+               c(x)           =    c                                                :(RETURN)
+Remove         Remove         =    x
+               c              =    GT(n(x) - 1, 0) ARRAY('1:' n(x) - 1)
+               i              =    0
+Remove1        i              =    LT(i, place - 1) i + 1                           :F(Remove2)
+               c[i]           =    c(x)[i]                                          :(Remove1)
+Remove2        i              =    i + 1
+Remove3        i              =    LT(i, n(x)) i + 1                                :F(Remove4)
+               c[i - 1]       =    c(x)[i]                                          :(Remove3)
+Remove4        n(x)           =    n(x) - 1
+               c(x)           =    c                                                :(RETURN)
+TreeEnd
+* #------------------------------------------------------------------------------
+* delim       =   SPAN(" \n")
+* word        =   NOTANY("( )\n") + BREAK("( )\n")
                delim          =  SPAN(' ' CHAR(10))
                word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
+*------------------------------------------------------------------------------
+* group       =   ( σ('(')
+*                 + word % "tag"
+*                 + push_list("tag")
+*                 + ARBNO(
+*                     delim
+*                   + ( ζ(lambda: group)
+*                     | word % "wrd" + push_item("wrd")
+*                     )
+*                   )
+*                 + pop_list()
+*                 + σ(')')
+*                 )
+* treebank    =   ( POS(0)
+*                 + init_list("bank")
+*                 + push_list("'BANK'")
+*                 + ARBNO(
+*                     push_list("'ROOT'")
+*                   + ARBNO(group)
+*                   + pop_list()
+*                   + delim
+*                   )
+*                 + pop_final("bank")
+*                 + RPOS(0)
+*                 )
 *------------------------------------------------------------------------------
                group          =  FENCE(
 +              '('

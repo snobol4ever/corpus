@@ -1,44 +1,15 @@
-*------------------------------------------------------------------------------
-* treebank-match.sno — treebank pattern match ONLY: whole file in memory, ONE
-* BIG MATCH, zero side effects (no captures, no deferred calls, no lists).
-* The pattern is treebank-list.sno's group/treebank with all conditional
-* assignments and (epsilon . *fn()) elements stripped; language recognized is
-* identical.  Only the recursive *group deferred VARIABLE remains — it is
-* the parse structure itself, not a side effect (delim is bound before use).
-* Run: sbl -b -d512m -i64m -s256m (with -CASE 0 prepend) treebank-match.sno < VBGinTASA.dat
-*      snobol4 -b -f -d 8m -P 4m -S 4m treebank-match.sno < VBGinTASA.dat
-*      scrip --run treebank-match.sno < VBGinTASA.dat
-*------------------------------------------------------------------------------
-               delim          =  SPAN(' ' CHAR(10))
-               word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
-*------------------------------------------------------------------------------
-               group          =
-+              '('
-+              word
-+              ARBNO(
-+                  delim
-+                  ( *group
-+                  | word
-+                  )
-+              )
-+              ')'
-*------------------------------------------------------------------------------
-               treebank       =
-+              POS(0)
-+              ARBNO(
-+                  ARBNO(*group)
-+                  delim
-+              )
-+              RPOS(0)
-*------------------------------------------------------------------------------
-                &TRIM          =  0
-*------------------------------------------------------------------------------
-*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
-*  newlines come back in-string, short read at EOF (manual, file processing options)
-               INPUT(.INPUT, 9, '[-f0 -r1000000]')
-               src            =  INPUT                      :F(main_fail)
-               src            treebank                      :F(main_fail)
-               OUTPUT         =  'matched bytes=' SIZE(src) :(END)
-main_fail      OUTPUT         =  'Pattern match failed'
-*------------------------------------------------------------------------------
+        &TRIM       =   0
+        delim       =   SPAN(' ' CHAR(10))
+        word        =   NOTANY('( )' CHAR(10))
++                       BREAK('( )' CHAR(10))
+        group       =   '('
++                       word
++                       ARBNO(delim (*group | word))
++                       ')'
+        treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r1000000]')
+        src         =   INPUT  :F(error)
+        src         ?   treebank  :F(error)
+        OUTPUT      =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT      =   'Pattern match failed'
 END

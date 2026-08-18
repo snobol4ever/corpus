@@ -1,40 +1,14 @@
-*------------------------------------------------------------------------------
-* calculator-1-match.sno — arithmetic-expression pattern match ONLY, Variant 1:
-* RIGHT recursion (the grammar of calculator-1.sno with every semantic action
-* stripped).  Whole file in memory, ONE BIG MATCH, zero side effects (no
-* captures, no deferred CALLS — the *X/*F/*T deferred VARIABLES are the parse
-* structure itself, not side effects).  The subject is the entire input: a
-* run of newline-terminated expression lines, ARBNO(X eol), anchored
-* POS(0)..RPOS(0), so the match recognizes every line or fails as a whole.
-*
-* Atoms A (lowercase letters, unsigned ints, parens), signed factors F (unary
-* sign chains via *F), terms T ('*' '/', right recursive), expressions X
-* ('+' '-', right recursive).  Language recognized is identical to
-* calculator-2-match; only the grammar SHAPE differs (right recursion here vs
-* ARBNO iteration in -2), which is what makes the two useful as distinct
-* pattern-engine stress cases.  Shares calculator.input / calculator-gen.py
-* with the calculator-1/-2 evaluators.
-* Run: sbl -b calculator-1-match.sno < calculator.input
-*      snobol4 -b -f -d 8m -P 4m -S 4m calculator-1-match.sno < calculator.input
-*      scrip --run calculator-1-match.sno < calculator.input
-*------------------------------------------------------------------------------
-        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
-        I              =  SPAN('0123456789')
-        A              =  V | I | '(' *X ')'
-        F              =  A | '+' *F | '-' *F
-        T              =  F '*' *T | F '/' *T | F
-        X              =  T '+' *X | T '-' *X | T
-        eol            =  CHAR(10)
-        C              =  POS(0) ARBNO(X eol) RPOS(0)
-*------------------------------------------------------------------------------
-        &TRIM          =  0
-*------------------------------------------------------------------------------
-*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
-*  newlines come back in-string, short read at EOF (manual, file processing)
+        &TRIM   =  0
+        I       =  SPAN('0123456789')
+        V       =  ANY(&LCASE)
+        A       =  I | V | '(' *X ')'
+        F       =  '+' *F | '-' *F | A
+        T       =  F '*' *T | F '/' *T | F
+        X       =  T '+' *X | T '-' *X | T
+        C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
         INPUT(.INPUT, 9, '[-f0 -r4000000]')
-        src            =  INPUT                          :F(fail)
-        src            C                                 :F(fail)
-        OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
-fail    OUTPUT         =  'Pattern match failed'
-*------------------------------------------------------------------------------
+        src     =  INPUT  :F(error)
+        src     ?  C  :F(error)
+        OUTPUT  =  'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =  'Pattern match failed'
 END

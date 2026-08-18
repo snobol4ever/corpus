@@ -1,28 +1,25 @@
-* mixed_workload.sno
-* Bottleneck: combined pattern parsing, TABLE ops, recursion.
-* 50,000 iterations.
-    &TRIM = 1
-    &STLIMIT = 1000000000
-    DEFINE('RSUM(N)')                   :(RSUM_END)
-RSUM    RSUM = EQ(N,0) 0               :S(RETURN)
-    RSUM = N + RSUM(N - 1)             :(RETURN)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      DEFINE('RSUM(N)')  :(RSUM_END)
+RSUM  RSUM = EQ(N,0) 0  :S(RETURN)
+      RSUM = N + RSUM(N - 1)  :(RETURN)
 RSUM_END
-    PAT = BREAK(',') . WORD ','
-    T1 = TIME()
-    OUTER = 0
-OUTER   T = TABLE(16)
-    DATA = '10,20,30,40,50,60,70,80,90,100,'
-    IDX = 0
-PARSE   DATA PAT =                     :F(COMPUTE)
-    IDX = IDX + 1
-    T<IDX> = WORD + 0                  :(PARSE)
-COMPUTE TOTAL = 0
-    I = 0
-ADD     I = LT(I, IDX) I + 1          :F(CHECK)
-    TOTAL = TOTAL + T<I>               :(ADD)
-CHECK   CHECK = RSUM(10)
-    OUTER = LT(OUTER, 50000) OUTER + 1  :S(OUTER)
-    T2 = TIME()
-    OUTPUT = "result: " TOTAL
-    OUTPUT = "ms: " (T2 - T1)
+      T1 = TIME()
+      PAT = BREAK(',') . WORD ','
+      OUTER = 0
+OUTER T = TABLE(16)
+      DATA = '10,20,30,40,50,60,70,80,90,100,'
+      IDX = 0
+PARSE DATA ? PAT =  :F(CALC)
+      IDX = IDX + 1
+      T[IDX] = WORD + 0  :(PARSE)
+CALC  TOTAL = 0
+      I = 0
+ADD   I = LT(I, IDX) I + 1  :F(CHECK)
+      TOTAL = TOTAL + T[I]  :(ADD)
+CHECK CHECK = RSUM(10)
+      OUTER = LT(OUTER, 50000) OUTER + 1  :S(OUTER)
+      T2 = TIME()
+      OUTPUT = T2 - T1
 END

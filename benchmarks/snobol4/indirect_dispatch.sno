@@ -1,16 +1,15 @@
-* indirect_dispatch.sno
-* Bottleneck: APPLY() dynamic function dispatch — no compile cost.
-* Contrast with eval_fixed.sno: APPLY is pure runtime lookup, much cheaper.
-* 500 iterations of APPLY(FN, X) where FN = 'ADD1'.
-    &TRIM = 1
-    DEFINE('ADD1(V)')                   :(ADD1END)
-ADD1    ADD1 = V + 1                    :(RETURN)
-ADD1END
-    FN = 'ADD1'
-    X = 5
-    N = 0
-LOOP    N = LT(N, 500) N + 1           :F(DONE)
-    R = APPLY(FN, X)
-    :(LOOP)
-DONE    OUTPUT = R
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      DEFINE('ADD1(V)')  :(ADD1_END)
+ADD1  ADD1 = V + 1  :(RETURN)
+ADD1_END
+      T1 = TIME()
+      FN = 'ADD1'
+      X = 5
+      N = 0
+LOOP  N = LT(N, 500) N + 1  :F(DONE)
+      R = APPLY(FN, X)  :(LOOP)
+DONE  T2 = TIME()
+      OUTPUT = T2 - T1
 END

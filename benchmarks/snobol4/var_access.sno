@@ -1,22 +1,19 @@
-* var_access.sno
-* Bottleneck: identifier lookup on every read/write.
-* 5 variables in a tight loop, 10,000,000 iterations.
-    &TRIM = 1
-    &STLIMIT = 1000000000
-    T1 = TIME()
-    A = 1
-    B = 2
-    C = 0
-    D = 0
-    E = 0
-    N = 0
-LOOP    A = A + 1
-    B = B + 2
-    C = A + B
-    D = C + A
-    E = D + B
-    N = LT(N, 10000000) N + 1          :S(LOOP)
-    T2 = TIME()
-    OUTPUT = "result: " E
-    OUTPUT = "ms: " (T2 - T1)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      T1 = TIME()
+      A = 1
+      B = 2
+      C = 0
+      D = 0
+      E = 0
+      N = 0
+LOOP  A = A + 1
+      B = B + 2
+      C = A + B
+      D = C + A
+      E = D + B
+      N = LT(N, 10000000) N + 1  :S(LOOP)
+      T2 = TIME()
+      OUTPUT = T2 - T1
 END

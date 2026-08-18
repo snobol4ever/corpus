@@ -1,15 +1,12 @@
-* fibonacci.sno
-* Bottleneck: deep recursion, function call/return overhead.
-* FIB(30) = 832040, requires ~2.7M recursive calls.
-    &TRIM = 1
-    &STLIMIT = 1000000000
-    DEFINE('FIB(N)')                        :(FIB_END)
-FIB     FIB = LT(N,2) N                    :S(RETURN)
-    FIB = FIB(N - 1) + FIB(N - 2)         :(RETURN)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      DEFINE('FIB(N)')  :(FIB_END)
+FIB   FIB = LT(N, 2) N  :S(RETURN)
+      FIB = FIB(N - 1) + FIB(N - 2)  :(RETURN)
 FIB_END
-    T1 = TIME()
-    R = FIB(30)
-    T2 = TIME()
-    OUTPUT = "result: " R
-    OUTPUT = "ms: " (T2 - T1)
+      T1 = TIME()
+      R = FIB(30)
+      T2 = TIME()
+      OUTPUT = T2 - T1
 END

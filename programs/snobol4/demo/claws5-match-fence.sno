@@ -1,19 +1,18 @@
-                &TRIM          =  0
-                INPUT(.INPUT, 9, '[-f0 -r1000000]')
-                src             =   INPUT                       :F(fail)
-                claws           =
-+               POS(0)
-+               ARBNO(
-+                FENCE
-+                ( SPAN('0123456789') '_CRD :_PUN'
-+                | NOTANY('_') BREAK('_')
-+                  '_'
-+                  ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ') SPAN('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-+                )
-+                SPAN(' ' CHAR(10))
-+               )
-+               RPOS(0)
-                src             claws                           :F(fail)
-                OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
-fail            OUTPUT          =  'Pattern match failed'
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r1000000]')
+        src     =   INPUT  :F(error)
+        src     ?   claws  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
 END

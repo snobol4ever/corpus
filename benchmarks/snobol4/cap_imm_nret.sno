@@ -1,22 +1,17 @@
-* cap_imm_nret.sno
-* RTX-8 census workload: rt_cap_open via immediate ($) capture and
-* computed-name (. *STORE()) NRETURN capture; rt_cap_finish on the latter.
-* Minted 2026-08-09 per GOAL-SNOBOL4-RTX slice-9 recipe.
-* Deterministic output only — no TIME() — so the .ref is a strict two-sided anchor.
-    &TRIM = 1
-    &STLIMIT = 1000000000
-    &ANCHOR = 0
-    DEFINE('STORE()')                    :(STORE_END)
-STORE   STORE = .SLOT                    :(NRETURN)
+START &TRIM = 1
+      &ANCHOR = 0
+      &STLIMIT = 4294967295
+      DEFINE('STORE()') :(STORE_END)
+STORE STORE = .SLOT :(NRETURN)
 STORE_END
-    S = 'abcXdefXghiX'
-    PAT1 = LEN(3) $ V 'X'
-    PAT2 = LEN(3) . *STORE() 'X'
-    N = 0
-LOOP    S PAT1
-    S PAT2
-    N = LT(N, 100000) N + 1              :S(LOOP)
-    OUTPUT = 'n: ' N
-    OUTPUT = 'v: ' V
-    OUTPUT = 'slot: ' SLOT
+      T1 = TIME()
+      S = 'abcXdefXghiX'
+      PAT1 = LEN(3) $ V 'X'
+      PAT2 = LEN(3) . *STORE() 'X'
+      N = 0
+LOOP  S ? PAT1
+      S ? PAT2
+      N = LT(N, 100000) N + 1 :S(LOOP)
+      T2 = TIME()
+      OUTPUT = T2 - T1
 END

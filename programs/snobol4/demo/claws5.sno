@@ -1,111 +1,57 @@
 *------------------------------------------------------------------------------
-* claws5.sno — CLAWS5 POS-tagged corpus tokenizer (one-phase)
-* ENG 685, Lon Cherryholmes Sr.
-* Run: csnobol4 -bf -P 34000 claws5.sno < claws5.input
-*      sbl -b -P 34000 claws5.sno < claws5.input
-* Memory: -P 34000 required only for full corpus (CLAWS5inTASA.dat, 989 lines).
+        DEFINE('token()')  :(token_end)
+token   num = +num
+        mem = IDENT(mem) TABLE()
+        mem[num] = IDENT(mem[num]) TABLE()
+        mem[num][wrd] = IDENT(mem[num][wrd]) TABLE()
+        mem[num][wrd][tag] = IDENT(mem[num][wrd][tag]) 0
+        mem[num][wrd][tag] = mem[num][wrd][tag] + 1
+        token = .dummy  :(NRETURN)
+token_end
 *------------------------------------------------------------------------------
-                &ALPHABET       POS(10) LEN(1) . nl
-                DIGITS          =  '0123456789'
-                UCASE           =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-*------------------------------------------------------------------------------
-                DEFINE('new_sent()')                            :(new_sent_end)
-new_sent        sentno          =  +num
-                mem[sentno]     =  TABLE()
-                new_sent        =  .dummy                       :(NRETURN)
-new_sent_end
-*------------------------------------------------------------------------------
-                DEFINE('add_tok()')                             :(add_tok_end)
-add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
-                DIFFER(mem[sentno][wrd][tag])                   :F(new_tag)
-                mem[sentno][wrd][tag]  =  mem[sentno][wrd][tag] + 1  :(done)
-new_wrd         mem[sentno][wrd]       =  TABLE()
-new_tag         mem[sentno][wrd][tag]  =  1
-done            add_tok         =  .dummy                       :(NRETURN)
-add_tok_end
-*------------------------------------------------------------------------------
-                DEFINE('pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns') :(pp_mem_end)
-pp_mem          ssk             =   SORT(mem)
-                si              =   0
-                ns              =   0
-pm_cnt_loop     ns              =   ns + 1
-                ssk[ns,1]                                       :S(pm_cnt_loop)
-                ns              =   ns - 1
-                si              =   0
-pm_sent_loop    si              =   si + 1
-                sentno          =   ssk[si,1]                   :F(pm_done)
-                last_sent       =   ''
-                last_sent       =   IDENT(si, ns) 1
-                pad             =   DUPL(' ', SIZE(sentno) + 4)
-                pfx             =   EQ(si, 1) '{' sentno ': {'
-                pfx             =   NE(si, 1) ' ' sentno ': {'
-                wsk             =   SORT(mem[sentno])
-                wi              =   0
-pm_wrd_loop     wi              =   wi + 1
-                wkey            =   wsk[wi,1]                   :F(pm_sent_loop)
-                next_wkey       =   ''
-                next_wkey       =   wsk[wi + 1,1]
-                wrd             =   wkey
-                wrd             ?   ARB "'"  =  ''              :F(pm_sq)
-                wq              =   '"' wkey '"'                :(pm_tdict)
-pm_sq           wq              =   "'" wkey "'"
-pm_tdict        tsk             =   SORT(mem[sentno][wkey])
-                ti              =   0
-                tline           =   '{'
-pm_tag_loop     ti              =   ti + 1
-                tag             =   tsk[ti,1]                   :F(pm_tag_close)
-                tv              =   mem[sentno][wkey][tag]
-                IDENT(tline, '{')                               :F(pm_tag_sep)
-                tline           =   tline "'" tag "': " tv      :(pm_tag_loop)
-pm_tag_sep      tline           =   tline ', ' "'" tag "': " tv :(pm_tag_loop)
-pm_tag_close    tline           =   tline '}'
-                GT(SIZE(next_wkey), 0)                          :F(pm_last_wrd)
-                IDENT(wi, 1)                                    :F(pm_mid_wrd)
-                OUTPUT          =   pfx wq ': ' tline ','       :(pm_wrd_loop)
-pm_mid_wrd      OUTPUT          =   pad wq ': ' tline ','       :(pm_wrd_loop)
-pm_last_wrd     IDENT(wi, 1)                                    :F(pm_last_mid)
-                lline           =   pfx wq ': ' tline           :(pm_last_emit)
-pm_last_mid     lline           =   pad wq ': ' tline
-pm_last_emit    IDENT(last_sent, 1)                             :F(pm_last_mid2)
-                OUTPUT          =   lline '}}'                  :(pm_sent_loop)
-pm_last_mid2    OUTPUT          =   lline '},'                  :(pm_sent_loop)
-pm_done         pp_mem          =   .dummy                      :(RETURN)
-pp_mem_end
-*------------------------------------------------------------------------------
-                &TRIM           =   0
-                nl              =   CHAR(10)
-slurp           line            =   INPUT                       :F(slurp_f)
-                b1              =   b1 line nl
-                GT(SIZE(b1), 8192)                              :F(slurp)
-                b2              =   b2 b1
-                b1              =
-                GT(SIZE(b2), 262144)                            :F(slurp)
-                src             =   src b2
-                b2              =                               :(slurp)
-slurp_f         src             =   src b2 b1
-slurp_done
-                mem             =   TABLE()
-*------------------------------------------------------------------------------
-                claws           =
-+               POS(0)
-+               ARBNO(
-+                FENCE
-+                ( (SPAN('0123456789') . num) '_CRD :_PUN'
-+                  (epsilon . *new_sent())
-+                | (NOTANY('_') BREAK('_')) . wrd
-+                  '_'
-+                  (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag
-+                  (epsilon . *add_tok())
-+                )
-+                SPAN(' ' CHAR(10))
-+               )
-+               RPOS(0)
-*------------------------------------------------------------------------------
-                t0              =   TIME()
-                src             claws                           :F(fail)
-                t1              =   TIME()
-                TERMINAL        =   'match_ms=' (t1 - t0)
-                pp_mem(mem)                                     :(END)
-fail            OUTPUT          =  'Pattern match failed'
-*------------------------------------------------------------------------------
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789') . num) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_')) . wrd
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag . *token()
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r1000000]')
+        src     =   INPUT  :F(error)
+        src     ?   claws  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
 END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,151 +1,104 @@
 -CASE 0
 *------------------------------------------------------------------------------
-* treebank-list.sno — Penn Treebank s-expression parser (LISP-style)
-* ENG 685, Lon Cherryholmes Sr.
-* Run: csnobol4 -bf treebank-list.sno < VBGinTASA.dat
+                DATA('list(n,a)')
+                DEFINE('ListValue(x,place)')
+                DEFINE('ListName(x,place)')
+                DEFINE('ListAppend(x,item)')
+                DEFINE('ListPrepend(x,item)')
+                DEFINE('ListInsert(x,item,place)a,i,size')
+                DEFINE('ListRemove(x,place)a,i,size')                   :(ListEnd)
 *------------------------------------------------------------------------------
-               &ALPHABET      POS(10) LEN(1) . nl
+ListValue       place           =   LT(place, 0) SIZE(a(x)) + place
+                ListValue       =   x[place]                            :S(RETURN)F(FRETURN)
+ListName        place           =   LT(place, 0) SIZE(a(x)) + place
+                ListName        =   .x[place]                           :S(RETURN)F(FRETURN)
 *------------------------------------------------------------------------------
-               DATA('list(head,tail)')
+ListAppend      ListAppend      =   ListInsert(x, item, SIZE(a(x)))     :(RETURN)
 *------------------------------------------------------------------------------
-               DEFINE('list_reverse(lst)acc,cur')           :(list_reverse_end)
-list_reverse   acc            =
-               cur            =  lst
-lr1            DIFFER(cur)                                  :F(lr_done)
-               acc            =  list(head(cur), acc)
-               cur            =  tail(cur)                  :(lr1)
-lr_done        list_reverse   =  acc                        :(RETURN)
-list_reverse_end
+ListPrepend     ListPrepend     =   ListInsert(x, item, 0)              :(RETURN)
 *------------------------------------------------------------------------------
-               DEFINE('stk_push_frame(v)')                  :(stk_push_frame_end)
-stk_push_frame stk            =  list(list(v,), stk)
-               stk_push_frame =  .dummy                     :(RETURN)
-stk_push_frame_end
+ListInsert      ListInsert      =   x
+                place           =   LT(place, 0) SIZE(a(x)) + place
+                GE(place, 0)                                            :F(error)
+                LE(place, SIZE(a(x)))                                   :F(error)
+                LT(place, SIZE(a(x)))                                   :F(ListInsert4)
+                i               =   n(x) + 1
+ListInsert1     i               =   GT(i, place) i - 1                  :F(ListInsert2)
+                a(x)[i]         =   a(x)[i - 1]                         :(ListInsert1)
+ListInsert2     a(x)[i - 1]     =   item                                :(ListInsert9)
+ListInsert4     a               =   ARRAY('0:' (IDENT(a(x)) 0, SIZE(a(x)) * 2 - 1))
+                i               =   -1
+ListInsert5     i               =   LT(i, place - 1) i + 1              :F(ListInsert6)
+                a[i]            =   a(x)[i]                             :(ListInsert5)
+ListInsert6     a[i + 1]        =   item
+ListInsert7     i               =   LT(i, SIZE(a(x)) - 1) i + 1         :F(ListInsert8)
+                a[i + 1]        =   a(x)[i]                             :(ListInsert7)
+ListInsert8     a(x)            =   a
+ListInsert9     n(x)            =   n(x) + 1                            :(RETURN)
+ListEnd
 *------------------------------------------------------------------------------
-               DEFINE('stk_push_item(v)')                   :(stk_push_item_end)
-stk_push_item  head(stk)      =  list(v, head(stk))
-               stk_push_item  =  .dummy                     :(RETURN)
-stk_push_item_end
+                DEFINE('Init_list(vs)');    DEFINE('init_list(v)')
+                DEFINE('Push_list(vs)');    DEFINE('push_list(v)')
+                DEFINE('Push_item(vs)');    DEFINE('push_item(v)')
+                DEFINE('Pop_list()');       DEFINE('pop_list()')
+                DEFINE('Pop_final(vs)');    DEFINE('pop_final(v)')
 *------------------------------------------------------------------------------
-               DEFINE('stk_pop_into_parent()child')         :(stk_pop_into_parent_end)
-stk_pop_into_parent
-               child          =  list_reverse(head(stk))
-               stk            =  tail(stk)
-               head(stk)      =  list(child, head(stk))
-               stk_pop_into_parent =  .dummy                :(RETURN)
-stk_pop_into_parent_end
+Init_list       Init_list       =   EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
+Push_list       Push_list       =   EVAL("epsilon . *push_list(" vs ")")  :(RETURN)
+Push_item       Push_item       =   EVAL("epsilon . *push_item(" vs ")")  :(RETURN)
+Pop_list        Pop_list        =         epsilon . *pop_list()           :(RETURN)
+Pop_final       Pop_final       =   EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
 *------------------------------------------------------------------------------
-               DEFINE('stk_pop_final(var)')                 :(stk_pop_final_end)
-stk_pop_final  $var           =  list_reverse(head(stk))
-               stk            =  tail(stk)
-               stk_pop_final  =  .dummy                     :(RETURN)
-stk_pop_final_end
+init_list       $v              =
+                tags            =   TABLE()
+                stack           =   list()
+                init_list       =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
-               DEFINE('init_list(v)')
-               DEFINE('Init_list(vs)')                      :(init_list_end)
-init_list      $v             =
-               stk            =
-               init_list      =  .dummy                     :(NRETURN)
-Init_list      Init_list      =  EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
-init_list_end
+push_list       count_tag($v)
+                ListAppend(stack, list())
+                ListAppend(Value(stack, -1), $v)
+                push_list       =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
-               DEFINE('push_list(v)')
-               DEFINE('Push_list(vs)')                      :(push_list_end)
-push_list      dummy          =  stk_push_frame(v)
-               push_list      =  .dummy                     :(NRETURN)
-Push_list      Push_list      =  EVAL("epsilon . *push_list(" vs ")")  :(RETURN)
-push_list_end
+push_item       ListAppend(Value(stack, -1), $v)
+                push_item       =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
-               DEFINE('push_item(v)')
-               DEFINE('Push_item(vs)')                      :(push_item_end)
-push_item      dummy          =  stk_push_item(v)
-               push_item      =  .dummy                     :(NRETURN)
-Push_item      Push_item      =  EVAL("epsilon . *push_item(" vs ")")  :(RETURN)
-push_item_end
+pop_list        ListAppend(Value(stack, -2), ListPop(stack))
+                pop_list        =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
-               DEFINE('pop_list()')
-               DEFINE('Pop_list()')                         :(pop_list_end)
-pop_list       dummy          =  stk_pop_into_parent()
-               pop_list       =  .dummy                     :(NRETURN)
-Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
-pop_list_end
+pop_final       $v              =   ListPop(stack)
+                pop_final       =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
-               DEFINE('pop_final(v)')
-               DEFINE('Pop_final(vs)')                      :(pop_final_end)
-pop_final      dummy          =  stk_pop_final(v)
-               pop_final      =  .dummy                     :(NRETURN)
-Pop_final      Pop_final      =  EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
-pop_final_end
+                delim           =   SPAN(' ' CHAR(10))
+                word            =   NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 *------------------------------------------------------------------------------
-               delim          =  SPAN(' ' CHAR(10))
-               word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
+                group           =   '('
++                                   word . tag Push_list('tag')
++                                   ARBNO(
++                                     delim
++                                     FENCE(
++                                       *group
++                                     | word . wrd Push_item('wrd')
++                                     )
++                                   )
++                                   Pop_list()
++                                   ')'
 *------------------------------------------------------------------------------
-               group          =  FENCE(
-+              '('
-+              (word . tag) Push_list('tag')
-+              ARBNO(
-+                  delim
-+                  FENCE( *group
-+                  | (word . wrd) Push_item('wrd')
-+                  )
-+              )
-+              Pop_list()
-+              ')' )
+                treebank        =   POS(0)
++                                   Init_list("'bank'")
++                                   Push_list("'BANK'")
++                                   ARBNO(
++                                     Push_list("'ROOT'")
++                                     ARBNO(*group FENCE)
++                                     delim
++                                     FENCE
++                                     Pop_list()
++                                   )
++                                   Pop_final("'bank'")
++                                   RPOS(0)
 *------------------------------------------------------------------------------
-               treebank       =
-+              POS(0)
-+              Init_list("'bank'")
-+              Push_list("'BANK'")
-+              ARBNO( FENCE(
-+                  Push_list("'ROOT'")
-+                  ARBNO(*group)
-+                  delim
-+                  Pop_list()
-+              ) )
-+              Pop_final("'bank'")
-+              RPOS(0)
-*------------------------------------------------------------------------------
-               DEFINE('node_repr(node)r,c,sep')             :(node_repr_end)
-node_repr      IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')  :F(nr_list)
-               node_repr      =  "'" node "'"               :(RETURN)
-nr_list        r              =  '('
-               sep            =
-               c              =  node
-nr_lp          DIFFER(c)                                    :F(nr_done)
-               r              =  r sep node_repr(head(c))
-               sep            =  ', '
-               c              =  tail(c)                    :(nr_lp)
-nr_done        node_repr      =  r ')'                      :(RETURN)
-node_repr_end
-*------------------------------------------------------------------------------
-               DEFINE('pp_node(node,indent,suffix)r,pad,c,nxt') :(pp_node_end)
-pp_node        r              =  node_repr(node)
-               pad            =  DUPL(' ', indent)
-               GT(80, indent + SIZE(r))                     :F(pp_wrap)
-               OUTPUT         =  pad r suffix               :(RETURN)
-pp_wrap        OUTPUT         =  pad '( ' "'" head(node) "',"
-               c              =  tail(node)
-pp_wch         DIFFER(c)                                    :F(pp_wdone)
-               nxt            =  tail(c)
-               DIFFER(nxt)                                  :F(pp_wlast)
-               pp_node(head(c), indent + 2, ',')
-               c              =  nxt                        :(pp_wch)
-pp_wlast       pp_node(head(c), indent + 2, ')' suffix)     :(RETURN)
-pp_wdone                                                    :(RETURN)
-pp_node_end
-*------------------------------------------------------------------------------
-               DEFINE('pp_bank()cur')                       :(pp_bank_end)
-pp_bank        pp_node(bank, 0, '')
-               pp_bank        =  .dummy                     :(RETURN)
-pp_bank_end
-*------------------------------------------------------------------------------
-slurp          line           =  INPUT                      :F(slurp_done)
-               src            =  src line nl                :(slurp)
-slurp_done     t0             =  TIME()
-               src            treebank                      :F(main_fail)
-               t1             =  TIME()
-               TERMINAL       =  'match_ms=' (t1 - t0)
-               dummy          =  pp_bank()                  :(END)
-main_fail      OUTPUT         =  'Pattern match failed'
-*------------------------------------------------------------------------------
+                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                src             =   INPUT  :F(error)
+                src             ?   treebank  :F(error)
+                OUTPUT          =   'matched bytes=' SIZE(src)  :(END)
+error           OUTPUT          =   'Pattern match failed'
 END
