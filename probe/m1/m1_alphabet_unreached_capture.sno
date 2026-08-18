@@ -1,0 +1,4 @@
+	OUTPUT = 'before'                              :(SKIPIT)
+	&ALPHABET POS(10) LEN(1) . nl
+SKIPIT	OUTPUT = 'nl=[' nl '] size=' SIZE(nl)
+END
