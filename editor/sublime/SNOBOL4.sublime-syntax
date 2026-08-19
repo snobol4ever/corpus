@@ -441,7 +441,7 @@ contexts:
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
-        3: entity.name.class.forward-decl.sno # (green) constant.other.label.sno (purple) # variable.function.sno (blue) # variable.other.constant.sno (white)
+        3: entity.name.function.sno # SAME scope as the statement label (terminator, line 73) so goto targets match label color # was entity.name.class.forward-decl.sno (green) # constant.other.label.sno (purple) # variable.function.sno (blue)
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
     - match: ([SF]?)<({{variable}})>
@@ -453,14 +453,14 @@ contexts:
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
-        3: entity.name.class.forward-decl.sno # (green) variable.other.sno # variable.language.sno (orange)
+        3: entity.name.function.sno # SAME scope as the statement label (terminator, line 73) so goto targets match label color # was entity.name.class.forward-decl.sno (green) # variable.other.sno # variable.language.sno (orange)
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
     - match: ([SF]?)(\(){{indirect_dquote_variable}}(\))
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
-        3: entity.name.class.forward-decl.sno # (green) variable.other.sno # variable.language.sno (orange)
+        3: entity.name.function.sno # SAME scope as the statement label (terminator, line 73) so goto targets match label color # was entity.name.class.forward-decl.sno (green) # variable.other.sno # variable.language.sno (orange)
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
     - match: ([SF]?)\(
