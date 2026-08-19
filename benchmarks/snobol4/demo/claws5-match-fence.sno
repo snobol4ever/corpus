@@ -1,0 +1,32 @@
+* claws5-match-fence -- TIME-BASED: fixed ms budget, count iterations.
+* workload: as claws5-match, with FENCE pruning the alternation backtrack.
+* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
+* deserializing sibling (claws5.sno) which runs the same grammar with sprinkled loads.
+* input: claws5.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
+* text, so a missing or truncated input cannot masquerade as a passing run.
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789')) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_'))
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE))
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        &STLIMIT =  -1
+        ZCHK    =   1
+        ZBUD    =   1000
+        ZFLR    =   20
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        ZSRC    =   INPUT
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI      =   1
+ZBL     ZSRC    ?   claws                               :F(ZBAD)
+        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
+        ZBODY   =   SIZE(ZSRC)                          :(RETURN)
+ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
+ZBODY_END
+-INCLUDE '../harness.inc'

@@ -1,0 +1,81 @@
+* calculator-1 -- TIME-BASED: fixed ms budget, count iterations.
+* workload: recursive expression grammar evaluating 0 expressions onto an operand stack.
+* DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
+* between them is the cost of the sprinkled loads (capture + *function() + structure build).
+* Every OUTPUT in the original driver is accumulated into the check value instead of printed,
+* so the check witnesses every value computed, not merely that the match succeeded.
+* input: calculator-1.dat on stdin (runner redirects <family>.dat).
+        &STLIMIT =  -1
+        ZCHK    =   1
+        ZBUD    =   1000
+        ZFLR    =   20
+        DEFINE('EMIT()')                        :(EMIT_end)
+EMIT    ZACC = ZACC + DRF(S[1])
+        sp = 0
+        EMIT = .dm                              :(NRETURN)
+EMIT_end
+        DEFINE('PSH()')                         :(PSH_end)
+PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
+PSH_end
+        DEFINE('DRF(nm)')                       :(DRF_end)
+DRF     nm ? POS(0) ANY(&LCASE) RPOS(0)         :F(DRF_n)
+        DRF = vars[nm]                          :(RETURN)
+DRF_n   DRF = nm                                :(RETURN)
+DRF_end
+        DEFINE('ADD()p1')                       :(ADD_end)
+ADD     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) + p1
+        ADD = .dm                               :(NRETURN)
+ADD_end
+        DEFINE('SUB()p1')                       :(SUB_end)
+SUB     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) - p1
+        SUB = .dm                               :(NRETURN)
+SUB_end
+        DEFINE('MUL()p1')                       :(MUL_end)
+MUL     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) * p1
+        MUL = .dm                               :(NRETURN)
+MUL_end
+        DEFINE('DIV()p1')                       :(DIV_end)
+DIV     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) / p1
+        DIV = .dm                               :(NRETURN)
+DIV_end
+        DEFINE('NEG()')                         :(NEG_end)
+NEG     S[sp] = -DRF(S[sp])
+        NEG = .dm                               :(NRETURN)
+NEG_end
+*------------------------------------------------------------------------------
+        S = ARRAY(65536)
+        V = ANY(&LCASE) . *PSH()
+        I = SPAN('0123456789') . *PSH()
+        A = V | I | FENCE('(' *X ')')
+        F = A | FENCE('+' *F) | FENCE('-' *F . *NEG())
+        T = F ( FENCE('*' *T . *MUL()) | FENCE('/' *T . *DIV()) | '' )
+        X = T ( FENCE('+' *X . *ADD()) | FENCE('-' *X . *SUB()) | '' )
+        eol = CHAR(10) FENCE
+        C = POS(0) ARBNO(X eol . *EMIT()) RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM = 0
+        vars = TABLE()
+        vars['x'] = 1
+        vars['y'] = 2
+        vars['z'] = 3
+* read all at once: raw fd 0, one 4 MiB-max transfer (larger inputs truncate)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        ZSRC    =   INPUT
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI      =   1
+ZBL     ZACC    =   0
+        sp      =   0
+        ZSRC    ?   C                                   :F(ZBAD)
+        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
+        ZBODY   =   ZACC                                :(RETURN)
+ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
+ZBODY_END
+-INCLUDE '../harness.inc'

@@ -1,0 +1,47 @@
+* claws5 -- TIME-BASED: fixed ms budget, count iterations.
+* workload: CLAWS5 tagged corpus into a 3-level TABLE (num -> word -> tag -> count) via *token().
+* DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
+* between them is the cost of the sprinkled loads (capture + *function() + structure build).
+* Every OUTPUT in the original driver is accumulated into the check value instead of printed,
+* so the check witnesses every value computed, not merely that the match succeeded.
+* input: claws5.dat on stdin (runner redirects <family>.dat).
+        &STLIMIT =  -1
+        ZCHK    =   1
+        ZBUD    =   1000
+        ZFLR    =   20
+*------------------------------------------------------------------------------
+        DEFINE('token()')  :(token_end)
+token   num = +num
+        mem = IDENT(mem) TABLE()
+        mem[num] = IDENT(mem[num]) TABLE()
+        mem[num][wrd] = IDENT(mem[num][wrd]) TABLE()
+        mem[num][wrd][tag] = IDENT(mem[num][wrd][tag]) 0
+        mem[num][wrd][tag] = mem[num][wrd][tag] + 1
+        ZTOK = ZTOK + 1
+        token = .dummy  :(NRETURN)
+token_end
+*------------------------------------------------------------------------------
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789') . num) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_')) . wrd
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag . *token()
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        ZSRC    =   INPUT
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI      =   1
+ZBL     mem     =
+        ZTOK    =   0
+        ZSRC    ?   claws                               :F(ZBAD)
+        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
+        ZBODY   =   ZTOK                                :(RETURN)
+ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
+ZBODY_END
+-INCLUDE '../harness.inc'
