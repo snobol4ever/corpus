@@ -21,7 +21,7 @@ token_end
 +                     SPAN(' ' CHAR(10))
 +                   )
 +                   RPOS(0)
-        INPUT(.INPUT, 9, '[-f0 -r1000000]')
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
         src     =   INPUT  :F(error)
         src     ?   claws  :F(error)
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)

@@ -31,7 +31,7 @@
 *------------------------------------------------------------------------------
 *  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
 *  newlines come back in-string, short read at EOF (manual, file processing)
-        INPUT(.INPUT, 9, '[-f0 -r4000000]')
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
         src            =  INPUT                          :F(fail)
         src            C                                 :F(fail)
         OUTPUT         =  'matched bytes=' SIZE(src)      :(END)

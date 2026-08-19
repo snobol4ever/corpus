@@ -6,7 +6,7 @@
         T       =  F '*' *T | F '/' *T | F
         X       =  T '+' *X | T '-' *X | T
         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
-        INPUT(.INPUT, 9, '[-f0 -r4000000]')
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
         src     =  INPUT  :F(error)
         src     ?  C  :F(error)
         OUTPUT  =  'matched bytes=' SIZE(src)  :(END)

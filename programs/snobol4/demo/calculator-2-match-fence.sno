@@ -7,7 +7,7 @@
         eol            =  CHAR(10)
         C              =  POS(0) ARBNO(X eol) RPOS(0)
         &TRIM          =  0
-        INPUT(.INPUT, 9, '[-f0 -r4000000]')
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
         src            =  INPUT                          :F(fail)
         src            C                                 :F(fail)
         OUTPUT         =  'matched bytes=' SIZE(src)      :(END)

@@ -83,21 +83,14 @@ SGN_x
         eol = CHAR(10) FENCE
         C = POS(0) ARBNO(X eol (epsilon . *EMIT())) RPOS(0)
 *------------------------------------------------------------------------------
-        &TRIM = 1
-        nl = CHAR(10)
+        &TRIM = 0
         vars = TABLE()
         vars['x'] = 1
         vars['y'] = 2
         vars['z'] = 3
-slurp   line = INPUT                            :F(slurp_f)
-        b1 = b1 line nl
-        GT(SIZE(b1), 8192)                      :F(slurp)
-        b2 = b2 b1
-        b1 =
-        GT(SIZE(b2), 262144)                    :F(slurp)
-        src = src b2
-        b2 =                                    :(slurp)
-slurp_f src = src b2 b1
+* read all at once: raw fd 0, one 4 MiB-max transfer (larger inputs truncate)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src = INPUT
         t0 = TIME()
         src C                                   :F(bad)
         t1 = TIME()

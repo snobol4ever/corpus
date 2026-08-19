@@ -256,24 +256,13 @@ enul_end
 *------------------------------------------------------------------------------
                 &TRIM           =   0
 *------------------------------------------------------------------------------
-*  SLURP - three-level accumulator.  Plain INPUT is used rather than a raw-mode
-*  associated variable because (a) a single raw INPUT stops at the -r length and
-*  silently TRUNCATES any larger file, and (b) a looped raw associated variable
-*  never signals EOF under scrip, so it spins forever.  Plain INPUT fails at EOF
-*  on every engine.  The three buffers keep the growing-string appends O(n): the
-*  naive one-string form costs 11,873 ms on a 1.7 MB input, this costs 145 ms.
-*  Line breaks are re-supplied as lf; JSON forbids a raw newline inside a string,
-*  so between-token whitespace is all that is ever reconstructed.
+*  READ ALL AT ONCE - .INPUT is re-associated raw on fd 0 with a 4 MiB record
+*  length, so a single reference transfers the whole input in one read, byte
+*  for byte (no line splitting, no newline reconstruction).  Inputs larger
+*  than 4194304 bytes are silently truncated at the -r length.
 *------------------------------------------------------------------------------
-slurp           line            =   INPUT                       :F(slurp_f)
-                b1              =   b1 line lf
-                GT(SIZE(b1), 8192)                              :F(slurp)
-                b2              =   b2 b1
-                b1              =
-                GT(SIZE(b2), 262144)                            :F(slurp)
-                src             =   src b2
-                b2              =                               :(slurp)
-slurp_f         src             =   src b2 b1
+                INPUT(.INPUT, 9, '[-f0 -r4194304]')
+                src             =   INPUT                       :F(slurped)
 slurped         OUTPUT          =   'input bytes=' SIZE(src)
 *------------------------------------------------------------------------------
 *  THE ONE BIG PATTERN MATCH - timed alone.  TIME() is milliseconds of compute
