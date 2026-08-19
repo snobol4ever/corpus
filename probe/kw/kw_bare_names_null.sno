@@ -1,0 +1,18 @@
+*  KW-9 witness: a PLAIN (non-&) variable that happens to share a keyword's
+*  name is an ORDINARY VARIABLE, and an unset one reads as the NULL STRING.
+*  Manual: keywords are set apart by the unary & operator (Ch.16 opening); the
+*  bare spellings carry no keyword meaning at all.
+*  This pins the ARMED default, where the NV_GET_fn bare-name hijack family
+*  (core.c ~2200: STNO/STLIMIT/ANCHOR/TRIM/FULLSCAN/CASE/MAXLNGTH/FTRACE/
+*  TRACE/ERRLIMIT/CODE) is bypassed.  On the LEGACY arm (SCRIP_KW_STATIC=0)
+*  every row below is ORACLE-WRONG -- MAXLNGTH reads 524288 and the rest read
+*  0 -- which is the measured correctness case for retiring that arm (KW-4).
+	OUTPUT = 'MAXLNGTH=[' MAXLNGTH ']'
+	OUTPUT = 'TRACE=[' TRACE ']'
+	OUTPUT = 'STCOUNT=[' STCOUNT ']'
+	OUTPUT = 'STNO=[' STNO ']'
+	OUTPUT = 'ANCHOR=[' ANCHOR ']'
+	OUTPUT = 'TRIM=[' TRIM ']'
+	OUTPUT = 'FULLSCAN=[' FULLSCAN ']'
+	OUTPUT = 'ERRLIMIT=[' ERRLIMIT ']'
+END
