@@ -478,8 +478,11 @@ n46_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              dword ptr [rbp + -40], 0             # start_δ
-.Lx114_0:               mov              r14d, dword ptr [rbp + -40];         jmp   n47_match_defer_α
-n46_match_begin_β:      lea              rsp, [rbp + -56]                     # retry_whack
+.Lx114_0:               mov              r14d, dword ptr [rbp + -40]
+                        lea              rax, [rip + .Lx114_13]               # match_beta_cont
+                        mov              qword ptr [rbp + -48], rax;          jmp   n47_match_defer_α
+n46_match_begin_β:
+.Lx114_13:              lea              rsp, [rbp + -56]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx114_1
@@ -548,7 +551,9 @@ n47_match_defer_α:      lea              rdi, [rip + .S1]
 .Lx115_6:               add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n46_match_begin_β
-n47_match_defer_β:                                                            jmp   qword ptr [rsp]
+n47_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              jne   .Lx115_12
+                                                                              jmp   qword ptr [rbp + -48]
+.Lx115_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n48_match_end_α:        mov              eax, dword ptr [rbp + -40]           # repl_start
                         mov              dword ptr [rbp + -48], eax

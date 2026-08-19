@@ -198,8 +198,11 @@ n5_match_begin_α:       mov              rdi, qword ptr [rsp + 0]             #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              dword ptr [rbp + -40], 0             # start_δ
-.Lx97_0:                mov              r14d, dword ptr [rbp + -40];         jmp   n6_match_rpos_α
-n5_match_begin_β:       lea              rsp, [rbp + -56]                     # retry_whack
+.Lx97_0:                mov              r14d, dword ptr [rbp + -40]
+                        lea              rax, [rip + .Lx97_13]                # match_beta_cont
+                        mov              qword ptr [rbp + -48], rax;          jmp   n6_match_rpos_α
+n5_match_begin_β:
+.Lx97_13:               lea              rsp, [rbp + -56]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx97_1
@@ -377,8 +380,11 @@ n18_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              dword ptr [rbp + -40], 0             # start_δ
-.Lx117_0:               mov              r14d, dword ptr [rbp + -40];         jmp   n19_match_defer_α
-n18_match_begin_β:      lea              rsp, [rbp + -56]                     # retry_whack
+.Lx117_0:               mov              r14d, dword ptr [rbp + -40]
+                        lea              rax, [rip + .Lx117_13]               # match_beta_cont
+                        mov              qword ptr [rbp + -48], rax;          jmp   n19_match_defer_α
+n18_match_begin_β:
+.Lx117_13:              lea              rsp, [rbp + -56]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx117_1
@@ -445,7 +451,9 @@ n19_match_defer_α:      lea              rdi, [rip + .S1]
 .Lx118_6:               add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n18_match_begin_β
-n19_match_defer_β:                                                            jmp   qword ptr [rsp]
+n19_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              jne   .Lx118_12
+                                                                              jmp   qword ptr [rbp + -48]
+.Lx118_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n20_match_assign_save_α:
                         sub              rsp, 16

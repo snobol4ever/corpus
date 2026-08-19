@@ -487,8 +487,11 @@ n65_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              dword ptr [rbp + -40], 0             # start_δ
-.Lx118_0:               mov              r14d, dword ptr [rbp + -40];         jmp   n66_match_defer_α
-n65_match_begin_β:      lea              rsp, [rbp + -56]                     # retry_whack
+.Lx118_0:               mov              r14d, dword ptr [rbp + -40]
+                        lea              rax, [rip + .Lx118_13]               # match_beta_cont
+                        mov              qword ptr [rbp + -48], rax;          jmp   n66_match_defer_α
+n65_match_begin_β:
+.Lx118_13:              lea              rsp, [rbp + -56]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx118_1
@@ -555,7 +558,9 @@ n66_match_defer_α:      lea              rdi, [rip + .S0]
 .Lx119_6:               add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n65_match_begin_β
-n66_match_defer_β:                                                            jmp   qword ptr [rsp]
+n66_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              jne   .Lx119_12
+                                                                              jmp   qword ptr [rbp + -48]
+.Lx119_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n67_match_end_α:        push             r14
                         push             r15
