@@ -1,14 +1,17 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      T1 = TIME()
-      PAT = BREAK(',') . WORD ','
-      ITER = 0
-OUTER ITER = LT(ITER, 500000) ITER + 1  :F(DONE)
-      S = 'alpha,beta,gamma,delta,epsilon,zeta,eta,theta,iota,kappa,'
-      RESULT = ''
-INNER S ? PAT = ''  :F(OUTER)
-      RESULT = RESULT WORD  :(INNER)
-DONE  T2 = TIME()
-      OUTPUT = T2 - T1
-END
+* string_pattern -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: BREAK scanning with conditional capture, field split
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 1000
+        ZBUD = 500
+        ZFLR = 20
+        REC = 'alpha,beta,gamma,delta,epsilon'
+        PAT = BREAK(',') . F1 ',' BREAK(',') . F2 ',' BREAK(',') . F3
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI = 1
+ZBL     REC ? PAT
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = F3                                      :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

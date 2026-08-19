@@ -1,12 +1,17 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      T1 = TIME()
-      ITER = 0
-LOOP  ITER = LT(ITER, 5000000) ITER + 1  :F(DONE)
-      S = 'The quick brown fox jumps over the lazy dog'
-      S = REPLACE(S, 'aeiou', '*****')
-      N = SIZE(S)  :(LOOP)
-DONE  T2 = TIME()
-      OUTPUT = T2 - T1
-END
+* string_manip -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: REPLACE character translation over a fixed string
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 1000
+        ZBUD = 500
+        ZFLR = 20
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI = 1
+ZBL     S = 'The quick brown fox jumps over the lazy dog'
+        S = REPLACE(S, 'aeiou', '*****')
+        NS = SIZE(S)
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = NS                                      :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

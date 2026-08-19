@@ -1,17 +1,22 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      T1 = TIME()
-      OUTER = 0
-OUTER T = TABLE(512)
-      I = 0
-FILL  I = LT(I, 500) I + 1  :F(READ)
-      T[I] = I * 2  :(FILL)
-READ  SUM = 0
-      I = 0
-LOOP  I = LT(I, 500) I + 1  :F(CHECK)
-      SUM = SUM + T[I]  :(LOOP)
-CHECK OUTER = LT(OUTER, 5000) OUTER + 1  :S(OUTER)
-      T2 = TIME()
-      OUTPUT = T2 - T1
-END
+* table_access -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: table creation, hashed store and fetch
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI = 1
+ZBL     T = TABLE(512)
+        I = 1
+ZFILL   T[I] = I * 2
+        I = LT(I, 500) I + 1                            :S(ZFILL)
+        SUM = 0
+        I = 1
+ZREAD   SUM = SUM + T[I]
+        I = LT(I, 500) I + 1                            :S(ZREAD)
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = SUM                                     :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

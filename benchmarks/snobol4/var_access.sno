@@ -1,19 +1,24 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      T1 = TIME()
-      A = 1
-      B = 2
-      C = 0
-      D = 0
-      E = 0
-      N = 0
-LOOP  A = A + 1
-      B = B + 2
-      C = A + B
-      D = C + A
-      E = D + B
-      N = LT(N, 10000000) N + 1  :S(LOOP)
-      T2 = TIME()
-      OUTPUT = T2 - T1
-END
+* var_access -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: natural variable read and write traffic
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 1000
+        ZBUD = 500
+        ZFLR = 20
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   A = 1
+        B = 2
+        C = 0
+        D = 0
+        E = 0
+        ZI = 1
+ZBL     A = A + 1
+        B = B + 2
+        C = A + B
+        D = C + A
+        E = D + B
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = E                                       :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

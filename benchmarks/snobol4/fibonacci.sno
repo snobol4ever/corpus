@@ -1,12 +1,19 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      DEFINE('FIB(N)')  :(FIB_END)
-FIB   FIB = LT(N, 2) N  :S(RETURN)
-      FIB = FIB(N - 1) + FIB(N - 2)  :(RETURN)
-FIB_END
-      T1 = TIME()
-      R = FIB(30)
-      T2 = TIME()
-      OUTPUT = T2 - T1
-END
+* fibonacci -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: recursive program-defined function call depth
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 3
+        ZBUD = 500
+        ZFLR = 20
+        DEFINE('FIB(N)')                                :(FIBE)
+FIB    FIB = LT(N, 2) N                                :S(RETURN)
+        FIB = FIB(N - 1) + FIB(N - 2)                   :(RETURN)
+FIBE
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI = 1
+ZBL     R = FIB(16)
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = R                                       :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

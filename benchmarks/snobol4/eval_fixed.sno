@@ -1,11 +1,16 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      T1 = TIME()
-      X = 10
-      N = 0
-LOOP  N = LT(N, 1000000) N + 1  :F(DONE)
-      R = EVAL('X + 1')  :(LOOP)
-DONE  T2 = TIME()
-      OUTPUT = T2 - T1
-END
+* eval_fixed -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: run-time compilation of a fixed expression string
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 1000
+        ZBUD = 500
+        ZFLR = 20
+        X = 10
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI = 1
+ZBL     R = EVAL('X + 1')
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = R                                       :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

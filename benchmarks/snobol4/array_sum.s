@@ -24,7 +24,7 @@ main:
 .Lgvan3:                .string          "ZBUD"
 .Lgvan4:                .string          "ZFLR"
 .Lgvan5:                .string          "ZI"
-.Lgvan6:                .string          "T"
+.Lgvan6:                .string          "V"
 .Lgvan7:                .string          "I"
 .Lgvan8:                .string          "SUM"
 .Lgvan9:                .string          "ZK"
@@ -420,7 +420,7 @@ n33_assign_α:           mov              rax, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n34_statement_end_α:    add              rsp, 16;                             jmp   n35_statement_begin_α
 #=======================================================================================================================
-# ZBL     T = TABLE(512)
+# ZBL     V = ARRAY(500)
 #-----------------------------------------------------------------------------------------------------------------------
 n35_statement_begin_α:                                                        jmp   n36_lit_integer_α
 n35_statement_begin_β:                                                        jmp   n40_statement_begin_α
@@ -429,7 +429,7 @@ n36_lit_integer_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx261_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n37_call_α
-.Lx261_0:               .quad            512
+.Lx261_0:               .quad            500
 #-----------------------------------------------------------------------------------------------------------------------
 n37_call_α:             sub              rsp, 16
                         sub              rsp, 16
@@ -438,7 +438,7 @@ n37_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lrkfnzd263:            .string          "TABLE"
+.Lrkfnzd263:            .string          "ARRAY"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfnzd263]
@@ -463,7 +463,7 @@ n37_call_β:             add              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n38_assign_α:           mov              rax, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 96], rax             # T
+                        mov              qword ptr [r9 + 96], rax             # V
                         mov              qword ptr [r9 + 104], rdx;           jmp   n39_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n39_statement_end_α:    add              rsp, 32;                             jmp   n40_statement_begin_α
@@ -486,13 +486,13 @@ n42_assign_α:           mov              rax, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n43_statement_end_α:    add              rsp, 16;                             jmp   n44_statement_begin_α
 #=======================================================================================================================
-# ZFILL   T[I] = I * 2
+# ZFILL   V[I] = I * 2
 #-----------------------------------------------------------------------------------------------------------------------
 n44_statement_begin_α:                                                        jmp   n45_var_α
 n44_statement_begin_β:                                                        jmp   n53_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n45_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 96]             # T
+                        mov              rax, qword ptr [r9 + 96]             # V
                         mov              rdx, qword ptr [r9 + 104]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n46_var_α
@@ -799,7 +799,7 @@ n71_assign_α:           mov              rax, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n72_statement_end_α:    add              rsp, 16;                             jmp   n73_statement_begin_α
 #=======================================================================================================================
-# ZREAD   SUM = SUM + T[I]
+# ZREAD   SUM = SUM + V[I]
 #-----------------------------------------------------------------------------------------------------------------------
 n73_statement_begin_α:                                                        jmp   n74_var_α
 n73_statement_begin_β:                                                        jmp   n82_statement_begin_α
@@ -811,7 +811,7 @@ n74_var_α:              sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n75_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n75_var_α:              sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 96]             # T
+                        mov              rax, qword ptr [r9 + 96]             # V
                         mov              rdx, qword ptr [r9 + 104]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n76_var_α
