@@ -1,0 +1,18 @@
+*	FZ-2: what the cut may release is the CONTIGUOUS backtrack-only frontier and nothing under it.
+*	A: capture closed BEFORE the fence -- the SPAN cell above the SAVE is dead and bills 16; the
+*	   SAVE cursor under it is live and bounds the walk (it is excluded BY NAME, never released).
+*	B: bare leaf before the fence, capture after it -- the leaf is releasable, bills 16.
+*	C: two fences -- each bills only the leaf carved since the previous cut; a FENCE0 stops the walk.
+*	D: the capture GROUP wraps the fence, so its COND reads the SAVE cursor back AFTER the cut --
+*	   the release must not touch it.
+	S = 'aaabbbccc'
+	S ? SPAN('a') . X FENCE SPAN('b') . Y	:F(BAD)
+	OUTPUT = 'A=' X '/' Y
+	S ? SPAN('a') FENCE SPAN('b') . Z	:F(BAD)
+	OUTPUT = 'B=' Z
+	S ? SPAN('a') . P FENCE SPAN('b') FENCE SPAN('c') . Q	:F(BAD)
+	OUTPUT = 'C=' P '/' Q
+	S ? (SPAN('a') FENCE SPAN('b')) . W	:F(BAD)
+	OUTPUT = 'D=' W	:(END)
+BAD	OUTPUT = 'UNEXPECTED-FAIL'
+END
