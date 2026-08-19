@@ -1,45 +1,45 @@
-        DEFINE('EMIT()')                        :(EMIT_x)
+        DEFINE('EMIT()')                        :(EMIT_end)
 EMIT    OUTPUT = DRF(S[1])
         sp = 0
         EMIT = .dm                              :(NRETURN)
-EMIT_x
+EMIT_end
 
-        DEFINE('PSH()')                         :(PSH_x)
+        DEFINE('PSH()')                         :(PSH_end)
 PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
-PSH_x
-        DEFINE('DRF(nm)')                       :(DRF_x)
+PSH_end
+        DEFINE('DRF(nm)')                       :(DRF_end)
 DRF     nm ? POS(0) ANY(&LCASE) RPOS(0)         :F(DRF_n)
         DRF = vars[nm]                          :(RETURN)
 DRF_n   DRF = nm                                :(RETURN)
-DRF_x
-        DEFINE('ADD()p1')                       :(ADD_x)
+DRF_end
+        DEFINE('ADD()p1')                       :(ADD_end)
 ADD     p1 = DRF(S[sp])
         sp = sp - 1
         S[sp] = DRF(S[sp]) + p1
         ADD = .dm                               :(NRETURN)
-ADD_x
-        DEFINE('SUB()p1')                       :(SUB_x)
+ADD_end
+        DEFINE('SUB()p1')                       :(SUB_end)
 SUB     p1 = DRF(S[sp])
         sp = sp - 1
         S[sp] = DRF(S[sp]) - p1
         SUB = .dm                               :(NRETURN)
-SUB_x
-        DEFINE('MUL()p1')                       :(MUL_x)
+SUB_end
+        DEFINE('MUL()p1')                       :(MUL_end)
 MUL     p1 = DRF(S[sp])
         sp = sp - 1
         S[sp] = DRF(S[sp]) * p1
         MUL = .dm                               :(NRETURN)
-MUL_x
-        DEFINE('DIV()p1')                       :(DIV_x)
+MUL_end
+        DEFINE('DIV()p1')                       :(DIV_end)
 DIV     p1 = DRF(S[sp])
         sp = sp - 1
         S[sp] = DRF(S[sp]) / p1
         DIV = .dm                               :(NRETURN)
-DIV_x
-        DEFINE('NEG()')                         :(NEG_x)
+DIV_end
+        DEFINE('NEG()')                         :(NEG_end)
 NEG     S[sp] = -DRF(S[sp])
         NEG = .dm                               :(NRETURN)
-NEG_x
+NEG_end
 *------------------------------------------------------------------------------
         S = ARRAY(65536)
         V = ANY(&LCASE) . *PSH()
