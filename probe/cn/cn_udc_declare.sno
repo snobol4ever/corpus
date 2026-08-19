@@ -1,0 +1,14 @@
+*  CN-4 &USER_DECLARED_CONSTANTS -- the OPEN path (born value).
+*  ORACLE_FAIL BY CONSTRUCTION: stock SPITBOL answers error 251 for
+*  &USER_DECLARED_CONSTANTS exactly as it does for any undefined &name,
+*  so this .ref is SCRIP-pinned and can never be diffed against sbl.
+        OUTPUT = 'born=' &USER_DECLARED_CONSTANTS
+        &Word = SPAN('abcdefghijklmnopqrstuvwxyz')
+        &Num  = SPAN('0123456789')
+        OUTPUT = 'dt-word=' DATATYPE(&Word)
+        OUTPUT = 'dt-num='  DATATYPE(&Num)
+        'hello42' ? *&Word . W *&Num . N            :F(NOMATCH)
+        OUTPUT = 'w=' W ' n=' N
+        OUTPUT = 'declare-ok'                       :(END)
+NOMATCH OUTPUT = 'MATCH-FAILED'
+END

@@ -1,0 +1,10 @@
+*  CN-4 -- the switch is a MODE, not a constant: re-assignable both ways,
+*  and never captured by the tier-3 seal it governs (no error 341).
+        OUTPUT = &USER_DECLARED_CONSTANTS
+        &USER_DECLARED_CONSTANTS = 0
+        OUTPUT = &USER_DECLARED_CONSTANTS
+        &USER_DECLARED_CONSTANTS = 1
+        OUTPUT = &USER_DECLARED_CONSTANTS
+        &Late = LEN(2)
+        OUTPUT = 'reopen-declare=' DATATYPE(&Late)
+END

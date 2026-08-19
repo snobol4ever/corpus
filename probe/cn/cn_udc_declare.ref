@@ -1,0 +1,5 @@
+born=1
+dt-word=PATTERN
+dt-num=PATTERN
+w=hello n=42
+declare-ok
