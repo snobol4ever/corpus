@@ -1,0 +1,26 @@
+*  g-cn2 (T2 half) -- WHY THE T2 FOLD IS NOT REACHABLE FROM A FRAGMENT,
+*  pinned so the day it BECOMES reachable is a gate event and not a
+*  silent one.
+*  T2 folds at *&Name DEFER sites in pattern position.  EVAL('*&Word')
+*  raises Error 22 today -- the deferred-expression construct is outside
+*  the fragment-compilable subset -- so the fold site cannot be reached
+*  from a runtime fragment at all.  What a fragment CAN do is read the
+*  constant by name, and that must reach the SEALED CELL: a pattern-
+*  valued constant is not a T1 site either (T1 admits only ILIT/FLIT/
+*  QLIT), so both tiers decline and the by-name route is the answer.
+*  ⛔ IF THE FRAGMENT SUBSET EVER WIDENS TO ADMIT *&Name, the g-cn2
+*  clear of g_sno_seal_enabled in sno_lower_fragment_at stops being
+*  prophylactic and becomes the thing standing between T2 and the
+*  cross-compile pointer hazard that broke T1.  Do not remove it as
+*  "unused" -- this witness is the reason it looks unused.
+*  ORACLE_FAIL BY CONSTRUCTION: stock sbl 251s every &-prefixed user name.
+	&USER_DECLARED_CONSTANTS = 1
+	&Word = SPAN('abcdefghijklmnopqrstuvwxyz')
+	'hello42' ? *&Word . W				:F(N1)
+	OUTPUT = 'direct=' W
+N1	OUTPUT = 'eval-dt=' EVAL('DATATYPE(&Word)')
+	P = EVAL('&Word')
+	'zebra9' ? P . V				:F(N2)
+	OUTPUT = 'eval-byname=' V			:(END)
+N2	OUTPUT = 'EVAL-BYNAME-NOMATCH'
+END
