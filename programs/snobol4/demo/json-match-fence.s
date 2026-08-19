@@ -827,8 +827,8 @@ n149_match_alternate_s6:
                         mov              qword ptr [rsp + 8], rax;            jmp   n149_match_alternate_as
 .Lx160_40:                                                                    jmp   n158_match_defer_β
 .Lx160_41:                                                                    jmp   n157_match_defer_β
-.Lx160_42:                                                                    jmp   n156_match_fence1_β
-.Lx160_43:                                                                    jmp   n154_match_fence1_β
+.Lx160_42:                                                                    jmp   n156_match_fence0_β
+.Lx160_43:                                                                    jmp   n154_match_fence0_β
 .Lx160_44:                                                                    jmp   n152_match_lit_β
 .Lx160_45:                                                                    jmp   n151_match_lit_β
 .Lx160_46:                                                                    jmp   n150_match_lit_β
@@ -887,7 +887,7 @@ n153_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              r8d, 0
                         lea              r10, [rip + .Lx167_4]
                         lea              r11, [rip + .Lx167_5];               jmp   rax
-.Lx167_4:                                                                     jmp   n154_match_fence1_α
+.Lx167_4:                                                                     jmp   n154_match_fence0_α
 .Lx167_5:                                                                     jmp   n149_match_alternate_af
 .Lx167_0:               push             r14
                         push             r15
@@ -914,7 +914,7 @@ n153_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              r14d, eax
                         lea              rax, [rip + .Lx167_6]
                         push             rcx
-                        push             rax;                                 jmp   n154_match_fence1_α
+                        push             rax;                                 jmp   n154_match_fence0_α
 .Lx167_6:               add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n149_match_alternate_af
@@ -925,8 +925,8 @@ n153_match_defer_β:     cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx167_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n154_match_fence1_α:                                                          jmp   n149_match_alternate_s3
-n154_match_fence1_β:                                                          jmp   n149_match_alternate_af
+n154_match_fence0_α:                                                          jmp   n149_match_alternate_s3
+n154_match_fence0_β:                                                          jmp   n149_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n155_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 2
@@ -946,7 +946,7 @@ n155_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              r8d, 0
                         lea              r10, [rip + .Lx170_4]
                         lea              r11, [rip + .Lx170_5];               jmp   rax
-.Lx170_4:                                                                     jmp   n156_match_fence1_α
+.Lx170_4:                                                                     jmp   n156_match_fence0_α
 .Lx170_5:                                                                     jmp   n149_match_alternate_af
 .Lx170_0:               push             r14
                         push             r15
@@ -973,7 +973,7 @@ n155_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              r14d, eax
                         lea              rax, [rip + .Lx170_6]
                         push             rcx
-                        push             rax;                                 jmp   n156_match_fence1_α
+                        push             rax;                                 jmp   n156_match_fence0_α
 .Lx170_6:               add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n149_match_alternate_af
@@ -984,8 +984,8 @@ n155_match_defer_β:     cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx170_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n156_match_fence1_α:                                                          jmp   n149_match_alternate_s2
-n156_match_fence1_β:                                                          jmp   n149_match_alternate_af
+n156_match_fence0_α:                                                          jmp   n149_match_alternate_s2
+n156_match_fence0_β:                                                          jmp   n149_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n157_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 1

@@ -2043,12 +2043,12 @@ n203_match_assign_cond_α:
                         mov              edx, r14d
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24;                             jmp   n204_match_fence1_α
+                        add              r12, 24;                             jmp   n204_match_fence0_α
 n203_match_assign_cond_β:
                         sub              r12, 24;                             jmp   n202_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
-n204_match_fence1_α:                                                          jmp   PAT$8_γ
-n204_match_fence1_β:                                                          jmp   PAT$8_ω
+n204_match_fence0_α:                                                          jmp   PAT$8_γ
+n204_match_fence0_β:                                                          jmp   PAT$8_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n205_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 3
@@ -2466,12 +2466,12 @@ n245_match_assign_cond_α:
                         mov              edx, r14d
                         sub              edx, eax
                         mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24;                             jmp   n246_match_fence1_α
+                        add              r12, 24;                             jmp   n246_match_fence0_α
 n245_match_assign_cond_β:
                         sub              r12, 24;                             jmp   n244_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
-n246_match_fence1_α:                                                          jmp   PAT$9_γ
-n246_match_fence1_β:                                                          jmp   PAT$9_ω
+n246_match_fence0_α:                                                          jmp   PAT$9_γ
+n246_match_fence0_β:                                                          jmp   PAT$9_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n247_match_defer_α:     mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 1

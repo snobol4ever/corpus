@@ -455,7 +455,7 @@ n35_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r8d, 0
                         lea              r10, [rip + .Lx45_4]
                         lea              r11, [rip + .Lx45_5];                jmp   rax
-.Lx45_4:                                                                      jmp   n36_match_fence1_α
+.Lx45_4:                                                                      jmp   n36_match_fence0_α
 .Lx45_5:                                                                      jmp   n34_match_arbno_β
 .Lx45_0:                push             r14
                         push             r15
@@ -482,7 +482,7 @@ n35_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r14d, eax
                         lea              rax, [rip + .Lx45_6]
                         push             rcx
-                        push             rax;                                 jmp   n36_match_fence1_α
+                        push             rax;                                 jmp   n36_match_fence0_α
 .Lx45_6:                add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n34_match_arbno_β
@@ -493,8 +493,8 @@ n35_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx45_12:                                                                     jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n36_match_fence1_α:                                                           jmp   n32_match_arbno_as
-n36_match_fence1_β:                                                           jmp   n32_match_arbno_af
+n36_match_fence0_α:                                                           jmp   n32_match_arbno_as
+n36_match_fence0_β:                                                           jmp   n32_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n37_match_defer_α:      lea              rsi, [rip + g_sno_defer_cells+8]
                         mov              rdx, qword ptr [rsi + 0]
@@ -524,7 +524,7 @@ n37_match_defer_α:      lea              rsi, [rip + g_sno_defer_cells+8]
                         mov              r8d, 0
                         lea              r10, [rip + .Lx48_4]
                         lea              r11, [rip + .Lx48_5];                jmp   rax
-.Lx48_4:                                                                      jmp   n38_match_fence1_α
+.Lx48_4:                                                                      jmp   n38_match_fence0_α
 .Lx48_5:                                                                      jmp   n34_match_arbno_af
 .Lx48_0:                push             r14
                         push             r15
@@ -549,7 +549,7 @@ n37_match_defer_α:      lea              rsi, [rip + g_sno_defer_cells+8]
                         mov              r14d, eax
                         lea              rax, [rip + .Lx48_6]
                         push             rcx
-                        push             rax;                                 jmp   n38_match_fence1_α
+                        push             rax;                                 jmp   n38_match_fence0_α
 .Lx48_6:                add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n34_match_arbno_af
@@ -560,8 +560,8 @@ n37_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx48_12:                                                                     jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n38_match_fence1_α:                                                           jmp   n34_match_arbno_as
-n38_match_fence1_β:                                                           jmp   n34_match_arbno_af
+n38_match_fence0_α:                                                           jmp   n34_match_arbno_as
+n38_match_fence0_β:                                                           jmp   n34_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_res:
                         mov              r10, qword ptr [rsp + 8]

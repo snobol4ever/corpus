@@ -1002,7 +1002,7 @@ n67_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r8d, 0
                         lea              r10, [rip + .Lx82_4]
                         lea              r11, [rip + .Lx82_5];                jmp   rax
-.Lx82_4:                                                                      jmp   n68_match_fence1_α
+.Lx82_4:                                                                      jmp   n68_match_fence0_α
 .Lx82_5:                                                                      jmp   n66_match_arbno_β
 .Lx82_0:                push             r14
                         push             r15
@@ -1029,7 +1029,7 @@ n67_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              r14d, eax
                         lea              rax, [rip + .Lx82_6]
                         push             rcx
-                        push             rax;                                 jmp   n68_match_fence1_α
+                        push             rax;                                 jmp   n68_match_fence0_α
 .Lx82_6:                add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n66_match_arbno_β
@@ -1040,8 +1040,8 @@ n67_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx82_12:                                                                     jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n68_match_fence1_α:                                                           jmp   n69_match_defer_α
-n68_match_fence1_β:                                                           jmp   n62_match_arbno_af
+n68_match_fence0_α:                                                           jmp   n69_match_defer_α
+n68_match_fence0_β:                                                           jmp   n62_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n69_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
                         mov              esi, 2
@@ -1119,7 +1119,7 @@ n70_match_defer_α:      mov              rax, qword ptr [r9 + 512]            #
                         mov              r8d, 0
                         lea              r10, [rip + .Lx86_4]
                         lea              r11, [rip + .Lx86_5];                jmp   rax
-.Lx86_4:                                                                      jmp   n71_match_fence1_α
+.Lx86_4:                                                                      jmp   n71_match_fence0_α
 .Lx86_5:                                                                      jmp   n66_match_arbno_af
 .Lx86_0:                push             r14
                         push             r15
@@ -1144,7 +1144,7 @@ n70_match_defer_α:      mov              rax, qword ptr [r9 + 512]            #
                         mov              r14d, eax
                         lea              rax, [rip + .Lx86_6]
                         push             rcx
-                        push             rax;                                 jmp   n71_match_fence1_α
+                        push             rax;                                 jmp   n71_match_fence0_α
 .Lx86_6:                add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n66_match_arbno_af
@@ -1155,8 +1155,8 @@ n70_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx86_12:                                                                     jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n71_match_fence1_α:                                                           jmp   n66_match_arbno_as
-n71_match_fence1_β:                                                           jmp   n66_match_arbno_af
+n71_match_fence0_α:                                                           jmp   n66_match_arbno_as
+n71_match_fence0_β:                                                           jmp   n66_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$4_res:
                         mov              r10, qword ptr [rsp + 8]

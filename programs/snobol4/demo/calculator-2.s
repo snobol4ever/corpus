@@ -1185,7 +1185,7 @@ n127_match_defer_α:     sub              rsp, 16
                         mov              r8d, 0
                         lea              r10, [rip + .Lx129_4]
                         lea              r11, [rip + .Lx129_5];               jmp   rax
-.Lx129_4:                                                                     jmp   n128_match_fence1_α
+.Lx129_4:                                                                     jmp   n128_match_fence0_α
 .Lx129_5:               add              rsp, 16;                             jmp   PAT$6_ω
 .Lx129_0:               push             r14
                         push             r15
@@ -1213,7 +1213,7 @@ n127_match_defer_α:     sub              rsp, 16
                         mov              r14d, eax
                         lea              rax, [rip + .Lx129_6]
                         push             rcx
-                        push             rax;                                 jmp   n128_match_fence1_α
+                        push             rax;                                 jmp   n128_match_fence0_α
 .Lx129_6:               add              rsp, 8
                         pop              rax
                         mov              r14d, eax
@@ -1225,8 +1225,8 @@ n127_match_defer_β:     cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx129_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n128_match_fence1_α:                                                          jmp   PAT$6_γ
-n128_match_fence1_β:                                                          jmp   PAT$6_ω
+n128_match_fence0_α:                                                          jmp   PAT$6_γ
+n128_match_fence0_β:                                                          jmp   PAT$6_ω
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$6_res:
                         mov              r10, qword ptr [rsp + 8]
