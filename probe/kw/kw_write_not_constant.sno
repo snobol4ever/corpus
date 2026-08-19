@@ -1,0 +1,28 @@
+*  KW-3b witness: A KEYWORD THE MANUAL NAMES CAN NEVER BE AN UNKNOWN "&name" ON
+*  THE WRITE SIDE EITHER.  s147 fixed exactly this hole on the READ side (CN-2
+*  re-keyed the tier-3 read to a canonical "&Name", so &ARB/&BAL/&REM fell into
+*  the user-constant tier and raised 342 ON READ).  The WRITE side has the same
+*  hole, unfixed: rt_keyword_write_snobol4's legacy cascade handles only
+*  anchor/trim/maxlngth/error/trace/dump/random plus four accept-and-ignore
+*  names, and EVERY OTHER keyword falls through to NV_SET_fn, which CN-2 marks
+*  is_const -- so the SECOND assignment raises 341 and TERMINATES the program.
+*  &CASE is a documented unprotected keyword (manual Ch.16: "Setting it to zero
+*  will prevent case-folding during compilation with the functions CODE and
+*  EVAL.  Initially 1, causing case-folding to occur."), so re-assigning it is
+*  ordinary, supported SPITBOL.
+*  ⛔ THE PRECEDING STATEMENT IS LOAD-BEARING, DO NOT "SIMPLIFY" IT AWAY: with
+*  the &CASE pair as the program's FIRST statements the seal does not fire and
+*  the witness goes green for the wrong reason.  It is minimized already.
+*  ARM-SENSITIVE BY CONSTRUCTION, and that is the point: the armed block claims
+*  every keyword it names in kwb_write and returns BEFORE the NV_SET_fn
+*  constant tier is ever reached, so KW-2/KW-3b fix this class wholesale rather
+*  than by patching the legacy cascade (which KW-4 deletes outright).
+	OUTPUT = 'start'
+	&CASE = 1
+	&CASE = 0
+	OUTPUT = 'case=' &CASE
+	&ERRLIMIT = 1
+	&ERRLIMIT = 0
+	OUTPUT = 'errlimit=' &ERRLIMIT
+	OUTPUT = 'still running'
+END
