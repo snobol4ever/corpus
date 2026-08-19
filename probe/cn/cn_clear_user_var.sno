@@ -1,18 +1,19 @@
-*  CN-7 -- CLEAR() DOES NOT CLEAR A USER VARIABLE AT ALL (pre-existing; found s149
-*  while landing CN-6, ORTHOGONAL to it -- measured identical before and after that fix).
+*  CN-7 -- CLEAR() MUST ACTUALLY CLEAR (found s149 while landing CN-6; FIXED s149).
 *  Manual Ch.19 CLEAR: "If s is omitted, then the null string is assigned to all user
 *  variables in the system."  ORACLE-MEASURED: both reads below come back null.
-*  SCRIP returns "gone" for BOTH.  _CLEAR_ (core.c) calls only NV_CLEAR_fn, which nulls
-*  NV_t.val in the hash buckets -- but the compiled program reads the GVA-bound cell,
-*  which CLEAR never reaches, so the null never becomes visible to the program.
+*  THE DEFECT (pre-existing, A/B-proven independent of CN-6): _CLEAR_ called
+*  NV_CLEAR_fn, which stored NULVCL into NV_t.val UNCONDITIONALLY -- the one writer in
+*  core.c that ignored the entry's GVA binding.  Every other site asks
+*  `is_gva ? *cell : val` (2185/2227/2242/2302/2345), so CLEAR nulled a copy the
+*  compiled program never reads and was SILENTLY A NO-OP for every ordinary variable.
 *  The direct and the indirect read AGREE WITH EACH OTHER in both engines, which is the
-*  point of pairing them: this is not an indirection defect and not a read-path split,
-*  it is CLEAR failing to reach the storage the program actually uses.
-*  Consequence: every CLEAR() in SNOBOL4 is silently a no-op for ordinary variables.
-*  This is also why lower_snobol4.c's g_sno_fz_unsafe treats one CLEAR anywhere in a
-*  program as a whole-program poison for static pattern staging -- the poison is honest,
-*  the clear itself is not.  ROUTED as CN-7 in GOAL-SNOBOL4-100; NOT fixed this seat
-*  (END-OF-CONTEXT LAW: repro minted and routed, hunt deliberately not opened).
+*  point of pairing them: this was never an indirection defect and never a read-path
+*  split -- it was CLEAR failing to reach the storage the program actually uses.
+*  THE FIX stores through the binding the entry already carries and skips what is
+*  protected (is_const per CN-6, and is_protected_pat_name per the manual's ARB rule).
+*  Deliberately NOT routed through NV_SET_fn even though that is the store authority:
+*  an I/O association sets g_call_fastpath_off, which would drag every entry through
+*  _io_chan_find_by_var -- a bulk reset must not fire I/O associations.
         X = "gone"
         CLEAR()
         OUTPUT = "direct=[" X "]"
