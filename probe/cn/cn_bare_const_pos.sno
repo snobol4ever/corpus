@@ -1,0 +1,10 @@
+*  CN-12 / T2b -- a BARE &Name in pattern position (no star), the arm whose absence
+*  was a COMPILE BOMB (pat_node default sno_fatal).  The ladder: declared pattern
+*  substitutes compile-time; declared scalar folds; anything else takes the PB-1s
+*  snapshot-defer.  Gate expectation: defer==0 in the default arm, match everywhere.
+	&USER_DECLARED_CONSTANTS = 1
+	&Cmd = "go" | "run"
+	"run x" POS(0) &Cmd	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END

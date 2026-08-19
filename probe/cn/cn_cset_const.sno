@@ -1,0 +1,12 @@
+*  CN-12 -- a DECLARED SCALAR as a cset-primitive argument folds at compile time.
+*  Witness of the s161-2 finding: sno_cset_fold's keyword knowledge was a hardcoded
+*  two-name table (lcase/ucase), so SPAN("a" &T) declined for the &T leaf alone and
+*  the whole constant fell off the inline road.  Gate expectation: defer==0 in the
+*  default arm (fully static SPAN), match in BOTH arms and BOTH modes.
+	&USER_DECLARED_CONSTANTS = 1
+	&T = "b"
+	&W = SPAN("a" &T)
+	"abba x" POS(0) *&W	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END

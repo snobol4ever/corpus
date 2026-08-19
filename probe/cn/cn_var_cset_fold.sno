@@ -1,0 +1,12 @@
+*  CN-12 -- a SINGLE-WRITE BARE VAR as a cset argument folds through the same
+*  inference the PT-1/PT-3 pattern inline already trusts (sno_var_val: wrcount==1,
+*  fz-safe, seal-table storage).  This is beauty's load-bearing shape: its grammar
+*  csets name digits/nl/tab, and the DIGITS leaf alone was measured (s161-2) to be
+*  the whole reason SPAN('.' digits &UCASE '_' &LCASE) declined.
+	&USER_DECLARED_CONSTANTS = 1
+	t = "b"
+	&W = SPAN("a" t)
+	"abba x" POS(0) *&W	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
