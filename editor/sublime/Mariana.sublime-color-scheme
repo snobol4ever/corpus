@@ -1,0 +1,28 @@
+// Mariana OVERRIDE — snobol4ever.  Sublime merges every .sublime-color-scheme
+// sharing a name, with Packages/User winning, so this file adds rules to the
+// stock Mariana without forking it.  Install: copy to Packages/User/.
+//
+// WHY THIS FILE EXISTS.  SPITBOL keywords (&TRIM, &ANCHOR, &ALPHABET, &LCASE)
+// are built-in constants and carry the scopes that say so — constant.language
+// for the protected ones, constant.other for the settable ones.  Stock Mariana
+// paints those red-italic and pink; we want them yellow-orange, the colour it
+// reserves for literals, because a keyword reads as a constant.  Retagging them
+// in the syntax file as constant.numeric would buy the colour by lying about
+// what they are and would follow us into every other colour scheme.  A scheme
+// override buys the same colour, changes nothing about the language model, and
+// is undone by deleting this file.
+//
+// hsl(32, 93%, 66%) is Mariana's own "orange" variable, spelled literally so
+// this file does not depend on variable inheritance from the parent scheme.
+{
+    "name": "Mariana",
+    "rules":
+    [
+        {
+            "name": "SNOBOL4 keyword — &TRIM, &ANCHOR, &ALPHABET, &LCASE, &STCOUNT ...",
+            "scope": "constant.language.sno, constant.other.sno, punctuation.definition.keyword.begin.sno, punctuation.definition.variable.begin.sno",
+            "foreground": "hsl(32, 93%, 66%)",
+            "font_style": ""
+        }
+    ]
+}
