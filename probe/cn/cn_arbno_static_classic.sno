@@ -1,0 +1,7 @@
+	Word = SPAN("abcdefghijklmnopqrstuvwxyz")
+	Command = Word
+	Line = ARBNO(*Command " ")
+	"go run stop " POS(0) Line RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
