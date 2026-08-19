@@ -2072,7 +2072,7 @@ n208_match_arbno_as:    mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n209_match_lit_β
                         mov              dword ptr [rbp + -44], r14d;         jmp   n199_match_alternate_s0
 n208_match_arbno_af:    mov              eax, dword ptr [rbp + -48]
-                        cmp              r14d, eax;                           jne   n209_match_lit_β
+                        cmp              r14d, eax;                           jne   n210_match_defer_β
                                                                               jmp   n207_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n209_match_lit_α:       mov              eax, r14d
@@ -2470,7 +2470,7 @@ n250_match_arbno_as:    mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n251_match_lit_β
                         mov              dword ptr [rbp + -44], r14d;         jmp   n241_match_alternate_s0
 n250_match_arbno_af:    mov              eax, dword ptr [rbp + -48]
-                        cmp              r14d, eax;                           jne   n251_match_lit_β
+                        cmp              r14d, eax;                           jne   n252_match_defer_β
                                                                               jmp   n249_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n251_match_lit_α:       mov              eax, r14d

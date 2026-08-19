@@ -550,7 +550,7 @@ n36_match_arbno_as:     mov              eax, dword ptr [rbp + -28]
                         cmp              r14d, eax;                           je    n37_match_any_β
                         mov              dword ptr [rbp + -28], r14d;         jmp   PAT$4_γ
 n36_match_arbno_af:     mov              eax, dword ptr [rbp + -32]
-                        cmp              r14d, eax;                           jne   n37_match_any_β
+                        cmp              r14d, eax;                           jne   n38_match_defer_β
                                                                               jmp   n35_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n37_match_any_α:        mov              eax, r14d
@@ -709,7 +709,7 @@ n46_match_arbno_as:     mov              eax, dword ptr [rbp + -28]
                         cmp              r14d, eax;                           je    n47_match_any_β
                         mov              dword ptr [rbp + -28], r14d;         jmp   PAT$5_γ
 n46_match_arbno_af:     mov              eax, dword ptr [rbp + -32]
-                        cmp              r14d, eax;                           jne   n47_match_any_β
+                        cmp              r14d, eax;                           jne   n48_match_defer_β
                                                                               jmp   n45_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n47_match_any_α:        mov              eax, r14d
