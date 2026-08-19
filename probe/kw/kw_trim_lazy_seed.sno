@@ -1,0 +1,17 @@
+*  KW-5b witness: the keyword block's oracle-true INITIAL VALUES must be live
+*  before statement one, for a program that never mentions a keyword at all.
+*  &TRIM's oracle default is 1 (FINDING s146 §3 -- the oracle disagrees with
+*  its own manual p.191 here, and the oracle wins), so a line read from a file
+*  arrives with its trailing blanks and tabs already stripped.
+*  SCRIP s161: seeding ran LAZILY at the first keyword touch, so THIS program
+*  -- which touches none -- ran on the C initializers and read back the
+*  untrimmed line, while the very same program with one '&ANCHOR' read in
+*  front of it read back the trimmed one.  The answer depended on access
+*  order.  Input (kw_trim_lazy_seed.dat): "hello   " then "world<TAB>".
+	L = INPUT
+	OUTPUT = '[' L ']'
+	OUTPUT = 'size=' SIZE(L)
+	M = INPUT
+	OUTPUT = '[' M ']'
+	OUTPUT = 'size=' SIZE(M)
+END
