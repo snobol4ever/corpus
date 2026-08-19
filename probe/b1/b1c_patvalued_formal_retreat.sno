@@ -1,0 +1,12 @@
+	DEFINE('CB(a,b)')	:(CBe)
+CB	OUTPUT = "CB: " a " cap=" b	:(RETURN)
+CBe	DEFINE('SH(p,t)')	:(SHe)
+SH	SH = EVAL("p . thx . *CB('" t "', thx)")	:(RETURN)
+SHe	BASE = 'A' | 'B'
+	R = SH(BASE, "ty")
+	OUTPUT = "dt: " DATATYPE(R)
+	S = 'B'
+	S POS(0) R	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
