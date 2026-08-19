@@ -1,0 +1,21 @@
+*  KW-7 witness: &MAXLNGTH has its OWN floor, Appendix D error 287
+*  "Value assigned to keyword MAXLNGTH is too small".  The floor was
+*  bisected against the live x64 oracle to EXACTLY 1024: 1023 raises 287,
+*  1024 stores.  (corpus/programs/csnobol4-suite/scanerr.sno restores
+*  &MAXLNGTH to 1024 after its overflow probe -- its author knew the bound.)
+*  Manual Ch.16 &ERRLIMIT: no SETEXIT label, so an error becomes STATEMENT
+*  FAILURE and each attempt takes its :F branch.
+	&ERRLIMIT = 1000
+	&MAXLNGTH = 1023	:S(A1)F(A2)
+A1	OUTPUT = 'maxlngth-1023-SUCCEEDED'	:(B0)
+A2	OUTPUT = 'maxlngth-1023-failed errtype=' &ERRTYPE ' ' &ERRTEXT
+B0	&MAXLNGTH = 1024	:S(B1)F(B2)
+B1	OUTPUT = 'maxlngth-1024-ok val=' &MAXLNGTH	:(C0)
+B2	OUTPUT = 'maxlngth-1024-FAILED errtype=' &ERRTYPE
+*  a negative &MAXLNGTH answers 210, NOT 287 -- the general range test owns
+*  the negative half, so this arm only ever sees a positive under-floor value.
+C0	&MAXLNGTH = -1		:S(C1)F(C2)
+C1	OUTPUT = 'maxlngth-neg-SUCCEEDED'	:(Z)
+C2	OUTPUT = 'maxlngth-neg-failed errtype=' &ERRTYPE
+Z	OUTPUT = 'end'
+END

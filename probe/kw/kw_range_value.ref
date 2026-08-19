@@ -1,0 +1,8 @@
+anchor-neg-failed errtype=210 keyword value assigned is negative or too large
+anchor-2p24-ok val=16777216
+anchor-over-failed errtype=210
+stlimit-neg-ok val=-1
+stlimit-big-ok val=2147483647
+profile-0-ok val=0
+profile-3-failed errtype=210
+end

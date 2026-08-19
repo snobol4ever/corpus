@@ -1,0 +1,40 @@
+*  KW-7 witness: the keyword-assignment RANGE family, Appendix D error 210
+*  "Keyword value assigned is negative or too large".  Every bound below was
+*  BISECTED against the live x64 oracle, not read off the manual.
+*  Manual Ch.16 &ERRLIMIT: with no SETEXIT label an error becomes STATEMENT
+*  FAILURE, so each attempt takes its :F branch and the run continues.
+	&ERRLIMIT = 1000
+*  negative is rejected for an ordinary unprotected keyword
+	&ANCHOR = -1		:S(A1)F(A2)
+A1	OUTPUT = 'anchor-neg-SUCCEEDED'		:(B0)
+A2	OUTPUT = 'anchor-neg-failed errtype=' &ERRTYPE ' ' &ERRTEXT
+*  the ceiling is EXACTLY 16777216 (2^24) inclusive
+B0	&ANCHOR = 16777216	:S(B1)F(B2)
+B1	OUTPUT = 'anchor-2p24-ok val=' &ANCHOR	:(C0)
+B2	OUTPUT = 'anchor-2p24-FAILED errtype=' &ERRTYPE
+C0	&ANCHOR = 16777217	:S(C1)F(C2)
+C1	OUTPUT = 'anchor-over-SUCCEEDED'	:(D0)
+C2	OUTPUT = 'anchor-over-failed errtype=' &ERRTYPE
+*  &STLIMIT is exempt from BOTH halves -- manual p.191: "There are no
+*  restrictions on the integer values for &STLIMIT", and &STLIMIT = -1 is
+*  the documented way to disable statement counting.
+D0	&STLIMIT = -1		:S(D1)F(D2)
+D1	OUTPUT = 'stlimit-neg-ok val=' &STLIMIT	:(E0)
+D2	OUTPUT = 'stlimit-neg-FAILED errtype=' &ERRTYPE
+E0	&STLIMIT = 2147483647	:S(E1)F(E2)
+E1	OUTPUT = 'stlimit-big-ok val=' &STLIMIT	:(F0)
+E2	OUTPUT = 'stlimit-big-FAILED errtype=' &ERRTYPE
+*  &PROFILE narrows to 0..2 (Ch.16: 0 off, 1 on, 2 charges function time
+*  to the calling statement); 3 is out of range.
+*  ONLY the 0 and 3 cases are exercised, DELIBERATELY: any value that
+*  ENABLES profiling makes the oracle print a timing table at termination,
+*  and those timings are nondeterministic -- a graded .ref cannot carry them.
+*  The 210 row below still catches any widening of the upper bound.
+F0	&PROFILE = 0		:S(F1)F(F2)
+F1	OUTPUT = 'profile-0-ok val=' &PROFILE	:(G0)
+F2	OUTPUT = 'profile-0-FAILED errtype=' &ERRTYPE
+G0	&PROFILE = 3		:S(G1)F(G2)
+G1	OUTPUT = 'profile-3-SUCCEEDED'		:(Z)
+G2	OUTPUT = 'profile-3-failed errtype=' &ERRTYPE
+Z	OUTPUT = 'end'
+END
