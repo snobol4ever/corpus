@@ -26,10 +26,10 @@
             // Scoping the lift to entity.name.function.sno lifts only the SNOBOL4
             // labels, their goto targets, and the name inside DEFINE('FOO()').
             // To taste, edit the one lightness number: 54% = stock, 60% = subtle,
-            // 64% = current, 70% = pale.
+            // 54% = stock, 60% = subtle, 64% = previous, 70% = current, 76% = very pale.
             "name": "SNOBOL4 label / goto target / DEFINE name — lighter teal",
             "scope": "entity.name.function.sno",
-            "foreground": "hsl(180, 40%, 64%)"
+            "foreground": "hsl(180, 42%, 70%)"
         },
         {
             "name": "SNOBOL4 keyword — &TRIM, &ANCHOR, &ALPHABET, &LCASE, &STCOUNT ...",
