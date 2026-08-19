@@ -125,7 +125,7 @@ contexts:
 
     - match: \b({{user_function}})\(
       captures:
-        1: support.function.sno # SAME scope as the runtime calls above (DEFINE, LT) per Lon: a call site is blue; teal is reserved for LABELS and their goto targets, so a call never wears the label colour # was entity.name.function.sno (teal, = the label colour) # was entity.name.class.forward-decl.sno (orange)
+        1: variable.function.sno # Mariana rule "Function call" (variable.function, variable.annotation) = the SAME blue as the runtime calls but WITHOUT their italic, so your own functions read distinctly from DEFINE/LT while both stay call-coloured # was support.function.sno (blue italic) # was entity.name.function.sno (teal, the label colour)
       push: brackets
 
     - match: \b{{io_variable}}\b
