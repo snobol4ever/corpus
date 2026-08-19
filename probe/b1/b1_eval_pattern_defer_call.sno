@@ -1,0 +1,10 @@
+	DEFINE('F(a,b)')	:(Fe)
+F	OUTPUT = 'F called: ' a ' cap=' b	:(RETURN)
+Fe	P = EVAL("'A' . TH . *F('t', TH)")	:F(EF)
+	OUTPUT = 'dt: ' DATATYPE(P)
+	S = 'A'
+	S POS(0) P RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = 'match'	:(END)
+N	OUTPUT = 'nomatch'	:(END)
+EF	OUTPUT = 'EVAL failed'
+END
