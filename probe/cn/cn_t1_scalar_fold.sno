@@ -1,0 +1,16 @@
+*  SN4-CONSTANTS T1 -- scalar constant fold.
+*  A declared &Name whose RHS is a literal (integer, real, or string)
+*  must lower as the LITERAL ITSELF at every read site: zero runtime
+*  keyword machinery, zero spine carve, zero PLT call.
+*  ORACLE_FAIL BY CONSTRUCTION: stock sbl 251s &USER_DECLARED_CONSTANTS
+*  and any &-prefixed user name, so this .ref is SCRIP-pinned.
+        &USER_DECLARED_CONSTANTS = 1
+        &N = 42
+        &Pi = 3.14
+        &Tag = 'hello'
+        OUTPUT = &N
+        OUTPUT = &Pi
+        OUTPUT = &Tag
+        OUTPUT = &N + 1
+        OUTPUT = &Tag ' world'
+END
