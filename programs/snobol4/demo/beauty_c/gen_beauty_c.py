@@ -38,8 +38,17 @@ def transform_line(l):
     for a,b in spans: res.append(l[last:a]); res.append('&'+l[a:b]); last=b
     res.append(l[last:]); return ''.join(res)
 here=os.path.dirname(os.path.abspath(__file__)); src=os.path.join(here,'..','beauty')
+# CN-9b: the declaration statement, spliced in as the FIRST executable statement (right after the START
+# label, BEFORE the -INCLUDEs whose transformed &name assignments are the constants being declared).
+# Runtime-inert today (kwb_own[7] is born open) but load-bearing the day the namespace default flips to
+# oracle-251 closed; also the honest program shape CN-9b's census measures against.
+DECL=['* CN-9b (SN4-CONSTANTS CN-4): open the user-constant namespace before the first &name assignment',
+      '                  &USER_DECLARED_CONSTANTS  =  1']
 for f in ['beauty.sno']+sorted(os.path.basename(p) for p in glob.glob(src+'/*.inc')):
     lines=open(os.path.join(src,f),encoding='utf-8',errors='replace').read().split('\n')
-    out='\n'.join(transform_line(l) for l in lines)
+    tl=[transform_line(l) for l in lines]
+    if f=='beauty.sno':
+        i=next(n for n,l in enumerate(tl) if l.rstrip()=='START'); tl[i+1:i+1]=DECL
+    out='\n'.join(tl)
     open(os.path.join(here,'beauty_c.sno' if f=='beauty.sno' else f),'w',encoding='utf-8').write(out)
 print("regenerated beauty_c from ../beauty")
