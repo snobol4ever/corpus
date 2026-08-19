@@ -1,0 +1,7 @@
+anchor=1
+trim=1
+errlimit=5
+errtype=0
+stcount=7
+case=1
+alpha=256
