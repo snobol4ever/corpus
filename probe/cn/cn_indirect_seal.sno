@@ -1,0 +1,22 @@
+*  CN / seal-through-aliasing -- the $() INDIRECT truth table, pinned.
+*  ARCH-SN4-CONSTANTS says: "No bypass via OPSYN/$('&X')/aliasing -- the
+*  seal lives on the CELL (NV_t.is_const)."  MEASURED, that claim holds
+*  for WRITES and does NOT hold for the READ diagnostic:
+*    read  declared    $("&N")         -> 42   (same cell as &N: correct)
+*    write sealed      $("&N") = 99    -> 341  (seal holds through alias)
+*    read  UNdeclared  $("&NEVERSET")  -> ""   (SILENT -- no 342)
+*  The third row is the asymmetry.  A DIRECT read of &NEVERSET raises 342;
+*  the indirect read of the same name returns null.
+*  ⛔ NOT A BUG REPORT -- A RULING REQUEST (see the s153 cursor).  Oracle
+*  receipt: stock sbl prints "x[]" for $("&NEVERSET"), i.e. an ordinary
+*  null variable, so TODAY'S read behaviour is ORACLE-TRUE while the
+*  write behaviour is already a DELIBERATE oracle divergence (CN-2's cell
+*  seal).  Whichever way Lon rules, the two halves should agree.
+*  This witness pins the CURRENT truth table so the ruling is a visible
+*  gate event.  Rows 1-2 only; row 3 aborts and lives in the .err_sno.
+	&USER_DECLARED_CONSTANTS = 1
+	&N = 42
+	OUTPUT = 'direct=' &N
+	OUTPUT = 'indirect=' $('&N')
+	OUTPUT = 'indirect-undeclared=[' $('&NEVERSET') ']'
+END
