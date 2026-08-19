@@ -1,66 +1,43 @@
 # TIME-based SNOBOL4 benchmarks -- MEASURED run-to-run noise floor
-# baked 2026-08-19T16:25:39Z by scripts/bake_noise_floor_snobol4_timed.sh  reps=5
-# SCRIP_NOHUGE=unset  (transparent huge pages dominate the
-#   aggregate rows: table_access_t cv 37.7% -> 4.0% with SCRIP_NOHUGE=1)
+# baked 2026-08-19T19:28:34Z by scripts/bake_noise_floor_snobol4_timed.sh  reps=5
+# SCRIP_NOHUGE=1  (transparent huge pages dominate the
+#   aggregate rows: table_access cv 37.7% -> 4.0% with SCRIP_NOHUGE=1)
 # min_detectable_pct = 3*cv; a single-run delta smaller than this is WEATHER.
+# ⚠ baked on a SHARED box (load avg ~3.8, concurrent seats live): floors include host-load weather and are CONSERVATIVE. Re-bake on a quiet box for tighter min-det.
 bench	engine	thp	reps	mean_per_s	cv_pct	maxmin	min_detectable_pct
-arith_loop_t	sbl	n/a	5	15142139	0.8	1.02	2.4
-arith_loop_t	m3	nohuge=0	5	63618104	1.4	1.04	4.1
-arith_loop_t	m4	nohuge=0	5	65359534	0.6	1.02	1.8
-array_sum_t	sbl	n/a	5	13087	0.3	1.01	1.0
-array_sum_t	m3	nohuge=0	5	4713	34.6	3.00	103.9
-array_sum_t	m4	nohuge=0	5	5729	11.9	1.40	35.6
-eval_fixed_t	sbl	n/a	5	3332818	1.6	1.05	4.9
-eval_fixed_t	m3	nohuge=0	5	2421963	2.7	1.08	8.0
-eval_fixed_t	m4	nohuge=0	5	2410481	0.8	1.02	2.3
-fibonacci_t	sbl	n/a	5	3826	4.9	1.15	14.7
-fibonacci_t	m3	nohuge=0	5	17457	1.4	1.04	4.3
-fibonacci_t	m4	nohuge=0	5	17036	1.3	1.03	3.8
-func_call_t	sbl	n/a	5	8507878	1.5	1.05	4.6
-func_call_t	m3	nohuge=0	5	41117429	3.8	1.12	11.5
-func_call_t	m4	nohuge=0	5	39602366	0.8	1.02	2.5
-op_dispatch_t	sbl	n/a	5	6767177	0.5	1.01	1.4
-op_dispatch_t	m3	nohuge=0	5	31029345	1.6	1.04	4.8
-op_dispatch_t	m4	nohuge=0	5	29943734	1.6	1.04	4.7
-pattern_bt_t	sbl	n/a	5	2097586	0.4	1.01	1.3
-pattern_bt_t	m3	nohuge=0	5	1956327	1.1	1.03	3.2
-pattern_bt_t	m4	nohuge=0	5	1904485	0.8	1.02	2.3
-string_concat_t	sbl	n/a	5	3382331	0.7	1.02	2.1
-string_concat_t	m3	nohuge=0	5	10351521	1.8	1.05	5.5
-string_concat_t	m4	nohuge=0	5	9748056	1.6	1.04	4.9
-string_manip_t	sbl	n/a	5	6764478	0.5	1.01	1.4
-string_manip_t	m3	nohuge=0	5	2682541	10.6	1.29	31.8
-string_manip_t	m4	nohuge=0	5	2518328	7.7	1.25	23.0
-string_pattern_t	sbl	n/a	5	5098858	1.8	1.05	5.5
-string_pattern_t	m3	nohuge=0	5	2877871	22.8	1.81	68.5
-string_pattern_t	m4	nohuge=0	5	3042765	15.7	1.61	47.0
-table_access_t	sbl	n/a	5	11807	1.1	1.03	3.3
-table_access_t	m3	nohuge=0	5	2675	26.9	2.05	80.7
-table_access_t	m4	nohuge=0	5	3653	12.7	1.46	38.2
-var_access_t	sbl	n/a	5	5543411	2.8	1.08	8.5
-var_access_t	m3	nohuge=0	5	33028398	2.8	1.09	8.4
-var_access_t	m4	nohuge=0	5	29660824	3.5	1.11	10.6
-arith_loop_t	m3	nohuge=1	5	64168821	2.3	1.07	7.0
-arith_loop_t	m4	nohuge=1	5	66402368	0.8	1.02	2.4
-array_sum_t	m3	nohuge=1	5	5468	2.9	1.08	8.8
-array_sum_t	m4	nohuge=1	5	5254	0.5	1.01	1.4
-eval_fixed_t	m3	nohuge=1	5	2369286	0.2	1.01	0.7
-eval_fixed_t	m4	nohuge=1	5	2366624	0.8	1.02	2.4
-fibonacci_t	m3	nohuge=1	5	17662	0.4	1.01	1.2
-fibonacci_t	m4	nohuge=1	5	16943	1.2	1.04	3.6
-func_call_t	m3	nohuge=1	5	41565827	1.5	1.05	4.6
-func_call_t	m4	nohuge=1	5	40933876	1.7	1.05	5.1
-op_dispatch_t	m3	nohuge=1	5	31878862	2.9	1.09	8.7
-op_dispatch_t	m4	nohuge=1	5	30874782	2.3	1.07	6.8
-pattern_bt_t	m3	nohuge=1	5	1927417	2.3	1.07	7.0
-pattern_bt_t	m4	nohuge=1	5	1828582	2.1	1.06	6.2
-string_concat_t	m3	nohuge=1	5	9876343	1.9	1.06	5.8
-string_concat_t	m4	nohuge=1	5	9644630	1.6	1.04	4.9
-string_manip_t	m3	nohuge=1	5	2413916	1.6	1.05	4.8
-string_manip_t	m4	nohuge=1	5	2419113	1.2	1.04	3.6
-string_pattern_t	m3	nohuge=1	5	3629495	0.6	1.02	1.8
-string_pattern_t	m4	nohuge=1	5	3618195	0.9	1.02	2.6
-table_access_t	m3	nohuge=1	5	6042	2.2	1.07	6.7
-table_access_t	m4	nohuge=1	5	5817	2.0	1.06	5.9
-var_access_t	m3	nohuge=1	5	33396241	3.9	1.11	11.6
-var_access_t	m4	nohuge=1	5	28854033	1.7	1.05	5.2
+arith_loop	sbl	n/a	5	21986731	4.0	1.11	11.9
+arith_loop	m3	nohuge=1	5	116566720	1.0	1.03	3.0
+arith_loop	m4	nohuge=1	5	126346612	0.7	1.02	2.0
+array_sum	sbl	n/a	5	19532	1.1	1.03	3.2
+array_sum	m3	nohuge=1	5	5815	10.9	1.32	32.6
+array_sum	m4	nohuge=1	5	5349	11.9	1.43	35.8
+eval_fixed	sbl	n/a	5	5903349	1.3	1.04	3.9
+eval_fixed	m3	nohuge=1	5	3834427	3.7	1.10	11.2
+eval_fixed	m4	nohuge=1	5	3599928	4.6	1.11	13.8
+fibonacci	sbl	n/a	5	6121	0.7	1.02	2.1
+fibonacci	m3	nohuge=1	5	29782	1.1	1.03	3.2
+fibonacci	m4	nohuge=1	5	30180	1.0	1.03	3.1
+func_call	sbl	n/a	5	12427642	4.4	1.12	13.2
+func_call	m3	nohuge=1	5	68269164	10.6	1.34	31.8
+func_call	m4	nohuge=1	5	77167631	0.9	1.03	2.8
+op_dispatch	sbl	n/a	5	10411332	1.5	1.04	4.5
+op_dispatch	m3	nohuge=1	5	58028532	0.9	1.02	2.6
+op_dispatch	m4	nohuge=1	5	56186300	0.7	1.02	2.2
+pattern_bt	sbl	n/a	5	3752500	1.1	1.03	3.2
+pattern_bt	m3	nohuge=1	5	3239741	7.3	1.22	22.0
+pattern_bt	m4	nohuge=1	5	3445405	0.3	1.01	0.8
+string_concat	sbl	n/a	5	4775300	5.1	1.16	15.4
+string_concat	m3	nohuge=1	5	16594970	2.6	1.07	7.9
+string_concat	m4	nohuge=1	5	16075401	4.6	1.13	13.8
+string_manip	sbl	n/a	5	9038551	9.7	1.32	29.2
+string_manip	m3	nohuge=1	5	2767383	2.2	1.06	6.5
+string_manip	m4	nohuge=1	5	2840641	0.9	1.03	2.7
+string_pattern	sbl	n/a	5	7929844	1.5	1.04	4.6
+string_pattern	m3	nohuge=1	5	5559015	2.9	1.08	8.8
+string_pattern	m4	nohuge=1	5	5208394	11.6	1.29	34.7
+table_access	sbl	n/a	5	16037	3.0	1.09	9.0
+table_access	m3	nohuge=1	5	3557	12.4	1.41	37.2
+table_access	m4	nohuge=1	5	3900	26.2	1.98	78.5
+var_access	sbl	n/a	5	8076044	1.8	1.05	5.5
+var_access	m3	nohuge=1	5	58042052	0.9	1.03	2.6
+var_access	m4	nohuge=1	5	62141357	1.5	1.04	4.5
