@@ -118,7 +118,7 @@ contexts:
 
     - match: \b({{user_function}})\(
       captures:
-        1: entity.name.class.forward-decl.sno # entity.other.sno (white) # support.function.sno (blue) # variable.function.sno (blue) # variable.language.sno (orange)
+        1: entity.name.function.sno # SAME scope as the name in DEFINE('FUNCTION()') (function_proto_*, lines 295/307) so a call renders exactly like the definition it names # was entity.name.class.forward-decl.sno (orange, and orange reads as a literal here) # support.function.sno (blue) # variable.function.sno (blue)
       push: brackets
 
     - match: \b{{io_variable}}\b
