@@ -13,13 +13,13 @@
                DEFINE('nTop()')
                DEFINE('nPop()')                                                  :(semanticEnd)
 *---------------------------------------------------------------------------------------------------
-shift          &shift          =  EVAL("p . thx . *Shift('" t "', thx)")          :(RETURN)
-reduce         &reduce         =  EVAL("epsilon . *Reduce(" t ", " n ")")         :(RETURN)
-pop            &pop            =  epsilon . *Pop(.dummy)                          :(RETURN)
+shift          shift          =  EVAL("p . thx . *Shift('" t "', thx)")          :(RETURN)
+reduce         reduce         =  EVAL("epsilon . *Reduce(" t ", " n ")")         :(RETURN)
+pop            pop            =  epsilon . *Pop(.dummy)                          :(RETURN)
 *---------------------------------------------------------------------------------------------------
 nPush          nPush          =  epsilon . *PushCounter()                        :(RETURN)
 nInc           nInc           =  epsilon . *IncCounter()                         :(RETURN)
-nDec           &nDec           =  epsilon . *DecCounter()                         :(RETURN)
+nDec           nDec           =  epsilon . *DecCounter()                         :(RETURN)
 nTop           nTop           =  TopCounter()                                    :(RETURN)
 nPop           nPop           =  epsilon . *PopCounter()                         :(RETURN)
 *---------------------------------------------------------------------------------------------------

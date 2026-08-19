@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 # gen_beauty_c.py — GENERATE beauty_c from ../beauty (never hand-edit beauty_c outputs; edit WAVE1 or this
 # transformer and re-run).  Wave-1 = the 59 measured single-assignment grammar patterns of beauty.sno
-# (s145 inventory: 180 names, 137 once-assigned, 62 pattern-shaped, minus 3 call-duals nPush/nPop/nInc).
+# s145 inventory: 180 names, 137 once-assigned, 62 pattern-shaped; minus 3 call-duals (nPush/nPop/nInc) and,
+# measured by beauty_c run 1 (error 341: &reduce resealed -- function-RESULT variables are assigned on every
+# call), minus 7 DEFINE/OPSYN-tainted names (TV TW TX nDec pop reduce shift) = WAVE-1 the 52 pure grammar names.
 # Transform: every wave-name token -> &name (defs AND refs, so *X -> *&X), skipping quoted strings, comment/
 # control lines, goto fields (labels!), col-1 label tokens, call syntax name(, and already-&/captured tokens.
 # Fixed point law: beauty_c beautifying CLASSIC beauty.sno must emit beauty.sno byte-identically.
 import re, glob, os
-WAVE1 = """BuiltinVar BuiltinVars Commands Comment Control DQ Expr Expr0 Expr1 Expr10 Expr11 Expr12 Expr13
-Expr14 Expr15 Expr17 Expr2 Expr3 Expr4 Expr5 Expr6 Expr7 Expr8 Expr9 ExprList FGoto Function Functions Goto
-Gray Id Integer Label Parse ProtKwd ProtKwds Real SGoto SQ SorF Space SpecialNm SpecialNms Stmt String TV TW
-TX Target TxInList UnprotKwd White X3 X4 XList nDec pop reduce shift""".split()
+WAVE1 = """BuiltinVar BuiltinVars Commands Comment Control DQ Expr Expr0 Expr1 Expr10
+Expr11 Expr12 Expr13 Expr14 Expr15 Expr17 Expr2 Expr3 Expr4 Expr5
+Expr6 Expr7 Expr8 Expr9 ExprList FGoto Function Functions Goto Gray
+Id Integer Label Parse ProtKwd ProtKwds Real SGoto SQ SorF
+Space SpecialNm SpecialNms Stmt String Target TxInList UnprotKwd White X3
+X4 XList""".split()
 pat = re.compile(r'\b(' + '|'.join(map(re.escape, sorted(WAVE1, key=len, reverse=True))) + r')\b')
 def transform_line(l):
     if l[:1] in ('*','-'): return l

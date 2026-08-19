@@ -1,0 +1,5 @@
+	&P = "a" | "b"
+	"xay" POS(1) *&P	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
