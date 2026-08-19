@@ -1,0 +1,27 @@
+*  g-cn2 -- SN4-CONSTANTS T1: THE EVAL/CODE BOUNDARY (the SUCCESS lane).
+*  T1's literal table (g_sno_seal) is LOWERER-side static state owned by
+*  the WHOLE-PROGRAM compile.  EVAL and CODE re-enter the lowerer at RUN
+*  time -- in mode 4 from a DIFFERENT PROCESS entirely -- so a fragment
+*  must never assume the fold.  It must read the SEALED CELL instead
+*  (CN-2's NV_t.is_const binding), which the declaration's store put
+*  there in both modes.
+*  REGRESSION GUARDED: before g-cn2, m3 with T1 on printed EMPTY for
+*  EVAL('&N') while m4 printed 42 -- a MODE34-IDENTICAL violation and a
+*  SILENT WRONG ANSWER, not an error.  All four cells must read alike.
+*  Manual (SPITBOL v3.7 p.130-132): EVAL compiles/evaluates an EXPRESSION
+*  only; CODE compiles whole STATEMENTS.  A constant can therefore be
+*  minted or re-assigned only through CODE, never EVAL.
+*  ORACLE_FAIL BY CONSTRUCTION: stock sbl 251s &USER_DECLARED_CONSTANTS
+*  and every &-prefixed user name, so this .ref is SCRIP-pinned.
+	&USER_DECLARED_CONSTANTS = 1
+	&N = 42
+	&Tag = 'hello'
+	OUTPUT = 'eval-int=' EVAL('&N')
+	OUTPUT = 'eval-arith=' EVAL('&N + 1')
+	OUTPUT = 'eval-str=' EVAL('&Tag')
+	OUTPUT = 'direct=' &N
+	C = CODE('L OUTPUT = "code-int=" &N; :(BACK)')	:F(NOCODE)
+	:<C>
+BACK	OUTPUT = 'boundary-ok'				:(END)
+NOCODE	OUTPUT = 'CODE-COMPILE-FAILED'
+END
