@@ -27,31 +27,3 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

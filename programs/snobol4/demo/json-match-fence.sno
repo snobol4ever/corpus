@@ -24,12 +24,12 @@
                 jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
                 jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
                 jvalue         =  ( jstring
-                                  | jnumber
-                                  | jobject FENCE
-                                  | jarray FENCE
-                                  | 'true'
-                                  | 'false'
-                                  | 'null'
++                                 | jnumber
++                                 | jobject FENCE
++                                 | jarray FENCE
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
 +                                 )
                 jelement       =  $' ' *jvalue $' '
                 json           =  POS(0) jelement RPOS(0)

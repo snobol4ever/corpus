@@ -1,5 +1,5 @@
 *       Count to 5
         I = 1
 LOOP    OUTPUT = I
-        I = LE(I, 5) I + 1  :S(LOOP)
+        I = LT(I, 5) I + 1  :S(LOOP)
 END

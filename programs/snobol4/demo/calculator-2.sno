@@ -40,7 +40,7 @@ DRF     nm POS(0) ANY(&LCASE) RPOS(0)           :F(DRF_n)
 DRF_n   DRF = nm                                :(RETURN)
 DRF_x
         DEFINE('ADD()p1')                       :(ADD_x)
-ADD     S[sp-1] = DRF(S[sp-1]) + DRF(S[sp-0])
+ADD     S[sp - 1] = DRF(S[sp - 1]) + DRF(S[sp - 0])
         sp = sp - 1
         ADD = .dm                               :(NRETURN)
 ADD_x
