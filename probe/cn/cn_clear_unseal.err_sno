@@ -1,0 +1,18 @@
+*  PRE-EXISTING CN-2 DEFECT (measured s148, NOT introduced by CN-4/CN-5).
+*  NV_CLEAR_fn (core.c:2378) walks every bucket and nulls e->val WITHOUT
+*  consulting e->is_const, so CLEAR() silently UN-SEALS a declared constant:
+*    - DATATYPE goes PATTERN -> NULL
+*    - error 342 does NOT fire on the later read, because the ENTRY still
+*      exists so NV_EXISTS_fn stays true -- the silent null the CN design
+*      says "would defeat GUARANTEED"
+*    - error 341 then forbids ever restoring it: permanently null AND
+*      permanently unwritable.
+*  This is why CN-5 retains the g_sno_fz_unsafe guard on seal==2: a cached
+*  defer-site fn would outlive the value it names.
+        &Word = SPAN("abc")
+        OUTPUT = "before=" DATATYPE(&Word)
+        CLEAR()
+        OUTPUT = "after=" DATATYPE(&Word)
+        &Word = SPAN("xyz")
+        OUTPUT = "UNREACHABLE-restore"
+END
