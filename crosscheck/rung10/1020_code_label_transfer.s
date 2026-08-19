@@ -1,41 +1,12 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "LBL__DONE"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + DONE_body]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "S"
-.Lgvan1:                .string          "N"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -46,6 +17,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "S"
+.Lgvan1:                .string          "N"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -159,7 +139,7 @@ n13_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx39_0]
 #=======================================================================================================================
 # DONE	OUTPUT = 'done'
 #-----------------------------------------------------------------------------------------------------------------------
-DONE_body:                                                                    jmp   n15_lit_string_α
+LBL__DONE:                                                                    jmp   n15_lit_string_α
 n14_statement_begin_β:                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n15_lit_string_α:       sub              rsp, 16
@@ -196,4 +176,27 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__DONE"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__DONE
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

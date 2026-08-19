@@ -1,14 +1,17 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_ispos_α
-proc_ispos_α:
-proc_ispos_α_body:
+FN__ispos:
+ispos_α_body:
+                        sub              rsp, 128
+                        mov              qword ptr [rsp + 104], rcx
+                        mov              qword ptr [rsp + 112], rdx
+                        mov              qword ptr [rsp + 120], rbp
 #=======================================================================================================================
 #         <stmt 3, line 3: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:                                                         jmp   n1_var_α
-n0_statement_begin_β:                                                         jmp   proc_ispos_γ
+n0_statement_begin_β:                                                         jmp   ispos_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               sub              rsp, 16
                         mov              rax, qword ptr [r9 + 16]             # x
@@ -21,7 +24,7 @@ n2_lit_integer_α:       sub              rsp, 16
                         mov              rax, qword ptr [rip + .Lx9_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n3_coerce_numeric_α
 n2_lit_integer_β:       add              rsp, 16
-                        add              rsp, 16;                             jmp   proc_ispos_ω
+                        add              rsp, 16;                             jmp   ispos_ω
 .Lx9_0:                 .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n3_coerce_numeric_α:    sub              rsp, 16
@@ -83,44 +86,33 @@ n5_cmp_test_α:          sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         test             eax, eax;                            jg    .Lx15_240
                         add              rsp, 16;                             jmp   n4_coerce_numeric_β
-.Lx15_240:              add              rsp, 80;                             jmp   proc_ispos_γ
+.Lx15_240:              add              rsp, 80;                             jmp   ispos_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_ispos_res:
+ispos_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_ispos_β:
-                                                                              jmp   proc_ispos_ω
+ispos_β:
+                                                                              jmp   ispos_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_ispos_γ:
+ispos_γ:
+                        add              rsp, 128
                         add              rsp, 16
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-proc_ispos_ω:
+ispos_ω:
+                        add              rsp, 128
                         add              rsp, 16
                         mov              eax, 104
                         ret
-proc_startup:
-                        sub              rsp, 8
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "ispos"
-.Lgvan1:                .string          "x"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -131,6 +123,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "ispos"
+.Lgvan1:                .string          "x"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -155,12 +156,12 @@ n19_lit_integer_α:      sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n20_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig43z]
-                        lea              rax, [rip + ispos_alpha];            jmp   rax
+                        lea              rax, [rip + ispos_α];                jmp   rax
 .Lsig43z:               .quad            1
                         .quad            .Lx43_2
                         .quad            .Lx43_2
                         .quad            16
-.Lx43_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx43_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx43_29
                         mov              rdi, rax
@@ -169,7 +170,7 @@ n20_call_α:             sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -262,12 +263,12 @@ n28_unop_β:             add              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n29_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig55z]
-                        lea              rax, [rip + ispos_alpha];            jmp   rax
+                        lea              rax, [rip + ispos_α];                jmp   rax
 .Lsig55z:               .quad            1
                         .quad            .Lx55_2
                         .quad            .Lx55_2
                         .quad            16
-.Lx55_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx55_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx55_29
                         mov              rdi, rax
@@ -276,7 +277,7 @@ n29_call_α:             sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -349,4 +350,8 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

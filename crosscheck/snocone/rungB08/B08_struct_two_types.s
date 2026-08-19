@@ -1,37 +1,12 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "point(x,y)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        .section         .rodata
-.Lclassspec1:           .string          "interval(lo,hi)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec1]
-                        call             record_register@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "p"
-.Lgvan1:                .string          "iv"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -42,6 +17,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "p"
+.Lgvan1:                .string          "iv"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -433,4 +417,20 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "point(x,y)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lclassspec1:           .string          "interval(lo,hi)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec1]
+                        call             record_register@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

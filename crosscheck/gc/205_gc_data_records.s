@@ -1,15 +1,22 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
+                        .globl           main
+main:
                         sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "node(val,nxt)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        add              rsp, 8
-                        ret
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             module_init
+                        mov              edi, 6
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 6
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "HEAD"
 .Lgvan1:                .string          "I"
@@ -27,23 +34,6 @@ __gva_names:
                         .quad            .Lgvan5
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              edi, 6
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 6
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -335,7 +325,31 @@ n25_lit_integer_β:      add              rsp, 16;                             j
 .Lx154_0:               .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n26_binop_α:            sub              rsp, 16
-                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              eax, dword ptr [rsp + 32]            # var
+                        mov              ecx, dword ptr [rsp + 16]            # lit_integer
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx155_2
+                        mov              rax, qword ptr [rsp + 40]            # var
+                        mov              rdx, qword ptr [rsp + 24]            # lit_integer
+                        add              rax, rdx
+                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rsp + 8], rax;            jmp   .Lx155_7
+.Lx155_2:               and              edx, 1;                              jz    .Lx155_0
+                        mov              rsi, qword ptr [rsp + 40]            # var
+                        mov              rdi, qword ptr [rsp + 24]            # lit_integer
+                        cmp              eax, 5;                              je    .Lx155_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx155_4
+.Lx155_3:               movq             xmm0, rsi
+.Lx155_4:               cmp              ecx, 5;                              je    .Lx155_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx155_6
+.Lx155_5:               movq             xmm1, rdi
+.Lx155_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 0], 5               # result
+                        mov              qword ptr [rsp + 8], rax
+.Lx155_7:                                                                     jmp   n27_binop_α
+.Lx155_0:               mov              rdi, qword ptr [rsp + 32]            # var
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # lit_integer
                         mov              rcx, qword ptr [rsp + 24]
@@ -673,7 +687,31 @@ n57_lit_integer_β:      add              rsp, 16;                             j
 .Lx199_0:               .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n58_binop_α:            sub              rsp, 16
-                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              eax, dword ptr [rsp + 32]            # var
+                        mov              ecx, dword ptr [rsp + 16]            # lit_integer
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx200_2
+                        mov              rax, qword ptr [rsp + 40]            # var
+                        mov              rdx, qword ptr [rsp + 24]            # lit_integer
+                        add              rax, rdx
+                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rsp + 8], rax;            jmp   .Lx200_7
+.Lx200_2:               and              edx, 1;                              jz    .Lx200_0
+                        mov              rsi, qword ptr [rsp + 40]            # var
+                        mov              rdi, qword ptr [rsp + 24]            # lit_integer
+                        cmp              eax, 5;                              je    .Lx200_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx200_4
+.Lx200_3:               movq             xmm0, rsi
+.Lx200_4:               cmp              ecx, 5;                              je    .Lx200_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx200_6
+.Lx200_5:               movq             xmm1, rdi
+.Lx200_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 0], 5               # result
+                        mov              qword ptr [rsp + 8], rax
+.Lx200_7:                                                                     jmp   n59_binop_α
+.Lx200_0:               mov              rdi, qword ptr [rsp + 32]            # var
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # lit_integer
                         mov              rcx, qword ptr [rsp + 24]
@@ -986,7 +1024,31 @@ n92_lit_integer_β:      add              rsp, 16
 .Lx249_0:               .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n93_binop_α:            sub              rsp, 16
-                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              eax, dword ptr [rsp + 32]            # var
+                        mov              ecx, dword ptr [rsp + 16]            # lit_integer
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx250_2
+                        mov              rax, qword ptr [rsp + 40]            # var
+                        mov              rdx, qword ptr [rsp + 24]            # lit_integer
+                        add              rax, rdx
+                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rsp + 8], rax;            jmp   .Lx250_7
+.Lx250_2:               and              edx, 1;                              jz    .Lx250_0
+                        mov              rsi, qword ptr [rsp + 40]            # var
+                        mov              rdi, qword ptr [rsp + 24]            # lit_integer
+                        cmp              eax, 5;                              je    .Lx250_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx250_4
+.Lx250_3:               movq             xmm0, rsi
+.Lx250_4:               cmp              ecx, 5;                              je    .Lx250_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx250_6
+.Lx250_5:               movq             xmm1, rdi
+.Lx250_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 0], 5               # result
+                        mov              qword ptr [rsp + 8], rax
+.Lx250_7:                                                                     jmp   n94_assign_α
+.Lx250_0:               mov              rdi, qword ptr [rsp + 32]            # var
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # lit_integer
                         mov              rcx, qword ptr [rsp + 24]
@@ -1254,4 +1316,14 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "node(val,nxt)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

@@ -13,8 +13,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
-#=======================================================================================================================
-#         <stmt 1, line 1: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:                                                         jmp   n1_statement_end_α
 n0_statement_begin_β:                                                         jmp   n2_statement_begin_α
@@ -69,30 +67,28 @@ n5_keyword_snobol4_α:   sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n6_keyword_snobol4_α
-.Lx75_0:                .quad            .Lx75_0_s
-.Lx75_0_s:              .string          "UCASE"
+.Lx75_0:                .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n6_keyword_snobol4_α:   sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx76_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n7_call_α
-.Lx76_0:                .quad            .Lx76_0_s
-.Lx76_0_s:              .string          "LCASE"
+.Lx76_0:                .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n7_call_α:              sub              rsp, 16
                         sub              rsp, 48
@@ -258,30 +254,28 @@ n20_keyword_snobol4_α:  sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n21_keyword_snobol4_α
-.Lx99_0:                .quad            .Lx99_0_s
-.Lx99_0_s:              .string          "UCASE"
+.Lx99_0:                .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n21_keyword_snobol4_α:  sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx100_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n22_call_α
-.Lx100_0:               .quad            .Lx100_0_s
-.Lx100_0_s:             .string          "LCASE"
+.Lx100_0:               .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n22_call_α:             sub              rsp, 16
                         sub              rsp, 48
@@ -447,30 +441,28 @@ n35_keyword_snobol4_α:  sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n36_keyword_snobol4_α
-.Lx123_0:               .quad            .Lx123_0_s
-.Lx123_0_s:             .string          "UCASE"
+.Lx123_0:               .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n36_keyword_snobol4_α:  sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx124_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n37_call_α
-.Lx124_0:               .quad            .Lx124_0_s
-.Lx124_0_s:             .string          "LCASE"
+.Lx124_0:               .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n37_call_α:             sub              rsp, 16
                         sub              rsp, 48
@@ -638,30 +630,28 @@ n50_keyword_snobol4_α:  sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n51_keyword_snobol4_α
-.Lx147_0:               .quad            .Lx147_0_s
-.Lx147_0_s:             .string          "UCASE"
+.Lx147_0:               .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n51_keyword_snobol4_α:  sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx148_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n52_call_α
-.Lx148_0:               .quad            .Lx148_0_s
-.Lx148_0_s:             .string          "LCASE"
+.Lx148_0:               .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n52_call_α:             sub              rsp, 16
                         sub              rsp, 48

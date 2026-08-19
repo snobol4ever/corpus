@@ -1,12 +1,5 @@
                         .intel_syntax    noprefix
                         .text
-                        .section         .rodata
-.Lgvan0:                .string          "X"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
@@ -23,6 +16,13 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "X"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -78,8 +78,14 @@ n6_match_begin_α:       mov              rdi, qword ptr [rsp + 0]             #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              dword ptr [rbp + -40], 0             # start_δ
-.Lx28_0:                mov              r14d, dword ptr [rbp + -40];         jmp   n7_match_lit_α
-n6_match_begin_β:       lea              rsp, [rbp + -56]                     # retry_whack
+.Lx28_0:                mov              r14d, dword ptr [rbp + -40]
+                        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # match_beta_cont
+                        mov              rax, qword ptr [rcx + 248]
+                        mov              qword ptr [rbp + -48], rax
+                        lea              rax, [rip + .Lx28_13]
+                        mov              qword ptr [rcx + 248], rax;          jmp   n7_match_lit_α
+n6_match_begin_β:
+.Lx28_13:               lea              rsp, [rbp + -56]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx28_1
@@ -88,7 +94,10 @@ n6_match_begin_β:       lea              rsp, [rbp + -56]                     #
                         cmp              rax, 0;                              jne   .Lx28_1
                                                                               jmp   .Lx28_0
 .Lx28_1:
-n6_match_begin_af:      mov              r12, qword ptr [rbp + -8]            # cas_mark
+n6_match_begin_af:      mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
+                        mov              rax, qword ptr [rbp + -48]
+                        mov              qword ptr [rcx + 248], rax
+                        mov              r12, qword ptr [rbp + -8]            # cas_mark
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ

@@ -1,29 +1,12 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "node(val,next)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "N"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 1
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -34,6 +17,13 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "N"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -191,30 +181,28 @@ n13_keyword_snobol4_α:  sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n14_keyword_snobol4_α
-.Lx44_0:                .quad            .Lx44_0_s
-.Lx44_0_s:              .string          "LCASE"
+.Lx44_0:                .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n14_keyword_snobol4_α:  sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx45_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n15_call_α
-.Lx45_0:                .quad            .Lx45_0_s
-.Lx45_0_s:              .string          "UCASE"
+.Lx45_0:                .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n15_call_α:             sub              rsp, 16
                         sub              rsp, 48
@@ -337,4 +325,14 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "node(val,next)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

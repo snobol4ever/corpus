@@ -1,12 +1,5 @@
                         .intel_syntax    noprefix
                         .text
-                        .section         .rodata
-.Lgvan0:                .string          "X"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
@@ -23,6 +16,13 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "X"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -171,19 +171,11 @@ n14_statement_begin_α:                                                        j
 n14_statement_begin_β:  add              rsp, 32;                             jmp   n23_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_keyword_snobol4_α:  sub              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx60_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rcx, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rdx, qword ptr [rcx]
+                        mov              rax, 3
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n16_lit_integer_α
-.Lx60_0:                .quad            .Lx60_0_s
-.Lx60_0_s:              .string          "STNO"
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_integer_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3               # result

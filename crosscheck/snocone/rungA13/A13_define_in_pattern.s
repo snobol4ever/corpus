@@ -1,14 +1,17 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_upcase_α
-proc_upcase_α:
-proc_upcase_α_body:
+FN__upcase:
+upcase_α_body:
+                        sub              rsp, 192
+                        mov              qword ptr [rsp + 168], rcx
+                        mov              qword ptr [rsp + 176], rdx
+                        mov              qword ptr [rsp + 184], rbp
 #=======================================================================================================================
 #         <stmt 1, line 3: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:                                                         jmp   n1_var_α
-n0_statement_begin_β:                                                         jmp   proc_upcase_γ
+n0_statement_begin_β:                                                         jmp   upcase_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               sub              rsp, 16
                         mov              rax, qword ptr [r9 + 16]             # s
@@ -21,30 +24,28 @@ n2_keyword_snobol4_α:   sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n3_keyword_snobol4_α
-.Lx9_0:                 .quad            .Lx9_0_s
-.Lx9_0_s:               .string          "LCASE"
+.Lx9_0:                 .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n3_keyword_snobol4_α:   sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx10_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_keyword_read_snobol4@PLT
+                        call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4_call_α
-.Lx10_0:                .quad            .Lx10_0_s
-.Lx10_0_s:              .string          "UCASE"
+.Lx10_0:                .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n4_call_α:              sub              rsp, 16
                         sub              rsp, 48
@@ -78,54 +79,43 @@ n4_call_α:              sub              rsp, 16
                         add              rsp, 48
                         cmp              eax, 104;                            jne   .Lx11_240
                         add              rsp, 16
-                        add              rsp, 48;                             jmp   proc_upcase_γ
+                        add              rsp, 48;                             jmp   upcase_γ
 .Lx11_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5_assign_α
 n4_call_β:              add              rsp, 16
-                        add              rsp, 48;                             jmp   proc_upcase_γ
+                        add              rsp, 48;                             jmp   upcase_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n5_assign_α:            mov              rax, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 0], rax              # upcase
                         mov              qword ptr [r9 + 8], rdx
-                        add              rsp, 64;                             jmp   proc_upcase_γ
+                        add              rsp, 64;                             jmp   upcase_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_upcase_res:
+upcase_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_upcase_β:
-                                                                              jmp   proc_upcase_ω
+upcase_β:
+                                                                              jmp   upcase_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_upcase_γ:
+upcase_γ:
+                        add              rsp, 192
                         add              rsp, 0
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-proc_upcase_ω:
+upcase_ω:
+                        add              rsp, 192
                         add              rsp, 0
                         mov              eax, 104
                         ret
-proc_startup:
-                        sub              rsp, 8
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "upcase"
-.Lgvan1:                .string          "s"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -136,6 +126,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "upcase"
+.Lgvan1:                .string          "s"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -162,12 +161,12 @@ n17_lit_string_α:       sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n18_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig34z]
-                        lea              rax, [rip + upcase_alpha];           jmp   rax
+                        lea              rax, [rip + upcase_α];               jmp   rax
 .Lsig34z:               .quad            1
                         .quad            .Lx34_2
                         .quad            .Lx34_2
                         .quad            16
-.Lx34_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx34_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx34_29
                         mov              rdi, rax
@@ -176,7 +175,7 @@ n18_call_α:             sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -226,12 +225,12 @@ n22_lit_string_α:       sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n23_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig42z]
-                        lea              rax, [rip + upcase_alpha];           jmp   rax
+                        lea              rax, [rip + upcase_α];               jmp   rax
 .Lsig42z:               .quad            1
                         .quad            .Lx42_2
                         .quad            .Lx42_2
                         .quad            16
-.Lx42_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx42_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx42_29
                         mov              rdi, rax
@@ -240,7 +239,7 @@ n23_call_α:             sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -285,4 +284,8 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

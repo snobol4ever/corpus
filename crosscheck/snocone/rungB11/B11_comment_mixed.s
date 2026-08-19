@@ -1,14 +1,5 @@
                         .intel_syntax    noprefix
                         .text
-                        .section         .rodata
-.Lgvan0:                .string          "a"
-.Lgvan1:                .string          "b"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
@@ -25,6 +16,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "a"
+.Lgvan1:                .string          "b"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -85,7 +85,31 @@ n10_var_β:              add              rsp, 16
                         add              rsp, 16;                             jmp   n8_statement_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_binop_α:            sub              rsp, 16
-                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              eax, dword ptr [rsp + 32]            # var
+                        mov              ecx, dword ptr [rsp + 16]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx30_2
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 24]
+                        add              rax, rdx
+                        mov              qword ptr [rsp + 0], 3               # result
+                        mov              qword ptr [rsp + 8], rax;            jmp   .Lx30_7
+.Lx30_2:                and              edx, 1;                              jz    .Lx30_0
+                        mov              rsi, qword ptr [rsp + 40]            # var
+                        mov              rdi, qword ptr [rsp + 24]
+                        cmp              eax, 5;                              je    .Lx30_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx30_4
+.Lx30_3:                movq             xmm0, rsi
+.Lx30_4:                cmp              ecx, 5;                              je    .Lx30_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx30_6
+.Lx30_5:                movq             xmm1, rdi
+.Lx30_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 0], 5               # result
+                        mov              qword ptr [rsp + 8], rax
+.Lx30_7:                                                                      jmp   n12_assign_α
+.Lx30_0:                mov              rdi, qword ptr [rsp + 32]            # var
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]

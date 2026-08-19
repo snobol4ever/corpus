@@ -1,14 +1,17 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_make_pair_α
-proc_make_pair_α:
-proc_make_pair_α_body:
+FN__make_pair:
+make_pair_α_body:
+                        sub              rsp, 160
+                        mov              qword ptr [rsp + 136], rcx
+                        mov              qword ptr [rsp + 144], rdx
+                        mov              qword ptr [rsp + 152], rbp
 #=======================================================================================================================
 #         <stmt 2, line 4: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:                                                         jmp   n1_var_α
-n0_statement_begin_β:                                                         jmp   proc_make_pair_γ
+n0_statement_begin_β:                                                         jmp   make_pair_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               sub              rsp, 16
                         mov              rax, qword ptr [r9 + 16]             # a
@@ -22,7 +25,7 @@ n2_var_α:               sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n3_call_α
 n2_var_β:               add              rsp, 16
-                        add              rsp, 16;                             jmp   proc_make_pair_γ
+                        add              rsp, 16;                             jmp   make_pair_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n3_call_α:              sub              rsp, 16
                         sub              rsp, 32
@@ -60,34 +63,43 @@ n4_assign_α:            mov              rax, qword ptr [rsp + 0]             #
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 0], rax              # make_pair
                         mov              qword ptr [r9 + 8], rdx
-                        add              rsp, 48;                             jmp   proc_make_pair_γ
+                        add              rsp, 48;                             jmp   make_pair_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_make_pair_res:
+make_pair_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_make_pair_β:
-                                                                              jmp   proc_make_pair_ω
+make_pair_β:
+                                                                              jmp   make_pair_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_make_pair_γ:
+make_pair_γ:
+                        add              rsp, 160
                         add              rsp, 0
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-proc_make_pair_ω:
+make_pair_ω:
+                        add              rsp, 160
                         add              rsp, 0
                         mov              eax, 104
                         ret
-proc_startup:
+                        .globl           main
+main:
                         sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "pair(first,second)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        add              rsp, 8
-                        ret
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             module_init
+                        mov              edi, 4
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 4
+                        call             gva_register@PLT
+                        mov              r12, qword ptr [0x70000000]
+                        call             rtcc_load_all@PLT
+                        xor              esi, esi
+                                                                              jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "make_pair"
 .Lgvan1:                .string          "a"
@@ -101,23 +113,6 @@ __gva_names:
                         .quad            .Lgvan3
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           main
-main:
-                        sub              rsp, 8
-                        push             rdi
-                        push             rsi
-                        call             core_lib_init@PLT
-                        call             proc_startup
-                        mov              edi, 4
-                        call             rt_gva_island@PLT
-                        mov              rsi, rax
-                        lea              rdi, [rip + __gva_names]
-                        mov              edx, 4
-                        call             gva_register@PLT
-                        mov              r12, qword ptr [0x70000000]
-                        call             rtcc_load_all@PLT
-                        xor              esi, esi
-                                                                              jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
@@ -199,13 +194,13 @@ n20_lit_string_β:       add              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n21_call_α:             sub              rsp, 16
                         lea              rcx, [rip + .Lsig50z]
-                        lea              rax, [rip + make_pair_alpha];        jmp   rax
+                        lea              rax, [rip + make_pair_α];            jmp   rax
 .Lsig50z:               .quad            2
                         .quad            .Lx50_2
                         .quad            .Lx50_2
                         .quad            32
                         .quad            16
-.Lx50_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx50_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx50_29
                         mov              rdi, rax
@@ -214,7 +209,7 @@ n21_call_α:             sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -363,4 +358,14 @@ main_γ:
 main_ω:
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "pair(first,second)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits
