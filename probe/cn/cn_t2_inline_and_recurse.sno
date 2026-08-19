@@ -1,0 +1,10 @@
+	&L = 'a' | 'b'
+	P = 'x' *&L 'y'
+	'xay' POS(0) P RPOS(0)	:S(A)F(B)
+A	OUTPUT = 'leaf-inline match'	:(T2)
+B	OUTPUT = 'FAIL'
+T2	&R = 'q' *&R | 'z'
+	'z' POS(0) *&R RPOS(0)	:S(C)F(D)
+C	OUTPUT = 'recursive-defer match'	:(END)
+D	OUTPUT = 'FAIL2'
+END
