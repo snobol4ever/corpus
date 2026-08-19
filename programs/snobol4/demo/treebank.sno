@@ -5,7 +5,7 @@
                 DEFINE('ListName(x,place)')
                 DEFINE('ListAppend(x,item)')
                 DEFINE('ListPrepend(x,item)')
-                DEFINE('ListInsert(x,item,place)a,i,size')
+                DEFINE('ListInsert(x,item,place)a,i,size,cap')
                 DEFINE('ListRemove(x,place)i,size')
                 DEFINE('ListPop(x)')
                 DEFINE('ListSize(x)')                                   :(ListEnd)
@@ -29,7 +29,11 @@ ListInsert      ListInsert      =   x
 ListInsert1     i               =   GT(i, place + 1) i - 1              :F(ListInsert2)
                 a(x)[i]         =   a(x)[i - 1]                         :(ListInsert1)
 ListInsert2     a(x)[i - 1]     =   item                                :(ListInsert9)
-ListInsert4     a               =   ARRAY('0:' (IDENT(a(x)) 0, size * 2 - 1))
+*  scrip note: SPITBOL's (e1, e2) conditional expression does not fall through
+*  to e2 on failure under scrip, so the capacity pick is two plain statements.
+ListInsert4     cap             =   size * 2 - 1
+                cap             =   IDENT(a(x)) 0
+                a               =   ARRAY('0:' cap)
                 i               =   -1
 ListInsert5     i               =   LT(i, place - 1) i + 1              :F(ListInsert6)
                 a[i]            =   a(x)[i]                             :(ListInsert5)
@@ -56,66 +60,77 @@ ListSize        ListSize        =   IDENT(a(x)) 0                       :S(RETUR
                 ListSize        =   ListSize + 1                        :(RETURN)
 ListEnd
 *------------------------------------------------------------------------------
-                DEFINE('Init_list(vs)');    DEFINE('init_list(v)')
-                DEFINE('Push_list(vs)');    DEFINE('push_list(v)')
-                DEFINE('Push_item(vs)');    DEFINE('push_item(v)')
-                DEFINE('Pop_list()');       DEFINE('pop_list()')
-                DEFINE('Pop_final(vs)');    DEFINE('pop_final(v)')      :(StackEnd)
+*  Deferred side-effect shims.  scrip evaluates a deferred *f() during a match
+*  only when it is ARGLESS (a deferred *f(args) dies: Error 22, statement 0),
+*  so the EVAL double-function wrappers of the original are replaced by one
+*  argless shim per call site; each shim calls its worker directly (direct
+*  calls take arguments fine) and returns .dummy by name for the `.` target.
+*  Captures (word . tag) are visible mid-match, so the shims read them live.
 *------------------------------------------------------------------------------
-Init_list       Init_list       =   EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
-Push_list       Push_list       =   EVAL("epsilon . *push_list(" vs ")")  :(RETURN)
-Push_item       Push_item       =   EVAL("epsilon . *push_item(" vs ")")  :(RETURN)
-Pop_list        Pop_list        =         epsilon . *pop_list()           :(RETURN)
-Pop_final       Pop_final       =   EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
-*------------------------------------------------------------------------------
-init_list       $v              =
-                tags            =   TABLE()
-                stack           =   list()
-                init_list       =   .dummy                          :(NRETURN)
+                DEFINE('push_list(v)');     DEFINE('push_item(v)')
+                DEFINE('init_bank()');      DEFINE('push_bank()')
+                DEFINE('push_root()');      DEFINE('push_tag()')
+                DEFINE('push_wrd()');       DEFINE('pop_list()')
+                DEFINE('pop_bank()')                                    :(StackEnd)
 *------------------------------------------------------------------------------
 push_list       tags[v]         =   tags[v] + 1
                 ListAppend(stack, list())
-                ListAppend(ListValue(stack, -1), v)
-                push_list       =   .dummy                          :(NRETURN)
+                ListAppend(ListValue(stack, -1), v)                 :(RETURN)
 *------------------------------------------------------------------------------
-push_item       ListAppend(ListValue(stack, -1), v)
-                push_item       =   .dummy                          :(NRETURN)
+push_item       ListAppend(ListValue(stack, -1), v)                 :(RETURN)
+*------------------------------------------------------------------------------
+init_bank       bank            =
+                tags            =   TABLE()
+                stack           =   list()
+                init_bank       =   .dummy                          :(NRETURN)
+*------------------------------------------------------------------------------
+push_bank       push_list('BANK')
+                push_bank       =   .dummy                          :(NRETURN)
+*------------------------------------------------------------------------------
+push_root       push_list('ROOT')
+                push_root       =   .dummy                          :(NRETURN)
+*------------------------------------------------------------------------------
+push_tag        push_list(tag)
+                push_tag        =   .dummy                          :(NRETURN)
+*------------------------------------------------------------------------------
+push_wrd        push_item(wrd)
+                push_wrd        =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
 pop_list        ListAppend(ListValue(stack, -2), ListPop(stack))
                 pop_list        =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
-pop_final       $v              =   ListPop(stack)
-                pop_final       =   .dummy                          :(NRETURN)
+pop_bank        bank            =   ListPop(stack)
+                pop_bank        =   .dummy                          :(NRETURN)
 *------------------------------------------------------------------------------
 StackEnd        delim           =   SPAN(' ' CHAR(10))
                 word            =   NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 *------------------------------------------------------------------------------
                 group           =   '('
-+                                   word . tag Push_list('tag')
++                                   word . tag (epsilon . *push_tag())
 +                                   ARBNO(
 +                                     delim
 +                                     FENCE(
 +                                       *group
-+                                     | word . wrd Push_item('wrd')
++                                     | word . wrd (epsilon . *push_wrd())
 +                                     )
 +                                   )
-+                                   Pop_list()
++                                   (epsilon . *pop_list())
 +                                   ')'
 *------------------------------------------------------------------------------
                 treebank        =   POS(0)
-+                                   Init_list("'bank'")
-+                                   Push_list("'BANK'")
++                                   (epsilon . *init_bank())
++                                   (epsilon . *push_bank())
 +                                   ARBNO(
-+                                     Push_list("'ROOT'")
++                                     (epsilon . *push_root())
 +                                     ARBNO(*group FENCE)
 +                                     delim
 +                                     FENCE
-+                                     Pop_list()
++                                     (epsilon . *pop_list())
 +                                   )
-+                                   Pop_final("'bank'")
++                                   (epsilon . *pop_bank())
 +                                   RPOS(0)
 *------------------------------------------------------------------------------
-                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                INPUT(.INPUT, 9, '[-f0 -r4194304]')
                 src             =   INPUT  :F(error)
                 src             ?   treebank  :F(error)
                 OUTPUT          =   'matched bytes=' SIZE(src)  :(END)
