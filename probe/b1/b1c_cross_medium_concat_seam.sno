@@ -1,0 +1,9 @@
+	DEFINE('PC()')	:(PCe)
+PC	OUTPUT = "PC ran"	:(RETURN)
+PCe	F = EVAL("'x' . D2 *PC()")
+	R = ("" . D1 *PC()) F
+	S = "x"
+	S POS(0) R	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
