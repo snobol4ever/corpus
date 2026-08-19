@@ -14,8 +14,14 @@ variables:
   variable: '[A-Za-z][0-9A-Z_a-z\.]*'
   indirect_squote_variable: \$\'([^\']*)\'
   indirect_dquote_variable: \$\"([^\"]*)\"
-  control_label: \b(START|[^ ]*(END|End|end))\b
-  control_flow: \b(ABORT|CONTINUE|FRETURN|NRETURN|RETURN|SCONTINUE|START|(?:{{variable}})?(END|End|end))\b
+  # WHOLE TOKEN ONLY.  Was \b(START|[^ ]*(END|End|end))\b, whose [^ ]* swallowed
+  # every user label ENDING in those three letters -- EMIT_end / APPEND / LEGEND all
+  # painted keyword.control instead of a label, so Func_end and Func_x rendered in
+  # two different colors.  Only a bare START or END is a control label.
+  control_label: \b(START|END|End|end)\b
+  # Same fix on the goto side: the (?:{{variable}})? prefix made :(EMIT_end) a control
+  # keyword.  Only the SNOBOL4 special transfer targets are control flow here.
+  control_flow: \b(ABORT|CONTINUE|FRETURN|NRETURN|RETURN|SCONTINUE|START|END|End|end)\b
   keyword_protected: \b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\b
   keyword_unprotected: \b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\b
   io_variable: \b(INPUT|OUTPUT|TERMINAL)\b
