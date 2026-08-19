@@ -1,0 +1,20 @@
+*  CN-7 -- CLEAR() DOES NOT CLEAR A USER VARIABLE AT ALL (pre-existing; found s149
+*  while landing CN-6, ORTHOGONAL to it -- measured identical before and after that fix).
+*  Manual Ch.19 CLEAR: "If s is omitted, then the null string is assigned to all user
+*  variables in the system."  ORACLE-MEASURED: both reads below come back null.
+*  SCRIP returns "gone" for BOTH.  _CLEAR_ (core.c) calls only NV_CLEAR_fn, which nulls
+*  NV_t.val in the hash buckets -- but the compiled program reads the GVA-bound cell,
+*  which CLEAR never reaches, so the null never becomes visible to the program.
+*  The direct and the indirect read AGREE WITH EACH OTHER in both engines, which is the
+*  point of pairing them: this is not an indirection defect and not a read-path split,
+*  it is CLEAR failing to reach the storage the program actually uses.
+*  Consequence: every CLEAR() in SNOBOL4 is silently a no-op for ordinary variables.
+*  This is also why lower_snobol4.c's g_sno_fz_unsafe treats one CLEAR anywhere in a
+*  program as a whole-program poison for static pattern staging -- the poison is honest,
+*  the clear itself is not.  ROUTED as CN-7 in GOAL-SNOBOL4-100; NOT fixed this seat
+*  (END-OF-CONTEXT LAW: repro minted and routed, hunt deliberately not opened).
+        X = "gone"
+        CLEAR()
+        OUTPUT = "direct=[" X "]"
+        OUTPUT = "indirect=[" $("X") "]"
+END
