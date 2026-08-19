@@ -14,14 +14,15 @@ variables:
   variable: '[A-Za-z][0-9A-Z_a-z\.]*'
   indirect_squote_variable: \$\'([^\']*)\'
   indirect_dquote_variable: \$\"([^\"]*)\"
-  # WHOLE TOKEN ONLY.  Was \b(START|[^ ]*(END|End|end))\b, whose [^ ]* swallowed
-  # every user label ENDING in those three letters -- EMIT_end / APPEND / LEGEND all
-  # painted keyword.control instead of a label, so Func_end and Func_x rendered in
-  # two different colors.  Only a bare START or END is a control label.
-  control_label: \b(START|END|End|end)\b
-  # Same fix on the goto side: the (?:{{variable}})? prefix made :(EMIT_end) a control
-  # keyword.  Only the SNOBOL4 special transfer targets are control flow here.
-  control_flow: \b(ABORT|CONTINUE|FRETURN|NRETURN|RETURN|SCONTINUE|START|END|End|end)\b
+  # A bare START/END, plus the NAME_end CONVENTION: the label that closes a DEFINE'd
+  # function body (DEFINE('EMIT()') :(EMIT_end) ... EMIT_end) is structural control
+  # flow, so it takes keyword.control -- the same scope, hence the same color, as
+  # RETURN / NRETURN / END, in BOTH positions (at the head of a line and inside a
+  # :(...) transfer).  The underscore is required: the old [^ ]*(END|End|end) had no
+  # separator and so also swallowed ordinary words like APPEND and LEGEND, which are
+  # plain labels and now colour as such.
+  control_label: \b(START|END|End|end|{{variable}}_(END|End|end))\b
+  control_flow: \b(ABORT|CONTINUE|FRETURN|NRETURN|RETURN|SCONTINUE|START|END|End|end|{{variable}}_(END|End|end))\b
   keyword_protected: \b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\b
   keyword_unprotected: \b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\b
   io_variable: \b(INPUT|OUTPUT|TERMINAL)\b
