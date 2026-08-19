@@ -19,6 +19,19 @@
     "rules":
     [
         {
+            // THE LABEL TEAL, ONE SHADE UP.  Stock Mariana gives entity.name.function
+            // its "blue5" = hsl(180, 36%, 54%), and spends that same variable on
+            // punctuation, bracket contents, string keys and the indent guides — so
+            // lightening the VARIABLE would move all of those, in every language.
+            // Scoping the lift to entity.name.function.sno lifts only the SNOBOL4
+            // labels, their goto targets, and the name inside DEFINE('FOO()').
+            // To taste, edit the one lightness number: 54% = stock, 60% = subtle,
+            // 64% = current, 70% = pale.
+            "name": "SNOBOL4 label / goto target / DEFINE name — lighter teal",
+            "scope": "entity.name.function.sno",
+            "foreground": "hsl(180, 40%, 64%)"
+        },
+        {
             "name": "SNOBOL4 keyword — &TRIM, &ANCHOR, &ALPHABET, &LCASE, &STCOUNT ...",
             "scope": "constant.language.sno, constant.other.sno, punctuation.definition.keyword.begin.sno, punctuation.definition.variable.begin.sno",
             "foreground": "hsl(32, 93%, 66%)",
