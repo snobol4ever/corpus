@@ -1,0 +1,17 @@
+*  s146 HANDOFF TO HQ (B1).  NOT a keyword witness -- it is the minimal
+*  localization of the s145 "DATATYPE(null) = NULL vs oracle STRING" suspect,
+*  found while clearing the KW-1 bare-name class.
+*  The four lines below separate the defect from its neighbours:
+*    a null LITERAL       -> STRING in both engines  (correct today)
+*    an ASSIGNED null     -> STRING in both engines  (correct today)
+*    a non-null string    -> STRING in both engines  (correct today)
+*    an UNSET VARIABLE    -> STRING in oracle, NULL in SCRIP   <-- THE DEFECT
+*  So DATATYPE is INNOCENT.  The wrong datum is the descriptor an unset
+*  variable yields: it carries a distinct NULL tag instead of being the null
+*  string that manual p.24 says every fresh variable starts as.
+	OUTPUT = 'unset-var=' DATATYPE(ZZZ)
+	OUTPUT = 'null-lit=' DATATYPE('')
+	X =
+	OUTPUT = 'assigned-null=' DATATYPE(X)
+	OUTPUT = 'nonnull=' DATATYPE('a')
+END
