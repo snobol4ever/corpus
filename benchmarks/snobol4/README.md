@@ -44,6 +44,43 @@ runners (`test_bench_snobol4_modes.sh`, `util_regen_benchmark_s_artifacts.sh`,
 
 ---
 
+## `timed/` — the TIME-BASED family (2026-08-19 s149)
+
+The 23 programs above are an **iteration-based measurement of TIME**: they fix the
+loop count and print elapsed ms.  `timed/` inverts it — **fix the TIME, count the
+ITERATIONS** — and reports a throughput (iters/sec) that is directly comparable
+across engines.
+
+```bash
+bash SCRIP/scripts/gen_timed_bench_snobol4.sh          # regenerate (edit the GENERATOR, not the .sno)
+bash SCRIP/scripts/test_bench_snobol4_timed.sh         # sbl / m3 / m4 throughput table
+bash SCRIP/scripts/bake_noise_floor_snobol4_timed.sh   # re-bake NOISE-FLOOR.tsv
+```
+
+Each program runs three phases: **CHECK** (fixed small count, deterministic
+`check:` line — this is what the `.ref` holds and what is diffed) · **CALIBRATE**
+(grow the batch until it spans a ms floor) · **MEASURE** (batches to a deadline).
+Only `check:` is deterministic; `iters:`/`ms:` are measurements and are never
+ref-diffed.
+
+⛔ **Read `NOISE-FLOOR.tsv` before calling any difference real.** The floor is a
+property of the (kernel, engine, THP-arm) triple, not of the harness — measured
+range 0.2%–34.6% cv.  The runner prints each row's min-detectable difference.
+
+⛔ **SCRIP engines are measured with `SCRIP_NOHUGE=1`.** Transparent huge pages
+make every *allocating* row unmeasurable in the shipping arm (`table_access_t`
+cv 26.9%, min-detectable 80.7%) and cost real throughput (`table_access_t`
+2,675/s → 6,042/s, **2.26x**).  See
+`.github/FINDING-2026-08-19-s149-time-based-benchmarks-and-the-thp-throughput-defect.md`.
+
+⛔ **The 23 legacy programs have a DEAD correctness oracle**: every one prints a
+nondeterministic ms delta while every sibling `.ref` holds a deterministic
+result, so no `.ref` can match.  The runner's `grep -vi 'ms:'` filter catches
+only `roman.sno`.  Unfixed — conversion is Lon's call (it touches the scorecard's
+`benchmarks` suite and the `snobol4jvm`/`snobol4dotnet` loaders).
+
+---
+
 ## Adding New Benchmarks
 
 1. Write a self-contained `.sno` file here.
