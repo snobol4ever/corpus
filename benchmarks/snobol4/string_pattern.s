@@ -5,10 +5,11 @@ FN__PAT$0:
 PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 120
+                        sub              rsp, 136
                         mov              qword ptr [rbp + -8], r10
                         mov              qword ptr [rbp + -16], r11
                         mov              qword ptr [rbp + -24], rdx
+                        mov              qword ptr [rbp + -32], r12
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_assign_save_α: sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d;           jmp   n1_match_break_α
@@ -22,9 +23,9 @@ n1_match_break_α:       sub              rsp, 16
 .Lx14_240:              movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lx14_1
                         add              ecx, 1;                              jmp   .Lx14_0
-.Lx14_1:                mov              dword ptr [rbp + -48], r14d
+.Lx14_1:                mov              dword ptr [rbp + -64], r14d
                         mov              r14d, ecx;                           jmp   n2_match_assign_cond_α
-n1_match_break_β:       mov              r14d, dword ptr [rbp + -48]
+n1_match_break_β:       mov              r14d, dword ptr [rbp + -64]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -60,9 +61,9 @@ n5_match_break_α:       sub              rsp, 16
 .Lx22_240:              movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lx22_1
                         add              ecx, 1;                              jmp   .Lx22_0
-.Lx22_1:                mov              dword ptr [rbp + -80], r14d
+.Lx22_1:                mov              dword ptr [rbp + -96], r14d
                         mov              r14d, ecx;                           jmp   n6_match_assign_cond_α
-n5_match_break_β:       mov              r14d, dword ptr [rbp + -80]
+n5_match_break_β:       mov              r14d, dword ptr [rbp + -96]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n3_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -98,9 +99,9 @@ n9_match_break_α:       sub              rsp, 16
 .Lx30_240:              movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44;                             je    .Lx30_1
                         add              ecx, 1;                              jmp   .Lx30_0
-.Lx30_1:                mov              dword ptr [rbp + -112], r14d
+.Lx30_1:                mov              dword ptr [rbp + -128], r14d
                         mov              r14d, ecx;                           jmp   n10_match_assign_cond_α
-n9_match_break_β:       mov              r14d, dword ptr [rbp + -112]
+n9_match_break_β:       mov              r14d, dword ptr [rbp + -128]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n7_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -139,6 +140,7 @@ PAT$0_γ:
 PAT$0_ω:
                         mov              r10, qword ptr [rbp + -8]
                         mov              r11, qword ptr [rbp + -16]
+                        mov              r12, qword ptr [rbp + -32]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   r11
                         .globl           main
