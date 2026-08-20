@@ -1,0 +1,8 @@
+          DEFINE('F()')
+          DEFINE('G()')                         :(GO)
+F         F = POS(2)                            :(RETURN)
+G         G = RPOS(2)                           :(RETURN)
+GO        'abcdef' POS(0) TAB(2) *F() TAB(4) *G() TAB(6) RPOS(0)  :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

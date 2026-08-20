@@ -1,0 +1,7 @@
+          INNER = TAB(2)
+          MID = *INNER TAB(4)
+          OUTER = (*MID . V) 'ef'
+          'abcdef' POS(0) *OUTER RPOS(0)        :S(OK)F(NO)
+OK        OUTPUT = 'match:' V                   :(END)
+NO        OUTPUT = 'nomatch'
+END
