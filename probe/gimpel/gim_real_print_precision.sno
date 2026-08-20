@@ -1,0 +1,16 @@
+*  gim_real_print_precision - reals PRINT at a different precision.  The
+*  oracle emits 14 significant digits (Spitbol's &FMT); SCRIP emits the full
+*  double.  For 2 ** 0.5 that is 1.4142135623731 against SCRIP's
+*  1.4142135623730951.  Distilled from gimpel batch C (SQRT/ARC), where it
+*  will red every float-producing driver once they compile at all.
+*  ⛔ NOT the same defect as gim_real_literal_parse, and deliberately kept
+*  apart from it: this needs no trailing-dot literal and would still be
+*  wrong after that parse gap is closed.  Lines 4-5 are the integer and
+*  exact-value controls -- both must stay correct, or the finding is a
+*  formatting change and not a precision one.
+        OUTPUT  =  2 ** 0.5
+        OUTPUT  =  1.0 / 3.0
+        OUTPUT  =  2.0 / 3.0
+        OUTPUT  =  4.0 ** 0.5
+        OUTPUT  =  1 + 1
+END
