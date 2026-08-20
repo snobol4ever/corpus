@@ -1,0 +1,6 @@
+*  CONTROL (GREEN): same arms, null arm FIRST instead of last.
+          E = ARBNO('a') ('' | '+')
+          'a+a+a' POS(0) *E RPOS(0)            :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
