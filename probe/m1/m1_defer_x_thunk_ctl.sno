@@ -1,0 +1,16 @@
+*                 s188 CONTROL for m1_defer_x_thunk -- ONE TOKEN APART, and it is the DATATYPE token.
+*                 `Expr = epsilon *Expr0` is a CONCATENATION, so Expr is a PATTERN and not an EXPRESSION;
+*                 the star thunk then returns DT_P, the DT_P arm fires, and the match succeeds.  Everything
+*                 else -- the OPSYN'd binary operator, the thunk road, the subject, the anchors -- is identical.
+*                 Oracle: match.  SCRIP: match, before and after the fix.
+                  DEFINE('shift(a,b)')
+                  OPSYN('~', 'shift', 2)
+                  Expr0          =  LEN(1)
+                  Expr           =  epsilon *Expr0
+                  P              =  POS(0) ('=' ~ '=' *Expr) RPOS(0)
+                  '=x'           P                                               :F(NO)
+                  OUTPUT         =  'match'                                      :(FIN)
+NO                OUTPUT         =  'nomatch'                                    :(FIN)
+shift             shift          =  a                                            :(RETURN)
+FIN
+END

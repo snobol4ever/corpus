@@ -1,0 +1,20 @@
+*                 s188 CLASS-B ROOT CAUSE: a DEFERRED THUNK whose result is itself an EXPRESSION (DT_X).
+*                 `E = *E0` makes E an EXPRESSION (manual v3.7 p.196: the * must be at the OUTERMOST level
+*                 to create one).  A user-defined binary operator in the pattern-build expression routes
+*                 `*E` through the compiler-minted thunk `*EXPR$n` instead of the by-name road, and the
+*                 thunk's result is that DT_X.  rt_defer_get_pat_dtp's STAR arm has a DT_P arm and NO DT_X
+*                 arm, so it parks the EXPRESSION and returns NULL; the site then falls to the SCALAR road,
+*                 which resolves the EXPRESSION to a genuine PATTERN and hands it to a closer that can only
+*                 literal-match a scalar -- so the pattern is thrown away one line after it is found.
+*                 Oracle: match.  Pre-fix SCRIP: nomatch, BOTH MODES.  Killswitch SCRIP_DEFER_XSTAR=0 restores nomatch.
+                  DEFINE('shift(a,b)')
+                  OPSYN('~', 'shift', 2)
+                  Expr0          =  LEN(1)
+                  Expr           =  *Expr0
+                  P              =  POS(0) ('=' ~ '=' *Expr) RPOS(0)
+                  '=x'           P                                               :F(NO)
+                  OUTPUT         =  'match'                                      :(FIN)
+NO                OUTPUT         =  'nomatch'                                    :(FIN)
+shift             shift          =  a                                            :(RETURN)
+FIN
+END
