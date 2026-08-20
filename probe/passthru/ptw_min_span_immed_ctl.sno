@@ -1,0 +1,6 @@
+*  CONTROL (GREEN): immediate assignment on a NON-retrying element is fine.
+          E = SPAN('a') $ v
+          'a+aa' POS(0) *E RPOS(0)              :S(OK)F(NO)
+OK        OUTPUT = 'match' v                    :(END)
+NO        OUTPUT = 'nomatch'
+END
