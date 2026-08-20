@@ -2,13 +2,13 @@
 *	       of the string S.  The most frequent character will
 *	       appear first in the string returned.
 *
--INCLUDE "skim.sno"
--INCLUDE "count.sno"
--INCLUDE "ai.sno"
--INCLUDE "msort.sno"
+-INCLUDE "SKIM.sno"
+-INCLUDE "COUNT.sno"
+-INCLUDE "AI.sno"
+-INCLUDE "MSORT.sno"
 -INCLUDE "stringout.sno"
--INCLUDE "crack.sno"
--INCLUDE "seq.sno"
+-INCLUDE "CRACK.sno"
+-INCLUDE "SEQ.sno"
 	DEFINE('FRSORT(S)SC,C,N,I')		:(FRSORT_END)
 FRSORT	C  =  CRACK(SKIM(S))
 	N  =  ARRAY(PROTOTYPE(C))

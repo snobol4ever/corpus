@@ -39,7 +39,7 @@
 *		COMMON = SUBSTR(COMMON,1,SIZE(COMMON) - 1) :(ORX_2)
 *
 *
--INCLUDE "balrev.sno"
+-INCLUDE "BALREV.sno"
 *
 * OR(LIST) will return the alternation of the substring of
 * LIST separated by the break character determined by the

@@ -6,8 +6,8 @@
 *  more efficient to use that function, and to derive ASIN
 *  and ACOS from the arctangent.
 *
--INCLUDE "sqrt.sno"
--INCLUDE "dexp.sno"
+-INCLUDE "SQRT.sno"
+-INCLUDE "DEXP.sno"
 	DEFINE('ACOS(X)K,TERM,T')
 	PI.  =  3.14159265358979		:(ACOS_END)
 ACOS	ACOS  =  LT(X,0)  PI. - ACOS(-X)	:S(RETURN)

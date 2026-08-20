@@ -22,9 +22,9 @@
 
 	&FULLSCAN = 1
 
--INCLUDE "pol.sno"
--INCLUDE "tr.sno"
--INCLUDE "tuple.sno"
+-INCLUDE "POL.sno"
+-INCLUDE "TR.sno"
+-INCLUDE "TUPLE.sno"
 
 READ	S  =  TRIM(INPUT)			:F(END)
 *

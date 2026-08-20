@@ -11,8 +11,8 @@
 *	RSELECT('|A|#3#BIG|CAT') will return "BIG" 3 times out
 *	of five.
 *
--INCLUDE "quote.sno"
--INCLUDE "random.sno"
+-INCLUDE "QUOTE.sno"
+-INCLUDE "RANDOM.sno"
 	DEFINE('RSELECT(S)WT,WTS,ALT,CODE,I,CODE,SSAVED,BC')
 	RSEL_TBL  =  TABLE()			:(RSELECT_END)
 RSELECT	CODE = RSEL_TBL<S>

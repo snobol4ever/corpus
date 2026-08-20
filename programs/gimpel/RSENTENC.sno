@@ -1,6 +1,6 @@
 -MODULE RSENTENCE
--INCLUDE "bal.sno"
--INCLUDE "rselect.sno"
+-INCLUDE "BAL.sno"
+-INCLUDE "RSELECT.sno"
 	DEFINE('RSENTENCE(STACK)VAR,EXP,S,TEXT')
 	SYN.VAR  = POS(0)   '<'  ARB . VAR  '>'
 	SNOBAL.EXP =  POS(0) '(' BAL('(<>)','"' "'") . EXP ')'

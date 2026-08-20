@@ -18,7 +18,7 @@
 *  SIN and COS are the same waveform phase shifted by PI / 2.
 *
 *
--INCLUDE "dexp.sno"
+-INCLUDE "DEXP.sno"
 	DEFINE('SIN(A)K')
 	DEFINE('SIN.(A)')
 	PI.  =  3.14159265358979

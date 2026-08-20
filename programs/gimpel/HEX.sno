@@ -1,7 +1,7 @@
 * HEX.inc - HEX(S) will return the hexadecimal (internal)
 *	    representation of the string S.
 *
--INCLUDE "blend.sno"
+-INCLUDE "BLEND.sno"
 	DEFINE('HEX(S)')
 	H  =  '0123456789ABCDEF'
 	HEX_2ND  =  DUPL(H,16)

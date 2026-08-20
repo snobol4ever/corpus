@@ -2,7 +2,7 @@
 *	      which will resemble a SNOBOL4 expression which,
 *	      when evaluated, will yield the original string S.
 *
--INCLUDE "repl.sno"
+-INCLUDE "REPL.sno"
 	DEFINE('QUOTE(S)S1,Q,QQ')		:(QUOTE_END)
 QUOTE	Q  =  "'"  ;  QQ  =  '"'
 	QUOTE = Q REPL(S, Q, Q ' ' QQ Q QQ ' ' Q) Q  :(RETURN)

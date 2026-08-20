@@ -9,7 +9,7 @@
 *  Variable INPUT must be attached to the given corpus file
 *  prior to including RWORD.inc.
 *
--INCLUDE "rchar.sno"
+-INCLUDE "RCHAR.sno"
 	DEFINE('RWORD(K)CONTEXT')		:(RWORD_END)
 RWORD	RWORD = ' '
 RWORD_1	CONTEXT = RWORD

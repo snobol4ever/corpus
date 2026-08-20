@@ -4,7 +4,7 @@
 * NOTE - It is much more efficient to use SPITBOL's built-in
 * profiling system by setting &PROFILE = 1 or 2.
 *
--INCLUDE "lprog.sno"
+-INCLUDE "LPROG.sno"
 	DEFINE('TPROFILE()S,T')
 	TP_ARY  =  ARRAY(LPROG())
 	TRACE(.STCOUNT,'KEYWORD',,'TPROFILE')

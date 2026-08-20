@@ -23,7 +23,7 @@
 *	      LIST_P = OR(LIST)		 ;* assume LIST is very large
 *	      P = POS(0) *LIST_P RPOS(0) ;* fast pattern concatenation
 * 
--INCLUDE "or.sno"
+-INCLUDE "OR.sno"
 	DEFINE('ORSORT(LIST)BC,I,ANCSEIZE,T,WORD') :(ORSORT_END)
 ORSORT	LIST    LEN(1) . BC			:F(FRETURN)
 	ANCSEIZE  =  POS(0) BC (BREAK(BC) | REM) . WORD

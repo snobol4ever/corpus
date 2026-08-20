@@ -2,13 +2,13 @@
 *	      a number uniformly distributed in the range (0,1) and
 *	      monotonically increasing with strength of the hand.
 *
--INCLUDE "order.sno"
--INCLUDE "rotater.sno"
--INCLUDE "reverse.sno"
--INCLUDE "comb.sno"
--INCLUDE "base10.sno"
--INCLUDE "cardpak.sno"
--INCLUDE "decomb.sno"
+-INCLUDE "ORDER.sno"
+-INCLUDE "ROTATER.sno"
+-INCLUDE "REVERSE.sno"
+-INCLUDE "COMB.sno"
+-INCLUDE "BASE10.sno"
+-INCLUDE "CARDPAK.sno"
+-INCLUDE "DECOMB.sno"
 	DEFINE('POKEV(H)VALS,SUITS,V,W')
 	STRAIGHT_SEQ = REVERSE(ALL_VALS) SUBSTR(ALL_VALS,13,1)
 	PAIR.V  =  LEN(1) $ V  *V

@@ -4,11 +4,11 @@
 	INPUT(.INPUT,5,,'phrases.in')		:S(POKE1)
 	TERMINAL = "Could not open phrases.in data file" :(END)
 POKE1
--INCLUDE "phrase.sno"
--INCLUDE "quest.sno"
--INCLUDE "sqrt.sno"
--INCLUDE "pokev.sno"
--INCLUDE "cardpak.sno"
+-INCLUDE "PHRASE.sno"
+-INCLUDE "QUEST.sno"
+-INCLUDE "SQRT.sno"
+-INCLUDE "POKEV.sno"
+-INCLUDE "CARDPAK.sno"
 	DEFINE('ABCDR(L)THETA,PHI,TAU,TTR')
 	DEFINE('ALPHA(L)T')
 	DEFINE('BETA(L)T')

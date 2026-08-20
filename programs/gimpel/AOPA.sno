@@ -3,7 +3,7 @@
 *	corresponding pairs of A1 and A2, returning an array
 *	unless both are scalars.
 *
--INCLUDE "seq.sno"
+-INCLUDE "SEQ.sno"
 	DEFINE('AOPA(A1,OP,A2)S1,I,S2,S')	:(AOPA_END)
 AOPA	IDENT(DATATYPE(A1), 'ARRAY')		:S(AOPA_1)
 	IDENT(DATATYPE(A2), 'ARRAY')		:S(AOPA_2)

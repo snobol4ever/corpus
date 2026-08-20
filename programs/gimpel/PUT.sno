@@ -5,8 +5,8 @@
 *	    of 1; the increment can be changed by assigning
 *	    an appropriate value to PUT_INC.
 *
--INCLUDE "lpad.sno"
--INCLUDE "rpad.sno"
+-INCLUDE "LPAD.sno"
+-INCLUDE "RPAD.sno"
 	DEFINE('PUT(L)')
 	PUT_INC  =  1
 						:(PUT_END)

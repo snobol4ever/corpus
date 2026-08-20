@@ -1,5 +1,5 @@
 -MODULE PEEL
--INCLUDE "bal.sno"
+-INCLUDE "BAL.sno"
 	DEFINE('PEEL(NAME.,N.)K1.,K2.')
 	BEFORE  =  ') ,>'
 	AFTER  =  '( ,<'

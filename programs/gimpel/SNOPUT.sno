@@ -2,8 +2,8 @@
 *	       handle automatically: labeling, numbering, writing,
 *	       and if necessary for long lines, continuation.
 *
--INCLUDE "put.sno"
--INCLUDE "peel.sno"
+-INCLUDE "PUT.sno"
+-INCLUDE "PEEL.sno"
 	DEFINE('SNOPUT(S)')			:(SNOPUT_END)
 SNOPUT	PUT(PEEL(.S,72))			:F(ERROR)
 SNOPUT_1	IDENT(S,NULL)			:S(RETURN)

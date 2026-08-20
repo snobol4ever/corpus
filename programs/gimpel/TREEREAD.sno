@@ -2,7 +2,7 @@
 *		 level.  It will fail if this level is not found on the
 *		 input.
 *
--INCLUDE "read.sno"
+-INCLUDE "READ.sno"
 	DEFINE('TREEREAD(LEVEL)SONS,N')
 	TR_BC  =  ','
 	LEVEL.TREEREAD  =  POS(0)  (SPAN(' ') | NULL)  *LEVEL

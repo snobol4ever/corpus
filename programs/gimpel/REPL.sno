@@ -5,7 +5,7 @@
 *	     S3.  Portions of S1 already scanned and the replaced
 *	     string are not reexamined for instances of S2.
 *
--INCLUDE "breakx.sno"
+-INCLUDE "BREAKX.sno"
 	DEFINE('REPL(S1,S2,S3)C,T,FINDC')	:(REPL_END)
 REPL	S2   LEN(1) . C  =			:F(FRETURN)
 	FINDC  =  BREAK(C) . T  LEN(1)

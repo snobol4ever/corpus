@@ -2,7 +2,7 @@
 *	      with the given suffix.  STACK('A') will
 *	      create functions PUSHA(V), POPA(), and TOPA().
 *
--INCLUDE "repl.sno"
+-INCLUDE "REPL.sno"
 	DEFINE('STACK(SUF)S')
 	DATA('LINK(VALUE,NEXT)')		:(STACK_END)
 STACK	S  =

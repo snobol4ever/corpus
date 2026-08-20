@@ -11,7 +11,7 @@
 *	Caller should open file RSEASON.in attached to
 *	variable INPUT prior to calling RSEASON.
 *
--INCLUDE "random.sno"
+-INCLUDE "RANDOM.sno"
 	DEFINE('RSEASON(GAMES)INNING,RUNS,BASES,OUTS,K')
 	DATA('RECORD(AB,H,DB,TR,HR,BB)')
 	STATS  =  ARRAY(9)

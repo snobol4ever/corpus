@@ -39,7 +39,7 @@
 *	      LIST_P = EVAL(S)		 ;* convert to pattern
 *	      P = POS(0) *LIST_P RPOS(0) ;* fast pattern concatenation
 * 
--INCLUDE "balrev.sno"
+-INCLUDE "BALREV.sno"
 	DEFINE('OR(LIST)BC,SEIZE,ANC,OE')
 	DEFINE('OR_EXTRACT()COMMON,IC,P,SUBLIST,T,TLIST,C1,C2')
 						:(OR_END)

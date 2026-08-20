@@ -3,8 +3,8 @@
 * Because X ** Y is provided in SPITBOL, most of this routine
 * has been commented out.
 *
-*-INCLUDE "log.sno"
--INCLUDE "dexp.sno"
+*-INCLUDE "LOG.sno"
+-INCLUDE "DEXP.sno"
 
 * Modified for SPITBOL, which provides X ** Y for real X,Y
 	DEXP('RAISE(X,Y) = X ** Y')		:(EXP_END)

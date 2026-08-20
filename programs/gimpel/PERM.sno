@@ -6,7 +6,7 @@
 *  2/7/1999 -- Erroneous EQ(D,1) term produced duplicate permutations.
 *              Error and fix discovered by Logan C. Kinnison.
 *
--INCLUDE "swap.sno"
+-INCLUDE "SWAP.sno"
 	DEFINE('PERM(A)','PERM_INIT')		:(PERM_END)
 PERM_INIT	SIZE_A  =  +PROTOTYPE(A)
 	LOC_ELEMENT  =  ARRAY('0:'  SIZE_A - 2, 1)

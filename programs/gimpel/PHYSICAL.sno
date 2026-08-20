@@ -1,6 +1,6 @@
 -MODULE PHYSICAL
--INCLUDE "order.sno"
--INCLUDE "redefine.sno"
+-INCLUDE "ORDER.sno"
+-INCLUDE "REDEFINE.sno"
 	DATA('PHYS(VAL,NUM,DEN)')
 	REDEFINE('-', 'MINUS(X)')
 	REDEFINE('+', 'SUM(X,Y)')

@@ -1,10 +1,10 @@
 * INORM.inc - INORM(S) will return the image normalization
 *	      of the string S.
 *
--INCLUDE "bnorm.sno"
--INCLUDE "order.sno"
--INCLUDE "blend.sno"
--INCLUDE "diff.sno"
+-INCLUDE "BNORM.sno"
+-INCLUDE "ORDER.sno"
+-INCLUDE "BLEND.sno"
+-INCLUDE "DIFF.sno"
 	DEFINE('INORM(S)C,CC,S1,K')
 	BSPACE = CHAR(8)
 	IF_BSPACE  =  BREAK(BSPACE)

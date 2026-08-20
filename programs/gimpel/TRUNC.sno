@@ -3,7 +3,7 @@
 *	      will be created and returned consisting of the
 *	      elements A<L>, A<L+1>, ..., A<H>.
 *
--INCLUDE "seq.sno"
+-INCLUDE "SEQ.sno"
 	DEFINE('TRUNC(A,L,H)')			:(TRUNC_END)
 TRUNC	TRUNC  =  ARRAY(H - L + 1)
 	L  =  L - 1

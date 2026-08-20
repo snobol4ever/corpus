@@ -2,8 +2,8 @@
 *	       for game playing.  INPUT must be open by the caller to
 *	       the file containing the phrase text.
 *
--INCLUDE "dexp.sno"
--INCLUDE "rsentenc.sno"
+-INCLUDE "DEXP.sno"
+-INCLUDE "RSENTENC.sno"
 	DEXP("PRAISE() = RSENTENCE('<PRAISE>')")
 	DEXP("INSULT() = RSENTENCE('<INSULT>')")
 	DEXP("LETMESEE() = RSENTENCE('<LETMESEE>')")

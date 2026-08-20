@@ -3,8 +3,8 @@
 	INPUT(.INPUT,5,,'phrases.in')		:S(STONE_0)
 	OUTPUT = "Could not open phrases.in data file" :(END)
 STONE_0
--INCLUDE "phrase.sno"
--INCLUDE "quest.sno"
+-INCLUDE "PHRASE.sno"
+-INCLUDE "QUEST.sno"
 	DEFINE('SDA(NSTONES,PARITY,MAX)A,I,OPAR,P,J')
 						:(SDA_END)
 SDA	SDA  =  ARRAY('0:' NSTONES ',0:1' , 'L')

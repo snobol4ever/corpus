@@ -10,8 +10,8 @@
 *	    if capturing that result is desired.
 *
 -MODULE ASM
--INCLUDE "rpad.sno"
--INCLUDE "baseb.sno"
+-INCLUDE "RPAD.sno"
+-INCLUDE "BASEB.sno"
 	LIST  =  'LOAD 21,STORE 22,ADD 31,FADD 71,SUB 32,'
 +	'FSUB 72,MUL 33,FMUL 73,DIV 34,FDIV 74,LOADA 2A,LOADN 2F,'
 +	'BR A0,BRGT A1,BRLT A2,BREQ A3,BRNE A4,BRGE A5,BRLE A6,'

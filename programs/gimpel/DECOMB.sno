@@ -2,7 +2,7 @@
 *	       of the argument S regarded as a representation
 *	       in the combinatorial number system.
 *
--INCLUDE "comb.sno"
+-INCLUDE "COMB.sno"
 	DEFINE('DECOMB(S)T')
 	COMB_ALPHA  =  '0123456789ABCDEFGHIJKLMNOP'
 						:(DECOMB_END)

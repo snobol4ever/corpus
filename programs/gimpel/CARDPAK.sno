@@ -12,8 +12,8 @@
 * DISPLAY(H) will return a string representing the hand H in
 *	     a form consistent with conventional representations.
 
--INCLUDE "rpermute.sno"
--INCLUDE "order.sno"
+-INCLUDE "RPERMUTE.sno"
+-INCLUDE "ORDER.sno"
 	DEFINE('RHAND(K,FLAG)')
 	DEFINE('SUITS(H)')
 	DEFINE('VALS(H)')

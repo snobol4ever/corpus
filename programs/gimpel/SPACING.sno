@@ -3,7 +3,7 @@
 *		will yield the number of print positions
 *		occupied by the string.
 *
--INCLUDE "count.sno"
+-INCLUDE "COUNT.sno"
 	DEFINE('SPACING(S)')
 	BSPACE = CHAR(8); USCORE = '_'
 	IF_OVERSTRIKE  =  BREAK(BSPACE  USCORE)

@@ -1,7 +1,7 @@
 * FORTREAD.inc - FORTREAD() will read in and return the next
 *		 FORTRAN statement on the input stream.
 *
--INCLUDE "read.sno"
+-INCLUDE "READ.sno"
 	DEFINE('FORTREAD()T')
 	FORT_COMMENT  =  POS(0) 'C'
 	FORT_CONTINUE  =  POS(0) LEN(5) NOTANY(' ') REM . T

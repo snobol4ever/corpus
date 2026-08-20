@@ -2,7 +2,7 @@
 *	      A<I + 1>, ..., A<N> in ascending sequence using
 *	      Hoare's Quicksort.
 *
--INCLUDE "swap.sno"
+-INCLUDE "SWAP.sno"
 	DEFINE('HSORT(A,I,N)J,K,CRITERION')	:(HSORT_END)
 HSORT	GT(N - I, 1)				:S(HSORT_LARGE)
 	GE(I,N)					:S(RETURN)

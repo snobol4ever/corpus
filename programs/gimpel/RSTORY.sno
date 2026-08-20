@@ -3,7 +3,7 @@
 *
 	TERMINAL = ~INPUT(.INPUT,5,,'rstory.in')
 +		   "Could not open input file, rstory.in"  :S(END)
--INCLUDE "rsentenc.sno"
+-INCLUDE "RSENTENC.sno"
 	ACTIONS  =  TABLE()
 	BB = BREAK(' ')
 	SB = SPAN(' ')

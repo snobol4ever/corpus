@@ -1,8 +1,8 @@
 * MINP.inc - MINP(S) will return the minimum number of print
 *	     positions needed to print the string S.
 *
--INCLUDE "spacing.sno"
--INCLUDE "count.sno"
+-INCLUDE "SPACING.sno"
+-INCLUDE "COUNT.sno"
 	DEFINE('MINP(S)T')
 						:(MINP_END)
 MINP	MINP  =  SPACING(S)

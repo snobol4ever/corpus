@@ -17,7 +17,7 @@
 *	The INPUT variable should be assigned to the file containing
 *	rude phrases prior to including QUEST.inc.
 *
--INCLUDE "rsentenc.sno"
+-INCLUDE "RSENTENC.sno"
 	DEFINE('QUEST(QS)QP,QPA,QN,QVP,QL,QLOW,QHI,QI')
 	DEFINE('QUESTP(QS,QP)QP1,QS1')		:(QUESTP_END)
 QUESTP	QP   BREAK('|') . QP1  '|'  =		:F(QUESTP_1)

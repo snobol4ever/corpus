@@ -4,7 +4,7 @@
 *	The result is a new array of the selected elements.
 *	If I is a scalar, the result is A<I>.
 *
--INCLUDE "seq.sno"
+-INCLUDE "SEQ.sno"
 	DEFINE('AI(A,I)J')			:(AI_END)
 AI	IDENT(DATATYPE(I), 'ARRAY')		:F(AI_1)
 	AI  =  ARRAY(PROTOTYPE(I))

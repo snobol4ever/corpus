@@ -1,8 +1,8 @@
 * PAD.inc - PAD(S,CW) will add or delete blanks to the string S
 *	    to make it conform to a column width of CW.
 *
--INCLUDE "spacing.sno"
--INCLUDE "reverse.sno"
+-INCLUDE "SPACING.sno"
+-INCLUDE "REVERSE.sno"
 	DEFINE('PAD(S,CW)I,K,T,N')
 	INTERIOR_BK = ((SPAN(' ') | NULL) FENCE BREAK(' ')) . T
 						:(PAD_END)

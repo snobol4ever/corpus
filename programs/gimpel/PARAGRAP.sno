@@ -4,7 +4,7 @@
 *		  to continue until a blank appears in column 1.
 *		  It will fail if a paragraph is not found.
 *
--INCLUDE "read.sno"
+-INCLUDE "READ.sno"
 	DEFINE('PARAGRAPH(FIRST_LINE)T,P')
 	PARA_CONTINUE  =  POS(0)  NOTANY(' ')
 						:(PARAGRAPH_END)

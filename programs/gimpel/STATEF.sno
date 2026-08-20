@@ -5,7 +5,7 @@
 *	       where label is the statement where execution
 *	       begins the next time the state function is called.
 *
--INCLUDE "push.sno"
+-INCLUDE "PUSH.sno"
 	DEFINE('STATEF(PROTO,LBL)NEWL')
 	DEFINE('RET(NEXT)NAME')			:(STATEF_END)
 STATEF	PROTO  IDENT(LBL)  BREAK('(') . LBL

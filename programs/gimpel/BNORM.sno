@@ -2,7 +2,7 @@
 *	  string S.  Blanks will be prepended to S if it is not
 *	  balanced on the left.
 *
--INCLUDE "reverse.sno"
+-INCLUDE "REVERSE.sno"
 	DEFINE('BNORM(S)B,S1,S2,X,Y,P')
 	BSPACE = CHAR(8); USCORE = '_'
 	ONE_POS  =  NOTANY(BSPACE)

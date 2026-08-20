@@ -2,8 +2,8 @@
 *	      with the string S.  It will fail if there is no Ith
 *	      line.  S is assumed to be B-normalized.
 *
--INCLUDE "spacing.sno"
--INCLUDE "breakx.sno"
+-INCLUDE "SPACING.sno"
+-INCLUDE "BREAKX.sno"
 	DEFINE('IMAGE(S,I)C,BU,T,T1')
 	BSPACE = CHAR(8); USCORE = '_'
 	IF_OVERSTRIKE  =  BREAK(BSPACE USCORE)

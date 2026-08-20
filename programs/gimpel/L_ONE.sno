@@ -14,8 +14,8 @@
 *   A = (B - C * D) / 10
 *
 -MODULE L_ONE
--INCLUDE "push.sno"
--INCLUDE "temp.sno"
+-INCLUDE "PUSH.sno"
+-INCLUDE "TEMP.sno"
 	DEFINE('S(NAME)')
 	DEFINE('S_(NAME)T')			:(S_END)
 S	S  =  EVAL("NULL . *S_('" NAME "')")	:(RETURN)

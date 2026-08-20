@@ -11,8 +11,8 @@
 *	     'B' because 'A' is much more likely to follow the
 *	      characters 'BR'.
 *
--INCLUDE "random.sno"
--INCLUDE "breakx.sno"
+-INCLUDE "RANDOM.sno"
+-INCLUDE "BREAKX.sno"
 	DEFINE('RCHAR(CONTEXT)BX,C,P,N,RC1')
 RCHAR_1	X  =  TRIM(INPUT)			:F(RCHAR_END)
 	IDENT(X, 'END')				:S(RCHAR_END)

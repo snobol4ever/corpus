@@ -2,7 +2,7 @@
 *	FLOOR(X) will return the largest integer not greater than X.
 *	CEIL(X) will return the smallest integer not less than X.
 *
--INCLUDE "dexp.sno"
+-INCLUDE "DEXP.sno"
 	DEXP('CEIL(X) = -FLOOR(-X)')
 
 	DEFINE('FLOOR(X)')			:(FLOOR_END)

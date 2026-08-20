@@ -1,7 +1,7 @@
 * CRACK.inc - CRACK(S,B) will convert from string to array
 *	      breaking at the character B.
 *
--INCLUDE "count.sno"
+-INCLUDE "COUNT.sno"
 	DEFINE('CRACK(S,B)I,PAT')		:(CRACK_END)
 CRACK	IDENT(B,NULL)				:S(CRACK_1)
 	S   RTAB(1) B ABORT | REM . S  =  S B

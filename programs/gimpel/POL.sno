@@ -26,8 +26,8 @@
 *
 * Sample input:
 *   A = (B - C * D) / 10
--INCLUDE "dexp.sno"
--INCLUDE "push.sno"
+-INCLUDE "DEXP.sno"
+-INCLUDE "PUSH.sno"
 	DEXP("POL(N) = SS('POL',N)")
 	DEXP("CPUSH(ARG) = SS('CPUSH',ARG)")
 	DEFINE('SS(NAME,ARG)')

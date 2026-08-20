@@ -2,7 +2,7 @@
 *		The statement will be output, labeled, numbered,
 *		and continued if necessary.
 *
--INCLUDE "put.sno"
+-INCLUDE "PUT.sno"
 	DEFINE('FORTPUT(S)T')			:(FORTPUT_END)
 FORTPUT	S    (LEN(72) | REM) . T  =
 	PUT(T)

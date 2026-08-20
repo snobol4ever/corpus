@@ -3,8 +3,8 @@
 *	   that produced by POL.inc.  The output of TR is a string
 *	   of 4-tuples, suitable for the code generator in TUPLE.inc.
 *
--INCLUDE "push.sno"
--INCLUDE "temp.sno"
+-INCLUDE "PUSH.sno"
+-INCLUDE "TEMP.sno"
 	DEFINE('TR(ARG)OP,N,P,T,ID,L1,L2')
 	ITREE  =  ANY('+-*/') ':' ANY('12') ',' *ITREE  |
 +	ANY('IJKLMNijklmn') BREAK(',:') ','  |  'REF:2,' *ITREE

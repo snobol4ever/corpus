@@ -4,7 +4,7 @@
 *
 *	Modified for SPITBOL, which provides a LN function.
 *
--INCLUDE "dexp.sno"
+-INCLUDE "DEXP.sno"
 
 	LN_10  =  2.3025850929940456840
 	NAT_BASE  =  2.718281828459045

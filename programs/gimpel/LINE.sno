@@ -5,12 +5,12 @@
 *	     If JUSTIFY is nonzero, the lines will be right-
 *	     justified (padded with blanks).
 *
--INCLUDE "reverse.sno"
--INCLUDE "pad.sno"
--INCLUDE "substr.sno"
--INCLUDE "minp.sno"
--INCLUDE "bnorm.sno"
--INCLUDE "hyphenat.sno"
+-INCLUDE "REVERSE.sno"
+-INCLUDE "PAD.sno"
+-INCLUDE "SUBSTR.sno"
+-INCLUDE "MINP.sno"
+-INCLUDE "BNORM.sno"
+-INCLUDE "HYPHENAT.sno"
 	DEFINE('LINE(CW)B,B2,TRY,X2,W,W2,T,RWORD,UF,UF1,'
 +	'K,H,HYPHEN')
 	HYPHENATE = 1

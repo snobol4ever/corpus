@@ -2,7 +2,7 @@
 *	      of indices which can then be used to sort the array A.
 *	      OP is the operation to be used to indicate ordering.
 *
--INCLUDE "ip.sno"
+-INCLUDE "IP.sno"
 	DEFINE('MSORT(A,OP)U,P,I,K,SAVE,AI,AJ')
 	DEFINE('CHAIN(L,U)I,J,MIDDLE,K')
 						:(MSORT_END)

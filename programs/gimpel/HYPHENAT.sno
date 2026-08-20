@@ -5,10 +5,10 @@
 *		 the line  may include this word.  HYPHENATE will
 *		 fail if no hyphenation point is found.
 *
--INCLUDE "balrev.sno"
--INCLUDE "or.sno"
--INCLUDE "uplo.sno"
--INCLUDE "diff.sno"
+-INCLUDE "BALREV.sno"
+-INCLUDE "OR.sno"
+-INCLUDE "UPLO.sno"
+-INCLUDE "DIFF.sno"
 	DEFINE('HYPHENATE(RWORD,MIN)K,C,L')
 	UPPERS_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	LOWERS_ = 'abcdefghijklmnopqrstuvwxyz'

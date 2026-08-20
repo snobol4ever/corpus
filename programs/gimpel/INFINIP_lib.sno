@@ -1,7 +1,7 @@
 -MODULE INFINIP
--INCLUDE "redefine.sno"
--INCLUDE "swap.sno"
--INCLUDE "lpad.sno"
+-INCLUDE "REDEFINE.sno"
+-INCLUDE "SWAP.sno"
+-INCLUDE "LPAD.sno"
 	REDEFINE('-','MINUS(X)Y')
 	REDEFINE(   ,'GT(X,Y)')
 	REDEFINE(   ,'EQ(X,Y)')

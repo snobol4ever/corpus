@@ -2,7 +2,7 @@
 *	   digits into the corresponding character string.
 *	   CH is the inverse of HEX.
 *
--INCLUDE "base10.sno"
+-INCLUDE "BASE10.sno"
 	DEFINE('CH(HEX)T,C,N')
 						:(CH_END)
 CH	HEX    LEN(2) . T  =			:F(RETURN)
