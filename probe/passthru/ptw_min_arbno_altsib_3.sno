@@ -1,0 +1,5 @@
+          G1 = ARBNO((LEN(1) | LEN(2)) (LEN(1) | LEN(2)))
+          'abc' POS(0) *G1 RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

@@ -1,0 +1,8 @@
+          G1 = ARBNO((LEN(1) | LEN(2)) (LEN(1) | LEN(2)))
+          n = 0
+LOOP      n = LT(n, 8) n + 1                    :F(END)
+          S = SUBSTR('abcdefgh', 1, n)
+          S POS(0) *G1 RPOS(0)                  :S(Y)F(N)
+Y         OUTPUT = n ' match'                   :(LOOP)
+N         OUTPUT = n ' NOMATCH'                 :(LOOP)
+END
