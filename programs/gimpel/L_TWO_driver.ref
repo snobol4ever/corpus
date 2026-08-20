@@ -1,0 +1,33 @@
+ LOAD 1,x
+ SUB 1,y
+ BRLE 1,LBL.1
+ LOAD 1,i
+ ADD 1,=1
+ LOAD 2,a(1)
+ FADD 2,z
+ LOAD 3,x
+ FADD 3,2
+ STORE 3,x
+ BR LBL.2
+LBL.1
+ LOAD 1,y
+ FDIV 1,z
+ LOAD 2,x
+ FSUB 2,1
+ STORE 2,y
+LBL.2
+ LOAD 1,y
+ FADD 1,z
+ STORE 1,x
+ LOAD 2,j
+ ADD 2,=1
+ STORE 2,i
+ SUB 2,j
+ BRLE 2,LBL.3
+ LOAD 2,i
+ STORE 2,k
+ BR LBL.4
+LBL.3
+ LOAD 1,j
+ STORE 1,k
+LBL.4

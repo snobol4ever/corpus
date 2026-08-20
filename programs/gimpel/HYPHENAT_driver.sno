@@ -1,0 +1,18 @@
+*  HYPHENAT_driver - exercises HYPHENATE(RWORD,MIN).  Contract per
+*  HYPHENAT.sno header: HYPHENATE indicates where within the REVERSED word
+*  RWORD a hyphenation point can be found; MIN is the number of characters by
+*  which the word must be diminished for the line to accommodate it; and
+*  HYPHENATE FAILS when no hyphenation point is found.
+-INCLUDE "HYPHENAT.sno"
+        DEFINE('SHOW(W,MIN)K')                          :(SHOW_END)
+SHOW    K  =  HYPHENATE(REVERSE(W),MIN)                 :F(SHOW_F)
+        SHOW  =  W ' min=' MIN ' -> ' K                 :(RETURN)
+SHOW_F  SHOW  =  W ' min=' MIN ' -> no hyphenation point'       :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW('hyphenation',2)
+        OUTPUT  =  SHOW('hyphenation',6)
+        OUTPUT  =  SHOW('computer',2)
+        OUTPUT  =  SHOW('running',2)
+        OUTPUT  =  SHOW('cat',1)
+        OUTPUT  =  SHOW('self-evident',2)
+END

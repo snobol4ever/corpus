@@ -1,0 +1,25 @@
+*  LINE_driver - exercises LINE_INIT(P) and LINE(CW).  Contract per LINE.sno
+*  header: LINE(CW) returns the next line, CW columns wide, of the paragraph
+*  handed to LINE_INIT(); it FAILS when no lines remain; words are hyphenated
+*  when HYPHENATE is nonzero and lines are right-justified (blank-padded) when
+*  JUSTIFY is nonzero.
+-INCLUDE "LINE.sno"
+        P  =  'The quick brown fox jumps over the lazy dog while the '
++       'hyphenation machinery decides where a sufficiently long word '
++       'such as internationalization may be divided.'
+        DEFINE('FILL(P,CW)T,N')                         :(FILL_END)
+FILL    LINE_INIT(P)
+        N  =  0
+FILL_1  T  =  LINE(CW)                                  :F(RETURN)
+        N  =  N + 1
+        OUTPUT  =  '|' T '|'                            :(FILL_1)
+FILL_END
+        JUSTIFY  =  1 ; HYPHENATE  =  1
+        OUTPUT  =  '-- cw=40 justify=1 hyphenate=1 --'
+        FILL(P,40)
+        JUSTIFY  =  0 ; HYPHENATE  =  0
+        OUTPUT  =  '-- cw=40 justify=0 hyphenate=0 --'
+        FILL(P,40)
+        OUTPUT  =  '-- cw=20 justify=0 hyphenate=0 --'
+        FILL(P,20)
+END

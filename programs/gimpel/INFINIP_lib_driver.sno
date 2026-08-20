@@ -1,0 +1,32 @@
+*  INFINIP_lib_driver - exercises SMALL() and SPLIT(NAME,PAT), the two
+*  functions DRIVER-MANIFEST.tsv names for INFINIP_lib.  INFINIP_lib.sno
+*  carries no header comment, so the contract is its own construction: it is
+*  the library half of the infinite-precision arithmetic package, and
+*    SPLIT(.X)  halves the digit string held in the named variable, leaving
+*               the leading half in X1 and the trailing half in X2 and
+*               returning the size of the trailing half;
+*    SMALL()    succeeds when BOTH X and Y are short enough (NO_DIGITS, 4) to
+*               be handled by the machine's own arithmetic, and fails when
+*               they are not -- it is the recursion's base-case test.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at REDEFINE.sno(17) with
+*  ERROR 156 -- opsyn first arg is not correct operator name, under -b and
+*  -bf alike, before either function exists.  CSNOBOL4 is the other
+*  sanctioned SNOBOL4 oracle and takes the module as written.  Same routing
+*  as ASM_driver and TUPLE_driver.
+-INCLUDE "INFINIP_lib.sno"
+        X  =  '12345678'
+        Y  =  '87654321'
+        OUTPUT  =  'split tail size = ' SPLIT(.X)
+        OUTPUT  =  'X1 = ' X1  ' X2 = ' X2
+        SMALL()                                         :S(BIG_YES)
+        OUTPUT  =  '8 digits: SMALL failed as specified'         :(SHORT)
+BIG_YES OUTPUT  =  '8 digits: SMALL succeeded'
+SHORT   X  =  '12'
+        Y  =  '34'
+        SMALL()                                         :F(SHORT_NO)
+        OUTPUT  =  '2 digits: SMALL succeeded as specified'      :(DONE)
+SHORT_NO        OUTPUT  =  '2 digits: SMALL failed'
+DONE
+END

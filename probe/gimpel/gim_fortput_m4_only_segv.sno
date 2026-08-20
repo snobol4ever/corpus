@@ -1,0 +1,30 @@
+*  gim_fortput_m4_only_segv - A 1:1 BREACH IN THE m4 DIRECTION, three lines.
+*
+*  Distilled from gimpel batch D.  FORTPUT.sno is a four-statement module that
+*  chops a FORTRAN statement into 72-column pieces and hands each to PUT:
+*        FORTPUT  S  (LEN(72) | REM) . T  =
+*                 PUT(T)
+*                 IDENT(S,NULL)              :S(RETURN)
+*                 S  =  DUPL(' ',5)  '1' S   :(FORTPUT)
+*  mode-3 is CORRECT and stable (rc=0, 8/8 runs).  mode-4 SIGSEGVs before it
+*  emits a single byte (rc=139, 16/16 runs, ASLR on and ASLR off alike).
+*
+*  ⭐ WHAT RULES OUT A CODEGEN DIVERGENCE: the emitted .s is BYTE-IDENTICAL
+*  across repeated compiles (md5 e1462be17e18, 3/3), so the two modes are not
+*  being handed different code -- the same deterministic program is correct
+*  in the in-process image and fatal in the linked binary.
+*
+*  ⛔ HONEST NOTE ON ONE READING: an earlier burst of three runs returned
+*  rc=124 (hang) instead of 139 from this same binary.  That did not reproduce
+*  in the 16 runs since, on a machine running eight seats, so it is recorded
+*  as an unexplained transient and NOT claimed as nondeterminism.
+*
+*  Every piece is separately GREEN in m4 -- LPAD, RPAD, PUT alone, the
+*  (LEN(n) | REM) . T capture-and-replace loop alone, and the same loop inside
+*  a DEFINEd function that recurses on itself.  The crash needs the assembled
+*  module.
+*
+*  ORACLE: "hi" padded to column 73 with its serial number.
+-INCLUDE "/home/claude4/corpus/programs/gimpel/FORTPUT.sno"
+        FORTPUT('hi')
+END

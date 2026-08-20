@@ -1,0 +1,12 @@
+*  FORTPUT_driver - exercises FORTPUT(S).  Contract per FORTPUT.sno header:
+*  FORTPUT outputs a FORTRAN statement S, labeled, numbered, and continued if
+*  necessary.  The labelling and numbering are PUT's (PUT_LABEL in column 73,
+*  a serial number after it), so a >72-character statement must come back as
+*  a first line plus continuation lines carrying '1' in column 6.
+-INCLUDE "FORTPUT.sno"
+        PUT_LABEL  =  'FP'
+        FORTPUT('      X = 1.0')
+        FORTPUT('      CALL SUB(A,B)')
+        FORTPUT('      Y = AAAAAAAAAA + BBBBBBBBBB + CCCCCCCCCC + DDDDDDDDDD + EEEEEEEEEE + FFFFFFFFFF')
+        FORTPUT('      STOP')
+END

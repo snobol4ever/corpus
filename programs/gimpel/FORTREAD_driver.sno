@@ -1,0 +1,10 @@
+*  FORTREAD_driver - exercises FORTREAD().  Contract per FORTREAD.sno header:
+*  FORTREAD() reads in and returns the next FORTRAN statement on the input
+*  stream -- so comment lines (C in column 1) are skipped and continuation
+*  lines (a nonblank in column 6) are joined onto the statement they continue.
+*  It fails at end of input.  The FORTRAN deck is FORTREAD_driver.input.
+-INCLUDE "FORTREAD.sno"
+LOOP    S  =  FORTREAD()                                :F(DONE)
+        OUTPUT  =  '[' S ']'                            :(LOOP)
+DONE    OUTPUT  =  'end of deck'
+END

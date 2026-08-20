@@ -1,0 +1,25 @@
+*  IMAGE_driver - exercises IMAGE(S,I).  Contract per IMAGE.sno header: IMAGE
+*  returns the Ith print line associated with the string S, and fails if there
+*  is no Ith line.  S is assumed to be B-normalized -- that is, overstriking
+*  is spelled as character, backspace, character, and underscoring as
+*  character, backspace, underscore.  Line 1 is what the printer puts down
+*  first, lines above 1 are the successive overstrikes, and line 0 (or less)
+*  is the underscore line.
+-INCLUDE "IMAGE.sno"
+        DEFINE('SHOW(S,I)T')                            :(SHOW_END)
+SHOW    T  =  IMAGE(S,I)                                :F(SHOW_F)
+        SHOW  =  'I=' I ' [' T ']'                      :(RETURN)
+SHOW_F  SHOW  =  'I=' I ' FAILED'                       :(RETURN)
+SHOW_END
+        BS  =  CHAR(8)
+        S  =  'AB' BS '_' 'C'
+        OUTPUT  =  SHOW(S,1)
+        OUTPUT  =  SHOW(S,0)
+        OUTPUT  =  SHOW(S,2)
+        T  =  'X' BS '/' 'Y' BS '=' 'Z'
+        OUTPUT  =  SHOW(T,1)
+        OUTPUT  =  SHOW(T,2)
+        OUTPUT  =  SHOW(T,3)
+        OUTPUT  =  SHOW('plain text',1)
+        OUTPUT  =  SHOW('plain text',0)
+END

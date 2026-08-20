@@ -1,0 +1,6 @@
+hyphenation min=2 -> 4
+hyphenation min=6 -> no hyphenation point
+computer min=2 -> 5
+running min=2 -> 4
+cat min=1 -> no hyphenation point
+self-evident min=2 -> 7

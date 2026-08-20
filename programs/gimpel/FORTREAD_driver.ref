@@ -1,0 +1,6 @@
+[      PROGRAM MAIN]
+[      X = AAAA + BBBB     + CCCC     + DDDD]
+[      CALL SUB(X)]
+[      STOP]
+[      END]
+end of deck

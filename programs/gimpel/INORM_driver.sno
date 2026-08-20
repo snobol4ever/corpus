@@ -1,0 +1,15 @@
+*  INORM_driver - exercises INORM(S).  Contract per INORM.sno header: INORM
+*  returns the image normalization of the string S -- the same printed image
+*  rewritten into a canonical form, so that two strings which print alike
+*  normalize alike.  Overstrikes are spelled character, backspace, character.
+-INCLUDE "INORM.sno"
+        BS  =  CHAR(8)
+        DEFINE('SHOW(TAG,S)')                           :(SHOW_END)
+SHOW    SHOW  =  TAG ' -> [' INORM(S) ']'               :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW('AB/ overstruck', 'A' BS '/' 'B')
+        OUTPUT  =  SHOW('B/A same image', 'A' BS '/' 'B')
+        OUTPUT  =  SHOW('triple strike', 'X' BS '/' BS '-' 'Y')
+        OUTPUT  =  SHOW('no backspace', 'plain')
+        OUTPUT  =  SHOW('trailing strike', 'ab' 'c' BS '*')
+END

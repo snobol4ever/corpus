@@ -1,0 +1,22 @@
+-- cw=40 justify=1 hyphenate=1 --
+|The  quick brown fox jumps over the lazy|
+|dog  while  the  hyphenation   machinery|
+|decides  where  a sufficiently long word|
+|such  as  internationalization  may   be|
+|divided.|
+-- cw=40 justify=0 hyphenate=0 --
+|The quick brown fox jumps over the lazy|
+|dog while the hyphenation machinery|
+|decides where a sufficiently long word|
+|such as internationalization may be|
+|divided.|
+-- cw=20 justify=0 hyphenate=0 --
+|The quick brown fox|
+|jumps over the lazy|
+|dog while the|
+|hyphenation|
+|machinery decides|
+|where a sufficiently|
+|long word such as|
+|internationalization|
+|may be divided.|

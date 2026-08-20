@@ -1,0 +1,5 @@
+      X = 1.0                                                           FP     1
+      CALL SUB(A,B)                                                     FP     2
+      Y = AAAAAAAAAA + BBBBBBBBBB + CCCCCCCCCC + DDDDDDDDDD + EEEEEEEEEEFP     3
+     1 + FFFFFFFFFF                                                     FP     4
+      STOP                                                              FP     5

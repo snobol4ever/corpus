@@ -1,0 +1,35 @@
+*  FPROFILE_driver - exercises FPROFILE().  FPROFILE.sno carries no header
+*  comment, so the contract is its own construction: including it arms a
+*  KEYWORD trace on &STCOUNT which calls FPROFILE() after every statement, and
+*  FPROFILE bumps FP_ARY<&LASTNO> -- so FP_ARY ends up holding an execution
+*  count per statement number, over an array sized by LPROG(), the number of
+*  statements in the program.  The counts below are therefore a statement
+*  profile of this driver's own loops.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at FPROFILE.sno(5) with
+*  ERROR 199 -- trace second argument is not trace type, because it has no
+*  KEYWORD trace type, under -b and -bf alike.  CSNOBOL4 is the other
+*  sanctioned SNOBOL4 oracle and takes the module as written.  Same routing
+*  as ASM_driver and TUPLE_driver.
+*
+*  ⛔ AND AN HONEST LIMIT ON WHAT THIS PINS.  CSNOBOL4 accepts the TRACE call
+*  but never fires it, so FP_ARY comes back entirely null and the profile is
+*  EMPTY: the ref pins 'total statements counted = 0'.  What the ref does
+*  test for real is LPROG(), whose value sizes the array.  Neither sanctioned
+*  oracle actually performs a &STCOUNT keyword trace, so no stronger pin is
+*  obtainable without hand-authoring one, which is forbidden.
+-INCLUDE "FPROFILE.sno"
+        N  =  0
+LOOP    N  =  LT(N,5) N + 1                             :S(LOOP)
+        M  =  0
+LOOP2   M  =  LT(M,2) M + 1                             :S(LOOP2)
+        &TRACE  =  0
+        OUTPUT  =  'array size = ' PROTOTYPE(FP_ARY)
+        J  =  0
+DUMP    J  =  J + 1
+        C  =  FP_ARY<J>                                 :F(TOTALS)
+        OUTPUT  =  GT(C,0) 'stmt ' J ' executed ' C ' times'
+        TOTAL  =  TOTAL + C                             :(DUMP)
+TOTALS  OUTPUT  =  'total statements counted = ' TOTAL
+END

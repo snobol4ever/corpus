@@ -1,0 +1,7 @@
+hand    4C JD AD 7C 2H 
+suits   CDDCH
+vals    CJMFA
+hand2   2D 2S JC 8C AH 
+hand3   
+reshuffled 5C 3D 5S 
+RHAND(60) on a fresh deck -> FAILED as specified

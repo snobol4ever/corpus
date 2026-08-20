@@ -1,0 +1,5 @@
+AB/ overstruck -> [/AB]
+B/A same image -> [/AB]
+triple strike -> [-/XY]
+no backspace -> [plain]
+trailing strike -> [ab*c]

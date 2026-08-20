@@ -1,0 +1,8 @@
+I=1 [ABC]
+I=0 [ _]
+I=2 [ _ ]
+I=1 [XYZ]
+I=2 [/= ]
+I=3 FAILED
+I=1 [plain text]
+I=0 FAILED

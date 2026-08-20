@@ -1,0 +1,30 @@
+*  INSULATE_driver - exercises INSULATE(PROTO,LABEL), INS_CALL() and
+*  INS_RET().  INSULATE.sno OPSYNs DEFINE to itself, so every DEFINE issued
+*  after the include also arms TRACE CALL/RETURN handlers that PUSH the
+*  caller's &ANCHOR and set &ANCHOR to 0 on entry, and POP it back on exit.
+*  The contract is therefore: inside such a function the scanner is
+*  UNANCHORED whatever the caller set, and the caller's &ANCHOR survives
+*  the call unchanged.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at INSULATE.sno(7) with
+*  ERROR 248 -- attempted redefinition of system function, raised on
+*  OPSYN('DEFINE','INSULATE') because DEFINE is protected, under -b and -bf
+*  alike -- and that OPSYN is the module's entire mechanism.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Same routing as ASM_driver and TUPLE_driver.
+-INCLUDE "INSULATE.sno"
+        DEFINE('INNER(S)')                              :(INNER_END)
+INNER   INNER  =  'anchor-inside=' &ANCHOR
+        S  'B'                                          :F(INNER_1)
+        INNER  =  INNER  ' matched-B'                   :(RETURN)
+INNER_1 INNER  =  INNER  ' no-match-B'                  :(RETURN)
+INNER_END
+        &ANCHOR  =  1
+        OUTPUT  =  'anchor-before=' &ANCHOR
+        OUTPUT  =  INNER('ABC')
+        OUTPUT  =  'anchor-after=' &ANCHOR
+        &ANCHOR  =  0
+        OUTPUT  =  INNER('ABC')
+        OUTPUT  =  'anchor-after2=' &ANCHOR
+END

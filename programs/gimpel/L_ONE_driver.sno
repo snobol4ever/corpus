@@ -1,0 +1,13 @@
+*  L_ONE_driver - drives L_ONE.sno, the compiler for the language L1 (Gimpel
+*  p. 411), and with it the S(NAME) and S_(NAME) functions the manifest names
+*  for this module.  L1 statements are read from the input stream and the
+*  assembly language for machine M (Gimpel p. 407) goes to OUTPUT.
+*
+*  L_ONE.sno carries its own END, so a driver can only be the include plus its
+*  data; the cases therefore live in L_ONE_driver.input, which the scorecard
+*  feeds on stdin by the <base>.input convention.
+*
+*  Per the module's own header, the left recursion in TERM and E was removed
+*  for SPITBOL, which makes the operators RIGHT-associative -- so A = B/C/D
+*  must be written A = (B/C)/D.  The data below respects that.
+-INCLUDE "L_ONE.sno"

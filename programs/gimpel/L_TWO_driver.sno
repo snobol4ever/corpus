@@ -1,0 +1,21 @@
+*  L_TWO_driver - drives L_TWO.sno, the compiler for the language L2 (Gimpel
+*  p. 422).  It optimizes register allocation and distinguishes integer from
+*  real variables by the FORTRAN convention (names beginning I,J,K,L,M,N are
+*  integer); mixed-mode arithmetic is not defined.  Output is assembly
+*  language for machine M.
+*
+*  L_TWO.sno carries its own END and reads its source from the input stream,
+*  so a driver can only be the include plus its data; the cases live in
+*  L_TWO_driver.input, fed on stdin by the <base>.input convention.
+*
+*  Per the module's own header the operators are RIGHT-associative, so a
+*  chain like B/C/D must be parenthesized.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at TUPLE.sno(31) with
+*  ERROR 248 -- attempted redefinition of system function, raised on
+*  DEFINE('LOAD(LOC)') because LOAD is a Spitbol built-in, under -b and -bf
+*  alike.  Identical cause to TUPLE_driver, which routes the same way.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Same routing as ASM_driver and TUPLE_driver.
+-INCLUDE "L_TWO.sno"

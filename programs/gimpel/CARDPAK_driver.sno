@@ -1,0 +1,29 @@
+*  CARDPAK_driver - exercises the four functions CARDPAK.sno's header names.
+*  Contract per that header:
+*    RHAND(K,FLAG) returns a random hand of K cards; a nonnull FLAG reshuffles
+*                  the deck first; it FAILS if too few cards remain.
+*    SUITS(H)      returns just the suits of the hand H.
+*    VALS(H)       returns just the values of the hand H.
+*    DISPLAY(H)    returns the hand H in conventional card notation.
+*  RANDOM.sno seeds RAN_VAR to 1, so the deal is deterministic.
+*
+*  SCRIP RED, CAUSE ALREADY OWNED: CARDPAK -> RPERMUTE -> RANDOM, and
+*  RANDOM.sno:6 is  RAN_VAR = REMDR(RAN_VAR * 4676., 414971.)  -- TRAILING-DOT
+*  REAL LITERALS, which SCRIP rejects with a parse error and generates no code
+*  for.  Witness: probe/gimpel/gim_real_literal_parse (gimpel batch A).  Not a
+*  new class; recorded here because it takes out a whole module chain.
+-INCLUDE "CARDPAK.sno"
+        H  =  RHAND(5,1)
+        OUTPUT  =  'hand    ' DISPLAY(H)
+        OUTPUT  =  'suits   ' SUITS(H)
+        OUTPUT  =  'vals    ' VALS(H)
+        H2  =  RHAND(5)
+        OUTPUT  =  'hand2   ' DISPLAY(H2)
+        H3  =  RHAND(50)
+        OUTPUT  =  'hand3   ' DISPLAY(H3)
+        OUTPUT  =  'reshuffled ' DISPLAY(RHAND(3,1))
+        BIG  =  RHAND(60,1)                             :S(TOOBIG_NO)
+        OUTPUT  =  'RHAND(60) on a fresh deck -> FAILED as specified'  :(DONE)
+TOOBIG_NO       OUTPUT  =  'RHAND(60) did NOT fail: ' DISPLAY(BIG)
+DONE
+END

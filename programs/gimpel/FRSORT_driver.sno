@@ -1,0 +1,16 @@
+*  FRSORT_driver - exercises FRSORT(S).  Contract per FRSORT.sno header:
+*  FRSORT does a frequency sort on the characters of S, most frequent first.
+*
+*  ⛔ CHECKED IN RED AND WITHOUT A .ref -- THE INCLUDE CANNOT BE RESOLVED, AND
+*  NOT BY EITHER ENGINE.  FRSORT.sno:9 asks for -INCLUDE "stringout.sno" while
+*  the file present in this directory is STRINGOU.sno (an 8-character
+*  truncation of the name).  The ORACLE stops first:
+*    FRSORT.sno(9,10) : ERROR 285 -- include file cannot be opened
+*  so no oracle output exists to pin.  This is the queue row lon-include-root
+*  class, NOT a SCRIP defect -- though note the shape is a FILENAME mismatch,
+*  not an include ROOT that is missing: STRINGOU.sno is right here, on the
+*  search path, under a name eight characters long.
+-INCLUDE "FRSORT.sno"
+        OUTPUT  =  FRSORT('MISSISSIPPI')
+        OUTPUT  =  FRSORT('ABRACADABRA')
+END

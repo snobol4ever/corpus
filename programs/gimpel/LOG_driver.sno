@@ -1,0 +1,16 @@
+*  LOG_driver - exercises CLOG(X), LOG(X,B) and LOG(X).  Contract per LOG.sno
+*  header: CLOG(X) returns the common log (base 10) of X; LOG(X,B) returns the
+*  logarithm of X to the base B; LOG(X) returns the natural logarithm of X.
+*
+*  The reals are written 100.0 rather than 100. on purpose: the trailing-dot
+*  real literal is a SEPARATE, already-witnessed SCRIP parse defect
+*  (probe/gimpel/gim_real_literal_parse), and spelling it that way here would
+*  mask this driver's own verdict behind it.
+-INCLUDE "LOG.sno"
+        OUTPUT  =  CLOG(100.0)
+        OUTPUT  =  CLOG(1000.0)
+        OUTPUT  =  LOG(8.0,2.0)
+        OUTPUT  =  LOG(81.0,3.0)
+        OUTPUT  =  LOG(1.0)
+        OUTPUT  =  LOG(NAT_BASE)
+END

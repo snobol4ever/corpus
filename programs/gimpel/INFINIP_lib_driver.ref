@@ -1,0 +1,4 @@
+split tail size = 4
+X1 = 1234 X2 = 5678
+8 digits: SMALL failed as specified
+2 digits: SMALL succeeded as specified

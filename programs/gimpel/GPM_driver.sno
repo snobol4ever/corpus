@@ -1,0 +1,25 @@
+*  GPM_driver - exercises GPM(S) and PROC(TYPE), the two functions
+*  DRIVER-MANIFEST.tsv names for GPM.sno.  GPM.sno carries no header comment,
+*  so the contract is the module's own construction: GPM is Strachey's
+*  General Purpose Macrogenerator over this notation --
+*    <...>            quotes a balanced text, which is passed through unexpanded
+*    #NAME,A1,A2,...; calls the macro NAME with those arguments
+*    #DEF,<NAME>,<BODY>;  defines NAME
+*    &0 &1 &2 ...     inside a body, the macro's own name and its arguments
+*  PROC is the per-port worker GPM's own pattern defers to (PNAME/PARG/PMEND),
+*  so every call below drives it; it is not independently callable.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol rejects the module at BAL.sno(11) with
+*  ERROR 042 -- attempt to change value of protected variable, because BAL is a
+*  Spitbol built-in pattern, under -b and -bf alike.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Same routing as ASM_driver and TUPLE_driver.
+-INCLUDE "GPM.sno"
+        OUTPUT  =  '[' GPM('plain text, no macros') ']'
+        OUTPUT  =  '[' GPM('#DEF,<GREET>,<hello &1>;#GREET,<world>;') ']'
+        OUTPUT  =  '[' GPM('#DEF,<SQ>,<(&1 times &1)>;#SQ,<3>; and #SQ,<xy>;') ']'
+        OUTPUT  =  '[' GPM('#DEF,<NAMED>,<I am &0 with &1>;#NAMED,<an arg>;') ']'
+        OUTPUT  =  '[' GPM('a <#literal,not,expanded;> b') ']'
+        OUTPUT  =  '[' GPM('#DEF,<OUTER>,<[&1]>;#DEF,<INNER>,<in>;#OUTER,<#INNER;>;') ']'
+END
