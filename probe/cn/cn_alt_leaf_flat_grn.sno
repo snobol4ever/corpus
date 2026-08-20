@@ -1,0 +1,14 @@
+*  CN-15 / s170 -- THE GREEN SIBLING OF cn_alt_leaf_flat_red: IDENTICAL match statement, FIVE
+*  padding assignments instead of twenty.  The ALT-arm leaf still addresses a raw flat ZLS
+*  coordinate, but at +224 instead of +464 it still lands inside the live frame, so the program
+*  is green on the DEFAULT arm in both media.  The pair proves the defect is the COORDINATE'S
+*  MAGNITUDE, never the pattern shape -- and that a green here is luck, not correctness.
+	V1 = "pad1"
+	V2 = "pad2"
+	V3 = "pad3"
+	V4 = "pad4"
+	V5 = "pad5"
+	"ab" POS(0) (SPAN("ab") | SPAN("09")) RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
