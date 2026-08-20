@@ -1,0 +1,25 @@
+*  BRKREM_driver - exercises BRKREM(S): return a pattern that behaves like
+*  BREAK(S) where BREAK(S) would succeed, and matches the REMAINDER of the
+*  subject where it would not.  Contract per BRKREM.sno header.  Cases: a
+*  subject containing a break character, one that does not (the whole
+*  remainder), a break at position 0 (BREAK succeeds on the null string),
+*  a null argument, and a mid-subject start so REM is not the whole string.
+-INCLUDE "BRKREM.sno"
+        P  =  BRKREM(',')
+        'abc,def'  P . W				:F(F1)
+        OUTPUT  =  '[' W ']'				:(N2)
+F1      OUTPUT  =  'break-present case did not match'
+N2      'abcdef'  P . W					:F(F2)
+        OUTPUT  =  '[' W ']'				:(N3)
+F2      OUTPUT  =  'no-break case did not match'
+N3      ',abc'  P . W					:F(F3)
+        OUTPUT  =  '[' W ']'				:(N4)
+F3      OUTPUT  =  'break-at-zero case did not match'
+N4      'abcdef'  LEN(2) BRKREM(',') . W		:F(F4)
+        OUTPUT  =  '[' W ']'				:(N5)
+F4      OUTPUT  =  'mid-subject case did not match'
+N5      'abcdef'  BRKREM() . W				:F(F5)
+        OUTPUT  =  '[' W ']'				:(N6)
+F5      OUTPUT  =  'null-argument case did not match'
+N6
+END

@@ -1,0 +1,36 @@
+*  TSORT_driver - exercises TSORT(A,F,P): tournament sort of array or table
+*  A by predicate P (default LGT), returning a NEW array and leaving A
+*  unmodified.  Contract per TSORT.sno header.  Cases follow the three
+*  shapes the contract names: a singly-dimensioned array with F null; the
+*  same with P given explicitly; a table; and a doubly-dimensioned array
+*  with F the column to sort on.  The last case re-prints the input array
+*  to check the contract's promise that A is not modified.
+-INCLUDE "TSORT.sno"
+        A  =  ARRAY(4)
+        A<1>  =  'pear'
+        A<2>  =  'apple'
+        A<3>  =  'mango'
+        A<4>  =  'fig'
+        B  =  TSORT(A)
+        OUTPUT  =  B<1> ' ' B<2> ' ' B<3> ' ' B<4>
+        C  =  TSORT(A, , 'LGT')
+        OUTPUT  =  C<1> ' ' C<2> ' ' C<3> ' ' C<4>
+        OUTPUT  =  A<1> ' ' A<2> ' ' A<3> ' ' A<4>
+        T  =  TABLE()
+        T<'one'>  =  1
+        T<'two'>  =  2
+        T<'three'>  =  3
+        D  =  TSORT(T)
+        OUTPUT  =  D<1,1> ' ' D<2,1> ' ' D<3,1>
+        E  =  ARRAY('3,2')
+        E<1,1>  =  'gamma'
+        E<1,2>  =  'c'
+        E<2,1>  =  'alpha'
+        E<2,2>  =  'a'
+        E<3,1>  =  'beta'
+        E<3,2>  =  'b'
+        F  =  TSORT(E, 1)
+        OUTPUT  =  F<1,1> ' ' F<2,1> ' ' F<3,1>
+        G  =  TSORT(E, 2)
+        OUTPUT  =  G<1,2> ' ' G<2,2> ' ' G<3,2>
+END

@@ -1,0 +1,40 @@
+*  seq_code_loop_in_function - distilled from gimpel SEQ_driver (batch C);
+*  the same crash takes AI_driver and AOPA_driver, which both go through SEQ.
+*  A DEFINE'd function that (a) reaches its loop variable INDIRECTLY through
+*  a name argument, (b) drives a CODE()-compiled statement with an indirect
+*  goto :<ARG_S>, and (c) returns after that loop finally fails, runs the
+*  loop body correctly -- a, b, c below -- and then SEGFAULTS on the way out.
+*  Oracle (sbl -b) prints a, b, c, then "K = 4".  SCRIP prints a, b, c and
+*  dies with SIGSEGV in BOTH m3 and m4.
+*  BOTH INGREDIENTS ARE NEEDED, and each half is correct on its own:
+*    - the CODE loop with :<C> at top level, exiting on failure, is right
+*      (see the L1/L2 loop below, which prints "exited with K = 4");
+*    - a function that writes and reads its caller's variable through
+*      $ARG_NAME and then FRETURNs is right (see F1 below).
+*  Only the two together crash, so this is not "CODE is unimplemented" --
+*  CODE, :<VAR> and indirect name arguments each work.
+        DEFINE('S1(ARG_S,ARG_NAME)')            :(S1_END)
+S1      $ARG_NAME  =  0
+        ARG_S  =  CODE(ARG_S ' :S(S1_1)F(S1_2)')        :F(ERROR)
+S1_1    $ARG_NAME  =  $ARG_NAME + 1             :<ARG_S>
+S1_2    EQ($ARG_NAME,1)                         :S(FRETURN)F(RETURN)
+S1_END
+        DEFINE('F1(ARG_NAME)')                  :(F1_END)
+F1      $ARG_NAME  =  0
+        $ARG_NAME  =  $ARG_NAME + 1
+        EQ($ARG_NAME,1)                         :S(FRETURN)F(RETURN)
+F1_END
+        A  =  ARRAY(3)
+        A<1>  =  'a'
+        A<2>  =  'b'
+        A<3>  =  'c'
+        C  =  CODE(' OUTPUT = A<J> :S(L1)F(L2)')
+        J  =  0
+L1      J  =  J + 1                             :<C>
+L2      OUTPUT  =  'sibling CODE loop exited with J = ' J
+        F1(.M)                                  :F(SIB2)
+        OUTPUT  =  'sibling function returned, M = ' M    :(WITNESS)
+SIB2    OUTPUT  =  'sibling function freturned, M = ' M
+WITNESS S1(' OUTPUT = A<K> ', .K)
+        OUTPUT  =  'witness returned, K = ' K
+END

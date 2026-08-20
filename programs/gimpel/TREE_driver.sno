@@ -1,0 +1,30 @@
+*  TREE_driver - exercises TREE(P,N): a pattern matching a tree written in
+*  Polish prefix form, whose node value matches the pattern P and which has
+*  N branches; N = 0 implies an arbitrary number of branches up to some
+*  maximum.  The tree is assumed to be a non-leaf.  Contract per TREE.sno.
+*  Cases: a two-branch tree, a three-branch tree, a nested tree, N = 0 over
+*  the same subjects, and a subject that should not match the branch count.
+-INCLUDE "TREE.sno"
+        S1  =  'PLUS:2,A,B,'
+        S2  =  'SUM:3,A,B,C,'
+        S3  =  'PLUS:2,TIMES:2,A,B,C,'
+        S1  POS(0) TREE(BREAK(':'),2) RPOS(0)	:F(T1F)
+        OUTPUT  =  'S1 matches 2 branches'	:(T2)
+T1F     OUTPUT  =  'S1 does not match 2 branches'
+T2      S2  POS(0) TREE(BREAK(':'),3) RPOS(0)	:F(T2F)
+        OUTPUT  =  'S2 matches 3 branches'	:(T3)
+T2F     OUTPUT  =  'S2 does not match 3 branches'
+T3      S3  POS(0) TREE(BREAK(':'),2) RPOS(0)	:F(T3F)
+        OUTPUT  =  'S3 matches 2 branches'	:(T4)
+T3F     OUTPUT  =  'S3 does not match 2 branches'
+T4      S1  POS(0) TREE(BREAK(':'),3) RPOS(0)	:F(T4F)
+        OUTPUT  =  'S1 matches 3 branches'	:(T5)
+T4F     OUTPUT  =  'S1 does not match 3 branches'
+T5      S2  POS(0) TREE(BREAK(':'),0) RPOS(0)	:F(T5F)
+        OUTPUT  =  'S2 matches an arbitrary count'	:(T6)
+T5F     OUTPUT  =  'S2 does not match an arbitrary count'
+T6      S1  POS(0) TREE('PLUS',2) . W RPOS(0)	:F(T6F)
+        OUTPUT  =  'node-pattern PLUS captured [' W ']'	:(TDONE)
+T6F     OUTPUT  =  'node-pattern PLUS did not match'
+TDONE
+END

@@ -1,0 +1,4 @@
+datatype = PATTERN
+holding assertion, then consume: W = [AAA]
+non-holding assertion: match proceeded
+name argument: matched

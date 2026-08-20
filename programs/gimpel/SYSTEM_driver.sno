@@ -1,0 +1,7 @@
+*  SYSTEM_driver - exercises SYSTEM(): which of the various SNOBOL4
+*  processors it is running under.  Contract per SYSTEM.sno header.
+*  SCRIP follows Spitbol semantics, so it is expected to answer as the
+*  Spitbol oracle answers; any other reply is a divergence, not a variant.
+-INCLUDE "SYSTEM.sno"
+        OUTPUT  =  SYSTEM()
+END

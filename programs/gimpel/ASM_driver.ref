@@ -1,0 +1,18 @@
+               21 1 0 000D      START LOAD 1,ONE  
+               31 1 0 000E            ADD 1,TWO  
+               22 1 0 000F            STORE 1,SUM  
+               32 1 0 0010            SUB 1,LIMIT  
+               A1 1 0 0006            BRGT 1,DONE  
+UA             A0 0 0 0000            BR START  
+               2F 2 0 000F      DONE  LOADN 2,SUM  
+               21 1 0 00FF            LOAD 1,255  
+LR             21 0 0 000D            LOAD 99,ONE  
+               21 1 2 0011            LOAD 1,TAB(2)  
+UA             31 1 0 0000            ADD 1,MISSING  
+               33 1 9 000D            MUL 1,ONE(9)  
+UA             A0 0 0 0000            BR START  
+               74 0 0 0000      ONE   FDIV 0,0  
+               72 0 0 0000      TWO   FSUB 0,0  
+               71 0 0 0000      SUM   FADD 0,0  
+               73 0 0 0000      LIMIT FMUL 0,0  
+               2A 0 0 0000      TAB   LOADA 0,0  

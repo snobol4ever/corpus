@@ -1,0 +1,23 @@
+*  ARC_driver - exercises ACOS(X), the arc cosine, and the ASIN and ATAN
+*  that ARC.sno derives from it.  Contract per ARC.sno header, which notes
+*  that on a system with a hardware arctangent one would use that instead.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl: ARC.sno includes SQRT.sno, whose DEFINE draws Spitbol
+*  ERROR 248 -- attempted redefinition of system function -- so no sbl run
+*  of this module is possible.  See SQRT_driver.sno for the same note.
+*
+*  Cases: the two ends of the arc cosine domain and the midpoint, a value
+*  either side of it, and the derived ASIN and ATAN at values whose answers
+*  the contract fixes (ASIN(0) = 0, ATAN(1) = a quarter of PI.).
+-INCLUDE "ARC.sno"
+        OUTPUT  =  ACOS(1.0)
+        OUTPUT  =  ACOS(0.5)
+        OUTPUT  =  ACOS(0.0)
+        OUTPUT  =  ACOS(-0.5)
+        OUTPUT  =  ACOS(-1.0)
+        OUTPUT  =  ASIN(0.0)
+        OUTPUT  =  ASIN(1.0)
+        OUTPUT  =  ATAN(1.0)
+        OUTPUT  =  ATAN(0.0)
+END

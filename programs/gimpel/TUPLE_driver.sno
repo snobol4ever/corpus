@@ -1,0 +1,34 @@
+*  TUPLE_driver - exercises TUPLE(OP,ARG1,ARG2,ARG3) and the register-file
+*  helpers LOAD, STORE, ADDR, INDEX, REG, FREE, ISREG, ASSOC and DEASSOC.
+*
+*  NOTE ON THE CONTRACT.  TUPLE.sno is the ONLY module in this batch that
+*  ships with NO header comment, so it has no stated contract to write cases
+*  from.  What is documented lives one file over: ASM.sno's header names the
+*  machine M of chapter 18 of "Algorithms in SNOBOL4" and its LIST gives the
+*  opcode set -- LOAD STORE ADD FADD SUB FSUB MUL FMUL DIV FDIV LOADA LOADN
+*  BR BRGT BRLT BREQ BRNE BRGE BRLE.  TUPLE emits code for that same machine,
+*  so the cases below are one tuple per documented opcode family, driven
+*  through the published signature only.  They are NOT read off TUPLE.sno's
+*  implementation, and the register bookkeeping is exercised only as those
+*  tuples happen to drive it.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol REJECTS the module outright -- TUPLE.sno(31) :
+*  ERROR 248 -- attempted redefinition of system function, raised on
+*  DEFINE('LOAD(LOC)') because LOAD is a Spitbol built-in -- so no sbl run
+*  can produce anything but an error dump carrying execution time and
+*  memory figures.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and
+*  takes the module as written.
+-INCLUDE "TUPLE.sno"
+        TUPLE('LBL', 'START')
+        TUPLE('ASGN', 'A', , 'B')
+        TUPLE('ADD', 'A', 'B', 'C')
+        TUPLE('SUB', 'C', 'A', 'D')
+        TUPLE('MUL', 'C', 'D', 'E')
+        TUPLE('DIV', 'E', 'B', 'F')
+        TUPLE('FADD', 'A', 'B', 'G')
+        TUPLE('MNS', 'G', , 'H')
+        TUPLE('BRGT', 'H', 'A', 'START')
+        TUPLE('BREQ', 'H', '10', 'START')
+        TUPLE('BR', , , 'START')
+END

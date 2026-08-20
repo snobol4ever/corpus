@@ -1,0 +1,11 @@
+[  X  O   ]
+[       OX]
+[   O  X  ]
+[     O  X]
+[      XO ]
+[X  O     ]
+[ OX      ]
+[XO       ]
+TTTV OXX XOO X   = 0
+TTTM OXX XOO X   = [OXXXOO XX]
+TTTM XO  OX      = [XOXOX    ]

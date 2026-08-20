@@ -1,0 +1,26 @@
+*  AI_driver - exercises AI(A,I), Apply Index: with A and I both arrays, I
+*  is a set of indices applied to A and the result is a NEW array of the
+*  selected elements; if I is a scalar the result is A<I>.  Contract per
+*  AI.sno header.  Cases: an index array that reorders and repeats, an
+*  index array shorter than A, and the scalar form.
+-INCLUDE "AI.sno"
+        A  =  ARRAY(5)
+        A<1>  =  'alpha'
+        A<2>  =  'beta'
+        A<3>  =  'gamma'
+        A<4>  =  'delta'
+        A<5>  =  'epsilon'
+        I  =  ARRAY(4)
+        I<1>  =  5
+        I<2>  =  1
+        I<3>  =  3
+        I<4>  =  1
+        R  =  AI(A, I)
+        OUTPUT  =  R<1> ' ' R<2> ' ' R<3> ' ' R<4>
+        J  =  ARRAY(2)
+        J<1>  =  2
+        J<2>  =  4
+        Q  =  AI(A, J)
+        OUTPUT  =  Q<1> ' ' Q<2>
+        OUTPUT  =  AI(A, 3)
+END

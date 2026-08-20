@@ -1,0 +1,20 @@
+*  BNORM_driver - exercises BNORM(S): the blank-normalization of S, with
+*  blanks prepended when S is not balanced on the left.  Contract per
+*  BNORM.sno header.  The strings BNORM works over carry backspaces --
+*  CHAR(8) -- so each case is built explicitly and each result is printed
+*  with the backspaces made visible as <, the string being otherwise
+*  unreadable in a diff.  Cases: a string with no backspace at all (the
+*  contract's identity case), an overstrike, a left-unbalanced string that
+*  must gain blanks, and the underscore-split form the contract implies.
+-INCLUDE "BNORM.sno"
+        B  =  CHAR(8)
+        DEFINE('SHOW(S)')			:(SHOW_END)
+SHOW    SHOW  =  REPLACE(S, CHAR(8), '<')	:(RETURN)
+SHOW_END
+        OUTPUT  =  '[' SHOW(BNORM('PLAIN')) ']'
+        OUTPUT  =  '[' SHOW(BNORM('AB' B 'C')) ']'
+        OUTPUT  =  '[' SHOW(BNORM('A' B B 'BC')) ']'
+        OUTPUT  =  '[' SHOW(BNORM(B B 'XY')) ']'
+        OUTPUT  =  '[' SHOW(BNORM('AB' B 'C_DE' B 'F')) ']'
+        OUTPUT  =  '[' SHOW(BNORM('')) ']'
+END

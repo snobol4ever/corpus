@@ -1,0 +1,17 @@
+*  SEQ_driver - exercises SEQ(ARG_S,ARG_NAME): run a set of statements,
+*  indexed by the variable named ARG_NAME, until failure is detected.
+*  Contract per SEQ.sno header, whose sample usage is SEQ(" A<K> = INPUT ",.K)
+*  -- so the canonical use is indexing the entries of an array.  Cases: a
+*  sequence that succeeds several times, and one that fails immediately.
+-INCLUDE "SEQ.sno"
+        A  =  ARRAY(3)
+        A<1>  =  'alpha'
+        A<2>  =  'beta'
+        A<3>  =  'gamma'
+        SEQ(' OUTPUT = A<K> ', .K)		:F(SEQ_FAILED)
+        OUTPUT  =  'returned; K = ' K
+SEQ_FAILED
+        B  =  ARRAY(2)
+        SEQ(' OUTPUT = B<J> ', .J)
+        OUTPUT  =  'J = ' J
+END

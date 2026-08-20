@@ -1,0 +1,17 @@
+*  TICTACTO_driver - exercises the three functions TICTACTO.sno documents:
+*  NEXTBD(B) cycles through the boards equivalent to a given board, B being
+*  the last board returned and NEXT_N initialised to 0; TTTV(B) values board
+*  B to player X with X to move and no win already standing; TTTM(B) finds
+*  X's best move and returns the new game state.  Contract per the header.
+*  Boards are nine cells read as three rows.  The TTTM/TTTV cases use nearly
+*  full boards so the search the contract implies stays small and bounded.
+-INCLUDE "TICTACTO.sno"
+        NEXT_N  =  0
+        B  =  'XO       '
+NB      B  =  NEXTBD(B)				:F(NB_END)
+        OUTPUT  =  '[' B ']'			:(NB)
+NB_END
+        OUTPUT  =  'TTTV OXX XOO X   = ' TTTV('OXXXOO X ')
+        OUTPUT  =  'TTTM OXX XOO X   = [' TTTM('OXXXOO X ') ']'
+        OUTPUT  =  'TTTM XO  OX      = [' TTTM('XO OX    ') ']'
+END

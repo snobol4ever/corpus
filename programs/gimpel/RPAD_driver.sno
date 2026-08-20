@@ -1,0 +1,12 @@
+*  RPAD_driver - exercises RPAD(S,N,C): pad S on the right with C until S is
+*  N characters long; return S unchanged when it is already >= N; C defaults
+*  to a blank.  Contract per RPAD.sno header -- which BYPASSES its own
+*  definition because RPAD is a Spitbol built-in, so this drives the built-in.
+*  Brackets make the default-blank padding visible.
+-INCLUDE "RPAD.sno"
+        OUTPUT  =  '[' RPAD('AB', 5, '.') ']'
+        OUTPUT  =  '[' RPAD('AB', 5) ']'
+        OUTPUT  =  '[' RPAD('ABCDEF', 3, '.') ']'
+        OUTPUT  =  '[' RPAD('ABC', 3, '.') ']'
+        OUTPUT  =  '[' RPAD('', 4, 'X') ']'
+END

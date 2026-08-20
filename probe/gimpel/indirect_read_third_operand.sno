@@ -1,0 +1,35 @@
+*  indirect_read_third_operand - distilled from gimpel TEMP_driver (batch C).
+*  An indirect read $N whose cell was created ONLY by a preceding indirect
+*  store reads as NULL when N is ALSO the first operand of the SAME three-
+*  operand concatenation.  Line 1 must read V1=stored (sbl oracle); SCRIP
+*  prints V1= in BOTH m3 and m4, and under SCRIP_OPT=0 and RTSEQ_RESUME=0.
+*  THREE ingredients, all required -- lines 2..7 remove one each and pass:
+*    (a) the name in N is built at RUN TIME, so no compile-time cell exists
+*        (with N = 'V1' written literally the same shape is correct);
+*    (b) the exact shape  N <literal> $N , with $N the LAST of three -- a
+*        literal prefix, a fourth operand, or $N not last all restore it;
+*    (c) the name must appear NOWHERE literally in the program text, and
+*        NOTHING may read N before the witness.  ORDER IS LOAD-BEARING:
+*        the M = N below sits AFTER the witness because moving it ABOVE
+*        the store masks the defect, as does one literal mention of V1.
+*  CASCADE: with the witness executed FIRST, lines 2..6 -- every one of
+*  which is correct in isolation -- ALSO read null, so the damage is not
+*  confined to the offending statement.  Line 7 recovers only because a
+*  fresh store through a COMPILE-TIME-VISIBLE name rebinds the cell.
+        DEFINE('TEMP()')                        :(TEMP_END)
+TEMP    K  =  1
+        TEMP  =  'V'  K                         :(RETURN)
+TEMP_END
+        N  =  TEMP()
+        $N  =  'stored'
+        OUTPUT  =  N '=' $N
+        OUTPUT  =  $N
+        OUTPUT  =  N $N
+        OUTPUT  =  N 'x' 'y' $N
+        OUTPUT  =  N 'x' $N 'y'
+        M  =  N
+        OUTPUT  =  M 'x' $N
+        L  =  'V1'
+        $L  =  'again'
+        OUTPUT  =  L '=' $L
+END

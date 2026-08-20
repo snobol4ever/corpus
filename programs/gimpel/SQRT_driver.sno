@@ -1,0 +1,21 @@
+*  SQRT_driver - exercises SQRT(Y): the square root of Y.  Contract per
+*  SQRT.sno header, which notes the system supplies real exponentiation.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  Spitbol REJECTS the module outright -- SQRT.sno(8) : ERROR
+*  248 -- attempted redefinition of system function -- so no sbl run of the
+*  included form can produce anything but an error dump carrying execution
+*  time and memory figures, which is neither the contract nor deterministic.
+*  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and takes the module as
+*  written.  Cases are exact squares plus the 0 and 1 ends of the range:
+*  irrational roots are deliberately absent so this driver tests the
+*  function and not real PRINT precision, which diverges separately and is
+*  pinned by corpus/probe/gimpel/real_literal_trailing_dot.sno.
+-INCLUDE "SQRT.sno"
+        OUTPUT  =  SQRT(4.)
+        OUTPUT  =  SQRT(9.)
+        OUTPUT  =  SQRT(1.)
+        OUTPUT  =  SQRT(0.)
+        OUTPUT  =  SQRT(10000.)
+        OUTPUT  =  SQRT(0.25)
+END

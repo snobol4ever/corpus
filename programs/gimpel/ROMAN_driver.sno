@@ -1,0 +1,15 @@
+*  ROMAN_driver - exercises ROMAN(N): roman numeral of the integer N.
+*  Contract per ROMAN.sno header: 0 < N < 4000.  Cases sample the domain --
+*  units, the subtractive forms, each decade/century boundary, and both ends.
+-INCLUDE "ROMAN.sno"
+        OUTPUT  =  ROMAN(1)
+        OUTPUT  =  ROMAN(4)
+        OUTPUT  =  ROMAN(9)
+        OUTPUT  =  ROMAN(14)
+        OUTPUT  =  ROMAN(40)
+        OUTPUT  =  ROMAN(90)
+        OUTPUT  =  ROMAN(400)
+        OUTPUT  =  ROMAN(1990)
+        OUTPUT  =  ROMAN(2026)
+        OUTPUT  =  ROMAN(3999)
+END

@@ -1,0 +1,17 @@
+*  real_literal_trailing_dot - distilled from gimpel SQRT/ARC (batch C).
+*  TWO defects, both in this one file.
+*  (1) A real literal written with a TRAILING DOT and no fraction digits --
+*      1.  4.  0.  -- is legal Spitbol and is what SQRT.sno and ARC.sno are
+*      written in, but SCRIP raises "parse error: syntax error" on it, so
+*      those two modules do not compile at all.  1.0 parses; 1. does not.
+*      Lines 1-4 below are the witness; each is a plain arithmetic use.
+*  (2) Reals PRINT with a different precision: for 2 ** 0.5 the oracle emits
+*      1.4142135623731 (14 significant digits, Spitbol's &FMT) and SCRIP
+*      emits the full 1.4142135623730951.  Line 5 is that witness, and it
+*      is independent of (1) -- it needs no trailing-dot literal.
+        OUTPUT  =  1.
+        OUTPUT  =  4. ** 0.5
+        OUTPUT  =  1. / 2.
+        OUTPUT  =  1. + 1
+        OUTPUT  =  2 ** 0.5
+END

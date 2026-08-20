@@ -1,0 +1,16 @@
+*  SSORT_driver - exercises SSORT(SS,S): insert S into the comma-separated
+*  string of strings SS and return the augmented list.  Contract per
+*  SSORT.sno header.  Cases build a list from empty in a deliberately
+*  unsorted order, then add a duplicate and a new low and high element.
+-INCLUDE "SSORT.sno"
+        L  =  SSORT(L, 'PEAR')
+        OUTPUT  =  L
+        L  =  SSORT(L, 'APPLE')
+        OUTPUT  =  L
+        L  =  SSORT(L, 'MANGO')
+        OUTPUT  =  L
+        L  =  SSORT(L, 'ZUCCHINI')
+        OUTPUT  =  L
+        L  =  SSORT(L, 'MANGO')
+        OUTPUT  =  L
+END

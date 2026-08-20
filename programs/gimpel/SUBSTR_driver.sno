@@ -1,0 +1,13 @@
+*  SUBSTR_driver - exercises SUBSTR(S,I,L): the L characters of S starting at
+*  position I.  Contract per SUBSTR.sno header -- which BYPASSES its own
+*  definition because SUBSTR is a Spitbol built-in, so this drives the
+*  built-in.  Cases: front, middle, tail, whole, and a request past the end.
+-INCLUDE "SUBSTR.sno"
+        OUTPUT  =  SUBSTR('ABCDEF', 1, 3)
+        OUTPUT  =  SUBSTR('ABCDEF', 2, 3)
+        OUTPUT  =  SUBSTR('ABCDEF', 4, 3)
+        OUTPUT  =  SUBSTR('ABCDEF', 1, 6)
+        OUTPUT  =  '[' SUBSTR('ABC', 2, 5) ']'	:S(DONE)
+        OUTPUT  =  'past the end: fails'
+DONE
+END

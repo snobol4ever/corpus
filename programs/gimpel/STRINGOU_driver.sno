@@ -1,0 +1,19 @@
+*  STRINGOU_driver - exercises STRINGOUT(A,SEP): convert array A to a string
+*  with SEP inserted between elements.  Contract per STRINGOUT.sno header.
+*  Cases: a multi-element array, a one-element array (no separator appears),
+*  a null separator, and an array whose elements were never set.
+-INCLUDE "STRINGOU.sno"
+        A  =  ARRAY(4)
+        A<1>  =  'alpha'
+        A<2>  =  'beta'
+        A<3>  =  'gamma'
+        A<4>  =  'delta'
+        OUTPUT  =  STRINGOUT(A, '-')
+        OUTPUT  =  STRINGOUT(A, ', ')
+        OUTPUT  =  STRINGOUT(A)
+        B  =  ARRAY(1)
+        B<1>  =  'only'
+        OUTPUT  =  STRINGOUT(B, '-')
+        C  =  ARRAY(3)
+        OUTPUT  =  '[' STRINGOUT(C, '|') ']'
+END

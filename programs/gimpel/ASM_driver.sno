@@ -1,0 +1,24 @@
+*  ASM_driver - drives ASM.sno, the assembler for machine M of chapter 18 of
+*  "Algorithms in SNOBOL4", and with it the CVTSYM(SYM,TABLE,LENGTH,TYPE)
+*  the manifest names for this module.  Contract per ASM.sno header: input
+*  is blank- (not tab-) delimited and upper case, the listing goes to
+*  OUTPUT, the "binary" is assigned to PUNCH, and ASMTEMP is a work file.
+*
+*  ASM.sno carries its own END, so a driver can only be the include plus
+*  its data; the cases therefore live in ASM_driver.input, which the
+*  scorecard feeds on stdin by the <base>.input convention.  That data
+*  exercises CVTSYM down each of its documented paths: opcodes resolved
+*  from the OPS table, register and address symbols resolved from SYMS, an
+*  integer address taken as a literal, an indexed operand, a symbol that is
+*  never defined (the U cause), and an address too long for its field (the
+*  L cause), alongside plain undecorated instructions.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b), not from
+*  x64/bin/sbl.  ASM.sno opens its work file with OUTPUT(.DISK,10,,'ASMTEMP')
+*  -- a four-argument form Spitbol does not accept -- and sbl stops with
+*  ERROR 160, inappropriate file specification for output, before assembling
+*  anything.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and runs it.
+*
+*  SIDE EFFECT, per the module's own header: running this writes ASMTEMP
+*  into the working directory.
+-INCLUDE "ASM.sno"

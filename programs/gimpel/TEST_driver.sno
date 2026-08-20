@@ -1,0 +1,25 @@
+*  TEST_driver - exercises TEST(ARG): accept an unevaluated expression and
+*  return a pattern that bypasses SNOBOL4's one-character length assumption
+*  (the quickscan heuristics).  Contract per TEST.sno header, which also
+*  records that TEST is never NECESSARY under Spitbol -- so what is being
+*  driven here is that it is still HARMLESS and well-formed there.
+*  Cases: the returned value's datatype; the pattern used ahead of a
+*  consuming pattern; the same with an inner expression that does not hold;
+*  and the non-expression (name) argument form the second branch accepts.
+*  The wording below states what happened, not what ought to: both oracles
+*  agree, and the .ref is what they agree on.
+-INCLUDE "TEST.sno"
+        S  =  'AAAB'
+        OUTPUT  =  'datatype = ' DATATYPE(TEST(*LEN(3)))
+        S  POS(0) TEST(*(SPAN('A') 'B')) SPAN('A') . W 'B'	:F(F1)
+        OUTPUT  =  'holding assertion, then consume: W = [' W ']'	:(N2)
+F1      OUTPUT  =  'holding assertion, then consume: no match'
+N2      S  POS(0) TEST(*(SPAN('Z') 'Q')) SPAN('A') 'B'		:F(F2)
+        OUTPUT  =  'non-holding assertion: match proceeded'	:(N3)
+F2      OUTPUT  =  'non-holding assertion: match blocked'
+N3      P  =  'AB'
+        S  POS(0) LEN(2) TEST(.P)				:F(F3)
+        OUTPUT  =  'name argument: matched'			:(N4)
+F3      OUTPUT  =  'name argument: no match'
+N4
+END

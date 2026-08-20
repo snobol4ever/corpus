@@ -1,0 +1,22 @@
+*  AOPA_driver - exercises AOPA(A1,OP,A2): apply the infix operator OP to
+*  corresponding pairs of A1 and A2, returning an array unless both are
+*  scalars.  Contract per AOPA.sno header.  Cases cover all three shapes the
+*  contract distinguishes: array with array, array with scalar, scalar with
+*  array, and scalar with scalar (the one case that is not an array).
+-INCLUDE "AOPA.sno"
+        X  =  ARRAY(3)
+        X<1>  =  1
+        X<2>  =  2
+        X<3>  =  3
+        Y  =  ARRAY(3)
+        Y<1>  =  10
+        Y<2>  =  20
+        Y<3>  =  30
+        Z  =  AOPA(X, '+', Y)
+        OUTPUT  =  Z<1> ' ' Z<2> ' ' Z<3>
+        W  =  AOPA(X, '*', 2)
+        OUTPUT  =  W<1> ' ' W<2> ' ' W<3>
+        V  =  AOPA(100, '-', X)
+        OUTPUT  =  V<1> ' ' V<2> ' ' V<3>
+        OUTPUT  =  AOPA(6, '*', 7)
+END

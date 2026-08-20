@@ -1,0 +1,6 @@
+S1 matches 2 branches
+S2 matches 3 branches
+S3 matches 2 branches
+S1 does not match 3 branches
+S2 matches an arbitrary count
+node-pattern PLUS captured [PLUS:2,A,B,]

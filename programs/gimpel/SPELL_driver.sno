@@ -1,0 +1,20 @@
+*  SPELL_driver - exercises SPELL(N): the English phrase designating the
+*  integer N.  Contract per SPELL.sno header (SPELL(13) is "THIRTEEN").
+*  Cases sample each magnitude the contract implies: units, the teens, the
+*  tens and their compounds, hundreds, thousands, and a millions-scale value.
+-INCLUDE "SPELL.sno"
+        OUTPUT  =  SPELL(1)
+        OUTPUT  =  SPELL(9)
+        OUTPUT  =  SPELL(12)
+        OUTPUT  =  SPELL(13)
+        OUTPUT  =  SPELL(15)
+        OUTPUT  =  SPELL(20)
+        OUTPUT  =  SPELL(21)
+        OUTPUT  =  SPELL(40)
+        OUTPUT  =  SPELL(99)
+        OUTPUT  =  SPELL(100)
+        OUTPUT  =  SPELL(101)
+        OUTPUT  =  SPELL(999)
+        OUTPUT  =  SPELL(1000)
+        OUTPUT  =  SPELL(2026)
+END
