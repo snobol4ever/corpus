@@ -7613,7 +7613,7 @@ n662_match_begin_α:     mov              rdi, qword ptr [rsp + 48]            #
                         push             r13                                  # outer_Σ
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
-                        sub              rsp, 24
+                        sub              rsp, 40
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7632,7 +7632,7 @@ n662_match_begin_α:     mov              rdi, qword ptr [rsp + 48]            #
                         lea              rax, [rip + .Lx2013_13]
                         mov              qword ptr [rcx + 248], rax;          jmp   n663_match_assign_save_α
 n662_match_begin_β:
-.Lx2013_13:             lea              rsp, [rbp + -56]                     # retry_whack
+.Lx2013_13:             lea              rsp, [rbp + -72]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx2013_1
@@ -7863,8 +7863,8 @@ n674_match_lit_β:                                                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n675_match_break_α:     sub              rsp, 16
                         mov              edi, r14d
-                        mov              rsi, qword ptr [rsp + 136]           # coerce_string
-                        mov              edx, dword ptr [rsp + 132]
+                        mov              rsi, qword ptr [rsp + 152]           # coerce_string
+                        mov              edx, dword ptr [rsp + 148]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7875,9 +7875,9 @@ n675_match_break_α:     sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              eax, r15d;                           jl    .Lx2036_240
                         add              rsp, 16;                             jmp   n664_match_alternate_af
-.Lx2036_240:            mov              dword ptr [rsp + 3904], r14d
+.Lx2036_240:            mov              dword ptr [rbp + -80], r14d
                         mov              r14d, eax;                           jmp   n664_match_alternate_s0
-n675_match_break_β:     mov              r14d, dword ptr [rsp + 3904]
+n675_match_break_β:     mov              r14d, dword ptr [rbp + -80]
                         add              rsp, 16;                             jmp   n664_match_alternate_af
 #=======================================================================================================================
 #                 r               =   r seg
