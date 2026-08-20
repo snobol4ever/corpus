@@ -1,0 +1,148 @@
+# GIMPEL DRIVER MANIFEST (s183) -- one row per module. batch = the queue row that owns it.
+# self-contained modules FIRST (no -INCLUDE), then include-bearing. See gimpel-drivers-* queue rows.
+batch	module	n_include	n_define	functions	has_END	includes	contract_line
+A	AGT	0	1	AGT	0	-	AGT - Alphabetic comparison with upper and lower case letters
+A	ASM360	0	0	-	0	-	ASM360 - Parse IBM 360 assembly-language statement.
+A	BAL	0	1	BAL	0	-	
+A	BALREV	0	1	BALREV	0	-	BALREV - BALREV(S) returns the balanced reversal of the
+A	BASE10	0	1	BASE10	0	-	BASE10 - BASE10(N,B) will convert the string N assumed
+A	BASEB	0	1	BASEB	0	-	BASEB(N,B) will convert the integer N to its base B representation.
+A	BCD_EBCD	0	0	-	0	-	BCD_EBCD - one-line program to convert BCD input to EBCDIC.
+A	BLEND	0	1	BLEND	0	-	BLEND - BLEND(S1,S2) will blend the two (equi-length) strings
+A	BREAKX	0	1	BREAKX	0	-	BREAKX.inc - BREAKX(S) will return a pattern that will
+A	BSORT	0	1	BSORT	0	-	BSORT - Bubble Sort
+A	COMB	0	1	COMB	0	-	COMB.inc - COMB(N,M) returns the number of combinations
+A	COPYL	0	3	COPYL;COPYL;COPYL	0	-	COPYL.inc - COPYL(L) will copy a list of LINKs.  The
+A	DAY	0	1	DAY	0	-	Modified to use real arithmetic to prevent 16-bit integer overflow
+A	DEXP	0	1	DEXP	0	-	DEXP.inc - DEXP(PROTO) defines functions in terms of a
+A	DEXTERN	0	2	DEXTERN;LOADEX	0	-	
+A	DIFF	0	1	DIFF	0	-	DIFF.inc - DIFF(S1,S2) will return the set difference, S1 - S2,
+A	FASTBAL	0	1	FASTBAL	0	-	FASTBAL.inc - FASTBAL(PARENS,QTS,S) will return a pattern which
+A	FIND	0	1	FIND	0	-	FIND.inc - FIND(A,PRED) will search array A for an extreme
+A	FLD	0	1	FLD	0	-	FLD.inc - FLD(ST,I) will return (by name) the Ith field of the
+A	FTRACE	0	1	FTRACE	0	-	
+A	INFINIP	0	0	-	0	-	Program to exercise the "infinite" precision integer math package.
+A	INSERT	0	1	INSERT	0	-	INSERT.inc - INSERT(T,S) will insert the string S into the tree T
+A	INSERTB	0	1	INSERTB	0	-	INSERTB.inc - INSERT(T,S) will insert the string S into the
+A	IP	0	1	IP	0	-	IP.inc - IP(P) will invert a permutation  vector contained
+A	LAST	0	1	LAST	0	-	LAST.inc - LAST(L) will return (by name) the name of the
+B	LEXGT	0	1	LEXGT	0	-	LEXGT.inc - LEXGT(S1,S2) will determine whether S1 is lexicallly
+B	LIKE	0	1	LIKE	0	-	LIKE.inc - LIKE(S) returns a pattern that will match a
+B	LINEARIZ	0	1	LINEARIZE	0	-	LINEARIZE.inc - LINEARIZE(T) will linearize a binary tree of
+B	LPAD	0	1	LPAD	0	-	LPAD.inc - LPAD(S,N,C) will pad string S on the left with
+B	LPROG	0	1	LPROG	0	-	LPROG.inc - LPROG() will return the length (i.e., the number
+B	LSORT	0	2	LSORT;LSORTA	0	-	LSORT.inc - LSORT(L,VFLD,NFLD,PRED) will sort a linked list L
+B	MDY	0	1	MDY	0	-	MDY.inc - MDY(Y,DY) will convert a year,day date into a
+B	MFREAD	0	2	MFREAD;REWIND	0	-	
+B	ONCE	0	1	ONCE	0	-	ONCE.inc - ONCE() returns a pattern that will succeed
+B	ORBREAK	0	1	ORBREAK	0	-	ORBREAK.inc - ORBREAK(LIST) is intended to be an adjunct function to
+B	ORDER	0	1	ORDER	0	-	ORDER.inc - ORDER(S) will put the characters of its argument into
+B	PERMS	0	3	PERMS;PERMS;PERMS	0	-	PERMS.inc - PERMS(S) will permute the characters of the string S.
+B	PERMUTAT	0	1	PERMUTATION	0	-	PERMUTATE.inc - PERMUTATION(S,I) will return the Ith permutation of
+B	PHRASES	0	0	-	1	-	
+B	PLI_STMT	0	0	-	0	-	PLI_STMT.inc - This pattern is intended to match a PL/I statement
+B	PUSH	0	3	PUSH;POP;TOP	0	-	PUSH.inc - PUSH(X) will add X to the head of a stack pointed
+B	RANDOM	0	1	RANDOM	0	-	
+B	READ	0	1	READ	0	-	READ.inc - READ(P) will read in and return a line provided
+B	READL	0	1	READL	0	-	READL.inc - READL(P) will read in a sequence of items, placing
+B	READRL	0	1	READRL	0	-	READRL.inc - READRL(P) will read a list in reverse.  That is,
+B	REDEFINE	0	1	REDEFINE	0	-	REDEFINE.inc - REDEFINE(OP,DEF,LBL) will redefine the built-in
+B	REORDER	0	1	REORDER	0	-	REORDER.inc - REORDER(S,OS) will produce the next permutation
+B	RESOLUTI	0	1	RESOLUTION	0	-	RESOLUTION.inc - RESOLUTION() returns the clock resolution of
+B	REVERSE	0	1	REVERSE	0	-	REVERSE.inc - REVERSE(S) returns an end-for-end reversal
+B	REVL	0	1	REVL	0	-	REVL.inc - REVL(L) will reverse a list L.
+C	ROMAN	0	1	ROMAN	0	-	ROMAN.inc - ROMAN(N) will return the roman numeral representation
+C	ROTATER	0	1	ROTATER	0	-	ROTATER.inc - ROTATER(S,N) will rotate the string S right by N
+C	RPAD	0	1	RPAD	0	-	RPAD.inc - RPAD(S,N,C) will pad string S on the right with
+C	SEQ	0	1	SEQ	0	-	SEQ.inc - SEQ(ARG_S,ARG_NAME) will sequence through a set of
+C	SPELL	0	1	SPELL	0	-	SPELL.inc - SPELL(N) will return an English phrase designating
+C	SQRT	0	1	SQRT	0	-	Note:  SNOBOL4+ allows exponentiation to a real power.
+C	SSORT	0	1	SSORT	0	-	SSORT - SSORT(SS,S) is a string sort.  The string S is
+C	STRINGOU	0	1	STRINGOUT	0	-	STRINGOUT.inc - STRINGOUT(A,SEP) will serve to convert from array
+C	SUBSTR	0	1	SUBSTR	0	-	SUBSTR.inc - Extract substring
+C	SWAP	0	1	SWAP	0	-	SWAP.inc - SWAP(.N,.M) will swap the contents of the two named
+C	SYSTEM	0	1	SYSTEM	0	-	SYSTEM.inc - SYSTEM() will return which of the various SNOBOL4
+C	TEMP	0	1	TEMP	0	-	TEMP.inc - TEMP() produces temporary variable names for
+C	TEST	0	1	TEST	0	-	TEST.inc - TEST(ARG) accepts an unevaluated expression as argument,
+C	TICTACTO	0	3	NEXTBD;TTTV;TTTM	0	-	TICTACTOE.inc - Functions useful for constructing a TicTacToe
+C	TREE	0	1	TREE	0	-	TREE.inc = TREE(P,N) will match a tree in Polish prefix
+C	TSORT	0	3	TSORT;PLAYOFF;TS	0	-	TSORT.inc - TSORT(A,F,P) will perform a tournament sort on array
+C	TUPLE	0	10	TUPLE;LOAD;STORE;ADDR;INDEX;REG;FREE;ISREG;ASSOC;DEASSOC	0	-	
+C	UPLO	0	1	UPLO	0	-	UPLO.inc - UPLO(S) will return its argument with upper case letters
+C	AI	1	1	AI	0	SEQ.sno	AI - Apply Index
+C	AOPA	1	1	AOPA	0	SEQ.sno	AOPA - Apply operator to array.
+C	ARC	2	1	ACOS	0	SQRT.sno;DEXP.sno	Note:  The SNOBOL4+ system contains the external assembly-
+C	ASM	2	1	CVTSYM	1	RPAD.sno;BASEB.sno	ASM.SNO - Assembler for machine M described in chapter 18 of
+C	BLANKS	1	2	BLANKS;BL	0	DIFF.sno	BLANKS - BLANKS(S) will return the result of removing blanks from
+C	BNORM	1	1	BNORM	0	REVERSE.sno	BNORM - BNORM(S) will return the blank-normalization of the
+C	BRKREM	1	1	BRKREM	0	DIFF.sno	BRKREM - BRKREM(S) returns a pattern that will behave
+D	CARDPAK	2	4	RHAND;SUITS;VALS;DISPLAY	0	RPERMUTE.sno;ORDER.sno	CARDPAK.inc - Collection of functions useful for card games.
+D	CATA	1	1	CATA	0	SEQ.sno	CATA.inc - CATA(A1,A2) will concatenate the two singly-dimensioned
+D	CH	1	1	CH	0	BASE10.sno	CH.inc - CH(HEX) will convert the sequence of hexidecimal
+D	COUNT	1	1	COUNT	0	BREAKX.sno	COUNT.inc - COUNT(S1,S2) counts the number of occurrences
+D	CRACK	1	1	CRACK	0	COUNT.sno	CRACK.inc - CRACK(S,B) will convert from string to array
+D	DECOMB	1	1	DECOMB	0	COMB.sno	DECOMP.inc - DECOMP(S) returns the decimal number equivalent
+D	FLOOR	1	1	FLOOR	0	DEXP.sno	FLOORCEIL.inc
+D	FORTPUT	1	1	FORTPUT	0	PUT.sno	FORTPUT.inc - FORTPUT(S) will output a FORTRAN statement S.
+D	FORTREAD	1	1	FORTREAD	0	READ.sno	FORTREAD.inc - FORTREAD() will read in and return the next
+D	FPROFILE	1	1	FPROFILE	0	LPROG.sno	
+D	FRSORT	7	1	FRSORT	0	SKIM.sno;COUNT.sno;AI.sno;MSORT.sno;stringout.sno;CRACK.sno;SEQ.sno	FRSORT.inc - FRSORT(S) will do a frequency sort on the characters
+D	GPM	2	2	GPM;PROC	0	BAL.sno;PUSH.sno	
+D	HEX	1	1	HEX	0	BLEND.sno	HEX.inc - HEX(S) will return the hexadecimal (internal)
+D	HSORT	1	1	HSORT	0	SWAP.sno	HSORT.inc - HSORT(A,I,N) will sort the strings in array A<I>,
+D	HYPHENAT	4	1	HYPHENATE	0	BALREV.sno;OR.sno;UPLO.sno;DIFF.sno	HYPHENAT.inc - HYPHENATE(RWORD,MIN) will indicate where within
+D	IMAGE	2	1	IMAGE	0	SPACING.sno;BREAKX.sno	IMAGE.inc - IMAGE(S,I) will return the Ith print line associated
+D	INFINIP_lib	3	2	SMALL;SPLIT	0	REDEFINE.sno;SWAP.sno;LPAD.sno	Add 10's complement of Y
+D	INORM	4	1	INORM	0	BNORM.sno;ORDER.sno;BLEND.sno;DIFF.sno	INORM.inc - INORM(S) will return the image normalization
+D	INSULATE	1	3	INSULATE;INS_CALL;INS_RET	0	PUSH.sno	
+D	LINE	6	2	LINE;LINE_INIT	0	REVERSE.sno;PAD.sno;SUBSTR.sno;MINP.sno;BNORM.sno;HYPHENAT.sno	LINE.inc - LINE(CW) will return the next line of a paragraph
+D	LOG	1	1	CLOG	0	DEXP.sno	LOG.inc - CLOG(X) will return the common log (base 10) of X.
+D	LPERM	1	1	LPERM	0	REVERSE.sno	LPERM.inc - LPERM(S) returns the next reordering in lexico-
+D	L_ONE	2	2	S;S_	1	PUSH.sno;TEMP.sno	L_ONE.SNO - This is a compiler for the language L1 (Gimpel, p. 411).
+D	L_TWO	3	0	-	1	POL.sno;TR.sno;TUPLE.sno	L_TWO.SNO - This is a compiler for the language L2 (Gimpel, p. 422).
+D	MINP	2	1	MINP	0	SPACING.sno;COUNT.sno	MINP.inc - MINP(S) will return the minimum number of print
+E	MSORT	1	2	MSORT;CHAIN	0	IP.sno	MSORT.inc - MSORT(A,OP) uses a merge sort to return an array
+E	NOT	1	1	NOT	0	PUSH.sno	NOT.inc - NOT(P) will return a pattern which will match
+E	ONEWAY	5	1	ONEWAY	0	LPAD.sno;BASEB.sno;RPERMUTE.sno;BASE10.sno;BLEND.sno	
+E	OR	1	2	OR;OR_EXTRACT	0	BALREV.sno	OR.inc - OR(LIST) is intended to form the OR (in the pattern sense)
+E	ORSORT	1	1	ORSORT	0	OR.sno	ORSORT.inc - ORSORT(LIST) is intended to be a front-end to the OR
+E	ORVISUAL	1	2	OR;OR_EXTRACT	0	BALREV.sno	ORVISUAL.inc - Visual version of OR.INC.
+E	PAD	2	1	PAD	0	SPACING.sno;REVERSE.sno	PAD.inc - PAD(S,CW) will add or delete blanks to the string S
+E	PARAGRAP	1	1	PARAGRAPH	0	READ.sno	PARAGRAPH.inc - PARAGRAPH(FIRST_LINE) will read in a paragraph
+E	PEEL	1	1	PEEL	0	BAL.sno	
+E	PERM	1	3	PERM;PERM;PERM	0	SWAP.sno	PERM.inc - PERM(A) uses Trotter's algorithm to cycle through
+E	PHRASE	2	0	-	0	DEXP.sno;RSENTENC.sno	PHRASE.inc - Functions to generate praise, insult, and delaying text
+E	PHYSICAL	2	2	NORM;XY	0	ORDER.sno;REDEFINE.sno	
+E	POKER	5	4	ABCDR;ALPHA;BETA;BET	1	PHRASE.sno;QUEST.sno;SQRT.sno;POKEV.sno;CARDPAK.sno	POKER.SNO - Plays cold-hand, five-card poker between two players
+E	POKEV	7	2	POKEV;PR	0	ORDER.sno;ROTATER.sno;REVERSE.sno;COMB.sno;BASE10.sno;CARDPAK.sno;DECOMB.sno	POKEV.inc - POKEV(H) will evaluate a poker hand (5 cards) producint
+E	POL	2	2	SS;S_	0	DEXP.sno;PUSH.sno	POL.inc - This is a compiler for the language L2 (Gimpel, p. 422).
+E	PUT	2	1	PUT	0	LPAD.sno;RPAD.sno	PUT.inc - PUT(L) will output L.  It will label the OUTPUTted
+E	QUEST	1	2	QUEST;QUESTP	0	RSENTENC.sno	QUEST.inc - QUEST(QS) will prompt the user, and receive structured
+E	QUOTE	1	1	QUOTE	0	REPL.sno	QUOTE.inc - QUOTE(S) will convert its argument to a string
+E	RAISE	1	1	EXP	0	DEXP.sno	RAISE.inc - RAISE(X,Y) will raise X to the Y power, for real X,Y.
+E	RAMM	1	1	RAMM	0	RANDOM.sno	
+E	RCHAR	2	1	RCHAR	0	RANDOM.sno;BREAKX.sno	RCHAR.inc - RCHAR(CONTEXT) will a random character following
+E	REPL	1	1	REPL	0	BREAKX.sno	REPL.inc - REPL(S1,S2,S3) will do a string-by-string replacement
+E	RPERMUTE	1	1	RPERMUTE	0	RANDOM.sno	RPERMUTE.inc - RPERMUTE(S) will return a random permutation
+E	RPOEM	1	0	-	1	RSENTENC.sno	RPOEM.SNO - Generate poems using RPOEM.IN as sample input file:
+E	RSEASON	1	0	-	1	RSEASON_lib.sno	RSEASON.SNO - Simulates baseball seasons, producing the number
+F	RSEASON_lib	1	1	RSEASON	0	RANDOM.sno	RSEASON.inc - RSEASON(GAMES) simulates a season of baseball.
+F	RSELECT	2	1	RSELECT	0	QUOTE.sno;RANDOM.sno	RSELECT.inc - RSELECT(S) will make a random selection of one of
+F	RSENTENC	2	1	RSENTENCE	0	BAL.sno;RSELECT.sno	
+F	RSTORY	1	0	-	1	RSENTENC.sno	Use RSTORY.IN as sample input file:
+F	RWORD	1	1	RWORD	0	RCHAR.sno	RWORD.inc - RWORD(K) will return a random word with
+F	SKIM	1	1	SKIM	0	DIFF.sno	SKIM.inc - SKIM(S) "skims off" the first appearance of each
+F	SNOPUT	2	1	SNOPUT	0	PUT.sno;PEEL.sno	SNOPUT.inc - SNOPUT(S) will output SNOBOL4 statement S.  It will
+F	SNOREAD	2	1	SNOREAD	0	READ.sno;FASTBAL.sno	SNOREAD.inc - SNOREAD() will read in and return the next SNOBOL4
+F	SPACING	1	1	SPACING	0	COUNT.sno	SPACING.inc - SPACING(S) will determine the spacing of the
+F	STACK	1	4	STACK;PUSH;POP;TOP	0	REPL.sno	STACK.inc - STACK(SUF) will create unique stack functions
+F	STATEF	1	2	STATEF;RET	0	PUSH.sno	STATEF.inc - STATEF(PROTO,LBL) will define a state function
+F	STONE	2	1	SDA	1	PHRASE.sno;QUEST.sno	STONE.SNO - Plays a simple game of taking stones from a pile.
+F	TIMEGC	2	1	TIMEGC	0	resolution.sno;system.inc	TIMEGC.inc - TIMEGC(N) will scatter strings, array elements and
+F	TIMER	2	1	TIMER	0	system.inc;resolution.sno	TIMER.inc - TIMER(S) will time a statement (or statements)  passed
+F	TPROFILE	1	1	TPROFILE	0	LPROG.sno	TPROFILE.inc - TPROFILE() will produce a time profile of the time
+F	TR	2	2	TR;LABEL	0	PUSH.sno;TEMP.sno	TR.inc - TR() translates and reduces to null a Polish prefix
+F	TREEREAD	1	1	TREEREAD	0	READ.sno	TREEREAD.inc - TREEREAD(LEVEL) will read a tree beginning at the given
+F	TRIG	1	2	SIN;SIN.	0	DEXP.sno	Note:  The SNOBOL4+ system contains the external assembly-
+F	TRUNC	1	1	TRUNC	0	SEQ.sno	TRUNC.inc - TRUNC(A,L,H) will return the truncation of the
+F	VISIT	1	3	VISIT;DATA;FIELD	0	FLD.sno	
