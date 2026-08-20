@@ -828,8 +828,8 @@ n57_var_α:              sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n58_assign_α:           mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 112], rax            # PAT$2$V2
-                        mov              qword ptr [r9 + 120], rdx;           jmp   n59_var_α
+                        mov              qword ptr [r9 + 80], rax             # PAT$2$V0
+                        mov              qword ptr [r9 + 88], rdx;            jmp   n59_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n59_var_α:              sub              rsp, 16
                         mov              rax, qword ptr [r9 + 0]              # delim
@@ -853,8 +853,8 @@ n61_var_β:              add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n62_assign_α:           mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 80], rax             # PAT$2$V0
-                        mov              qword ptr [r9 + 88], rdx;            jmp   n63_lit_string_α
+                        mov              qword ptr [r9 + 112], rax            # PAT$2$V2
+                        mov              qword ptr [r9 + 120], rdx;           jmp   n63_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n63_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2               # result
