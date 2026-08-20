@@ -5,7 +5,7 @@ FN__PAT$0:
 PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 120
+                        sub              rsp, 248
                         mov              qword ptr [rbp + -8], r10
                         mov              qword ptr [rbp + -16], r11
                         mov              qword ptr [rbp + -24], rdx
@@ -31,10 +31,10 @@ n2_match_rpos_α:        mov              rax, 0
                                                                               jmp   PAT$0_γ
 n2_match_rpos_β:                                                              jmp   n1_match_arbno_β
 #-----------------------------------------------------------------------------------------------------------------------
-n3_match_fence1_α:      mov              qword ptr [rbp + -48], rsp;          jmp   n5_match_alternate_α
-n3_match_fence1_as:     mov              rsp, qword ptr [rbp + -48];          jmp   n4_match_span_α
+n3_match_fence1_α:      mov              qword ptr [rbp + -80], rsp;          jmp   n5_match_alternate_α
+n3_match_fence1_as:     mov              rsp, qword ptr [rbp + -80];          jmp   n4_match_span_α
 n3_match_fence1_af:
-n3_match_fence1_β:      mov              rsp, qword ptr [rbp + -48];          jmp   n1_match_arbno_af
+n3_match_fence1_β:      mov              rsp, qword ptr [rbp + -80];          jmp   n1_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n4_match_span_α:        sub              rsp, 16
                         movsxd           rcx, r14d
@@ -46,9 +46,9 @@ n4_match_span_α:        sub              rsp, 16
 .Lx30_10:               add              ecx, 1;                              jmp   .Lx30_0
 .Lx30_1:                cmp              ecx, r14d;                           jg    .Lx30_240
                         add              rsp, 16;                             jmp   n1_match_arbno_af
-.Lx30_240:              mov              dword ptr [rsp + 4], r14d
+.Lx30_240:              mov              dword ptr [rbp + -60], r14d
                         mov              r14d, ecx;                           jmp   n1_match_arbno_as
-n4_match_span_β:        mov              r14d, dword ptr [rsp + 4]
+n4_match_span_β:        mov              r14d, dword ptr [rbp + -60]
                         add              rsp, 16;                             jmp   n1_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_alternate_α:   sub              rsp, 32
@@ -72,7 +72,7 @@ n5_match_alternate_af:  mov              r14d, dword ptr [rsp + 0]
 n6_goto_α:                                                                    jmp   n5_match_alternate_af
 n6_goto_β:                                                                    jmp   n5_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
-n7_match_assign_save_α: mov              dword ptr [rbp + -80], r14d;         jmp   n8_match_notany_α
+n7_match_assign_save_α: mov              dword ptr [rbp + -144], r14d;        jmp   n8_match_notany_α
 n7_match_assign_save_β:                                                       jmp   n5_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n8_match_notany_α:      mov              eax, r14d
@@ -88,12 +88,12 @@ n9_match_break_α:       movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 95;                             je    .Lx38_1
                         add              ecx, 1;                              jmp   .Lx38_0
-.Lx38_1:                mov              dword ptr [rsp + 288], r14d
+.Lx38_1:                mov              dword ptr [rbp + -176], r14d
                         mov              r14d, ecx;                           jmp   n10_match_assign_cond_α
-n9_match_break_β:       mov              r14d, dword ptr [rsp + 288];         jmp   n8_match_notany_β
+n9_match_break_β:       mov              r14d, dword ptr [rbp + -176];        jmp   n8_match_notany_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_assign_cond_α:
-                        mov              eax, dword ptr [rbp + -80]
+                        mov              eax, dword ptr [rbp + -144]
                         lea              rcx, [rip + .S0]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -115,12 +115,12 @@ n11_match_lit_α:        mov              eax, r14d
 n11_match_lit_β:        sub              r14d, 1;                             jmp   n10_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_assign_save_α:
-                        mov              dword ptr [rbp + -96], r14d;         jmp   n13_match_assign_save_α
+                        mov              dword ptr [rbp + -192], r14d;        jmp   n13_match_assign_save_α
 n12_match_assign_save_β:
                                                                               jmp   n11_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_match_assign_save_α:
-                        mov              dword ptr [rbp + -112], r14d;        jmp   n14_match_any_α
+                        mov              dword ptr [rbp + -208], r14d;        jmp   n14_match_any_α
 n13_match_assign_save_β:
                                                                               jmp   n12_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -140,12 +140,12 @@ n15_match_span_α:       lea              rdi, [rip + .C1]
                         cmp              byte ptr [rdi+rsi], 0;               je    .Lx50_1
                         add              ecx, 1;                              jmp   .Lx50_0
 .Lx50_1:                cmp              ecx, r14d;                           jle   n14_match_any_β
-                        mov              dword ptr [rsp + 420], r14d
+                        mov              dword ptr [rbp + -236], r14d
                         mov              r14d, ecx;                           jmp   n16_match_assign_cond_α
-n15_match_span_β:       mov              r14d, dword ptr [rsp + 420];         jmp   n14_match_any_β
+n15_match_span_β:       mov              r14d, dword ptr [rbp + -236];        jmp   n14_match_any_β
 #-----------------------------------------------------------------------------------------------------------------------
 n16_match_assign_cond_α:
-                        mov              eax, dword ptr [rbp + -112]
+                        mov              eax, dword ptr [rbp + -208]
                         lea              rcx, [rip + .S1]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -158,7 +158,7 @@ n16_match_assign_cond_β:
                         sub              r12, 24;                             jmp   n16_match_assign_cond_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_assign_cond_α:
-                        mov              eax, dword ptr [rbp + -96]
+                        mov              eax, dword ptr [rbp + -192]
                         lea              rcx, [rip + .S2]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -174,7 +174,7 @@ n18_goto_α:                                                                   j
 n18_goto_β:                                                                   jmp   n5_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n19_match_assign_save_α:
-                        mov              dword ptr [rbp + -64], r14d;         jmp   n20_match_span_α
+                        mov              dword ptr [rbp + -96], r14d;         jmp   n20_match_span_α
 n19_match_assign_save_β:
                                                                               jmp   n5_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
@@ -185,12 +185,12 @@ n20_match_span_α:       lea              rdi, [rip + .C2]
                         cmp              byte ptr [rdi+rsi], 0;               je    .Lx59_1
                         add              ecx, 1;                              jmp   .Lx59_0
 .Lx59_1:                cmp              ecx, r14d;                           jle   n19_match_assign_save_β
-                        mov              dword ptr [rsp + 228], r14d
+                        mov              dword ptr [rbp + -124], r14d
                         mov              r14d, ecx;                           jmp   n21_match_assign_cond_α
-n20_match_span_β:       mov              r14d, dword ptr [rsp + 228];         jmp   n19_match_assign_save_β
+n20_match_span_β:       mov              r14d, dword ptr [rbp + -124];        jmp   n19_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n21_match_assign_cond_α:
-                        mov              eax, dword ptr [rbp + -64]
+                        mov              eax, dword ptr [rbp + -96]
                         lea              rcx, [rip + .S3]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
