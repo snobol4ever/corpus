@@ -1,0 +1,15 @@
+*  s184 seat7 (row span-frame-flip): the SCRIP_SPAN_FRAME=1 SILENT WRONG ANSWER, minimal.
+*  RED ARMED ONLY, nondeterministic (~8/12), both media; GREEN at default 12/12.
+*  Ingredient that makes it bite: the charset is NOT constant-foldable (*CS is deferred),
+*  so the SPAN's charset operand is staged on the flat zeta-SPINE and read as [rsp+120].
+*  Arming re-homes the leaf cell to rbp and widens the MATCH_BEGIN carve by 16, which moves
+*  rsp for the whole graph -- but no flat operand offset is rebased, so that read lands 16
+*  bytes past its slot, in caller territory.  Wrong charset => SPAN matches nothing => the
+*  |epsilon arm wins => RPOS(0) fails => the 'quoted' fallback.  Control: ctl_span_constcs_alt.
+          epsilon        =
+          CS             = '0123456789' &UCASE '_' &LCASE
+          T              = 'Name'
+          T              POS(0) ANY(&UCASE &LCASE) (SPAN(*CS) | epsilon) RPOS(0)   :S(OK)F(NO)
+OK        OUTPUT         = 'bare'                                                  :(END)
+NO        OUTPUT         = 'quoted'
+END
