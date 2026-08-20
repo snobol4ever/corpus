@@ -1,0 +1,10 @@
+*  CONTROL THAT SEPARATES THE TWO REFUSALS BY ONE TOKEN.  Identical to ptw_min_rseal_arbno with a
+*  trailing epsilon appended, which moves the fence off the right end: right_sealed flips 1 -> 0 and
+*  nothing else changes.  Default arm: still red (the fence refusal is now the one firing).
+*  SCRIP_FENCE_IGNORE=1: GREEN.  So the seal and the fence verdict are two independent refusals on
+*  the same blob, and only the fence half was narrowed at s182.
+          P = ARBNO('a') FENCE('b' | epsilon) epsilon
+          'aab' POS(0) *P RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

@@ -1,0 +1,11 @@
+*  CLASS (a) IN BEAUTY'S OWN SHAPE -- beauty's Real (line 55) and White (line 70) are both an ALT
+*  TOP with a FENCE nested inside an arm: ( X FENCE(..) .. | Y ).  Same signature as the witness
+*  above (pfenced=1 right_sealed=0 rn=0), but SCRIP_FENCE_IGNORE=1 DOES NOT CURE IT -- publishing
+*  the first-allocated body node as the carrier lands INSIDE arm 1, not on the ALT, so the blob
+*  still cannot offer arm 2.  The fence-free control ptw_min_alttop_nofence_ctl proves that second
+*  wall exists with no fence anywhere.
+          P = ( 'a' FENCE(epsilon) | 'aa' )
+          'aa' POS(0) *P RPOS(0)                :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
