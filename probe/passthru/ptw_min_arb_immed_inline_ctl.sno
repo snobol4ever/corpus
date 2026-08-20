@@ -1,0 +1,6 @@
+*  CONTROL (GREEN): the witness's pattern written INLINE always worked -- so the ingredient is NOT "$ on a retrying generator".
+*  Pair with ptw_min_arb_immed_stored.sno, which is the SAME pattern reached through a stored pattern value.
+          'a+aa' POS(0) ARB $ v RPOS(0)         :S(OK)F(NO)
+OK        OUTPUT = 'match' v                    :(END)
+NO        OUTPUT = 'nomatch'
+END

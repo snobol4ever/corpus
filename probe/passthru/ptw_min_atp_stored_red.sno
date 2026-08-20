@@ -1,0 +1,13 @@
+*  RED, CHECKED IN RED (law 0d) -- NOT this row's family, routed separately.  Same SYMPTOM as
+*  ptw_min_arb_immed_stored, one box family over: a stored pattern whose rightmost element is the
+*  cursor operator @ emits `PAT$0_beta: jmp PAT$0_omega` and concedes instead of resuming the ARB.
+*  ALREADY MEASURED for the seat that takes it: the inline twin is GREEN, and the inline @ beta is
+*  `add rsp,16; jmp n4_match_arb_beta` -- a self-undo fail-through jumping LEFTWARD, i.e. the tier-2
+*  definition verbatim and the same shape as ASSIGN_SAVE's beta that s180 already blessed.
+*  IR_MATCH_ATP is untiered in zdp_seam_tier (zeta_depth.c); the cure is one case label.
+*  ATP owns bb_match_atp.cpp, NOT bb_match_capture.cpp, so it is a separate family and a separate row.
+          E = ARB @v
+          'a+aa' POS(0) E RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match' v                    :(END)
+NO        OUTPUT = 'nomatch'
+END

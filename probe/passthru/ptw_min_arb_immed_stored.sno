@@ -1,0 +1,7 @@
+*  WITNESS (was RED): a STORED pattern carrying $ refuses to retry.  NO deferred evaluation is involved --
+*  E is referenced BARE, so `*E` was never the ingredient; building the pattern by assignment is.
+          E = ARB $ v
+          'a+aa' POS(0) E RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match' v                    :(END)
+NO        OUTPUT = 'nomatch'
+END

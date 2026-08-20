@@ -1,0 +1,9 @@
+*  ORACLE-AUTHORITY WITNESS: SPITBOL manual p.87 "Immediate Assignment" prints its OWN example as
+*  (null) B BC BCD Success -- i.e. ARB extends under $ and re-fires the assignment on every retry.
+*  Stored in a pattern variable, SCRIP printed only the null string and then Failure: one firing, no retry.
+          S = 'ABCDEFG'
+          E = ARB $ OUTPUT
+          S 'A' *E 'E'                          :S(OK)F(NO)
+OK        OUTPUT = 'Success'                    :(END)
+NO        OUTPUT = 'Failure'
+END
