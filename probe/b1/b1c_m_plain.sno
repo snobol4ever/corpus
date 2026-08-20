@@ -1,0 +1,8 @@
+*       B1c passing control (FINDING-2026-08-19-s164 "m_plain"): the SAME pattern MAIN-built, no EVAL.
+        DEFINE('PC()')  :(PCe)
+PC      OUTPUT = 'PC ran'        :(RETURN)
+PCe     S = 'x'
+        S POS(0) 'x' *PC()      :S(Y)F(N)
+Y       OUTPUT = 'match'         :(END)
+N       OUTPUT = 'nomatch'
+END
