@@ -1,0 +1,12 @@
+          DEFINE('mk(p,t)')                     :(D2)
+mk        mk = EVAL("p . thx . *Sh('" t "', thx)")     :(RETURN)
+D2        DEFINE('Sh(t,v)')                     :(D3)
+Sh        Sh = .dummy                           :(NRETURN)
+D3        nl = ' '
+          L = mk(BREAK(' '), 'L')
+          S = *L
+          P = *S
+          'ab ' POS(0) *P                       :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
