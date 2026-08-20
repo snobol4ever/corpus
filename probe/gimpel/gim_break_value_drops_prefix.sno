@@ -1,4 +1,4 @@
-*  MINIMAL WITNESS (s184, batch B, from ORDER.sno): in a replacement whose
+*  MINIMAL WITNESS (s186, batch B, from ORDER.sno): in a replacement whose
 *  pattern is (BREAK(H) | REM) . S1, the prefix BREAK matched is DROPPED from
 *  the replacement when H is a large character set carved out of &ALPHABET --
 *  SCRIP answers '[bb]' where the oracle answers '[abb]'.  The PASSING

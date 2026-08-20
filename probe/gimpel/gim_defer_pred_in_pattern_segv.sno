@@ -1,4 +1,4 @@
-*  MINIMAL WITNESS (s184, batch B, from MDY.sno): a pattern carrying an
+*  MINIMAL WITNESS (s186, batch B, from MDY.sno): a pattern carrying an
 *  IMMEDIATE value assignment ($) and a DEFERRED PREDICATE CALL WITH ARGS
 *  (*GT(DY,X)) reading the just-assigned variable SIGSEGVs SCRIP in BOTH
 *  modes.  In MDY.sno itself the same construct SIGSEGVs mode 3 while MODE 4
