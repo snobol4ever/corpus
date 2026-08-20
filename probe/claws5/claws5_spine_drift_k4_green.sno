@@ -1,0 +1,16 @@
+*------------------------------------------------------------------------------
+* D-2 witness (GREEN -- slot still lands inside the match frame).  ARBNO whose body is an ALTERNATION one of whose arms is a
+* MULTI-ELEMENT CONCATENATION -- the claws5.sno / claws5-match.sno shape, ablated.
+* Each retained ARBNO iteration carves 48 bytes of zeta-SPINE that is not released
+* until the iteration recedes, but the per-node zeta save slot is emitted as a
+* COMPILE-TIME CONSTANT offset from RSP, so the slot address descends 48 bytes per
+* iteration and eventually addresses live data above the match frame.
+* 4 iterations: GREEN -- slot still lands inside the match frame.  Oracle (SPITBOL x64/bin/sbl -b) matches at every k.
+*------------------------------------------------------------------------------
+        &TRIM   =   0
+        src     =   'ab_A0 ab_A0 ab_A0 ab_A0 '
+        p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0')) SPAN(' ')) RPOS(0)
+        src     ?   p  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
