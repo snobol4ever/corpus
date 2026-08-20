@@ -1,0 +1,25 @@
+          DEFINE('shift(p,t)')
+          DEFINE('SA(v)')
+          DEFINE('SB(v)')
+          DEFINE('SC(v)')
+          DEFINE('SD(v)')
+          DEFINE('SE(v)')
+          DEFINE('SF(v)')                       :(E)
+SA        OUTPUT = 'a'
+          SA = .dummy                           :(NRETURN)
+SB        OUTPUT = 'b'
+          SB = .dummy                           :(NRETURN)
+SC        OUTPUT = 'c'
+          SC = .dummy                           :(NRETURN)
+SD        OUTPUT = 'd'
+          SD = .dummy                           :(NRETURN)
+SE        OUTPUT = 'e'
+          SE = .dummy                           :(NRETURN)
+SF        OUTPUT = 'f'
+          SF = .dummy                           :(NRETURN)
+shift     shift = EVAL("p . thx . *" t "(thx)") :(RETURN)
+E         P = shift(epsilon,'SA') shift(epsilon,'SB') shift(epsilon,'SC') shift(epsilon,'SD') shift(epsilon,'SE') shift(epsilon,'SF')
+          '' POS(0) *P RPOS(0)                  :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

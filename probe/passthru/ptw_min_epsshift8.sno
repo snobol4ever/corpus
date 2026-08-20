@@ -1,0 +1,11 @@
+          DEFINE('shift(p,t)')
+          DEFINE('DoShift(t,v)')
+          OPSYN('~', 'shift', 2)                :(E)
+DoShift   OUTPUT = 'Shift(' t ')'
+          DoShift = .dummy                      :(NRETURN)
+shift     shift = EVAL("p . thx . *DoShift('" t "', thx)")  :(RETURN)
+E         P = epsilon ~ 'a' epsilon ~ 'b' epsilon ~ 'c' epsilon ~ 'd' epsilon ~ 'e' epsilon ~ 'f' epsilon ~ 'g' epsilon ~ 'h'
+          '' POS(0) *P RPOS(0)                  :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
