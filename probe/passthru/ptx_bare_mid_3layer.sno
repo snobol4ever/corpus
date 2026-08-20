@@ -1,0 +1,12 @@
+* x3d: bare-defer middle, NO capture anywhere
+          $('Z' 'Z') = 1
+          nl = CHAR(10)
+          Label = BREAK(' ' nl ';')
+          Stmt = *Label
+          Parse = *Stmt nl
+          Src = 'START' nl
+          Src POS(0) *Parse RPOS(0)                       :F(NO)
+          OUTPUT = 'match'                                :(DONE)
+NO        OUTPUT = 'nomatch'
+DONE
+END

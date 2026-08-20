@@ -1,0 +1,10 @@
+          $('Z' 'Z') = 1
+          nl = CHAR(10)
+          Label = BREAK(' ' nl ';')
+          Stmt = *Label
+          Src = 'START' nl
+          Src POS(0) *Stmt nl RPOS(0)                     :F(NO)
+          OUTPUT = 'match'                                :(DONE)
+NO        OUTPUT = 'nomatch'
+DONE
+END

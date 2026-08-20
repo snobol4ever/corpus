@@ -1,0 +1,18 @@
+* x3: x2 + one more seam level and an epsilon-shift ALT arm
+          $('Z' 'Z') = 1
+          nl = CHAR(10)
+          DEFINE('SH(t,v)')
+          DEFINE('shift(p,t)')                            :(SEND)
+SH        OUTPUT = 'SH(' t ',' v ')'
+          SH = .dummy                                     :(NRETURN)
+shift     shift = EVAL("p . thx . *SH('" t "', thx)")     :(RETURN)
+SEND
+          Label = shift(BREAK(' ' nl ';'), 'Label')
+          Stmt = *Label (shift('x', 'X') | shift(epsilon, ''))
+          Parse = *Stmt nl
+          Src = 'START' nl
+          Src POS(0) *Parse RPOS(0)                       :F(NO)
+          OUTPUT = 'match'                                :(DONE)
+NO        OUTPUT = 'nomatch'
+DONE
+END
