@@ -1,4 +1,22 @@
-*  gim_fortput_m4_only_segv - A 1:1 BREACH IN THE m4 DIRECTION, three lines.
+*  gim_fortput_m4_only_segv - AN m4-ONLY SIGSEGV, THREE LINES, **CURED BY THE
+*  SPAN-FRAME FLIP** -- kept as a regression guard and as an independent
+*  witness FOR that flip, from a seat that did not know it was landing.
+*
+*  ⭐ STATUS.  GREEN at SCRIP 6d4cab2d (m4 rc=0, 6/6).  RED at SCRIP cecb7d11
+*  (m4 SIGSEGV 16/16, ASLR on and off alike; m3 correct 8/8 at both).  The
+*  cure is named by a ONE-COMMAND A/B on the killswitch, not by a bisect:
+*      SCRIP_SPAN_FRAME=0  -> rc=139, the SEGV verbatim
+*      SCRIP_ARBNO_ALTSIB=0 -> rc=0, correct
+*  so SPAN-FRAME (s188 seat7, SCRIP d3251f23 -- 'the ALT-arm leaf's zeta cell
+*  stops being a raw flat rsp coordinate') is what fixed it.  This program has
+*  no ARBNO, no alternation the eye can see, and nothing to do with the row
+*  that flip was landed for; it reaches the ALT-arm leaf through
+*  (LEN(72) | REM) . T inside a self-recursive DEFINEd function.
+*
+*  ⭐ WHAT RULED OUT A CODEGEN DIVERGENCE WHEN IT WAS RED: the emitted .s was
+*  BYTE-IDENTICAL across repeated compiles at both revisions, so the two modes
+*  were never handed different code -- the same deterministic program was
+*  correct in the in-process image and fatal in the linked binary.
 *
 *  Distilled from gimpel batch D.  FORTPUT.sno is a four-statement module that
 *  chops a FORTRAN statement into 72-column pieces and hands each to PUT:
@@ -6,23 +24,15 @@
 *                 PUT(T)
 *                 IDENT(S,NULL)              :S(RETURN)
 *                 S  =  DUPL(' ',5)  '1' S   :(FORTPUT)
-*  mode-3 is CORRECT and stable (rc=0, 8/8 runs).  mode-4 SIGSEGVs before it
-*  emits a single byte (rc=139, 16/16 runs, ASLR on and ASLR off alike).
+*  ⛔ HONEST NOTE ON ONE READING, from when it was red: an early burst of three
+*  runs returned rc=124 (hang) instead of 139 from the same binary.  It did not
+*  reproduce in the 16 runs after, on a machine running eight seats, so it is
+*  recorded as an unexplained transient and NOT claimed as nondeterminism.
 *
-*  ⭐ WHAT RULES OUT A CODEGEN DIVERGENCE: the emitted .s is BYTE-IDENTICAL
-*  across repeated compiles (md5 e1462be17e18, 3/3), so the two modes are not
-*  being handed different code -- the same deterministic program is correct
-*  in the in-process image and fatal in the linked binary.
-*
-*  ⛔ HONEST NOTE ON ONE READING: an earlier burst of three runs returned
-*  rc=124 (hang) instead of 139 from this same binary.  That did not reproduce
-*  in the 16 runs since, on a machine running eight seats, so it is recorded
-*  as an unexplained transient and NOT claimed as nondeterminism.
-*
-*  Every piece is separately GREEN in m4 -- LPAD, RPAD, PUT alone, the
-*  (LEN(n) | REM) . T capture-and-replace loop alone, and the same loop inside
-*  a DEFINEd function that recurses on itself.  The crash needs the assembled
-*  module.
+*  When it was red, every piece was separately GREEN in m4 -- LPAD, RPAD, PUT
+*  alone, the (LEN(n) | REM) . T capture-and-replace loop alone, and the same
+*  loop inside a DEFINEd function that recurses on itself.  The crash needed
+*  the assembled module, which is why it survived minimization attempts.
 *
 *  ORACLE: "hi" padded to column 73 with its serial number.
 -INCLUDE "/home/claude4/corpus/programs/gimpel/FORTPUT.sno"
