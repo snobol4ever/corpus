@@ -1,0 +1,53 @@
+* json-match -- TIME-BASED: fixed ms budget, count iterations.
+* workload: full recursive JSON grammar over 631 KB of twitter.json.
+* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
+* deserializing sibling (json.sno) which runs the same grammar with sprinkled loads.
+* input: json.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
+* text, so a missing or truncated input cannot masquerade as a passing run.
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+                $' '           =  SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | ''
+*------------------------------------------------------------------------------
+                jescape        =  '\'
++                                 ( ANY('"/bfnrt\')
++                                 | 'u'
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
+*------------------------------------------------------------------------------
+                jnumber        =  ('-' | '')
++                                 ('0' | ANY('123456789') (SPAN('0123456789') | ''))
++                                 ('.' SPAN('0123456789') | '')
++                                 ( ANY('eE') (ANY('+-') | '') SPAN('0123456789')
++                                 | ''
++                                 )
+*------------------------------------------------------------------------------
+                jmember        =  $' ' jstring $' ' ':' *jelement
+                jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
+                jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
+                jvalue         =  ( jstring
++                                 | jnumber
++                                 | jobject
++                                 | jarray
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
++                                 )
+                jelement       =  $' ' *jvalue $' '
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+*	PT-J WALL 2 (s169): with the FULL json grammar loaded, an input whose number has a
+*	leading digit 1-9 SIGSEGVs; the same input with a leading '0' matches.  The input split
+*	is exact and lines up with jnumber's ANY('123456789')(SPAN|'') arm -- but ⛔ THE ARM IN
+*	ISOLATION DOES NOT FAULT (reduction tried and failed s169), so the fault is CONTEXT-
+*	DEPENDENT within this grammar and this witness carries the whole grammar deliberately.
+	'{"a": 0}' ? json	:F(N1)
+	OUTPUT = 'leading-zero MATCH'
+N1	'{"a": 1}' ? json	:F(N2)
+	OUTPUT = 'leading-one MATCH'	:(END)
+N2	OUTPUT = 'leading-one FAIL'
+END
