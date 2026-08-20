@@ -1,0 +1,11 @@
+*  MINIMAL WITNESS (s184, batch B, from REVL.sno and READL.sno): a call with
+*  an OMITTED LEADING ARGUMENT -- LINK(,'d') -- must leave the first field
+*  null and put 'd' in the second.  SCRIP binds 'd' to the FIRST field: a
+*  SILENT WRONG ANSWER.  The all-arguments-present sibling below is correct
+*  in both, so the defect is the elided argument, not the constructor.
+	DATA('LINK(NEXT,VALUE)')
+	L  =  LINK(,'d')
+	OUTPUT  =  'NEXT=[' NEXT(L) '] VALUE=[' VALUE(L) ']'
+	M  =  LINK('x','y')
+	OUTPUT  =  'NEXT=[' NEXT(M) '] VALUE=[' VALUE(M) ']'
+END

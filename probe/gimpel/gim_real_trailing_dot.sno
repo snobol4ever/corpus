@@ -1,0 +1,9 @@
+*  MINIMAL WITNESS (s184, batch B, from RANDOM.sno): a REAL literal written
+*  with a trailing decimal point and no fraction digits -- '414971.' -- is a
+*  PARSE ERROR in SCRIP.  The oracle accepts it and prints '414971.'.
+*  RANDOM.sno's seeded recurrence is written entirely in this notation, so
+*  RANDOM_driver never reaches code generation in either mode.
+	X  =  414971.
+	OUTPUT  =  X
+	OUTPUT  =  4676. * 2
+END

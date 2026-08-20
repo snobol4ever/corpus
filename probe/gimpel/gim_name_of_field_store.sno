@@ -1,0 +1,18 @@
+*  MINIMAL WITNESS (s184, batch B, from LINEARIZ.sno and READL.sno): an
+*  indirect store through the NAME OF A DATA FIELD -- P = .R(X) then $P = ...
+*  -- is a SILENT NO-OP in SCRIP; the field keeps its old value.  The same
+*  idiom over a plain variable (the second half) works in both, so the defect
+*  is the field name, not the name operator or the indirect store.
+*  LINEARIZE strings its tree through exactly this ($LAST_NAME = T over
+*  LAST_NAME = .RSON(T)) and so returns a chain truncated after two nodes;
+*  READL builds its list through it and returns an empty one.
+	DATA('ND(L,R)')
+	X  =  ND('a','b')
+	P  =  .R(X)
+	$P  =  'CHANGED'
+	OUTPUT  =  R(X)
+	Y  =  'orig'
+	Q  =  .Y
+	$Q  =  'CHANGED2'
+	OUTPUT  =  Y
+END

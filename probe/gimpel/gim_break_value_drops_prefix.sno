@@ -1,0 +1,18 @@
+*  MINIMAL WITNESS (s184, batch B, from ORDER.sno): in a replacement whose
+*  pattern is (BREAK(H) | REM) . S1, the prefix BREAK matched is DROPPED from
+*  the replacement when H is a large character set carved out of &ALPHABET --
+*  SCRIP answers '[bb]' where the oracle answers '[abb]'.  The PASSING
+*  SIBLING below is the same statement with a 25-character literal set: one
+*  ingredient removed, and both modes agree.  ORDER('bab') is the shortest
+*  module-level repro (oracle 'abb', SCRIP 'bb'); ORDER_driver also SIGSEGVs
+*  in mode 4.
+	X  =  'ab'
+	&ALPHABET  BREAK('b')  REM . HIGHS
+	OUTPUT  =  'SIZE(HIGHS)=' SIZE(HIGHS)
+	X  (BREAK(HIGHS) | REM) . S1  =  S1 'b'
+	OUTPUT  =  '[' X ']'
+	Y  =  'ab'
+	H2  =  'bcdefghijklmnopqrstuvwxyz'
+	Y  (BREAK(H2) | REM) . S2  =  S2 'b'
+	OUTPUT  =  '[' Y ']'
+END

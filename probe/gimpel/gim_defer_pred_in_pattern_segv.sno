@@ -1,0 +1,16 @@
+*  MINIMAL WITNESS (s184, batch B, from MDY.sno): a pattern carrying an
+*  IMMEDIATE value assignment ($) and a DEFERRED PREDICATE CALL WITH ARGS
+*  (*GT(DY,X)) reading the just-assigned variable SIGSEGVs SCRIP in BOTH
+*  modes.  In MDY.sno itself the same construct SIGSEGVs mode 3 while MODE 4
+*  RUNS THE WHOLE DRIVER CORRECTLY, so the crash is also reachable as a 1:1
+*  divergence.  Same family as beauty's grammar and BLANKS's
+*  LEN(*DIFF(N,' ')) -- a deferred call with arguments inside a pattern --
+*  so this is a second independent witness for the M1 class.
+	I  =  SPAN('0123456789')
+	DY =  83
+	P  =  '(' I $ X *GT(DY,X) ',' I $ M
+	T  =  '(334,12)(31,2)(0,1)'
+	T  P					:F(GDP_F)
+	OUTPUT  =  X ' ' M			:(END)
+GDP_F	OUTPUT  =  'NO MATCH'
+END
