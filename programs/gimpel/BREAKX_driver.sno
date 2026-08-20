@@ -1,0 +1,16 @@
+*  BREAKX_driver - exercises BREAKX(S): a pattern that EXTENDS ITSELF to
+*  include characters from S if a rematch is required.  Contract per
+*  BREAKX.inc header, which also records that BREAKX is a BUILT-IN function in
+*  SNOBOL4+ and SPITBOL -- so BREAKX.sno leaves its own definition commented
+*  out and this driver exercises the built-in the header points at.
+-INCLUDE "BREAKX.sno"
+        DEFINE('TRY(S,B,T)M')                   :(TRY_END)
+TRY     S  BREAKX(B) . M  T                     :F(TRY_F)
+        TRY  =  '[' S '] BREAKX(' B ') then [' T '] -> [' M ']'  :(RETURN)
+TRY_F   TRY  =  '[' S '] BREAKX(' B ') then [' T '] -> NO MATCH' :(RETURN)
+TRY_END
+        OUTPUT  =  TRY('ABC.DEF.GHI', '.', '.GHI')
+        OUTPUT  =  TRY('ABC.DEF.GHI', '.', '.DEF')
+        OUTPUT  =  TRY('ABCDEF', '.', 'X')
+        OUTPUT  =  TRY('A,B;C', ',;', ';C')
+END

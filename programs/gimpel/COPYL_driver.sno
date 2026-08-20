@@ -1,0 +1,25 @@
+*  COPYL_driver - exercises COPYL(L): copy a list of LINKs, where the
+*  configuration may have LOOPS.  Contract per COPYL.inc header -- the copy is
+*  independent of the original, and a circular configuration terminates rather
+*  than running away.  NIL is an unset variable, i.e. the null terminator.
+-INCLUDE "COPYL.sno"
+        DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
+SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
+        EQ(N,0)                                 :S(FRETURN)
+        SHOWL  =  VALUE(L)  ' '  SHOWL(NEXT(L), N - 1)  :(RETURN)
+SHOWL_END
+        L1  =  LINK(LINK(LINK(NIL, 'C'), 'B'), 'A')
+        C1  =  COPYL(L1)
+        OUTPUT  =  SHOWL(C1, 9)
+        VALUE(L1)  =  'CHANGED'
+        OUTPUT  =  SHOWL(L1, 9)
+        OUTPUT  =  SHOWL(C1, 9)
+        R1  =  LINK(NIL, 'P')
+        NEXT(R1)  =  LINK(R1, 'Q')
+        C2  =  COPYL(R1)
+        OUTPUT  =  SHOWL(C2, 6)
+        IDENT(C2, NEXT(NEXT(C2)))               :F(NOTLOOP)
+        OUTPUT  =  'COPY IS STILL CIRCULAR'      :(DONE)
+NOTLOOP OUTPUT  =  'COPY IS NOT CIRCULAR'
+DONE
+END

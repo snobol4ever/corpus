@@ -1,0 +1,12 @@
+*  DAY_driver - exercises DAY(DATE): the day of the week for a date given as
+*  M/D/Y.  Contract per DAY.sno header (real arithmetic, DATE()-shaped input).
+*  Every case passes an EXPLICIT year so DATE() is never consulted and the
+*  driver stays deterministic.
+-INCLUDE "DAY.sno"
+        OUTPUT  =  DAY('7/4/1976')
+        OUTPUT  =  DAY('1/1/2000')
+        OUTPUT  =  DAY('2/29/2000')
+        OUTPUT  =  DAY('12/25/1999')
+        OUTPUT  =  DAY('3/1/1900')
+        OUTPUT  =  DAY('8/20/2026')
+END

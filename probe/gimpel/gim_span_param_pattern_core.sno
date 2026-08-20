@@ -1,0 +1,11 @@
+*  gim_span_param_pattern_core - CORE DUMP.  A local bound to SPAN over a
+*  PARAMETER, then matched against the function's own return variable.
+*  Distinct from gim_span_self_rebind_wrong: no self-reference here, and the
+*  failure is a crash rather than a wrong answer.  Distilled from DIFF.sno.
+        DEFINE('STRIP(S1,S2)P')                 :(STRIP_END)
+STRIP   STRIP  =  S1
+        P  =  SPAN(S2)
+        STRIP  P  =                             :(RETURN)
+STRIP_END
+        OUTPUT  =  STRIP('ABCDEF', 'BDF')
+END

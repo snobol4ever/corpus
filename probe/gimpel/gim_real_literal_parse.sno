@@ -1,0 +1,7 @@
+*  gim_real_literal_parse - PARSE ERROR.  A real literal written with a
+*  TRAILING DOT and no fractional digits, 25., is rejected by SCRIP's SNOBOL4
+*  parser, so no code is generated at all.  Distilled from DAY.sno line 9,
+*  CENT_ = (25. * YEAR_4) - 1.
+        X  =  (25. * 3) - 1
+        OUTPUT  =  X
+END

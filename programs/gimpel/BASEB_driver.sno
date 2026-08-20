@@ -1,0 +1,11 @@
+*  BASEB_driver - exercises BASEB(N,B): convert the integer N to its base B
+*  representation.  Contract per BASEB.sno header: B may be any positive
+*  integer <= 36 (digits past 9 come from A-Z, per the module's alphabet).
+-INCLUDE "BASEB.sno"
+        OUTPUT  =  BASEB(255, 16)
+        OUTPUT  =  BASEB(10, 2)
+        OUTPUT  =  BASEB(511, 8)
+        OUTPUT  =  BASEB(1295, 36)
+        OUTPUT  =  BASEB(7, 10)
+        OUTPUT  =  '[' BASEB(0, 10) ']'
+END

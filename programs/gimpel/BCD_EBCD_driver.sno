@@ -1,0 +1,5 @@
+*  BCD_EBCD_driver - exercises BCD_EBCD.sno, a one-line PROGRAM (not a library
+*  module) that converts BCD input to EBCDIC by REPLACE(INPUT,"#@%<&","='()+").
+*  It reads INPUT, so the cases are supplied by BCD_EBCD_driver.input, the
+*  corpus's `${sno%.sno}.input` convention.
+-INCLUDE "BCD_EBCD.sno"

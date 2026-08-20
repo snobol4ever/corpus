@@ -1,0 +1,16 @@
+*  FLD_driver - exercises FLD(ST,I): return BY NAME the Ith field of structure
+*  ST, failing if I exceeds the field count.  Cases are the header's own
+*  worked example verbatim: DATA("FOO(A,B)"), X = FOO("aaa","bbb"),
+*  Y = .FLD(X,2), $Y yields "bbb", and $Y = "ccc" changes B(X) to "ccc".
+-INCLUDE "FLD.sno"
+        DATA('FOO(A,B)')
+        X  =  FOO('aaa', 'bbb')
+        Y  =  FLD(X, 2)
+        OUTPUT  =  $Y
+        $Y  =  'ccc'
+        OUTPUT  =  B(X)
+        OUTPUT  =  $FLD(X, 1)
+        OUTPUT  =  'FIELD 3 -> '  $FLD(X, 3)    :S(FX)
+        OUTPUT  =  'FIELD 3 -> FAILS AS SPECIFIED'
+FX
+END

@@ -1,0 +1,5 @@
+N[LABEL] O[LA] D[1,4(2)] C[load address here]
+N[] O[BR] D[14] C[]
+N[TAG] O[DC] D[C'HI,THERE'] C[a literal]
+N[] O[AGO] D[(1).SKIP] C[]
+N[ENTRY] O[CSECT] D[] C[]

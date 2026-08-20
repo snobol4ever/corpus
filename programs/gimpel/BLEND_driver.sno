@@ -1,0 +1,10 @@
+*  BLEND_driver - exercises BLEND(S1,S2): blend two equi-length strings so
+*  that every other character is taken from each.  Contract per BLEND.sno
+*  header: BLEND('ABC','123') returns 'A1B2C3'.
+-INCLUDE "BLEND.sno"
+        OUTPUT  =  BLEND('ABC', '123')
+        OUTPUT  =  BLEND('A', '1')
+        OUTPUT  =  BLEND('HELLO', 'WORLD')
+        OUTPUT  =  BLEND('AC', '13')
+        OUTPUT  =  BLEND('SNOBOL', '123456')
+END

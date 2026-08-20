@@ -1,0 +1,4 @@
+[ABC.DEF.GHI] BREAKX(.) then [.GHI] -> [ABC.DEF]
+[ABC.DEF.GHI] BREAKX(.) then [.DEF] -> [ABC]
+[ABCDEF] BREAKX(.) then [X] -> NO MATCH
+[A,B;C] BREAKX(,;) then [;C] -> [A,B]

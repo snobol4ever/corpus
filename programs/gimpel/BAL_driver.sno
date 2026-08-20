@@ -1,0 +1,19 @@
+*  BAL_driver - exercises BAL(PARENS,QTS), which returns a PATTERN matching a
+*  balanced string:  PARENS gives the paired brackets that must nest, QTS the
+*  quote characters inside which bracket characters do not count for balancing.
+*  BAL.sno carries no header comment; the contract is the one FASTBAL.inc names
+*  when it cross-references "See also: BAL.INC".
+-INCLUDE "BAL.sno"
+        P  =  BAL('()', "'")
+        DEFINE('TRY(S)M')                       :(TRY_END)
+TRY     S  POS(0)  P . M  RPOS(0)               :F(TRY_F)
+        TRY  =  '[' S '] BALANCED'              :(RETURN)
+TRY_F   TRY  =  '[' S '] NOT BALANCED'          :(RETURN)
+TRY_END
+        OUTPUT  =  TRY('ABC')
+        OUTPUT  =  TRY('A(B)C')
+        OUTPUT  =  TRY('A(B(C)D)E')
+        OUTPUT  =  TRY('A(BC')
+        OUTPUT  =  TRY('A)B(C')
+        OUTPUT  =  TRY("A'(('B")
+END

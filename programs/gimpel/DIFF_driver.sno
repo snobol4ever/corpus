@@ -1,0 +1,9 @@
+*  DIFF_driver - exercises DIFF(S1,S2): the set difference S1 - S2, a string
+*  of every character that is in S1 and not in S2.  Contract per DIFF.inc.
+-INCLUDE "DIFF.sno"
+        OUTPUT  =  DIFF('ABCDEF', 'BDF')
+        OUTPUT  =  DIFF('ABCDEF', '')
+        OUTPUT  =  '[' DIFF('ABC', 'ABC') ']'
+        OUTPUT  =  DIFF('MISSISSIPPI', 'S')
+        OUTPUT  =  DIFF('A B C', ' ')
+END

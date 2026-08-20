@@ -1,0 +1,24 @@
+*  LAST_driver - exercises LAST(L): return BY NAME the name of the last NEXT
+*  field of a list.  Contract per LAST.inc header: if L1 and L2 are lists,
+*  LAST(L1) = L2 concatenates them, and LAST(L) = L creates a circular list.
+*  NIL is an unset variable, i.e. the null list terminator.
+-INCLUDE "LAST.sno"
+        DATA('LINK(NEXT,VALUE)')
+        DEFINE('SHOWL(L,N)')                    :(SHOWL_END)
+SHOWL   SHOWL  =  IDENT(L)  TRIM(SHOWL)         :S(RETURN)
+        EQ(N,0)                                 :S(FRETURN)
+        SHOWL  =  VALUE(L)  ' '  SHOWL(NEXT(L), N - 1)  :(RETURN)
+SHOWL_END
+        L1  =  LINK(LINK(NIL, 'B'), 'A')
+        L2  =  LINK(LINK(NIL, 'D'), 'C')
+        OUTPUT  =  SHOWL(L1, 9)
+        OUTPUT  =  SHOWL(L2, 9)
+        LAST(L1)  =  L2
+        OUTPUT  =  SHOWL(L1, 9)
+        L3  =  LINK(NIL, 'Q')
+        LAST(L3)  =  L3
+        OUTPUT  =  SHOWL(L3, 5)
+        LAST(NIL)                               :S(LY)
+        OUTPUT  =  'LAST(NULL) FAILS AS SPECIFIED'
+LY
+END

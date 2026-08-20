@@ -1,0 +1,12 @@
+*  gim_omitted_arg_shift - SILENT WRONG ANSWER.  An OMITTED LEADING argument in
+*  a call, F(, 'y'), shifts the remaining arguments left in SCRIP: 'y' lands in
+*  A instead of B.  A trailing omission, F('x', ), is handled correctly.
+*  Distilled from INSERT.sno, whose contract case is INSERT(, 'SOLO') -- the
+*  header's "if T is null, a root node is created" arm.
+        DEFINE('F(A,B)')                        :(F_END)
+F       F  =  '[' A ']' '[' B ']'               :(RETURN)
+F_END
+        OUTPUT  =  F('x', 'y')
+        OUTPUT  =  F(, 'y')
+        OUTPUT  =  F('x', )
+END

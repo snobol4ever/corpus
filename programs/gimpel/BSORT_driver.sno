@@ -1,0 +1,28 @@
+*  BSORT_driver - exercises BSORT(A,I,N): bubble-sort into ascending lexical
+*  order the strings in the subarray A<I>, A<I+1>, ..., A<N>.  Contract per
+*  BSORT.sno header.  Case 2 sorts a proper subarray to show A<1> untouched.
+-INCLUDE "BSORT.sno"
+        DEFINE('SHOWA(A)K,S')                    :(SHOWA_END)
+SHOWA    K  =  0
+SHOWA_1  K  =  K + 1
+        S  =  A<K>                              :F(SHOWA_2)
+        SHOWA  =  SHOWA  S  ' '                   :(SHOWA_1)
+SHOWA_2  SHOWA  =  TRIM(SHOWA)                     :(RETURN)
+SHOWA_END
+        A  =  ARRAY(5)
+        A<1> = 'PEAR'
+        A<2> = 'APPLE'
+        A<3> = 'FIG'
+        A<4> = 'DATE'
+        A<5> = 'CHERRY'
+        BSORT(A, 1, 5)
+        OUTPUT  =  SHOWA(A)
+        B  =  ARRAY(5)
+        B<1> = 'ZULU'
+        B<2> = 'DELTA'
+        B<3> = 'ALPHA'
+        B<4> = 'CHARLIE'
+        B<5> = 'BRAVO'
+        BSORT(B, 2, 5)
+        OUTPUT  =  SHOWA(B)
+END

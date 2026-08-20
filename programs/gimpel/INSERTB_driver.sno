@@ -1,0 +1,20 @@
+*  INSERTB_driver - exercises INSERTB(T,S): insert S into the backward-growing
+*  binary tree T.  Contract per INSERTB.inc header: the ROOT of the returned
+*  tree contains S.
+-INCLUDE "INSERTB.sno"
+        DEFINE('WALK(T)')                       :(WALK_END)
+WALK    IDENT(T)                                :S(RETURN)
+        WALK(LSON(T))
+        OUTPUT  =  VALUE(T)  ' x'  NO(T)
+        WALK(RSON(T))                           :(RETURN)
+WALK_END
+        T  =  INSERTB(T, 'MIKE')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        T  =  INSERTB(T, 'ALPHA')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        T  =  INSERTB(T, 'ZULU')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        T  =  INSERTB(T, 'DELTA')
+        OUTPUT  =  'ROOT=' VALUE(T)
+        WALK(T)
+END

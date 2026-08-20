@@ -1,0 +1,12 @@
+*  DEXP_driver - exercises DEXP(PROTO): define a function in terms of a simple
+*  one-line expression.  Case 1 is the header's own worked example verbatim,
+*  DEXP('AVE(X,Y) = (X + Y) / 2.0').
+-INCLUDE "DEXP.sno"
+        DEXP('AVE(X,Y) = (X + Y) / 2.0')
+        OUTPUT  =  AVE(1, 3)
+        OUTPUT  =  AVE(7, 8)
+        DEXP('SQ(X) = X * X')
+        OUTPUT  =  SQ(9)
+        DEXP('  TWICE(S) = S S')
+        OUTPUT  =  TWICE('ab')
+END

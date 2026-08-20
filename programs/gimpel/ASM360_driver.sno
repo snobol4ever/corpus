@@ -1,0 +1,20 @@
+*  ASM360_driver - exercises the ASM360 PATTERN: applied to a subject it breaks
+*  an IBM 360 assembly-language statement into the NAME, OPERATION, OPERAND and
+*  COMMENT fields.  Contract per ASM360.sno header.
+-INCLUDE "ASM360.sno"
+        DEFINE('PARSE(S)')                      :(PARSE_END)
+PARSE   NAME  =
+        OPERATION  =
+        OPERAND  =
+        COMMENT  =
+        S  ASM360                               :F(PARSE_F)
+        PARSE  =  'N[' NAME '] O[' OPERATION '] D[' OPERAND '] C[' COMMENT ']'
++                                               :(RETURN)
+PARSE_F PARSE  =  'NO MATCH'                    :(RETURN)
+PARSE_END
+        OUTPUT  =  PARSE('LABEL    LA    1,4(2)   load address here')
+        OUTPUT  =  PARSE('         BR    14')
+        OUTPUT  =  PARSE("TAG      DC    C'HI,THERE'   a literal")
+        OUTPUT  =  PARSE('         AGO   (1).SKIP')
+        OUTPUT  =  PARSE('ENTRY    CSECT')
+END

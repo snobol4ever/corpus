@@ -1,0 +1,6 @@
+*  INFINIP_driver - exercises INFINIP.sno, the exerciser for the "infinite"
+*  precision integer math package, which carries a lowercase `end` LABEL but
+*  no END STATEMENT and so cannot be run on its own ("No END statement found
+*  in source file(s)" from the live oracle).  The driver supplies the END.
+-INCLUDE "INFINIP.sno"
+END

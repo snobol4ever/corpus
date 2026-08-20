@@ -1,0 +1,10 @@
+*  BALREV_driver - exercises BALREV(S): the balanced reversal of S --
+*  characters reversed AND parentheses interchanged.  Contract per
+*  BALREV.sno header: BALREV('F(X)') returns '(X)F', not ')X(F'.
+-INCLUDE "BALREV.sno"
+        OUTPUT  =  BALREV('F(X)')
+        OUTPUT  =  BALREV('ABC')
+        OUTPUT  =  BALREV('(A(B)C)')
+        OUTPUT  =  BALREV('F(X,Y)G(Z)')
+        OUTPUT  =  BALREV('')
+END

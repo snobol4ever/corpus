@@ -1,0 +1,16 @@
+*  DEXTERN_driver - exercises DEXTERN(PROTO,LBL): declare a function whose body
+*  is LOADED FROM AN EXTERNAL LIBRARY on first call, and LOADEX(LBL), the
+*  loader it generates the call to.  DEXTERN.sno ships LIB_ as the unbound
+*  placeholder `Some Library File Designator`, so no library exists to load
+*  from and LOADEX cannot be driven without one; these cases therefore cover
+*  the DECLARATION half of the contract -- DEXTERN succeeds, defaults LBL from
+*  the prototype when LBL is omitted, and leaves the named function defined.
+-INCLUDE "DEXTERN.sno"
+        DEXTERN('SQUARE(X)', 'SQUARE')          :F(D1F)
+        OUTPUT  =  'DEXTERN SQUARE -> DECLARED'         :(D1X)
+D1F     OUTPUT  =  'DEXTERN SQUARE -> FAILED'
+D1X     DEXTERN('JOIN(A,B)', NILLBL)            :F(D2F)
+        OUTPUT  =  'DEXTERN JOIN -> DECLARED'           :(D2X)
+D2F     OUTPUT  =  'DEXTERN JOIN -> FAILED'
+D2X     OUTPUT  =  'LIB_=[' LIB_ ']'
+END

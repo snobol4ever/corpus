@@ -1,0 +1,20 @@
+*  FIND_driver - exercises FIND(A,PRED): search array A for an extreme element,
+*  the kind of extreme being fixed by the predicate PRED.  Contract per
+*  FIND.inc header, whose own examples are FIND(A,'GE') and FIND(A,'~LGT').
+-INCLUDE "FIND.sno"
+        A  =  ARRAY(5)
+        A<1> = 30
+        A<2> = 70
+        A<3> = 10
+        A<4> = 70
+        A<5> = 50
+        OUTPUT  =  FIND(A, 'GE')
+        OUTPUT  =  FIND(A, 'LE')
+        B  =  ARRAY(4)
+        B<1> = 'PEAR'
+        B<2> = 'APPLE'
+        B<3> = 'ZULU'
+        B<4> = 'FIG'
+        OUTPUT  =  FIND(B, '~LGT')
+        OUTPUT  =  FIND(B, 'LGT')
+END

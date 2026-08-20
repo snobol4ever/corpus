@@ -1,0 +1,6 @@
+abc AGT ABB -> YES
+ABC AGT abb -> YES
+abc AGT ABC -> no
+ABC AGT abc -> no
+abb AGT ABC -> no
+Zebra AGT apple -> YES

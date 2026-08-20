@@ -1,0 +1,9 @@
+*  COMB_driver - exercises COMB(N,M): the number of combinations of N things
+*  taken M at a time.  Contract per COMB.inc header.
+-INCLUDE "COMB.sno"
+        OUTPUT  =  COMB(5, 2)
+        OUTPUT  =  COMB(6, 3)
+        OUTPUT  =  COMB(10, 0)
+        OUTPUT  =  COMB(10, 10)
+        OUTPUT  =  COMB(52, 5)
+END

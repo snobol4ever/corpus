@@ -1,0 +1,10 @@
+*  gim_span_self_rebind_control - the GREEN control for gim_span_self_rebind_wrong:
+*  identical but for binding SPAN's result to a DIFFERENT variable than its
+*  argument.  SCRIP agrees with the oracle here, so the ingredient is the
+*  SELF-REFERENCE, not SPAN-over-a-variable and not pattern-valued variables.
+        S  =  'ABCDEF'
+        X  =  'BDF'
+        P  =  SPAN(X)
+        S  P  =
+        OUTPUT  =  S
+END

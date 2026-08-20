@@ -1,0 +1,18 @@
+*  FASTBAL_driver - exercises FASTBAL(PARENS,QTS,S): returns a pattern matching
+*  all nonnull balanced strings, PARENS giving the nesting bracket pairs, QTS
+*  the quote characters (bracket characters inside quotes are ignored for
+*  balancing), and S the other special characters BREAK should stop at.
+*  Case 1 is the header's own worked example: scanning the arguments of a
+*  SNOBOL4 function call.
+-INCLUDE "FASTBAL.sno"
+        ARG  =  FASTBAL('(<[]>)', "'" '"', ',)')
+        DEFINE('TRY(S)M')                       :(TRY_END)
+TRY     S  POS(0)  ARG . M                      :F(TRY_F)
+        TRY  =  '[' S '] -> [' M ']'            :(RETURN)
+TRY_F   TRY  =  '[' S '] -> NO MATCH'           :(RETURN)
+TRY_END
+        OUTPUT  =  TRY('A,B)')
+        OUTPUT  =  TRY('F(X,Y),Z)')
+        OUTPUT  =  TRY("'A,B',C)")
+        OUTPUT  =  TRY('[A,B],C)')
+END

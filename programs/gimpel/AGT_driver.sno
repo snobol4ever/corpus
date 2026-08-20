@@ -1,0 +1,15 @@
+*  AGT_driver - exercises AGT(S1,S2): alphabetic comparison with upper and
+*  lower case letters treated as equal.  Contract per AGT.sno header --
+*  AGT is LGT with case folded, so it SUCCEEDS iff S1 > S2 ignoring case.
+-INCLUDE "AGT.sno"
+        DEFINE('SHOW(A,B)')                     :(SHOW_END)
+SHOW    SHOW  =  A  ' AGT '  B  ' -> YES'  AGT(A,B)     :S(RETURN)
+        SHOW  =  A  ' AGT '  B  ' -> no'                :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW('abc', 'ABB')
+        OUTPUT  =  SHOW('ABC', 'abb')
+        OUTPUT  =  SHOW('abc', 'ABC')
+        OUTPUT  =  SHOW('ABC', 'abc')
+        OUTPUT  =  SHOW('abb', 'ABC')
+        OUTPUT  =  SHOW('Zebra', 'apple')
+END

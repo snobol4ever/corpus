@@ -1,0 +1,17 @@
+*  FTRACE_driver - exercises FTRACE(PROTO,LABEL): a drop-in replacement for
+*  DEFINE (it OPSYNs itself over DEFINE and keeps the original as DEFINE.)
+*  which additionally arms CALL and RETURN tracing on every function so
+*  defined, routed to the user's FTR_CALL / FTR_RET trace functions.
+*  Contract per FTRACE.sno.  The trace handlers below are defined with the
+*  SAVED DEFINE. so that arming does not recurse through FTRACE itself.
+-INCLUDE "FTRACE.sno"
+        DEFINE.('FTR_CALL(N,V)')
+        DEFINE.('FTR_RET(N,V)')
+        DEFINE('TWICE(X)')                      :(TWICE_END)
+FTR_CALL        OUTPUT  =  'CALL '  N           :(RETURN)
+FTR_RET OUTPUT  =  'RET  '  N  ' = '  V         :(RETURN)
+TWICE   TWICE  =  X  X                          :(RETURN)
+TWICE_END
+        OUTPUT  =  TWICE('ab')
+        OUTPUT  =  TWICE('Z')
+END
