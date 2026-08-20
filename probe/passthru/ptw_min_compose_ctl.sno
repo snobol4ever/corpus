@@ -1,0 +1,10 @@
+*  s182 -- THE CONTROL: byte-for-byte ptw_min_compose_nocap with the poison line removed.
+*  PASSES.  The pair is one line apart and is the asm-diff pair for the class
+*  (FN__PAT$1 + PAT$1_res present here, ABSENT in the poisoned twin).
+          A = ARBNO('a')
+          B = ''
+          P2 = A B
+          'aa' POS(0) *P2 RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

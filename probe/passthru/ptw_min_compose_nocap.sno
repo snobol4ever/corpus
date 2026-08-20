@@ -1,0 +1,12 @@
+*  s182 -- ptw_min_compose SIMPLIFIED: the capture is NOT an ingredient (measured).
+*  A runtime-composed pattern value (P2 = A B, both variable-held) loses ARBNO's
+*  RETRY when a later element fails.  Oracle backtracks into ARBNO and extends; SCRIP does not.
+*  REQUIRED: the whole-program fz poison ($(...)= / EVAL / CODE / CONVERT / CLEAR).
+          $('ZZ') = 1
+          A = ARBNO('a')
+          B = ''
+          P2 = A B
+          'aa' POS(0) *P2 RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

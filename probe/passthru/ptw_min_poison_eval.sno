@@ -1,0 +1,12 @@
+*  s182 -- THE POISON IS THE ON-RAMP, AND EVAL REACHES IT TOO.
+*  One EVAL anywhere sets g_sno_fz_unsafe (lower_snobol4.c:1001), which unseals EVERY
+*  name in the program, so `P2 = A B` cannot fold and NO PAT$ blob graph is emitted.
+*  The defer then runs the generic C road, which silently loses ARBNO retry.
+          Q = EVAL('1')
+          A = ARBNO('a')
+          B = ''
+          P2 = A B
+          'aa' POS(0) *P2 RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
