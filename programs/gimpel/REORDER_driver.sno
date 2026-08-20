@@ -1,0 +1,17 @@
+*  REORDER_driver - exercises REORDER(S,OS): the next permutation (with
+*  repetitions) of S, OS being an ordered version of S made by ORDER and S
+*  the last value REORDER produced.  Contract per REORDER.sno header, so
+*  ORDER is included first.
+-INCLUDE "ORDER.sno"
+-INCLUDE "REORDER.sno"
+        OS  =  ORDER('aab')
+        S   =  OS
+RO_1    OUTPUT  =  S
+        S  =  REORDER(S, OS)                    :S(RO_1)
+        OUTPUT  =  'aab EXHAUSTED'
+        OS  =  ORDER('abc')
+        S   =  OS
+RO_2    OUTPUT  =  S
+        S  =  REORDER(S, OS)                    :S(RO_2)
+        OUTPUT  =  'abc EXHAUSTED'
+END

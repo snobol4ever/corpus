@@ -1,0 +1,14 @@
+*  ORBREAK_driver - exercises ORBREAK(LIST): the first characters of every
+*  alternative in LIST, with the OR convention that (abc) stands for
+*  ANY('abc').  Contract per ORBREAK.sno header; LIST's first character is
+*  its own separator.
+-INCLUDE "ORBREAK.sno"
+        OUTPUT  =  ORBREAK(',LISO,LIST,ABC,LISTER')
+        OUTPUT  =  ORBREAK(',(abc),XY,(pq)')
+        OUTPUT  =  ORBREAK(',ONE')
+        OUTPUT  =  ORBREAK('/alpha/beta/gamma')
+        OUTPUT  =  '[' ORBREAK(',') ']'
+        OUTPUT  =  ORBREAK('')                  :S(ORB_D1)
+        OUTPUT  =  'ORBREAK OF NULL FAILS'
+ORB_D1  OUTPUT  =  'DONE'
+END

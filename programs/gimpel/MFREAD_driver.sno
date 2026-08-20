@@ -1,0 +1,22 @@
+*  MFREAD_driver - exercises MFREAD(P,U,L) and REWIND(U): a line read from
+*  unit U (attached to file L on first use) and returned when the pattern P
+*  matches it, each unit keeping its own buffer, and REWIND putting a unit
+*  back to the start.  MFREAD.sno carries no header, so its own code is the
+*  contract; a null unit reads the standard input.  Input is
+*  MFREAD_driver.in, .d1 and .d2.
+-INCLUDE "MFREAD.sno"
+        OUTPUT  =  MFREAD(ARB, 11, 'MFREAD_driver.d1')
+        OUTPUT  =  MFREAD(ARB, 12, 'MFREAD_driver.d2')
+        OUTPUT  =  MFREAD(ARB, 11, 'MFREAD_driver.d1')
+        OUTPUT  =  MFREAD(POS(0) 'zzz', 11, 'MFREAD_driver.d1')  :S(MF_1)
+        OUTPUT  =  'PATTERN FAILED ON UNIT 11'
+MF_1    OUTPUT  =  MFREAD(POS(0) 'file1', 11, 'MFREAD_driver.d1')
+        OUTPUT  =  MFREAD(ARB, 12, 'MFREAD_driver.d2')
+        OUTPUT  =  MFREAD(ARB, 12, 'MFREAD_driver.d2')  :S(MF_2)
+        OUTPUT  =  'UNIT 12 IS EXHAUSTED'
+MF_2    REWIND(11)
+        OUTPUT  =  MFREAD(ARB, 11, 'MFREAD_driver.d1')
+        OUTPUT  =  MFREAD(ARB)
+        OUTPUT  =  MFREAD(ARB)
+        OUTPUT  =  'DONE'
+END

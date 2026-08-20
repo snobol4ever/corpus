@@ -1,0 +1,12 @@
+*  PERMUTAT_driver - exercises PERMUTATION(S,I): the Ith permutation of the
+*  string S.  Contract per PERMUTAT.sno header.
+-INCLUDE "PERMUTAT.sno"
+        I  =  0
+PMT_1   OUTPUT  =  I ' ' PERMUTATION('ABC', I)
+        I  =  I + 1
+        LT(I, 6)                                :S(PMT_1)
+        OUTPUT  =  PERMUTATION('AB', 0)
+        OUTPUT  =  PERMUTATION('AB', 1)
+        OUTPUT  =  PERMUTATION('ABCD', 23)
+        OUTPUT  =  '[' PERMUTATION('', 0) ']'
+END

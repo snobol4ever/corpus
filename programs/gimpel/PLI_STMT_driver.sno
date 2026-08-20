@@ -1,0 +1,17 @@
+*  PLI_STMT_driver - exercises the pattern PLI.STMT, which matches a PL/I
+*  statement, assigns the matched string to STMT, and fails when there is
+*  none.  Contract per PLI_STMT.sno header.
+-INCLUDE "PLI_STMT.sno"
+        DEFINE('TRY(S)')                        :(TRY_END)
+TRY     STMT  =
+        S  PLI.STMT                             :F(TRY_F)
+        TRY  =  '[' STMT ']'                    :(RETURN)
+TRY_F   TRY  =  'NO STATEMENT'                  :(RETURN)
+TRY_END
+        OUTPUT  =  TRY('A = B; C = D;')
+        OUTPUT  =  TRY("PUT = 'a;b'; X = 1;")
+        OUTPUT  =  TRY('X /* ; */ = 1; Y = 2;')
+        OUTPUT  =  TRY(';')
+        OUTPUT  =  TRY('A = B')
+        OUTPUT  =  TRY('')
+END

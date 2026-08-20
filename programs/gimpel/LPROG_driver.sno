@@ -1,0 +1,12 @@
+*  LPROG_driver - exercises LPROG(): the length in statements of the SNOBOL4
+*  program in which it is called.  Contract per LPROG.sno header.  The count
+*  itself is a property of the compiler that compiled the program, so the
+*  driver asserts the contract - an integer, positive, and not shrinking on a
+*  later call - rather than a number no two compilers could agree on.
+-INCLUDE "LPROG.sno"
+        A  =  LPROG()
+        OUTPUT  =  DATATYPE(A)
+        OUTPUT  =  GT(A, 0)  'LPROG IS POSITIVE'
+        B  =  LPROG()
+        OUTPUT  =  GE(B, A)  'LPROG DOES NOT SHRINK'
+END

@@ -1,0 +1,10 @@
+*  REVERSE_driver - exercises REVERSE(S): an end-for-end reversal of S.
+*  Contract per REVERSE.sno header (built-in in SPITBOL, so the module body
+*  is commented out there; the driver exercises the contract either way).
+-INCLUDE "REVERSE.sno"
+        OUTPUT  =  REVERSE('SNOBOL4')
+        OUTPUT  =  REVERSE('A')
+        OUTPUT  =  '[' REVERSE('') ']'
+        OUTPUT  =  REVERSE(REVERSE('palindrome'))
+        OUTPUT  =  REVERSE('abcdefghijklmnopqrstuvwxyz')
+END

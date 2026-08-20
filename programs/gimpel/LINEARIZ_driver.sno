@@ -1,0 +1,19 @@
+*  LINEARIZ_driver - exercises LINEARIZE(T): a binary tree of the kind built
+*  by INSERT strung via its right sons, returning the first node; null T
+*  fails.  Contract per LINEARIZ.sno header, so INSERT is included first.
+-INCLUDE "INSERT.sno"
+-INCLUDE "LINEARIZ.sno"
+        WORDS  =  'pear apple fig date cherry banana apple '
+LZ_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LZ_2)
+        T  =  INSERT(T, W)                      :(LZ_1)
+LZ_2    N  =  LINEARIZE(T)                      :F(LZ_ERR)
+LZ_3    IDENT(N)                                :S(LZ_4)
+        OUTPUT  =  VALUE(N) ' ' NO(N)
+        N  =  RSON(N)                           :(LZ_3)
+LZ_4    OUTPUT  =  DIFFER(LAST_NAME)  'LAST_NAME IS SET'
+        LINEARIZE(EMPTY)                        :S(LZ_5)
+        OUTPUT  =  'LINEARIZE OF NULL FAILS'
+LZ_5    OUTPUT  =  VALUE(LINEARIZE(INSERT(,'solo')))
+        OUTPUT  =  'DONE'                       :(END)
+LZ_ERR  OUTPUT  =  'LINEARIZE OF THE TREE FAILED'
+END

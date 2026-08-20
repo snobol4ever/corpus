@@ -1,0 +1,11 @@
+*  LPAD_driver - exercises LPAD(S,N,C): pad S on the left with C until S is
+*  N characters long; S returned when already >= N; C defaults to a blank.
+*  Contract per LPAD.sno header (built-in in Spitbol, module body commented).
+-INCLUDE "LPAD.sno"
+        OUTPUT  =  '[' LPAD('ab', 5) ']'
+        OUTPUT  =  '[' LPAD('ab', 5, '0') ']'
+        OUTPUT  =  '[' LPAD('abcde', 3) ']'
+        OUTPUT  =  '[' LPAD('abc', 3, '*') ']'
+        OUTPUT  =  '[' LPAD('', 4, '-') ']'
+        OUTPUT  =  '[' LPAD('xy', 0) ']'
+END

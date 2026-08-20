@@ -1,0 +1,28 @@
+*  ONCE_driver - exercises ONCE(ID): a pattern succeeding once and only once
+*  and failing forever after, matching the null string like FENCE but failing
+*  (not aborting) thereafter so other alternates may still be taken.
+*  Contract per ONCE.sno header.
+-INCLUDE "ONCE.sno"
+        P  =  ONCE()
+        'xyz'  P                                :S(ON_1)F(ON_2)
+ON_1    OUTPUT  =  'TRY 1 MATCHED'               :(ON_3)
+ON_2    OUTPUT  =  'TRY 1 FAILED'
+ON_3    'xyz'  P                                :S(ON_4)F(ON_5)
+ON_4    OUTPUT  =  'TRY 2 MATCHED'               :(ON_6)
+ON_5    OUTPUT  =  'TRY 2 FAILED'
+ON_6    'xyz'  P                                :S(ON_7)F(ON_8)
+ON_7    OUTPUT  =  'TRY 3 MATCHED'               :(ON_9)
+ON_8    OUTPUT  =  'TRY 3 FAILED'
+ON_9    'xyz'  (P  'q')  |  'xy'                :S(ON_A)F(ON_B)
+ON_A    OUTPUT  =  'ALTERNATE TAKEN AFTER ONCE FAILS' :(ON_C)
+ON_B    OUTPUT  =  'ALTERNATE NOT TAKEN'
+ON_C    Q  =  ONCE('TAG')
+        'xyz'  Q                                :S(ON_D)F(ON_E)
+ON_D    OUTPUT  =  'TAGGED TRY 1 MATCHED'        :(ON_F)
+ON_E    OUTPUT  =  'TAGGED TRY 1 FAILED'
+ON_F    R  =  ONCE('TAG')
+        'xyz'  R                                :S(ON_G)F(ON_H)
+ON_G    OUTPUT  =  'TAGGED TRY 2 MATCHED'        :(ON_I)
+ON_H    OUTPUT  =  'TAGGED TRY 2 FAILED'
+ON_I    OUTPUT  =  'DONE'
+END

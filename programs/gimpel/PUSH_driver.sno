@@ -1,0 +1,21 @@
+*  PUSH_driver - exercises PUSH(X)/POP()/TOP() over the stack in PUSH_POP.
+*  Contract per PUSH.sno header: PUSH returns BY NAME, pointing at the VALUE
+*  cell of the LINK just allocated, so it may be assigned through.
+-INCLUDE "PUSH.sno"
+        PUSH('a')
+        PUSH('b')
+        PUSH('c')
+        OUTPUT  =  TOP()
+        OUTPUT  =  POP()
+        OUTPUT  =  POP()
+        PUSH('z')  =  'ASSIGNED-BY-NAME'
+        OUTPUT  =  TOP()
+        OUTPUT  =  POP()
+        TOP()  =  'TOP-ASSIGNED-BY-NAME'
+        OUTPUT  =  POP()
+        OUTPUT  =  POP()                        :S(PSH_1)
+        OUTPUT  =  'POP ON EMPTY FAILS'
+PSH_1   OUTPUT  =  TOP()                        :S(PSH_2)
+        OUTPUT  =  'TOP ON EMPTY FAILS'
+PSH_2   OUTPUT  =  'DONE'
+END

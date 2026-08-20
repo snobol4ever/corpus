@@ -1,0 +1,15 @@
+*  READRL_driver - exercises READRL(P): a list read in reverse, so the head
+*  holds the last string read, P marking the end of the list; a null P reads
+*  to end of file.  Contract per READRL.sno header.  The module builds its
+*  cells with LINK, so the driver declares that datatype after the include.
+*  Input is READRL_driver.in.
+-INCLUDE "READRL.sno"
+        DATA('LINK(NEXT,VALUE)')
+        DEFINE('SHOW(L)')                       :(SHOW_END)
+SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
+        SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW(READRL(POS(0) 'STOP'))
+        OUTPUT  =  SHOW(READRL(NO_PAT))
+        OUTPUT  =  'DONE'
+END

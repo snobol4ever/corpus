@@ -1,0 +1,11 @@
+*  RESOLUTI_driver - exercises RESOLUTION(): the clock resolution of the
+*  machine as an integral number of milliseconds.  Contract per RESOLUTI.sno
+*  header.  The value itself is machine-dependent, so the driver asserts the
+*  contract - an integer, positive, and no coarser than one second - rather
+*  than printing a number no oracle could agree on.
+-INCLUDE "RESOLUTI.sno"
+        R  =  RESOLUTION()
+        OUTPUT  =  DATATYPE(R)
+        OUTPUT  =  GT(R, 0)  'RESOLUTION IS POSITIVE'
+        OUTPUT  =  LE(R, 1000)  'RESOLUTION IS AT MOST ONE SECOND'
+END

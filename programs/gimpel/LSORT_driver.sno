@@ -1,0 +1,27 @@
+*  LSORT_driver - exercises LSORT(L,VFLD,NFLD,PRED) (and, through it, the
+*  recursive merge helper LSORTA): a linked list sorted in place.  Contract
+*  per LSORT.sno header - the value, next and predicate names default to
+*  VALUE, NEXT and LGT, and the caller may name others.
+-INCLUDE "LSORT.sno"
+        DATA('LINK(NEXT,VALUE)')
+        DATA('CELL(LINKF,DATUM)')
+        DEFINE('SHOW(L)')
+        DEFINE('SHOWC(L)')                      :(SHOW_END)
+SHOW    SHOW  =  DIFFER(DATATYPE(L),'LINK')  '.' :S(RETURN)
+        SHOW  =  VALUE(L) ' ' SHOW(NEXT(L))     :(RETURN)
+SHOWC   SHOWC  =  DIFFER(DATATYPE(L),'CELL')  '.' :S(RETURN)
+        SHOWC  =  DATUM(L) ' ' SHOWC(LINKF(L))  :(RETURN)
+SHOW_END
+        WORDS  =  'pear apple fig date cherry banana '
+LS_1    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LS_2)
+        L  =  LINK(L, W)                        :(LS_1)
+LS_2    OUTPUT  =  SHOW(L)
+        OUTPUT  =  SHOW(LSORT(L))
+        WORDS  =  'delta alpha charlie bravo echo '
+LS_3    WORDS  BREAK(' ') . W  LEN(1)  =        :F(LS_4)
+        C  =  CELL(C, W)                        :(LS_3)
+LS_4    OUTPUT  =  SHOWC(C)
+        OUTPUT  =  SHOWC(LSORT(C, 'DATUM', 'LINKF', 'LLT'))
+        OUTPUT  =  '[' LSORT(EMPTY) ']'
+        OUTPUT  =  'DONE'
+END

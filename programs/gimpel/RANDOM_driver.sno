@@ -1,0 +1,14 @@
+*  RANDOM_driver - exercises RANDOM(N): a pseudo-random draw from the
+*  module's own seeded recurrence (RAN_VAR starts at 1, so the sequence is
+*  fixed and reproducible).  N = 0 leaves the raw fraction; N > 0 returns an
+*  integer in 1..N.  RANDOM.sno carries no header, so the module's seeded
+*  recurrence is itself the contract.
+-INCLUDE "RANDOM.sno"
+        N  =  0
+RND_1   N  =  N + 1
+        OUTPUT  =  RANDOM(6)
+        LT(N, 10)                               :S(RND_1)
+        OUTPUT  =  RANDOM(100)
+        OUTPUT  =  RANDOM(1)
+        OUTPUT  =  DATATYPE(RANDOM(0))
+END

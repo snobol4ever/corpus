@@ -1,0 +1,17 @@
+*  MDY_driver - exercises MDY(Y,DY): a year,day date converted to a
+*  month/day/year date, with the globals M and D left set.  Contract per
+*  MDY.sno header, which gives MDY(71,83) = '3/24/71'.
+-INCLUDE "MDY.sno"
+        OUTPUT  =  MDY(71,83)
+        OUTPUT  =  'M=' M ' D=' D
+        OUTPUT  =  MDY(71,1)
+        OUTPUT  =  MDY(71,365)
+        OUTPUT  =  MDY(72,60)
+        OUTPUT  =  MDY(2000,60)
+        OUTPUT  =  MDY(1900,60)
+        OUTPUT  =  MDY(71,400)                  :S(MDY_D1)
+        OUTPUT  =  'MDY(71,400) FAILS'
+MDY_D1  OUTPUT  =  MDY(71,0)                    :S(MDY_D2)
+        OUTPUT  =  'MDY(71,0) FAILS'
+MDY_D2  OUTPUT  =  'DONE'
+END

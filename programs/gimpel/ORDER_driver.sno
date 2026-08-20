@@ -1,0 +1,10 @@
+*  ORDER_driver - exercises ORDER(S): the characters of S put into
+*  alphabetic order.  Contract per ORDER.sno header.
+-INCLUDE "ORDER.sno"
+        OUTPUT  =  ORDER('banana')
+        OUTPUT  =  ORDER('SNOBOL4')
+        OUTPUT  =  ORDER('zyxwvu')
+        OUTPUT  =  ORDER('A')
+        OUTPUT  =  '[' ORDER('') ']'
+        OUTPUT  =  ORDER('Mississippi')
+END

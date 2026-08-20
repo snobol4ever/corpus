@@ -1,0 +1,20 @@
+*  LEXGT_driver - exercises LEXGT(S1,S2): is S1 lexically greater than S2
+*  under the transliteration table LEX_TT?  Contract per LEXGT.sno header;
+*  the module's own setup calls BLEND and DIFF, so both are included first.
+-INCLUDE "BLEND.sno"
+-INCLUDE "DIFF.sno"
+-INCLUDE "LEXGT.sno"
+        DEFINE('CMP(A,B)')                      :(CMP_END)
+CMP     CMP  =  A ' gt ' B
+        LEXGT(A,B)                              :S(RETURN)
+        CMP  =  A ' notgt ' B                   :(RETURN)
+CMP_END
+        OUTPUT  =  CMP('b','A')
+        OUTPUT  =  CMP('A','b')
+        OUTPUT  =  CMP('A','a')
+        OUTPUT  =  CMP('a','A')
+        OUTPUT  =  CMP('apple','Apple')
+        OUTPUT  =  CMP('Zebra','apple')
+        OUTPUT  =  CMP('abc','abc')
+        OUTPUT  =  CMP('abc','ab')
+END

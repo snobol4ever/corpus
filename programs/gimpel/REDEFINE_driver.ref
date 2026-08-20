@@ -1,0 +1,4 @@
+original(x)
+new[original(x)]
+original(x)
+DONE

@@ -1,0 +1,17 @@
+*  REDEFINE_driver - exercises REDEFINE(OP,DEF,LBL): the name in DEF's
+*  prototype is redefined to the function entered at LBL, and the old
+*  definition is preserved under that name with a period appended.  Contract
+*  per REDEFINE.sno header - whose own CAUTION is that Spitbol does not
+*  permit built-in operators to be redefined (it raises ERROR 248 for a
+*  system function too), so the driver drives the OP-omitted form over a
+*  user function, which is the whole of the contract the live oracle admits.
+-INCLUDE "REDEFINE.sno"
+        DEFINE('MYF(S)')                        :(RD_END)
+MYF     MYF  =  'original(' S ')'               :(RETURN)
+MYF2    MYF  =  'new[' MYF.(S) ']'              :(RETURN)
+RD_END  OUTPUT  =  MYF('x')
+        REDEFINE(NO_OP, 'MYF(S)', 'MYF2')
+        OUTPUT  =  MYF('x')
+        OUTPUT  =  MYF.('x')
+        OUTPUT  =  'DONE'
+END
