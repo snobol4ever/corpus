@@ -743,7 +743,7 @@ FN__PAT$4:
 PAT$4_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 56
+                        sub              rsp, 88
                         mov              qword ptr [rbp + -8], r10
                         mov              qword ptr [rbp + -16], r11
                         mov              qword ptr [rbp + -24], rdx
@@ -1001,13 +1001,13 @@ n65_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
                                                                               jmp   rax
 .Lx79_12:                                                                     jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n66_match_arbno_α:      mov              dword ptr [rbp + -48], r14d
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n67_match_defer_α
+n66_match_arbno_α:      mov              dword ptr [rbp + -64], r14d
+                        mov              dword ptr [rbp + -60], r14d;         jmp   n67_match_defer_α
 n66_match_arbno_β:                                                            jmp   n70_match_defer_α
-n66_match_arbno_as:     mov              eax, dword ptr [rbp + -44]
+n66_match_arbno_as:     mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n66_match_arbno_af
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n67_match_defer_α
-n66_match_arbno_af:     mov              eax, dword ptr [rbp + -48]
+                        mov              dword ptr [rbp + -60], r14d;         jmp   n67_match_defer_α
+n66_match_arbno_af:     mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n65_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n67_match_defer_α:      mov              rdi, qword ptr [rbp + -24]
