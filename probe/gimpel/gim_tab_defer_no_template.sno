@@ -1,6 +1,8 @@
 *  gim_tab_defer_no_template - COMPILER FATAL.  A DEFERRED TAB, TAB(*R),
-*  reaches the emitter as IR op=90 with no template, aborting the compile in
-*  both m3 and m4.  Distilled from BASEB.sno's digit lookup, BASEB_ALPHA
+*  reaches the emitter as IR op=82 with no template, aborting the compile in
+*  both m3 and m4 (op NUMBER valid at SCRIP 0b75fa5e -- the enum went
+*  alphabetical at 54b6c478, so cite the CONSTRUCT, never the number).
+*  Distilled from BASEB.sno's digit lookup, BASEB_ALPHA
 *  TAB(*R) LEN(1) . C.
         R  =  3
         'ABCDEF'  TAB(*R)  LEN(1) . C

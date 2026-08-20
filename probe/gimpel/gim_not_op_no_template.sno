@@ -1,6 +1,8 @@
 *  gim_not_op_no_template - COMPILER FATAL.  The unary ~ (negation) operator
 *  reaches the emitter as IR op=3 with no template, aborting the compile in
-*  both m3 and m4.  Distilled from IP.sno, which ends its loop on ~P<M>.
+*  both m3 and m4 (op NUMBER valid at SCRIP 0b75fa5e -- the enum went
+*  alphabetical at 54b6c478, so cite the CONSTRUCT, never the number).
+*  Distilled from IP.sno, which ends its loop on ~P<M>.
         P  =  ARRAY(2)
         OUTPUT  =  'A'  ~P<9>
         OUTPUT  =  'B'

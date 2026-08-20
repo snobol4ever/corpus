@@ -1,0 +1,13 @@
+*  gim_span_param_pattern_wrong - SILENT WRONG ANSWER.  A local bound to SPAN
+*  over a PARAMETER, then matched against the function's own return variable,
+*  removes the WRONG CHARACTERS: oracle ACDEF, SCRIP CDEF -- the leading A is
+*  eaten along with the B.  Distinct from gim_span_self_rebind_wrong: there is
+*  no self-reference here, and there the pattern is inert rather than wrong.
+*  Distilled from DIFF.sno.
+        DEFINE('STRIP(S1,S2)P')                 :(STRIP_END)
+STRIP   STRIP  =  S1
+        P  =  SPAN(S2)
+        STRIP  P  =                             :(RETURN)
+STRIP_END
+        OUTPUT  =  STRIP('ABCDEF', 'BDF')
+END
