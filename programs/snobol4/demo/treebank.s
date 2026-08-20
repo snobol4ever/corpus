@@ -218,7 +218,7 @@ FN__PAT$3:
 PAT$3_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 88
+                        sub              rsp, 136
                         mov              qword ptr [rbp + -8], r10
                         mov              qword ptr [rbp + -16], r11
                         mov              qword ptr [rbp + -24], rdx
@@ -529,7 +529,7 @@ n27_goto_α:                                                                   j
 n27_goto_β:                                                                   jmp   n26_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n28_match_assign_save_α:
-                        mov              dword ptr [rbp + -80], r14d;         jmp   n29_match_defer_α
+                        mov              dword ptr [rbp + -96], r14d;         jmp   n29_match_defer_α
 n28_match_assign_save_β:
                                                                               jmp   n26_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
@@ -590,7 +590,7 @@ n29_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lx54_12:                                                                     jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n30_match_assign_cond_α:
-                        mov              eax, dword ptr [rbp + -80]
+                        mov              eax, dword ptr [rbp + -96]
                         lea              rcx, [rip + .S8]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
