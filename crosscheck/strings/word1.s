@@ -3,6 +3,13 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$0:
 PAT$0_α_body:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 104
+                        mov              qword ptr [rbp + -8], r10
+                        mov              qword ptr [rbp + -16], r11
+                        mov              qword ptr [rbp + -24], rdx
+                        mov              qword ptr [rbp + -32], r12
 #-----------------------------------------------------------------------------------------------------------------------
 n0_match_lit_α:         mov              eax, r14d
                         add              eax, 5
@@ -20,15 +27,15 @@ n1_match_assign_save_α: sub              rsp, 16
 n1_match_assign_save_β: add              rsp, 16;                             jmp   n0_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_arb_α:         sub              rsp, 16
-                        mov              dword ptr [rsp + 0], 0
+                        mov              dword ptr [rbp + -64], 0
                         mov              eax, r14d
-                        mov              dword ptr [rsp + 4], eax;            jmp   n3_match_assign_cond_α
-n2_match_arb_β:         add              dword ptr [rsp + 0], 1
-                        mov              eax, dword ptr [rsp + 4]
-                        add              eax, dword ptr [rsp + 0]
+                        mov              dword ptr [rbp + -60], eax;          jmp   n3_match_assign_cond_α
+n2_match_arb_β:         add              dword ptr [rbp + -64], 1
+                        mov              eax, dword ptr [rbp + -60]
+                        add              eax, dword ptr [rbp + -64]
                         cmp              eax, r15d;                           jg    .Lx12_0
                         mov              r14d, eax;                           jmp   n3_match_assign_cond_α
-.Lx12_0:                mov              r14d, dword ptr [rsp + 4]
+.Lx12_0:                mov              r14d, dword ptr [rbp + -60]
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n0_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -43,23 +50,22 @@ n3_match_assign_cond_α: mov              eax, dword ptr [rsp + 16]
                         add              r12, 24;                             jmp   n4_match_alternate_α
 n3_match_assign_cond_β: sub              r12, 24;                             jmp   n2_match_arb_β
 #-----------------------------------------------------------------------------------------------------------------------
-n4_match_alternate_α:   sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+n4_match_alternate_α:   mov              dword ptr [rbp + -104], r14d
                         lea              rax, [rip + .Lx16_21]
-                        mov              qword ptr [rsp + 16], rax;           jmp   n6_match_lit_α
+                        mov              qword ptr [rbp + -88], rax;          jmp   n6_match_lit_α
 .Lx16_21:               lea              rax, [rip + .Lx16_19]
-                        mov              qword ptr [rsp + 16], rax;           jmp   n5_match_lit_α
+                        mov              qword ptr [rbp + -88], rax;          jmp   n5_match_lit_α
 n4_match_alternate_s0:  lea              rax, [rip + .Lx16_40]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n4_match_alternate_as
+                        mov              qword ptr [rbp + -96], rax;          jmp   n4_match_alternate_as
 n4_match_alternate_s1:  lea              rax, [rip + .Lx16_41]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n4_match_alternate_as
+                        mov              qword ptr [rbp + -96], rax;          jmp   n4_match_alternate_as
 .Lx16_40:                                                                     jmp   n6_match_lit_β
 .Lx16_41:                                                                     jmp   n5_match_lit_β
 n4_match_alternate_as:                                                        jmp   PAT$0_γ
-n4_match_alternate_β:   mov              rax, qword ptr [rsp + 8];            jmp   rax
-n4_match_alternate_af:  mov              r14d, dword ptr [rsp + 0]
-                        mov              rax, qword ptr [rsp + 16];           jmp   rax
-.Lx16_19:               add              rsp, 32;                             jmp   n3_match_assign_cond_β
+n4_match_alternate_β:   mov              rax, qword ptr [rbp + -96];          jmp   rax
+n4_match_alternate_af:  mov              r14d, dword ptr [rbp + -104]
+                        mov              rax, qword ptr [rbp + -88];          jmp   rax
+.Lx16_19:                                                                     jmp   n3_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_lit_α:         mov              eax, r14d
                         add              eax, 3
@@ -86,20 +92,28 @@ n6_match_lit_β:         sub              r14d, 4;                             j
 PAT$0_res:
                         mov              r10, qword ptr [rsp + 8]
                         mov              r11, qword ptr [rsp + 16]
+                        mov              rbp, qword ptr [rsp + 24]
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_β:
-                                                                              jmp   PAT$0_ω
+                                                                              jmp   n4_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_γ:
-                        sub              rsp, 8
+                        mov              r10, qword ptr [rbp + -8]
+                        mov              r11, qword ptr [rbp + -16]
+                        push             rbp
                         push             r11
                         push             r10
                         lea              rax, [rip + PAT$0_res]
-                        push             rax;                                 jmp   r10
+                        push             rax
+                        mov              rbp, qword ptr [rbp + 0];            jmp   r10
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_ω:
-                                                                              jmp   r11
+                        mov              r10, qword ptr [rbp + -8]
+                        mov              r11, qword ptr [rbp + -16]
+                        mov              r12, qword ptr [rbp + -32]
+                        mov              rsp, rbp
+                        pop              rbp;                                 jmp   r11
                         .globl           main
 main:
                         sub              rsp, 8
@@ -375,7 +389,13 @@ n38_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] 
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            je    .Lx67_13
                         add              rsp, 16
+                        add              rsp, 8
+                        pop              r13
+                        pop              r15
+                        pop              r14;                                 jmp   n36_match_begin_af
+.Lx67_13:               add              rsp, 16
                         add              rsp, 8
                         pop              r13
                         pop              r15

@@ -157,7 +157,13 @@ n10_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] 
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            je    .Lx58_13
                         add              rsp, 16
+                        add              rsp, 8
+                        pop              r13
+                        pop              r15
+                        pop              r14;                                 jmp   n6_match_begin_af
+.Lx58_13:               add              rsp, 16
                         add              rsp, 8
                         pop              r13
                         pop              r15
@@ -186,7 +192,20 @@ n12_match_defer_α:      mov              rax, qword ptr [r9 + 0]              #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx61_10
-.Lx61_9:                xor              eax, eax
+.Lx61_9:                cmp              eax, 88;                             jne   .Lx61_21
+                        mov              rdi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_defer_xpat_dtp@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx61_21
+                        mov              rax, qword ptr [rdx + 0];            jmp   .Lx61_10
+.Lx61_21:               xor              eax, eax
 .Lx61_10:               test             rax, rax;                            jz    .Lx61_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx61_4]
@@ -414,7 +433,13 @@ n31_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] 
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            je    .Lx90_13
                         add              rsp, 16
+                        add              rsp, 8
+                        pop              r13
+                        pop              r15
+                        pop              r14;                                 jmp   n27_match_begin_af
+.Lx90_13:               add              rsp, 16
                         add              rsp, 8
                         pop              r13
                         pop              r15
@@ -443,7 +468,20 @@ n33_match_defer_α:      mov              rax, qword ptr [r9 + 0]              #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx93_10
-.Lx93_9:                xor              eax, eax
+.Lx93_9:                cmp              eax, 88;                             jne   .Lx93_21
+                        mov              rdi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_defer_xpat_dtp@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx93_21
+                        mov              rax, qword ptr [rdx + 0];            jmp   .Lx93_10
+.Lx93_21:               xor              eax, eax
 .Lx93_10:               test             rax, rax;                            jz    .Lx93_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx93_4]
