@@ -1,0 +1,7 @@
+*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  GREEN CONTROL for fzr_13: arm1 alone, no alternation.  Passes.
+          G0            =  FENCE(BAL)
+          P             =  ARBNO(*G0)
+          'a+a+a' POS(0) *P RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

@@ -1,0 +1,6 @@
+*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  RED.  Reduced from fz_diff_22.  A doubly-nested ARBNO that is not the FIRST element.
+          P             =  ('' | '') ARBNO(ARBNO(REM) FENCE(SPAN('abc')))
+          'abcabc' POS(0) *P RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

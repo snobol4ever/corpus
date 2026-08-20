@@ -1,0 +1,6 @@
+*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  GREEN CONTROL for fzr_07: arm1 generator -> literal.  Passes.
+          P             =  ('zz' | FENCE('a'))
+          'aa a' *P RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
