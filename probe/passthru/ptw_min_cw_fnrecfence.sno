@@ -1,0 +1,7 @@
+          DEFINE('mk()')                        :(E)
+mk        mk = LEN(0)                           :(RETURN)
+E         X = mk() FENCE('a' *X | '')
+          'aaa' POS(0) *X RPOS(0)               :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
