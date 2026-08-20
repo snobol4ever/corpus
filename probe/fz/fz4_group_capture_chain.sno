@@ -1,0 +1,10 @@
+*	FZ-3: a capture GROUP that WRAPS the cut, plus a capture to the RIGHT of the group.
+*	Both readers are staged [rsp+off] cells that the release moves; the predecessor statement is
+*	what puts the group COND far enough down the spine for a stale offset to be visible.
+	S = 'aaabbbccc'
+	S ? SPAN('a') . X FENCE SPAN('b') . Y	:F(BAD)
+	OUTPUT = 'A=' X '/' Y
+	S ? (SPAN('a') FENCE SPAN('b') . M) . W SPAN('c') . V	:F(BAD)
+	OUTPUT = 'C=' W '/' M '/' V	:(END)
+BAD	OUTPUT = 'UNEXPECTED-FAIL'
+END

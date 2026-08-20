@@ -1,0 +1,10 @@
+*	FZ-3: an ARBNO carrying its own instance record sits to the RIGHT of the cut -- the release
+*	must leave the arbno record addressable at its post-release offset.  ARBNO matches null first
+*	(SPITBOL Ch.18), so V is the empty string; the witness is the addressing, not the repetition.
+	S = 'aaabbbccc'
+	S ? SPAN('a') . X FENCE SPAN('b') . Y	:F(BAD)
+	OUTPUT = 'A=' X '/' Y
+	S ? (SPAN('a') FENCE SPAN('b')) . W ARBNO('c') . V	:F(BAD)
+	OUTPUT = 'G=' W '/' V	:(END)
+BAD	OUTPUT = 'UNEXPECTED-FAIL'
+END

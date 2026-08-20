@@ -1,0 +1,10 @@
+*	FZ-3: the capture group wraps the cut inside a REPLACEMENT statement, so MATCH_REPLACE reads
+*	the subject and the group COND reads its SAVE cursor on the same spine the cut shortened.
+	S = 'aaabbbccc'
+	S ? SPAN('a') . X FENCE SPAN('b') . Y	:F(BAD)
+	OUTPUT = 'A=' X '/' Y
+	T = 'aaabbbccc'
+	T ? (SPAN('a') FENCE SPAN('b')) . W = 'Z'	:F(BAD)
+	OUTPUT = 'R=' T '/' W	:(END)
+BAD	OUTPUT = 'UNEXPECTED-FAIL'
+END
