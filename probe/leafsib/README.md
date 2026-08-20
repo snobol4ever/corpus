@@ -26,6 +26,43 @@ ARB/BAL `rc=0` with a SILENT WRONG ANSWER (`parse fail`). The whole family
 diverges, so the defect is the family's and not one op's — and m3 ≡ m4
 throughout, so it is medium-independent.
 
+## ⛔⭐ s173 — THE ARMED ARM HAS A COUNTEREXAMPLE, AND IT IS A SILENT WRONG ANSWER
+
+The `SCRIP_SPAN_FRAME=1` arm is **not a strict improvement**. Measured s173 at
+SCRIP `1ac779ad` (pristine, RT_OPT `-O0`) while sweeping the flip: across a
+13-suite 1589-row two-arm board the armed arm cures 13 rows (every one
+`SIG11 → PASS`) and **breaks exactly one — `programs/snobol4/beauty_suite/TDump_driver.sno`**,
+`PASS → nondeterministic wrong answer`, in BOTH media.
+
+**Reproduce (the stack limit is load-bearing — this is why no earlier sweep saw it):**
+
+```bash
+cd corpus/programs/snobol4/beauty_suite
+( ulimit -s unlimited; SCRIP_SPAN_FRAME=1 SNO_LIB=$PWD scrip --run TDump_driver.sno </dev/null )
+```
+
+| arm | `ulimit -s` 8 MB (default shell) | `ulimit -s unlimited` (what the scorecard sets) |
+|---|---|---|
+| default (OFF) | 10/10 PASS | 10/10 PASS |
+| `SCRIP_SPAN_FRAME=1` | 10/10 PASS | **2/10 PASS, 8/10 WRONG** |
+
+The wrong answer is a spurious match FAILURE at `TDump.sno:35`,
+`t(x) POS(0) ANY(&UCASE &LCASE) (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0)`
+— **a scratch-cell leaf on an ALT arm, the exact shape this arm re-homes**. The
+`:F` branch then quotes the name, so `(Name)` prints as `("Name")`: no crash, no
+rc, just a different answer, and a different one run to run. The default arm is
+stable in all 40 runs measured.
+
+⛔ **Do not read the 6/8 above as "the arm is safe to flip."** A run-to-run
+nondeterministic wrong answer is a worse class than the `rc=139` it cures, and
+`ulimit -s unlimited` — the graded environment — is the only place it shows.
+Minimising it failed inside the s173 time box: the bare statement, and the same
+statement behind 30 and 80 padding assignments, are green in both arms, so the
+missing ingredient is something else TDump carries (recursion, `$x` indirection,
+TREE datatype, `GetLevel()`). Routed to HQ as the blocker on queue row
+`span-frame-flip`; full ledger in
+`FINDING-2026-08-19-s173-the-span-frame-arm-cures-thirteen-and-breaks-one.md`.
+
 ## The two that stay RED are DECLINED BY DESIGN, not unfixed
 
 **`leafsib_bal`** — BAL is the one sibling measured to spend `+0/+4/AND +8`.
