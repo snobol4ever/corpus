@@ -1,0 +1,6 @@
+*  CONTROL (GREEN): ARBNO with NO following element.
+          E = ARBNO(ANY('ab'))
+          'ab+ab' POS(0) *E RPOS(0)                        :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

@@ -1,0 +1,6 @@
+*  CONTROL (GREEN): a NON-retrying left element in the same shape.
+          E = SPAN('ab') LEN(1)
+          'ab+ab' POS(0) *E RPOS(0)                        :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

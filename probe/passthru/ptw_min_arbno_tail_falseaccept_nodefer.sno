@@ -1,0 +1,6 @@
+*  SAME FALSE ACCEPT WITHOUT ANY DEFER (E used directly, not *E) -- proves the class is not a defer/pass-thru bug at all.
+          E = ARBNO('a') LEN(1)
+          'aa+aa' POS(0) E RPOS(0)                        :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
