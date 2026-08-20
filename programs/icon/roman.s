@@ -1,16 +1,20 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_roman_α
-proc_roman_α:
+FN__roman:
                         sub              rsp, 1552
                         mov              qword ptr [rsp + 1528], rcx
                         mov              qword ptr [rsp + 1536], rdx
                         mov              rdi, rsp
+                        add              rdi, 1424
+                        xor              eax, eax
+                        mov              ecx, 64
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_roman_α_body:
+roman_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:       mov              qword ptr [rsp + 1216], 3            # result
                         mov              rax, qword ptr [rip + .Lx64_0]
@@ -531,7 +535,7 @@ n49_binop_α:            mov              rdi, qword ptr [rsp + 1424]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 448], rax
                         mov              qword ptr [rsp + 456], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -634,14 +638,29 @@ n57_coerce_numeric_α:   mov              eax, dword ptr [rsp + 432]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n58_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n58_binop_α:            mov              eax, dword ptr [rsp + 352]
-                        cmp              eax, 3;                              jne   .Lx138_0
-                        mov              eax, dword ptr [rsp + 336]
-                        cmp              eax, 3;                              jne   .Lx138_0
+                        mov              ecx, dword ptr [rsp + 336]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx138_2
                         mov              rax, qword ptr [rsp + 360]
-                        mov              rcx, qword ptr [rsp + 344]
-                        sub              rax, rcx
+                        mov              rdx, qword ptr [rsp + 344]
+                        sub              rax, rdx
                         mov              qword ptr [rsp + 320], 3
-                        mov              qword ptr [rsp + 328], rax;          jmp   n59_assign_α
+                        mov              qword ptr [rsp + 328], rax;          jmp   .Lx138_7
+.Lx138_2:               and              edx, 1;                              jz    .Lx138_0
+                        mov              rsi, qword ptr [rsp + 360]
+                        mov              rdi, qword ptr [rsp + 344]
+                        cmp              eax, 5;                              je    .Lx138_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx138_4
+.Lx138_3:               movq             xmm0, rsi
+.Lx138_4:               cmp              ecx, 5;                              je    .Lx138_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx138_6
+.Lx138_5:               movq             xmm1, rdi
+.Lx138_6:               subsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 320], 5
+                        mov              qword ptr [rsp + 328], rax
+.Lx138_7:                                                                     jmp   n59_assign_α
 .Lx138_0:               mov              rdi, qword ptr [rsp + 352]
                         mov              rsi, qword ptr [rsp + 360]
                         mov              rdx, qword ptr [rsp + 336]
@@ -681,26 +700,26 @@ n62_var_α:              mov              rax, qword ptr [rsp + 1424]
 n63_return_α:           mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_roman_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   roman_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_res:
+roman_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_β:
-                                                                              jmp   proc_roman_ω
+roman_β:
+                                                                              jmp   roman_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_γ:
+roman_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1528]
                         add              rsp, 1552;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_ω:
+roman_ω:
                         mov              rcx, qword ptr [rsp + 1536]
                         add              rsp, 1552;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_dcα:
+roman_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -720,46 +739,20 @@ proc_roman_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx146_2]
-                        lea              rdx, [rip + .Lx146_3];               jmp   proc_roman_α
+                        lea              rdx, [rip + .Lx146_3];               jmp   FN__roman
 .Lx146_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx146_3:               pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "roman"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_roman_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1488
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_roman_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -784,8 +777,8 @@ n147_lit_integer_α:     sub              rsp, 16
 n148_call_proc_staged_α:
                         sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_integer
-                        call             proc_roman_dcα;                      jmp   .Lx158_2
-.Lx158_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman_dcα;                           jmp   .Lx158_2
+.Lx158_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx158_29
                         mov              rdi, rax
@@ -794,7 +787,7 @@ n148_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -850,8 +843,8 @@ n150_lit_integer_α:     sub              rsp, 16
 n151_call_proc_staged_α:
                         sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_integer
-                        call             proc_roman_dcα;                      jmp   .Lx163_2
-.Lx163_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman_dcα;                           jmp   .Lx163_2
+.Lx163_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx163_29
                         mov              rdi, rax
@@ -860,7 +853,7 @@ n151_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -916,8 +909,8 @@ n153_lit_integer_α:     sub              rsp, 16
 n154_call_proc_staged_α:
                         sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_integer
-                        call             proc_roman_dcα;                      jmp   .Lx168_2
-.Lx168_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman_dcα;                           jmp   .Lx168_2
+.Lx168_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx168_29
                         mov              rdi, rax
@@ -926,7 +919,7 @@ n154_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -988,4 +981,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "roman"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__roman
+                        .quad            roman_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            1488
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

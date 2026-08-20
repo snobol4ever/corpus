@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 280], rcx
                         mov              qword ptr [rsp + 288], rdx
                         mov              rdi, rsp
+                        add              rdi, 224
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
@@ -124,14 +129,29 @@ n7_coerce_numeric_α:    mov              eax, dword ptr [rsp + 144]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n8_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_binop_α:             mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 3;                              jne   .Lx24_0
-                        mov              eax, dword ptr [rsp + 96]
-                        cmp              eax, 3;                              jne   .Lx24_0
+                        mov              ecx, dword ptr [rsp + 96]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx24_2
                         mov              rax, qword ptr [rsp + 120]
-                        mov              rcx, qword ptr [rsp + 104]
-                        add              rax, rcx
+                        mov              rdx, qword ptr [rsp + 104]
+                        add              rax, rdx
                         mov              qword ptr [rsp + 80], 3
-                        mov              qword ptr [rsp + 88], rax;           jmp   n9_assign_α
+                        mov              qword ptr [rsp + 88], rax;           jmp   .Lx24_7
+.Lx24_2:                and              edx, 1;                              jz    .Lx24_0
+                        mov              rsi, qword ptr [rsp + 120]
+                        mov              rdi, qword ptr [rsp + 104]
+                        cmp              eax, 5;                              je    .Lx24_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx24_4
+.Lx24_3:                movq             xmm0, rsi
+.Lx24_4:                cmp              ecx, 5;                              je    .Lx24_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx24_6
+.Lx24_5:                movq             xmm1, rdi
+.Lx24_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 80], 5
+                        mov              qword ptr [rsp + 88], rax
+.Lx24_7:                                                                      jmp   n9_assign_α
 .Lx24_0:                mov              rdi, qword ptr [rsp + 112]
                         mov              rsi, qword ptr [rsp + 120]
                         mov              rdx, qword ptr [rsp + 96]

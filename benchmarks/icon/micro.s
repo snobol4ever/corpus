@@ -27908,7 +27908,7 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             main_init
+                        call             module_init
                         mov              edi, 65
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -27924,2302 +27924,6 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
-main_init:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "point(x,y)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        .section         .rodata
-.Lclassspec1:           .string          "bigrec(alpha,beta,gamma,delta,epsilon,figaro,guido,horatio)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec1]
-                        call             record_register@PLT
-                        .section         .rodata
-.Lstartup_pname0:       .string          "report"
-                        .align           8
-.Lstartup_prec0:
-                        .quad            .Lstartup_pname0
-                        .quad            FN__report
-                        .quad            report_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            608
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec0]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname1:       .string          "measure"
-                        .align           8
-.Lstartup_prec1:
-                        .quad            .Lstartup_pname1
-                        .quad            FN__measure
-                        .quad            measure_dcα
-                        .quad            0
-                        .quad            0
-                        .long            2
-                        .long            0
-                        .long            1792
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec1]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname2:       .string          "nothing"
-                        .align           8
-.Lstartup_prec2:
-                        .quad            .Lstartup_pname2
-                        .quad            FN__nothing
-                        .quad            nothing_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec2]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname3:       .string          "uplus"
-                        .align           8
-.Lstartup_prec3:
-                        .quad            .Lstartup_pname3
-                        .quad            FN__uplus
-                        .quad            uplus_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec3]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname4:       .string          "uplusr"
-                        .align           8
-.Lstartup_prec4:
-                        .quad            .Lstartup_pname4
-                        .quad            FN__uplusr
-                        .quad            uplusr_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec4]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname5:       .string          "absf"
-                        .align           8
-.Lstartup_prec5:
-                        .quad            .Lstartup_pname5
-                        .quad            FN__absf
-                        .quad            absf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec5]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname6:       .string          "intadd"
-                        .align           8
-.Lstartup_prec6:
-                        .quad            .Lstartup_pname6
-                        .quad            FN__intadd
-                        .quad            intadd_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec6]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname7:       .string          "intcmp"
-                        .align           8
-.Lstartup_prec7:
-                        .quad            .Lstartup_pname7
-                        .quad            FN__intcmp
-                        .quad            intcmp_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec7]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname8:       .string          "intpow"
-                        .align           8
-.Lstartup_prec8:
-                        .quad            .Lstartup_pname8
-                        .quad            FN__intpow
-                        .quad            intpow_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec8]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname9:       .string          "realcmp"
-                        .align           8
-.Lstartup_prec9:
-                        .quad            .Lstartup_pname9
-                        .quad            FN__realcmp
-                        .quad            realcmp_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec9]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname10:      .string          "cosf"
-                        .align           8
-.Lstartup_prec10:
-                        .quad            .Lstartup_pname10
-                        .quad            FN__cosf
-                        .quad            cosf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec10]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname11:      .string          "sqrtf"
-                        .align           8
-.Lstartup_prec11:
-                        .quad            .Lstartup_pname11
-                        .quad            FN__sqrtf
-                        .quad            sqrtf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec11]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname12:      .string          "logf"
-                        .align           8
-.Lstartup_prec12:
-                        .quad            .Lstartup_pname12
-                        .quad            FN__logf
-                        .quad            logf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec12]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname13:      .string          "nullfunc"
-                        .align           8
-.Lstartup_prec13:
-                        .quad            .Lstartup_pname13
-                        .quad            FN__nullfunc
-                        .quad            nullfunc_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec13]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname14:      .string          "nullf"
-                        .align           8
-.Lstartup_prec14:
-                        .quad            .Lstartup_pname14
-                        .quad            FN__nullf
-                        .quad            nullf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            0
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec14]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname15:      .string          "listcall"
-                        .align           8
-.Lstartup_prec15:
-                        .quad            .Lstartup_pname15
-                        .quad            FN__listcall
-                        .quad            listcall_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            464
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec15]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname16:      .string          "addfunc"
-                        .align           8
-.Lstartup_prec16:
-                        .quad            .Lstartup_pname16
-                        .quad            FN__addfunc
-                        .quad            addfunc_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec16]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname17:      .string          "add"
-                        .align           8
-.Lstartup_prec17:
-                        .quad            .Lstartup_pname17
-                        .quad            FN__add
-                        .quad            add_dcα
-                        .quad            0
-                        .quad            0
-                        .long            2
-                        .long            0
-                        .long            128
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec17]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname18:      .string          "rfact0"
-                        .align           8
-.Lstartup_prec18:
-                        .quad            .Lstartup_pname18
-                        .quad            FN__rfact0
-                        .quad            rfact0_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec18]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname19:      .string          "rfact10"
-                        .align           8
-.Lstartup_prec19:
-                        .quad            .Lstartup_pname19
-                        .quad            FN__rfact10
-                        .quad            rfact10_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec19]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname20:      .string          "rfact"
-                        .align           8
-.Lstartup_prec20:
-                        .quad            .Lstartup_pname20
-                        .quad            FN__rfact
-                        .quad            rfact_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            304
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec20]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname21:      .string          "rfib5"
-                        .align           8
-.Lstartup_prec21:
-                        .quad            .Lstartup_pname21
-                        .quad            FN__rfib5
-                        .quad            rfib5_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec21]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname22:      .string          "rfib"
-                        .align           8
-.Lstartup_prec22:
-                        .quad            .Lstartup_pname22
-                        .quad            FN__rfib
-                        .quad            rfib_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            400
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec22]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname23:      .string          "prslow"
-                        .align           8
-.Lstartup_prec23:
-                        .quad            .Lstartup_pname23
-                        .quad            FN__prslow
-                        .quad            prslow_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            736
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec23]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname24:      .string          "if0"
-                        .align           8
-.Lstartup_prec24:
-                        .quad            .Lstartup_pname24
-                        .quad            FN__if0
-                        .quad            if0_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec24]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname25:      .string          "case3"
-                        .align           8
-.Lstartup_prec25:
-                        .quad            .Lstartup_pname25
-                        .quad            FN__case3
-                        .quad            case3_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            688
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec25]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname26:      .string          "nulltest"
-                        .align           8
-.Lstartup_prec26:
-                        .quad            .Lstartup_pname26
-                        .quad            FN__nulltest
-                        .quad            nulltest_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec26]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname27:      .string          "typef"
-                        .align           8
-.Lstartup_prec27:
-                        .quad            .Lstartup_pname27
-                        .quad            FN__typef
-                        .quad            typef_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec27]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname28:      .string          "imagef"
-                        .align           8
-.Lstartup_prec28:
-                        .quad            .Lstartup_pname28
-                        .quad            FN__imagef
-                        .quad            imagef_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec28]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname29:      .string          "marshal"
-                        .align           8
-.Lstartup_prec29:
-                        .quad            .Lstartup_pname29
-                        .quad            FN__marshal
-                        .quad            marshal_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            464
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec29]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname30:      .string          "conj5"
-                        .align           8
-.Lstartup_prec30:
-                        .quad            .Lstartup_pname30
-                        .quad            FN__conj5
-                        .quad            conj5_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec30]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname31:      .string          "everyalt"
-                        .align           8
-.Lstartup_prec31:
-                        .quad            .Lstartup_pname31
-                        .quad            FN__everyalt
-                        .quad            everyalt_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            336
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec31]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname32:      .string          "everyto"
-                        .align           8
-.Lstartup_prec32:
-                        .quad            .Lstartup_pname32
-                        .quad            FN__everyto
-                        .quad            everyto_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec32]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname33:      .string          "evsusp"
-                        .align           8
-.Lstartup_prec33:
-                        .quad            .Lstartup_pname33
-                        .quad            FN__evsusp
-                        .quad            evsusp_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            192
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec33]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname34:      .string          "susproc"
-                        .align           8
-.Lstartup_prec34:
-                        .quad            .Lstartup_pname34
-                        .quad            FN__susproc
-                        .quad            0
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            112
-                        .long            24
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec34]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname35:      .string          "intcoerce"
-                        .align           8
-.Lstartup_prec35:
-                        .quad            .Lstartup_pname35
-                        .quad            FN__intcoerce
-                        .quad            intcoerce_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec35]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname36:      .string          "realcoerce"
-                        .align           8
-.Lstartup_prec36:
-                        .quad            .Lstartup_pname36
-                        .quad            FN__realcoerce
-                        .quad            realcoerce_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec36]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname37:      .string          "strcoerce"
-                        .align           8
-.Lstartup_prec37:
-                        .quad            .Lstartup_pname37
-                        .quad            FN__strcoerce
-                        .quad            strcoerce_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec37]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname38:      .string          "strcoercer"
-                        .align           8
-.Lstartup_prec38:
-                        .quad            .Lstartup_pname38
-                        .quad            FN__strcoercer
-                        .quad            strcoercer_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec38]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname39:      .string          "tointeger"
-                        .align           8
-.Lstartup_prec39:
-                        .quad            .Lstartup_pname39
-                        .quad            FN__tointeger
-                        .quad            tointeger_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec39]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname40:      .string          "toreal"
-                        .align           8
-.Lstartup_prec40:
-                        .quad            .Lstartup_pname40
-                        .quad            FN__toreal
-                        .quad            toreal_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec40]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname41:      .string          "tostring"
-                        .align           8
-.Lstartup_prec41:
-                        .quad            .Lstartup_pname41
-                        .quad            FN__tostring
-                        .quad            tostring_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec41]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname42:      .string          "rtostring"
-                        .align           8
-.Lstartup_prec42:
-                        .quad            .Lstartup_pname42
-                        .quad            FN__rtostring
-                        .quad            rtostring_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec42]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname43:      .string          "tocset"
-                        .align           8
-.Lstartup_prec43:
-                        .quad            .Lstartup_pname43
-                        .quad            FN__tocset
-                        .quad            tocset_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec43]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname44:      .string          "charf"
-                        .align           8
-.Lstartup_prec44:
-                        .quad            .Lstartup_pname44
-                        .quad            FN__charf
-                        .quad            charf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec44]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname45:      .string          "ordf"
-                        .align           8
-.Lstartup_prec45:
-                        .quad            .Lstartup_pname45
-                        .quad            FN__ordf
-                        .quad            ordf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec45]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname46:      .string          "strsize"
-                        .align           8
-.Lstartup_prec46:
-                        .quad            .Lstartup_pname46
-                        .quad            FN__strsize
-                        .quad            strsize_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec46]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname47:      .string          "concat"
-                        .align           8
-.Lstartup_prec47:
-                        .quad            .Lstartup_pname47
-                        .quad            FN__concat
-                        .quad            concat_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            224
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec47]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname48:      .string          "strpick"
-                        .align           8
-.Lstartup_prec48:
-                        .quad            .Lstartup_pname48
-                        .quad            FN__strpick
-                        .quad            strpick_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec48]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname49:      .string          "strbang"
-                        .align           8
-.Lstartup_prec49:
-                        .quad            .Lstartup_pname49
-                        .quad            FN__strbang
-                        .quad            strbang_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec49]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname50:      .string          "strsub"
-                        .align           8
-.Lstartup_prec50:
-                        .quad            .Lstartup_pname50
-                        .quad            FN__strsub
-                        .quad            strsub_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec50]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname51:      .string          "substr"
-                        .align           8
-.Lstartup_prec51:
-                        .quad            .Lstartup_pname51
-                        .quad            FN__substr
-                        .quad            substr_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec51]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname52:      .string          "subsasg"
-                        .align           8
-.Lstartup_prec52:
-                        .quad            .Lstartup_pname52
-                        .quad            FN__subsasg
-                        .quad            subsasg_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec52]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname53:      .string          "strcmp"
-                        .align           8
-.Lstartup_prec53:
-                        .quad            .Lstartup_pname53
-                        .quad            FN__strcmp
-                        .quad            strcmp_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec53]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname54:      .string          "strident"
-                        .align           8
-.Lstartup_prec54:
-                        .quad            .Lstartup_pname54
-                        .quad            FN__strident
-                        .quad            strident_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec54]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname55:      .string          "replf"
-                        .align           8
-.Lstartup_prec55:
-                        .quad            .Lstartup_pname55
-                        .quad            FN__replf
-                        .quad            replf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec55]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname56:      .string          "reversef"
-                        .align           8
-.Lstartup_prec56:
-                        .quad            .Lstartup_pname56
-                        .quad            FN__reversef
-                        .quad            reversef_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec56]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname57:      .string          "leftf"
-                        .align           8
-.Lstartup_prec57:
-                        .quad            .Lstartup_pname57
-                        .quad            FN__leftf
-                        .quad            leftf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec57]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname58:      .string          "centerf"
-                        .align           8
-.Lstartup_prec58:
-                        .quad            .Lstartup_pname58
-                        .quad            FN__centerf
-                        .quad            centerf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec58]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname59:      .string          "rightf"
-                        .align           8
-.Lstartup_prec59:
-                        .quad            .Lstartup_pname59
-                        .quad            FN__rightf
-                        .quad            rightf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec59]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname60:      .string          "trimf"
-                        .align           8
-.Lstartup_prec60:
-                        .quad            .Lstartup_pname60
-                        .quad            FN__trimf
-                        .quad            trimf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec60]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname61:      .string          "entabf"
-                        .align           8
-.Lstartup_prec61:
-                        .quad            .Lstartup_pname61
-                        .quad            FN__entabf
-                        .quad            entabf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec61]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname62:      .string          "detabf"
-                        .align           8
-.Lstartup_prec62:
-                        .quad            .Lstartup_pname62
-                        .quad            FN__detabf
-                        .quad            detabf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            288
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec62]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname63:      .string          "mapf"
-                        .align           8
-.Lstartup_prec63:
-                        .quad            .Lstartup_pname63
-                        .quad            FN__mapf
-                        .quad            mapf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec63]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname64:      .string          "map1"
-                        .align           8
-.Lstartup_prec64:
-                        .quad            .Lstartup_pname64
-                        .quad            FN__map1
-                        .quad            map1_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec64]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname65:      .string          "map2"
-                        .align           8
-.Lstartup_prec65:
-                        .quad            .Lstartup_pname65
-                        .quad            FN__map2
-                        .quad            map2_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec65]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname66:      .string          "tablemap"
-                        .align           8
-.Lstartup_prec66:
-                        .quad            .Lstartup_pname66
-                        .quad            FN__tablemap
-                        .quad            tablemap_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            608
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec66]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname67:      .string          "listmap"
-                        .align           8
-.Lstartup_prec67:
-                        .quad            .Lstartup_pname67
-                        .quad            FN__listmap
-                        .quad            listmap_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            784
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec67]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname68:      .string          "nullscan"
-                        .align           8
-.Lstartup_prec68:
-                        .quad            .Lstartup_pname68
-                        .quad            FN__nullscan
-                        .quad            nullscan_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            336
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec68]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname69:      .string          "movef"
-                        .align           8
-.Lstartup_prec69:
-                        .quad            .Lstartup_pname69
-                        .quad            FN__movef
-                        .quad            movef_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec69]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname70:      .string          "mov11"
-                        .align           8
-.Lstartup_prec70:
-                        .quad            .Lstartup_pname70
-                        .quad            FN__mov11
-                        .quad            mov11_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            416
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec70]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname71:      .string          "pos11"
-                        .align           8
-.Lstartup_prec71:
-                        .quad            .Lstartup_pname71
-                        .quad            FN__pos11
-                        .quad            pos11_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            512
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec71]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname72:      .string          "tabf"
-                        .align           8
-.Lstartup_prec72:
-                        .quad            .Lstartup_pname72
-                        .quad            FN__tabf
-                        .quad            tabf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec72]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname73:      .string          "matchf"
-                        .align           8
-.Lstartup_prec73:
-                        .quad            .Lstartup_pname73
-                        .quad            FN__matchf
-                        .quad            matchf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec73]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname74:      .string          "tabmat"
-                        .align           8
-.Lstartup_prec74:
-                        .quad            .Lstartup_pname74
-                        .quad            FN__tabmat
-                        .quad            tabmat_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            384
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec74]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname75:      .string          "posf"
-                        .align           8
-.Lstartup_prec75:
-                        .quad            .Lstartup_pname75
-                        .quad            FN__posf
-                        .quad            posf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            336
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec75]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname76:      .string          "anyf"
-                        .align           8
-.Lstartup_prec76:
-                        .quad            .Lstartup_pname76
-                        .quad            FN__anyf
-                        .quad            anyf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            336
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec76]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname77:      .string          "manyf"
-                        .align           8
-.Lstartup_prec77:
-                        .quad            .Lstartup_pname77
-                        .quad            FN__manyf
-                        .quad            manyf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            336
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec77]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname78:      .string          "uptof"
-                        .align           8
-.Lstartup_prec78:
-                        .quad            .Lstartup_pname78
-                        .quad            FN__uptof
-                        .quad            uptof_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec78]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname79:      .string          "findf"
-                        .align           8
-.Lstartup_prec79:
-                        .quad            .Lstartup_pname79
-                        .quad            FN__findf
-                        .quad            findf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec79]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname80:      .string          "balf"
-                        .align           8
-.Lstartup_prec80:
-                        .quad            .Lstartup_pname80
-                        .quad            FN__balf
-                        .quad            balf_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec80]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname81:      .string          "cssize"
-                        .align           8
-.Lstartup_prec81:
-                        .quad            .Lstartup_pname81
-                        .quad            FN__cssize
-                        .quad            cssize_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec81]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname82:      .string          "cscompl"
-                        .align           8
-.Lstartup_prec82:
-                        .quad            .Lstartup_pname82
-                        .quad            FN__cscompl
-                        .quad            cscompl_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec82]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname83:      .string          "lcreate"
-                        .align           8
-.Lstartup_prec83:
-                        .quad            .Lstartup_pname83
-                        .quad            FN__lcreate
-                        .quad            lcreate_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec83]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname84:      .string          "lconst"
-                        .align           8
-.Lstartup_prec84:
-                        .quad            .Lstartup_pname84
-                        .quad            FN__lconst
-                        .quad            lconst_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            432
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec84]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname85:      .string          "lcopy"
-                        .align           8
-.Lstartup_prec85:
-                        .quad            .Lstartup_pname85
-                        .quad            FN__lcopy
-                        .quad            lcopy_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            576
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec85]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname86:      .string          "lsort"
-                        .align           8
-.Lstartup_prec86:
-                        .quad            .Lstartup_pname86
-                        .quad            FN__lsort
-                        .quad            lsort_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            576
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec86]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname87:      .string          "lsize"
-                        .align           8
-.Lstartup_prec87:
-                        .quad            .Lstartup_pname87
-                        .quad            FN__lsize
-                        .quad            lsize_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            544
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec87]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname88:      .string          "lpick"
-                        .align           8
-.Lstartup_prec88:
-                        .quad            .Lstartup_pname88
-                        .quad            FN__lpick
-                        .quad            lpick_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            560
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec88]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname89:      .string          "lsubscr"
-                        .align           8
-.Lstartup_prec89:
-                        .quad            .Lstartup_pname89
-                        .quad            FN__lsubscr
-                        .quad            lsubscr_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            576
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec89]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname90:      .string          "lbang"
-                        .align           8
-.Lstartup_prec90:
-                        .quad            .Lstartup_pname90
-                        .quad            FN__lbang
-                        .quad            lbang_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            560
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec90]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname91:      .string          "put1get1"
-                        .align           8
-.Lstartup_prec91:
-                        .quad            .Lstartup_pname91
-                        .quad            FN__put1get1
-                        .quad            put1get1_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec91]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname92:      .string          "put2get2"
-                        .align           8
-.Lstartup_prec92:
-                        .quad            .Lstartup_pname92
-                        .quad            FN__put2get2
-                        .quad            put2get2_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            624
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec92]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname93:      .string          "put3get3"
-                        .align           8
-.Lstartup_prec93:
-                        .quad            .Lstartup_pname93
-                        .quad            FN__put3get3
-                        .quad            put3get3_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            720
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec93]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname94:      .string          "put4get4"
-                        .align           8
-.Lstartup_prec94:
-                        .quad            .Lstartup_pname94
-                        .quad            FN__put4get4
-                        .quad            put4get4_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            816
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec94]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname95:      .string          "pushpop"
-                        .align           8
-.Lstartup_prec95:
-                        .quad            .Lstartup_pname95
-                        .quad            FN__pushpop
-                        .quad            pushpop_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec95]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname96:      .string          "putget12"
-                        .align           8
-.Lstartup_prec96:
-                        .quad            .Lstartup_pname96
-                        .quad            FN__putget12
-                        .quad            putget12_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            880
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec96]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname97:      .string          "pushpop12"
-                        .align           8
-.Lstartup_prec97:
-                        .quad            .Lstartup_pname97
-                        .quad            FN__pushpop12
-                        .quad            pushpop12_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            880
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec97]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname98:      .string          "setcreate"
-                        .align           8
-.Lstartup_prec98:
-                        .quad            .Lstartup_pname98
-                        .quad            FN__setcreate
-                        .quad            setcreate_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec98]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname99:      .string          "setcopy"
-                        .align           8
-.Lstartup_prec99:
-                        .quad            .Lstartup_pname99
-                        .quad            FN__setcopy
-                        .quad            setcopy_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            512
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec99]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname100:     .string          "setinsert"
-                        .align           8
-.Lstartup_prec100:
-                        .quad            .Lstartup_pname100
-                        .quad            FN__setinsert
-                        .quad            setinsert_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            544
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec100]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname101:     .string          "setmember"
-                        .align           8
-.Lstartup_prec101:
-                        .quad            .Lstartup_pname101
-                        .quad            FN__setmember
-                        .quad            setmember_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            544
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec101]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname102:     .string          "setinsdel"
-                        .align           8
-.Lstartup_prec102:
-                        .quad            .Lstartup_pname102
-                        .quad            FN__setinsdel
-                        .quad            setinsdel_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            544
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec102]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname103:     .string          "setpick"
-                        .align           8
-.Lstartup_prec103:
-                        .quad            .Lstartup_pname103
-                        .quad            FN__setpick
-                        .quad            setpick_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec103]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname104:     .string          "setbang"
-                        .align           8
-.Lstartup_prec104:
-                        .quad            .Lstartup_pname104
-                        .quad            FN__setbang
-                        .quad            setbang_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            544
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec104]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname105:     .string          "tblcreate"
-                        .align           8
-.Lstartup_prec105:
-                        .quad            .Lstartup_pname105
-                        .quad            FN__tblcreate
-                        .quad            tblcreate_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec105]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname106:     .string          "tblasgn"
-                        .align           8
-.Lstartup_prec106:
-                        .quad            .Lstartup_pname106
-                        .quad            FN__tblasgn
-                        .quad            tblasgn_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            512
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec106]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname107:     .string          "tblsub"
-                        .align           8
-.Lstartup_prec107:
-                        .quad            .Lstartup_pname107
-                        .quad            FN__tblsub
-                        .quad            tblsub_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec107]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname108:     .string          "recconstr"
-                        .align           8
-.Lstartup_prec108:
-                        .quad            .Lstartup_pname108
-                        .quad            FN__recconstr
-                        .quad            recconstr_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec108]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname109:     .string          "reccopy"
-                        .align           8
-.Lstartup_prec109:
-                        .quad            .Lstartup_pname109
-                        .quad            FN__reccopy
-                        .quad            reccopy_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec109]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname110:     .string          "recfield"
-                        .align           8
-.Lstartup_prec110:
-                        .quad            .Lstartup_pname110
-                        .quad            FN__recfield
-                        .quad            recfield_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            464
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec110]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname111:     .string          "bigfield"
-                        .align           8
-.Lstartup_prec111:
-                        .quad            .Lstartup_pname111
-                        .quad            FN__bigfield
-                        .quad            bigfield_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            400
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec111]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname112:     .string          "globasgn"
-                        .align           8
-.Lstartup_prec112:
-                        .quad            .Lstartup_pname112
-                        .quad            FN__globasgn
-                        .quad            globasgn_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec112]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname113:     .string          "loclasgn"
-                        .align           8
-.Lstartup_prec113:
-                        .quad            .Lstartup_pname113
-                        .quad            FN__loclasgn
-                        .quad            loclasgn_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            272
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec113]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname114:     .string          "statasgn"
-                        .align           8
-.Lstartup_prec114:
-                        .quad            .Lstartup_pname114
-                        .quad            FN__statasgn
-                        .quad            statasgn_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            256
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec114]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname115:     .string          "readz"
-                        .align           8
-.Lstartup_prec115:
-                        .quad            .Lstartup_pname115
-                        .quad            FN__readz
-                        .quad            readz_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            528
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec115]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname116:     .string          "writecon"
-                        .align           8
-.Lstartup_prec116:
-                        .quad            .Lstartup_pname116
-                        .quad            FN__writecon
-                        .quad            writecon_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            320
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec116]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname117:     .string          "writestr"
-                        .align           8
-.Lstartup_prec117:
-                        .quad            .Lstartup_pname117
-                        .quad            FN__writestr
-                        .quad            writestr_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            448
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec117]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname118:     .string          "cxcreate"
-                        .align           8
-.Lstartup_prec118:
-                        .quad            .Lstartup_pname118
-                        .quad            FN__cxcreate
-                        .quad            cxcreate_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            352
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec118]
-                        call             rt_proc_register_rec@PLT
-                        .section         .rodata
-.Lstartup_pname119:     .string          "cxget"
-                        .align           8
-.Lstartup_prec119:
-                        .quad            .Lstartup_pname119
-                        .quad            FN__cxget
-                        .quad            cxget_dcα
-                        .quad            0
-                        .quad            0
-                        .long            1
-                        .long            0
-                        .long            496
-                        .long            16
-                        .long            0
-                        .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_prec119]
-                        call             rt_proc_register_rec@PLT
-                        add              rsp, 8
-                        ret
                         .section         .rodata
 .Lgvan0:                .string          "looptime"
 .Lgvan1:                .string          "overhead"
@@ -35660,4 +33364,2300 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "point(x,y)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lclassspec1:           .string          "bigrec(alpha,beta,gamma,delta,epsilon,figaro,guido,horatio)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec1]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lstartup_pname0:       .string          "report"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__report
+                        .quad            report_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            608
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "measure"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            FN__measure
+                        .quad            measure_dcα
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            1792
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname2:       .string          "nothing"
+                        .align           8
+.Lstartup_prec2:
+                        .quad            .Lstartup_pname2
+                        .quad            FN__nothing
+                        .quad            nothing_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec2]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname3:       .string          "uplus"
+                        .align           8
+.Lstartup_prec3:
+                        .quad            .Lstartup_pname3
+                        .quad            FN__uplus
+                        .quad            uplus_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec3]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname4:       .string          "uplusr"
+                        .align           8
+.Lstartup_prec4:
+                        .quad            .Lstartup_pname4
+                        .quad            FN__uplusr
+                        .quad            uplusr_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec4]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname5:       .string          "absf"
+                        .align           8
+.Lstartup_prec5:
+                        .quad            .Lstartup_pname5
+                        .quad            FN__absf
+                        .quad            absf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec5]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname6:       .string          "intadd"
+                        .align           8
+.Lstartup_prec6:
+                        .quad            .Lstartup_pname6
+                        .quad            FN__intadd
+                        .quad            intadd_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec6]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname7:       .string          "intcmp"
+                        .align           8
+.Lstartup_prec7:
+                        .quad            .Lstartup_pname7
+                        .quad            FN__intcmp
+                        .quad            intcmp_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec7]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname8:       .string          "intpow"
+                        .align           8
+.Lstartup_prec8:
+                        .quad            .Lstartup_pname8
+                        .quad            FN__intpow
+                        .quad            intpow_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec8]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname9:       .string          "realcmp"
+                        .align           8
+.Lstartup_prec9:
+                        .quad            .Lstartup_pname9
+                        .quad            FN__realcmp
+                        .quad            realcmp_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec9]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname10:      .string          "cosf"
+                        .align           8
+.Lstartup_prec10:
+                        .quad            .Lstartup_pname10
+                        .quad            FN__cosf
+                        .quad            cosf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec10]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname11:      .string          "sqrtf"
+                        .align           8
+.Lstartup_prec11:
+                        .quad            .Lstartup_pname11
+                        .quad            FN__sqrtf
+                        .quad            sqrtf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec11]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname12:      .string          "logf"
+                        .align           8
+.Lstartup_prec12:
+                        .quad            .Lstartup_pname12
+                        .quad            FN__logf
+                        .quad            logf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec12]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname13:      .string          "nullfunc"
+                        .align           8
+.Lstartup_prec13:
+                        .quad            .Lstartup_pname13
+                        .quad            FN__nullfunc
+                        .quad            nullfunc_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec13]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname14:      .string          "nullf"
+                        .align           8
+.Lstartup_prec14:
+                        .quad            .Lstartup_pname14
+                        .quad            FN__nullf
+                        .quad            nullf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec14]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname15:      .string          "listcall"
+                        .align           8
+.Lstartup_prec15:
+                        .quad            .Lstartup_pname15
+                        .quad            FN__listcall
+                        .quad            listcall_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            464
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec15]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname16:      .string          "addfunc"
+                        .align           8
+.Lstartup_prec16:
+                        .quad            .Lstartup_pname16
+                        .quad            FN__addfunc
+                        .quad            addfunc_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec16]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname17:      .string          "add"
+                        .align           8
+.Lstartup_prec17:
+                        .quad            .Lstartup_pname17
+                        .quad            FN__add
+                        .quad            add_dcα
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            128
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec17]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname18:      .string          "rfact0"
+                        .align           8
+.Lstartup_prec18:
+                        .quad            .Lstartup_pname18
+                        .quad            FN__rfact0
+                        .quad            rfact0_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec18]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname19:      .string          "rfact10"
+                        .align           8
+.Lstartup_prec19:
+                        .quad            .Lstartup_pname19
+                        .quad            FN__rfact10
+                        .quad            rfact10_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec19]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname20:      .string          "rfact"
+                        .align           8
+.Lstartup_prec20:
+                        .quad            .Lstartup_pname20
+                        .quad            FN__rfact
+                        .quad            rfact_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            304
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec20]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname21:      .string          "rfib5"
+                        .align           8
+.Lstartup_prec21:
+                        .quad            .Lstartup_pname21
+                        .quad            FN__rfib5
+                        .quad            rfib5_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec21]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname22:      .string          "rfib"
+                        .align           8
+.Lstartup_prec22:
+                        .quad            .Lstartup_pname22
+                        .quad            FN__rfib
+                        .quad            rfib_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            400
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec22]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname23:      .string          "prslow"
+                        .align           8
+.Lstartup_prec23:
+                        .quad            .Lstartup_pname23
+                        .quad            FN__prslow
+                        .quad            prslow_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            736
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec23]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname24:      .string          "if0"
+                        .align           8
+.Lstartup_prec24:
+                        .quad            .Lstartup_pname24
+                        .quad            FN__if0
+                        .quad            if0_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec24]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname25:      .string          "case3"
+                        .align           8
+.Lstartup_prec25:
+                        .quad            .Lstartup_pname25
+                        .quad            FN__case3
+                        .quad            case3_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            688
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec25]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname26:      .string          "nulltest"
+                        .align           8
+.Lstartup_prec26:
+                        .quad            .Lstartup_pname26
+                        .quad            FN__nulltest
+                        .quad            nulltest_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec26]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname27:      .string          "typef"
+                        .align           8
+.Lstartup_prec27:
+                        .quad            .Lstartup_pname27
+                        .quad            FN__typef
+                        .quad            typef_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec27]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname28:      .string          "imagef"
+                        .align           8
+.Lstartup_prec28:
+                        .quad            .Lstartup_pname28
+                        .quad            FN__imagef
+                        .quad            imagef_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec28]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname29:      .string          "marshal"
+                        .align           8
+.Lstartup_prec29:
+                        .quad            .Lstartup_pname29
+                        .quad            FN__marshal
+                        .quad            marshal_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            464
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec29]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname30:      .string          "conj5"
+                        .align           8
+.Lstartup_prec30:
+                        .quad            .Lstartup_pname30
+                        .quad            FN__conj5
+                        .quad            conj5_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec30]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname31:      .string          "everyalt"
+                        .align           8
+.Lstartup_prec31:
+                        .quad            .Lstartup_pname31
+                        .quad            FN__everyalt
+                        .quad            everyalt_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec31]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname32:      .string          "everyto"
+                        .align           8
+.Lstartup_prec32:
+                        .quad            .Lstartup_pname32
+                        .quad            FN__everyto
+                        .quad            everyto_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec32]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname33:      .string          "evsusp"
+                        .align           8
+.Lstartup_prec33:
+                        .quad            .Lstartup_pname33
+                        .quad            FN__evsusp
+                        .quad            evsusp_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            192
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec33]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname34:      .string          "susproc"
+                        .align           8
+.Lstartup_prec34:
+                        .quad            .Lstartup_pname34
+                        .quad            FN__susproc
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            112
+                        .long            24
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec34]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname35:      .string          "intcoerce"
+                        .align           8
+.Lstartup_prec35:
+                        .quad            .Lstartup_pname35
+                        .quad            FN__intcoerce
+                        .quad            intcoerce_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec35]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname36:      .string          "realcoerce"
+                        .align           8
+.Lstartup_prec36:
+                        .quad            .Lstartup_pname36
+                        .quad            FN__realcoerce
+                        .quad            realcoerce_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec36]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname37:      .string          "strcoerce"
+                        .align           8
+.Lstartup_prec37:
+                        .quad            .Lstartup_pname37
+                        .quad            FN__strcoerce
+                        .quad            strcoerce_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec37]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname38:      .string          "strcoercer"
+                        .align           8
+.Lstartup_prec38:
+                        .quad            .Lstartup_pname38
+                        .quad            FN__strcoercer
+                        .quad            strcoercer_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec38]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname39:      .string          "tointeger"
+                        .align           8
+.Lstartup_prec39:
+                        .quad            .Lstartup_pname39
+                        .quad            FN__tointeger
+                        .quad            tointeger_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec39]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname40:      .string          "toreal"
+                        .align           8
+.Lstartup_prec40:
+                        .quad            .Lstartup_pname40
+                        .quad            FN__toreal
+                        .quad            toreal_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec40]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname41:      .string          "tostring"
+                        .align           8
+.Lstartup_prec41:
+                        .quad            .Lstartup_pname41
+                        .quad            FN__tostring
+                        .quad            tostring_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec41]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname42:      .string          "rtostring"
+                        .align           8
+.Lstartup_prec42:
+                        .quad            .Lstartup_pname42
+                        .quad            FN__rtostring
+                        .quad            rtostring_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec42]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname43:      .string          "tocset"
+                        .align           8
+.Lstartup_prec43:
+                        .quad            .Lstartup_pname43
+                        .quad            FN__tocset
+                        .quad            tocset_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec43]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname44:      .string          "charf"
+                        .align           8
+.Lstartup_prec44:
+                        .quad            .Lstartup_pname44
+                        .quad            FN__charf
+                        .quad            charf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec44]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname45:      .string          "ordf"
+                        .align           8
+.Lstartup_prec45:
+                        .quad            .Lstartup_pname45
+                        .quad            FN__ordf
+                        .quad            ordf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec45]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname46:      .string          "strsize"
+                        .align           8
+.Lstartup_prec46:
+                        .quad            .Lstartup_pname46
+                        .quad            FN__strsize
+                        .quad            strsize_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec46]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname47:      .string          "concat"
+                        .align           8
+.Lstartup_prec47:
+                        .quad            .Lstartup_pname47
+                        .quad            FN__concat
+                        .quad            concat_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec47]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname48:      .string          "strpick"
+                        .align           8
+.Lstartup_prec48:
+                        .quad            .Lstartup_pname48
+                        .quad            FN__strpick
+                        .quad            strpick_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec48]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname49:      .string          "strbang"
+                        .align           8
+.Lstartup_prec49:
+                        .quad            .Lstartup_pname49
+                        .quad            FN__strbang
+                        .quad            strbang_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec49]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname50:      .string          "strsub"
+                        .align           8
+.Lstartup_prec50:
+                        .quad            .Lstartup_pname50
+                        .quad            FN__strsub
+                        .quad            strsub_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec50]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname51:      .string          "substr"
+                        .align           8
+.Lstartup_prec51:
+                        .quad            .Lstartup_pname51
+                        .quad            FN__substr
+                        .quad            substr_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec51]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname52:      .string          "subsasg"
+                        .align           8
+.Lstartup_prec52:
+                        .quad            .Lstartup_pname52
+                        .quad            FN__subsasg
+                        .quad            subsasg_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec52]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname53:      .string          "strcmp"
+                        .align           8
+.Lstartup_prec53:
+                        .quad            .Lstartup_pname53
+                        .quad            FN__strcmp
+                        .quad            strcmp_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec53]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname54:      .string          "strident"
+                        .align           8
+.Lstartup_prec54:
+                        .quad            .Lstartup_pname54
+                        .quad            FN__strident
+                        .quad            strident_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec54]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname55:      .string          "replf"
+                        .align           8
+.Lstartup_prec55:
+                        .quad            .Lstartup_pname55
+                        .quad            FN__replf
+                        .quad            replf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec55]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname56:      .string          "reversef"
+                        .align           8
+.Lstartup_prec56:
+                        .quad            .Lstartup_pname56
+                        .quad            FN__reversef
+                        .quad            reversef_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec56]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname57:      .string          "leftf"
+                        .align           8
+.Lstartup_prec57:
+                        .quad            .Lstartup_pname57
+                        .quad            FN__leftf
+                        .quad            leftf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec57]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname58:      .string          "centerf"
+                        .align           8
+.Lstartup_prec58:
+                        .quad            .Lstartup_pname58
+                        .quad            FN__centerf
+                        .quad            centerf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec58]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname59:      .string          "rightf"
+                        .align           8
+.Lstartup_prec59:
+                        .quad            .Lstartup_pname59
+                        .quad            FN__rightf
+                        .quad            rightf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec59]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname60:      .string          "trimf"
+                        .align           8
+.Lstartup_prec60:
+                        .quad            .Lstartup_pname60
+                        .quad            FN__trimf
+                        .quad            trimf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec60]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname61:      .string          "entabf"
+                        .align           8
+.Lstartup_prec61:
+                        .quad            .Lstartup_pname61
+                        .quad            FN__entabf
+                        .quad            entabf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec61]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname62:      .string          "detabf"
+                        .align           8
+.Lstartup_prec62:
+                        .quad            .Lstartup_pname62
+                        .quad            FN__detabf
+                        .quad            detabf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            288
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec62]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname63:      .string          "mapf"
+                        .align           8
+.Lstartup_prec63:
+                        .quad            .Lstartup_pname63
+                        .quad            FN__mapf
+                        .quad            mapf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec63]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname64:      .string          "map1"
+                        .align           8
+.Lstartup_prec64:
+                        .quad            .Lstartup_pname64
+                        .quad            FN__map1
+                        .quad            map1_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec64]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname65:      .string          "map2"
+                        .align           8
+.Lstartup_prec65:
+                        .quad            .Lstartup_pname65
+                        .quad            FN__map2
+                        .quad            map2_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec65]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname66:      .string          "tablemap"
+                        .align           8
+.Lstartup_prec66:
+                        .quad            .Lstartup_pname66
+                        .quad            FN__tablemap
+                        .quad            tablemap_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            608
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec66]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname67:      .string          "listmap"
+                        .align           8
+.Lstartup_prec67:
+                        .quad            .Lstartup_pname67
+                        .quad            FN__listmap
+                        .quad            listmap_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            784
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec67]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname68:      .string          "nullscan"
+                        .align           8
+.Lstartup_prec68:
+                        .quad            .Lstartup_pname68
+                        .quad            FN__nullscan
+                        .quad            nullscan_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec68]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname69:      .string          "movef"
+                        .align           8
+.Lstartup_prec69:
+                        .quad            .Lstartup_pname69
+                        .quad            FN__movef
+                        .quad            movef_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec69]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname70:      .string          "mov11"
+                        .align           8
+.Lstartup_prec70:
+                        .quad            .Lstartup_pname70
+                        .quad            FN__mov11
+                        .quad            mov11_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            416
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec70]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname71:      .string          "pos11"
+                        .align           8
+.Lstartup_prec71:
+                        .quad            .Lstartup_pname71
+                        .quad            FN__pos11
+                        .quad            pos11_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            512
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec71]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname72:      .string          "tabf"
+                        .align           8
+.Lstartup_prec72:
+                        .quad            .Lstartup_pname72
+                        .quad            FN__tabf
+                        .quad            tabf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec72]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname73:      .string          "matchf"
+                        .align           8
+.Lstartup_prec73:
+                        .quad            .Lstartup_pname73
+                        .quad            FN__matchf
+                        .quad            matchf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec73]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname74:      .string          "tabmat"
+                        .align           8
+.Lstartup_prec74:
+                        .quad            .Lstartup_pname74
+                        .quad            FN__tabmat
+                        .quad            tabmat_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            384
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec74]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname75:      .string          "posf"
+                        .align           8
+.Lstartup_prec75:
+                        .quad            .Lstartup_pname75
+                        .quad            FN__posf
+                        .quad            posf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec75]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname76:      .string          "anyf"
+                        .align           8
+.Lstartup_prec76:
+                        .quad            .Lstartup_pname76
+                        .quad            FN__anyf
+                        .quad            anyf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec76]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname77:      .string          "manyf"
+                        .align           8
+.Lstartup_prec77:
+                        .quad            .Lstartup_pname77
+                        .quad            FN__manyf
+                        .quad            manyf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec77]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname78:      .string          "uptof"
+                        .align           8
+.Lstartup_prec78:
+                        .quad            .Lstartup_pname78
+                        .quad            FN__uptof
+                        .quad            uptof_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec78]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname79:      .string          "findf"
+                        .align           8
+.Lstartup_prec79:
+                        .quad            .Lstartup_pname79
+                        .quad            FN__findf
+                        .quad            findf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec79]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname80:      .string          "balf"
+                        .align           8
+.Lstartup_prec80:
+                        .quad            .Lstartup_pname80
+                        .quad            FN__balf
+                        .quad            balf_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec80]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname81:      .string          "cssize"
+                        .align           8
+.Lstartup_prec81:
+                        .quad            .Lstartup_pname81
+                        .quad            FN__cssize
+                        .quad            cssize_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec81]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname82:      .string          "cscompl"
+                        .align           8
+.Lstartup_prec82:
+                        .quad            .Lstartup_pname82
+                        .quad            FN__cscompl
+                        .quad            cscompl_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec82]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname83:      .string          "lcreate"
+                        .align           8
+.Lstartup_prec83:
+                        .quad            .Lstartup_pname83
+                        .quad            FN__lcreate
+                        .quad            lcreate_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec83]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname84:      .string          "lconst"
+                        .align           8
+.Lstartup_prec84:
+                        .quad            .Lstartup_pname84
+                        .quad            FN__lconst
+                        .quad            lconst_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            432
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec84]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname85:      .string          "lcopy"
+                        .align           8
+.Lstartup_prec85:
+                        .quad            .Lstartup_pname85
+                        .quad            FN__lcopy
+                        .quad            lcopy_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec85]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname86:      .string          "lsort"
+                        .align           8
+.Lstartup_prec86:
+                        .quad            .Lstartup_pname86
+                        .quad            FN__lsort
+                        .quad            lsort_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec86]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname87:      .string          "lsize"
+                        .align           8
+.Lstartup_prec87:
+                        .quad            .Lstartup_pname87
+                        .quad            FN__lsize
+                        .quad            lsize_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            544
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec87]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname88:      .string          "lpick"
+                        .align           8
+.Lstartup_prec88:
+                        .quad            .Lstartup_pname88
+                        .quad            FN__lpick
+                        .quad            lpick_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            560
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec88]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname89:      .string          "lsubscr"
+                        .align           8
+.Lstartup_prec89:
+                        .quad            .Lstartup_pname89
+                        .quad            FN__lsubscr
+                        .quad            lsubscr_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec89]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname90:      .string          "lbang"
+                        .align           8
+.Lstartup_prec90:
+                        .quad            .Lstartup_pname90
+                        .quad            FN__lbang
+                        .quad            lbang_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            560
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec90]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname91:      .string          "put1get1"
+                        .align           8
+.Lstartup_prec91:
+                        .quad            .Lstartup_pname91
+                        .quad            FN__put1get1
+                        .quad            put1get1_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec91]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname92:      .string          "put2get2"
+                        .align           8
+.Lstartup_prec92:
+                        .quad            .Lstartup_pname92
+                        .quad            FN__put2get2
+                        .quad            put2get2_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            624
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec92]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname93:      .string          "put3get3"
+                        .align           8
+.Lstartup_prec93:
+                        .quad            .Lstartup_pname93
+                        .quad            FN__put3get3
+                        .quad            put3get3_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            720
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec93]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname94:      .string          "put4get4"
+                        .align           8
+.Lstartup_prec94:
+                        .quad            .Lstartup_pname94
+                        .quad            FN__put4get4
+                        .quad            put4get4_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            816
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec94]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname95:      .string          "pushpop"
+                        .align           8
+.Lstartup_prec95:
+                        .quad            .Lstartup_pname95
+                        .quad            FN__pushpop
+                        .quad            pushpop_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec95]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname96:      .string          "putget12"
+                        .align           8
+.Lstartup_prec96:
+                        .quad            .Lstartup_pname96
+                        .quad            FN__putget12
+                        .quad            putget12_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            880
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec96]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname97:      .string          "pushpop12"
+                        .align           8
+.Lstartup_prec97:
+                        .quad            .Lstartup_pname97
+                        .quad            FN__pushpop12
+                        .quad            pushpop12_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            880
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec97]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname98:      .string          "setcreate"
+                        .align           8
+.Lstartup_prec98:
+                        .quad            .Lstartup_pname98
+                        .quad            FN__setcreate
+                        .quad            setcreate_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec98]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname99:      .string          "setcopy"
+                        .align           8
+.Lstartup_prec99:
+                        .quad            .Lstartup_pname99
+                        .quad            FN__setcopy
+                        .quad            setcopy_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            512
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec99]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname100:     .string          "setinsert"
+                        .align           8
+.Lstartup_prec100:
+                        .quad            .Lstartup_pname100
+                        .quad            FN__setinsert
+                        .quad            setinsert_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            544
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec100]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname101:     .string          "setmember"
+                        .align           8
+.Lstartup_prec101:
+                        .quad            .Lstartup_pname101
+                        .quad            FN__setmember
+                        .quad            setmember_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            544
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec101]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname102:     .string          "setinsdel"
+                        .align           8
+.Lstartup_prec102:
+                        .quad            .Lstartup_pname102
+                        .quad            FN__setinsdel
+                        .quad            setinsdel_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            544
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec102]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname103:     .string          "setpick"
+                        .align           8
+.Lstartup_prec103:
+                        .quad            .Lstartup_pname103
+                        .quad            FN__setpick
+                        .quad            setpick_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec103]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname104:     .string          "setbang"
+                        .align           8
+.Lstartup_prec104:
+                        .quad            .Lstartup_pname104
+                        .quad            FN__setbang
+                        .quad            setbang_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            544
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec104]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname105:     .string          "tblcreate"
+                        .align           8
+.Lstartup_prec105:
+                        .quad            .Lstartup_pname105
+                        .quad            FN__tblcreate
+                        .quad            tblcreate_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec105]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname106:     .string          "tblasgn"
+                        .align           8
+.Lstartup_prec106:
+                        .quad            .Lstartup_pname106
+                        .quad            FN__tblasgn
+                        .quad            tblasgn_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            512
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec106]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname107:     .string          "tblsub"
+                        .align           8
+.Lstartup_prec107:
+                        .quad            .Lstartup_pname107
+                        .quad            FN__tblsub
+                        .quad            tblsub_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec107]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname108:     .string          "recconstr"
+                        .align           8
+.Lstartup_prec108:
+                        .quad            .Lstartup_pname108
+                        .quad            FN__recconstr
+                        .quad            recconstr_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec108]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname109:     .string          "reccopy"
+                        .align           8
+.Lstartup_prec109:
+                        .quad            .Lstartup_pname109
+                        .quad            FN__reccopy
+                        .quad            reccopy_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec109]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname110:     .string          "recfield"
+                        .align           8
+.Lstartup_prec110:
+                        .quad            .Lstartup_pname110
+                        .quad            FN__recfield
+                        .quad            recfield_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            464
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec110]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname111:     .string          "bigfield"
+                        .align           8
+.Lstartup_prec111:
+                        .quad            .Lstartup_pname111
+                        .quad            FN__bigfield
+                        .quad            bigfield_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            400
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec111]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname112:     .string          "globasgn"
+                        .align           8
+.Lstartup_prec112:
+                        .quad            .Lstartup_pname112
+                        .quad            FN__globasgn
+                        .quad            globasgn_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec112]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname113:     .string          "loclasgn"
+                        .align           8
+.Lstartup_prec113:
+                        .quad            .Lstartup_pname113
+                        .quad            FN__loclasgn
+                        .quad            loclasgn_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec113]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname114:     .string          "statasgn"
+                        .align           8
+.Lstartup_prec114:
+                        .quad            .Lstartup_pname114
+                        .quad            FN__statasgn
+                        .quad            statasgn_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            256
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec114]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname115:     .string          "readz"
+                        .align           8
+.Lstartup_prec115:
+                        .quad            .Lstartup_pname115
+                        .quad            FN__readz
+                        .quad            readz_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            528
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec115]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname116:     .string          "writecon"
+                        .align           8
+.Lstartup_prec116:
+                        .quad            .Lstartup_pname116
+                        .quad            FN__writecon
+                        .quad            writecon_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            320
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec116]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname117:     .string          "writestr"
+                        .align           8
+.Lstartup_prec117:
+                        .quad            .Lstartup_pname117
+                        .quad            FN__writestr
+                        .quad            writestr_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            448
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec117]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname118:     .string          "cxcreate"
+                        .align           8
+.Lstartup_prec118:
+                        .quad            .Lstartup_pname118
+                        .quad            FN__cxcreate
+                        .quad            cxcreate_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            352
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec118]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname119:     .string          "cxget"
+                        .align           8
+.Lstartup_prec119:
+                        .quad            .Lstartup_pname119
+                        .quad            FN__cxget
+                        .quad            cxget_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            496
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec119]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_if_ok_α
-proc_if_ok_α:
+FN__if_ok:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
                         mov              qword ptr [rsp + 176], rdx
@@ -10,7 +9,7 @@ proc_if_ok_α:
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_if_ok_α_body:
+if_ok_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_disjunction_α:       mov              qword ptr [rsp + 32], 0
                         mov              qword ptr [rsp + 40], 0
@@ -33,12 +32,12 @@ n0_disjunction_β:       mov              eax, dword ptr [rsp + 48]
 n0_disjunction_af:      add              dword ptr [rsp + 48], 1
                         mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 1;                              je    n2_lit_string_α
-                                                                              jmp   proc_if_ok_ω
+                                                                              jmp   if_ok_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_return_α:            mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_if_ok_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   if_ok_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_string_α:        mov              qword ptr [rsp + 112], 2             # result
                         mov              dword ptr [rsp + 116], 2
@@ -70,24 +69,24 @@ n6_conjunction_α:       mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [rsp + 72], rax;           jmp   n0_disjunction_as
 n6_conjunction_β:                                                             jmp   n0_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
-proc_if_ok_res:
+if_ok_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_if_ok_β:
-                                                                              jmp   proc_if_ok_ω
+if_ok_β:
+                                                                              jmp   if_ok_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_if_ok_γ:
+if_ok_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 168]
                         add              rsp, 192;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_if_ok_ω:
+if_ok_ω:
                         mov              rcx, qword ptr [rsp + 176]
                         add              rsp, 192;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_if_ok_dcα:
+if_ok_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -107,46 +106,20 @@ proc_if_ok_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx16_2]
-                        lea              rdx, [rip + .Lx16_3];                jmp   proc_if_ok_α
+                        lea              rdx, [rip + .Lx16_3];                jmp   FN__if_ok
 .Lx16_2:                pop              r11
                         pop              r11;                                 jmp   r11
 .Lx16_3:                pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "if_ok"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_if_ok_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 128
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_if_ok_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -1287,8 +1260,8 @@ n77_conjunction_α:      mov              rax, qword ptr [rsp + 2000]
 n77_conjunction_β:                                                            jmp   n80_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n78_call_proc_staged_α: lea              rsi, [rsp + 2000]
-                        call             proc_if_ok_dcα;                      jmp   .Lx229_2
-.Lx229_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             if_ok_dcα;                           jmp   .Lx229_2
+.Lx229_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx229_29
                         mov              rdi, rax
@@ -1297,7 +1270,7 @@ n78_call_proc_staged_α: lea              rsi, [rsp + 2000]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 1936], rax
                         mov              qword ptr [rsp + 1944], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1427,8 +1400,8 @@ n86_conjunction_α:      mov              rax, qword ptr [rsp + 1760]
 n86_conjunction_β:                                                            jmp   n89_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n87_call_proc_staged_α: lea              rsi, [rsp + 1760]
-                        call             proc_if_ok_dcα;                      jmp   .Lx240_2
-.Lx240_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             if_ok_dcα;                           jmp   .Lx240_2
+.Lx240_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx240_29
                         mov              rdi, rax
@@ -1437,7 +1410,7 @@ n87_call_proc_staged_α: lea              rsi, [rsp + 1760]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 1696], rax
                         mov              qword ptr [rsp + 1704], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1567,8 +1540,8 @@ n95_conjunction_α:      mov              rax, qword ptr [rsp + 1520]
 n95_conjunction_β:                                                            jmp   n98_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n96_call_proc_staged_α: lea              rsi, [rsp + 1520]
-                        call             proc_if_ok_dcα;                      jmp   .Lx251_2
-.Lx251_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             if_ok_dcα;                           jmp   .Lx251_2
+.Lx251_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx251_29
                         mov              rdi, rax
@@ -1577,7 +1550,7 @@ n96_call_proc_staged_α: lea              rsi, [rsp + 1520]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 1456], rax
                         mov              qword ptr [rsp + 1464], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -2354,4 +2327,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "if_ok"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__if_ok
+                        .quad            if_ok_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            128
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

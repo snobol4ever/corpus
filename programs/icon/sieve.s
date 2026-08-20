@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 1384], rcx
                         mov              qword ptr [rsp + 1392], rdx
                         mov              rdi, rsp
+                        add              rdi, 1280
+                        xor              eax, eax
+                        mov              ecx, 80
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -334,14 +339,29 @@ n26_coerce_numeric_α:   mov              eax, dword ptr [rsp + 1296]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n27_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n27_binop_α:            mov              eax, dword ptr [rsp + 784]
-                        cmp              eax, 3;                              jne   .Lx111_0
-                        mov              eax, dword ptr [rsp + 768]
-                        cmp              eax, 3;                              jne   .Lx111_0
+                        mov              ecx, dword ptr [rsp + 768]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx111_2
                         mov              rax, qword ptr [rsp + 792]
-                        mov              rcx, qword ptr [rsp + 776]
-                        imul             rax, rcx
+                        mov              rdx, qword ptr [rsp + 776]
+                        imul             rax, rdx
                         mov              qword ptr [rsp + 752], 3
-                        mov              qword ptr [rsp + 760], rax;          jmp   n28_var_α
+                        mov              qword ptr [rsp + 760], rax;          jmp   .Lx111_7
+.Lx111_2:               and              edx, 1;                              jz    .Lx111_0
+                        mov              rsi, qword ptr [rsp + 792]
+                        mov              rdi, qword ptr [rsp + 776]
+                        cmp              eax, 5;                              je    .Lx111_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx111_4
+.Lx111_3:               movq             xmm0, rsi
+.Lx111_4:               cmp              ecx, 5;                              je    .Lx111_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx111_6
+.Lx111_5:               movq             xmm1, rdi
+.Lx111_6:               mulsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 752], 5
+                        mov              qword ptr [rsp + 760], rax
+.Lx111_7:                                                                     jmp   n28_var_α
 .Lx111_0:               mov              rdi, qword ptr [rsp + 784]
                         mov              rsi, qword ptr [rsp + 792]
                         mov              rdx, qword ptr [rsp + 768]
@@ -759,7 +779,7 @@ n61_binop_α:            mov              rdi, qword ptr [rsp + 1280]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 360], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -792,7 +812,7 @@ n65_binop_α:            mov              rdi, qword ptr [rsp + 1280]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]

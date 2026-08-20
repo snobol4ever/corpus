@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_score$2F1_α
-proc_score$2F1_α:
+FN__score$2F1:
                         sub              rsp, 848
                         mov              qword ptr [rsp + 824], rcx
                         mov              qword ptr [rsp + 832], rdx
@@ -18,7 +17,7 @@ proc_score$2F1_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-proc_score$2F1_α_body:
+score$2F1_α_body:
                         lea              rax, [rip + n8_suspend_β]
                         mov              qword ptr [rsp + 784], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -50,13 +49,13 @@ n0_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
 .Lx28_101:              mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    proc_score$2F1_ω
+                        cmp              eax, 104;                            je    score$2F1_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n1_var_ref_α
 n0_call_builtin_prolog_β:
-                                                                              jmp   proc_score$2F1_ω
+                                                                              jmp   score$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_ref_α:           mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -206,7 +205,7 @@ n8_suspend_α:           mov              rax, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_score$2F1_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   score$2F1_γ
 n8_suspend_β:                                                                 jmp   n9_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_call_builtin_prolog_α:
@@ -226,13 +225,13 @@ n9_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 544], rax
                         mov              qword ptr [rsp + 552], rdx
-                        cmp              eax, 104;                            je    proc_score$2F1_ω
+                        cmp              eax, 104;                            je    score$2F1_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n10_var_ref_α
 n9_call_builtin_prolog_β:
-                                                                              jmp   proc_score$2F1_ω
+                                                                              jmp   score$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n10_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -382,7 +381,7 @@ n17_suspend_α:          mov              rax, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_score$2F1_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   score$2F1_γ
 n17_suspend_β:                                                                jmp   n18_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n18_call_builtin_prolog_α:
@@ -402,13 +401,13 @@ n18_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx
-                        cmp              eax, 104;                            je    proc_score$2F1_ω
+                        cmp              eax, 104;                            je    score$2F1_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n19_var_ref_α
 n18_call_builtin_prolog_β:
-                                                                              jmp   proc_score$2F1_ω
+                                                                              jmp   score$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n19_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -558,7 +557,7 @@ n26_suspend_α:          mov              rax, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_score$2F1_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   score$2F1_γ
 n26_suspend_β:                                                                jmp   n27_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n27_call_builtin_prolog_α:
@@ -578,22 +577,22 @@ n27_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
-                        cmp              eax, 104;                            je    proc_score$2F1_ω
+                        cmp              eax, 104;                            je    score$2F1_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   proc_score$2F1_ω
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   score$2F1_ω
 n27_call_builtin_prolog_β:
-                                                                              jmp   proc_score$2F1_ω
+                                                                              jmp   score$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_score$2F1_res:
+score$2F1_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_score$2F1_β:
+score$2F1_β:
                                                                               jmp   n8_suspend_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_score$2F1_γ:
+score$2F1_γ:
                         lea              r11, [rip + g_pl_zf_pending_cursor]
                         mov              r11, qword ptr [r11]
                         test             r11, r11;                            je    .Lx64_50
@@ -612,42 +611,16 @@ proc_score$2F1_γ:
                         mov              rcx, qword ptr [rsp + 824]
                         add              rsp, 848;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_score$2F1_ω:
+score$2F1_ω:
                         mov              rcx, qword ptr [rsp + 832]
                         add              rsp, 848;                            jmp   rcx
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "score/1"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_score$2F1_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 800
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_generator@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rt_gcheap_warmup@PLT
                         call             rt_plw_floor_bypass_on@PLT
@@ -809,7 +782,7 @@ n68_call_proc_staged_α: mov              qword ptr [rsp + 384], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx86_2
 .Lx86_6:                call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx86_2
 .Lx86_1:                call             rt_faildescr@PLT
-.Lx86_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx86_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx86_29
                         mov              rdi, rax
@@ -818,7 +791,7 @@ n68_call_proc_staged_α: mov              qword ptr [rsp + 384], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 360], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1077,4 +1050,27 @@ main_γ:
 main_ω:
                         mov              rcx, qword ptr [rsp + 496]
                         add              rsp, 512;                            jmp   rcx
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "score/1"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__score$2F1
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            800
+                        .long            24
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

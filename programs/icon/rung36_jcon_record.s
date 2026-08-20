@@ -1,28 +1,12 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "simple(f)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        .section         .rodata
-.Lclassspec1:           .string          "rec(f1,f2)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec1]
-                        call             record_register@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -32,6 +16,11 @@ main_α:
                         sub              rsp, 3408
                         mov              qword ptr [rsp + 3384], rcx
                         mov              qword ptr [rsp + 3392], rdx
+                        mov              rdi, rsp
+                        add              rdi, 3296
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 2
@@ -1407,7 +1396,7 @@ n108_binop_α:           mov              rdi, qword ptr [rsp + 816]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 800], rax
                         mov              qword ptr [rsp + 808], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1599,12 +1588,29 @@ n123_lit_integer_α:     mov              qword ptr [rsp + 512], 3             #
 .Lx318_0:               .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n124_binop_α:           mov              eax, dword ptr [rsp + 496]
-                        cmp              eax, 3;                              jne   .Lx319_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx319_2
                         mov              rax, qword ptr [rsp + 504]
-                        mov              rcx, 10
-                        add              rax, rcx
+                        mov              rdx, 10
+                        add              rax, rdx
                         mov              qword ptr [rsp + 480], 3
-                        mov              qword ptr [rsp + 488], rax;          jmp   n125_assign_var_α
+                        mov              qword ptr [rsp + 488], rax;          jmp   .Lx319_7
+.Lx319_2:               and              edx, 1;                              jz    .Lx319_0
+                        mov              rsi, qword ptr [rsp + 504]
+                        mov              rdi, 10
+                        cmp              eax, 5;                              je    .Lx319_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx319_4
+.Lx319_3:               movq             xmm0, rsi
+.Lx319_4:               cmp              ecx, 5;                              je    .Lx319_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx319_6
+.Lx319_5:               movq             xmm1, rdi
+.Lx319_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 480], 5
+                        mov              qword ptr [rsp + 488], rax
+.Lx319_7:                                                                     jmp   n125_assign_var_α
 .Lx319_0:               mov              rdi, qword ptr [rsp + 496]
                         mov              rsi, qword ptr [rsp + 504]
                         mov              rdx, qword ptr [rsp + 512]
@@ -1679,12 +1685,29 @@ n129_lit_integer_α:     mov              qword ptr [rsp + 416], 3             #
 .Lx325_0:               .quad            20
 #-----------------------------------------------------------------------------------------------------------------------
 n130_binop_α:           mov              eax, dword ptr [rsp + 400]
-                        cmp              eax, 3;                              jne   .Lx326_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx326_2
                         mov              rax, qword ptr [rsp + 408]
-                        mov              rcx, 20
-                        add              rax, rcx
+                        mov              rdx, 20
+                        add              rax, rdx
                         mov              qword ptr [rsp + 384], 3
-                        mov              qword ptr [rsp + 392], rax;          jmp   n131_assign_var_α
+                        mov              qword ptr [rsp + 392], rax;          jmp   .Lx326_7
+.Lx326_2:               and              edx, 1;                              jz    .Lx326_0
+                        mov              rsi, qword ptr [rsp + 408]
+                        mov              rdi, 20
+                        cmp              eax, 5;                              je    .Lx326_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx326_4
+.Lx326_3:               movq             xmm0, rsi
+.Lx326_4:               cmp              ecx, 5;                              je    .Lx326_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx326_6
+.Lx326_5:               movq             xmm1, rdi
+.Lx326_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 384], 5
+                        mov              qword ptr [rsp + 392], rax
+.Lx326_7:                                                                     jmp   n131_assign_var_α
 .Lx326_0:               mov              rdi, qword ptr [rsp + 400]
                         mov              rsi, qword ptr [rsp + 408]
                         mov              rdx, qword ptr [rsp + 416]
@@ -1760,12 +1783,29 @@ n135_lit_integer_α:     mov              qword ptr [rsp + 320], 3             #
 .Lx333_0:               .quad            70
 #-----------------------------------------------------------------------------------------------------------------------
 n136_binop_α:           mov              eax, dword ptr [rsp + 304]
-                        cmp              eax, 3;                              jne   .Lx334_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx334_2
                         mov              rax, qword ptr [rsp + 312]
-                        mov              rcx, 70
-                        add              rax, rcx
+                        mov              rdx, 70
+                        add              rax, rdx
                         mov              qword ptr [rsp + 288], 3
-                        mov              qword ptr [rsp + 296], rax;          jmp   n137_assign_var_α
+                        mov              qword ptr [rsp + 296], rax;          jmp   .Lx334_7
+.Lx334_2:               and              edx, 1;                              jz    .Lx334_0
+                        mov              rsi, qword ptr [rsp + 312]
+                        mov              rdi, 70
+                        cmp              eax, 5;                              je    .Lx334_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx334_4
+.Lx334_3:               movq             xmm0, rsi
+.Lx334_4:               cmp              ecx, 5;                              je    .Lx334_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx334_6
+.Lx334_5:               movq             xmm1, rdi
+.Lx334_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 288], 5
+                        mov              qword ptr [rsp + 296], rax
+.Lx334_7:                                                                     jmp   n137_assign_var_α
 .Lx334_0:               mov              rdi, qword ptr [rsp + 304]
                         mov              rsi, qword ptr [rsp + 312]
                         mov              rdx, qword ptr [rsp + 320]
@@ -1933,4 +1973,20 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "simple(f)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lclassspec1:           .string          "rec(f1,f2)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec1]
+                        call             record_register@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

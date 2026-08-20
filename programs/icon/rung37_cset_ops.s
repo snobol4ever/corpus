@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 2104], rcx
                         mov              qword ptr [rsp + 2112], rdx
                         mov              rdi, rsp
+                        add              rdi, 1984
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
@@ -187,10 +192,10 @@ n12_var_α:              mov              rax, qword ptr [rsp + 2016]
                         mov              rax, qword ptr [rsp + 2024]
                         mov              qword ptr [rsp + 1672], rax;         jmp   n13_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
-n13_binop_α:            mov              rdi, qword ptr [rsp + 1648]
-                        mov              rsi, qword ptr [rsp + 1656]
-                        mov              rdx, qword ptr [rsp + 1664]
-                        mov              rcx, qword ptr [rsp + 1672]
+n13_binop_α:            mov              rdi, qword ptr [rsp + 1984]
+                        mov              rsi, qword ptr [rsp + 1992]
+                        mov              rdx, qword ptr [rsp + 2016]
+                        mov              rcx, qword ptr [rsp + 2024]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -360,8 +365,8 @@ n23_call_builtin_icon_α:
 n23_call_builtin_icon_β:
                                                                               jmp   n26_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n24_binop_α:            mov              rdi, qword ptr [rsp + 1328]
-                        mov              rsi, qword ptr [rsp + 1336]
+n24_binop_α:            mov              rdi, qword ptr [rsp + 2000]
+                        mov              rsi, qword ptr [rsp + 2008]
                         mov              rdx, qword ptr [rsp + 1344]
                         mov              rcx, qword ptr [rsp + 1352]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -476,8 +481,8 @@ n31_call_builtin_icon_α:
 n31_call_builtin_icon_β:
                                                                               jmp   n34_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n32_binop_α:            mov              rdi, qword ptr [rsp + 1120]
-                        mov              rsi, qword ptr [rsp + 1128]
+n32_binop_α:            mov              rdi, qword ptr [rsp + 2000]
+                        mov              rsi, qword ptr [rsp + 2008]
                         mov              rdx, qword ptr [rsp + 1136]
                         mov              rcx, qword ptr [rsp + 1144]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -630,8 +635,8 @@ n42_call_builtin_icon_α:
 n42_call_builtin_icon_β:
                                                                               jmp   n45_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n43_binop_α:            mov              rdi, qword ptr [rsp + 848]
-                        mov              rsi, qword ptr [rsp + 856]
+n43_binop_α:            mov              rdi, qword ptr [rsp + 1984]
+                        mov              rsi, qword ptr [rsp + 1992]
                         mov              rdx, qword ptr [rsp + 864]
                         mov              rcx, qword ptr [rsp + 872]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -746,8 +751,8 @@ n50_call_builtin_icon_α:
 n50_call_builtin_icon_β:
                                                                               jmp   n53_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n51_binop_α:            mov              rdi, qword ptr [rsp + 640]
-                        mov              rsi, qword ptr [rsp + 648]
+n51_binop_α:            mov              rdi, qword ptr [rsp + 1984]
+                        mov              rsi, qword ptr [rsp + 1992]
                         mov              rdx, qword ptr [rsp + 656]
                         mov              rcx, qword ptr [rsp + 664]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -862,8 +867,8 @@ n58_call_builtin_icon_α:
 n58_call_builtin_icon_β:
                                                                               jmp   n61_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n59_binop_α:            mov              rdi, qword ptr [rsp + 432]
-                        mov              rsi, qword ptr [rsp + 440]
+n59_binop_α:            mov              rdi, qword ptr [rsp + 1984]
+                        mov              rsi, qword ptr [rsp + 1992]
                         mov              rdx, qword ptr [rsp + 448]
                         mov              rcx, qword ptr [rsp + 456]
                         mov              qword ptr [rip + rtccb+40], r8

@@ -1,16 +1,20 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_wordcount_α
-proc_wordcount_α:
+FN__wordcount:
                         sub              rsp, 1424
                         mov              qword ptr [rsp + 1400], rcx
                         mov              qword ptr [rsp + 1408], rdx
                         mov              rdi, rsp
+                        add              rdi, 1232
+                        xor              eax, eax
+                        mov              ecx, 64
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 4
                         call             rt_icn_zframe_args_install@PLT
-proc_wordcount_α_body:
+wordcount_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_disjunction_α:       mov              qword ptr [rsp + 1072], 0
                         mov              qword ptr [rsp + 1080], 0
@@ -225,18 +229,15 @@ n17_scan_upto_α:        mov              qword ptr [rsp + 800], r14
 .Lx82_1:                inc              qword ptr [rsp + 800];               jmp   .Lx82_0
 n17_scan_upto_β:        inc              qword ptr [rsp + 800];               jmp   .Lx82_0
 #-----------------------------------------------------------------------------------------------------------------------
-n18_scan_tab_α:         sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 792]
+n18_scan_tab_α:         mov              rax, qword ptr [rsp + 792]
                         cmp              rax, 1;                              jge   .Lx84_0
                         add              rax, r15
                         add              rax, 1
-.Lx84_0:                cmp              rax, 1;                              jge   .Lx84_239
-                        add              rsp, 16;                             jmp   n17_scan_upto_β
-.Lx84_239:              mov              rcx, r15
+.Lx84_0:                cmp              rax, 1;                              jl    n17_scan_upto_β
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx84_240
-                        add              rsp, 16;                             jmp   n17_scan_upto_β
-.Lx84_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n17_scan_upto_β
+                        mov              qword ptr [rsp + 768], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -256,8 +257,7 @@ n18_scan_tab_α:         sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 752], rax
                         mov              qword ptr [rsp + 760], rdx;          jmp   n19_var_ref_α
-n18_scan_tab_β:         mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n17_scan_upto_β
+n18_scan_tab_β:         mov              r14, qword ptr [rsp + 768];          jmp   n17_scan_upto_β
 #-----------------------------------------------------------------------------------------------------------------------
 n19_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 1264]
@@ -295,18 +295,15 @@ n21_scan_many_α:        mov              eax, r14d
                         mov              qword ptr [rsp + 888], rcx;          jmp   n22_scan_tab_α
 n21_scan_many_β:                                                              jmp   n16_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n22_scan_tab_α:         sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 888]
+n22_scan_tab_α:         mov              rax, qword ptr [rsp + 888]
                         cmp              rax, 1;                              jge   .Lx91_0
                         add              rax, r15
                         add              rax, 1
-.Lx91_0:                cmp              rax, 1;                              jge   .Lx91_239
-                        add              rsp, 16;                             jmp   n16_var_α
-.Lx91_239:              mov              rcx, r15
+.Lx91_0:                cmp              rax, 1;                              jl    n16_var_α
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx91_240
-                        add              rsp, 16;                             jmp   n16_var_α
-.Lx91_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n16_var_α
+                        mov              qword ptr [rsp + 864], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -326,8 +323,7 @@ n22_scan_tab_α:         sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 848], rax
                         mov              qword ptr [rsp + 856], rdx;          jmp   n23_subscript_α
-n22_scan_tab_β:         mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n16_var_α
+n22_scan_tab_β:         mov              r14, qword ptr [rsp + 864];          jmp   n16_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n23_subscript_α:        mov              rdi, qword ptr [rsp + 832]
                         mov              rsi, qword ptr [rsp + 840]
@@ -365,12 +361,29 @@ n25_lit_integer_α:      mov              qword ptr [rsp + 976], 3             #
 .Lx94_0:                .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n26_binop_α:            mov              eax, dword ptr [rsp + 960]
-                        cmp              eax, 3;                              jne   .Lx95_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx95_2
                         mov              rax, qword ptr [rsp + 968]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 944], 3
-                        mov              qword ptr [rsp + 952], rax;          jmp   n27_assign_var_α
+                        mov              qword ptr [rsp + 952], rax;          jmp   .Lx95_7
+.Lx95_2:                and              edx, 1;                              jz    .Lx95_0
+                        mov              rsi, qword ptr [rsp + 968]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx95_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx95_4
+.Lx95_3:                movq             xmm0, rsi
+.Lx95_4:                cmp              ecx, 5;                              je    .Lx95_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx95_6
+.Lx95_5:                movq             xmm1, rdi
+.Lx95_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 944], 5
+                        mov              qword ptr [rsp + 952], rax
+.Lx95_7:                                                                      jmp   n27_assign_var_α
 .Lx95_0:                mov              rdi, qword ptr [rsp + 960]
                         mov              rsi, qword ptr [rsp + 968]
                         mov              rdx, qword ptr [rsp + 976]
@@ -513,12 +526,29 @@ n37_coerce_numeric_α:   mov              eax, dword ptr [rsp + 128]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n38_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n38_binop_α:            mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 3;                              jne   .Lx112_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx112_2
                         mov              rax, qword ptr [rsp + 120]
-                        mov              rcx, 1
-                        sub              rax, rcx
+                        mov              rdx, 1
+                        sub              rax, rdx
                         mov              qword ptr [rsp + 96], 3
-                        mov              qword ptr [rsp + 104], rax;          jmp   n39_lit_integer_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   .Lx112_7
+.Lx112_2:               and              edx, 1;                              jz    .Lx112_0
+                        mov              rsi, qword ptr [rsp + 120]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx112_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx112_4
+.Lx112_3:               movq             xmm0, rsi
+.Lx112_4:               cmp              ecx, 5;                              je    .Lx112_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx112_6
+.Lx112_5:               movq             xmm1, rdi
+.Lx112_6:               subsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 96], 5
+                        mov              qword ptr [rsp + 104], rax
+.Lx112_7:                                                                     jmp   n39_lit_integer_α
 .Lx112_0:               mov              rdi, qword ptr [rsp + 112]
                         mov              rsi, qword ptr [rsp + 120]
                         mov              rdx, qword ptr [rsp + 160]
@@ -527,7 +557,7 @@ n38_binop_α:            mov              eax, dword ptr [rsp + 112]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_sub@PLT
-                        cmp              eax, 104;                            je    proc_wordcount_ω
+                        cmp              eax, 104;                            je    wordcount_ω
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -582,9 +612,9 @@ n40_to_by_α:            mov              rdi, qword ptr [rsp + 80]
                         mov              rcx, qword ptr [rsp + 104]
                         mov              rdx, qword ptr [rsp + 184]
                         cmp              rdx, 0;                              jl    .Lx115_1
-                        cmp              rax, rcx;                            jg    proc_wordcount_ω
+                        cmp              rax, rcx;                            jg    wordcount_ω
                                                                               jmp   .Lx115_2
-.Lx115_1:               cmp              rax, rcx;                            jl    proc_wordcount_ω
+.Lx115_1:               cmp              rax, rcx;                            jl    wordcount_ω
 .Lx115_2:               mov              qword ptr [rsp + 48], 3
                         mov              qword ptr [rsp + 56], rax;           jmp   n41_assign_α
 n40_to_by_β:            mov              rdx, qword ptr [rsp + 184]
@@ -712,12 +742,29 @@ n52_coerce_numeric_α:   mov              eax, dword ptr [rsp + 1232]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n53_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n53_binop_α:            mov              eax, dword ptr [rsp + 480]
-                        cmp              eax, 3;                              jne   .Lx136_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx136_2
                         mov              rax, qword ptr [rsp + 488]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 464], 3
-                        mov              qword ptr [rsp + 472], rax;          jmp   n54_subscript_α
+                        mov              qword ptr [rsp + 472], rax;          jmp   .Lx136_7
+.Lx136_2:               and              edx, 1;                              jz    .Lx136_0
+                        mov              rsi, qword ptr [rsp + 488]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx136_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx136_4
+.Lx136_3:               movq             xmm0, rsi
+.Lx136_4:               cmp              ecx, 5;                              je    .Lx136_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx136_6
+.Lx136_5:               movq             xmm1, rdi
+.Lx136_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 464], 5
+                        mov              qword ptr [rsp + 472], rax
+.Lx136_7:                                                                     jmp   n54_subscript_α
 .Lx136_0:               mov              rdi, qword ptr [rsp + 480]
                         mov              rsi, qword ptr [rsp + 488]
                         mov              rdx, qword ptr [rsp + 512]
@@ -796,24 +843,24 @@ n56_call_builtin_icon_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n57_unmark_α:           mov              rsp, qword ptr [rsp + 192];          jmp   n40_to_by_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_wordcount_res:
+wordcount_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_wordcount_β:
-                                                                              jmp   proc_wordcount_ω
+wordcount_β:
+                                                                              jmp   wordcount_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_wordcount_γ:
+wordcount_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1400]
                         add              rsp, 1424;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_wordcount_ω:
+wordcount_ω:
                         mov              rcx, qword ptr [rsp + 1408]
                         add              rsp, 1424;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_wordcount_dcα:
+wordcount_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -833,55 +880,20 @@ proc_wordcount_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx143_2]
-                        lea              rdx, [rip + .Lx143_3];               jmp   proc_wordcount_α
+                        lea              rdx, [rip + .Lx143_3];               jmp   FN__wordcount
 .Lx143_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx143_3:               pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "wordcount"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_wordcount_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1296
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_wordcount_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "wordcount__STATIC__letters"
-.Lgvan1:                .string          "wordcount__INITFLAG__0"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -892,6 +904,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "wordcount__STATIC__letters"
+.Lgvan1:                .string          "wordcount__INITFLAG__0"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 112
@@ -912,8 +933,8 @@ n144_lit_integer_α:     sub              rsp, 16
 n145_call_proc_staged_α:
                         sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_integer
-                        call             proc_wordcount_dcα;                  jmp   .Lx148_2
-.Lx148_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             wordcount_dcα;                       jmp   .Lx148_2
+.Lx148_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx148_29
                         mov              rdi, rax
@@ -922,7 +943,7 @@ n145_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -954,4 +975,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "wordcount"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__wordcount
+                        .quad            wordcount_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            1296
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

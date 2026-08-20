@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_foo_α
-proc_foo_α:
+FN__foo:
                         sub              rsp, 48
                         mov              qword ptr [rsp + 24], rcx
                         mov              qword ptr [rsp + 32], rdx
@@ -10,74 +9,45 @@ proc_foo_α:
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_foo_α_body:
-                                                                              jmp   proc_foo_γ
+foo_α_body:
+                                                                              jmp   foo_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_foo_res:
+foo_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_foo_β:
-                                                                              jmp   proc_foo_ω
+foo_β:
+                                                                              jmp   foo_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_foo_γ:
+foo_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 24]
                         add              rsp, 48;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_foo_ω:
+foo_ω:
                         mov              rcx, qword ptr [rsp + 32]
                         add              rsp, 48;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_foo_dcα:
+foo_dcα:
                         pop              r11
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx0_2]
-                        lea              rdx, [rip + .Lx0_3];                 jmp   proc_foo_α
+                        lea              rdx, [rip + .Lx0_3];                 jmp   FN__foo
 .Lx0_2:                 pop              r11
                         pop              r11;                                 jmp   r11
 .Lx0_3:                 pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "rec(a)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        .section         .rodata
-.Lstartup_pname0:       .string          "foo"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_foo_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_foo_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -92,6 +62,11 @@ main_α:
                         sub              rsp, 2880
                         mov              qword ptr [rsp + 2856], rcx
                         mov              qword ptr [rsp + 2864], rdx
+                        mov              rdi, rsp
+                        add              rdi, 2640
+                        xor              eax, eax
+                        mov              ecx, 96
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 5
@@ -1229,4 +1204,33 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "rec(a)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lstartup_pname0:       .string          "foo"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__foo
+                        .quad            foo_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

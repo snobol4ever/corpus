@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 6504], rcx
                         mov              qword ptr [rsp + 6512], rdx
                         mov              rdi, rsp
+                        add              rdi, 6320
+                        xor              eax, eax
+                        mov              ecx, 80
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 5
                         call             rt_icn_zframe_args_install@PLT
@@ -880,13 +885,30 @@ n74_var_α:              mov              rax, qword ptr [rsp + 6336]
                         mov              rax, qword ptr [rsp + 6344]
                         mov              qword ptr [rsp + 4872], rax;         jmp   n75_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
-n75_binop_α:            mov              eax, dword ptr [rsp + 6336]
-                        cmp              eax, 3;                              jne   .Lx393_0
+n75_binop_α:            mov              eax, 3
+                        mov              ecx, dword ptr [rsp + 6336]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx393_2
                         mov              rax, 3
-                        mov              rcx, qword ptr [rsp + 6344]
-                        add              rax, rcx
+                        mov              rdx, qword ptr [rsp + 6344]
+                        add              rax, rdx
                         mov              qword ptr [rsp + 4880], 3
-                        mov              qword ptr [rsp + 4888], rax;         jmp   n76_subscript_α
+                        mov              qword ptr [rsp + 4888], rax;         jmp   .Lx393_7
+.Lx393_2:               and              edx, 1;                              jz    .Lx393_0
+                        mov              rsi, 3
+                        mov              rdi, qword ptr [rsp + 6344]
+                        cmp              eax, 5;                              je    .Lx393_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx393_4
+.Lx393_3:               movq             xmm0, rsi
+.Lx393_4:               cmp              ecx, 5;                              je    .Lx393_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx393_6
+.Lx393_5:               movq             xmm1, rdi
+.Lx393_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 4880], 5
+                        mov              qword ptr [rsp + 4888], rax
+.Lx393_7:                                                                     jmp   n76_subscript_α
 .Lx393_0:               mov              rdi, qword ptr [rsp + 4848]
                         mov              rsi, qword ptr [rsp + 4856]
                         mov              rdx, qword ptr [rsp + 6336]
@@ -1078,13 +1100,30 @@ n91_var_α:              mov              rax, qword ptr [rsp + 6336]
                         mov              rax, qword ptr [rsp + 6344]
                         mov              qword ptr [rsp + 4488], rax;         jmp   n92_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
-n92_binop_α:            mov              eax, dword ptr [rsp + 6336]
-                        cmp              eax, 3;                              jne   .Lx418_0
+n92_binop_α:            mov              eax, 3
+                        mov              ecx, dword ptr [rsp + 6336]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx418_2
                         mov              rax, 3
-                        mov              rcx, qword ptr [rsp + 6344]
-                        sub              rax, rcx
+                        mov              rdx, qword ptr [rsp + 6344]
+                        sub              rax, rdx
                         mov              qword ptr [rsp + 4496], 3
-                        mov              qword ptr [rsp + 4504], rax;         jmp   n93_subscript_α
+                        mov              qword ptr [rsp + 4504], rax;         jmp   .Lx418_7
+.Lx418_2:               and              edx, 1;                              jz    .Lx418_0
+                        mov              rsi, 3
+                        mov              rdi, qword ptr [rsp + 6344]
+                        cmp              eax, 5;                              je    .Lx418_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx418_4
+.Lx418_3:               movq             xmm0, rsi
+.Lx418_4:               cmp              ecx, 5;                              je    .Lx418_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx418_6
+.Lx418_5:               movq             xmm1, rdi
+.Lx418_6:               subsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 4496], 5
+                        mov              qword ptr [rsp + 4504], rax
+.Lx418_7:                                                                     jmp   n93_subscript_α
 .Lx418_0:               mov              rdi, qword ptr [rsp + 4464]
                         mov              rsi, qword ptr [rsp + 4472]
                         mov              rdx, qword ptr [rsp + 6336]
@@ -2727,12 +2766,29 @@ n240_lit_integer_α:     mov              qword ptr [rsp + 736], 3             #
 .Lx641_0:               .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n241_binop_α:           mov              eax, dword ptr [rsp + 672]
-                        cmp              eax, 3;                              jne   .Lx642_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx642_2
                         mov              rax, qword ptr [rsp + 680]
-                        mov              rcx, 0
-                        add              rax, rcx
+                        mov              rdx, 0
+                        add              rax, rdx
                         mov              qword ptr [rsp + 752], 3
-                        mov              qword ptr [rsp + 760], rax;          jmp   n242_subscript_α
+                        mov              qword ptr [rsp + 760], rax;          jmp   .Lx642_7
+.Lx642_2:               and              edx, 1;                              jz    .Lx642_0
+                        mov              rsi, qword ptr [rsp + 680]
+                        mov              rdi, 0
+                        cmp              eax, 5;                              je    .Lx642_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx642_4
+.Lx642_3:               movq             xmm0, rsi
+.Lx642_4:               cmp              ecx, 5;                              je    .Lx642_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx642_6
+.Lx642_5:               movq             xmm1, rdi
+.Lx642_6:               addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 752], 5
+                        mov              qword ptr [rsp + 760], rax
+.Lx642_7:                                                                     jmp   n242_subscript_α
 .Lx642_0:               mov              rdi, qword ptr [rsp + 672]
                         mov              rsi, qword ptr [rsp + 680]
                         mov              rdx, qword ptr [rsp + 736]

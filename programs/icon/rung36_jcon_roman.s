@@ -1,16 +1,20 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_roman_α
-proc_roman_α:
+FN__roman:
                         sub              rsp, 1264
                         mov              qword ptr [rsp + 1240], rcx
                         mov              qword ptr [rsp + 1248], rdx
                         mov              rdi, rsp
+                        add              rdi, 1136
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
-proc_roman_α_body:
+roman_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_disjunction_α:       mov              qword ptr [rsp + 688], 0
                         mov              qword ptr [rsp + 696], 0
@@ -43,7 +47,7 @@ n1_disjunction_β:       mov              eax, dword ptr [rsp + 576]
                                                                               jmp   n1_disjunction_af
 n1_disjunction_af:      add              dword ptr [rsp + 576], 1
                         mov              eax, dword ptr [rsp + 576]
-                        cmp              eax, 1;                              je    proc_roman_ω
+                        cmp              eax, 1;                              je    roman_ω
                                                                               jmp   n2_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_string_α:        mov              qword ptr [rsp + 544], 2             # result
@@ -179,12 +183,29 @@ n15_coerce_numeric_α:   mov              eax, dword ptr [rsp + 1152]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n16_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_binop_α:            mov              eax, dword ptr [rsp + 464]
-                        cmp              eax, 3;                              jne   .Lx74_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx74_2
                         mov              rax, qword ptr [rsp + 472]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 448], 3
-                        mov              qword ptr [rsp + 456], rax;          jmp   n17_subscript_α
+                        mov              qword ptr [rsp + 456], rax;          jmp   .Lx74_7
+.Lx74_2:                and              edx, 1;                              jz    .Lx74_0
+                        mov              rsi, qword ptr [rsp + 472]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx74_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx74_4
+.Lx74_3:                movq             xmm0, rsi
+.Lx74_4:                cmp              ecx, 5;                              je    .Lx74_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx74_6
+.Lx74_5:                movq             xmm1, rdi
+.Lx74_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 448], 5
+                        mov              qword ptr [rsp + 456], rax
+.Lx74_7:                                                                      jmp   n17_subscript_α
 .Lx74_0:                mov              rdi, qword ptr [rsp + 464]
                         mov              rsi, qword ptr [rsp + 472]
                         mov              rdx, qword ptr [rsp + 496]
@@ -238,7 +259,7 @@ n19_binop_α:            mov              rdi, qword ptr [rsp + 304]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 288], rax
                         mov              qword ptr [rsp + 296], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -258,28 +279,28 @@ n22_disjunction_α:      mov              qword ptr [rsp + 32], 0
                         mov              dword ptr [rsp + 48], 0;             jmp   n25_lit_string_α
 n22_disjunction_as:     mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 0;                              jne   .Lx82_0
-                                                                              jmp   proc_roman_γ
+                                                                              jmp   roman_γ
 .Lx82_0:                cmp              eax, 1;                              jne   .Lx82_1
-                                                                              jmp   proc_roman_γ
-.Lx82_1:                                                                      jmp   proc_roman_γ
+                                                                              jmp   roman_γ
+.Lx82_1:                                                                      jmp   roman_γ
 n22_disjunction_β:      mov              eax, dword ptr [rsp + 48]
-                        cmp              eax, 0;                              je    proc_roman_ω
-                                                                              jmp   proc_roman_ω
+                        cmp              eax, 0;                              je    roman_ω
+                                                                              jmp   roman_ω
 n22_disjunction_af:     add              dword ptr [rsp + 48], 1
                         mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 1;                              je    n23_var_α
-                                                                              jmp   proc_roman_ω
+                                                                              jmp   roman_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n23_var_α:              mov              rax, qword ptr [rsp + 1136]
                         mov              qword ptr [rsp + 160], rax
                         mov              rax, qword ptr [rsp + 1144]
                         mov              qword ptr [rsp + 168], rax;          jmp   n24_return_α
-n23_var_β:                                                                    jmp   proc_roman_ω
+n23_var_β:                                                                    jmp   roman_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n24_return_α:           mov              rax, qword ptr [rsp + 160]
                         mov              rdx, qword ptr [rsp + 168]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_roman_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   roman_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n25_lit_string_α:       mov              qword ptr [rsp + 128], 2             # result
                         mov              dword ptr [rsp + 132], 1
@@ -330,7 +351,7 @@ n27_call_builtin_gen_α: mov              rax, qword ptr [rsp + 144]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   proc_roman_ω
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   roman_ω
 n27_call_builtin_gen_β:                                                       jmp   .Lx89_60
 #-----------------------------------------------------------------------------------------------------------------------
 n28_var_α:              mov              rax, qword ptr [rsp + 16]
@@ -599,24 +620,24 @@ n47_assign_α:           mov              rax, qword ptr [rsp + 736]
                         mov              qword ptr [rsp + 728], rdx;          jmp   n0_disjunction_as
 n47_assign_β:                                                                 jmp   n1_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_res:
+roman_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_β:
-                                                                              jmp   proc_roman_ω
+roman_β:
+                                                                              jmp   roman_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_γ:
+roman_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 1240]
                         add              rsp, 1264;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_ω:
+roman_ω:
                         mov              rcx, qword ptr [rsp + 1248]
                         add              rsp, 1264;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman_dcα:
+roman_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -636,55 +657,20 @@ proc_roman_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx114_2]
-                        lea              rdx, [rip + .Lx114_3];               jmp   proc_roman_α
+                        lea              rdx, [rip + .Lx114_3];               jmp   FN__roman
 .Lx114_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx114_3:               pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "roman"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_roman_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1168
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_roman_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "roman__STATIC__equiv"
-.Lgvan1:                .string          "roman__INITFLAG__0"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -695,11 +681,25 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "roman__STATIC__equiv"
+.Lgvan1:                .string          "roman__INITFLAG__0"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 288
                         mov              qword ptr [rsp + 264], rcx
                         mov              qword ptr [rsp + 272], rdx
+                        mov              rdi, rsp
+                        add              rdi, 208
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
@@ -798,8 +798,8 @@ n120_var_β:                                                                   j
 #-----------------------------------------------------------------------------------------------------------------------
 n121_call_proc_staged_α:
                         lea              rsi, [rsp + 176]
-                        call             proc_roman_dcα;                      jmp   .Lx133_2
-.Lx133_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman_dcα;                           jmp   .Lx133_2
+.Lx133_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx133_29
                         mov              rdi, rax
@@ -808,7 +808,7 @@ n121_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -838,4 +838,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "roman"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__roman
+                        .quad            roman_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            1168
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

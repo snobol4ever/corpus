@@ -1,28 +1,12 @@
                         .intel_syntax    noprefix
                         .text
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lclassspec0:           .string          "person(name,age)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec0]
-                        call             record_register@PLT
-                        .section         .rodata
-.Lclassspec1:           .string          "coord(x,y)"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lclassspec1]
-                        call             record_register@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -32,6 +16,11 @@ main_α:
                         sub              rsp, 336
                         mov              qword ptr [rsp + 312], rcx
                         mov              qword ptr [rsp + 320], rdx
+                        mov              rdi, rsp
+                        add              rdi, 272
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
@@ -170,14 +159,29 @@ n9_coerce_numeric_α:    mov              eax, dword ptr [rsp + 128]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n10_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_binop_α:            mov              eax, dword ptr [rsp + 80]
-                        cmp              eax, 3;                              jne   .Lx27_0
-                        mov              eax, dword ptr [rsp + 64]
-                        cmp              eax, 3;                              jne   .Lx27_0
+                        mov              ecx, dword ptr [rsp + 64]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx27_2
                         mov              rax, qword ptr [rsp + 88]
-                        mov              rcx, qword ptr [rsp + 72]
-                        add              rax, rcx
+                        mov              rdx, qword ptr [rsp + 72]
+                        add              rax, rdx
                         mov              qword ptr [rsp + 48], 3
-                        mov              qword ptr [rsp + 56], rax;           jmp   n11_call_builtin_icon_α
+                        mov              qword ptr [rsp + 56], rax;           jmp   .Lx27_7
+.Lx27_2:                and              edx, 1;                              jz    .Lx27_0
+                        mov              rsi, qword ptr [rsp + 88]
+                        mov              rdi, qword ptr [rsp + 72]
+                        cmp              eax, 5;                              je    .Lx27_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx27_4
+.Lx27_3:                movq             xmm0, rsi
+.Lx27_4:                cmp              ecx, 5;                              je    .Lx27_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx27_6
+.Lx27_5:                movq             xmm1, rdi
+.Lx27_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 48], 5
+                        mov              qword ptr [rsp + 56], rax
+.Lx27_7:                                                                      jmp   n11_call_builtin_icon_α
 .Lx27_0:                mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         mov              rdx, qword ptr [rsp + 64]
@@ -232,4 +236,20 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "person(name,age)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lclassspec1:           .string          "coord(x,y)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec1]
+                        call             record_register@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

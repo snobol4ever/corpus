@@ -152,14 +152,29 @@ n7_coerce_numeric_α:    mov              eax, dword ptr [rsp + 160]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n8_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_binop_α:             mov              eax, dword ptr [rsp + 80]
-                        cmp              eax, 3;                              jne   .Lx22_0
-                        mov              eax, dword ptr [rsp + 64]
-                        cmp              eax, 3;                              jne   .Lx22_0
+                        mov              ecx, dword ptr [rsp + 64]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx22_2
                         mov              rax, qword ptr [rsp + 88]
-                        mov              rcx, qword ptr [rsp + 72]
-                        add              rax, rcx
+                        mov              rdx, qword ptr [rsp + 72]
+                        add              rax, rdx
                         mov              qword ptr [rsp + 48], 3
-                        mov              qword ptr [rsp + 56], rax;           jmp   n9_call_builtin_icon_α
+                        mov              qword ptr [rsp + 56], rax;           jmp   .Lx22_7
+.Lx22_2:                and              edx, 1;                              jz    .Lx22_0
+                        mov              rsi, qword ptr [rsp + 88]
+                        mov              rdi, qword ptr [rsp + 72]
+                        cmp              eax, 5;                              je    .Lx22_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx22_4
+.Lx22_3:                movq             xmm0, rsi
+.Lx22_4:                cmp              ecx, 5;                              je    .Lx22_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx22_6
+.Lx22_5:                movq             xmm1, rdi
+.Lx22_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 48], 5
+                        mov              qword ptr [rsp + 56], rax
+.Lx22_7:                                                                      jmp   n9_call_builtin_icon_α
 .Lx22_0:                mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         mov              rdx, qword ptr [rsp + 64]

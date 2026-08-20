@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_roman$2F2_α
-proc_roman$2F2_α:
+FN__roman$2F2:
                         sub              rsp, 8848
                         mov              qword ptr [rsp + 8824], rcx
                         mov              qword ptr [rsp + 8832], rdx
@@ -22,7 +21,7 @@ proc_roman$2F2_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-proc_roman$2F2_α_body:
+roman$2F2_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_call_builtin_prolog_α:
                         lea              r11, [rip + g_pl_zf_pending_cursor]
@@ -52,13 +51,13 @@ n0_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
 .Lx327_101:             mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n1_var_ref_α
 n0_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_ref_α:           mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -222,7 +221,7 @@ n10_call_builtin_prolog_β:
 n11_cut_α:                                                                    jmp   n12_move_label_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_move_label_α:       lea              rax, [rip + n13_call_builtin_prolog_α]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n13_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -241,13 +240,13 @@ n13_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 8432], rax
                         mov              qword ptr [rsp + 8440], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n14_var_ref_α
 n13_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n14_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -709,8 +708,8 @@ n30_var_ref_α:          mov              rax, 4294967336
 #-----------------------------------------------------------------------------------------------------------------------
 n31_call_proc_staged_α: lea              rsi, [rsp + 8000]
                         lea              rdx, [rsp + 8016]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx372_2
-.Lx372_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx372_2
+.Lx372_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx372_29
                         mov              rdi, rax
@@ -719,7 +718,7 @@ n31_call_proc_staged_α: lea              rsi, [rsp + 8000]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 7936], rax
                         mov              qword ptr [rsp + 7944], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -788,7 +787,7 @@ n35_call_builtin_prolog_β:
                                                                               jmp   n31_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n36_move_label_α:       lea              rax, [rip + n31_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n37_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -807,13 +806,13 @@ n37_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 7792], rax
                         mov              qword ptr [rsp + 7800], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n38_var_ref_α
 n37_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n38_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -1275,8 +1274,8 @@ n54_var_ref_α:          mov              rax, 4294967336
 #-----------------------------------------------------------------------------------------------------------------------
 n55_call_proc_staged_α: lea              rsi, [rsp + 7360]
                         lea              rdx, [rsp + 7376]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx410_2
-.Lx410_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx410_2
+.Lx410_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx410_29
                         mov              rdi, rax
@@ -1285,7 +1284,7 @@ n55_call_proc_staged_α: lea              rsi, [rsp + 7360]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 7296], rax
                         mov              qword ptr [rsp + 7304], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1354,7 +1353,7 @@ n59_call_builtin_prolog_β:
                                                                               jmp   n55_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n60_move_label_α:       lea              rax, [rip + n55_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n61_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -1373,13 +1372,13 @@ n61_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 7152], rax
                         mov              qword ptr [rsp + 7160], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n62_var_ref_α
 n61_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n62_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -1841,8 +1840,8 @@ n78_var_ref_α:          mov              rax, 4294967336
 #-----------------------------------------------------------------------------------------------------------------------
 n79_call_proc_staged_α: lea              rsi, [rsp + 6720]
                         lea              rdx, [rsp + 6736]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx448_2
-.Lx448_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx448_2
+.Lx448_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx448_29
                         mov              rdi, rax
@@ -1851,7 +1850,7 @@ n79_call_proc_staged_α: lea              rsi, [rsp + 6720]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 6656], rax
                         mov              qword ptr [rsp + 6664], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1920,7 +1919,7 @@ n83_call_builtin_prolog_β:
                                                                               jmp   n79_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n84_move_label_α:       lea              rax, [rip + n79_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n85_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -1939,13 +1938,13 @@ n85_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 6512], rax
                         mov              qword ptr [rsp + 6520], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n86_var_ref_α
 n85_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n86_var_ref_α:          mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -2408,8 +2407,8 @@ n102_var_ref_α:         mov              rax, 4294967336
 n103_call_proc_staged_α:
                         lea              rsi, [rsp + 6080]
                         lea              rdx, [rsp + 6096]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx486_2
-.Lx486_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx486_2
+.Lx486_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx486_29
                         mov              rdi, rax
@@ -2418,7 +2417,7 @@ n103_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 6016], rax
                         mov              qword ptr [rsp + 6024], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -2488,7 +2487,7 @@ n107_call_builtin_prolog_β:
                                                                               jmp   n103_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n108_move_label_α:      lea              rax, [rip + n103_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n109_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -2507,13 +2506,13 @@ n109_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 5872], rax
                         mov              qword ptr [rsp + 5880], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n110_var_ref_α
 n109_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n110_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -2976,8 +2975,8 @@ n126_var_ref_α:         mov              rax, 4294967336
 n127_call_proc_staged_α:
                         lea              rsi, [rsp + 5440]
                         lea              rdx, [rsp + 5456]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx524_2
-.Lx524_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx524_2
+.Lx524_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx524_29
                         mov              rdi, rax
@@ -2986,7 +2985,7 @@ n127_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 5376], rax
                         mov              qword ptr [rsp + 5384], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -3056,7 +3055,7 @@ n131_call_builtin_prolog_β:
                                                                               jmp   n127_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n132_move_label_α:      lea              rax, [rip + n127_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n133_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -3075,13 +3074,13 @@ n133_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 5232], rax
                         mov              qword ptr [rsp + 5240], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n134_var_ref_α
 n133_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n134_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -3544,8 +3543,8 @@ n150_var_ref_α:         mov              rax, 4294967336
 n151_call_proc_staged_α:
                         lea              rsi, [rsp + 4800]
                         lea              rdx, [rsp + 4816]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx562_2
-.Lx562_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx562_2
+.Lx562_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx562_29
                         mov              rdi, rax
@@ -3554,7 +3553,7 @@ n151_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 4736], rax
                         mov              qword ptr [rsp + 4744], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -3624,7 +3623,7 @@ n155_call_builtin_prolog_β:
                                                                               jmp   n151_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n156_move_label_α:      lea              rax, [rip + n151_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n157_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -3643,13 +3642,13 @@ n157_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 4592], rax
                         mov              qword ptr [rsp + 4600], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n158_var_ref_α
 n157_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n158_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -4112,8 +4111,8 @@ n174_var_ref_α:         mov              rax, 4294967336
 n175_call_proc_staged_α:
                         lea              rsi, [rsp + 4160]
                         lea              rdx, [rsp + 4176]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx600_2
-.Lx600_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx600_2
+.Lx600_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx600_29
                         mov              rdi, rax
@@ -4122,7 +4121,7 @@ n175_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 4096], rax
                         mov              qword ptr [rsp + 4104], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -4192,7 +4191,7 @@ n179_call_builtin_prolog_β:
                                                                               jmp   n175_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n180_move_label_α:      lea              rax, [rip + n175_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n181_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -4211,13 +4210,13 @@ n181_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 3952], rax
                         mov              qword ptr [rsp + 3960], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n182_var_ref_α
 n181_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n182_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -4680,8 +4679,8 @@ n198_var_ref_α:         mov              rax, 4294967336
 n199_call_proc_staged_α:
                         lea              rsi, [rsp + 3520]
                         lea              rdx, [rsp + 3536]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx638_2
-.Lx638_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx638_2
+.Lx638_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx638_29
                         mov              rdi, rax
@@ -4690,7 +4689,7 @@ n199_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 3456], rax
                         mov              qword ptr [rsp + 3464], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -4760,7 +4759,7 @@ n203_call_builtin_prolog_β:
                                                                               jmp   n199_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n204_move_label_α:      lea              rax, [rip + n199_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n205_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -4779,13 +4778,13 @@ n205_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 3312], rax
                         mov              qword ptr [rsp + 3320], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n206_var_ref_α
 n205_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n206_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -5248,8 +5247,8 @@ n222_var_ref_α:         mov              rax, 4294967336
 n223_call_proc_staged_α:
                         lea              rsi, [rsp + 2880]
                         lea              rdx, [rsp + 2896]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx676_2
-.Lx676_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx676_2
+.Lx676_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx676_29
                         mov              rdi, rax
@@ -5258,7 +5257,7 @@ n223_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 2816], rax
                         mov              qword ptr [rsp + 2824], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -5328,7 +5327,7 @@ n227_call_builtin_prolog_β:
                                                                               jmp   n223_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n228_move_label_α:      lea              rax, [rip + n223_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n229_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -5347,13 +5346,13 @@ n229_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 2672], rax
                         mov              qword ptr [rsp + 2680], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n230_var_ref_α
 n229_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n230_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -5816,8 +5815,8 @@ n246_var_ref_α:         mov              rax, 4294967336
 n247_call_proc_staged_α:
                         lea              rsi, [rsp + 2240]
                         lea              rdx, [rsp + 2256]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx714_2
-.Lx714_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx714_2
+.Lx714_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx714_29
                         mov              rdi, rax
@@ -5826,7 +5825,7 @@ n247_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 2176], rax
                         mov              qword ptr [rsp + 2184], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -5896,7 +5895,7 @@ n251_call_builtin_prolog_β:
                                                                               jmp   n247_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n252_move_label_α:      lea              rax, [rip + n247_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n253_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -5915,13 +5914,13 @@ n253_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 2032], rax
                         mov              qword ptr [rsp + 2040], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n254_var_ref_α
 n253_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n254_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -6384,8 +6383,8 @@ n270_var_ref_α:         mov              rax, 4294967336
 n271_call_proc_staged_α:
                         lea              rsi, [rsp + 1600]
                         lea              rdx, [rsp + 1616]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx752_2
-.Lx752_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx752_2
+.Lx752_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx752_29
                         mov              rdi, rax
@@ -6394,7 +6393,7 @@ n271_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 1536], rax
                         mov              qword ptr [rsp + 1544], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -6464,7 +6463,7 @@ n275_call_builtin_prolog_β:
                                                                               jmp   n271_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n276_move_label_α:      lea              rax, [rip + n271_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n277_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -6483,13 +6482,13 @@ n277_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 1392], rax
                         mov              qword ptr [rsp + 1400], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n278_var_ref_α
 n277_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n278_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -6952,8 +6951,8 @@ n294_var_ref_α:         mov              rax, 4294967336
 n295_call_proc_staged_α:
                         lea              rsi, [rsp + 960]
                         lea              rdx, [rsp + 976]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx790_2
-.Lx790_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx790_2
+.Lx790_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx790_29
                         mov              rdi, rax
@@ -6962,7 +6961,7 @@ n295_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 896], rax
                         mov              qword ptr [rsp + 904], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -7032,7 +7031,7 @@ n299_call_builtin_prolog_β:
                                                                               jmp   n295_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n300_move_label_α:      lea              rax, [rip + n295_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n301_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -7051,13 +7050,13 @@ n301_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 752], rax
                         mov              qword ptr [rsp + 760], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n302_var_ref_α
 n301_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n302_var_ref_α:         mov              rax, 4294967336
                         lea              rdx, [rsp + 16]
@@ -7520,8 +7519,8 @@ n318_var_ref_α:         mov              rax, 4294967336
 n319_call_proc_staged_α:
                         lea              rsi, [rsp + 320]
                         lea              rdx, [rsp + 336]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx828_2
-.Lx828_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx828_2
+.Lx828_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx828_29
                         mov              rdi, rax
@@ -7530,7 +7529,7 @@ n319_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -7600,7 +7599,7 @@ n323_call_builtin_prolog_β:
                                                                               jmp   n319_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
 n324_move_label_α:      lea              rax, [rip + n319_call_proc_staged_β]
-                        mov              qword ptr [rsp + 64], rax;           jmp   proc_roman$2F2_γ
+                        mov              qword ptr [rsp + 64], rax;           jmp   roman$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n325_disjunction_α:     mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -7610,9 +7609,9 @@ n325_disjunction_α:     mov              qword ptr [rip + rtccb+40], r8
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    proc_roman$2F2_ω
+                        test             rax, rax;                            je    roman$2F2_ω
                                                                               jmp   rax
-n325_disjunction_β:                                                           jmp   proc_roman$2F2_ω
+n325_disjunction_β:                                                           jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n326_call_builtin_prolog_α:
                         mov              rax, qword ptr [rsp + 80]
@@ -7631,32 +7630,32 @@ n326_call_builtin_prolog_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
-                        cmp              eax, 104;                            je    proc_roman$2F2_ω
+                        cmp              eax, 104;                            je    roman$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   proc_roman$2F2_ω
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   roman$2F2_ω
 n326_call_builtin_prolog_β:
-                                                                              jmp   proc_roman$2F2_ω
+                                                                              jmp   roman$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman$2F2_res:
+roman$2F2_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman$2F2_β:
+roman$2F2_β:
                                                                               jmp   n325_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman$2F2_γ:
+roman$2F2_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 8824]
                         add              rsp, 8848;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman$2F2_ω:
+roman$2F2_ω:
                         mov              rcx, qword ptr [rsp + 8832]
                         add              rsp, 8848;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_roman$2F2_dcα:
+roman$2F2_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -7688,46 +7687,20 @@ proc_roman$2F2_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx841_2]
-                        lea              rdx, [rip + .Lx841_3];               jmp   proc_roman$2F2_α
+                        lea              rdx, [rip + .Lx841_3];               jmp   FN__roman$2F2
 .Lx841_2:               pop              r11
                         pop              r11;                                 jmp   r11
 .Lx841_3:               pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "roman/2"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_roman$2F2_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 2
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 8800
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_roman$2F2_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rt_gcheap_warmup@PLT
                         call             rt_plw_floor_bypass_on@PLT
@@ -7813,8 +7786,8 @@ n844_var_ref_α:         mov              rax, 4294967336
 n845_call_proc_staged_α:
                         lea              rsi, [rsp + 640]
                         lea              rdx, [rsp + 656]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx872_2
-.Lx872_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx872_2
+.Lx872_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx872_29
                         mov              rdi, rax
@@ -7823,7 +7796,7 @@ n845_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 576], rax
                         mov              qword ptr [rsp + 584], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -7918,8 +7891,8 @@ n851_var_ref_α:         mov              rax, 4294967336
 n852_call_proc_staged_α:
                         lea              rsi, [rsp + 448]
                         lea              rdx, [rsp + 464]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx884_2
-.Lx884_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx884_2
+.Lx884_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx884_29
                         mov              rdi, rax
@@ -7928,7 +7901,7 @@ n852_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 384], rax
                         mov              qword ptr [rsp + 392], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -8023,8 +7996,8 @@ n858_var_ref_α:         mov              rax, 4294967336
 n859_call_proc_staged_α:
                         lea              rsi, [rsp + 256]
                         lea              rdx, [rsp + 272]
-                        call             proc_roman$2F2_dcα;                  jmp   .Lx896_2
-.Lx896_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             roman$2F2_dcα;                       jmp   .Lx896_2
+.Lx896_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx896_29
                         mov              rdi, rax
@@ -8033,7 +8006,7 @@ n859_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -8167,4 +8140,27 @@ main_γ:
 main_ω:
                         mov              rcx, qword ptr [rsp + 752]
                         add              rsp, 768;                            jmp   rcx
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "roman/2"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__roman$2F2
+                        .quad            roman$2F2_dcα
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            8800
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

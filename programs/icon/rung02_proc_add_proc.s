@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_add_α
-proc_add_α:
+FN__add:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
                         mov              qword ptr [rsp + 192], rdx
@@ -10,7 +9,7 @@ proc_add_α:
                         mov              esi, 2
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_add_α_body:
+add_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:               mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 96], rax
@@ -67,14 +66,29 @@ n3_coerce_numeric_α:    mov              eax, dword ptr [rsp + 32]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n4_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_binop_α:             mov              eax, dword ptr [rsp + 80]
-                        cmp              eax, 3;                              jne   .Lx14_0
-                        mov              eax, dword ptr [rsp + 64]
-                        cmp              eax, 3;                              jne   .Lx14_0
+                        mov              ecx, dword ptr [rsp + 64]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx14_2
                         mov              rax, qword ptr [rsp + 88]
-                        mov              rcx, qword ptr [rsp + 72]
-                        add              rax, rcx
+                        mov              rdx, qword ptr [rsp + 72]
+                        add              rax, rdx
                         mov              qword ptr [rsp + 48], 3
-                        mov              qword ptr [rsp + 56], rax;           jmp   n5_return_α
+                        mov              qword ptr [rsp + 56], rax;           jmp   .Lx14_7
+.Lx14_2:                and              edx, 1;                              jz    .Lx14_0
+                        mov              rsi, qword ptr [rsp + 88]
+                        mov              rdi, qword ptr [rsp + 72]
+                        cmp              eax, 5;                              je    .Lx14_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx14_4
+.Lx14_3:                movq             xmm0, rsi
+.Lx14_4:                cmp              ecx, 5;                              je    .Lx14_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx14_6
+.Lx14_5:                movq             xmm1, rdi
+.Lx14_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 48], 5
+                        mov              qword ptr [rsp + 56], rax
+.Lx14_7:                                                                      jmp   n5_return_α
 .Lx14_0:                mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         mov              rdx, qword ptr [rsp + 64]
@@ -83,7 +97,7 @@ n4_binop_α:             mov              eax, dword ptr [rsp + 80]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_add@PLT
-                        cmp              eax, 104;                            je    proc_add_ω
+                        cmp              eax, 104;                            je    add_ω
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -94,26 +108,26 @@ n4_binop_α:             mov              eax, dword ptr [rsp + 80]
 n5_return_α:            mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_add_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   add_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_add_res:
+add_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_add_β:
-                                                                              jmp   proc_add_ω
+add_β:
+                                                                              jmp   add_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_add_γ:
+add_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 184]
                         add              rsp, 208;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_add_ω:
+add_ω:
                         mov              rcx, qword ptr [rsp + 192]
                         add              rsp, 208;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_add_dcα:
+add_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -145,46 +159,20 @@ proc_add_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx16_2]
-                        lea              rdx, [rip + .Lx16_3];                jmp   proc_add_α
+                        lea              rdx, [rip + .Lx16_3];                jmp   FN__add
 .Lx16_2:                pop              r11
                         pop              r11;                                 jmp   r11
 .Lx16_3:                pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "add"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_add_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 2
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 128
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_add_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -215,8 +203,8 @@ n18_lit_integer_α:      sub              rsp, 16
 n19_call_proc_staged_α: sub              rsp, 16
                         lea              rsi, [rsp + 32]                      # lit_integer
                         lea              rdx, [rsp + 16]
-                        call             proc_add_dcα;                        jmp   .Lx24_2
-.Lx24_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             add_dcα;                             jmp   .Lx24_2
+.Lx24_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx24_29
                         mov              rdi, rax
@@ -225,7 +213,7 @@ n19_call_proc_staged_α: sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -286,4 +274,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "add"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__add
+                        .quad            add_dcα
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            128
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

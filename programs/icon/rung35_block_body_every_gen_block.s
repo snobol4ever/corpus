@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 1080], rcx
                         mov              qword ptr [rsp + 1088], rdx
                         mov              rdi, rsp
+                        add              rdi, 1008
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -129,12 +134,29 @@ n11_coerce_numeric_α:   mov              eax, dword ptr [rsp + 1008]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n12_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_binop_α:            mov              eax, dword ptr [rsp + 848]
-                        cmp              eax, 3;                              jne   .Lx64_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx64_2
                         mov              rax, qword ptr [rsp + 856]
-                        mov              rcx, 100
-                        add              rax, rcx
+                        mov              rdx, 100
+                        add              rax, rdx
                         mov              qword ptr [rsp + 832], 3
-                        mov              qword ptr [rsp + 840], rax;          jmp   n13_assign_α
+                        mov              qword ptr [rsp + 840], rax;          jmp   .Lx64_7
+.Lx64_2:                and              edx, 1;                              jz    .Lx64_0
+                        mov              rsi, qword ptr [rsp + 856]
+                        mov              rdi, 100
+                        cmp              eax, 5;                              je    .Lx64_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx64_4
+.Lx64_3:                movq             xmm0, rsi
+.Lx64_4:                cmp              ecx, 5;                              je    .Lx64_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx64_6
+.Lx64_5:                movq             xmm1, rdi
+.Lx64_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 832], 5
+                        mov              qword ptr [rsp + 840], rax
+.Lx64_7:                                                                      jmp   n13_assign_α
 .Lx64_0:                mov              rdi, qword ptr [rsp + 848]
                         mov              rsi, qword ptr [rsp + 856]
                         mov              rdx, qword ptr [rsp + 880]

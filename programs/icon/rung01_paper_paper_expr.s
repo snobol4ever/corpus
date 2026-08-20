@@ -157,14 +157,29 @@ n8_coerce_numeric_α:    mov              eax, dword ptr [rsp + 256]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n9_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_binop_α:             mov              eax, dword ptr [rsp + 176]
-                        cmp              eax, 3;                              jne   .Lx27_0
-                        mov              eax, dword ptr [rsp + 160]
-                        cmp              eax, 3;                              jne   .Lx27_0
+                        mov              ecx, dword ptr [rsp + 160]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx27_2
                         mov              rax, qword ptr [rsp + 184]
-                        mov              rcx, qword ptr [rsp + 168]
-                        imul             rax, rcx
+                        mov              rdx, qword ptr [rsp + 168]
+                        imul             rax, rdx
                         mov              qword ptr [rsp + 144], 3
-                        mov              qword ptr [rsp + 152], rax;          jmp   n10_binop_test_α
+                        mov              qword ptr [rsp + 152], rax;          jmp   .Lx27_7
+.Lx27_2:                and              edx, 1;                              jz    .Lx27_0
+                        mov              rsi, qword ptr [rsp + 184]
+                        mov              rdi, qword ptr [rsp + 168]
+                        cmp              eax, 5;                              je    .Lx27_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx27_4
+.Lx27_3:                movq             xmm0, rsi
+.Lx27_4:                cmp              ecx, 5;                              je    .Lx27_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx27_6
+.Lx27_5:                movq             xmm1, rdi
+.Lx27_6:                mulsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 144], 5
+                        mov              qword ptr [rsp + 152], rax
+.Lx27_7:                                                                      jmp   n10_binop_test_α
 .Lx27_0:                mov              rdi, qword ptr [rsp + 176]
                         mov              rsi, qword ptr [rsp + 184]
                         mov              rdx, qword ptr [rsp + 160]

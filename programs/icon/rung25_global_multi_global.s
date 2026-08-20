@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_setvals_α
-proc_setvals_α:
+FN__setvals:
                         sub              rsp, 96
                         mov              qword ptr [rsp + 72], rcx
                         mov              qword ptr [rsp + 80], rdx
@@ -10,7 +9,7 @@ proc_setvals_α:
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_setvals_α_body:
+setvals_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:       mov              qword ptr [rsp + 32], 3              # result
                         mov              rax, qword ptr [rip + .Lx4_0]
@@ -30,79 +29,44 @@ n2_lit_integer_α:       mov              qword ptr [rsp + 16], 3              #
 n3_assign_α:            mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
                         mov              qword ptr [r9 + 16], rax             # y
-                        mov              qword ptr [r9 + 24], rdx;            jmp   proc_setvals_γ
+                        mov              qword ptr [r9 + 24], rdx;            jmp   setvals_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_setvals_res:
+setvals_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_setvals_β:
-                                                                              jmp   proc_setvals_ω
+setvals_β:
+                                                                              jmp   setvals_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_setvals_γ:
+setvals_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 72]
                         add              rsp, 96;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_setvals_ω:
+setvals_ω:
                         mov              rcx, qword ptr [rsp + 80]
                         add              rsp, 96;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_setvals_dcα:
+setvals_dcα:
                         pop              r11
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx8_2]
-                        lea              rdx, [rip + .Lx8_3];                 jmp   proc_setvals_α
+                        lea              rdx, [rip + .Lx8_3];                 jmp   FN__setvals
 .Lx8_2:                 pop              r11
                         pop              r11;                                 jmp   r11
 .Lx8_3:                 pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "setvals"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_setvals_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 48
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_setvals_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "x"
-.Lgvan1:                .string          "y"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .quad            .Lgvan1
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 2
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -113,6 +77,15 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "x"
+.Lgvan1:                .string          "y"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 208
@@ -124,8 +97,8 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n9_call_proc_staged_α:  call             proc_setvals_dcα;                    jmp   .Lx17_2
-.Lx17_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n9_call_proc_staged_α:  call             setvals_dcα;                         jmp   .Lx17_2
+.Lx17_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx17_29
                         mov              rdi, rax
@@ -134,7 +107,7 @@ n9_call_proc_staged_α:  call             proc_setvals_dcα;                    
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -206,14 +179,29 @@ n13_coerce_numeric_α:   mov              eax, dword ptr [rsp + 112]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n14_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_binop_α:            mov              eax, dword ptr [rsp + 80]
-                        cmp              eax, 3;                              jne   .Lx24_0
-                        mov              eax, dword ptr [rsp + 64]
-                        cmp              eax, 3;                              jne   .Lx24_0
+                        mov              ecx, dword ptr [rsp + 64]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx24_2
                         mov              rax, qword ptr [rsp + 88]
-                        mov              rcx, qword ptr [rsp + 72]
-                        add              rax, rcx
+                        mov              rdx, qword ptr [rsp + 72]
+                        add              rax, rdx
                         mov              qword ptr [rsp + 48], 3
-                        mov              qword ptr [rsp + 56], rax;           jmp   n15_call_builtin_icon_α
+                        mov              qword ptr [rsp + 56], rax;           jmp   .Lx24_7
+.Lx24_2:                and              edx, 1;                              jz    .Lx24_0
+                        mov              rsi, qword ptr [rsp + 88]
+                        mov              rdi, qword ptr [rsp + 72]
+                        cmp              eax, 5;                              je    .Lx24_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx24_4
+.Lx24_3:                movq             xmm0, rsi
+.Lx24_4:                cmp              ecx, 5;                              je    .Lx24_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx24_6
+.Lx24_5:                movq             xmm1, rdi
+.Lx24_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 48], 5
+                        mov              qword ptr [rsp + 56], rax
+.Lx24_7:                                                                      jmp   n15_call_builtin_icon_α
 .Lx24_0:                mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         mov              rdx, qword ptr [rsp + 64]
@@ -268,4 +256,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "setvals"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__setvals
+                        .quad            setvals_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            48
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

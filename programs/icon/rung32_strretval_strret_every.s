@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_tag_α
-proc_tag_α:
+FN__tag:
                         sub              rsp, 176
                         mov              qword ptr [rsp + 152], rcx
                         mov              qword ptr [rsp + 160], rdx
@@ -10,7 +9,7 @@ proc_tag_α:
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_tag_α_body:
+tag_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:        mov              qword ptr [rsp + 64], 2              # result
                         mov              dword ptr [rsp + 68], 1
@@ -31,7 +30,7 @@ n2_binop_α:             mov              rdi, qword ptr [rsp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -53,7 +52,7 @@ n4_binop_α:             mov              rdi, qword ptr [rsp + 48]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             str_concat_fracdigit_d@PLT
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -64,26 +63,26 @@ n4_binop_α:             mov              rdi, qword ptr [rsp + 48]
 n5_return_α:            mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_tag_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   tag_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_tag_res:
+tag_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_tag_β:
-                                                                              jmp   proc_tag_ω
+tag_β:
+                                                                              jmp   tag_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_tag_γ:
+tag_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 152]
                         add              rsp, 176;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_tag_ω:
+tag_ω:
                         mov              rcx, qword ptr [rsp + 160]
                         add              rsp, 176;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_tag_dcα:
+tag_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -103,46 +102,20 @@ proc_tag_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx13_2]
-                        lea              rdx, [rip + .Lx13_3];                jmp   proc_tag_α
+                        lea              rdx, [rip + .Lx13_3];                jmp   FN__tag
 .Lx13_2:                pop              r11
                         pop              r11;                                 jmp   r11
 .Lx13_3:                pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "tag"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_tag_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 112
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_tag_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -189,8 +162,8 @@ n14_disjunction_af:     add              dword ptr [rsp + 112], 1
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n15_call_proc_staged_α: lea              rsi, [rsp + 96]
-                        call             proc_tag_dcα;                        jmp   .Lx23_2
-.Lx23_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             tag_dcα;                             jmp   .Lx23_2
+.Lx23_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx23_29
                         mov              rdi, rax
@@ -199,7 +172,7 @@ n15_call_proc_staged_α: lea              rsi, [rsp + 96]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -278,4 +251,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "tag"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__tag
+                        .quad            tag_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            112
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

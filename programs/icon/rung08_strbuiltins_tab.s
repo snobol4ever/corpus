@@ -50,18 +50,15 @@ n2_lit_integer_α:       mov              qword ptr [rsp + 160], 3             #
                         mov              qword ptr [rsp + 168], rax;          jmp   n3_scan_tab_α
 .Lx10_0:                .quad            4
 #-----------------------------------------------------------------------------------------------------------------------
-n3_scan_tab_α:          sub              rsp, 16
-                        mov              rax, 4
+n3_scan_tab_α:          mov              rax, 4
                         cmp              rax, 1;                              jge   .Lx12_0
                         add              rax, r15
                         add              rax, 1
-.Lx12_0:                cmp              rax, 1;                              jge   .Lx12_239
-                        add              rsp, 16;                             jmp   n6_scan_α
-.Lx12_239:              mov              rcx, r15
+.Lx12_0:                cmp              rax, 1;                              jl    n6_scan_α
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx12_240
-                        add              rsp, 16;                             jmp   n6_scan_α
-.Lx12_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n6_scan_α
+                        mov              qword ptr [rsp + 144], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -81,8 +78,7 @@ n3_scan_tab_α:          sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx;          jmp   n4_call_builtin_icon_α
-n3_scan_tab_β:          mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n6_scan_α
+n3_scan_tab_β:          mov              r14, qword ptr [rsp + 144];          jmp   n6_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 96], rax

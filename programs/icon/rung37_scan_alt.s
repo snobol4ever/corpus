@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 1272], rcx
                         mov              qword ptr [rsp + 1280], rdx
                         mov              rdi, rsp
+                        add              rdi, 1216
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
@@ -73,17 +78,14 @@ n2_lit_integer_α:       mov              qword ptr [rsp + 1120], 3            #
                         mov              qword ptr [rsp + 1128], rax;         jmp   n3_scan_move_α
 .Lx53_0:                .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
-n3_scan_move_α:         sub              rsp, 16
-                        mov              rax, 1
+n3_scan_move_α:         mov              rax, 1
                         add              rax, r14
                         add              rax, 1
-                        cmp              rax, 1;                              jge   .Lx55_239
-                        add              rsp, 16;                             jmp   n6_scan_α
-.Lx55_239:              mov              rcx, r15
+                        cmp              rax, 1;                              jl    n6_scan_α
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx55_240
-                        add              rsp, 16;                             jmp   n6_scan_α
-.Lx55_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n6_scan_α
+                        mov              qword ptr [rsp + 1104], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -103,8 +105,7 @@ n3_scan_move_α:         sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 1088], rax
                         mov              qword ptr [rsp + 1096], rdx;         jmp   n4_scan_α
-n3_scan_move_β:         mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n6_scan_α
+n3_scan_move_β:         mov              r14, qword ptr [rsp + 1104];         jmp   n6_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_scan_α:              mov              rax, qword ptr [rsp + 1088]
                         mov              qword ptr [rsp + 1056], rax
@@ -260,18 +261,15 @@ n13_lit_integer_α:      mov              qword ptr [rsp + 832], 3             #
                         mov              qword ptr [rsp + 840], rax;          jmp   n14_scan_tab_α
 .Lx71_0:                .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
-n14_scan_tab_α:         sub              rsp, 16
-                        mov              rax, 2
+n14_scan_tab_α:         mov              rax, 2
                         cmp              rax, 1;                              jge   .Lx73_0
                         add              rax, r15
                         add              rax, 1
-.Lx73_0:                cmp              rax, 1;                              jge   .Lx73_239
-                        add              rsp, 16;                             jmp   n17_scan_α
-.Lx73_239:              mov              rcx, r15
+.Lx73_0:                cmp              rax, 1;                              jl    n17_scan_α
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx73_240
-                        add              rsp, 16;                             jmp   n17_scan_α
-.Lx73_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n17_scan_α
+                        mov              qword ptr [rsp + 816], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -291,8 +289,7 @@ n14_scan_tab_α:         sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 800], rax
                         mov              qword ptr [rsp + 808], rdx;          jmp   n15_scan_α
-n14_scan_tab_β:         mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n17_scan_α
+n14_scan_tab_β:         mov              r14, qword ptr [rsp + 816];          jmp   n17_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_scan_α:             mov              rax, qword ptr [rsp + 800]
                         mov              qword ptr [rsp + 768], rax
@@ -488,12 +485,29 @@ n28_coerce_numeric_α:   mov              eax, dword ptr [rsp + 1216]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n29_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_binop_α:            mov              eax, dword ptr [rsp + 480]
-                        cmp              eax, 3;                              jne   .Lx96_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx96_2
                         mov              rax, qword ptr [rsp + 488]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 464], 3
-                        mov              qword ptr [rsp + 472], rax;          jmp   n30_assign_α
+                        mov              qword ptr [rsp + 472], rax;          jmp   .Lx96_7
+.Lx96_2:                and              edx, 1;                              jz    .Lx96_0
+                        mov              rsi, qword ptr [rsp + 488]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx96_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx96_4
+.Lx96_3:                movq             xmm0, rsi
+.Lx96_4:                cmp              ecx, 5;                              je    .Lx96_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx96_6
+.Lx96_5:                movq             xmm1, rdi
+.Lx96_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 464], 5
+                        mov              qword ptr [rsp + 472], rax
+.Lx96_7:                                                                      jmp   n30_assign_α
 .Lx96_0:                mov              rdi, qword ptr [rsp + 480]
                         mov              rsi, qword ptr [rsp + 488]
                         mov              rdx, qword ptr [rsp + 512]
@@ -671,17 +685,14 @@ n41_lit_integer_α:      mov              qword ptr [rsp + 192], 3             #
                         mov              qword ptr [rsp + 200], rax;          jmp   n42_scan_move_α
 .Lx115_0:               .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
-n42_scan_move_α:        sub              rsp, 16
-                        mov              rax, 5
+n42_scan_move_α:        mov              rax, 5
                         add              rax, r14
                         add              rax, 1
-                        cmp              rax, 1;                              jge   .Lx117_239
-                        add              rsp, 16;                             jmp   n45_scan_α
-.Lx117_239:             mov              rcx, r15
+                        cmp              rax, 1;                              jl    n45_scan_α
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx117_240
-                        add              rsp, 16;                             jmp   n45_scan_α
-.Lx117_240:             mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n45_scan_α
+                        mov              qword ptr [rsp + 176], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -701,8 +712,7 @@ n42_scan_move_α:        sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx;          jmp   n43_scan_α
-n42_scan_move_β:        mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n45_scan_α
+n42_scan_move_β:        mov              r14, qword ptr [rsp + 176];          jmp   n45_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n43_scan_α:             mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [rsp + 128], rax

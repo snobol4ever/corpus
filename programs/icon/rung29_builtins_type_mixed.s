@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 456], rcx
                         mov              qword ptr [rsp + 464], rdx
                         mov              rdi, rsp
+                        add              rdi, 416
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -196,12 +201,29 @@ n11_coerce_numeric_α:   mov              eax, dword ptr [rsp + 80]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n12_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_binop_α:            mov              eax, dword ptr [rsp + 64]
-                        cmp              eax, 3;                              jne   .Lx34_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx34_2
                         mov              rax, qword ptr [rsp + 72]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 48], 3
-                        mov              qword ptr [rsp + 56], rax;           jmp   n13_call_builtin_icon_α
+                        mov              qword ptr [rsp + 56], rax;           jmp   .Lx34_7
+.Lx34_2:                and              edx, 1;                              jz    .Lx34_0
+                        mov              rsi, qword ptr [rsp + 72]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx34_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx34_4
+.Lx34_3:                movq             xmm0, rsi
+.Lx34_4:                cmp              ecx, 5;                              je    .Lx34_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx34_6
+.Lx34_5:                movq             xmm1, rdi
+.Lx34_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 48], 5
+                        mov              qword ptr [rsp + 56], rax
+.Lx34_7:                                                                      jmp   n13_call_builtin_icon_α
 .Lx34_0:                mov              rdi, qword ptr [rsp + 64]
                         mov              rsi, qword ptr [rsp + 72]
                         mov              rdx, qword ptr [rsp + 144]

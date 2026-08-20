@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 328], rcx
                         mov              qword ptr [rsp + 336], rdx
                         mov              rdi, rsp
+                        add              rdi, 272
+                        xor              eax, eax
+                        mov              ecx, 16
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
@@ -64,12 +69,29 @@ n4_coerce_numeric_α:    mov              eax, dword ptr [rsp + 272]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n5_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_binop_α:             mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 3;                              jne   .Lx20_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx20_2
                         mov              rax, qword ptr [rsp + 120]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 96], 3
-                        mov              qword ptr [rsp + 104], rax;          jmp   n6_assign_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   .Lx20_7
+.Lx20_2:                and              edx, 1;                              jz    .Lx20_0
+                        mov              rsi, qword ptr [rsp + 120]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx20_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx20_4
+.Lx20_3:                movq             xmm0, rsi
+.Lx20_4:                cmp              ecx, 5;                              je    .Lx20_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx20_6
+.Lx20_5:                movq             xmm1, rdi
+.Lx20_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 96], 5
+                        mov              qword ptr [rsp + 104], rax
+.Lx20_7:                                                                      jmp   n6_assign_α
 .Lx20_0:                mov              rdi, qword ptr [rsp + 112]
                         mov              rsi, qword ptr [rsp + 120]
                         mov              rdx, qword ptr [rsp + 144]

@@ -16,6 +16,11 @@ main_α:
                         mov              qword ptr [rsp + 584], rcx
                         mov              qword ptr [rsp + 592], rdx
                         mov              rdi, rsp
+                        add              rdi, 528
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
@@ -127,18 +132,15 @@ n7_scan_upto_β:         inc              qword ptr [rsp + 304];               j
 .Lx31_2:                .quad            .Lx31_2_s
 .Lx31_2_s:              .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #-----------------------------------------------------------------------------------------------------------------------
-n8_scan_tab_α:          sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 296]
+n8_scan_tab_α:          mov              rax, qword ptr [rsp + 296]
                         cmp              rax, 1;                              jge   .Lx33_0
                         add              rax, r15
                         add              rax, 1
-.Lx33_0:                cmp              rax, 1;                              jge   .Lx33_239
-                        add              rsp, 16;                             jmp   n7_scan_upto_β
-.Lx33_239:              mov              rcx, r15
+.Lx33_0:                cmp              rax, 1;                              jl    n7_scan_upto_β
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx33_240
-                        add              rsp, 16;                             jmp   n7_scan_upto_β
-.Lx33_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n7_scan_upto_β
+                        mov              qword ptr [rsp + 272], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -158,8 +160,7 @@ n8_scan_tab_α:          sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx;          jmp   n9_var_α
-n8_scan_tab_β:          mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n7_scan_upto_β
+n8_scan_tab_β:          mov              r14, qword ptr [rsp + 272];          jmp   n7_scan_upto_β
 #-----------------------------------------------------------------------------------------------------------------------
 n9_var_α:               mov              rax, qword ptr [rsp + 528]
                         mov              qword ptr [rsp + 400], rax
@@ -201,18 +202,15 @@ n11_scan_many_β:                                                              j
 .Lx38_2:                .quad            .Lx38_2_s
 .Lx38_2_s:              .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 #-----------------------------------------------------------------------------------------------------------------------
-n12_scan_tab_α:         sub              rsp, 16
-                        mov              rax, qword ptr [rsp + 456]
+n12_scan_tab_α:         mov              rax, qword ptr [rsp + 456]
                         cmp              rax, 1;                              jge   .Lx40_0
                         add              rax, r15
                         add              rax, 1
-.Lx40_0:                cmp              rax, 1;                              jge   .Lx40_239
-                        add              rsp, 16;                             jmp   n6_lit_charset_α
-.Lx40_239:              mov              rcx, r15
+.Lx40_0:                cmp              rax, 1;                              jl    n6_lit_charset_α
+                        mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jle   .Lx40_240
-                        add              rsp, 16;                             jmp   n6_lit_charset_α
-.Lx40_240:              mov              qword ptr [rsp + 0], r14
+                        cmp              rax, rcx;                            jg    n6_lit_charset_α
+                        mov              qword ptr [rsp + 432], r14
                         mov              rdi, r13
                         mov              rsi, r14
                         mov              rdx, rax
@@ -232,8 +230,7 @@ n12_scan_tab_α:         sub              rsp, 16
                         pop              r10
                         mov              qword ptr [rsp + 416], rax
                         mov              qword ptr [rsp + 424], rdx;          jmp   n13_call_builtin_icon_α
-n12_scan_tab_β:         mov              r14, qword ptr [rsp + 0]
-                        add              rsp, 16;                             jmp   n6_lit_charset_α
+n12_scan_tab_β:         mov              r14, qword ptr [rsp + 432];          jmp   n6_lit_charset_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_call_builtin_icon_α:
                         mov              rax, qword ptr [rsp + 416]

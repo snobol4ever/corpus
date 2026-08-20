@@ -1,9 +1,8 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_g_α
-proc_g_α:
-proc_g_α_body:
+FN__g:
+g_α_body:
                         lea              rax, [rip + n1_suspend_β]
                         mov              qword ptr [rsp + 48], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17,7 +16,7 @@ n1_suspend_α:           lea              rax, [rip + n1_suspend_β]
                         mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_g_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   g_γ
 n1_suspend_β:                                                                 jmp   n2_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:       mov              qword ptr [rsp + 16], 3              # result
@@ -25,54 +24,28 @@ n2_lit_integer_α:       mov              qword ptr [rsp + 16], 3              #
                         mov              qword ptr [rsp + 24], rax;           jmp   n3_return_α
 .Lx7_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
-n3_return_α:            lea              rax, [rip + proc_g_ω]
+n3_return_α:            lea              rax, [rip + g_ω]
                         mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_g_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   g_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_g_res:
+g_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_g_β:
+g_β:
                                                                               jmp   n1_suspend_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_g_γ:
+g_γ:
                         add              rsp, 0
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
-proc_g_ω:
+g_ω:
                         add              rsp, 0
                         mov              eax, 104
-                        ret
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "g"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_g_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 64
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_generator@PLT
-                        add              rsp, 8
                         ret
                         .globl           main
 main:
@@ -80,7 +53,7 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -139,7 +112,7 @@ n9_proc_gen_α:          mov              qword ptr [rsp + 128], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx14_2
 .Lx14_6:                call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx14_2
 .Lx14_1:                call             rt_faildescr@PLT
-.Lx14_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx14_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx14_29
                         mov              rdi, rax
@@ -148,7 +121,7 @@ n9_proc_gen_α:          mov              qword ptr [rsp + 128], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -242,4 +215,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "g"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__g
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            64
+                        .long            24
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

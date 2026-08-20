@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_reset_α
-proc_reset_α:
+FN__reset:
                         sub              rsp, 80
                         mov              qword ptr [rsp + 56], rcx
                         mov              qword ptr [rsp + 64], rdx
@@ -10,7 +9,7 @@ proc_reset_α:
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_reset_α_body:
+reset_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:       mov              qword ptr [rsp + 16], 3              # result
                         mov              rax, qword ptr [rip + .Lx2_0]
@@ -20,31 +19,31 @@ n0_lit_integer_α:       mov              qword ptr [rsp + 16], 3              #
 n1_assign_α:            mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
                         mov              qword ptr [r9 + 0], rax              # accum
-                        mov              qword ptr [r9 + 8], rdx;             jmp   proc_reset_γ
+                        mov              qword ptr [r9 + 8], rdx;             jmp   reset_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_reset_res:
+reset_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_reset_β:
-                                                                              jmp   proc_reset_ω
+reset_β:
+                                                                              jmp   reset_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_reset_γ:
+reset_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 56]
                         add              rsp, 80;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_reset_ω:
+reset_ω:
                         mov              rcx, qword ptr [rsp + 64]
                         add              rsp, 80;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_reset_dcα:
+reset_dcα:
                         pop              r11
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx4_2]
-                        lea              rdx, [rip + .Lx4_3];                 jmp   proc_reset_α
+                        lea              rdx, [rip + .Lx4_3];                 jmp   FN__reset
 .Lx4_2:                 pop              r11
                         pop              r11;                                 jmp   r11
 .Lx4_3:                 pop              r11
@@ -52,8 +51,7 @@ proc_reset_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_bump_α
-proc_bump_α:
+FN__bump:
                         sub              rsp, 128
                         mov              qword ptr [rsp + 104], rcx
                         mov              qword ptr [rsp + 112], rdx
@@ -61,7 +59,7 @@ proc_bump_α:
                         mov              esi, 0
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_bump_α_body:
+bump_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_var_α:               mov              rax, qword ptr [r9 + 0]              # accum
                         mov              rdx, qword ptr [r9 + 8]
@@ -96,12 +94,29 @@ n7_coerce_numeric_α:    mov              eax, dword ptr [rsp + 48]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n8_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_binop_α:             mov              eax, dword ptr [rsp + 32]
-                        cmp              eax, 3;                              jne   .Lx14_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx14_2
                         mov              rax, qword ptr [rsp + 40]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 16], 3
-                        mov              qword ptr [rsp + 24], rax;           jmp   n9_assign_α
+                        mov              qword ptr [rsp + 24], rax;           jmp   .Lx14_7
+.Lx14_2:                and              edx, 1;                              jz    .Lx14_0
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx14_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx14_4
+.Lx14_3:                movq             xmm0, rsi
+.Lx14_4:                cmp              ecx, 5;                              je    .Lx14_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx14_6
+.Lx14_5:                movq             xmm1, rdi
+.Lx14_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 16], 5
+                        mov              qword ptr [rsp + 24], rax
+.Lx14_7:                                                                      jmp   n9_assign_α
 .Lx14_0:                mov              rdi, qword ptr [rsp + 32]
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 64]
@@ -110,7 +125,7 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 32]
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_add@PLT
-                        cmp              eax, 104;                            je    proc_bump_ω
+                        cmp              eax, 104;                            je    bump_ω
                         mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -121,99 +136,44 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 32]
 n9_assign_α:            mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24]
                         mov              qword ptr [r9 + 0], rax              # accum
-                        mov              qword ptr [r9 + 8], rdx;             jmp   proc_bump_γ
+                        mov              qword ptr [r9 + 8], rdx;             jmp   bump_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_bump_res:
+bump_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_bump_β:
-                                                                              jmp   proc_bump_ω
+bump_β:
+                                                                              jmp   bump_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_bump_γ:
+bump_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 104]
                         add              rsp, 128;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_bump_ω:
+bump_ω:
                         mov              rcx, qword ptr [rsp + 112]
                         add              rsp, 128;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_bump_dcα:
+bump_dcα:
                         pop              r11
                         push             r11
                         push             r11
                         lea              rcx, [rip + .Lx16_2]
-                        lea              rdx, [rip + .Lx16_3];                jmp   proc_bump_α
+                        lea              rdx, [rip + .Lx16_3];                jmp   FN__bump
 .Lx16_2:                pop              r11
                         pop              r11;                                 jmp   r11
 .Lx16_3:                pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "reset"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_reset_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 32
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_reset_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        .section         .rodata
-.Lstartup_pname1:       .string          "bump"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + proc_bump_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 0
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 80
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname1]
-                        lea              rsi, [rip + proc_bump_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
-                        .section         .rodata
-.Lgvan0:                .string          "accum"
-                        .align           8
-__gva_names:
-                        .quad            .Lgvan0
-                        .section         .text
-                        .intel_syntax    noprefix
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              edi, 1
                         call             rt_gva_island@PLT
                         mov              rsi, rax
@@ -224,6 +184,13 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                                                                               jmp   main_α
+                        .section         .rodata
+.Lgvan0:                .string          "accum"
+                        .align           8
+__gva_names:
+                        .quad            .Lgvan0
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 304
@@ -235,8 +202,8 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n17_call_proc_staged_α: call             proc_reset_dcα;                      jmp   .Lx26_2
-.Lx26_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n17_call_proc_staged_α: call             reset_dcα;                           jmp   .Lx26_2
+.Lx26_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx26_29
                         mov              rdi, rax
@@ -245,7 +212,7 @@ n17_call_proc_staged_α: call             proc_reset_dcα;                      
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 232], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -262,8 +229,8 @@ n17_call_proc_staged_β:                                                       j
 .Lx26_0:                .quad            .Lx26_0_s
 .Lx26_0_s:              .string          "reset"
 #-----------------------------------------------------------------------------------------------------------------------
-n18_call_proc_staged_α: call             proc_bump_dcα;                       jmp   .Lx28_2
-.Lx28_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n18_call_proc_staged_α: call             bump_dcα;                            jmp   .Lx28_2
+.Lx28_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx28_29
                         mov              rdi, rax
@@ -272,7 +239,7 @@ n18_call_proc_staged_α: call             proc_bump_dcα;                       
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -289,8 +256,8 @@ n18_call_proc_staged_β:                                                       j
 .Lx28_0:                .quad            .Lx28_0_s
 .Lx28_0_s:              .string          "bump"
 #-----------------------------------------------------------------------------------------------------------------------
-n19_call_proc_staged_α: call             proc_bump_dcα;                       jmp   .Lx30_2
-.Lx30_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n19_call_proc_staged_α: call             bump_dcα;                            jmp   .Lx30_2
+.Lx30_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx30_29
                         mov              rdi, rax
@@ -299,7 +266,7 @@ n19_call_proc_staged_α: call             proc_bump_dcα;                       
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -316,8 +283,8 @@ n19_call_proc_staged_β:                                                       j
 .Lx30_0:                .quad            .Lx30_0_s
 .Lx30_0_s:              .string          "bump"
 #-----------------------------------------------------------------------------------------------------------------------
-n20_call_proc_staged_α: call             proc_bump_dcα;                       jmp   .Lx32_2
-.Lx32_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n20_call_proc_staged_α: call             bump_dcα;                            jmp   .Lx32_2
+.Lx32_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx32_29
                         mov              rdi, rax
@@ -326,7 +293,7 @@ n20_call_proc_staged_α: call             proc_bump_dcα;                       
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -343,8 +310,8 @@ n20_call_proc_staged_β:                                                       j
 .Lx32_0:                .quad            .Lx32_0_s
 .Lx32_0_s:              .string          "bump"
 #-----------------------------------------------------------------------------------------------------------------------
-n21_call_proc_staged_α: call             proc_bump_dcα;                       jmp   .Lx34_2
-.Lx34_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n21_call_proc_staged_α: call             bump_dcα;                            jmp   .Lx34_2
+.Lx34_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx34_29
                         mov              rdi, rax
@@ -353,7 +320,7 @@ n21_call_proc_staged_α: call             proc_bump_dcα;                       
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -370,8 +337,8 @@ n21_call_proc_staged_β:                                                       j
 .Lx34_0:                .quad            .Lx34_0_s
 .Lx34_0_s:              .string          "bump"
 #-----------------------------------------------------------------------------------------------------------------------
-n22_call_proc_staged_α: call             proc_bump_dcα;                       jmp   .Lx36_2
-.Lx36_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+n22_call_proc_staged_α: call             bump_dcα;                            jmp   .Lx36_2
+.Lx36_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx36_29
                         mov              rdi, rax
@@ -380,7 +347,7 @@ n22_call_proc_staged_α: call             proc_bump_dcα;                       
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -440,4 +407,46 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "reset"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__reset
+                        .quad            reset_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            32
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "bump"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            FN__bump
+                        .quad            bump_dcα
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            80
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

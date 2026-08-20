@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_stream_property$2F2_α
-proc_stream_property$2F2_α:
+FN__stream_property$2F2:
                         sub              rsp, 208
                         mov              qword ptr [rsp + 184], rcx
                         mov              qword ptr [rsp + 192], rdx
@@ -18,7 +17,7 @@ proc_stream_property$2F2_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-proc_stream_property$2F2_α_body:
+stream_property$2F2_α_body:
                         lea              rax, [rip + n3_suspend_β]
                         mov              qword ptr [rsp + 144], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -55,7 +54,7 @@ n2_call_builtin_gen_α:  mov              rax, qword ptr [rsp + 128]
                         call             rt_call_arr_gen@PLT
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 104;                            je    proc_stream_property$2F2_ω
+                        cmp              eax, 104;                            je    stream_property$2F2_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -90,17 +89,17 @@ n3_suspend_α:           mov              rax, qword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 8], rax;            jmp   proc_stream_property$2F2_γ
+                        mov              qword ptr [rsp + 8], rax;            jmp   stream_property$2F2_γ
 n3_suspend_β:                                                                 jmp   n2_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_stream_property$2F2_res:
+stream_property$2F2_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_stream_property$2F2_β:
+stream_property$2F2_β:
                                                                               jmp   n2_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
-proc_stream_property$2F2_γ:
+stream_property$2F2_γ:
                         lea              r11, [rip + g_pl_zf_pending_cursor]
                         mov              r11, qword ptr [r11]
                         test             r11, r11;                            je    .Lx10_50
@@ -119,42 +118,16 @@ proc_stream_property$2F2_γ:
                         mov              rcx, qword ptr [rsp + 184]
                         add              rsp, 208;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_stream_property$2F2_ω:
+stream_property$2F2_ω:
                         mov              rcx, qword ptr [rsp + 192]
                         add              rsp, 208;                            jmp   rcx
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "stream_property/2"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_stream_property$2F2_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 2
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 160
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_generator@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rt_gcheap_warmup@PLT
                         call             rt_plw_floor_bypass_on@PLT
@@ -409,7 +382,7 @@ n20_call_proc_staged_α: mov              qword ptr [rsp + 3168], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx142_2
 .Lx142_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx142_2
 .Lx142_1:               call             rt_faildescr@PLT
-.Lx142_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx142_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx142_29
                         mov              rdi, rax
@@ -418,7 +391,7 @@ n20_call_proc_staged_α: mov              qword ptr [rsp + 3168], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 3120], rax
                         mov              qword ptr [rsp + 3128], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -694,7 +667,7 @@ n29_call_proc_staged_α: mov              qword ptr [rsp + 2912], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx156_2
 .Lx156_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx156_2
 .Lx156_1:               call             rt_faildescr@PLT
-.Lx156_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx156_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx156_29
                         mov              rdi, rax
@@ -703,7 +676,7 @@ n29_call_proc_staged_α: mov              qword ptr [rsp + 2912], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 2864], rax
                         mov              qword ptr [rsp + 2872], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -979,7 +952,7 @@ n38_call_proc_staged_α: mov              qword ptr [rsp + 2656], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx170_2
 .Lx170_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx170_2
 .Lx170_1:               call             rt_faildescr@PLT
-.Lx170_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx170_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx170_29
                         mov              rdi, rax
@@ -988,7 +961,7 @@ n38_call_proc_staged_α: mov              qword ptr [rsp + 2656], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 2608], rax
                         mov              qword ptr [rsp + 2616], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1300,7 +1273,7 @@ n49_call_proc_staged_α: mov              qword ptr [rsp + 2320], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx186_2
 .Lx186_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx186_2
 .Lx186_1:               call             rt_faildescr@PLT
-.Lx186_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx186_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx186_29
                         mov              rdi, rax
@@ -1309,7 +1282,7 @@ n49_call_proc_staged_α: mov              qword ptr [rsp + 2320], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 2272], rax
                         mov              qword ptr [rsp + 2280], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1619,7 +1592,7 @@ n60_call_proc_staged_α: mov              qword ptr [rsp + 1984], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx203_2
 .Lx203_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx203_2
 .Lx203_1:               call             rt_faildescr@PLT
-.Lx203_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx203_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx203_29
                         mov              rdi, rax
@@ -1628,7 +1601,7 @@ n60_call_proc_staged_α: mov              qword ptr [rsp + 1984], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 1936], rax
                         mov              qword ptr [rsp + 1944], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -1971,7 +1944,7 @@ n73_call_proc_staged_α: mov              qword ptr [rsp + 1600], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx223_2
 .Lx223_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx223_2
 .Lx223_1:               call             rt_faildescr@PLT
-.Lx223_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx223_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx223_29
                         mov              rdi, rax
@@ -1980,7 +1953,7 @@ n73_call_proc_staged_α: mov              qword ptr [rsp + 1600], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 1552], rax
                         mov              qword ptr [rsp + 1560], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -2418,7 +2391,7 @@ n93_call_proc_staged_α: mov              qword ptr [rsp + 1024], 0
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx254_2
 .Lx254_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx254_2
 .Lx254_1:               call             rt_faildescr@PLT
-.Lx254_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx254_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx254_29
                         mov              rdi, rax
@@ -2427,7 +2400,7 @@ n93_call_proc_staged_α: mov              qword ptr [rsp + 1024], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 976], rax
                         mov              qword ptr [rsp + 984], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -2704,7 +2677,7 @@ n102_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx268_2
 .Lx268_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx268_2
 .Lx268_1:               call             rt_faildescr@PLT
-.Lx268_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx268_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx268_29
                         mov              rdi, rax
@@ -2713,7 +2686,7 @@ n102_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 720], rax
                         mov              qword ptr [rsp + 728], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -3027,7 +3000,7 @@ n113_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx284_2
 .Lx284_6:               call             rt_gen_spine_pass_ω@PLT;             jmp   .Lx284_2
 .Lx284_1:               call             rt_faildescr@PLT
-.Lx284_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+.Lx284_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx284_29
                         mov              rdi, rax
@@ -3036,7 +3009,7 @@ n113_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 384], rax
                         mov              qword ptr [rsp + 392], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -3369,4 +3342,27 @@ main_γ:
 main_ω:
                         mov              rcx, qword ptr [rsp + 3504]
                         add              rsp, 3520;                           jmp   rcx
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "stream_property/2"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__stream_property$2F2
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            2
+                        .long            0
+                        .long            160
+                        .long            24
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

@@ -1,8 +1,7 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_positive_α
-proc_positive_α:
+FN__positive:
                         sub              rsp, 192
                         mov              qword ptr [rsp + 168], rcx
                         mov              qword ptr [rsp + 176], rdx
@@ -10,18 +9,18 @@ proc_positive_α:
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_positive_α_body:
+positive_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_disjunction_α:       mov              qword ptr [rsp + 32], 0
                         mov              qword ptr [rsp + 40], 0
                         mov              dword ptr [rsp + 48], 0;             jmp   n1_var_α
 n0_disjunction_as:      mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 0;                              jne   .Lx7_0
-                                                                              jmp   proc_positive_γ
-.Lx7_0:                                                                       jmp   proc_positive_γ
-n0_disjunction_β:       mov              eax, dword ptr [rsp + 48];           jmp   proc_positive_ω
+                                                                              jmp   positive_γ
+.Lx7_0:                                                                       jmp   positive_γ
+n0_disjunction_β:       mov              eax, dword ptr [rsp + 48];           jmp   positive_ω
 n0_disjunction_af:      add              dword ptr [rsp + 48], 1
-                        mov              eax, dword ptr [rsp + 48];           jmp   proc_positive_ω
+                        mov              eax, dword ptr [rsp + 48];           jmp   positive_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 96], rax
@@ -93,26 +92,26 @@ n4_var_α:               mov              rax, qword ptr [rsp + 16]
 n5_return_α:            mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_positive_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   positive_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_positive_res:
+positive_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_positive_β:
-                                                                              jmp   proc_positive_ω
+positive_β:
+                                                                              jmp   positive_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_positive_γ:
+positive_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 168]
                         add              rsp, 192;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_positive_ω:
+positive_ω:
                         mov              rcx, qword ptr [rsp + 176]
                         add              rsp, 192;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_positive_dcα:
+positive_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -132,46 +131,20 @@ proc_positive_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx15_2]
-                        lea              rdx, [rip + .Lx15_3];                jmp   proc_positive_α
+                        lea              rdx, [rip + .Lx15_3];                jmp   FN__positive
 .Lx15_2:                pop              r11
                         pop              r11;                                 jmp   r11
 .Lx15_3:                pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "positive"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_positive_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 128
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_positive_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -208,8 +181,8 @@ n17_lit_integer_β:                                                            j
 .Lx30_0:                .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n18_call_proc_staged_α: lea              rsi, [rsp + 368]
-                        call             proc_positive_dcα;                   jmp   .Lx32_2
-.Lx32_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             positive_dcα;                        jmp   .Lx32_2
+.Lx32_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx32_29
                         mov              rdi, rax
@@ -218,7 +191,7 @@ n18_call_proc_staged_α: lea              rsi, [rsp + 368]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 328], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -328,8 +301,8 @@ n24_lit_integer_β:                                                            j
 .Lx41_0:                .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n25_call_proc_staged_α: lea              rsi, [rsp + 144]
-                        call             proc_positive_dcα;                   jmp   .Lx43_2
-.Lx43_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             positive_dcα;                        jmp   .Lx43_2
+.Lx43_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx43_29
                         mov              rdi, rax
@@ -338,7 +311,7 @@ n25_call_proc_staged_α: lea              rsi, [rsp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -398,4 +371,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "positive"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__positive
+                        .quad            positive_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            128
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits

@@ -52,12 +52,10 @@ n2_lit_string_α:        mov              qword ptr [rsp + 400], 2             #
 .Lx19_0:                .quad            .Lx19_0_s
 .Lx19_0_s:              .string          "hel"
 #-----------------------------------------------------------------------------------------------------------------------
-n3_scan_match_α:        sub              rsp, 16
-                        mov              rax, r15
+n3_scan_match_α:        mov              rax, r15
                         sub              rax, r14
-                        cmp              rax, 3;                              jge   .Lx21_239
-                        add              rsp, 16;                             jmp   n6_scan_α
-.Lx21_239:              mov              rdi, qword ptr [rip + .Lx21_0]
+                        cmp              rax, 3;                              jl    n6_scan_α
+                        mov              rdi, qword ptr [rip + .Lx21_0]
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
@@ -71,9 +69,8 @@ n3_scan_match_α:        sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              r10
-                        test             eax, eax;                            je    .Lx21_240
-                        add              rsp, 16;                             jmp   n6_scan_α
-.Lx21_240:              mov              qword ptr [rsp + 368], 3
+                        test             eax, eax;                            jne   n6_scan_α
+                        mov              qword ptr [rsp + 368], 3
                         mov              rax, r14
                         add              rax, 4
                         mov              qword ptr [rsp + 376], rax;          jmp   n4_call_builtin_icon_α
@@ -241,12 +238,10 @@ n13_lit_string_β:                                                             j
 .Lx38_0:                .quad            .Lx38_0_s
 .Lx38_0_s:              .string          "xyz"
 #-----------------------------------------------------------------------------------------------------------------------
-n14_scan_match_α:       sub              rsp, 16
-                        mov              rax, r15
+n14_scan_match_α:       mov              rax, r15
                         sub              rax, r14
-                        cmp              rax, 3;                              jge   .Lx40_239
-                        add              rsp, 16;                             jmp   n9_disjunction_af
-.Lx40_239:              mov              rdi, qword ptr [rip + .Lx40_0]
+                        cmp              rax, 3;                              jl    n9_disjunction_af
+                        mov              rdi, qword ptr [rip + .Lx40_0]
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
@@ -260,13 +255,12 @@ n14_scan_match_α:       sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              r10
-                        test             eax, eax;                            je    .Lx40_240
-                        add              rsp, 16;                             jmp   n9_disjunction_af
-.Lx40_240:              mov              qword ptr [rsp + 160], 3
+                        test             eax, eax;                            jne   n9_disjunction_af
+                        mov              qword ptr [rsp + 160], 3
                         mov              rax, r14
                         add              rax, 4
                         mov              qword ptr [rsp + 168], rax;          jmp   n9_disjunction_as
-n14_scan_match_β:       add              rsp, 16;                             jmp   n9_disjunction_af
+n14_scan_match_β:                                                             jmp   n9_disjunction_af
 .Lx40_0:                .quad            .Lx40_0_s
 .Lx40_0_s:              .string          "xyz"
 #-----------------------------------------------------------------------------------------------------------------------

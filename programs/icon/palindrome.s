@@ -1,16 +1,20 @@
                         .intel_syntax    noprefix
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
-                        .globl           proc_palindrome_α
-proc_palindrome_α:
+FN__palindrome:
                         sub              rsp, 672
                         mov              qword ptr [rsp + 648], rcx
                         mov              qword ptr [rsp + 656], rdx
                         mov              rdi, rsp
+                        add              rdi, 576
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
-proc_palindrome_α_body:
+palindrome_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:               mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 560], rax
@@ -184,12 +188,29 @@ n14_coerce_numeric_α:   mov              eax, dword ptr [rsp + 576]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n15_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_binop_α:            mov              eax, dword ptr [rsp + 224]
-                        cmp              eax, 3;                              jne   .Lx59_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx59_2
                         mov              rax, qword ptr [rsp + 232]
-                        mov              rcx, 1
-                        add              rax, rcx
+                        mov              rdx, 1
+                        add              rax, rdx
                         mov              qword ptr [rsp + 208], 3
-                        mov              qword ptr [rsp + 216], rax;          jmp   n16_assign_α
+                        mov              qword ptr [rsp + 216], rax;          jmp   .Lx59_7
+.Lx59_2:                and              edx, 1;                              jz    .Lx59_0
+                        mov              rsi, qword ptr [rsp + 232]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx59_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx59_4
+.Lx59_3:                movq             xmm0, rsi
+.Lx59_4:                cmp              ecx, 5;                              je    .Lx59_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx59_6
+.Lx59_5:                movq             xmm1, rdi
+.Lx59_6:                addsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 208], 5
+                        mov              qword ptr [rsp + 216], rax
+.Lx59_7:                                                                      jmp   n16_assign_α
 .Lx59_0:                mov              rdi, qword ptr [rsp + 224]
                         mov              rsi, qword ptr [rsp + 232]
                         mov              rdx, qword ptr [rsp + 256]
@@ -244,12 +265,29 @@ n19_coerce_numeric_α:   mov              eax, dword ptr [rsp + 592]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n20_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n20_binop_α:            mov              eax, dword ptr [rsp + 144]
-                        cmp              eax, 3;                              jne   .Lx66_0
+                        mov              ecx, 3
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx66_2
                         mov              rax, qword ptr [rsp + 152]
-                        mov              rcx, 1
-                        sub              rax, rcx
+                        mov              rdx, 1
+                        sub              rax, rdx
                         mov              qword ptr [rsp + 128], 3
-                        mov              qword ptr [rsp + 136], rax;          jmp   n21_assign_α
+                        mov              qword ptr [rsp + 136], rax;          jmp   .Lx66_7
+.Lx66_2:                and              edx, 1;                              jz    .Lx66_0
+                        mov              rsi, qword ptr [rsp + 152]
+                        mov              rdi, 1
+                        cmp              eax, 5;                              je    .Lx66_3
+                        cvtsi2sd         xmm0, rsi;                           jmp   .Lx66_4
+.Lx66_3:                movq             xmm0, rsi
+.Lx66_4:                cmp              ecx, 5;                              je    .Lx66_5
+                        cvtsi2sd         xmm1, rdi;                           jmp   .Lx66_6
+.Lx66_5:                movq             xmm1, rdi
+.Lx66_6:                subsd            xmm0, xmm1
+                        movq             rax, xmm0
+                        mov              qword ptr [rsp + 128], 5
+                        mov              qword ptr [rsp + 136], rax
+.Lx66_7:                                                                      jmp   n21_assign_α
 .Lx66_0:                mov              rdi, qword ptr [rsp + 144]
                         mov              rsi, qword ptr [rsp + 152]
                         mov              rdx, qword ptr [rsp + 176]
@@ -397,7 +435,7 @@ n32_lit_string_α:       mov              qword ptr [rsp + 304], 2             #
 n33_return_α:           mov              rax, qword ptr [rsp + 304]
                         mov              rdx, qword ptr [rsp + 312]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_palindrome_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   palindrome_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n34_lit_string_α:       mov              qword ptr [rsp + 32], 2              # result
                         mov              dword ptr [rsp + 36], 3
@@ -409,26 +447,26 @@ n34_lit_string_α:       mov              qword ptr [rsp + 32], 2              #
 n35_return_α:           mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx;            jmp   proc_palindrome_γ
+                        mov              qword ptr [rsp + 8], rdx;            jmp   palindrome_γ
 #-----------------------------------------------------------------------------------------------------------------------
-proc_palindrome_res:
+palindrome_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-proc_palindrome_β:
-                                                                              jmp   proc_palindrome_ω
+palindrome_β:
+                                                                              jmp   palindrome_ω
 #-----------------------------------------------------------------------------------------------------------------------
-proc_palindrome_γ:
+palindrome_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 648]
                         add              rsp, 672;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_palindrome_ω:
+palindrome_ω:
                         mov              rcx, qword ptr [rsp + 656]
                         add              rsp, 672;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-proc_palindrome_dcα:
+palindrome_dcα:
                         pop              r11
                         push             r11
                         push             r11
@@ -448,46 +486,20 @@ proc_palindrome_dcα:
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         lea              rcx, [rip + .Lx86_2]
-                        lea              rdx, [rip + .Lx86_3];                jmp   proc_palindrome_α
+                        lea              rdx, [rip + .Lx86_3];                jmp   FN__palindrome
 .Lx86_2:                pop              r11
                         pop              r11;                                 jmp   r11
 .Lx86_3:                pop              r11
                         pop              r11
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r11
-proc_startup:
-                        sub              rsp, 8
-                        .section         .rodata
-.Lstartup_pname0:       .string          "palindrome"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_palindrome_α]
-                        call             rt_proc_set_fn@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_nparams@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 0
-                        call             rt_proc_set_nformals@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 608
-                        call             rt_proc_set_frame_bytes@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 1
-                        call             rt_proc_set_jmpentry@PLT
-                        lea              rdi, [rip + .Lstartup_pname0]
-                        lea              rsi, [rip + proc_palindrome_dcα]
-                        call             rt_proc_set_dcfn@PLT
-                        add              rsp, 8
-                        ret
                         .globl           main
 main:
                         sub              rsp, 8
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
-                        call             proc_startup
+                        call             module_init
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
@@ -513,8 +525,8 @@ n87_lit_string_α:       sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n88_call_proc_staged_α: sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_string
-                        call             proc_palindrome_dcα;                 jmp   .Lx98_2
-.Lx98_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             palindrome_dcα;                      jmp   .Lx98_2
+.Lx98_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx98_29
                         mov              rdi, rax
@@ -523,7 +535,7 @@ n88_call_proc_staged_α: sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -579,8 +591,8 @@ n90_lit_string_α:       sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n91_call_proc_staged_α: sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_string
-                        call             proc_palindrome_dcα;                 jmp   .Lx103_2
-.Lx103_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             palindrome_dcα;                      jmp   .Lx103_2
+.Lx103_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx103_29
                         mov              rdi, rax
@@ -589,7 +601,7 @@ n91_call_proc_staged_α: sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -645,8 +657,8 @@ n93_lit_string_α:       sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n94_call_proc_staged_α: sub              rsp, 16
                         lea              rsi, [rsp + 16]                      # lit_string
-                        call             proc_palindrome_dcα;                 jmp   .Lx108_2
-.Lx108_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult wn=0
+                        call             palindrome_dcα;                      jmp   .Lx108_2
+.Lx108_2:               mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
                         cmp              ecx, 0;                              je    .Lx108_29
                         mov              rdi, rax
@@ -655,7 +667,7 @@ n94_call_proc_staged_α: sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_nret_fix@PLT
+                        call             rt_nret_fix_tiny@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -716,4 +728,27 @@ main_ω:
                         and              rsp, -16
                         mov              edi, 1
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "palindrome"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            FN__palindrome
+                        .quad            palindrome_dcα
+                        .quad            0
+                        .quad            0
+                        .long            1
+                        .long            0
+                        .long            608
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits
