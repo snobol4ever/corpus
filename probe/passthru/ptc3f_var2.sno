@@ -1,0 +1,6 @@
+          $('Z' 'Z') = 1
+          P1 = ARBNO('ab') 'cd'
+          'abcdef' POS(0) *P1 'ef' RPOS(0)      :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
