@@ -1,0 +1,8 @@
+DECOMB(0) = [0]
+DECOMB(1) = [1]
+DECOMB(2) = [2]
+DECOMB(10) = [0]
+DECOMB(21) = [2]
+DECOMB(321) = [3]
+DECOMB(54) = [14]
+DECOMB(A9) = [54]

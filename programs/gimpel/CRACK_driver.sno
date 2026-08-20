@@ -1,0 +1,16 @@
+*  CRACK_driver - exercises CRACK(S,B).  Contract per CRACK.sno header:
+*  CRACK converts from string to array, breaking at the character B.  A null
+*  B breaks the string into its individual characters.
+-INCLUDE "CRACK.sno"
+        DEFINE('SHOW(A)J')                              :(SHOW_END)
+SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
+        J  =  0
+SHOW_1  J  =  J + 1
+        SHOW  =  SHOW  ' ['  A<J>  ']'                  :S(SHOW_1)F(RETURN)
+SHOW_END
+        OUTPUT  =  SHOW(CRACK('ay,bee,cee', ','))
+        OUTPUT  =  SHOW(CRACK('one', ','))
+        OUTPUT  =  SHOW(CRACK('a/b/c/d', '/'))
+        OUTPUT  =  SHOW(CRACK('ABC', ))
+        OUTPUT  =  SHOW(CRACK('x y z', ' '))
+END

@@ -1,0 +1,17 @@
+*  MINP_driver - exercises MINP(S).  Contract per MINP.sno header: MINP
+*  returns the minimum number of print positions needed to print the string
+*  S.  It consults JUSTIFY: with JUSTIFY = 0 the string is measured as it
+*  stands, otherwise runs of blanks may be closed up.
+-INCLUDE "MINP.sno"
+        DEFINE('SHOW(S)')                               :(SHOW_END)
+SHOW    SHOW  =  'JUSTIFY=' JUSTIFY ' [' S '] -> ' MINP(S)      :(RETURN)
+SHOW_END
+        JUSTIFY  =  0
+        OUTPUT  =  SHOW('ABC')
+        OUTPUT  =  SHOW('a  b  c')
+        OUTPUT  =  SHOW('one two three')
+        JUSTIFY  =  1
+        OUTPUT  =  SHOW('ABC')
+        OUTPUT  =  SHOW('a  b  c')
+        OUTPUT  =  SHOW('one two three')
+END

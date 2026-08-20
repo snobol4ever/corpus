@@ -1,0 +1,15 @@
+*  gim_cassign_array_elt_loud - the LOUD SIBLING, one character apart from
+*  gim_defer_cassign_array_elt: the same array-element capture target WITHOUT
+*  the '*'.  SCRIP refuses it honestly --
+*    FATAL lower_snobol4 (GZ#5 subset): capture target in a runtime-built
+*    pattern is not a simple variable.
+*  So the defect is not "unlanded": it is that the DEFER SPELLING BYPASSES THE
+*  REFUSAL.  A feature declared unlanded must fail on EVERY path that reaches
+*  it (gimpel batch A, EVAL/CONVERT class).  No .ref: SCRIP is expected to
+*  refuse, the oracle prints [x].
+        A  =  ARRAY(1)
+        I  =  1
+        S  =  'xyz'
+        S  LEN(1) . A<I>  =
+        OUTPUT  =  '[' A<1> ']'
+END

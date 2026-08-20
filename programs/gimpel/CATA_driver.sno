@@ -1,0 +1,21 @@
+*  CATA_driver - exercises CATA(A1,A2).  Contract per CATA.sno header:
+*  CATA concatenates the two singly-dimensioned arrays A1 and A2, so the
+*  result is a new array whose prototype is the sum of the two prototypes
+*  and whose elements are A1's followed by A2's.
+-INCLUDE "CATA.sno"
+        DEFINE('SHOW(A)J')                              :(SHOW_END)
+SHOW    SHOW  =  '<' PROTOTYPE(A) '>'
+        J  =  0
+SHOW_1  J  =  J + 1
+        SHOW  =  SHOW  ' '  A<J>                        :S(SHOW_1)F(RETURN)
+SHOW_END
+        A  =  ARRAY(3)
+        A<1> = 'ay' ; A<2> = 'bee' ; A<3> = 'cee'
+        B  =  ARRAY(2)
+        B<1> = 'dee' ; B<2> = 'ee'
+        OUTPUT  =  SHOW(CATA(A,B))
+        OUTPUT  =  SHOW(CATA(B,A))
+        C  =  ARRAY(1)
+        C<1> = 'solo'
+        OUTPUT  =  SHOW(CATA(C,C))
+END

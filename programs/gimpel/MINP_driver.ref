@@ -1,0 +1,6 @@
+JUSTIFY=0 [ABC] -> 3
+JUSTIFY=0 [a  b  c] -> 7
+JUSTIFY=0 [one two three] -> 13
+JUSTIFY=1 [ABC] -> 3
+JUSTIFY=1 [a  b  c] -> 5
+JUSTIFY=1 [one two three] -> 13

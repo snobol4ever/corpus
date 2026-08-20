@@ -1,0 +1,11 @@
+*  LPERM_driver - exercises LPERM(S).  Contract per LPERM.sno header: LPERM
+*  returns the next reordering of the string S in lexicographic order.  The
+*  last permutation has no successor, so LPERM fails there.
+-INCLUDE "LPERM.sno"
+        S  =  'ABC'
+LOOP    OUTPUT  =  S
+        S  =  LPERM(S)                                  :S(LOOP)
+        OUTPUT  =  'no successor'
+        OUTPUT  =  LPERM('AABB')
+        OUTPUT  =  LPERM('BAT')
+END

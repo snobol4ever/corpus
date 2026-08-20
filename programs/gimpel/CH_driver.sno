@@ -1,0 +1,10 @@
+*  CH_driver - exercises CH(HEX).  Contract per CH.sno header: CH converts
+*  the sequence of hexadecimal digits into the corresponding character
+*  string, and is the inverse of HEX.
+-INCLUDE "CH.sno"
+        OUTPUT  =  CH('414243')
+        OUTPUT  =  CH('48656C6C6F')
+        OUTPUT  =  CH('30313233343536373839')
+        OUTPUT  =  '[' CH('') ']'
+        OUTPUT  =  '[' CH('7A') ']'
+END

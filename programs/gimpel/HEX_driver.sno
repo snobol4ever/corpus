@@ -1,0 +1,14 @@
+*  HEX_driver - exercises HEX(S).  Contract per HEX.sno header: HEX returns
+*  the hexadecimal (internal) representation of the string S.
+*
+*  NOTE: a null argument is NOT exercised -- HEX(NULL) reaches REPLACE with
+*  a null 2nd/3rd argument and the ORACLE itself stops with ERROR 171 in
+*  BLEND.sno, so the module does not define that edge.
+-INCLUDE "HEX.sno"
+        OUTPUT  =  HEX('ABC')
+        OUTPUT  =  HEX('Hello')
+        OUTPUT  =  HEX('0123456789')
+        OUTPUT  =  HEX(' ')
+        OUTPUT  =  HEX('~')
+        OUTPUT  =  HEX('The quick brown fox')
+END
