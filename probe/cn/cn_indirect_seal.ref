@@ -1,3 +1,7 @@
 direct=42
-indirect=42
-indirect-undeclared=[]
+indirect=[]
+write=[99]
+rewrite=[100]
+direct-after=42
+undeclared=[]
+reached-end

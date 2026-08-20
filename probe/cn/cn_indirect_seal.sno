@@ -1,22 +1,31 @@
-*  CN / seal-through-aliasing -- the $() INDIRECT truth table, pinned.
-*  ARCH-SN4-CONSTANTS says: "No bypass via OPSYN/$('&X')/aliasing -- the
-*  seal lives on the CELL (NV_t.is_const)."  MEASURED, that claim holds
-*  for WRITES and does NOT hold for the READ diagnostic:
-*    read  declared    $("&N")         -> 42   (same cell as &N: correct)
-*    write sealed      $("&N") = 99    -> 341  (seal holds through alias)
-*    read  UNdeclared  $("&NEVERSET")  -> ""   (SILENT -- no 342)
-*  The third row is the asymmetry.  A DIRECT read of &NEVERSET raises 342;
-*  the indirect read of the same name returns null.
-*  ⛔ NOT A BUG REPORT -- A RULING REQUEST (see the s153 cursor).  Oracle
-*  receipt: stock sbl prints "x[]" for $("&NEVERSET"), i.e. an ordinary
-*  null variable, so TODAY'S read behaviour is ORACLE-TRUE while the
-*  write behaviour is already a DELIBERATE oracle divergence (CN-2's cell
-*  seal).  Whichever way Lon rules, the two halves should agree.
-*  This witness pins the CURRENT truth table so the ruling is a visible
-*  gate event.  Rows 1-2 only; row 3 aborts and lives in the .err_sno.
+*  CN / the $() INDIRECT TRUTH TABLE UNDER &USER_DECLARED_CONSTANTS -- THE RULED LAW.
+*  ⛔ SECOND PINNED GATE EVENT OF THIS QUEUE ROW, AND IT FIRED AS DESIGNED.  s153 minted
+*  this witness as a RULING REQUEST pinning the THEN-current table -- `indirect=42` and a
+*  341 on the indirect write -- and said so out loud so that whichever way Lon ruled, the
+*  move would be VISIBLE rather than silent.  HQ-61 ruled ORACLE-FAITHFUL (Lon s168 "use
+*  SPITBOL as an Oracle"), the gate went red on the first run after the flip, and this is
+*  the rewritten table.  The s153 header's premise -- "read declared $('&N') -> 42 (same
+*  cell as &N: correct)" -- was FALSIFIED by probe, not overruled by preference.
+*  ⛔ ORACLE-LAW-DERIVED, NOT AN ORACLE RUN, and it cannot be one: stock SPITBOL answers
+*  error 251 for &USER_DECLARED_CONSTANTS as for any undefined &name, so this exact program
+*  will not run on sbl.  The LAW it applies is oracle-measured byte-for-byte in the two
+*  sibling witnesses cn_indirect_is_ordinary_var (disjointness, both directions) and
+*  cn_indirect_rewrite (every store, not just the first).  Read the three together.
+*    direct           the declared constant still reads 42 -- keyword space is untouched
+*    indirect         $('&N') is a DIFFERENT, ordinary, never-written cell: null
+*    write            the indirect write is accepted SILENTLY where the direct one is 341
+*    rewrite          and the second indirect write is accepted too
+*    direct-after     the constant is STILL 42 -- no bypass happened, another cell moved
+*    undeclared       $('&NEVERSET') stays the ordinary null it always was
 	&USER_DECLARED_CONSTANTS = 1
 	&N = 42
 	OUTPUT = 'direct=' &N
-	OUTPUT = 'indirect=' $('&N')
-	OUTPUT = 'indirect-undeclared=[' $('&NEVERSET') ']'
+	OUTPUT = 'indirect=[' $('&N') ']'
+	$('&N') = 99
+	OUTPUT = 'write=[' $('&N') ']'
+	$('&N') = 100
+	OUTPUT = 'rewrite=[' $('&N') ']'
+	OUTPUT = 'direct-after=' &N
+	OUTPUT = 'undeclared=[' $('&NEVERSET') ']'
+	OUTPUT = 'reached-end'
 END
