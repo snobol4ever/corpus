@@ -1,91 +1,85 @@
 # corpus / benchmarks / snobol4
 
-Canonical SNOBOL4 benchmark programs for all snobol4ever implementations.
-Namespaced under `snobol4/` so the benchmark root can hold per-language
-sets (`snobol4/`, and future `icon/`, `prolog/`, …), mirroring
-`corpus/programs/<lang>/`.
+Canonical SNOBOL4 **timed** benchmark programs for all snobol4ever implementations.
+Namespaced under `snobol4/` so the benchmark root can hold per-language sets
+(`snobol4/`, `icon/`, …), mirroring `corpus/programs/<lang>/`.
 
-Each `.sno` file is a self-contained SNOBOL4 program that writes its result
-to OUTPUT. The `.spt` files are SPITBOL-dialect programs (use `-TITLE` and
-`./*` preprocessor directives) from the original SPITBOL test suite.
+**ONE FAMILY, ONE SHAPE (BM-2 end state, 2026-08-19 s170).** Every `.sno` in this
+directory is a **harness body**: it supplies a `ZBODY(ZKN)` kernel plus `ZCHK`/`ZBUD`/`ZFLR`
+and ends with `-INCLUDE 'harness.inc'`. There is no second shape, no `timed/` subdir, and
+no generator — `harness.inc` is the ONE driver and the bodies are **hand-edited**.
+`gen_timed_bench_snobol4.sh` is DELETED; do not resurrect it.
 
-⚠️ PATH NOTE (2026-06-22 reorg): programs moved from `corpus/benchmarks/`
-to `corpus/benchmarks/snobol4/`. Sibling repos (`snobol4jvm`,
-`snobol4dotnet`) point to this corpus as a Git submodule and load programs
-from this folder — their benchmark runners need their load path updated
-from `benchmarks/*.sno` to `benchmarks/snobol4/*.sno`. The SCRIP-side
-runners (`test_bench_snobol4_modes.sh`, `util_regen_benchmark_s_artifacts.sh`,
-`test_crosscheck_jvm_artifact_check.sh`) were updated in the same reorg.
-
----
-
-## Benchmark Programs
-
-| File | Bottleneck | Key operations |
-|------|-----------|----------------|
-| `roman.sno` | Recursive function dispatch | DEFINE, RPOS, LEN, BREAK, REPLACE, GOTO |
-| `fibonacci.sno` | Deep recursion | FIB(18) ≈ 10,945 recursive calls |
-| `arith_loop.sno` | Interpreter dispatch | Tight counter loop, no I/O or patterns |
-| `string_pattern.sno` | Pattern matching | BREAK, CSV parsing, 200 iters |
-| `string_manip.sno` | String function throughput | REPLACE, SIZE, SUBSTR, 500 iters |
-| `var_access.sno` | Identifier lookup | 5 vars, read/write in tight loop, 2000 iters |
-| `op_dispatch.sno` | Arithmetic operators | +, -, *, /, GE in loop |
-| `pattern_bt.sno` | Pattern backtracking | Alternation of 4 choices + SPAN, 500 iters |
-| `table_access.sno` | TABLE ops | 500-entry TABLE fill + sum |
-| `table_churn.sno` | Integer-keyed TABLE subscript (AGG) | ONE table, 400-entry fixed live set, 10000 read+write passes. ⛔ Measure with `SCRIP_NOHUGE=1` — see the header comment. |
-| `arith_mixed.sno` | MIXED int/real arithmetic (ARITH) | The ONLY program that reaches `rt_num_arith`: integer-only programs never do (the emitter inlines int arithmetic), so `arith_loop` counts ZERO at every loop count. 40,000,001 calls/run, scales linearly, ~1.6s natural window at F=1. Checksum `floor(1.5*(P+1))` predicted in advance, matched at P=40M and P=80M. RTX-0d, s204. |
-| `func_call_overhead.sno` | Call/return overhead | Trivial INC(), 3000 calls |
-| `mixed_workload.sno` | Combined | Pattern parse + TABLE + recursion, 200 iters |
-| `eval_fixed.sno` | EVAL() compile cost | Fixed expression, 200 iters |
-| `eval_dynamic.sno` | EVAL() with no reuse | Dynamic expression, 200 iters |
-| `indirect_dispatch.sno` | $ indirect dispatch | $FN(X), 500 iters — contrast with eval_fixed |
-| `testpgms.spt` | SPITBOL diagnostics | Full SPITBOL test suite (4 phases) |
-| `testpgms-test1.spt` … `test4.spt` | SPITBOL diagnostics | Individual phases |
-
----
-
-## `timed/` — the TIME-BASED family (2026-08-19 s149)
-
-The 23 programs above are an **iteration-based measurement of TIME**: they fix the
-loop count and print elapsed ms.  `timed/` inverts it — **fix the TIME, count the
-ITERATIONS** — and reports a throughput (iters/sec) that is directly comparable
-across engines.
+Three phases per program: **CHECK** (fixed count, deterministic — the `check:` line is the
+only thing the `.ref` holds and the only thing diffed) · **CALIBRATE** (double the batch
+until it spans `ZFLR` ms) · **MEASURE** (batches to a `ZBUD` ms deadline, printing `iters:`
+and `ms:`). Fix the TIME, count the ITERATIONS — a throughput directly comparable across
+engines, and a suite whose wall cost is bounded by construction.
 
 ```bash
-bash SCRIP/scripts/gen_timed_bench_snobol4.sh          # regenerate (edit the GENERATOR, not the .sno)
-bash SCRIP/scripts/test_bench_snobol4_timed.sh         # sbl / m3 / m4 throughput table
+bash SCRIP/scripts/test_bench_snobol4_timed.sh         # sbl / m3 / m4 throughput table + check gate
 bash SCRIP/scripts/bake_noise_floor_snobol4_timed.sh   # re-bake NOISE-FLOOR.tsv
 ```
 
-Each program runs three phases: **CHECK** (fixed small count, deterministic
-`check:` line — this is what the `.ref` holds and what is diffed) · **CALIBRATE**
-(grow the batch until it spans a ms floor) · **MEASURE** (batches to a deadline).
-Only `check:` is deterministic; `iters:`/`ms:` are measurements and are never
-ref-diffed.
-
-⛔ **Read `NOISE-FLOOR.tsv` before calling any difference real.** The floor is a
-property of the (kernel, engine, THP-arm) triple, not of the harness — measured
-range 0.2%–34.6% cv.  The runner prints each row's min-detectable difference.
-
-⛔ **SCRIP engines are measured with `SCRIP_NOHUGE=1`.** Transparent huge pages
-make every *allocating* row unmeasurable in the shipping arm (`table_access_t`
-cv 26.9%, min-detectable 80.7%) and cost real throughput (`table_access_t`
-2,675/s → 6,042/s, **2.26x**).  See
-`.github/FINDING-2026-08-19-s149-time-based-benchmarks-and-the-thp-throughput-defect.md`.
-
-⛔ **The 23 legacy programs have a DEAD correctness oracle**: every one prints a
-nondeterministic ms delta while every sibling `.ref` holds a deterministic
-result, so no `.ref` can match.  The runner's `grep -vi 'ms:'` filter catches
-only `roman.sno`.  Unfixed — conversion is Lon's call (it touches the scorecard's
-`benchmarks` suite and the `snobol4jvm`/`snobol4dotnet` loaders).
+The `.spt` files are SPITBOL-dialect programs (`-TITLE`, `./*` directives) from the original
+SPITBOL test suite — data for the diagnostics runners, not part of this family.
 
 ---
 
-## Adding New Benchmarks
+## Benchmark Programs (15, all graded)
 
-1. Write a self-contained `.sno` file here.
-2. Add a header comment: name, bottleneck, expected output.
-3. The final statement must write to `OUTPUT` (not a variable) so all runners
-   can verify correctness without knowing variable names.
-4. Update this README table.
-5. Add the program to the runner in each implementation repo.
+| File | Bottleneck | Key operations |
+|------|-----------|----------------|
+| `arith_loop.sno` | Counter increment; loop dispatch | Tight counter loop, no I/O or patterns |
+| `array_sum.sno` | Array allocation, indexed store and fetch | `ARRAY`, subscript store/fetch |
+| `eval_fixed.sno` | Run-time compilation of a fixed expression string | `EVAL()` |
+| `fibonacci.sno` | Recursive call depth | Recursive `FIB` |
+| `func_call.sno` | Program-defined call and return overhead | Direct call to a SNOBOL-defined function |
+| `indirect_dispatch.sno` | **BY-NAME dispatch** | `APPLY(<name in a variable>, arg)` — contrast with `func_call` (direct) and `eval_fixed` (EVAL). ⛔ **m4 XFAIL, B1 class** — see `indirect_dispatch.xfail` |
+| `mixed_workload.sno` | Combined | Pattern parse + TABLE + recursion, one of each per iteration. ⛔ **m4 SIGSEGV** — pre-existing, ablated to `corpus/probe/mwseg/` |
+| `op_dispatch.sno` | Arithmetic operator dispatch and predicate test | `+ - * /`, `GE` in a loop |
+| `pattern_bt.sno` | Alternation backtracking | 4 choices + `SPAN`, capture on the winning arm |
+| `roman.sno` | Recursive function dispatch | `DEFINE`, `RPOS`, `LEN`, `BREAK`, `REPLACE`, converting a different integer each iteration |
+| `string_concat.sno` | String growth; cost rises with length | Repeated concatenation |
+| `string_manip.sno` | `REPLACE` character translation over a fixed string | `REPLACE`, `SIZE` |
+| `string_pattern.sno` | `BREAK` scanning with conditional capture | Field split, CSV shape |
+| `table_access.sno` | Table creation, hashed store and fetch | 500-entry `TABLE` fill + sum |
+| `var_access.sno` | Natural variable read and write traffic | 5 vars, read/write in a tight loop |
+
+**Retired 2026-08-19 s170** per Lon's *"enough variations"* (BM-2): `arith_int`, `arith_mixed`,
+`arith_str`, `cap_imm_nret`, `cap_imm_nret2`, `eval_dynamic`, `func_call_overhead`,
+`pattern_bt_deep`, `table_churn` — each a redundant variant of a surviving row, all nine
+legacy-shaped (fixed count, printed a raw ms delta, and so could never match a `.ref`).
+Their text is in corpus git history. ⛔ `arith_mixed` was the only program reaching
+`rt_num_arith` and `table_churn` the densest `rt_agg_alloc` row — `scripts/bench_sno_rtx.sh`'s
+ARITH/ALLOC family sets were repointed and the loss is named there, not silently absorbed.
+
+---
+
+## Reading the numbers
+
+⛔ **Read `NOISE-FLOOR.tsv` before calling any difference real.** The floor is a property of
+the (kernel, engine, THP-arm) triple, not of the harness — measured range 0.2%–34.6% cv. The
+runner prints each row's min-detectable difference; a smaller delta is WEATHER.
+
+⛔ **SCRIP engines are measured with `SCRIP_NOHUGE=1`.** Transparent huge pages make every
+*allocating* row unmeasurable in the shipping arm and cost real throughput (2.26x on
+`table_access`). See `FINDING-2026-08-19-s149-time-based-benchmarks-and-the-thp-throughput-defect.md`.
+
+⛔ **A window containing a garbage collection is not a throughput reading.** The runner sizes
+the arena past the window (`HEAP=1024`) and prints a per-row `gc` count; `gc>0` marks the row
+untrusted rather than averaging an ~835 ms stall into it (BM-3).
+
+---
+
+## Adding or changing a benchmark
+
+1. Write the kernel as `DEFINE('ZBODY(ZKN)')` returning a check value that **witnesses the
+   computation** (a census, not "it ran"), set `ZCHK`/`ZBUD`/`ZFLR`, end with
+   `-INCLUDE 'harness.inc'`. Reserved: labels `ZCAL ZMEAS ZB`, variables
+   `ZT ZD ZE ZN ZK ZKN ZCHK ZBUD ZFLR`.
+2. Put the phase-1 value in a sibling `.ref` as the single line `check: <value>`, taken from
+   the live oracle (`x64/bin/sbl -b`).
+3. Update this table, then re-bake `NOISE-FLOOR.tsv`.
+4. A program that is not harness-driven is **not graded**, and the runner now prints it by
+   name under `UNGRADED` and fails — the end state is mechanical, not a convention.

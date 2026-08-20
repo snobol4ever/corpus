@@ -1,5 +1,14 @@
 # snobol4ever Cross-Engine Benchmark Results
 
+> ⛔ **HISTORICAL RECORD — THE PROGRAM SET BELOW NO LONGER EXISTS AS MEASURED (note added 2026-08-19 s170).**
+> The tables here are dated measurements and are kept verbatim as the record. Since then
+> `corpus/benchmarks/snobol4` became ONE family of 15 harness-driven timed programs (BM-2):
+> nine legacy variants were retired — `arith_int` `arith_mixed` `arith_str` `cap_imm_nret`
+> `cap_imm_nret2` `eval_dynamic` `func_call_overhead` `pattern_bt_deep` `table_churn` — and
+> `roman`, `mixed_workload`, `indirect_dispatch` were converted to harness bodies, which changes
+> their iteration counts and their printed output. **Do not re-run these tables against the
+> current corpus and expect the same rows.** Current family + method: `benchmarks/snobol4/README.md`.
+
 **Date**: 2026-04-01 (JS added SJ-8; DOTNET updated session154/156; SPITBOL/CSNOBOL4/JVM from 2026-03-10)
 **Host**: Linux x86-64, Java 21.0.10, .NET 10.0.103, Node.js v22.22.0
 **Engines**:
@@ -89,6 +98,11 @@ and has pattern match issues in the uberjar `vm/run-program!` entry point.
 - CSNOBOL4 `mstime.c` already returns milliseconds, no patch needed.
 - DOTNET `_timerExecute` started before `ExecuteLoop()` in threaded path (Builder.cs fix).
 - `indirect_dispatch.sno` excluded — SPITBOL error 022 on `$FN()` indirect call syntax.
+  - ⛔ **Superseded 2026-08-19 s170:** the program no longer uses `$FN(X)`. It uses
+    `APPLY(<name in a variable>, arg)`, which the SPITBOL oracle executes correctly
+    (re-measured: `apply: 6`), so the row is oracle-valid and graded again. What is red
+    is SCRIP **m4 only** (SIGSEGV, the B1 by-name-dispatch class) — see its sibling
+    `.xfail` and `probe/b1/b1_apply_snodef_target.sno`.
 - EVAL benchmarks show very high interpreter overhead in both DOTNET and JVM vs SPITBOL.
   Sprint 23E (JVM inline EVAL!) targets this bottleneck.
 

@@ -1,15 +1,26 @@
-START &TRIM = 1
-      &STLIMIT = 1000000000
-      DEFINE('ROMAN(N)T')  :(ROMAN_END)
-ROMAN N ? RPOS(1) LEN(1) . T =  :F(RETURN)
-      '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' T BREAK(',') . T  :F(FRETURN)
-      ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T  :S(RETURN)F(FRETURN)
+* roman -- TIME-BASED: fixed ms budget, count iterations.
+* bottleneck: recursive function dispatch; RPOS/LEN/BREAK patterns; REPLACE
+* The kernel converts a DIFFERENT integer each iteration (1001..1000+ZKN) rather
+* than the historical fixed '1776': a fixed argument is hoistable in principle and
+* exercises exactly one recursion depth, so a varying one keeps the row honest as
+* the optimizer grows.  Check value = total length of every numeral produced, so
+* the census witnesses each conversion, not just that the loop ran.
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        ZCHK = 200
+        ZBUD = 500
+        ZFLR = 20
+        DEFINE('ROMAN(N)T')                             :(ROMAN_END)
+ROMAN   N ? RPOS(1) LEN(1) . T =                        :F(RETURN)
+        '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' T BREAK(',') . T   :F(FRETURN)
+        ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T   :S(RETURN)F(FRETURN)
 ROMAN_END
-      T1 = TIME()
-      N = 0
-LOOP  R = ROMAN('1776')
-      N = LT(N, 100000) N + 1  :S(LOOP)
-      T2 = TIME()
-      OUTPUT = "result: " R
-      OUTPUT = "ms: " (T2 - T1)
-END
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI = 1
+        ZS = 0
+ZBL     ZS = ZS + SIZE(ROMAN(1000 + ZI))
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = ZS                                      :(RETURN)
+ZBODY_END
+-INCLUDE 'harness.inc'

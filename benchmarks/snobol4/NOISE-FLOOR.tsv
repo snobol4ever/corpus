@@ -1,45 +1,54 @@
 # TIME-based SNOBOL4 benchmarks -- MEASURED run-to-run noise floor
-# baked 2026-08-19T19:59:34Z by scripts/bake_noise_floor_snobol4_timed.sh  reps=5
+# baked 2026-08-20T01:16:38Z by scripts/bake_noise_floor_snobol4_timed.sh  reps=5
 # SCRIP_NOHUGE=1  SCRIP_HEAP_MB=1024  (arena sized past the window so no
 #   collection fires inside it -- a GC row measures an ~835ms stall, not dispersion)
-# min_detectable_pct = 3*cv; a single-run delta smaller than this is WEATHER.
 # ⛔ THE ALLOCATING ROWS' DISPERSION WAS THE GC STALL LOTTERY, NOT THP (BM-3 correction):
-#   GC-free, table_access m3 goes cv 12.4%->1.9%, array_sum m3 10.9%->0.5% -- both now gate-able.
-# baked on a SHARED box (concurrent seats live); floors include host-load weather and are CONSERVATIVE.
+#   whether an ~835ms regeneration lands inside the window is a coin flip, and it was being
+#   baked as variance.  GC-free, table_access m3 goes cv 12.4%->1.9% and array_sum 10.9%->0.5%.
+# min_detectable_pct = 3*cv; a single-run delta smaller than this is WEATHER.
 bench	engine	thp	reps	mean_per_s	cv_pct	maxmin	min_detectable_pct
-arith_loop	sbl	n/a	5	23052171	1.1	1.03	3.3
-arith_loop	m3	nohuge=1	5	117283360	0.4	1.01	1.3
-arith_loop	m4	nohuge=1	5	126350544	0.5	1.01	1.6
-array_sum	sbl	n/a	5	19459	0.9	1.03	2.7
-array_sum	m3	nohuge=1	5	18050	0.5	1.01	1.4
-array_sum	m4	nohuge=1	5	17827	1.5	1.05	4.5
-eval_fixed	sbl	n/a	5	5834842	1.8	1.05	5.3
-eval_fixed	m3	nohuge=1	5	3826651	2.0	1.06	6.1
-eval_fixed	m4	nohuge=1	5	3762402	0.9	1.02	2.6
-fibonacci	sbl	n/a	5	6210	1.2	1.04	3.7
-fibonacci	m3	nohuge=1	5	30444	0.6	1.02	1.8
-fibonacci	m4	nohuge=1	5	30712	0.6	1.02	1.7
-func_call	sbl	n/a	5	12515077	8.0	1.26	24.0
-func_call	m3	nohuge=1	5	78654112	0.3	1.01	0.8
-func_call	m4	nohuge=1	5	78999271	0.6	1.02	1.7
-op_dispatch	sbl	n/a	5	9943001	3.1	1.08	9.2
-op_dispatch	m3	nohuge=1	5	58510216	0.3	1.01	1.0
-op_dispatch	m4	nohuge=1	5	57822358	0.8	1.02	2.5
-pattern_bt	sbl	n/a	5	3904887	1.1	1.03	3.2
-pattern_bt	m3	nohuge=1	5	3557112	1.1	1.03	3.3
-pattern_bt	m4	nohuge=1	5	3537275	0.8	1.03	2.5
-string_concat	sbl	n/a	5	5309423	3.5	1.11	10.4
-string_concat	m3	nohuge=1	5	15691162	12.1	1.43	36.2
-string_concat	m4	nohuge=1	5	17160000	2.6	1.07	7.7
-string_manip	sbl	n/a	5	9343714	1.9	1.05	5.8
-string_manip	m3	nohuge=1	5	2655395	3.8	1.10	11.4
-string_manip	m4	nohuge=1	5	2767847	1.3	1.04	4.0
-string_pattern	sbl	n/a	5	8376522	0.4	1.01	1.2
-string_pattern	m3	nohuge=1	5	5585044	4.2	1.12	12.7
-string_pattern	m4	nohuge=1	5	5744510	4.7	1.11	14.0
-table_access	sbl	n/a	5	16837	0.9	1.02	2.6
-table_access	m3	nohuge=1	5	8021	1.9	1.05	5.6
-table_access	m4	nohuge=1	5	8053	1.9	1.05	5.7
-var_access	sbl	n/a	5	8582527	2.2	1.06	6.6
-var_access	m3	nohuge=1	5	59714274	0.3	1.01	0.8
-var_access	m4	nohuge=1	5	64579110	0.5	1.02	1.5
+arith_loop	sbl	n/a	5	18128860	16.0	1.63	47.9
+arith_loop	m3	nohuge=1	5	103364660	4.3	1.12	12.8
+arith_loop	m4	nohuge=1	5	107856488	4.0	1.12	12.0
+array_sum	sbl	n/a	5	18222	2.4	1.07	7.3
+array_sum	m3	nohuge=1	5	15844	3.2	1.08	9.6
+array_sum	m4	nohuge=1	5	16206	5.2	1.13	15.7
+eval_fixed	sbl	n/a	5	5317771	2.6	1.07	7.8
+eval_fixed	m3	nohuge=1	5	3579980	2.9	1.08	8.6
+eval_fixed	m4	nohuge=1	5	3088057	1.5	1.04	4.4
+fibonacci	sbl	n/a	5	5729	4.1	1.12	12.2
+fibonacci	m3	nohuge=1	5	27667	0.8	1.02	2.4
+fibonacci	m4	nohuge=1	5	27806	0.8	1.02	2.4
+func_call	sbl	n/a	5	11809251	4.2	1.10	12.6
+func_call	m3	nohuge=1	5	67425859	4.6	1.14	13.8
+func_call	m4	nohuge=1	5	72005659	1.6	1.05	4.9
+indirect_dispatch	sbl	n/a	5	9177117	3.6	1.12	10.8
+indirect_dispatch	m3	nohuge=1	5	4320698	6.6	1.21	19.7
+indirect_dispatch	m4	nohuge=1	0	NA	NA	NA	NA
+mixed_workload	sbl	n/a	5	296262	3.5	1.11	10.6
+mixed_workload	m3	nohuge=1	5	130568	3.2	1.09	9.6
+mixed_workload	m4	nohuge=1	0	NA	NA	NA	NA
+op_dispatch	sbl	n/a	5	8205520	0.9	1.03	2.8
+op_dispatch	m3	nohuge=1	5	51855635	4.7	1.15	14.2
+op_dispatch	m4	nohuge=1	5	55785948	1.9	1.05	5.7
+pattern_bt	sbl	n/a	5	3524852	3.3	1.11	9.9
+pattern_bt	m3	nohuge=1	5	3062451	2.4	1.07	7.2
+pattern_bt	m4	nohuge=1	5	2293475	28.7	2.25	86.2
+roman	sbl	n/a	5	687675	0.9	1.03	2.8
+roman	m3	nohuge=1	5	181699	4.1	1.13	12.3
+roman	m4	nohuge=1	5	147610	29.3	2.08	88.0
+string_concat	sbl	n/a	5	3989326	5.3	1.17	16.0
+string_concat	m3	nohuge=1	5	13818731	4.8	1.14	14.4
+string_concat	m4	nohuge=1	5	13920000	4.4	1.11	13.3
+string_manip	sbl	n/a	5	8168453	1.6	1.04	4.7
+string_manip	m3	nohuge=1	5	2251284	5.1	1.16	15.2
+string_manip	m4	nohuge=1	5	2214199	5.6	1.16	16.8
+string_pattern	sbl	n/a	5	6553117	2.6	1.08	7.7
+string_pattern	m3	nohuge=1	5	4710352	2.4	1.06	7.3
+string_pattern	m4	nohuge=1	5	4465542	2.6	1.08	7.7
+table_access	sbl	n/a	5	12932	3.1	1.08	9.3
+table_access	m3	nohuge=1	5	6737	0.9	1.02	2.7
+table_access	m4	nohuge=1	5	6833	3.8	1.11	11.3
+var_access	sbl	n/a	5	6840653	5.1	1.17	15.4
+var_access	m3	nohuge=1	5	49832850	1.2	1.03	3.5
+var_access	m4	nohuge=1	5	50999887	2.4	1.07	7.1

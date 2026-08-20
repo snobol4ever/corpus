@@ -1,9 +1,0 @@
-START &TRIM = 1
-      &ANCHOR = 0
-      &STLIMIT = 4294967295
-      T1 = TIME()
-      N = 0
-LOOP  N = LE(N, 100000000) N + 1 :S(LOOP)
-      T2 = TIME()
-      OUTPUT = T2 - T1
-END

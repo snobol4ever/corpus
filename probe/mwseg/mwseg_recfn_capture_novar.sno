@@ -1,0 +1,14 @@
+        &TRIM = 1
+        &ANCHOR = 0
+        DEFINE('F(N)')  :(E)
+F       F = EQ(N, 0) 0  :S(RETURN)
+        F = N + F(N - 1)  :(RETURN)
+E       P = BREAK(',') . W ','
+        D = '10,20,'
+
+        I = 0
+L       D ? P =  :F(Z)
+        I = I + 1
+        S = S + W  :(L)
+Z       OUTPUT = "tot: " S
+END

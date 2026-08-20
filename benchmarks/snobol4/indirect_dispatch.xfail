@@ -1,6 +1,14 @@
-ORACLE-ERROR (broken upstream). `$FN(X)` with FN='ADD1' makes the sbl oracle
-itself raise ERROR 022 (undefined function called) at line 13. M4 produces
-empty output (no error). This benchmark is invalid as written; it is excluded
-from the correctness denominator. "Working" = match the oracle's error/empty
-disposition, which M4 does (empty out, rc=0). Do NOT count as a green win.
-Verified 2026-06-20 (Claude) vs /home/claude/x64/bin/sbl -b.
+XFAIL m4 ONLY -- B1 CLASS, COMPILER DEFECT, NOT A BENCHMARK DEFECT (re-grounded 2026-08-19 s170).
+The kernel is APPLY(ZFN, ZI) with ZFN='ADD1', a SNOBOL-defined target reached by name.
+  oracle sbl : check: 125750   PASS
+  scrip m3   : check: 125750   PASS
+  scrip m4   : SIGSEGV
+Root class = B1, "by-name dispatch cannot reach SNOBOL-defined targets in m4"
+(FINDING-2026-08-19-s156-B1-root-cause-...).  Ablated to 3 lines this session:
+probe/b1/b1_apply_snodef_target.sno SEGVs in m4 while APPLY('SIZE','abcd') (built-in
+target, same dispatch call) and a direct ADD1(5) are both green in m4 -- so the APPLY
+machinery is exonerated and the SNOBOL-defined *target* is the defect.
+SUPERSEDES the 2026-06-20 note, whose premise is DEAD: that note described `$FN(X)`, a
+form the oracle itself rejects (ERROR 022, re-measured 2026-08-19) and which this file no
+longer contains.  The row is now oracle-valid and gradeable; only the m4 arm is red, and
+it goes green when B1 lands (HQ D-9/D-10).  Do NOT delete this row to make a board green.
