@@ -1,0 +1,16 @@
+* bw6k: bw6 with the variable renamed nl -> q (same CHAR(10) value, concat subject)
+          $('Z' 'Z') = 1
+          q = CHAR(10)
+          DEFINE('PC()')
+          DEFINE('nPush()')                               :(SEND)
+PC        OUTPUT = 'PC()'
+          PC = .dummy                                     :(NRETURN)
+nPush     nPush = epsilon . *PC()                         :(RETURN)
+SEND
+          Parse = nPush() BREAK(q) q
+          Src = 'START' q
+          Src *Parse                                      :F(NOMATCH)
+          OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END

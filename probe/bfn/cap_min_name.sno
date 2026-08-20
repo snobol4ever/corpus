@@ -1,0 +1,7 @@
+* dc1: deferred capture to a plain NAME, inline in match
+          $('Z' 'Z') = 1
+          'ab' LEN(1) . *V                                :F(NO)
+          OUTPUT = 'match V=' V                           :(DONE)
+NO        OUTPUT = 'nomatch'
+DONE
+END

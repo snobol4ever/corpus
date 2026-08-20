@@ -1,0 +1,14 @@
+* bw6b: capture built inline, no function call
+          $('Z' 'Z') = 1
+          nl = CHAR(10)
+          DEFINE('PC()')                                  :(SEND)
+PC        OUTPUT = 'PC()'
+          PC = .dummy                                     :(NRETURN)
+SEND
+          Parse = (epsilon . *PC()) BREAK(nl) nl
+          Src = 'START' nl
+          Src *Parse                                      :F(NOMATCH)
+          OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END
