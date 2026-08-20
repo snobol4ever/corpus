@@ -1,4 +1,4 @@
-	output = reverse("dlrow olleh")
-	output = reverse("daed si luap")
-	output = reverse(reverse(&UCASE))
-end
+	OUTPUT = REVERSE("dlrow olleh")
+	OUTPUT = REVERSE("daed si luap")
+	OUTPUT = REVERSE(REVERSE(&UCASE))
+END

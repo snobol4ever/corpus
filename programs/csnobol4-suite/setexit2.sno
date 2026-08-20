@@ -2,11 +2,11 @@
 
 	:(begin)
 
-xxx	output = &LASTFILE ':' &LASTLINE ' stmt ' &LASTNO
-	output = &ERRTYPE ' "' &ERRTEXT '"'
-	:(continue)
+xxx	OUTPUT = &LASTFILE ':' &LASTLINE ' stmt ' &LASTNO
+	OUTPUT = &ERRTYPE ' "' &ERRTEXT '"'
+	:(CONTINUE)
 
 begin
-	&errlimit = 10
-	setexit(.xxx)
-end
+	&ERRLIMIT = 10
+	SETEXIT(.xxx)
+END

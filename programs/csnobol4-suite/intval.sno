@@ -1,12 +1,12 @@
-	&trim = 1.0
-	output = &trim
-	collect(999.9)
-	output = char(65.0)
-	output = dupl("*", 5.9999)
+	&TRIM = 1.0
+	OUTPUT = &TRIM
+	COLLECT(999.9)
+	OUTPUT = CHAR(65.0)
+	OUTPUT = DUPL("*", 5.9999)
 
-	&trim = '1.0'
-	output = &trim
-	collect('999.9')
-	output = char('65.0')
-	output = dupl("*", '5.9999')
-end
+	&TRIM = '1.0'
+	OUTPUT = &TRIM
+	COLLECT('999.9')
+	OUTPUT = CHAR('65.0')
+	OUTPUT = DUPL("*", '5.9999')
+END

@@ -3,6 +3,6 @@
 
         longer  = "aa"
         shorter = "a"
-        output  = lgt(shorter, longer) "wrong"
-        output  = lgt(longer, shorter) "right"
-end
+        OUTPUT  = LGT(shorter, longer) "wrong"
+        OUTPUT  = LGT(longer, shorter) "right"
+END

@@ -1,9 +1,9 @@
 *	test SPITBOL (-PLUSOPS) operators added in [PLB32]
 
-	&trace = 100
-	trace(.a, .value)
-	trace(.b, .value)
-	trace(.c, .value)
+	&TRACE = 100
+	TRACE(.a, .value)
+	TRACE(.b, .value)
+	TRACE(.c, .value)
 
 	c = 'yes'
 
@@ -12,38 +12,38 @@
 ****************
 *	embeded assign, tracing thereof
 	a = (b = c '!!')
-	output = a
-	output = b
+	OUTPUT = a
+	OUTPUT = b
 
 ****************
 *	exponents on reals (not an operator)
-	output = 4.2e1
-	output = 50.e-3
+	OUTPUT = 4.2e1
+	OUTPUT = 50.e-3
 
 ****************
 *	nested table/array access
-	tt = table()
-	tt['blue'] = table()
+	tt = TABLE()
+	tt['blue'] = TABLE()
 	tt<'blue'><'green'> = 'cyan'
-	output = tt<'blue'>['green']
+	OUTPUT = tt<'blue'>['green']
 *
 ****************
 *	'numeric' conversion
-	x = convert('17', .numeric)
-	output = datatype(x) ': ' x
+	x = CONVERT('17', .numeric)
+	OUTPUT = DATATYPE(x) ': ' x
 
-	x = convert('3.14159', .numeric)
-	output = datatype(x) ': ' x
+	x = CONVERT('3.14159', .numeric)
+	OUTPUT = DATATYPE(x) ': ' x
 
 ****************
 *	alternation
 
-	define("x()")
-	define("y()")
-	define("z()")					:(ez)
-x	output = 'TOO BIG'				:(freturn)
-y	output = 'too small'				:(freturn)
-z	output = 'Just Right'				:(return)
+	DEFINE("x()")
+	DEFINE("y()")
+	DEFINE("z()")					:(ez)
+x	OUTPUT = 'TOO BIG'				:(FRETURN)
+y	OUTPUT = 'too small'				:(FRETURN)
+z	OUTPUT = 'Just Right'				:(RETURN)
 ez
 
 	(x(), y(), z(), death())
@@ -52,8 +52,8 @@ ez
 *	match operator
 	a = b = 'yes!!'
 
-	(a ? b . c)					:f(end)
-	(a ? b $ c)					:f(end)
+	(a ? b . c)					:f(END)
+	(a ? b $ c)					:f(END)
 
 ****************
 *	tracing of match assign, replace
@@ -75,6 +75,6 @@ ez
 
 ****************
 *	the very end
-	output = 'all done'
+	OUTPUT = 'all done'
 
-end
+END

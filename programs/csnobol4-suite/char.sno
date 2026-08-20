@@ -1,6 +1,6 @@
-	output = char(65)
-	output = char(97)
-	output = char(126)
-	output = char(1)
-	output = char(9)
-end
+	OUTPUT = CHAR(65)
+	OUTPUT = CHAR(97)
+	OUTPUT = CHAR(126)
+	OUTPUT = CHAR(1)
+	OUTPUT = CHAR(9)
+END

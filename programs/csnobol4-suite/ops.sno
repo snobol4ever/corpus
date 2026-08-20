@@ -5,38 +5,38 @@
 * worked;
 	a = 'hello world'
 	a ' ' = 'x' 'y'
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 + 2 / 3
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 2 / 3
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 + 2 * 3
-	output = a
+	OUTPUT = a
 
 * failed;
 	a = 'hello world'
 	a ' ' = 'x' 'y' 'z'
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 + 2 / 3 4
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 + 2 3
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 + 2 + 3
-	output = a
+	OUTPUT = a
 
 	a = 'hello world'
 	a ' ' = 1 * 2 * 3
-	output = a
-end
+	OUTPUT = a
+END

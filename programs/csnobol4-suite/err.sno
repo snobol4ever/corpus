@@ -1,7 +1,7 @@
-	&errlimit = 2
+	&ERRLIMIT = 2
 	a[1] =
-	output = &errtype
-	output = &errtext
+	OUTPUT = &ERRTYPE
+	OUTPUT = &ERRTEXT
 * should be the same as before if &errtext reference ok
-	output = &errtype
-end
+	OUTPUT = &ERRTYPE
+END

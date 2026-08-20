@@ -4,11 +4,11 @@
 * operands.  Program is modeled on a test program used to test large
 * integer math in the Icon programming language.
 *
--include "INFINIP_lib.sno"
+-INCLUDE "INFINIP_lib.sno"
 
-    output(.output,6,128)
+    OUTPUT(.OUTPUT,6,128)
 
-    define("optest(ops,arg1s,arg2s)a,arg1,arg2,b,op,result,sign")
+    DEFINE("optest(ops,arg1s,arg2s)a,arg1,arg2,b,op,result,sign")
 
     big = "111111111111111111111"
     med1 = "2222222222"
@@ -22,20 +22,20 @@
     optest( "+,-,*,/,REMDR,LT,EQ,",
 +		 "big,med1,-med1,",
 +		 "med1,med2,-med2,")
-							:(end)
+							:(END)
 
 * Function to iterate through all operand combinations with all operators.
 *
-optest	ops  break(",") . op "," =			:f(return)
+optest	ops  BREAK(",") . op "," =			:f(RETURN)
 	arg1 = arg1s
-a	arg1  break(",") . a "," =			:f(optest)
+a	arg1  BREAK(",") . a "," =			:f(optest)
 	arg2 = arg2s
-b	arg2  break(",") . b "," =			:f(a)
-	gt.(size(op),1)					:s(do_fun)
-	result = eval(a " " op " " b)
-	output = eval(a) " " op " " eval(b) " = " result :(b)
-do_fun	result = apply(op,eval(a),eval(b))		:s(display)
+b	arg2  BREAK(",") . b "," =			:f(a)
+	gt.(SIZE(op),1)					:s(do_fun)
+	result = EVAL(a " " op " " b)
+	OUTPUT = EVAL(a) " " op " " EVAL(b) " = " result :(b)
+do_fun	result = APPLY(op,EVAL(a),EVAL(b))		:s(display)
 	result = "fail"
-display	result = ident(result) "success"
-	output = op "(" eval(a) ", " eval(b) ") = " result :(b)
-end
+display	result = IDENT(result) "success"
+	OUTPUT = op "(" EVAL(a) ", " EVAL(b) ") = " result :(b)
+END

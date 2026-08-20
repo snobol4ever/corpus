@@ -1,6 +1,6 @@
-copy	output = input		:s(copy)
-	rewind(5)
-copy2	output = input		:s(copy2)
-end
+COPY	OUTPUT = INPUT		:s(COPY)
+	REWIND(5)
+copy2	OUTPUT = INPUT		:s(copy2)
+END
 hello
 world

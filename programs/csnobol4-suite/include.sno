@@ -1,8 +1,8 @@
-	output = &file ':' &line
--include "line2.sno"
-	output = &file ':' &line
--include "line2.sno "
-	output = &file ':' &line
--include "line2.sno"
-	output = &file ':' &line
-end
+	OUTPUT = &FILE ':' &LINE
+-INCLUDE "line2.sno"
+	OUTPUT = &FILE ':' &LINE
+-INCLUDE "line2.sno "
+	OUTPUT = &FILE ':' &LINE
+-INCLUDE "line2.sno"
+	OUTPUT = &FILE ':' &LINE
+END

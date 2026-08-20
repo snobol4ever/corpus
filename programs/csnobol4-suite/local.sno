@@ -1,17 +1,17 @@
-	define("f(a,b)x")				:(f_end)
-f	output = "f: " x
+	DEFINE("f(a,b)x")				:(f_end)
+f	OUTPUT = "f: " x
 	x = a
 	g(b)
-	output = "f: " x				:(return)
+	OUTPUT = "f: " x				:(RETURN)
 f_end
 
-	define("g(a)x")					:(g_end)
-g	output = "g: " x
+	DEFINE("g(a)x")					:(g_end)
+g	OUTPUT = "g: " x
 	x = a
-	output = "g: " x				:(return)
+	OUTPUT = "g: " x				:(RETURN)
 g_end
 
 	x = 0
 	f('a','b')
-	output = "main: " x
-end
+	OUTPUT = "main: " x
+END

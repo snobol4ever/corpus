@@ -1,13 +1,13 @@
-	output = &file ':' &line
--include "line2.sno"
-	output = &file ':' &line
--line 1234 "foo"
-	output = &file ':' &line
--line 2000 "foo"
-	output = &file ':' &line
--include "line2.sno "
-	output = &file ':' &line
+	OUTPUT = &FILE ':' &LINE
+-INCLUDE "line2.sno"
+	OUTPUT = &FILE ':' &LINE
+-LINE 1234 "foo"
+	OUTPUT = &FILE ':' &LINE
+-LINE 2000 "foo"
+	OUTPUT = &FILE ':' &LINE
+-INCLUDE "line2.sno "
+	OUTPUT = &FILE ':' &LINE
 * test multiple includes 02/22/02
--include "line2.sno"
-	output = &file ':' &line
-end
+-INCLUDE "line2.sno"
+	OUTPUT = &FILE ':' &LINE
+END

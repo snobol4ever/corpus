@@ -1,10 +1,10 @@
 * 5/29/94 -plb
-	output = &alphabet
-	output = size(&alphabet)
+	OUTPUT = &ALPHABET
+	OUTPUT = SIZE(&ALPHABET)
 
-	output = &lcase
-	output = size(&lcase)
+	OUTPUT = &LCASE
+	OUTPUT = SIZE(&LCASE)
 
-	output = &ucase
-	output = size(&ucase)
-end
+	OUTPUT = &UCASE
+	OUTPUT = SIZE(&UCASE)
+END
