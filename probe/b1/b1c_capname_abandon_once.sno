@@ -1,0 +1,6 @@
+	DEFINE('F()')	:(Fe)
+F	OUTPUT = 'F called'	:(RETURN)
+Fe	P = EVAL('LEN(0) . *F()')
+	'abc' ? P
+	OUTPUT = 'OK'
+END

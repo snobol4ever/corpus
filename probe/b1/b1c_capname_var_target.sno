@@ -1,0 +1,7 @@
+	Q = 'q0'
+	P = 'A' . *Q
+	S = 'A'
+	S POS(0) P	:S(Y)F(N)
+Y	OUTPUT = 'match Q=[' Q '] q0=[' q0 ']'	:(END)
+N	OUTPUT = 'nomatch'
+END
