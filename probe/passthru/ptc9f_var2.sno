@@ -1,0 +1,7 @@
+          $('Z' 'Z') = 1
+          CMD = 'a' | 'b'
+          P = (LEN(1) . HD) ARBNO(*CMD)
+          'xabab' POS(0) *P RPOS(0)             :S(OK)F(NO)
+OK        OUTPUT = 'match:' HD                  :(END)
+NO        OUTPUT = 'nomatch'
+END

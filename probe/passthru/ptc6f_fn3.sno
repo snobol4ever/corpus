@@ -1,0 +1,8 @@
+          $('Z' 'Z') = 1
+          PX = 'LEN(2)'
+          DEFINE('F2()')                        :(GO)
+F2        F2 = LEN(1) *EVAL(PX) LEN(1)          :(RETURN)
+GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

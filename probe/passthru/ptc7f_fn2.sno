@@ -1,0 +1,8 @@
+          $('Z' 'Z') = 1
+          P1 = LEN(4)
+          DEFINE('F1()')                        :(GO)
+F1        F1 = " 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPUT = 'match' :(RET) ;CNO OUTPUT = 'nomatch' :(RET)" :(RETURN)
+GO        C = CODE(F1())
+          OUTPUT = 'before'                     :<C>
+RET       OUTPUT = 'back'
+END
