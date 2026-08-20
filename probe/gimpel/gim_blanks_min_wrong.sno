@@ -1,0 +1,6 @@
+*  MINIMAL WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.
+*  SCRIP answers 'X = A' -- a SILENT WRONG ANSWER, oracle-differential, and
+*  INDEPENDENT of RTSEQ-RESUME (SCRIP_RTSEQ_RESUME=0 gives the same wrong answer).
+-INCLUDE "BLANKS.sno"
+        OUTPUT  =  BLANKS('X = A')
+END

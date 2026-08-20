@@ -1,0 +1,9 @@
+*  BASE10_driver - exercises BASE10(N,B): string N in base B -> decimal.
+*  Contract per BASE10.sno header: digits beyond 0-9 come from A-Z.
+-INCLUDE "BASE10.sno"
+        OUTPUT  =  BASE10('FF', 16)
+        OUTPUT  =  BASE10('1010', 2)
+        OUTPUT  =  BASE10('777', 8)
+        OUTPUT  =  BASE10('ZZ', 36)
+        OUTPUT  =  BASE10('0', 10)
+END

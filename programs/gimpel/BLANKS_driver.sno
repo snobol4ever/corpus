@@ -1,0 +1,7 @@
+*  BLANKS_driver - exercises BLANKS(S): remove blanks from a Fortran statement
+*  (label already stripped).  Contract per BLANKS.sno header; depends on DIFF.
+-INCLUDE "BLANKS.sno"
+        OUTPUT  =  BLANKS('X = A + B')
+        OUTPUT  =  BLANKS('IF( A .EQ. B ) GO TO 10')
+        OUTPUT  =  BLANKS("WRITE(6,100) A, B")
+END
