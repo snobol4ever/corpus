@@ -77,7 +77,7 @@ contexts:
     - match: (^|;)([^ +\t]+)
       captures:
         1: punctuation.terminator.sno
-        2: entity.name.function.sno # (green) entity.name.label.sno (white) # entity.name.tag.sno (pink) # entity.name.section.sno (white) # variable.language.sno
+        2: entity.name.label.sno # s182: THE STATEMENT LABEL, on its own scope at last.  Mariana EXCLUDES entity.name.label from its orange `entity.name - (section|tag|label)` rule and styles it nowhere else, so it lands unstyled (white) in stock and the Packages/User override owns it outright -- no other language competes for it, unlike entity.name.function whose blue5 also carries punctuation, bracket contents, mapping keys and annotations.  Also DECOUPLES the label from the DEFINE('FOO()') name, which keeps entity.name.function.sno. # was entity.name.function.sno (blue5/teal) # entity.name.tag.sno (pink) # entity.name.section.sno (white) # variable.language.sno
       set: main
 
     - match: ;
@@ -448,7 +448,7 @@ contexts:
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
-        3: entity.name.function.sno # SAME scope as the statement label (terminator, line 73) so goto targets match label color # was entity.name.class.forward-decl.sno (green) # constant.other.label.sno (purple) # variable.function.sno (blue)
+        3: entity.name.label.sno # SAME scope as the statement label (line 73) so goto targets match label colour EXACTLY -- verified s182: neither site carries a meta_scope, so nothing stacks and the two are identical by construction.  NOTE the OTHER goto rule above scopes control_flow targets (END/RETURN/FRETURN/NRETURN/ABORT/CONTINUE/START/X_END) as keyword.control.sno = PINK, matching how control_label is scoped on the definition side -- that pink/cyan split is deliberate, and it is what makes the goto area look like it has 'varying shades'.
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
     - match: ([SF]?)<({{variable}})>

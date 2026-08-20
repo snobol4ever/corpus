@@ -19,6 +19,31 @@
     "rules":
     [
         {
+            // ⭐ THE LABEL CYAN (s182).  Statement labels and their goto targets now carry
+            // entity.name.label.sno, NOT entity.name.function.sno.  Mariana EXCLUDES
+            // entity.name.label from its orange rule --
+            //     "entity.name - (entity.name.section | entity.name.tag | entity.name.label)"
+            // -- and styles it nowhere else, so stock leaves it unstyled (white) and this rule
+            // owns it outright.  Nothing else in any language competes for it, unlike blue5,
+            // which stock also spends on punctuation, bracket contents, mapping keys and
+            // annotations.  Cost of the move, stated plainly: without this file the labels are
+            // plain white instead of inheriting blue5.
+            //
+            // WHY CYAN AND NOT THE OLD TEAL.  Mariana has exactly ONE colour at cyan's hue --
+            // blue5 = hsl(180, 36%, 54%) -- so hue 180 was always the right hue; what read as
+            // "teal" was the SATURATION.  The previous override lifted lightness 54% -> 70% but
+            // left saturation at 42%, and high-lightness/low-saturation is what washes a hue out.
+            // Raising saturation instead gives cyan without the glare of orange (hsl 32, 93%).
+            // To taste, edit the SATURATION: 42% = old pale teal, 58% = this, 68% = vivid cyan.
+            // Keep lightness at or below ~66% or it washes out again.
+            "name": "SNOBOL4 statement label + goto target — cyan",
+            "scope": "entity.name.label.sno",
+            "foreground": "hsl(180, 58%, 62%)"
+        },
+        {
+            // NOW ONLY the DEFINE('FOO()') name and interpolated-string variables — the labels
+            // moved to entity.name.label.sno above.  Kept at the lifted teal so DEFINE names do
+            // not jump; delete this rule to return them to stock blue5.
             // THE LABEL TEAL, ONE SHADE UP.  Stock Mariana gives entity.name.function
             // its "blue5" = hsl(180, 36%, 54%), and spends that same variable on
             // punctuation, bracket contents, string keys and the indent guides — so
