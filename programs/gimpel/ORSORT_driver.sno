@@ -1,0 +1,33 @@
+*  ORSORT_driver - exercises ORSORT(LIST): a front-end to OR that sorts LIST
+*  first, so OR can factor it better.  Contract per ORSORT.sno header, whose
+*  own example is that ORSORT(",LISO,LIST,LISTER,ABC") is equivalent to
+*  "ABC" | ("LIS" ("O" | "T" | "TER")).  The first character of LIST is the
+*  delimiter.  Cases: every alternative of that example matched, a non-member
+*  refused, an already-sorted list, and a delimiter other than a comma.
+-INCLUDE "ORSORT.sno"
+        P  =  ORSORT(',LISO,LIST,LISTER,ABC')
+        'LISO'   POS(0) P RPOS(0)			:F(F1)
+        OUTPUT  =  'LISO: matched'			:(N2)
+F1      OUTPUT  =  'LISO: no match'
+N2      'LIST'   POS(0) P RPOS(0)			:F(F2)
+        OUTPUT  =  'LIST: matched'			:(N3)
+F2      OUTPUT  =  'LIST: no match'
+N3      'LISTER' POS(0) P RPOS(0)			:F(F3)
+        OUTPUT  =  'LISTER: matched'			:(N4)
+F3      OUTPUT  =  'LISTER: no match'
+N4      'ABC'    POS(0) P RPOS(0)			:F(F4)
+        OUTPUT  =  'ABC: matched'			:(N5)
+F4      OUTPUT  =  'ABC: no match'
+N5      'LIS'    POS(0) P RPOS(0)			:F(F5)
+        OUTPUT  =  'LIS: matched'			:(N6)
+F5      OUTPUT  =  'LIS: no match'
+N6      Q  =  ORSORT(',ABLE,ACTOR,ANCHOR')
+        'ANCHOR' POS(0) Q RPOS(0)			:F(F6)
+        OUTPUT  =  'sorted input: matched'		:(N7)
+F6      OUTPUT  =  'sorted input: no match'
+N7      R  =  ORSORT('/RED/GREEN/BLUE')
+        'BLUE'  POS(0) R RPOS(0)			:F(F7)
+        OUTPUT  =  'slash delimiter: matched'		:(N8)
+F7      OUTPUT  =  'slash delimiter: no match'
+N8
+END

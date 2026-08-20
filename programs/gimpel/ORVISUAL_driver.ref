@@ -1,0 +1,5 @@
+ (('A' (('BLE') | ('CTOR') | ('NCHOR'))) | ('B' (('AKER') | ('ULL'))))
+ ('C' ANY('AO') ( (('D') | ('ST'))))
+ (('LI' ('' | ('ST'))))
+round trip ANCHOR: matched
+round trip ANCHOVY: no match

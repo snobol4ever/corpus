@@ -1,0 +1,19 @@
+*  ONEWAY_driver - exercises ONEWAY(S).
+*
+*  NOTE ON THE CONTRACT.  ONEWAY.sno ships with NO header comment, so it has
+*  no stated contract -- the manifest's contract_line for it is empty.  What
+*  the module fixes on its own, without reading its body for behaviour: the
+*  name and the -MODULE line say a one-way function of a string, and the
+*  cases drive the two properties a one-way function has by definition --
+*  the SAME input gives the SAME output (case 1 against case 2), and inputs
+*  differing in one character give unrelated outputs (cases 3 and 4).  No
+*  case asserts a particular digest value; the .ref records what the oracle
+*  produces.
+-INCLUDE "ONEWAY.sno"
+        OUTPUT  =  ONEWAY('HELLO')
+        OUTPUT  =  ONEWAY('HELLO')
+        OUTPUT  =  ONEWAY('HELLP')
+        OUTPUT  =  ONEWAY('JELLO')
+        OUTPUT  =  ONEWAY('A')
+        OUTPUT  =  ONEWAY('ABCDEFGHIJ')
+END

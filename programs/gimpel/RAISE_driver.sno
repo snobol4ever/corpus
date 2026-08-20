@@ -1,0 +1,23 @@
+*  RAISE_driver - exercises RAISE(X,Y): X raised to the Y power, for real X
+*  and Y.  Contract per RAISE.sno header.
+*
+*  ⛔ NOTE ON THE MISSING -INCLUDE: RAISE.sno IS BROKEN AS SHIPPED, IN BOTH
+*  DIALECTS.  Its one live statement is
+*        DEXP('RAISE(X,Y) = X ** Y')            :(EXP_END)
+*  and EXP_END is COMMENTED OUT along with the series expansion above it, so
+*  the goto has no target.  Spitbol stops with ERROR 038 -- goto undefined
+*  label; CSNOBOL4 stops with Error 24 -- undefined or erroneous goto.  There
+*  is therefore NO oracle, of either dialect, that can run the included form,
+*  and no honest .ref of it exists to be had.  This is a defect in the
+*  corpus module, not in SCRIP, and it is recorded in the batch-E FINDING.
+*
+*  What survives is the contract the header itself states: "Modified for
+*  SPITBOL, which provides X ** Y for real X,Y" -- so the cases below drive
+*  exactly that.  Same arrangement as SQRT_driver in batch C.
+        OUTPUT  =  2.0 ** 10
+        OUTPUT  =  9.0 ** 0.5
+        OUTPUT  =  2.0 ** 0
+        OUTPUT  =  7.0 ** 1
+        OUTPUT  =  0.25 ** 0.5
+        OUTPUT  =  2.0 ** -2
+END

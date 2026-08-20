@@ -1,0 +1,20 @@
+*  PARAGRAP_driver - exercises PARAGRAPH(FIRST_LINE): read in a paragraph
+*  provided the first line on input matches the pattern FIRST_LINE, the
+*  paragraph continuing until a blank appears in column 1, and FAILING if no
+*  paragraph is found.  Contract per PARAGRAP.sno header.  Input comes from
+*  PARAGRAP_driver.input on stdin, via the scorecard's <base>.input
+*  convention.  Cases: two paragraphs read in turn with a first-line pattern
+*  that holds, then the same pattern against a paragraph whose first line
+*  does NOT match, which the contract says must fail.
+-INCLUDE "PARAGRAP.sno"
+        T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F1)
+        OUTPUT  =  '[' T ']'				:(N2)
+F1      OUTPUT  =  'first paragraph: not found'
+N2      T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F2)
+        OUTPUT  =  '[' T ']'				:(N3)
+F2      OUTPUT  =  'second paragraph: not found'
+N3      T  =  PARAGRAPH(POS(0) 'Chapter')		:F(F3)
+        OUTPUT  =  '[' T ']'				:(N4)
+F3      OUTPUT  =  'third paragraph: not found'
+N4
+END

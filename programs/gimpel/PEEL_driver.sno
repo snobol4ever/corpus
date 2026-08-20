@@ -1,0 +1,34 @@
+*  PEEL_driver - exercises PEEL(NAME.,N.).
+*
+*  NOTE ON THE CONTRACT.  PEEL.sno ships with NO header comment at all, so
+*  it has no stated contract to write cases from -- the manifest's
+*  contract_line for it is empty, which is the tell.  What the published
+*  interface fixes on its own: the first argument is a NAME, the second a
+*  length, the peeled piece is the VALUE and the remainder is left in the
+*  named variable, and the module includes BAL.sno, so the break point
+*  respects parenthesis balance rather than falling anywhere.  The cases
+*  drive only that, and none of them asserts WHERE the break lands.
+*
+*  ⛔ TERMINATION: PEEL does NOT fail on an exhausted variable -- it returns
+*  the null string and SUCCEEDS, forever.  So the loops below stop on
+*  DIFFER(C), never on :F().  A driver written the obvious way does not
+*  terminate under either oracle.
+*
+*  ORACLE NOTE.  This .ref comes from CSNOBOL4 (snobol4 -b): Spitbol refuses
+*  the module with ERROR 042 -- attempt to change value of protected
+*  variable.  CSNOBOL4 is the other sanctioned SNOBOL4 oracle and runs it.
+-INCLUDE "PEEL.sno"
+        S  =  'alpha, beta, gamma, delta'
+P1      C  =  PEEL(.S, 10)
+        DIFFER(C)					:F(P1E)
+        OUTPUT  =  '[' C ']'				:(P1)
+P1E     OUTPUT  =  'remainder [' S ']'
+        S  =  'f(a, b) + g(c, d) + h(e)'
+P2      C  =  PEEL(.S, 10)
+        DIFFER(C)					:F(P2E)
+        OUTPUT  =  '[' C ']'				:(P2)
+P2E     OUTPUT  =  'remainder [' S ']'
+        S  =  'short'
+        OUTPUT  =  '[' PEEL(.S, 20) ']'
+        OUTPUT  =  'remainder [' S ']'
+END

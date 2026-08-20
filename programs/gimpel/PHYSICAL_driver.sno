@@ -1,0 +1,26 @@
+*  PHYSICAL_driver - exercises NORM(X) and XY() from PHYSICAL.sno.
+*
+*  NOTE ON THE CONTRACT.  PHYSICAL.sno ships with NO header comment, so it
+*  has no stated contract -- the manifest's contract_line for it is empty.
+*  What the module fixes on its own, from its published declarations alone:
+*  DATA('PHYS(VAL,NUM,DEN)') gives a value with a numerator and denominator
+*  unit string, and the REDEFINE lines give -, +, *, / and comparison over
+*  that type.  NORM is the normaliser those operators run their operands
+*  through, and the cases drive only what that pair of facts fixes: units
+*  that cancel must cancel, and the redefined operators must carry units
+*  through arithmetic.  No case asserts an internal representation.
+-INCLUDE "PHYSICAL.sno"
+        DEFINE('SHOW(P)')				:(SHOW_END)
+SHOW    OUTPUT  =  VAL(P) ' [' NUM(P) '/' DEN(P) ']'	:(RETURN)
+SHOW_END
+        SHOW(NORM(PHYS(6, 'MS', 'S')))
+        SHOW(NORM(PHYS(5, 'M', '')))
+        SHOW(NORM(PHYS(4, 'SM', 'MS')))
+        A  =  PHYS(3, 'M', 'S')
+        B  =  PHYS(4, 'M', 'S')
+        SHOW(A + B)
+        SHOW(A - B)
+        SHOW(A * B)
+        SHOW(A / B)
+        SHOW(-A)
+END

@@ -1,0 +1,12 @@
+*  QUOTE_driver - exercises QUOTE(S): convert S to a string resembling a
+*  SNOBOL4 expression which, evaluated, yields S again.  Contract per
+*  QUOTE.sno header.  Cases: a plain string; one containing a single quote;
+*  one containing a double quote; one containing BOTH, which no single
+*  quoting character can carry; and the null string.
+-INCLUDE "QUOTE.sno"
+        OUTPUT  =  QUOTE('abc')
+        OUTPUT  =  QUOTE("it's")
+        OUTPUT  =  QUOTE('say "hi"')
+        OUTPUT  =  QUOTE("both ' and " '"')
+        OUTPUT  =  '[' QUOTE('') ']'
+END

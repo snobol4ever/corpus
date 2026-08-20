@@ -1,0 +1,29 @@
+*  PERM_driver - exercises PERM(A): Trotter's algorithm cycling through
+*  every permutation of a singly-dimensioned array with lower bound 1,
+*  failing when none remain; A is assumed to have at least 2 elements.
+*  Contract per PERM.sno header (whose 1999 note records that an erroneous
+*  EQ(D,1) term once produced DUPLICATE permutations -- so the COUNT is part
+*  of what is being checked here).  Cases: three elements enumerated with a
+*  count, then two elements.  Note what the oracle .ref records and do not
+*  read it as a repeat defect: the FIRST call is an initialisation that does
+*  not advance A, so under this print-then-advance loop the starting
+*  arrangement is printed twice and the tally runs one above 2! and 3!.
+-INCLUDE "PERM.sno"
+        A  =  ARRAY(3)
+        A<1>  =  '1'
+        A<2>  =  '2'
+        A<3>  =  '3'
+        N  =  0
+P3      N  =  N + 1
+        OUTPUT  =  A<1> A<2> A<3>
+        PERM(A)						:S(P3)
+        OUTPUT  =  'three elements gave ' N ' permutations'
+        B  =  ARRAY(2)
+        B<1>  =  'x'
+        B<2>  =  'y'
+        M  =  0
+P2      M  =  M + 1
+        OUTPUT  =  B<1> B<2>
+        PERM(B)						:S(P2)
+        OUTPUT  =  'two elements gave ' M ' permutations'
+END

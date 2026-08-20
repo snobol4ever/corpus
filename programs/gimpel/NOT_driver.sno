@@ -1,0 +1,26 @@
+*  NOT_driver - exercises NOT(P): a pattern matching the null string when P
+*  FAILS and failing when P matches.  Contract per NOT.sno header (an
+*  aborting P aborts NOT(P) too, which is not driven here -- an abort would
+*  end the run and score nothing).  Cases: the negated pattern used as a
+*  zero-width guard that holds, one that does not, NOT over a pattern rather
+*  than a literal, and NOT of a pattern that matches only later in the
+*  subject, which at POS(0) should still fail to match there.
+-INCLUDE "NOT.sno"
+        S  =  'ABC'
+        S  POS(0) NOT('X') 'ABC' RPOS(0)		:F(F1)
+        OUTPUT  =  'guard holds: matched'		:(N2)
+F1      OUTPUT  =  'guard holds: no match'
+N2      S  POS(0) NOT('A') 'ABC' RPOS(0)		:F(F2)
+        OUTPUT  =  'guard on a hit: matched'		:(N3)
+F2      OUTPUT  =  'guard on a hit: no match'
+N3      S  POS(0) NOT(SPAN('XYZ')) LEN(3) RPOS(0)	:F(F3)
+        OUTPUT  =  'span guard: matched'		:(N4)
+F3      OUTPUT  =  'span guard: no match'
+N4      S  POS(0) NOT('BC') LEN(3) RPOS(0)		:F(F4)
+        OUTPUT  =  'later-only guard: matched'		:(N5)
+F4      OUTPUT  =  'later-only guard: no match'
+N5      S  POS(1) NOT('X') 'BC' RPOS(0)			:F(F5)
+        OUTPUT  =  'guard past position 0: matched'	:(N6)
+F5      OUTPUT  =  'guard past position 0: no match'
+N6
+END

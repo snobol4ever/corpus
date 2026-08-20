@@ -1,0 +1,9 @@
+*  RSEASON_driver - drives RSEASON.SNO, which simulates baseball seasons and
+*  reports runs scored, from the 1927 New York Yankees statistics in its own
+*  data file.  Contract per RSEASON.sno header.  RSEASON carries its own END,
+*  so a driver can only be the include.  See the batch-E FINDING for why no
+*  oracle .ref accompanies this driver: it needs BOTH the four-argument
+*  INPUT(.INPUT,5,,"rseason.in") association, which Spitbol refuses with
+*  ERROR 116, AND RANDOM.sno, whose real-argument REMDR CSNOBOL4 refuses
+*  with Error 1, Illegal data type.  Neither sanctioned oracle can run it.
+-INCLUDE "RSEASON.sno"

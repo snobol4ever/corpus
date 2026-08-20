@@ -1,0 +1,24 @@
+*  POL_driver - exercises the L2 compiler POL.sno builds (Gimpel p. 422),
+*  which produces Polish prefix through semantic routines SS and S_.
+*  Contract per POL.sno header, INCLUDING ITS WORKED EXAMPLE, which is the
+*  strongest contract in this batch: applying the produced pattern STMT to
+*  "IF A(I) > 6 THEN I = 2" and popping the stack must display
+*      IFTHEN:2,>:2,REF:2,A,I,6,=:2,I,2
+*  Case 1 is that example verbatim.  The rest are the same shapes with the
+*  operands changed, plus a plain assignment and a subscripted assignment,
+*  so a wrong answer shows as a wrong TREE and not only as a wrong string.
+-INCLUDE "POL.sno"
+        "IF A(I) > 6 THEN I = 2"  ?  STMT		:F(F1)
+        OUTPUT  =  POP()				:(N2)
+F1      OUTPUT  =  'case 1: no parse'
+N2      "I = 2"  ?  STMT				:F(F2)
+        OUTPUT  =  POP()				:(N3)
+F2      OUTPUT  =  'case 2: no parse'
+N3      "A(I) = B(J)"  ?  STMT				:F(F3)
+        OUTPUT  =  POP()				:(N4)
+F3      OUTPUT  =  'case 3: no parse'
+N4      "IF X < Y THEN Z = 1"  ?  STMT			:F(F4)
+        OUTPUT  =  POP()				:(N5)
+F4      OUTPUT  =  'case 4: no parse'
+N5
+END

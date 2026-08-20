@@ -1,0 +1,21 @@
+*  RCHAR_driver - exercises RCHAR(CONTEXT): return a random character
+*  following the CONTEXT given as an argument, failing if no such character
+*  exists.  Contract per RCHAR.sno header, which also states that RCHAR
+*  reads a text corpus from INPUT to develop its statistics and keeps it in
+*  the global R_CORPUS -- so the corpus arrives on stdin via
+*  RCHAR_driver.input, terminated by a line reading END as the module wants.
+*  Deterministic despite the name: the draw rides RANDOM.sno, a seeded LCG
+*  with no DATE()/TIME().  Cases: the header's own example context 'BR';
+*  a single-character context; a context that occurs exactly once; the null
+*  context; and a context that does not occur at all, which must FAIL.
+-INCLUDE "RCHAR.sno"
+        OUTPUT  =  '[' RCHAR('BR') ']'			:F(F1)
+        OUTPUT  =  '[' RCHAR('BR') ']'
+        OUTPUT  =  '[' RCHAR('B') ']'
+        OUTPUT  =  '[' RCHAR('LAZY ') ']'
+        OUTPUT  =  '[' RCHAR('') ']'
+F1      RCHAR('QZ')					:F(F2)
+        OUTPUT  =  'absent context: returned a character'	:(N3)
+F2      OUTPUT  =  'absent context: failed'
+N3
+END

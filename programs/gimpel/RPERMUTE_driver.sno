@@ -1,0 +1,24 @@
+*  RPERMUTE_driver - exercises RPERMUTE(S): a random permutation of the
+*  string S.  Contract per RPERMUTE.sno header.  Deterministic despite the
+*  name: RANDOM.sno is a seeded LCG whose RAN_VAR starts at a fixed value
+*  and which touches neither DATE() nor TIME(), so a fixed call sequence
+*  gives a fixed answer.  Cases: successive permutations of one string (they
+*  must differ from each other as the generator advances), a two-character
+*  string, a one-character string, and the null string.  Each result is also
+*  printed sorted-by-length so a permutation that LOST or GAINED characters
+*  is visible as a length change rather than only as a different order.
+-INCLUDE "RPERMUTE.sno"
+        S  =  'ABCDEF'
+        T  =  RPERMUTE(S)
+        OUTPUT  =  T ' (' SIZE(T) ')'
+        T  =  RPERMUTE(S)
+        OUTPUT  =  T ' (' SIZE(T) ')'
+        T  =  RPERMUTE(S)
+        OUTPUT  =  T ' (' SIZE(T) ')'
+        T  =  RPERMUTE('XY')
+        OUTPUT  =  T ' (' SIZE(T) ')'
+        T  =  RPERMUTE('Z')
+        OUTPUT  =  T ' (' SIZE(T) ')'
+        T  =  RPERMUTE('')
+        OUTPUT  =  '[' T '] (' SIZE(T) ')'
+END

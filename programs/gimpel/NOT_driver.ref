@@ -1,0 +1,5 @@
+guard holds: matched
+guard on a hit: no match
+span guard: matched
+later-only guard: matched
+guard past position 0: matched

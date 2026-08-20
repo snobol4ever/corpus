@@ -1,0 +1,11 @@
+*  RPOEM_driver - drives RPOEM.SNO, which generates poems from a sample
+*  grammar.  Contract per RPOEM.sno header.  RPOEM carries its own END, so a
+*  driver can only be the include; it opens its own input file and needs no
+*  stdin.  See the batch-E FINDING for why no oracle .ref accompanies this
+*  driver: RPOEM needs BOTH the four-argument INPUT(.INPUT,5,,'rpoem.in')
+*  association, which Spitbol refuses with ERROR 116, AND RANDOM.sno, whose
+*  real-argument REMDR CSNOBOL4 refuses with Error 1, Illegal data type.
+*  Neither sanctioned oracle can run it, so it is UNSCOREABLE rather than
+*  red -- and supplying the lowercase rpoem.in the module asks for was
+*  tried and does not change that, because the RANDOM wall is behind it.
+-INCLUDE "RPOEM.sno"

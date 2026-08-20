@@ -1,0 +1,17 @@
+*  PUT_driver - exercises PUT(L): output L with a label starting in column
+*  73, the label taken from the variable PUT_LABEL, the lines numbered in
+*  increments of 1 unless PUT_INC says otherwise.  Contract per PUT.sno
+*  header.  Cases: the default numbering, a label set by the caller, an
+*  increment other than 1, a line long enough to reach toward column 73, and
+*  the null line.
+-INCLUDE "PUT.sno"
+        PUT('first line')
+        PUT('second line')
+        PUT_LABEL  =  'TAG'
+        PUT('after the label was set')
+        PUT_INC  =  10
+        PUT('after the increment was set')
+        PUT('and again')
+        PUT('a much longer line of text that runs on for a while')
+        PUT()
+END

@@ -1,0 +1,15 @@
+*  REPL_driver - exercises REPL(S1,S2,S3): a string-BY-STRING replacement of
+*  every instance of S2 in S1 by S3, where portions already scanned and the
+*  replacement itself are NOT re-examined.  Contract per REPL.sno header.
+*  Cases: several instances; no instance at all; a replacement that contains
+*  the pattern (the contract's no-rescan promise); a replacement by nothing;
+*  a multi-character pattern; and a pattern at each end of the subject.
+-INCLUDE "REPL.sno"
+        OUTPUT  =  REPL('abcabc', 'b', 'XY')
+        OUTPUT  =  REPL('abcabc', 'z', 'XY')
+        OUTPUT  =  REPL('aaa', 'a', 'aa')
+        OUTPUT  =  '[' REPL('abcabc', 'b', '') ']'
+        OUTPUT  =  REPL('one two one two', 'one', 'ONE')
+        OUTPUT  =  REPL('xax', 'x', 'Q')
+        OUTPUT  =  '[' REPL('', 'a', 'b') ']'
+END

@@ -1,0 +1,31 @@
+*  MSORT_driver - exercises MSORT(A,OP): a merge sort returning an ARRAY OF
+*  INDICES which can then be used to sort A, with OP the operation that
+*  indicates ordering.  Contract per MSORT.sno header -- note the result is
+*  indices, not the sorted data, and A itself is not touched.  Cases: an
+*  unsorted array read back through the index array; the reverse ordering
+*  operation; an already-sorted array; a two-element array; and A re-printed
+*  afterwards to check it was not modified.
+-INCLUDE "MSORT.sno"
+        A  =  ARRAY(5)
+        A<1>  =  'pear'
+        A<2>  =  'apple'
+        A<3>  =  'mango'
+        A<4>  =  'fig'
+        A<5>  =  'date'
+        I  =  MSORT(A, 'LGT')
+        OUTPUT  =  A<I<1>> ' ' A<I<2>> ' ' A<I<3>> ' ' A<I<4>> ' ' A<I<5>>
+        J  =  MSORT(A, 'LLT')
+        OUTPUT  =  A<J<1>> ' ' A<J<2>> ' ' A<J<3>> ' ' A<J<4>> ' ' A<J<5>>
+        OUTPUT  =  A<1> ' ' A<2> ' ' A<3> ' ' A<4> ' ' A<5>
+        B  =  ARRAY(3)
+        B<1>  =  'aaa'
+        B<2>  =  'bbb'
+        B<3>  =  'ccc'
+        K  =  MSORT(B, 'LGT')
+        OUTPUT  =  B<K<1>> ' ' B<K<2>> ' ' B<K<3>>
+        C  =  ARRAY(2)
+        C<1>  =  'zebra'
+        C<2>  =  'ant'
+        L  =  MSORT(C, 'LGT')
+        OUTPUT  =  C<L<1>> ' ' C<L<2>>
+END

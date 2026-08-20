@@ -1,0 +1,12 @@
+*  POKER_driver - drives POKER.SNO, which plays cold-hand five-card poker
+*  between two players with nothing wild, and with it the ABCDR, ALPHA, BETA
+*  and BET functions the manifest names for this module.  Contract per
+*  POKER.sno header.  POKER carries its own END, so a driver can only be the
+*  include plus scripted answers on stdin.  See the batch-E FINDING for why
+*  no oracle .ref accompanies this driver: POKER needs the four-argument
+*  INPUT(.INPUT,5,,'phrases.in') association, which Spitbol refuses with
+*  ERROR 116 (and it also includes SQRT.sno, which Spitbol refuses
+*  separately with ERROR 248), AND it reaches RANDOM.sno through CARDPAK,
+*  which CSNOBOL4 refuses with Error 1, Illegal data type.  Neither
+*  sanctioned oracle can run it.
+-INCLUDE "POKER.sno"

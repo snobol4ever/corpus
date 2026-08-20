@@ -1,0 +1,17 @@
+*  QUEST_driver - exercises QUEST(QS) and QUESTP(QS,QP): prompt the user and
+*  receive structured input back, using RSENTENCE to supply rude commentary
+*  when the input is not in the proper form.  Contract per QUEST.sno header,
+*  which points at Gimpel p. 379 for the full descriptor grammar:
+*  QS is a prompt, a slash, then descriptors variable(values)label separated
+*  by vertical bars.  RSENTENCE consumes its grammar from INPUT during the
+*  include's own setup, so QUEST_driver.input carries that grammar first and
+*  the scripted answers after it.
+-INCLUDE "QUEST.sno"
+        QUEST('Shall we play?/ANS(YES NO)A')		:F(F1)
+        OUTPUT  =  'answered: ' ANS			:(N2)
+F1      OUTPUT  =  'first question: failed'
+N2      QUEST('How many?/N(1 2 3 4 5)B')		:F(F2)
+        OUTPUT  =  'answered: ' N			:(N3)
+F2      OUTPUT  =  'second question: failed'
+N3
+END

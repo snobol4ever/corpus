@@ -1,0 +1,22 @@
+*  RAMM_driver - exercises RAMM(N).
+*
+*  NOTE ON THE CONTRACT.  RAMM.sno ships with NO header comment, so it has
+*  no stated contract -- the manifest's contract_line for it is empty.  What
+*  the module fixes on its own: it OPSYNs itself over RANDOM, so RAMM(N) is
+*  a drop-in for RANDOM(N), and RANDOM.sno's own contract is that RANDOM(0)
+*  yields a value in (0,1) and RANDOM(N) with N non-zero yields an integer
+*  in 1..N.  The cases drive exactly that pair, and nothing about the
+*  particular values, which are the generator's business.
+*
+*  Deterministic despite the name: RANDOM.sno is a seeded LCG with a fixed
+*  starting RAN_VAR and no DATE()/TIME(), and RAMM's own RAM_VAR starts null,
+*  so a fixed call sequence gives a fixed answer.
+-INCLUDE "RAMM.sno"
+        OUTPUT  =  RAMM(0)
+        OUTPUT  =  RAMM(0)
+        OUTPUT  =  RAMM(6)
+        OUTPUT  =  RAMM(6)
+        OUTPUT  =  RAMM(6)
+        OUTPUT  =  RAMM(100)
+        OUTPUT  =  RAMM(1)
+END

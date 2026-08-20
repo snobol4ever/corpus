@@ -1,0 +1,20 @@
+*  ORVISUAL_driver - exercises the ORVISUAL form of OR(LIST): identical to
+*  OR.inc except it returns the STRING equivalent of the pattern rather than
+*  the pattern itself, so the result can be saved to a file; the header says
+*  to pass that string to EVAL to get a pattern back.  Contract per
+*  ORVISUAL.sno.  Cases: the header's own example printed as text, the
+*  ANY-like parenthesised form printed as text, and the round trip -- EVAL
+*  the returned string and match with it, which is the documented use.
+-INCLUDE "ORVISUAL.sno"
+        OUTPUT  =  OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL')
+        OUTPUT  =  OR(',C(AO)D,C(AO)ST')
+        OUTPUT  =  OR(',LI,LIST')
+        P  =  EVAL(OR(',ABLE,ACTOR,ANCHOR,BAKER,BULL'))
+        'ANCHOR' POS(0) P RPOS(0)			:F(F1)
+        OUTPUT  =  'round trip ANCHOR: matched'		:(N2)
+F1      OUTPUT  =  'round trip ANCHOR: no match'
+N2      'ANCHOVY' POS(0) P RPOS(0)			:F(F2)
+        OUTPUT  =  'round trip ANCHOVY: matched'	:(N3)
+F2      OUTPUT  =  'round trip ANCHOVY: no match'
+N3
+END

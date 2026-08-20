@@ -1,0 +1,21 @@
+*  PHRASE_driver - exercises the three functions PHRASE.sno defines through
+*  DEXP: PRAISE(), INSULT() and LETMESEE(), which generate praise, insult
+*  and delaying text for game playing.  Contract per PHRASE.sno header,
+*  which also states the caller's obligation: INPUT must be open to the file
+*  containing the phrase text.  RSENTENCE consumes that grammar from INPUT
+*  during the include's own setup, so the driver meets the obligation by
+*  supplying it on stdin -- PHRASE_driver.input, the module's own PHRASES.IN
+*  verbatim, picked up by the scorecard's <base>.input convention.
+*  Deterministic: the selection rides RANDOM.sno, a seeded LCG with a fixed
+*  starting RAN_VAR and no DATE()/TIME().  Cases: several calls of each
+*  generator, so both the grammar expansion and the generator's advance are
+*  exercised rather than one lucky first draw.
+-INCLUDE "PHRASE.sno"
+        OUTPUT  =  PRAISE()
+        OUTPUT  =  PRAISE()
+        OUTPUT  =  INSULT()
+        OUTPUT  =  INSULT()
+        OUTPUT  =  LETMESEE()
+        OUTPUT  =  LETMESEE()
+        OUTPUT  =  PRAISE()
+END

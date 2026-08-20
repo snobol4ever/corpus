@@ -1,0 +1,13 @@
+*  PAD_driver - exercises PAD(S,CW): add or delete blanks in S to make it
+*  conform to a column width of CW.  Contract per PAD.sno header.  Brackets
+*  make the added and deleted blanks visible.  Cases: a string shorter than
+*  the width (blanks added), one longer (blanks deleted), one already at the
+*  width, a string with no interior blanks to work with, and a single word.
+-INCLUDE "PAD.sno"
+        OUTPUT  =  '[' PAD('a b c', 11) ']'
+        OUTPUT  =  '[' PAD('one two three four', 12) ']'
+        OUTPUT  =  '[' PAD('a b c', 5) ']'
+        OUTPUT  =  '[' PAD('abcdef', 10) ']'
+        OUTPUT  =  '[' PAD('word', 8) ']'
+        OUTPUT  =  '[' PAD('the  quick   brown fox', 20) ']'
+END

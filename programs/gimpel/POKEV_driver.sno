@@ -1,0 +1,23 @@
+*  POKEV_driver - exercises POKEV(H): evaluate a five-card poker hand,
+*  producing a number uniformly distributed in (0,1) and MONOTONICALLY
+*  INCREASING WITH THE STRENGTH OF THE HAND.  Contract per POKEV.sno header.
+*  Hands are built from CARDPAK's published deck -- FULL_DECK is a-z then
+*  A-Z, values cycling 2..A within each of clubs, diamonds, hearts, spades --
+*  and each is printed through CARDPAK's own DISPLAY(H) so the .ref names
+*  the hand it scores rather than leaving a bare letter string.  The cases
+*  are a deliberate ladder from high card up to a royal flush: the contract
+*  is not any particular value but that the sequence increases.
+-INCLUDE "POKEV.sno"
+        DEFINE('SHOW(H)')				:(SHOW_END)
+SHOW    OUTPUT  =  DISPLAY(H) ' -> ' POKEV(H)		:(RETURN)
+SHOW_END
+        SHOW('apDTj')
+        SHOW('anbcd')
+        SHOW('anboc')
+        SHOW('anAbc')
+        SHOW('aoCQe')
+        SHOW('abcdf')
+        SHOW('anAbo')
+        SHOW('mzMZa')
+        SHOW('ijklm')
+END
