@@ -1798,7 +1798,20 @@ n188_match_defer_α:     sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 1160];          jmp   .Lx194_10
-.Lx194_9:               xor              eax, eax
+.Lx194_9:               cmp              eax, 88;                             jne   .Lx194_21
+                        mov              rdi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_defer_xpat_dtp@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx194_21
+                        mov              rax, qword ptr [rdx + 0];            jmp   .Lx194_10
+.Lx194_21:              xor              eax, eax
 .Lx194_10:              test             rax, rax;                            jz    .Lx194_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx194_4]
@@ -2571,7 +2584,20 @@ n249_match_defer_α:     mov              rax, qword ptr [r9 + 1152]           #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 1160];          jmp   .Lx273_10
-.Lx273_9:               xor              eax, eax
+.Lx273_9:               cmp              eax, 88;                             jne   .Lx273_21
+                        mov              rdi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_defer_xpat_dtp@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx273_21
+                        mov              rax, qword ptr [rdx + 0];            jmp   .Lx273_10
+.Lx273_21:              xor              eax, eax
 .Lx273_10:              test             rax, rax;                            jz    .Lx273_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx273_4]
@@ -2646,7 +2672,20 @@ n252_match_defer_α:     mov              rax, qword ptr [r9 + 1152]           #
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 1160];          jmp   .Lx278_10
-.Lx278_9:               xor              eax, eax
+.Lx278_9:               cmp              eax, 88;                             jne   .Lx278_21
+                        mov              rdi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_defer_xpat_dtp@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx278_21
+                        mov              rax, qword ptr [rdx + 0];            jmp   .Lx278_10
+.Lx278_21:              xor              eax, eax
 .Lx278_10:              test             rax, rax;                            jz    .Lx278_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx278_4]
@@ -3442,7 +3481,20 @@ n340_match_defer_α:     sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 1144];          jmp   .Lx343_10
-.Lx343_9:               xor              eax, eax
+.Lx343_9:               cmp              eax, 88;                             jne   .Lx343_21
+                        mov              rdi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_defer_xpat_dtp@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdx, rax
+                        test             rax, rax;                            je    .Lx343_21
+                        mov              rax, qword ptr [rdx + 0];            jmp   .Lx343_10
+.Lx343_21:              xor              eax, eax
 .Lx343_10:              test             rax, rax;                            jz    .Lx343_0
                         mov              r8d, 0
                         lea              r10, [rip + .Lx343_4]
