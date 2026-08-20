@@ -1,0 +1,5 @@
+          C = 'a'
+          'aa' POS(0) ARBNO(FENCE(*C)) RPOS(0)  :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

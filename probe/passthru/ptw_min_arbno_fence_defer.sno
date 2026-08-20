@@ -1,0 +1,6 @@
+          C = 'a'
+          P = ARBNO(FENCE(*C))
+          'aa' POS(0) *P RPOS(0)                :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

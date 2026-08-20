@@ -1,0 +1,11 @@
+          DEFINE('f(x)')
+          DEFINE('g(x)')                        :(E)
+f         OUTPUT = 'call-f'
+          f = 'F'                               :(RETURN)
+g         OUTPUT = 'call-g'
+          g = 'G'                               :(RETURN)
+E         P = (f('a') | g('a'))
+          OUTPUT = 'built'
+          Q = f('a') g('a')
+          OUTPUT = 'concat-built'
+END
