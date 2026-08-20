@@ -1,0 +1,28 @@
+*  CN / EVAL FAILS -- IT DOES NOT ABORT.  Manual v3.7 p.131: "EVAL fails if evaluation of its
+*  argument fails", leaving the reason in &ERRTEXT.  SCRIP instead TERMINATED the program with
+*  error 342 the moment a fragment read an undeclared &name -- the s153 ruling request, ruled by
+*  Lon s168 ("use SPITBOL as an Oracle") as: whatever live sbl does.  Live sbl, measured:
+*    EVAL('&NEVERSET')     -> FAILS, &ERRTYPE 251, &ERRTEXT "keyword operand is not name of ..."
+*    EVAL('3 +')           -> FAILS, &ERRTYPE 221, &ERRTEXT "syntax error: missing operand"
+*  and the program RUNS ON to reach the end in every case.  ⛔ THE WITNESS PINS CONTROL FLOW AND ERRTEXT-IS-SET, NOT THE WORDING OR THE CODE:
+*  SCRIP answers 342 where the oracle answers 251 (the CN-4 namespace close, a separate ledgered
+*  item), so pinning &ERRTYPE here would gate this ruling behind that one.  DIFFER(&ERRTEXT) is
+*  the portable half -- both engines must leave a reason behind, and both must keep running.  Two
+*  SEPARATE divergences found while minting this and deliberately NOT ridden here, because each is
+*  upstream of EVAL and would gate this ruling behind an unrelated repair: SCRIP answers an
+*  undefined function with code 5 where the oracle answers 22, and inside a fragment it answers
+*  NOTHING AT ALL (EVAL("UNDEFINEDFN(3)") SUCCEEDS with null); and SCRIP does not raise on integer
+*  division by zero at any level, where the oracle raises 14.  Both are named in the FINDING.
+	X = EVAL('&NEVERSET')	:F(F1)
+	OUTPUT = 'r1-kw-OK=[' X ']'	:(S1)
+F1	OUTPUT = 'r1-kw-FAILED'
+	DIFFER(&ERRTEXT)	:F(S1)
+	OUTPUT = 'r1-errtext-nonnull'
+S1	Z = EVAL('3 +')	:F(F3)
+	OUTPUT = 'r3-syntax-OK=[' Z ']'	:(S3)
+F3	OUTPUT = 'r3-syntax-FAILED'
+S3	W = EVAL('3 + 4')	:F(F4)
+	OUTPUT = 'r4-good=' W	:(S4)
+F4	OUTPUT = 'r4-good-FAILED'
+S4	OUTPUT = 'reached-end'
+END

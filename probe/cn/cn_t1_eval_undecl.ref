@@ -1,0 +1,5 @@
+before=42
+eval-FAILED
+errtext-nonnull
+after=42
+reached-end
