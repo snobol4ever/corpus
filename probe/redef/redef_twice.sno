@@ -1,0 +1,9 @@
+*  M1-R4b witness: a function DEFINE'd TWICE is legal SPITBOL (last DEFINE wins).
+*  m4 emitted a face label per DEFINE site, so `as` rejected `F_α` defined twice.
+        DEFINE('F(x)')                                                                       :(FEnd)
+F       F          =     'got:' x                                                            :(RETURN)
+FEnd
+        DEFINE('F(x)')
+        OUTPUT     =     F('one')
+        OUTPUT     =     F('two')
+END

@@ -1,0 +1,10 @@
+*  M1-R4b witness 2: redefinition must be LAST-WINS -- the second DEFINE
+*  re-points the same function name at a different body label.
+        DEFINE('F(x)','F1')                                                                  :(FEnd)
+F1      F          =     'first:' x                                                          :(RETURN)
+F2      F          =     'second:' x                                                         :(RETURN)
+FEnd
+        OUTPUT     =     F('a')
+        DEFINE('F(x)','F2')
+        OUTPUT     =     F('b')
+END
