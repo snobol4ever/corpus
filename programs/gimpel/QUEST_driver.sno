@@ -13,5 +13,20 @@ F1      OUTPUT  =  'first question: failed'
 N2      QUEST('How many?/N(1 2 3 4 5)B')		:F(F2)
         OUTPUT  =  'answered: ' N			:(N3)
 F2      OUTPUT  =  'second question: failed'
-N3
+N3      QUESTP('YES', 'ANS(YES NO)A')			:F(F3)
+        OUTPUT  =  'listed value accepted, ANS = ' ANS	:(N4)
+F3      OUTPUT  =  'listed value rejected'
+N4      QUESTP('MAYBE', 'ANS(YES NO)A')			:F(F4)
+        OUTPUT  =  'unlisted value accepted'		:(N5)
+F4      OUTPUT  =  'unlisted value rejected'
+N5      QUESTP('3', 'N(1...5)B')			:F(F5)
+        OUTPUT  =  'in-range value accepted, N = ' N	:(N6)
+F5      OUTPUT  =  'in-range value rejected'
+N6      QUESTP('9', 'N(1...5)B')			:F(F6)
+        OUTPUT  =  'out-of-range value accepted'	:(N7)
+F6      OUTPUT  =  'out-of-range value rejected'
+N7      QUESTP('NO', 'X(A B)L|ANS(YES NO)A')		:F(F7)
+        OUTPUT  =  'alternation accepted, ANS = ' ANS	:(N8)
+F7      OUTPUT  =  'alternation rejected'
+N8
 END
