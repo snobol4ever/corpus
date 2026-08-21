@@ -1,11 +1,14 @@
-*  RED, CHECKED IN RED (law 0d) -- NOT this row's family, routed separately.  Same SYMPTOM as
-*  ptw_min_arb_immed_stored, one box family over: a stored pattern whose rightmost element is the
-*  cursor operator @ emits `PAT$0_beta: jmp PAT$0_omega` and concedes instead of resuming the ARB.
-*  ALREADY MEASURED for the seat that takes it: the inline twin is GREEN, and the inline @ beta is
-*  `add rsp,16; jmp n4_match_arb_beta` -- a self-undo fail-through jumping LEFTWARD, i.e. the tier-2
-*  definition verbatim and the same shape as ASSIGN_SAVE's beta that s180 already blessed.
-*  IR_MATCH_ATP is untiered in zdp_seam_tier (zeta_depth.c); the cure is one case label.
-*  ATP owns bb_match_atp.cpp, NOT bb_match_capture.cpp, so it is a separate family and a separate row.
+*  ⭐ CURED s189 (row atp-cursor-assign-retry).  Was checked in RED at s188 under law 0d.
+*  The stored pattern `E = ARB @v` matched through the PAT$n blob emitted `PAT$0_β: jmp PAT$0_ω`
+*  and conceded at the @ node, never reaching the ARB, while the INLINE twin (ptw_min_atp_inline_ctl)
+*  was green.  CAUSE: IR_MATCH_ATP was absent from zdp_seam_tier's switch entirely, so it fell to
+*  `default: return 0` and resume_carrier_ok refused it -- a silent refusal nobody decided on.
+*  CURE: one case label, tier 2, under its own SCRIP_ATP_SEAMTIER knob (ATP owns bb_match_atp.cpp,
+*  a different box family from bb_match_capture, so it gets its own independently-revertable knob).
+*  MEASURED: the inline β is `add rsp, 16; jmp n4_match_arb_β` -- self-undo fail-through jumping
+*  LEFTWARD, the tier-2 definition verbatim.  MANUAL GROUND, v3.7 p.66, a worked example not a rule:
+*  `'DOUBT' ? @OUTPUT 'B'` prints 0,1,2,3 -- @ re-fires on EVERY retry and its assignment stands
+*  even when the match ultimately fails, so like $ (p.87) there is no undo to get wrong.
           E = ARB @v
           'a+aa' POS(0) E RPOS(0)               :S(OK)F(NO)
 OK        OUTPUT = 'match' v                    :(END)
