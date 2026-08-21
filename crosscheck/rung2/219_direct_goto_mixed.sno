@@ -1,0 +1,14 @@
+*  219 - a direct goto beside a regular one in the same Goto field
+*  (SPITBOL manual v3.7 p.178: "They may also appear with regular
+*  Gotos", shown there as  VAR = CODE(string)  :S<VAR>F(LABEL) ).
+        C = CODE("  OUTPUT = 'code entered on success' :(SECOND)")
+        OUTPUT = 'first'                         :S<C>F(NEVER)
+NEVER   OUTPUT = 'NOT REACHED'                   :(END)
+SECOND  D = CODE("  OUTPUT = 'NOT REACHED' :(END)")
+        OUTPUT = IDENT('a','b')                  :S<D>F(FELL)
+FELL    OUTPUT = 'failure branch took the label'
+        E = CODE("  OUTPUT = 'code entered on failure' :(THIRD)")
+        OUTPUT = IDENT('a','b')                  :F<E>S(NEVER2)
+NEVER2  OUTPUT = 'NOT REACHED'                   :(END)
+THIRD   OUTPUT = 'done'
+END

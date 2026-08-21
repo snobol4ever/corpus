@@ -1,0 +1,7 @@
+*  Passing sibling for ev_code_end_terminates: one ingredient removed —
+*  the fragment ends by transferring BACK into the main program (the
+*  manual's p.133 idiom) instead of at :(END).  Green in BOTH modes.
+        C = CODE("  OUTPUT = 'in fragment' :(DONE)")
+        OUTPUT = 'before'                       :<C>
+DONE    OUTPUT = 'after'
+END

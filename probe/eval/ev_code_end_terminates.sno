@@ -1,0 +1,11 @@
+*  ⛔ NAMED RED (s192, seat7, row goto-code-object-parse): a CODE() fragment
+*  that TERMINATES — its own Goto is :(END), the manual's other ending —
+*  is green in mode-3 and SIGSEGVs in mode-4.  Not a direct-goto defect:
+*  the identical crash reproduces when the fragment is entered by a plain
+*  label goto (ev_code_end_label_ctl.sno), and it reproduces at the tree
+*  BEFORE the direct-goto rung landed.  Crash rip = _rtld_global, the
+*  landing/record-depth signature bb_goto_deferred.cpp already names.
+*  Passing sibling: ev_code_back_ctl.sno — identical but for :(DONE).
+        C = CODE("  OUTPUT = 'in fragment' :(END)")
+        OUTPUT = 'before'                       :<C>
+END
