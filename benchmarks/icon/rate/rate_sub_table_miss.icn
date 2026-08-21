@@ -1,0 +1,28 @@
+# rate_sub_table_miss.icn — FIXED-TIME RATE BENCHMARK (s247, GOAL-ICON-100).
+# PROTOCOL: warm for args[1] ms UNTIMED (so a JIT reaches steady state), then run whole UNITs
+# until args[2] ms elapse, counting them.  Output: "<units> <elapsed_ms> <checksum>".
+# The checksum is PER-UNIT, so it is IDENTICAL on every engine no matter how many units each
+# managed — one run therefore yields the RATE and a cross-engine CORRECTNESS check together.
+# Startup is excluded by construction: the clock is &time, read inside the program.
+# UNIT = 20000 table rvalue MISSES (table never grows).  Rate = units * 20000 / ms.
+procedure main(args)
+  local warm, budget, t0, t1, n, i, t, x;
+  warm := integer(args[1]) | 500;
+  budget := integer(args[2]) | 2000;
+  t0 := &time;
+  while &time - t0 < warm do {
+    t := table(0);
+    t["seed"] := 1;
+    every i := 1 to 20000 do { x := t["absent"]; }
+  }
+  n := 0;
+  t0 := &time;
+  while &time - t0 < budget do {
+    t := table(0);
+    t["seed"] := 1;
+    every i := 1 to 20000 do { x := t["absent"]; }
+    n +:= 1;
+  }
+  t1 := &time;
+  write(n, " ", t1 - t0, " ", x);
+end
