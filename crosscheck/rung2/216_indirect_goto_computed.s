@@ -227,11 +227,13 @@ n13_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx70_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx70_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx70_1
+                        add              rsp, 48;                             jmp   rax
 .Lx70_0:                .quad            .Lx70_0_s
 .Lx70_0_s:              .string          "$IGT$0"
 .Lx70_1:                add              rsp, 48;                             jmp   main_γ
@@ -272,11 +274,13 @@ n18_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx76_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx76_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx76_1
+                                                                              jmp   rax
 .Lx76_0:                .quad            .Lx76_0_s
 .Lx76_0_s:              .string          "$IGT$1"
 .Lx76_1:                                                                      jmp   main_γ

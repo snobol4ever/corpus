@@ -115,11 +115,13 @@ n12_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx37_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx37_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx37_1
+                        add              rsp, 32;                             jmp   rax
 .Lx37_0:                .quad            .Lx37_0_s
 .Lx37_0_s:              .string          "L"
 .Lx37_1:                add              rsp, 32;                             jmp   main_γ
@@ -128,11 +130,13 @@ n13_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx39_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx39_1
+                                                                              jmp   rax
 .Lx39_0:                .quad            .Lx39_0_s
 .Lx39_0_s:              .string          "L"
 .Lx39_1:                                                                      jmp   main_γ

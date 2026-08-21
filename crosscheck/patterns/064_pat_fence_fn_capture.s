@@ -136,7 +136,7 @@ n14_match_begin_α:      mov              rdi, qword ptr [rsp + 0]             #
                         push             r13                                  # outer_Σ
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
-                        sub              rsp, 40
+                        sub              rsp, 56
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -155,7 +155,7 @@ n14_match_begin_α:      mov              rdi, qword ptr [rsp + 0]             #
                         lea              rax, [rip + .Lx50_13]
                         mov              qword ptr [rcx + 248], rax;          jmp   n15_match_any_α
 n14_match_begin_β:
-.Lx50_13:               lea              rsp, [rbp + -72]                     # retry_whack
+.Lx50_13:               lea              rsp, [rbp + -88]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx50_1
@@ -286,9 +286,9 @@ n23_match_span_α:       lea              rdi, [rip + .C1]
                         cmp              byte ptr [rdi+rsi], 0;               je    .Lx68_1
                         add              ecx, 1;                              jmp   .Lx68_0
 .Lx68_1:                cmp              ecx, r14d;                           jle   n21_match_alternate_af
-                        mov              dword ptr [rsp + 276], r14d
+                        mov              dword ptr [rbp + -92], r14d
                         mov              r14d, ecx;                           jmp   n21_match_alternate_s0
-n23_match_span_β:       mov              r14d, dword ptr [rsp + 276];         jmp   n21_match_alternate_af
+n23_match_span_β:       mov              r14d, dword ptr [rbp + -92];         jmp   n21_match_alternate_af
 #=======================================================================================================================
 #         OUTPUT = ID
 #-----------------------------------------------------------------------------------------------------------------------

@@ -189,11 +189,13 @@ n19_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx69_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx69_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx69_1
+                        add              rsp, 80;                             jmp   rax
 .Lx69_0:                .quad            .Lx69_0_s
 .Lx69_0_s:              .string          "$T"
 .Lx69_1:                add              rsp, 80;                             jmp   main_γ
@@ -202,11 +204,13 @@ n20_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx71_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx71_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx71_1
+                                                                              jmp   rax
 .Lx71_0:                .quad            .Lx71_0_s
 .Lx71_0_s:              .string          "$F"
 .Lx71_1:                                                                      jmp   main_γ
@@ -326,11 +330,13 @@ n32_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx91_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx91_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx91_1
+                        add              rsp, 80;                             jmp   rax
 .Lx91_0:                .quad            .Lx91_0_s
 .Lx91_0_s:              .string          "$T"
 .Lx91_1:                add              rsp, 80;                             jmp   main_γ
@@ -339,11 +345,13 @@ n33_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx93_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx93_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx93_1
+                                                                              jmp   rax
 .Lx93_0:                .quad            .Lx93_0_s
 .Lx93_0_s:              .string          "$F"
 .Lx93_1:                                                                      jmp   main_γ

@@ -94,11 +94,13 @@ n10_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx57_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx57_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx57_1
+                                                                              jmp   rax
 .Lx57_0:                .quad            .Lx57_0_s
 .Lx57_0_s:              .string          "$WHICH"
 .Lx57_1:                                                                      jmp   main_γ
@@ -107,11 +109,13 @@ n11_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx59_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx59_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx59_1
+                                                                              jmp   rax
 .Lx59_0:                .quad            .Lx59_0_s
 .Lx59_0_s:              .string          "$WHICH"
 .Lx59_1:                                                                      jmp   main_γ
@@ -176,11 +180,13 @@ n22_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx77_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx77_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx77_1
+                                                                              jmp   rax
 .Lx77_0:                .quad            .Lx77_0_s
 .Lx77_0_s:              .string          "$NEXT"
 .Lx77_1:                                                                      jmp   main_γ
@@ -189,11 +195,13 @@ n23_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx79_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx79_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx79_1
+                                                                              jmp   rax
 .Lx79_0:                .quad            .Lx79_0_s
 .Lx79_0_s:              .string          "$NEXT"
 .Lx79_1:                                                                      jmp   main_γ
@@ -258,11 +266,13 @@ n34_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx97_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx97_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx97_1
+                                                                              jmp   rax
 .Lx97_0:                .quad            .Lx97_0_s
 .Lx97_0_s:              .string          "$WHICH"
 .Lx97_1:                                                                      jmp   main_γ
@@ -271,11 +281,13 @@ n35_goto_deferred_α:    mov              rdi, qword ptr [rip + .Lx99_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_goto_transfer@PLT
+                        call             rt_goto_resolve@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx99_1
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            jz    .Lx99_1
+                                                                              jmp   rax
 .Lx99_0:                .quad            .Lx99_0_s
 .Lx99_0_s:              .string          "$WHICH"
 .Lx99_1:                                                                      jmp   main_γ

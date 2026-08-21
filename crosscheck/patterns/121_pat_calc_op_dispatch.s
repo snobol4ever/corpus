@@ -485,7 +485,7 @@ n49_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            #
                         push             r13                                  # outer_Σ
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
-                        sub              rsp, 40
+                        sub              rsp, 72
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -504,7 +504,7 @@ n49_match_begin_α:      mov              rdi, qword ptr [rsp + 16]            #
                         lea              rax, [rip + .Lx121_13]
                         mov              qword ptr [rcx + 248], rax;          jmp   n50_match_pos_α
 n49_match_begin_β:
-.Lx121_13:              lea              rsp, [rbp + -72]                     # retry_whack
+.Lx121_13:              lea              rsp, [rbp + -104]                    # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx121_1
@@ -588,7 +588,7 @@ n54_match_alternate_af: mov              r14d, dword ptr [rsp + 0]
 #-----------------------------------------------------------------------------------------------------------------------
 n55_match_assign_save_α:
                         sub              rsp, 16
-                        mov              dword ptr [rbp + -64], r14d;         jmp   n56_match_defer_α
+                        mov              dword ptr [rbp + -96], r14d;         jmp   n56_match_defer_α
 n55_match_assign_save_β:
                         add              rsp, 16;                             jmp   n54_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -646,7 +646,7 @@ n56_match_defer_β:      cmp              qword ptr [rsp + 0], 0;              j
 .Lx133_12:                                                                    jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n57_match_assign_cond_α:
-                        mov              eax, dword ptr [rbp + -64]
+                        mov              eax, dword ptr [rbp + -96]
                         lea              rcx, [rip + .S2]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -775,9 +775,9 @@ n66_match_span_α:       movsxd           rcx, r14d
                                                                               jmp   .Lx151_1
 .Lx151_10:              add              ecx, 1;                              jmp   .Lx151_0
 .Lx151_1:               cmp              ecx, r14d;                           jle   n58_match_alternate_af
-                        mov              dword ptr [rsp + 516], r14d
+                        mov              dword ptr [rbp + -124], r14d
                         mov              r14d, ecx;                           jmp   n58_match_alternate_s0
-n66_match_span_β:       mov              r14d, dword ptr [rsp + 516];         jmp   n58_match_alternate_af
+n66_match_span_β:       mov              r14d, dword ptr [rbp + -124];        jmp   n58_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 n67_match_len_α:        mov              eax, r14d
                         add              eax, 0
@@ -792,9 +792,9 @@ n68_match_span_α:       movsxd           rcx, r14d
                                                                               jmp   .Lx154_1
 .Lx154_10:              add              ecx, 1;                              jmp   .Lx154_0
 .Lx154_1:               cmp              ecx, r14d;                           jle   n54_match_alternate_af
-                        mov              dword ptr [rsp + 404], r14d
+                        mov              dword ptr [rbp + -76], r14d
                         mov              r14d, ecx;                           jmp   n54_match_alternate_s0
-n68_match_span_β:       mov              r14d, dword ptr [rsp + 404];         jmp   n54_match_alternate_af
+n68_match_span_β:       mov              r14d, dword ptr [rbp + -76];         jmp   n54_match_alternate_af
 #=======================================================================================================================
 # YES     OUTPUT = A ' ' OP ' ' B                               :(END)
 #-----------------------------------------------------------------------------------------------------------------------
