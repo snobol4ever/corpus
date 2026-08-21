@@ -2494,7 +2494,7 @@ n159_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2527,7 +2527,7 @@ n162_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2659,7 +2659,7 @@ n172_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2695,7 +2695,7 @@ n174_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2907,7 +2907,7 @@ n192_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2943,7 +2943,7 @@ n194_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3004,7 +3004,7 @@ n201_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3037,7 +3037,7 @@ n204_subscript_α:       sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_container_only@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -5390,38 +5390,6 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
-                        .section         .rodata
-.Lseala4:               .string          "Push"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            Push_α
-                        lea              rdi, [rip + .Lseala4]
-                        mov              rsi, qword ptr [rip + Push_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala5:               .string          "Pop"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            Pop_α
-                        lea              rdi, [rip + .Lseala5]
-                        mov              rsi, qword ptr [rip + Pop_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala6:               .string          "Unary"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            Unary_α
-                        lea              rdi, [rip + .Lseala6]
-                        mov              rsi, qword ptr [rip + Unary_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala7:               .string          "Binary"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            Binary_α
-                        lea              rdi, [rip + .Lseala7]
-                        mov              rsi, qword ptr [rip + Binary_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
                         .section         .rodata
 .Lstartup_pname8:       .string          "PAT$0"
                         .align           8

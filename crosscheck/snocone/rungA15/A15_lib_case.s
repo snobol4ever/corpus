@@ -1298,38 +1298,6 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
-                        .section         .rodata
-.Lseala0:               .string          "lwr"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            lwr_α
-                        lea              rdi, [rip + .Lseala0]
-                        mov              rsi, qword ptr [rip + lwr_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala1:               .string          "upr"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            upr_α
-                        lea              rdi, [rip + .Lseala1]
-                        mov              rsi, qword ptr [rip + upr_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala2:               .string          "cap"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            cap_α
-                        lea              rdi, [rip + .Lseala2]
-                        mov              rsi, qword ptr [rip + cap_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala3:               .string          "icase"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            icase_α
-                        lea              rdi, [rip + .Lseala3]
-                        mov              rsi, qword ptr [rip + icase_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
                         add              rsp, 8
                         ret
                         .section         .note.GNU-stack,"",@progbits

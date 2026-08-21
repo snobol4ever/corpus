@@ -366,14 +366,6 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lclassspec0]
                         call             record_register@PLT
-                        .section         .rodata
-.Lseala0:               .string          "make_pair"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            make_pair_α
-                        lea              rdi, [rip + .Lseala0]
-                        mov              rsi, qword ptr [rip + make_pair_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
                         add              rsp, 8
                         ret
                         .section         .note.GNU-stack,"",@progbits
