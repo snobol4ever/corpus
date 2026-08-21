@@ -1,0 +1,6 @@
+          Z = ''
+          E = ARBNO('a' *Z) ('+' *E | '')
+          'a+a+a' POS(0) *E RPOS(0)             :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
