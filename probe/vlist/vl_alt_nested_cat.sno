@@ -1,0 +1,25 @@
+* ⛔ INTENDED RED (s193, seat3, row treebank-allocating) -- THE ZETA HALF.  IT STAYS
+* RED WITH SCRIP_VLIST_ALT=1, WHICH IS WHY THAT SWITCH SHIPS DEFAULT OFF.
+* (a) A VLIST nested inside a LIVE expression loses the enclosing operands: the
+*     retreat contract reads every omega as "leave the statement", so the beta chain
+*     unwinds the enclosing cells before jumping to the next element ("n24_var_beta:
+*     add rsp,16 / add rsp,16 / jmp n29_lit_integer_alpha") and the out-of-line
+*     element is planned at a depth that fits no frame.  Armed: `7]` for `A[7]`.
+* (b) A BARE list with THREE elements SIGSEGVs armed, and so does a BARE list whose
+*     elements ALL FAIL -- element 2's own boxes must unwind before the jump to
+*     element 3 (or to the caller's omega), so the depth error compounds.
+* (a) is treebank's ListInsert4 growth line in miniature --
+* `a = ARRAY('0:' (IDENT(a(x)) 0, size * 2 - 1))` -- and therefore the reason the
+* allocating treebank family silently builds nothing.
+        x       = ARRAY('0:3')
+        OUTPUT  = 'in-cat [' 'A[' (IDENT(x) 0, 7) ']' ']'
+        v       = 'L' (IDENT(x) 0, 7) 'R'
+        OUTPUT  = 'stored [' v ']'
+        w       = (IDENT(x) 'a', IDENT(x) 'b', 'c')
+        OUTPUT  = 'n-ary  [' w ']'
+        u       = 'preset'
+        u       = (IDENT(x) 'a', IDENT(x) 'b')                  :S(BAD)
+        OUTPUT  = 'all-fail signals failure, u=[' u ']'         :(FIN)
+BAD     OUTPUT  = 'WRONG: all-fail succeeded, u=[' u ']'
+FIN     OUTPUT  = 'end'
+END

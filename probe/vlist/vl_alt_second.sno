@@ -1,0 +1,14 @@
+* ⛔ INTENDED RED (s193, seat3, row treebank-allocating) -- THE LOWERING HALF, AND
+* THE ONE FORM SCRIP_VLIST_ALT=1 ACTUALLY CURES: a BARE TWO-ELEMENT list.
+* Alternative evaluation `( e1, e2, ..., en )`: manual v3.7 p.99 "Alternative
+* Evaluation" + Appendix note 3 -- "The elements of the list are evaluated from
+* left to right, until an evaluation succeeds ... If all elements fail, the entire
+* list signals failure."  lower_snobol4.c lowered TT_VLIST as e1 ALONE and dropped
+* e2..en on the floor, so a FAILING first element silently failed the statement.
+* Run armed and this witness goes GREEN, and it is the ONLY one that does -- every
+* other form of the construct is owned by the ZETA half in vl_alt_nested_cat.
+        x       = ARRAY('0:3')
+        z       = (IDENT(x) 0, 7)
+        OUTPUT  = 'second [' z ']'
+        OUTPUT  = 'end'
+END

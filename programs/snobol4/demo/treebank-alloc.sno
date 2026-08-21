@@ -1,0 +1,92 @@
+*------------------------------------------------------------------------------
+* treebank-alloc.sno -- the ALLOCATING twin of treebank-match.sno.
+* Same grammar, same tape, same input: the ONLY difference is that this one runs
+* ACTION ROUTINES that ALLOCATE (one ARRAY per node, retained in a TABLE) while
+* the match runs, so the GC share of a matching workload becomes measurable.
+* The actions ride the NON-CAPTURE deferred call *fn() with immediate ($) capture
+* -- manual v3.7 p.87 'Immediate assignment and deferred evaluation' -- because a
+* non-capture call is NOT retracted when an alternative is abandoned: every path
+* the matcher tries allocates, which is the point of a GC workload.
+* It is therefore NOT the treebank PARSE.  The faithful parser is the manual's
+* Ch.9 p.136 action-routine ploy (conditional assignment, treebank.sno), which
+* SCRIP cannot run correctly today; see the s193 FINDING.
+* The identity gate is the ALLOCATION-SEQUENCE CHECKSUM, not 'matched bytes':
+* nodes/words/pops/ck pin the exact number and order of allocations, and a run
+* that matches while allocating nothing cannot pass it.
+*------------------------------------------------------------------------------
+                DEFINE('init_bank(v)')
+                DEFINE('push_tag(v)')
+                DEFINE('push_word(v)')
+                DEFINE('pop_tag()')
+                DEFINE('fin_bank(v)')                                   :(ActEnd)
+*------------------------------------------------------------------------------
+init_bank       $v              =
+                tags            =   TABLE()
+                live            =   TABLE()
+                depth           =   0
+                nlist           =   0;  nitem = 0;  npop = 0;  ck = 0
+                init_bank       =                                       :(RETURN)
+*------------------------------------------------------------------------------
+push_tag        nlist           =   nlist + 1
+                depth           =   depth + 1
+                tags[v]         =   tags[v] + 1
+                node            =   ARRAY('0:2')
+                node[0]         =   v
+                node[1]         =   depth
+                node[2]         =   nlist
+                live[nlist]     =   node
+                ck              =   ck + depth + SIZE(v)
+                push_tag        =                                       :(RETURN)
+*------------------------------------------------------------------------------
+push_word       nitem           =   nitem + 1
+                node            =   ARRAY('0:2')
+                node[0]         =   v
+                node[1]         =   depth
+                node[2]         =   nitem
+                ck              =   ck + depth + SIZE(v) + 1
+                push_word       =                                       :(RETURN)
+*------------------------------------------------------------------------------
+pop_tag         npop            =   npop + 1
+                depth           =   depth - 1
+                ck              =   ck + depth
+                pop_tag         =                                       :(RETURN)
+*------------------------------------------------------------------------------
+fin_bank        $v              =   ck
+                fin_bank        =                                       :(RETURN)
+*------------------------------------------------------------------------------
+ActEnd
+StackEnd        delim           =   SPAN(' ' CHAR(10))
+                word            =   NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
+*------------------------------------------------------------------------------
+                group           =   '('
++                                   word $ tag *push_tag(tag)
++                                   ARBNO(
++                                     delim
++                                     FENCE(
++                                       *group
++                                     | word $ wrd *push_word(wrd)
++                                     )
++                                   )
++                                   *pop_tag()
++                                   ')'
+*------------------------------------------------------------------------------
+                treebank        =   POS(0)
++                                   *init_bank('bank')
++                                   *push_tag('BANK')
++                                   ARBNO(
++                                     *push_tag('ROOT')
++                                     ARBNO(*group FENCE)
++                                     delim
++                                     FENCE
++                                     *pop_tag()
++                                   )
++                                   *fin_bank('bank')
++                                   RPOS(0)
+*------------------------------------------------------------------------------
+                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                src             =   INPUT  :F(error)
+                src             ?   treebank  :F(error)
+                OUTPUT          =   'matched bytes=' SIZE(src)
+                OUTPUT          =   'nodes=' nlist ' words=' nitem ' pops=' npop ' ck=' ck ' bank=' bank  :(END)
+error           OUTPUT          =   'Pattern match failed'
+END

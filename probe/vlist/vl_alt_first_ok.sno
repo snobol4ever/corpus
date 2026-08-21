@@ -1,0 +1,9 @@
+* CONTROL, GREEN TODAY.  Alternative evaluation `( e1, e2 )` -- manual v3.7 p.99
+* "Alternative Evaluation" + Appendix note 3 -- when the FIRST element SUCCEEDS.
+* SCRIP lowers TT_VLIST as e1 alone, so this half has always been right; it is here
+* so that the two RED siblings cannot be mistaken for "the construct is unparsed".
+        q       =
+        OUTPUT  = 'first-ok  [' (IDENT(q) 0, 7) ']'
+        OUTPUT  = 'lit       [' (1, 2) ']'
+        OUTPUT  = 'cat       [' ('p' 'q', 'r') ']'
+END
