@@ -34,13 +34,9 @@ n1_scan_enter_α:        mov              rdi, qword ptr [rsp + 416]
                         mov              rcx, r14
                         mov              r8, r15
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_enter@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              r13, rax
                         mov              r15, rdx
                         mov              r14, 0;                              jmp   n2_lit_string_α
@@ -61,13 +57,9 @@ n3_scan_match_α:        mov              rax, r15
                         mov              rdx, 3
                         push             r10
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         pop              r10
                         test             eax, eax;                            jne   n6_scan_α
                         mov              qword ptr [rsp + 368], 3
@@ -89,16 +81,12 @@ n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 368]
                         lea              rsi, [rsp + 336]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 328], rdx
                         cmp              eax, 104;                            je    n6_scan_α
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n5_scan_α
+                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n5_scan_α
 n4_call_builtin_icon_β:                                                       jmp   n6_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_scan_α:              mov              rax, qword ptr [rsp + 320]
@@ -107,13 +95,9 @@ n5_scan_α:              mov              rax, qword ptr [rsp + 320]
                         mov              qword ptr [rsp + 296], rax
                         lea              rdi, [rsp + 256]
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_leave@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              r13, qword ptr [rsp + 256]
                         mov              r14, qword ptr [rsp + 264]
                         mov              r15, qword ptr [rsp + 272];          jmp   n7_lit_string_α
@@ -121,13 +105,9 @@ n5_scan_β:                                                                    j
 #-----------------------------------------------------------------------------------------------------------------------
 n6_scan_α:              lea              rdi, [rsp + 256]
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_leave@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              r13, qword ptr [rsp + 256]
                         mov              r14, qword ptr [rsp + 264]
                         mov              r15, qword ptr [rsp + 272];          jmp   n7_lit_string_α
@@ -146,13 +126,9 @@ n8_scan_enter_α:        mov              rdi, qword ptr [rsp + 224]
                         mov              rcx, r14
                         mov              r8, r15
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_enter@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              r13, rax
                         mov              r15, rdx
                         mov              r14, 0;                              jmp   n9_disjunction_α
@@ -193,16 +169,12 @@ n10_call_builtin_icon_α:
                         lea              rsi, [rsp + 96]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
                         cmp              eax, 104;                            je    n9_disjunction_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n11_scan_α
+                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n11_scan_α
 n10_call_builtin_icon_β:
                                                                               jmp   n9_disjunction_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -212,13 +184,9 @@ n11_scan_α:             mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [rsp + 56], rax
                         lea              rdi, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_leave@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              r13, qword ptr [rsp + 16]
                         mov              r14, qword ptr [rsp + 24]
                         mov              r15, qword ptr [rsp + 32];           jmp   main_γ
@@ -247,13 +215,9 @@ n14_scan_match_α:       mov              rax, r15
                         mov              rdx, 3
                         push             r10
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         pop              r10
                         test             eax, eax;                            jne   n9_disjunction_af
                         mov              qword ptr [rsp + 160], 3
@@ -266,13 +230,9 @@ n14_scan_match_β:                                                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n15_scan_α:             lea              rdi, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_leave@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              r13, qword ptr [rsp + 16]
                         mov              r14, qword ptr [rsp + 24]
                         mov              r15, qword ptr [rsp + 32];           jmp   main_ω

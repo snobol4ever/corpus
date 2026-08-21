@@ -46,13 +46,9 @@ n2_call_builtin_gen_α:  mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 96], 0
                         mov              rdi, r14
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_scan_sync_out@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
 .Lx6_60:                .section         .rodata
 .Lbynamegenfn3:         .string          "find"
                         .section         .text
@@ -62,16 +58,12 @@ n2_call_builtin_gen_α:  mov              rax, qword ptr [rsp + 128]
                         mov              edx, 2
                         lea              rcx, [rsp + 96]
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr_gen@PLT
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              eax, 104;                            je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_call_builtin_icon_α
+                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_call_builtin_icon_α
 n2_call_builtin_gen_β:                                                        jmp   .Lx6_60
 #-----------------------------------------------------------------------------------------------------------------------
 n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
@@ -86,16 +78,12 @@ n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            je    n2_call_builtin_gen_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2_call_builtin_gen_β
+                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n2_call_builtin_gen_β
 n3_call_builtin_icon_β:                                                       jmp   n2_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

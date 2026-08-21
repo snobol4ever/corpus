@@ -62,13 +62,9 @@ n2_binop_test_α:        mov              rdi, qword ptr [rsp + 64]
                         mov              rcx, qword ptr [rsp + 88]
                         mov              r8d, 5
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_jct_relop@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n1_disjunction_β
                         mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [rsp + 48], rax
@@ -87,16 +83,12 @@ n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104;                            je    n1_disjunction_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1_disjunction_β
+                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n1_disjunction_β
 n3_call_builtin_icon_β:                                                       jmp   n1_disjunction_β
 #-----------------------------------------------------------------------------------------------------------------------
 n4_lit_real_α:          mov              qword ptr [rsp + 144], 5             # result
