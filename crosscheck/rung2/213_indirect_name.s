@@ -734,6 +734,16 @@ n76_define_α:           mov              rdi, qword ptr [rip + .Lx226_0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rdi, qword ptr [rip + .Lx226_0]
+                        lea              rsi, [rip + ref_b_α]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             bb_ab_seal_alpha@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n77_statement_end_α
 n76_define_β:                                                                 jmp   n75_statement_begin_β
 .Lx226_0:               .quad            .Lx226_0_s
