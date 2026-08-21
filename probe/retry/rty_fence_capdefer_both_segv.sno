@@ -1,0 +1,15 @@
+*  RED, CHECKED IN RED (law 0d).  ***m3 SIGSEGV (rc=139), m4 'fail' -- A MODE DIVERGENCE TOO.***  The
+*  shape of crosscheck 145 with a LITERAL subject.  Exposed (not created) by s192 FENCE-RTAIL: with the
+*  ARBNO carrier now published, the blob's beta enters n_match_arbno_beta, which re-runs the ARBNO body's
+*  FENCE1 alpha -- and that box stores/restores rsp through a STATIC-DEPTH slot ('mov [rsp+224], rsp' /
+*  'mov rsp, [rsp+224]'), a premise the lowerer itself records as violated inside an ARBNO body ("rsp
+*  moves per iteration, Tier D", lower_snobol4.c TT_SEQ fence arm).  ABLATION, EVERY SIBLING GREEN AND
+*  CHECKED IN BESIDE THIS FILE: capture+defer on ONE side only is fine (rty_fence_capdefer_left_ctl,
+*  rty_fence_capdefer_right_ctl); it takes capture+defer on BOTH element 0 and the ARBNO body to crash.
+*  SCRIP_FENCE_RTAIL=0 answers 'fail' (wrong, not crashing) in both modes.
+        num   = SPAN('0123456789')
+        expr  = num . FIRST ARBNO(FENCE('+') num . LAST)
+        '1+2+3' POS(0) expr RPOS(0)                     :S(Y)F(N)
+Y OUTPUT = 'match'                                      :(END)
+N OUTPUT = 'fail'
+END

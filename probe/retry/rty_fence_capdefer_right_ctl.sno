@@ -1,0 +1,9 @@
+*  CONTROL, GREEN (s192).  capture+defer inside the ARBNO body ONLY -- element 0 is a capture over a LEAF.
+*  The other half of the ablation: this is the exact body the SEGV witness has, proving the body alone is
+*  not the ingredient.  ⭐ It is also a CURE: red ('fail') before s192 FENCE-RTAIL, green after, both modes.
+        num   = SPAN('0123456789')
+        expr  = LEN(1) . FIRST ARBNO(FENCE('+') num . LAST)
+        '1+2+3' POS(0) expr RPOS(0)                     :S(Y)F(N)
+Y OUTPUT = 'match'                                      :(END)
+N OUTPUT = 'fail'
+END
