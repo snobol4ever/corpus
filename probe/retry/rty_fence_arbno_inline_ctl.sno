@@ -1,0 +1,7 @@
+*  CONTROL, GREEN -- the IDENTICAL pattern text written INLINE matches at every iteration count
+*  tested (1..7).  The one-token twin of rty_fence_arbno_stored: stored-vs-inline is the whole
+*  difference, which places this in the blob resume-surface family, not in FENCE semantics.
+        '1+2+3' POS(0) LEN(1) ARBNO(FENCE('+') LEN(1)) RPOS(0)  :S(Y)F(N)
+Y OUTPUT = 'match'                                              :(END)
+N OUTPUT = 'nomatch'
+END

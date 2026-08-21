@@ -1,0 +1,6 @@
+*  CONTROL, GREEN, AND THE SHARPEST ONE -- the driver is a literal 'Z' that can NEVER match, so
+*  it fails exactly as FAIL does, and the generator extends correctly (null/A/AB/ABC).  The
+*  defect is therefore NOT 'an always-failing right element': it is the FAIL NODE ITSELF.
+ 'ABC' ? POS(0) ARB $ OUTPUT 'Z'
+ OUTPUT = 'done'
+END

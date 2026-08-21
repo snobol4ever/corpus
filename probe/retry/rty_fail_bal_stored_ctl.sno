@@ -1,0 +1,7 @@
+*  CONTROL, GREEN -- the SAME pattern stored in a variable and matched through the compiled
+*  PAT$n blob.  Prints A/AB/ABC correctly.  This is the one-token twin of rty_fail_bal_inline
+*  and proves the defect is the INLINE road, not BAL and not FAIL semantics.
+        p = BAL $ OUTPUT FAIL
+        'ABC' ? POS(0) p
+        OUTPUT = 'done'
+END

@@ -1,0 +1,10 @@
+*  RED, CHECKED IN RED (law 0d).  ***A STORED PATTERN WHOSE ARBNO BODY BEGINS WITH FENCE(x)
+*  FOLLOWED BY ANOTHER ELEMENT NEVER MATCHES.***  Reduced from crosscheck 145_pat_left_assoc_
+*  via_arbno_fence (oracle 'first=1 last=5', SCRIP 'fail').  Capture and SPAN are NOT
+*  ingredients -- both were ablated away.  Iteration count is NOT an ingredient either: the
+*  1-iteration twin rty_fence_arbno_stored_1iter is equally red.
+        expr  = LEN(1) ARBNO(FENCE('+') LEN(1))
+        '1+2+3' POS(0) expr RPOS(0)                     :S(Y)F(N)
+Y OUTPUT = 'match'                                      :(END)
+N OUTPUT = 'nomatch'
+END

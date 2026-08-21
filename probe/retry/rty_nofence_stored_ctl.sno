@@ -1,0 +1,7 @@
+*  CONTROL, GREEN -- the same STORED pattern with the FENCE removed.  Proves the stored road
+*  itself is sound and isolates FENCE-as-ARBNO-body-prefix as the ingredient.
+        expr  = LEN(1) ARBNO('+' LEN(1))
+        '1+2+3' POS(0) expr RPOS(0)                     :S(Y)F(N)
+Y OUTPUT = 'match'                                      :(END)
+N OUTPUT = 'nomatch'
+END
