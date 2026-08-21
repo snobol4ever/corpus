@@ -1,9 +1,12 @@
-*  RED, CHECKED IN RED (law 0d).  ***THE RESIDUAL AFTER s192 FENCE-RTAIL, AND THE MINIMAL SPELLING OF WHAT
-*  STILL FAILS crosscheck 145.***  The carrier IS published here -- SCRIP_RESUME_WHY=1 reads body_root_op=57
-*  (ARBNO) tier=1 f1r=0, identical to the GREEN rty_fence_capdefer_right_ctl beside it -- so this is NOT the
-*  carrier-selection class s192 cured.  The two differ by ONE token: the capture on element 0.  Both modes
-*  agree ('fail'), so it is a plain wrong answer, not a divergence.  NEXT ROW OWNS THIS: what the blob's
-*  beta does AFTER it lands a correctly published ARBNO beta.
+*  CURED s193 (row rty-fence-arbno-stored, FENCE1-DEPTH).  Was the residual after s192 FENCE-RTAIL and
+*  the minimal spelling of what still failed crosscheck 145.  The carrier was published CORRECTLY here
+*  (SCRIP_RESUME_WHY=1: body_root_op=57 tier=1 f1r=0, identical to the GREEN right_ctl beside it), so
+*  the defect was one box further in.  IR_MATCH_FENCE1 banked its watermark at a STATIC RSP offset
+*  ('mov [rsp+176], rsp'), but a FENCE1 in an ARBNO body is re-entered one iteration DEEPER every time:
+*  on iteration 2 that same +176 resolved to [rbp-24], the blob head's DTP cell (blob_head_bytes), and
+*  IR_MATCH_DEFER then loaded the fence's own saved rsp as its pattern operand.  CURE: emit.cpp
+*  fence_frame_candidate admits ival==2 (FENCE1-in-ARBNO, stamped lower_snobol4.c:1695), so the
+*  watermark rides the activation-frame slot [rbp-80] that the R-4(f) SLICE 3 arm already provided.
         num   = SPAN('0123456789')
         expr  = LEN(1) ARBNO(FENCE('+') num . LAST)
         '1+2+3' POS(0) expr RPOS(0)                     :S(Y)F(N)
