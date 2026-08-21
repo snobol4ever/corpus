@@ -1,0 +1,9 @@
+*  s189 REDUCED WITNESS (class C, STILL RED -- checked in red per law 0d): a NESTED alternation
+*  (A | (B | C)) livelocks; flattening to (A | B) is green.  No ARBNO, no FENCE, no capture, no
+*  defer -- all four ablated away and the hang survives.  Reduced from fz_hang_12.  This is the
+*  nested-ALT-record class emit.cpp:1192 already refuses for the ARBNO carrier (_altnest).
+          P             =  (SPAN(' ') | (NOTANY('abc') | NOTANY('+'))) TAB(0)
+          'aaa' *P RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

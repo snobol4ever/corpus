@@ -1,0 +1,8 @@
+*  s189 REDUCED WITNESS (class B, STILL RED -- checked in red per law 0d): a capture over a span
+*  that contains a choice point livelocks.  ARBNO is NOT an ingredient (this witness has none);
+*  dropping the `. v0` alone makes it green.  Reduced from fz_hang_04; same class as 11/16/21.
+          P             =  (BREAK('abc') (BREAK('+') | REM)) . v0
+          'ab+ab' POS(0) *P RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
