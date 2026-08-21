@@ -663,6 +663,14 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
                         call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lseala5:               .string          "dispatch"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            dispatch_α
+                        lea              rdi, [rip + .Lseala5]
+                        mov              rsi, qword ptr [rip + dispatch_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
                         add              rsp, 8
                         ret
                         .section         .note.GNU-stack,"",@progbits
