@@ -1,0 +1,8 @@
+*  CONTROL, GREEN BEFORE AND AFTER -- the identical expression in ASSIGNMENT context short-circuits
+*  correctly, which is what localised the defect to the pattern-match statement's pre-chain drain.
+        A = 0
+        X = GT(A, 0) LEN(A - 10)                           :S(M)F(NM)
+M       OUTPUT = 'assigned'                                :(DONE)
+NM      OUTPUT = 'nomatch'
+DONE    OUTPUT = 'end'
+END

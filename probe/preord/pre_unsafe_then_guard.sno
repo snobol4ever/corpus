@@ -1,0 +1,14 @@
+*  ⛔ THE MIRROR-IMAGE WITNESS, AND THE PROOF OF THE MECHANISM -- deliberately carries NO .ref.
+*  The unsafe LEN is written FIRST, so the ORACLE evaluates it first and raises ERROR 121, while
+*  pre-fix SCRIP evaluated the guard first, failed cleanly, and printed 'nomatch' -- a divergence in
+*  the OPPOSITE direction from its sibling.  ONE root cause, TWO mirror-image wrong answers.
+*  POST-FIX both engines raise Error 121, i.e. SCRIP is now correct.  ⛔ NO .ref ON PURPOSE: the
+*  residual text difference is the two engines' ERROR-REPORT FORMAT (SPITBOL prints a file(line)
+*  banner plus a dump; SCRIP prints '** Error N in statement M'), a separate GLOBAL divergence that
+*  this witness must not silently pin.  Graded by reading, named in the FINDING, never scored.
+        A = 0
+        'abcdef'       LEN(A - 10) GT(A, 0)                :S(M)F(NM)
+M       OUTPUT = 'matched'                                 :(DONE)
+NM      OUTPUT = 'nomatch'
+DONE    OUTPUT = 'end'
+END
