@@ -1378,6 +1378,22 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lseala2:               .string          "ROMAN"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            ROMAN_α
+                        lea              rdi, [rip + .Lseala2]
+                        mov              rsi, qword ptr [rip + ROMAN_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala3:               .string          "TEST"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            TEST_α
+                        lea              rdi, [rip + .Lseala3]
+                        mov              rsi, qword ptr [rip + TEST_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
                         add              rsp, 8
                         ret
                         .section         .rodata
