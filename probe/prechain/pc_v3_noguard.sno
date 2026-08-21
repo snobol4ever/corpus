@@ -1,0 +1,6 @@
+ $'#L' = 20
+ $'$X' = 'AB'
+ S = DUPL(' ', 30)
+ S LEN($'#L' - SIZE($'$X')) . ind
+ OUTPUT = '[' ind ']'
+END

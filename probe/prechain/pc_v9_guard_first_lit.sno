@@ -1,0 +1,5 @@
+ L = 20
+ S = DUPL(' ', 30)
+ S GT(L, 0) 'x' LEN(L - 2) . ind
+ OUTPUT = '[' ind ']'
+END

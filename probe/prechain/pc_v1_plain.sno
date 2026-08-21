@@ -1,0 +1,6 @@
+ L = 20
+ X2 = 'AB'
+ S = DUPL(' ', 30)
+ S GT(L, 0) LEN(L - SIZE(X2)) . ind
+ OUTPUT = '[' ind ']'
+END
