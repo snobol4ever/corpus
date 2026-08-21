@@ -1,0 +1,9 @@
+*  math_sqrt - SQRT; SQRT(4) is 2. and DATATYPE is REAL even for an integer argument.
+*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
+*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
+	OUTPUT = SQRT(1.0)
+	OUTPUT = SQRT(2.0)
+	OUTPUT = SQRT(4)
+	OUTPUT = SQRT(4.0)
+	OUTPUT = DATATYPE(SQRT(4))
+END

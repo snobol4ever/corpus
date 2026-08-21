@@ -1,0 +1,8 @@
+*  math_ln - LN; LN(1.0) is 0. -- the zero-with-trailing-point form.
+*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
+*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
+	OUTPUT = LN(1.0)
+	OUTPUT = LN(2.0)
+	OUTPUT = LN(1)
+	OUTPUT = DATATYPE(LN(1))
+END

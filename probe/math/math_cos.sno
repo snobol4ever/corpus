@@ -1,0 +1,8 @@
+*  math_cos - COS; cos(1.0) is the 15-significant-digit witness whose 15th digit is NOT stripped.
+*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
+*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
+	OUTPUT = COS(1.0)
+	OUTPUT = COS(0.0)
+	OUTPUT = COS(1)
+	OUTPUT = DATATYPE(COS(0))
+END
