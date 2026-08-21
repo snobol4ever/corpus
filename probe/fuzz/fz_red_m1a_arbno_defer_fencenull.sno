@@ -1,0 +1,7 @@
+*  s188 seat4 REDUCTION of fz_segv_14 (row fuzz-segv-batch).  MECHANISM: M1 ARBNO-OVER-DEFER RE-ENTRY (inline road)
+*  Necessary ingredients, each measured by ablation: outer ARBNO + the defer + FENCE + a fenced body that matches the NULL string + a forcing tail. Drop any one and it is GREEN: ARBNO(FENCE('')) inline AGREE; G0='' AGREE; no tail AGREE; defer depth 2 AGREE.
+          G0            =  FENCE('')
+          'ab' ARBNO(*G0) RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

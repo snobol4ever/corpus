@@ -1,0 +1,7 @@
+*  s188 seat4 REDUCTION of fz_segv_23 (row fuzz-segv-batch).  MECHANISM: M2 SEALED CAPTURED GENERATOR (null-arm ALT as the forcer)
+*  Necessary ingredients: FENCE + a CAPTURE on a generator + a following ALT with a NULL arm.
+*  Drop the capture GREEN; replace the ALT by bare POS(1) GREEN; drop the ALT GREEN.  BOTH MODES rc=139.
+          'aa a' (SPAN('ab')) . v0 FENCE((ARB) . v0 (POS(1) | '')) RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

@@ -1,0 +1,8 @@
+*  s188 seat4 REDUCTION of fz_segv_15 (row fuzz-segv-batch).  MECHANISM: M4 BLOB-ROAD FENCE/DEFER ADJACENCY (defer-to-FENCE, then a FENCE)
+*  Necessary ingredients, each measured by ablation: stored-pattern road + a defer whose value is FENCE(...) + a following FENCE over a MULTI-ELEMENT body. Inlining the defer is GREEN. The capture in the original is NOT an ingredient.
+          G0            =  FENCE(POS(1))
+          P             =  *G0 FENCE(NOTANY('ab') BREAKX('+'))
+          'ab+ab' *P RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
