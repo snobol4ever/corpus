@@ -1,0 +1,34 @@
+* sub_positive_control.sno — THE GUARD FOR ROW `subscript-silent-accept`, AND IT IS GREEN TODAY.
+* The row cures a SILENT FALSE ACCEPT: SCRIP produces nothing and exits 0 where the oracle raises
+* ERROR 235 'subscripted operand is not table or array' (witnesses corpus/programs/snobol4/parser/
+* idx_{simple,multi,nested,in_assign_lhs}.sno, all four subscripting an UNSET variable).
+* ⛔ THIS FILE EXISTS BECAUSE THE OBVIOUS CURE BREAKS EVERYTHING.  A check that refuses a subscript
+* too eagerly would 'fix' those four and take every working program with it, so every LEGAL subscript
+* face is pinned here FIRST, against the live oracle, and must stay byte-identical through the cure.
+* Both bracket and angle syntax, both aggregates, read and write, 1-D and 2-D, literal and variable
+* index, nested, and the missing-table-key default.
+* ⛔ NO RED FACE IS PINNED HERE.  The oracle's arm for the four witnesses is a FATAL ERROR DUMP and no
+* .ref may pin a SPITBOL error report (the s190/s191 trap) -- those four are verified by hand.
+* Oracle: x64/bin/sbl -bf (the ONE arm; sbl_flags() in scorecard_snobol4.sh).
+        A = ARRAY(3)
+        M = ARRAY('2,3')
+        T = TABLE()
+        B = ARRAY(3)
+        A[1] = 'one'
+        A<2> = 'two'
+        M[1,2] = 'm12'
+        M<2,3> = 'm23'
+        T['k'] = 'tv'
+        T<7> = 'ti'
+        B[1] = 1
+        I = 1
+        OUTPUT = 'arr_brk   = ' A[1]
+        OUTPUT = 'arr_ang   = ' A<2>
+        OUTPUT = 'mul_brk   = ' M[1,2]
+        OUTPUT = 'mul_ang   = ' M<2,3>
+        OUTPUT = 'tbl_str   = ' T['k']
+        OUTPUT = 'tbl_int   = ' T<7>
+        OUTPUT = 'arr_var   = ' A[I]
+        OUTPUT = 'nested    = ' A[B[1]]
+        OUTPUT = 'tbl_miss  = <' T['nosuch'] '>'
+END
