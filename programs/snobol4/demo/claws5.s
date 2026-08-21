@@ -2160,14 +2160,6 @@ main_ω:
 module_init:
                         sub              rsp, 8
                         .section         .rodata
-.Lseala1:               .string          "token"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            token_α
-                        lea              rdi, [rip + .Lseala1]
-                        mov              rsi, qword ptr [rip + token_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
 .Lstartup_pname2:       .string          "PAT$0"
                         .align           8
 .Lstartup_prec2:

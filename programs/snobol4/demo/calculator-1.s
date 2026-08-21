@@ -1026,7 +1026,7 @@ PAT$4_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$4_β:
-                                                                              jmp   n61_match_alternate_β
+                                                                              jmp   PAT$4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$4_γ:
                         mov              r10, qword ptr [rbp + -8]
@@ -1360,7 +1360,7 @@ PAT$5_res:
                         add              rsp, 32
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$5_β:
-                                                                              jmp   n95_match_alternate_β
+                                                                              jmp   PAT$5_ω
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$5_γ:
                         mov              r10, qword ptr [rbp + -8]
@@ -6473,70 +6473,6 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
-                        .section         .rodata
-.Lseala8:               .string          "EMIT"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            EMIT_α
-                        lea              rdi, [rip + .Lseala8]
-                        mov              rsi, qword ptr [rip + EMIT_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala9:               .string          "PSH"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            PSH_α
-                        lea              rdi, [rip + .Lseala9]
-                        mov              rsi, qword ptr [rip + PSH_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala10:              .string          "DRF"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            DRF_α
-                        lea              rdi, [rip + .Lseala10]
-                        mov              rsi, qword ptr [rip + DRF_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala11:              .string          "ADD"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            ADD_α
-                        lea              rdi, [rip + .Lseala11]
-                        mov              rsi, qword ptr [rip + ADD_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala12:              .string          "SUB"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            SUB_α
-                        lea              rdi, [rip + .Lseala12]
-                        mov              rsi, qword ptr [rip + SUB_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala13:              .string          "MUL"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            MUL_α
-                        lea              rdi, [rip + .Lseala13]
-                        mov              rsi, qword ptr [rip + MUL_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala14:              .string          "DIV"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            DIV_α
-                        lea              rdi, [rip + .Lseala14]
-                        mov              rsi, qword ptr [rip + DIV_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
-                        .section         .rodata
-.Lseala15:              .string          "NEG"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .weak            NEG_α
-                        lea              rdi, [rip + .Lseala15]
-                        mov              rsi, qword ptr [rip + NEG_α@GOTPCREL]
-                        call             rt_proc_seal_alpha@PLT
                         .section         .rodata
 .Lstartup_pname16:      .string          "PAT$0"
                         .align           8
