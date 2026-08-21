@@ -1,0 +1,12 @@
+*  VISIT_driver - exercises the VISIT module's published functions VISIT(SON,SIGN),
+*  DATA(S) and FIELD(DT,I).  The module ships no header comment, so this drives
+*  the published signatures only: VISIT's own body requires the caller to supply
+*  PROCESS(SON) and uses the MARK field that its overridden DATA(S) appends.
+-INCLUDE "VISIT.sno"
+        DATA('NODE(LEFT,RIGHT)')
+        DEFINE('PROCESS(X)')                    :(MAIN)
+PROCESS OUTPUT  =  'visit ' DATATYPE(X)          :(RETURN)
+MAIN    T  =  NODE(NODE('a','b'),'c')
+        VISIT(T,1)
+        OUTPUT  =  'done'
+END

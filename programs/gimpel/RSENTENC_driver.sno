@@ -1,0 +1,11 @@
+*  RSENTENC_driver - exercises RSENTENCE(STACK): expands a BNF-style grammar,
+*  read from INPUT at include time, into random text.  The module ships no
+*  header comment, so this is driven through its published signature and the
+*  grammar form its own RSI_* reader accepts (<NAME>::=alt|alt, END terminator),
+*  the same form the corpus fixture PHRASES.IN uses.
+*  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
+-INCLUDE "RSENTENC.sno"
+        OUTPUT  =  RSENTENCE('<GREET>')
+        OUTPUT  =  RSENTENCE('<GREET>')
+        OUTPUT  =  RSENTENCE('<ANIMAL> and <ANIMAL>')
+END

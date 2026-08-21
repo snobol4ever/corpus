@@ -1,0 +1,28 @@
+*  gim_goto_function_call_parse - distilled from gimpel STATEF_driver (batch F).
+*  A GOTO WHOSE OPERAND IS A FUNCTION CALL -- :(GO()) -- IS A PARSE ERROR IN
+*  SCRIP.  The oracle compiles and runs it: the function returns a label NAME
+*  by name (:(NRETURN)) and control transfers to it.  This is not exotic; it is
+*  the entire published contract of STATEF.inc, whose state functions return by
+*  executing :(RET(label)) instead of :(RETURN).
+*
+*  ⛔ NOT the batch-C/D :<ARG_S> class (gim_seq_code_loop_in_function): that is
+*  an ANGLE-BRACKET direct goto and it SEGVs at RUN time.  This one never gets
+*  past the parser, and the parenthesised goto is the ordinary spelling.
+*
+*  THE TWO PASSING SIBLINGS ARE THE POINT: the goto field itself is fine and the
+*  indirection is fine, so the refused ingredient is THE CALL IN THE GOTO.
+        DEFINE('GO()')                          :(SIB1)
+GO      GO  =  .L3                              :(NRETURN)
+*  sibling 1: an ordinary direct goto to a label -- ACCEPTED
+SIB1    OUTPUT  =  'sib1 go'                    :(L1)
+L1      OUTPUT  =  'sib1 landed'
+*  sibling 2: an indirect goto through a variable holding the label name -- ACCEPTED
+        W  =  'L2'
+        OUTPUT  =  'sib2 go'                    :($W)
+L2      OUTPUT  =  'sib2 landed'
+*  THE WITNESS: the target reached by CALLING GO() IN THE GOTO -- SCRIP refuses
+*  at parse time; the oracle transfers to L3.
+        OUTPUT  =  'witness go'                 :(GO())
+        OUTPUT  =  'NOT REACHED'
+L3      OUTPUT  =  'witness landed'
+END

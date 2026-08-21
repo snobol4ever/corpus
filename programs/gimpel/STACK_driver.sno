@@ -1,0 +1,19 @@
+*  STACK_driver - exercises STACK(SUF): creates unique stack functions with the
+*  given suffix.  Contract per STACK.sno header, whose own worked example is
+*  STACK('A') creating PUSHA(V), POPA() and TOPA().
+-INCLUDE "STACK.sno"
+        STACK('A')
+        PUSHA('one')
+        PUSHA('two')
+        PUSHA('three')
+        OUTPUT  =  TOPA()
+        OUTPUT  =  POPA()
+        OUTPUT  =  TOPA()
+        OUTPUT  =  POPA()
+        OUTPUT  =  POPA()
+        STACK('B')
+        PUSHB('X')
+        PUSHA('kept')
+        OUTPUT  =  TOPB()
+        OUTPUT  =  TOPA()
+END

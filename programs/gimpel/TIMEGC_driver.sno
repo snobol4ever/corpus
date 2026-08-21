@@ -1,0 +1,10 @@
+*  TIMEGC_driver - exercises TIMEGC(N): scatters strings, array elements and
+*  programmer-defined data about in memory, then times a "typical" garbage
+*  collection.  N determines the amount and type of litter.  Contract per
+*  TIMEGC.sno header.
+*  ⛔ The measured TIME is not deterministic; what this driver pins is that the
+*  call is reachable and returns.
+-INCLUDE "TIMEGC.sno"
+        TIMEGC(1)
+        OUTPUT  =  'returned'
+END

@@ -1,0 +1,4 @@
+[        X = 1;]
+[LBL     Y = X + 2                       :S(LBL);]
+[        OUTPUT = 'hi';]
+exhausted

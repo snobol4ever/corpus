@@ -1,0 +1,11 @@
+*  SPACING_driver - exercises SPACING(S): determines the spacing of string S.
+*  Contract per SPACING.sno header -- for a B-normalized string this is the
+*  number of print positions the string occupies.  Driven through the
+*  published signature SPACING(S).
+-INCLUDE "SPACING.sno"
+        OUTPUT  =  SPACING('ABC')
+        OUTPUT  =  SPACING('A B C')
+        OUTPUT  =  SPACING('')
+        OUTPUT  =  SPACING('   ')
+        OUTPUT  =  SPACING('AB  CD')
+END

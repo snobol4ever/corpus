@@ -1,0 +1,13 @@
+*  RSELECT_driver - exercises RSELECT(S): makes a random selection of one of a
+*  sequence of strings, the FIRST CHARACTER of S being the break character.
+*  Contract per RSELECT.sno header, whose own worked examples are
+*  RSELECT('|A|BIG|CAT') and the weighted form RSELECT('|A|#3#BIG|CAT').
+*  Deterministic: RANDOM.sno seeds RAN_VAR = 1, so the sequence is fixed.
+-INCLUDE "RSELECT.sno"
+        OUTPUT  =  RSELECT('|A|BIG|CAT')
+        OUTPUT  =  RSELECT('|A|BIG|CAT')
+        OUTPUT  =  RSELECT('|A|BIG|CAT')
+        OUTPUT  =  RSELECT('|A|#3#BIG|CAT')
+        OUTPUT  =  RSELECT('|A|#3#BIG|CAT')
+        OUTPUT  =  RSELECT('/ONE/TWO/THREE')
+END

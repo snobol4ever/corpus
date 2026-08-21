@@ -1,0 +1,11 @@
+*  TPROFILE_driver - exercises TPROFILE(): produces a time profile of the time
+*  spent in each SPITBOL statement.  Contract per TPROFILE.sno header.
+*  ⛔ The profile CONTENT is timing-dependent; this driver checks only that the
+*  call is reachable and returns, which is the deterministic part of it.
+-INCLUDE "TPROFILE.sno"
+        N  =  0
+LOOP    N  =  LT(N,5)  N + 1                    :S(LOOP)
+        OUTPUT  =  'loops '  N
+        TPROFILE()
+        OUTPUT  =  'returned'
+END

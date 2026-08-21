@@ -1,0 +1,11 @@
+*  RSEASON_lib_driver - exercises RSEASON(GAMES): simulates a season of baseball
+*  and returns the number of runs scored.  Contract per RSEASON_lib.sno header.
+*  ⛔ The module reads its statistics AT INCLUDE TIME (the RS_INIT loop reads
+*  INPUT until it fails), so the data must already be on stdin when the include
+*  runs -- attaching a file AFTER the include is too late and yields ERROR 041.
+*  The fixture RSEASON_lib_driver.in is the shipped RSEASON.IN (1927 Yankees).
+*  Deterministic: RANDOM.sno seeds RAN_VAR = 1.
+-INCLUDE "RSEASON_lib.sno"
+        OUTPUT  =  RSEASON(154)
+        OUTPUT  =  RSEASON(1)
+END

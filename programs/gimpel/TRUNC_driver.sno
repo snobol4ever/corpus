@@ -1,0 +1,16 @@
+*  TRUNC_driver - exercises TRUNC(A,L,H): returns the truncation of the singly-
+*  dimensioned array A, i.e. a NEW array consisting of A<L>, A<L+1>, ..., A<H>.
+*  Contract per TRUNC.sno header.
+-INCLUDE "TRUNC.sno"
+        A  =  ARRAY(6)
+        A<1> = 'a'; A<2> = 'b'; A<3> = 'c'; A<4> = 'd'; A<5> = 'e'; A<6> = 'f'
+        B  =  TRUNC(A,2,4)
+        OUTPUT  =  PROTOTYPE(B)
+        OUTPUT  =  B<1>  B<2>  B<3>
+        C  =  TRUNC(A,1,6)
+        OUTPUT  =  PROTOTYPE(C)
+        OUTPUT  =  C<1>  C<6>
+        D  =  TRUNC(A,3,3)
+        OUTPUT  =  PROTOTYPE(D)
+        OUTPUT  =  D<1>
+END

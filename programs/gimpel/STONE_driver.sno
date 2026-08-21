@@ -1,0 +1,5 @@
+*  STONE_driver - drives STONE.SNO, which plays a game of taking stones from a
+*  pile through the published function SDA(NSTONES,PARITY,MAX).  Contract per
+*  STONE.sno header.  STONE carries its own END, so a driver can only be the
+*  include; the fixture STONE_driver.in supplies the moves.
+-INCLUDE "STONE.sno"

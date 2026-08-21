@@ -1,0 +1,6 @@
+*  RSTORY_driver - drives RSTORY.SNO, which generates a random story from the
+*  BNF-style grammar in its own data file.  Contract per RSTORY.sno header:
+*  "Use RSTORY.IN as sample input file: SNOBOL4 RSTORY <RSTORY.IN".
+*  RSTORY carries its own END, so a driver can only be the include; the fixture
+*  RSTORY_driver.in is the shipped RSTORY.IN.
+-INCLUDE "RSTORY.sno"

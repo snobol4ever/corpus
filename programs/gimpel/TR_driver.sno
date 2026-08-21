@@ -1,0 +1,12 @@
+*  TR_driver - exercises TR(): translates the Polish prefix string in global
+*  POLISH into a string of 4-tuples suitable for the TUPLE.inc code generator.
+*  Contract per TR.sno header; the POLISH form is the one TR.sno's own published
+*  ITREE/RTREE grammar accepts -- <op>:<arity>, then operands, comma separated.
+-INCLUDE "TR.sno"
+        POLISH  =  '+:2,I,J,'
+        OUTPUT  =  TR()
+        POLISH  =  '*:2,+:2,I,J,K,'
+        OUTPUT  =  TR()
+        POLISH  =  '-:1,I,'
+        OUTPUT  =  TR()
+END

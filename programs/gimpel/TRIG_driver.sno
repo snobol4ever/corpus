@@ -1,0 +1,10 @@
+*  TRIG_driver - exercises the TRIG module's published functions SIN(A), and the
+*  DEXP-defined COS(A) and TAN(A).  Contract per TRIG.sno header: COS is derived
+*  as SIN(A + PI/2) so that its sign is correct outside -PI/2..PI/2.
+-INCLUDE "TRIG.sno"
+        OUTPUT  =  SIN(0.0)
+        OUTPUT  =  COS(0.0)
+        OUTPUT  =  TAN(0.0)
+        OUTPUT  =  SIN(1.0)
+        OUTPUT  =  COS(1.0)
+END

@@ -1,0 +1,14 @@
+*  STATEF_driver - exercises STATEF(PROTO,LBL): defines a state function with the
+*  given prototype and initial entry label.  Contract per STATEF.sno header --
+*  a state function returns with :(RET(label)) instead of :(RETURN), and
+*  execution resumes at that label on the NEXT call.
+-INCLUDE "STATEF.sno"
+        STATEF('COUNTER()','C1')                :(DRIVER)
+C1      COUNTER  =  'first'                     :(RET('C2'))
+C2      COUNTER  =  'second'                    :(RET('C3'))
+C3      COUNTER  =  'third'                     :(RET('C1'))
+DRIVER  OUTPUT  =  COUNTER()
+        OUTPUT  =  COUNTER()
+        OUTPUT  =  COUNTER()
+        OUTPUT  =  COUNTER()
+END
