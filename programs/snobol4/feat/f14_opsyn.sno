@@ -1,6 +1,20 @@
-*  f14: OPSYN — operator synonym
-        OPSYN('STRLEN', 'SIZE', 1)
+*  f14: OPSYN -- function and operator synonyms.
+*  SPITBOL v3.7 pp.115-117 and pp.234-235: the THIRD argument is a KIND SELECTOR,
+*  not an arity.  0 or omitted = s1 is a FUNCTION name; 1 = s1 must be an UNUSED
+*  UNARY operator (! # % / = |); 2 = s1 must be an UNUSED BINARY operator
+*  (# % & @ ~).  Any other first argument raises ERROR 156.  The pre-s192 text of
+*  this file was OPSYN('STRLEN','SIZE',1), which is the csnobol4 dialect and is
+*  ERROR 156 on the oracle -- see queue row `opsyn-3arg-ruling`.
+        OPSYN('STRLEN', 'SIZE')
         EQ(STRLEN('hello'), 5)                  :F(FAIL)
+        OPSYN('LENGTH', 'SIZE', 0)
+        EQ(LENGTH('hello'), 5)                  :F(FAIL)
+        OPSYN('&', 'DIFFER', 2)
+        X = IDENT(1 & 2) 'differs'
+        IDENT(X, 'differs')                     :F(FAIL)
+        Y = 'same'
+        Y = IDENT(1 & 1) 'differs'
+        IDENT(Y, 'same')                        :F(FAIL)
         OUTPUT = 'PASS'                         :(END)
 FAIL    OUTPUT = 'FAIL'
 END

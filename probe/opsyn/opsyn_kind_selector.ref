@@ -1,0 +1,13 @@
+fn-name i=1        156
+fn-name i=2        156
+used-op i=2        156
+unused-bin & i=2   accepted
+unused-un ! i=1    accepted
+unused-bin @ i=3   accepted
+bin-op as i=1      156
+i not integer      152
+i negative         153
+i = 2**24          accepted
+i = 2**24 + 1      153
+i numeral string   accepted
+i real 2.7         accepted
