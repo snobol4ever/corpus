@@ -7565,33 +7565,11 @@ n658_var_α:             sub              rsp, 16
                         mov              rax, qword ptr [r9 + 416]            # bslash
                         mov              rdx, qword ptr [r9 + 424]
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n659_assign_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n659_coerce_string_α
 n658_var_β:             add              rsp, 16
                         add              rsp, 16;                             jmp   n753_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n659_assign_α:          mov              rsi, qword ptr [rsp + 0]             # var
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              rdi, qword ptr [rip + .Lx2008_0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             NV_SET_fn@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n660_var_α
-n659_assign_β:                                                                jmp   n658_var_β
-.Lx2008_0:              .quad            .Lx2008_0_s
-.Lx2008_0_s:            .string          "PATV$1"
-#-----------------------------------------------------------------------------------------------------------------------
-n660_var_α:             sub              rsp, 16
-                        mov              rax, qword ptr [r9 + 416]            # bslash
-                        mov              rdx, qword ptr [r9 + 424]
-                        mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n661_coerce_string_α
-n660_var_β:             add              rsp, 16;                             jmp   n659_assign_β
-#-----------------------------------------------------------------------------------------------------------------------
-n661_coerce_string_α:   sub              rsp, 16
+n659_coerce_string_α:   sub              rsp, 16
                         lea              rdi, [rsp + 16]                      # var
                         lea              rsi, [rsp + 0]                       # result
                         mov              rdx, 4522053
@@ -7602,8 +7580,30 @@ n661_coerce_string_α:   sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n660_var_α
+n659_coerce_string_β:   add              rsp, 16;                             jmp   n658_var_β
+#-----------------------------------------------------------------------------------------------------------------------
+n660_var_α:             sub              rsp, 16
+                        mov              rax, qword ptr [r9 + 416]            # bslash
+                        mov              rdx, qword ptr [r9 + 424]
+                        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n661_assign_α
+n660_var_β:             add              rsp, 16;                             jmp   n659_coerce_string_β
+#-----------------------------------------------------------------------------------------------------------------------
+n661_assign_α:          mov              rsi, qword ptr [rsp + 0]             # var
+                        mov              rdx, qword ptr [rsp + 8]
+                        mov              rdi, qword ptr [rip + .Lx2011_0]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             NV_SET_fn@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n662_match_begin_α
-n661_coerce_string_β:   add              rsp, 16;                             jmp   n660_var_β
+n661_assign_β:                                                                jmp   n660_var_β
+.Lx2011_0:              .quad            .Lx2011_0_s
+.Lx2011_0_s:            .string          "PATV$1"
 #-----------------------------------------------------------------------------------------------------------------------
 n662_match_begin_α:     mov              rdi, qword ptr [rsp + 48]            # var
                         mov              rsi, qword ptr [rsp + 56]
@@ -7654,7 +7654,7 @@ n662_match_begin_af:    mov              rcx, qword ptr [rip + rtccb@GOTPCREL] #
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              rsp, rbp
-                        pop              rbp;                                 jmp   n661_coerce_string_β
+                        pop              rbp;                                 jmp   n661_assign_β
 #-----------------------------------------------------------------------------------------------------------------------
 n663_match_assign_save_α:
                         sub              rsp, 16
@@ -7831,7 +7831,7 @@ n671_lit_string_α:      sub              rsp, 16
                         mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx2028_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n672_match_replace_α
-n671_lit_string_β:      add              rsp, 48;                             jmp   n661_coerce_string_β
+n671_lit_string_β:      add              rsp, 48;                             jmp   n661_assign_β
 .Lx2028_0:              .quad            .Lx2028_0_s
 .Lx2028_0_s:            .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7863,8 +7863,8 @@ n674_match_lit_β:                                                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n675_match_break_α:     sub              rsp, 16
                         mov              edi, r14d
-                        mov              rsi, qword ptr [rsp + 152]           # coerce_string
-                        mov              edx, dword ptr [rsp + 148]
+                        mov              rsi, qword ptr [rsp + 168]           # coerce_string
+                        mov              edx, dword ptr [rsp + 164]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
