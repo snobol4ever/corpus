@@ -1,0 +1,8 @@
+*  GREEN CONTROL #2 -- the SAME two stacked captures, in an ARBNO body instead of a FENCE1 body.
+*  Proves the defect is FENCE1-SPECIFIC: cap_in_repeat_body (emit.cpp:721) brackets an ARBNO body
+*  with operands[1]..operands[2] and a FENCE1 body with operands[0]..operands[1]; only the latter
+*  fails to contain the INNER member of a stacked capture pair.
+          'ab' ARBNO(('ab' . v0) $ v0)                     :S(OK)F(NO)
+OK        OUTPUT = 'match'                                 :(END)
+NO        OUTPUT = 'nomatch'
+END

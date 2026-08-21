@@ -1,0 +1,6 @@
+*  GREEN CONTROL for fz_abort_fence1_stackcap.sno -- ONE capture instead of two stacked.
+*  Identical in every other respect.  Emits no bomb, matches the oracle.
+          'ab' FENCE(('ab' . v0))                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                                 :(END)
+NO        OUTPUT = 'nomatch'
+END
