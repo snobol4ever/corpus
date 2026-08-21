@@ -587,7 +587,7 @@ n65_statement_begin_β:                                                        j
 #-----------------------------------------------------------------------------------------------------------------------
 n66_statement_end_α:                                                          jmp   n67_statement_begin_α
 #=======================================================================================================================
-#         DIFFER(PROTOTYPE(a), '3')                   :f(e005)
+#         DIFFER(PROTOTYPE(a), 3)                     :f(e005)
 #-----------------------------------------------------------------------------------------------------------------------
 n67_statement_begin_α:                                                        jmp   n68_var_α
 n67_statement_begin_β:                                                        jmp   n77_statement_begin_α
@@ -624,19 +624,17 @@ n69_call_α:             sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n67_statement_begin_β
 .Lx268_240:             mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n70_lit_string_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n70_lit_integer_α
 n69_call_β:             add              rsp, 16
                         add              rsp, 16;                             jmp   n67_statement_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n70_lit_string_α:       sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 1
+n70_lit_integer_α:      sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx270_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n71_call_α
-n70_lit_string_β:       add              rsp, 16
+n70_lit_integer_β:      add              rsp, 16
                         add              rsp, 32;                             jmp   n67_statement_begin_β
-.Lx270_0:               .quad            .Lx270_0_s
-.Lx270_0_s:             .string          "3"
+.Lx270_0:               .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n71_call_α:             sub              rsp, 16
                         sub              rsp, 32
@@ -665,25 +663,25 @@ n71_call_α:             sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 32
                         cmp              eax, 104;                            jne   .Lx271_240
-                        add              rsp, 16;                             jmp   n70_lit_string_β
+                        add              rsp, 16;                             jmp   n70_lit_integer_β
 .Lx271_240:             mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n72_statement_end_α
-n71_call_β:             add              rsp, 16;                             jmp   n70_lit_string_β
+n71_call_β:             add              rsp, 16;                             jmp   n70_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n72_statement_end_α:    add              rsp, 64;                             jmp   n73_statement_begin_α
 #=======================================================================================================================
-#         OUTPUT = 'FAIL 1110/005: PROTOTYPE(ARRAY(3))=3' :(END)
+#         OUTPUT = 'FAIL 1110/005: PROTOTYPE(ARRAY(3)) is INTEGER 3' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
 n73_statement_begin_α:                                                        jmp   n74_lit_string_α
 n73_statement_begin_β:                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n74_lit_string_α:       sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 36
+                        mov              dword ptr [rsp + 4], 47
                         mov              rax, qword ptr [rip + .Lx277_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n75_assign_α
 .Lx277_0:               .quad            .Lx277_0_s
-.Lx277_0_s:             .string          "FAIL 1110/005: PROTOTYPE(ARRAY(3))=3"
+.Lx277_0_s:             .string          "FAIL 1110/005: PROTOTYPE(ARRAY(3)) is INTEGER 3"
 #-----------------------------------------------------------------------------------------------------------------------
 n75_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
@@ -701,7 +699,7 @@ n75_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n76_statement_end_α:    add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
-# e005  <stmt 19, line 31: source not in main file (INCLUDE)>
+# e005  <stmt 19, line 35: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n77_statement_begin_α:                                                        jmp   n78_statement_end_α
 n77_statement_begin_β:                                                        jmp   n79_statement_begin_α
@@ -952,14 +950,14 @@ n101_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n102_statement_end_α:   add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
-# e006  <stmt 24, line 38: source not in main file (INCLUDE)>
+# e006  <stmt 24, line 42: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n103_statement_begin_α:                                                       jmp   n104_statement_end_α
 n103_statement_begin_β:                                                       jmp   n105_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n104_statement_end_α:                                                         jmp   n105_statement_begin_α
 #=======================================================================================================================
-#         DIFFER(PROTOTYPE(b), '3')                   :f(e007)
+#         DIFFER(PROTOTYPE(b), 3)                     :f(e007)
 #-----------------------------------------------------------------------------------------------------------------------
 n105_statement_begin_α:                                                       jmp   n106_var_α
 n105_statement_begin_β:                                                       jmp   n115_statement_begin_α
@@ -996,19 +994,17 @@ n107_call_α:            sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n105_statement_begin_β
 .Lx326_240:             mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n108_lit_string_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n108_lit_integer_α
 n107_call_β:            add              rsp, 16
                         add              rsp, 16;                             jmp   n105_statement_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n108_lit_string_α:      sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 1
+n108_lit_integer_α:     sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx328_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n109_call_α
-n108_lit_string_β:      add              rsp, 16
+n108_lit_integer_β:     add              rsp, 16
                         add              rsp, 32;                             jmp   n105_statement_begin_β
-.Lx328_0:               .quad            .Lx328_0_s
-.Lx328_0_s:             .string          "3"
+.Lx328_0:               .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n109_call_α:            sub              rsp, 16
                         sub              rsp, 32
@@ -1037,25 +1033,25 @@ n109_call_α:            sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 32
                         cmp              eax, 104;                            jne   .Lx329_240
-                        add              rsp, 16;                             jmp   n108_lit_string_β
+                        add              rsp, 16;                             jmp   n108_lit_integer_β
 .Lx329_240:             mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n110_statement_end_α
-n109_call_β:            add              rsp, 16;                             jmp   n108_lit_string_β
+n109_call_β:            add              rsp, 16;                             jmp   n108_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
 n110_statement_end_α:   add              rsp, 64;                             jmp   n111_statement_begin_α
 #=======================================================================================================================
-#         OUTPUT = 'FAIL 1110/007: prototype string-dim array' :(END)
+#         OUTPUT = "FAIL 1110/007: PROTOTYPE(ARRAY('3')) is INTEGER 3" :(END)
 #-----------------------------------------------------------------------------------------------------------------------
 n111_statement_begin_α:                                                       jmp   n112_lit_string_α
 n111_statement_begin_β:                                                       jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n112_lit_string_α:      sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 41
+                        mov              dword ptr [rsp + 4], 49
                         mov              rax, qword ptr [rip + .Lx335_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n113_assign_α
 .Lx335_0:               .quad            .Lx335_0_s
-.Lx335_0_s:             .string          "FAIL 1110/007: prototype string-dim array"
+.Lx335_0_s:             .string          "FAIL 1110/007: PROTOTYPE(ARRAY('3')) is INTEGER 3"
 #-----------------------------------------------------------------------------------------------------------------------
 n113_assign_α:          mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
@@ -1073,7 +1069,7 @@ n113_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n114_statement_end_α:   add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
-# e007  <stmt 27, line 43: source not in main file (INCLUDE)>
+# e007  <stmt 27, line 47: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n115_statement_begin_α:                                                       jmp   n116_statement_end_α
 n115_statement_begin_β:                                                       jmp   n117_statement_begin_α
@@ -1268,7 +1264,7 @@ n134_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n135_statement_end_α:   add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
-# e008  <stmt 31, line 49: source not in main file (INCLUDE)>
+# e008  <stmt 31, line 53: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n136_statement_begin_α:                                                       jmp   n137_statement_end_α
 n136_statement_begin_β:                                                       jmp   n138_statement_begin_α
@@ -1469,7 +1465,7 @@ n155_assign_α:          mov              rsi, qword ptr [rsp + 0]             #
 #-----------------------------------------------------------------------------------------------------------------------
 n156_statement_end_α:   add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
-# e009  <stmt 35, line 55: source not in main file (INCLUDE)>
+# e009  <stmt 35, line 59: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
 n157_statement_begin_α:                                                       jmp   n158_statement_end_α
 n157_statement_begin_β:                                                       jmp   n159_statement_begin_α

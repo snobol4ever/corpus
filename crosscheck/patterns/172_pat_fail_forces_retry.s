@@ -143,7 +143,7 @@ n5_match_assign_imm_α:  mov              eax, dword ptr [rsp + 0]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx23_1:                add              rsp, 32;                             jmp   n5_match_assign_imm_β
+.Lx23_1:                                                                      jmp   n5_match_assign_imm_β
 n5_match_assign_imm_β:                                                        jmp   n4_match_len_β
 #=======================================================================================================================
 # Y OUTPUT = 'matched'            :(END)

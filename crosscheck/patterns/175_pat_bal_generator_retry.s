@@ -168,7 +168,7 @@ n6_match_assign_imm_α:  mov              eax, dword ptr [rsp + 16]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx22_1:                add              rsp, 48;                             jmp   n6_match_assign_imm_β
+.Lx22_1:                                                                      jmp   n6_match_assign_imm_β
 n6_match_assign_imm_β:                                                        jmp   n5_match_bal_β
 #=======================================================================================================================
 #  OUTPUT = 'done'
