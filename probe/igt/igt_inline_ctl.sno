@@ -1,0 +1,7 @@
+*  CONTROL, GREEN -- a DEFINE'd proc that RETURNs with no goto at all.  Proves the RETURN
+*  pop-pair glue is sound on its own; the igt_ family's red needs the COMPUTED goto.
+        DEFINE('f()')                   :(fmain)
+f       OUTPUT = 'in f'                 :(RETURN)
+fmain   f()
+        OUTPUT = 'back'                 :(END)
+END
