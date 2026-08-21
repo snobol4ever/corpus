@@ -3070,6 +3070,22 @@ main_ω:
 module_init:
                         sub              rsp, 8
                         .section         .rodata
+.Lseala2:               .string          "RSUM"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            RSUM_α
+                        lea              rdi, [rip + .Lseala2]
+                        mov              rsi, qword ptr [rip + RSUM_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala3:               .string          "ZBODY"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            ZBODY_α
+                        lea              rdi, [rip + .Lseala3]
+                        mov              rsi, qword ptr [rip + ZBODY_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
 .Lstartup_pname4:       .string          "PAT$0"
                         .align           8
 .Lstartup_prec4:
