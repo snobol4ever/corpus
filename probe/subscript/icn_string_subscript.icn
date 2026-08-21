@@ -1,0 +1,26 @@
+#  ⛔ THE HARD GATE ON queue row `subscript-silent-accept` (HQ ruling, s193): the strict
+#  container-only subscript is a SNOBOL4-side face, and ICON STRING SUBSCRIPTING MUST KEEP
+#  WORKING.  rt_subscript_var is shared -- s[i] on a string is a legal Icon substring
+#  variable and L[i] on a list is a legal element -- so this file is the witness that the
+#  permissive face is still the one Icon reaches.  SCRIP Icon is SEMICOLON-REQUIRED.
+procedure main();
+    s := "hello";
+    write(s[2]);
+    write(s[1]);
+    write(s[-1]);
+    s[1] := "H";
+    write(s);
+    L := [10, 20, 30];
+    write(L[2]);
+    L[3] := 99;
+    write(L[3]);
+    t := table();
+    t["k"] := "v";
+    write(t["k"]);
+end
+#  ⛔ PROVENANCE OF THE .ref, STATED RATHER THAN IMPLIED: this seat has the Arizona
+#  TRANSLATOR (/home/satirical/icon-master/bin/icont) but NOT its runtime -- iconx is
+#  not built -- so the .ref is SCRIP output, hand-checked against the language
+#  definition (s[2]="e", s[1]="h", s[-1]="o", s[1]:="H" makes "Hello", list and table
+#  element read/write), NOT live-oracle output like the .sno refs beside it.  A seat
+#  with iconx built should re-pin it and delete this paragraph.

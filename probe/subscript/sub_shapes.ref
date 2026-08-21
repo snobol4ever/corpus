@@ -1,0 +1,8 @@
+rvalue       235
+multi        235
+nested       235
+lvalue       235
+ok-rvalue    one
+ok-multi     two-three
+ok-nested    one
+end

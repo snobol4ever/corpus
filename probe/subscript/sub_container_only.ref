@@ -1,0 +1,12 @@
+null-string  235
+string       235
+integer      235
+real         235
+pattern      235
+name         235
+expression   235
+code         235
+data-object  235
+array        accepted=in-array
+table        accepted=in-table
+end

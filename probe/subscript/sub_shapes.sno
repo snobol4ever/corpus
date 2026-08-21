@@ -1,0 +1,32 @@
+*  THE FOUR WITNESS SHAPES of queue row `subscript-silent-accept`, one statement each,
+*  every one with a PLAIN UNSET VARIABLE as the subscripted operand (SPITBOL: the null
+*  string) -- rvalue, multi-subscript, nested, and ASSIGNMENT TARGET.  The lvalue shape
+*  is here on its own line because an assignment target takes a different road through
+*  the lowerer (sx_subscript_lv, not the TT_IDX rvalue arm) and a cure that only fixes
+*  reads would leave it silently accepting.  Every line is Appendix D 235; &ERRLIMIT
+*  converts so the codes are pinnable.  The array/table tails are the POSITIVE CONTROL
+*  in the SAME shapes, so a cure that made every subscript error cannot pass this file.
+        &ERRLIMIT = 100
+        X = A[1]                                :F(F1)
+        OUTPUT = 'rvalue       accepted'        :(N1)
+F1      OUTPUT = 'rvalue       ' &ERRTYPE
+N1      X = B[1, 2]                             :F(F2)
+        OUTPUT = 'multi        accepted'        :(N2)
+F2      OUTPUT = 'multi        ' &ERRTYPE
+N2      X = C[D[1]]                             :F(F3)
+        OUTPUT = 'nested       accepted'        :(N3)
+F3      OUTPUT = 'nested       ' &ERRTYPE
+N3      E[1] = 'hello'                          :F(F4)
+        OUTPUT = 'lvalue       accepted'        :(N4)
+F4      OUTPUT = 'lvalue       ' &ERRTYPE
+N4      G = ARRAY(3)
+        G[1] = 'one'
+        OUTPUT = 'ok-rvalue    ' G[1]
+        H = ARRAY('2,3')
+        H[2, 3] = 'two-three'
+        OUTPUT = 'ok-multi     ' H[2, 3]
+        K = ARRAY(3)
+        K[1] = 2
+        OUTPUT = 'ok-nested    ' G[K[1] - 1]
+        OUTPUT = 'end'
+END

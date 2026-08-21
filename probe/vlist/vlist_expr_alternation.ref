@@ -1,0 +1,11 @@
+first-succeeds       1
+first-fails          9
+three-first-succeeds 1
+three-last-succeeds  7
+side-effect x
+no-eval-of-second    x
+side-effect q
+second-evaluated     q
+all-fail             statement failed
+treebank-shape       0:5
+end
