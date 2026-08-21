@@ -1,0 +1,46 @@
+*     indirect_name_boundary.sno -- THE UNARY $ ACCEPT/REFUSE BOUNDARY, ERROR 239.
+*     Manual v3.7 p.83: "Indirection may proceed to any depth, provided the null
+*     string is never encountered as a variable name" -- the null string is not a
+*     valid variable name and SPITBOL answers ERROR 239.  p.196: $(.A) is the same
+*     as using variable A, so a NAME operand needs no conversion at all.
+*     &ERRLIMIT converts each error to statement failure (Ch.16), so the code
+*     arrives as ordinary output on the :F branch and the oracle prints no banner.
+*     The final &ERRLIMIT line is the corroborating count: one credit per refusal.
+        &ERRLIMIT = 1000
+        ABC = 'legal'
+        A = $'ABC'                      :F(F1)
+        OUTPUT = 'T1 ok ' A             :(T2)
+F1      OUTPUT = 'T1 ERR ' &ERRTYPE
+T2      B = $UNSET                      :F(F2)
+        OUTPUT = 'T2 ok'                :(T3)
+F2      OUTPUT = 'T2 ERR ' &ERRTYPE
+T3      C = $''                         :F(F3)
+        OUTPUT = 'T3 ok'                :(T4)
+F3      OUTPUT = 'T3 ERR ' &ERRTYPE
+T4      $'=' = 'eq'
+        D = $'='                        :F(F4)
+        OUTPUT = 'T4 ok ' D             :(T5)
+F4      OUTPUT = 'T4 ERR ' &ERRTYPE
+T5      E = $3                          :F(F5)
+        OUTPUT = 'T5 ok'                :(T6)
+F5      OUTPUT = 'T5 ERR ' &ERRTYPE
+T6      F = $0                          :F(F6)
+        OUTPUT = 'T6 ok'                :(T7)
+F6      OUTPUT = 'T6 ERR ' &ERRTYPE
+T7      G = $3.5                        :F(F7)
+        OUTPUT = 'T7 ok'                :(T8)
+F7      OUTPUT = 'T7 ERR ' &ERRTYPE
+T8      H = $ARRAY(3)                   :F(F8)
+        OUTPUT = 'T8 ok'                :(T9)
+F8      OUTPUT = 'T8 ERR ' &ERRTYPE
+T9      I = $TABLE()                    :F(F9)
+        OUTPUT = 'T9 ok'                :(TA)
+F9      OUTPUT = 'T9 ERR ' &ERRTYPE
+TA      J = $(.ABC)                     :F(FA)
+        OUTPUT = 'TA ok ' J             :(TB)
+FA      OUTPUT = 'TA ERR ' &ERRTYPE
+TB      K = $(LEN(1))                   :F(FB)
+        OUTPUT = 'TB ok'                :(TC)
+FB      OUTPUT = 'TB ERR ' &ERRTYPE
+TC      OUTPUT = 'END errlimit=' &ERRLIMIT
+END
