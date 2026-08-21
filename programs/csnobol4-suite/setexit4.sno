@@ -1,20 +1,20 @@
-	setexit(.f)
-	&errlimit = 10
-	&stlimit = 1000
-	define("s()")
-	trace('STCOUNT','KEYWORD',,.s)
-	&trace = 1000
+	SETEXIT(.f)
+	&ERRLIMIT = 10
+	&STLIMIT = 1000
+	DEFINE("s()")
+	TRACE('STCOUNT','KEYWORD',,.s)
+	&TRACE = 1000
 
-	output = 'a'
-	&z = 1
-	output = 'b'
-	output = 'c'	:(end)
+	OUTPUT = 'a'
+	&Z = 1
+	OUTPUT = 'b'
+	OUTPUT = 'c'	:(END)
 
-f	output = 'err: ' &ERRTYPE ' (' &ERRTEXT ') @S' &LASTNO
-	setexit(.f)
-	&errlimit = 10
-	:(scontinue)
+f	OUTPUT = 'err: ' &ERRTYPE ' (' &ERRTEXT ') @S' &LASTNO
+	SETEXIT(.f)
+	&ERRLIMIT = 10
+	:(SCONTINUE)
 
-s	output = 'S' &LASTNO	:(return)
+s	OUTPUT = 'S' &LASTNO	:(RETURN)
 
-end
+END

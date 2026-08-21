@@ -1,28 +1,28 @@
-      &trim = 1
-      &stlimit = 0
-      &profile = 0
+      &TRIM = 1
+      &STLIMIT = 0
+      &PROFILE = 0
 
-      define('fmt(w)x,d')
-      data('tempdata(min,max,mean,total)')
+      DEFINE('fmt(w)x,d')
+      DATA('tempdata(min,max,mean,total)')
 
-      input(.in,10, 'measurements.txt')
+      INPUT(.in,10, 'measurements.txt')
 
 * Pattern to parse the input
-      stationpat = breakx(';') . station ';' rem . temp
-      mean = table()
-      min = table()
-      max = table()
-      total = table()
-      stations = table()
+      stationpat = BREAKX(';') . station ';' REM . temp
+      mean = TABLE()
+      min = TABLE()
+      max = TABLE()
+      total = TABLE()
+      stations = TABLE()
 
 loop  line = in                                           :f(done)
       line stationpat                                     :f(error)
 
 * Do all the arithmetic as integers
-      temp = convert(convert(temp,'real') * 10, 'integer') 
+      temp = CONVERT(CONVERT(temp,'real') * 10, 'integer') 
 
 * First time seeing this station.. set initial values
-      differ(mean[station])                               :s(skip)
+      DIFFER(mean[station])                               :s(skip)
       stations[station] = station
       mean[station] = 1
       min[station] = temp
@@ -31,11 +31,11 @@ loop  line = in                                           :f(done)
 
 * Otherwise update the existing entry
 skip  mean[station] = mean[station] + 1
-debug min[station] = lt(temp, min[station]) temp
-      max[station] = gt(temp, max[station]) temp
+debug min[station] = LT(temp, min[station]) temp
+      max[station] = GT(temp, max[station]) temp
       total[station] = total[station] + temp              :(loop)
 
-done  stations = sort(stations)
+done  stations = SORT(stations)
       i = 0
       outstr = ''
 report
@@ -46,12 +46,12 @@ report
 +              fmt((total[v] / mean[v])) '/' 
 +              fmt(max[v])                                :(report)
    
-finish output = '{' substr(outstr,2,size(outstr) - 1) '}' :(end)
+finish OUTPUT = '{' SUBSTR(outstr,2,SIZE(outstr) - 1) '}' :(END)
 
-error output = 'error reading line:' line
+error OUTPUT = 'error reading line:' line
 
 * A little cheat to format a value as a real with a single digit decimal.
 * A little cheat to format a value as a real with a single digit decimal.
-fmt   fmt = convert(v,'string')
-      fmt len(size(v) - 1) . x rem . d = x '.' d          :(return) 
-end
+fmt   fmt = CONVERT(v,'string')
+      fmt LEN(SIZE(v) - 1) . x REM . d = x '.' d          :(RETURN) 
+END
