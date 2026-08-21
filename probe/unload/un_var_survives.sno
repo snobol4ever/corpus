@@ -1,0 +1,9 @@
+*  UNLOAD removes ONLY the function binding — the SAME NAME's variable value
+*  survives it.  Oracle-measured; this is the arm an implementation is most
+*  likely to get wrong by deleting the name outright.
+        DEFINE('MYFN(X)')
+        MYFN = 'a value in the variable'
+        UNLOAD('MYFN')
+        OUTPUT = 'var after unload = [' MYFN ']'  :(END)
+MYFN    MYFN = X                                :(RETURN)
+END

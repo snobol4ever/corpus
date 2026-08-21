@@ -1,0 +1,15 @@
+*  ⛔ NAMED RED (s193, seat7, row unload-missing): a function that UNLOADs
+*  ITSELF completes its current call normally and the NEXT call must raise
+*  ERROR 022 "undefined function called" (oracle-measured).  SCRIP CALLS IT
+*  ANYWAY — UNLOAD's registry removal never reaches the call site, which
+*  jumps through a cell DEFINE baked and tests nothing.  Curing it is a
+*  template rung (the cell needs a NULL test routed to the error), not this
+*  row: see the FINDING.
+        DEFINE('SELFK(X)')
+        OUTPUT = SELFK('one')
+        OUTPUT = 'back in main'
+        OUTPUT = SELFK('two')
+        OUTPUT = 'NOT REACHED'                  :(END)
+SELFK   UNLOAD('SELFK')
+        SELFK = 'ran with X=' X                 :(RETURN)
+END

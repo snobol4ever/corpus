@@ -1,0 +1,9 @@
+*  UNLOAD of a user-defined function SUCCEEDS and returns the NULL STRING
+*  (manual v3.7 p.245).  Oracle-measured, not chosen.
+        DEFINE('MYFN(X)')
+        UNLOAD('MYFN')                          :S(YES)F(NO)
+YES     OUTPUT = 'unload SUCCEEDED'             :(NEXT)
+NO      OUTPUT = 'unload FAILED'
+NEXT    OUTPUT = 'ret=[' UNLOAD('MYFN') ']'     :(END)
+MYFN    MYFN = X                                :(RETURN)
+END
