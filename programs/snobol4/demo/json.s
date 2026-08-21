@@ -18722,6 +18722,110 @@ module_init:
                         lea              rdi, [rip + .Lclassspec0]
                         call             record_register@PLT
                         .section         .rodata
+.Lseala13:              .string          "jutf8"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            jutf8_α
+                        lea              rdi, [rip + .Lseala13]
+                        mov              rsi, qword ptr [rip + jutf8_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala14:              .string          "jdec"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            jdec_α
+                        lea              rdi, [rip + .Lseala14]
+                        mov              rsi, qword ptr [rip + jdec_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala15:              .string          "vpush"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            vpush_α
+                        lea              rdi, [rip + .Lseala15]
+                        mov              rsi, qword ptr [rip + vpush_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala16:              .string          "pobj"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            pobj_α
+                        lea              rdi, [rip + .Lseala16]
+                        mov              rsi, qword ptr [rip + pobj_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala17:              .string          "parr"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            parr_α
+                        lea              rdi, [rip + .Lseala17]
+                        mov              rsi, qword ptr [rip + parr_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala18:              .string          "ekey"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            ekey_α
+                        lea              rdi, [rip + .Lseala18]
+                        mov              rsi, qword ptr [rip + ekey_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala19:              .string          "eobj"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            eobj_α
+                        lea              rdi, [rip + .Lseala19]
+                        mov              rsi, qword ptr [rip + eobj_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala20:              .string          "earr"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            earr_α
+                        lea              rdi, [rip + .Lseala20]
+                        mov              rsi, qword ptr [rip + earr_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala21:              .string          "estr"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            estr_α
+                        lea              rdi, [rip + .Lseala21]
+                        mov              rsi, qword ptr [rip + estr_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala22:              .string          "enum"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            enum_α
+                        lea              rdi, [rip + .Lseala22]
+                        mov              rsi, qword ptr [rip + enum_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala23:              .string          "etru"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            etru_α
+                        lea              rdi, [rip + .Lseala23]
+                        mov              rsi, qword ptr [rip + etru_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala24:              .string          "efal"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            efal_α
+                        lea              rdi, [rip + .Lseala24]
+                        mov              rsi, qword ptr [rip + efal_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala25:              .string          "enul"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            enul_α
+                        lea              rdi, [rip + .Lseala25]
+                        mov              rsi, qword ptr [rip + enul_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
 .Lstartup_pname26:      .string          "PAT$0"
                         .align           8
 .Lstartup_prec26:
