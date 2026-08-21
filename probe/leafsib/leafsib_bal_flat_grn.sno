@@ -1,0 +1,27 @@
+*  leafsib bal flat grn -- s193 (row alt-arb-bal-witness).  THE ALT-ARM LEAF-SUSPENSION CLASS
+*  FOR BAL, minted in the PADDED shape of probe/cn/cn_alt_leaf_flat_grn because this family's
+*  own leafsib_bal.sno has gone INERT: on the STORED road (`t = (... | BAL . I)`) its cell is
+*  already [rbp-96] on BOTH killswitch arms, so it is green for a reason unrelated to the switch
+*  it exists to test, and its --compile output is byte-identical across the two arms.
+*  Here the alternation is INLINE, so the BAL suspension cell is a RAW FLAT ZLS COORDINATE off
+*  rsp (LFC legacy arm).  Only the padding count differs across this pair -- the pattern is the
+*  same -- which is what proves the defect is the COORDINATE'S MAGNITUDE and never the shape.
+*  Five padding assignments leave it at [rsp+224], still INSIDE the live frame, so the program is
+*  green on BOTH arms in BOTH media.  A green here is LUCK, not correctness -- it is the control
+*  that dates the red twin's crash to the coordinate and not to BAL.
+*  BAL SEMANTICS (SPITBOL v3.7 p.207): BAL carries IMPLICIT alternatives tried BEFORE explicit
+*  ones, extending to the next-shortest balanced string (p.124: shortest non-null string in which
+*  parentheses are balanced; a string without parentheses is balanced).  Its beta resumes an
+*  ADVANCING SCAN through a suspension cursor, which is what makes it a scratch-cell leaf.
+*  BAL is the sibling that spends THREE words, LFC(0)/LFC(4)/LFC(8) -- visible in the emitted asm
+*  as [rsp+464]/[rsp+468]/[rsp+472] -- the s131 decline reason, covered since s174 by the
+*  TWO-CONSECUTIVE-SLOT registry claim (44b8b82c).
+	V1 = "pad1"
+	V2 = "pad2"
+	V3 = "pad3"
+	V4 = "pad4"
+	V5 = "pad5"
+	"ab" POS(0) (BAL | SPAN("09")) RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END

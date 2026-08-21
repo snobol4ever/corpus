@@ -1,0 +1,43 @@
+*  leafsib bal flat red -- s193 (row alt-arb-bal-witness).  THE ALT-ARM LEAF-SUSPENSION CLASS
+*  FOR BAL, minted in the PADDED shape of probe/cn/cn_alt_leaf_flat_red because this family's
+*  own leafsib_bal.sno has gone INERT: on the STORED road (`t = (... | BAL . I)`) its cell is
+*  already [rbp-96] on BOTH killswitch arms, so it is green for a reason unrelated to the switch
+*  it exists to test, and its --compile output is byte-identical across the two arms.
+*  Here the alternation is INLINE, so the BAL suspension cell is a RAW FLAT ZLS COORDINATE off
+*  rsp (LFC legacy arm).  Only the padding count differs across this pair -- the pattern is the
+*  same -- which is what proves the defect is the COORDINATE'S MAGNITUDE and never the shape.
+*  Twenty padding assignments put it at [rsp+464], PAST the live frame, so the box writes above
+*  the stack.  MEASURED s193, SCRIP 408aab34 pristine, RT_OPT -O0, oracle-diffed:
+*    SCRIP_SPAN_FRAME=0  -> m3 pass / m4 rc=139
+*    SCRIP_SPAN_FRAME=1  -> pass BOTH media   (=1 is the SHIPPED DEFAULT since s188, d3251f23)
+*  BAL SEMANTICS (SPITBOL v3.7 p.207): BAL carries IMPLICIT alternatives tried BEFORE explicit
+*  ones, extending to the next-shortest balanced string (p.124: shortest non-null string in which
+*  parentheses are balanced; a string without parentheses is balanced).  Its beta resumes an
+*  ADVANCING SCAN through a suspension cursor, which is what makes it a scratch-cell leaf.
+*  BAL is the sibling that spends THREE words, LFC(0)/LFC(4)/LFC(8) -- visible in the emitted asm
+*  as [rsp+464]/[rsp+468]/[rsp+472] -- the s131 decline reason, covered since s174 by the
+*  TWO-CONSECUTIVE-SLOT registry claim (44b8b82c).
+	V1 = "pad1"
+	V2 = "pad2"
+	V3 = "pad3"
+	V4 = "pad4"
+	V5 = "pad5"
+	V6 = "pad6"
+	V7 = "pad7"
+	V8 = "pad8"
+	V9 = "pad9"
+	V10 = "pad10"
+	V11 = "pad11"
+	V12 = "pad12"
+	V13 = "pad13"
+	V14 = "pad14"
+	V15 = "pad15"
+	V16 = "pad16"
+	V17 = "pad17"
+	V18 = "pad18"
+	V19 = "pad19"
+	V20 = "pad20"
+	"ab" POS(0) (BAL | SPAN("09")) RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
