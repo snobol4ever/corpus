@@ -1,0 +1,23 @@
+* proto_table.sno — PROTOTYPE OF A TABLE IS THE HASH-HEADER COUNT, AND SCRIP HAS NO LIVE ANSWER.
+* SPITBOL: TABLE(i,x,arg) creates a table with i hash headers (manual, Arrays and tables), and
+* PROTOTYPE reports that i back as an INTEGER — TABLE() => 11 (the default), TABLE(5) => 5,
+* TABLE(5,7) => 5 (the second argument is the value-block size, not the header count).
+* SCRIP's live path (by_name_dispatch.c BID_PROTOTYPE) has NO table arm and FAILS the statement;
+* the other spelling (core/core.c _PROTOTYPE_) answers "" — neither is the oracle's answer.
+* The ARRAY sibling is the CONTROL and is green, so the refused ingredient is the TABLE alone.
+        t0 = TABLE()
+        t5 = TABLE(5)
+        t57 = TABLE(5,7)
+
+*       CONTROL — PROTOTYPE over an ARRAY answers on the live path
+        OUTPUT = 'ctl_array = ' PROTOTYPE(ARRAY(3))            :s(w0)
+        OUTPUT = 'ctl_array FAILED'
+w0      OUTPUT = 'tbl_dflt  = ' PROTOTYPE(t0)                  :s(w5)
+        OUTPUT = 'tbl_dflt FAILED'
+w5      OUTPUT = 'tbl_5     = ' PROTOTYPE(t5)                  :s(w57)
+        OUTPUT = 'tbl_5 FAILED'
+w57     OUTPUT = 'tbl_5_7   = ' PROTOTYPE(t57)                 :s(wdt)
+        OUTPUT = 'tbl_5_7 FAILED'
+wdt     OUTPUT = 'tbl_dtype = ' DATATYPE(PROTOTYPE(t0))        :s(END)
+        OUTPUT = 'tbl_dtype FAILED'
+END
