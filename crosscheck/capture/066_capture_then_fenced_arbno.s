@@ -71,7 +71,7 @@ n6_match_begin_α:       mov              rdi, qword ptr [rsp + 0]             #
                         push             r13                                  # outer_Σ
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
-                        sub              rsp, 56
+                        sub              rsp, 72
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -90,7 +90,7 @@ n6_match_begin_α:       mov              rdi, qword ptr [rsp + 0]             #
                         lea              rax, [rip + .Lx44_13]
                         mov              qword ptr [rcx + 248], rax;          jmp   n7_match_pos_α
 n6_match_begin_β:
-.Lx44_13:               lea              rsp, [rbp + -88]                     # retry_whack
+.Lx44_13:               lea              rsp, [rbp + -104]                    # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx44_1
@@ -211,10 +211,10 @@ n13_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] 
 #-----------------------------------------------------------------------------------------------------------------------
 n14_statement_end_α:    add              rsp, 16;                             jmp   n20_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n15_match_fence1_α:     mov              qword ptr [rsp + 304], rsp;          jmp   n19_match_lit_α
-n15_match_fence1_as:    mov              rsp, qword ptr [rsp + 304];          jmp   n16_match_assign_save_α
+n15_match_fence1_α:     mov              qword ptr [rbp + -96], rsp;          jmp   n19_match_lit_α
+n15_match_fence1_as:    mov              rsp, qword ptr [rbp + -96];          jmp   n16_match_assign_save_α
 n15_match_fence1_af:
-n15_match_fence1_β:     mov              rsp, qword ptr [rsp + 304];          jmp   n11_match_arbno_af
+n15_match_fence1_β:     mov              rsp, qword ptr [rbp + -96];          jmp   n11_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n16_match_assign_save_α:
                         mov              dword ptr [rbp + -80], r14d;         jmp   n17_match_span_α

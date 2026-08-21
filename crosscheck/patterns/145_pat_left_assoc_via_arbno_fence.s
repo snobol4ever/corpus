@@ -55,7 +55,7 @@ FN__PAT$1:
 PAT$1_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 88
+                        sub              rsp, 104
                         mov              qword ptr [rbp + -8], r10
                         mov              qword ptr [rbp + -16], r11
                         mov              qword ptr [rbp + -24], rdx
@@ -144,10 +144,10 @@ n6_match_arbno_as:      mov              eax, dword ptr [rbp + -60]
 n6_match_arbno_af:      mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n5_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
-n7_match_fence1_α:      mov              qword ptr [rsp + 224], rsp;          jmp   n11_match_lit_α
-n7_match_fence1_as:     mov              rsp, qword ptr [rsp + 224];          jmp   n8_match_assign_save_α
+n7_match_fence1_α:      mov              qword ptr [rbp + -96], rsp;          jmp   n11_match_lit_α
+n7_match_fence1_as:     mov              rsp, qword ptr [rbp + -96];          jmp   n8_match_assign_save_α
 n7_match_fence1_af:
-n7_match_fence1_β:      mov              rsp, qword ptr [rsp + 224];          jmp   n6_match_arbno_af
+n7_match_fence1_β:      mov              rsp, qword ptr [rbp + -96];          jmp   n6_match_arbno_af
 #-----------------------------------------------------------------------------------------------------------------------
 n8_match_assign_save_α: mov              dword ptr [rbp + -80], r14d;         jmp   n9_match_defer_α
 n8_match_assign_save_β:                                                       jmp   n6_match_arbno_af
