@@ -1,0 +1,5 @@
+          X = 'END'
+          OUTPUT = 'before'
+          :($X)
+          OUTPUT = 'after'
+END
