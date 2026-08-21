@@ -190,6 +190,7 @@ n11_match_assign_imm_α: mov              eax, dword ptr [rbp + -80]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              rax, -1;                             je    .Lx42_4
                         test             rax, rax;                            je    .Lx42_1
                         lea              rcx, [rip + .Lx42_2]
                         lea              rdx, [rip + .Lx42_3];                jmp   rax
@@ -228,9 +229,10 @@ n11_match_assign_imm_α: mov              eax, dword ptr [rbp + -80]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n10_match_alternate_β
 .Lx42_1:                                                                      jmp   n4_match_arbno_as
 n11_match_assign_imm_β:                                                       jmp   n10_match_alternate_β
+.Lx42_4:                                                                      jmp   n10_match_alternate_β
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_lit_α:        mov              eax, r14d
                         add              eax, 1

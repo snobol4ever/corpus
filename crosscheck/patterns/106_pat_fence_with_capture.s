@@ -146,6 +146,7 @@ n10_match_assign_imm_α: mov              eax, dword ptr [rsp + 0]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              rax, -1;                             je    .Lx43_4
                         test             rax, rax;                            je    .Lx43_1
                         lea              rcx, [rip + .Lx43_2]
                         lea              rdx, [rip + .Lx43_3];                jmp   rax
@@ -184,9 +185,10 @@ n10_match_assign_imm_α: mov              eax, dword ptr [rsp + 0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n9_match_fence1_β
 .Lx43_1:                                                                      jmp   n11_match_end_α
 n10_match_assign_imm_β:                                                       jmp   n9_match_fence1_β
+.Lx43_4:                                                                      jmp   n9_match_fence1_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_end_α:        mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]

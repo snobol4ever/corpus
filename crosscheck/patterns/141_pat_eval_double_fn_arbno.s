@@ -868,6 +868,22 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lseala2:               .string          "grab"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            grab_α
+                        lea              rdi, [rip + .Lseala2]
+                        mov              rsi, qword ptr [rip + grab_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
+                        .section         .rodata
+.Lseala3:               .string          "catch"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .weak            catch_α
+                        lea              rdi, [rip + .Lseala3]
+                        mov              rsi, qword ptr [rip + catch_α@GOTPCREL]
+                        call             rt_proc_seal_alpha@PLT
                         add              rsp, 8
                         ret
                         .section         .rodata

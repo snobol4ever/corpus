@@ -184,6 +184,7 @@ n15_match_assign_imm_α: mov              eax, dword ptr [rsp + 0]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              rax, -1;                             je    .Lx115_4
                         test             rax, rax;                            je    .Lx115_1
                         lea              rcx, [rip + .Lx115_2]
                         lea              rdx, [rip + .Lx115_3];               jmp   rax
@@ -222,9 +223,10 @@ n15_match_assign_imm_α: mov              eax, dword ptr [rsp + 0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n14_match_len_β
 .Lx115_1:                                                                     jmp   n16_match_assign_save_α
 n15_match_assign_imm_β:                                                       jmp   n14_match_len_β
+.Lx115_4:                                                                     jmp   n14_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n16_match_assign_save_α:
                         sub              rsp, 16

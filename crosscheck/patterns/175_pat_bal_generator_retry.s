@@ -129,6 +129,7 @@ n6_match_assign_imm_α:  mov              eax, dword ptr [rsp + 16]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              rax, -1;                             je    .Lx22_4
                         test             rax, rax;                            je    .Lx22_1
                         lea              rcx, [rip + .Lx22_2]
                         lea              rdx, [rip + .Lx22_3];                jmp   rax
@@ -167,9 +168,10 @@ n6_match_assign_imm_α:  mov              eax, dword ptr [rsp + 16]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n5_match_bal_β
 .Lx22_1:                                                                      jmp   n6_match_assign_imm_β
 n6_match_assign_imm_β:                                                        jmp   n5_match_bal_β
+.Lx22_4:                                                                      jmp   n5_match_bal_β
 #=======================================================================================================================
 #  OUTPUT = 'done'
 #-----------------------------------------------------------------------------------------------------------------------

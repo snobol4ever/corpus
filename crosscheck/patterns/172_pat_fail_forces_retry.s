@@ -104,6 +104,7 @@ n5_match_assign_imm_α:  mov              eax, dword ptr [rsp + 0]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              rax, -1;                             je    .Lx23_4
                         test             rax, rax;                            je    .Lx23_1
                         lea              rcx, [rip + .Lx23_2]
                         lea              rdx, [rip + .Lx23_3];                jmp   rax
@@ -142,9 +143,10 @@ n5_match_assign_imm_α:  mov              eax, dword ptr [rsp + 0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n4_match_len_β
 .Lx23_1:                                                                      jmp   n5_match_assign_imm_β
 n5_match_assign_imm_β:                                                        jmp   n4_match_len_β
+.Lx23_4:                                                                      jmp   n4_match_len_β
 #=======================================================================================================================
 # Y OUTPUT = 'matched'            :(END)
 #-----------------------------------------------------------------------------------------------------------------------
