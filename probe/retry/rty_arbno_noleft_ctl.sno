@@ -1,0 +1,8 @@
+*  CONTROL, GREEN -- the ONE-INGREDIENT twin of rty_arbno_leftctx_inline with the leading
+*  BREAK removed, so the ARBNO is the LEFTMOST element of its group.  Extends and
+*  terminates correctly (t/th/thi/this/...).  Proves ARBNO's OWN retry is sound in
+*  isolation -- the defect needs a left neighbour ahead of the ARBNO to appear.
+	&ANCHOR = 1
+	subj = "this is a test ."
+	subj ARBNO(LEN(1)) $ OUTPUT '.'
+END
