@@ -683,12 +683,9 @@ n59_cmp_test_α:         sub              rsp, 16
                         cmp              rax, rdx;                            jge   .Lx350_239
                         add              rsp, 16;                             jmp   n58_coerce_numeric_β
 .Lx350_239:                                                                   jmp   n60_var_α
-.Lx350_0:               lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx350_0:               lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jns   .Lx350_240
                         add              rsp, 16;                             jmp   n58_coerce_numeric_β
 .Lx350_240:                                                                   jmp   n60_var_α
@@ -817,12 +814,9 @@ n70_cmp_test_α:         sub              rsp, 16
                         cmp              rax, rdx;                            jl    .Lx366_239
                         add              rsp, 16;                             jmp   n69_coerce_numeric_β
 .Lx366_239:                                                                   jmp   n71_var_α
-.Lx366_0:               lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx366_0:               lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            js    .Lx366_240
                         add              rsp, 16;                             jmp   n69_coerce_numeric_β
 .Lx366_240:                                                                   jmp   n71_var_α
@@ -1491,12 +1485,9 @@ n133_cmp_test_α:        sub              rsp, 16
                         cmp              rax, rdx;                            jl    .Lx461_239
                         add              rsp, 16;                             jmp   n132_coerce_numeric_β
 .Lx461_239:                                                                   jmp   n134_var_α
-.Lx461_0:               lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx461_0:               lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            js    .Lx461_240
                         add              rsp, 16;                             jmp   n132_coerce_numeric_β
 .Lx461_240:                                                                   jmp   n134_var_α
@@ -1911,12 +1902,9 @@ n168_cmp_test_α:        sub              rsp, 16
                         cmp              rax, rdx;                            jl    .Lx514_239
                         add              rsp, 16;                             jmp   n167_coerce_numeric_β
 .Lx514_239:                                                                   jmp   n169_statement_end_α
-.Lx514_0:               lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx514_0:               lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            js    .Lx514_240
                         add              rsp, 16;                             jmp   n167_coerce_numeric_β
 .Lx514_240:                                                                   jmp   n169_statement_end_α
@@ -2520,12 +2508,9 @@ n228_cmp_test_α:        sub              rsp, 16
                         cmp              rax, rdx;                            jl    .Lx603_239
                         add              rsp, 16;                             jmp   n227_coerce_numeric_β
 .Lx603_239:                                                                   jmp   n229_statement_end_α
-.Lx603_0:               lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx603_0:               lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            js    .Lx603_240
                         add              rsp, 16;                             jmp   n227_coerce_numeric_β
 .Lx603_240:                                                                   jmp   n229_statement_end_α
