@@ -1,0 +1,9 @@
+* SETEXIT FACE 8 -- THE &ERRLIMIT HALF, WITH NO TRAP ANYWHERE IN THE PROGRAM.
+* &ERRLIMIT non-zero makes a raised error SURVIVABLE: the statement takes its own failure
+* exit and execution continues.  Nothing here mentions SETEXIT, which is the point --
+* &ERRLIMIT decides WHETHER an error is survivable, SETEXIT only decides WHERE control goes.
+	&ERRLIMIT = 10
+	X = NOSUCHFN(1)		:F(NX)
+	OUTPUT = "NOFAIL"
+NX	OUTPUT = "CONTINUED"
+END
