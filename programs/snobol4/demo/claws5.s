@@ -128,7 +128,7 @@ n10_match_assign_cond_α:
                         add              r12, 24;                             jmp   n11_match_lit_α
 n10_match_assign_cond_β:
                         mov              r11, 11
-                        sub              r12, 24;                             jmp   n10_match_assign_cond_α
+                        sub              r12, 24;                             jmp   n9_match_break_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_lit_α:        mov              r11, 12
                         mov              eax, r14d
@@ -190,7 +190,7 @@ n16_match_assign_cond_α:
                         add              r12, 24;                             jmp   n17_match_assign_cond_α
 n16_match_assign_cond_β:
                         mov              r11, 17
-                        sub              r12, 24;                             jmp   n16_match_assign_cond_α
+                        sub              r12, 24;                             jmp   n15_match_span_β
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_assign_cond_α:
                         mov              r11, 18
