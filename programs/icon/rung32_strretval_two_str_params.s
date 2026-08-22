@@ -11,19 +11,22 @@ FN__join:
                         call             rt_icn_zframe_args_install@PLT
 join_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_var_α:               mov              rax, qword ptr [rsp + 16]
+n0_var_α:               mov              r11, 1
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 80], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 88], rax;           jmp   n1_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_lit_string_α:        mov              qword ptr [rsp + 96], 2              # result
+n1_lit_string_α:        mov              r11, 2
+                        mov              qword ptr [rsp + 96], 2              # result
                         mov              dword ptr [rsp + 100], 1
                         mov              rax, qword ptr [rip + .Lx8_0]
                         mov              qword ptr [rsp + 104], rax;          jmp   n2_binop_α
 .Lx8_0:                 .quad            .Lx8_0_s
 .Lx8_0_s:               .string          "-"
 #-----------------------------------------------------------------------------------------------------------------------
-n2_binop_α:             mov              rdi, qword ptr [rsp + 16]
+n2_binop_α:             mov              r11, 3
+                        mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 96]
                         mov              rcx, qword ptr [rsp + 104]
@@ -34,12 +37,14 @@ n2_binop_α:             mov              rdi, qword ptr [rsp + 16]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_var_α:               mov              rax, qword ptr [rsp + 32]
+n3_var_α:               mov              r11, 4
+                        mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 112], rax
                         mov              rax, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 120], rax;          jmp   n4_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
-n4_binop_α:             mov              rdi, qword ptr [rsp + 64]
+n4_binop_α:             mov              r11, 5
+                        mov              rdi, qword ptr [rsp + 64]
                         mov              rsi, qword ptr [rsp + 72]
                         mov              rdx, qword ptr [rsp + 32]
                         mov              rcx, qword ptr [rsp + 40]
@@ -50,7 +55,8 @@ n4_binop_α:             mov              rdi, qword ptr [rsp + 64]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n5_return_α
 #-----------------------------------------------------------------------------------------------------------------------
-n5_return_α:            mov              rax, qword ptr [rsp + 48]
+n5_return_α:            mov              r11, 6
+                        mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx;            jmp   join_γ
@@ -126,6 +132,7 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n15_lit_string_α:       sub              rsp, 16
+                        mov              r11, 7
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx23_0]
@@ -134,6 +141,7 @@ n15_lit_string_α:       sub              rsp, 16
 .Lx23_0_s:              .string          "foo"
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_string_α:       sub              rsp, 16
+                        mov              r11, 8
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx24_0]
@@ -142,6 +150,7 @@ n16_lit_string_α:       sub              rsp, 16
 .Lx24_0_s:              .string          "bar"
 #-----------------------------------------------------------------------------------------------------------------------
 n17_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 9
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]
                         call             join_dcα;                            jmp   .Lx26_2
@@ -164,12 +173,13 @@ n17_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx26_240
                         add              rsp, 16;                             jmp   n19_lit_string_α
 .Lx26_240:                                                                    jmp   n18_call_builtin_icon_α
-n17_call_proc_staged_β:                                                       jmp   n19_lit_string_α
+n17_call_proc_staged_β: mov              r11, 9;                              jmp   n19_lit_string_α
 .Lx26_0:                .quad            .Lx26_0_s
 .Lx26_0_s:              .string          "join"
 #-----------------------------------------------------------------------------------------------------------------------
 n18_call_builtin_icon_α:
                         sub              rsp, 16
+                        mov              r11, 10
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -193,6 +203,7 @@ n18_call_builtin_icon_α:
                         mov              qword ptr [rsp + 8], rdx;            jmp   n19_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n19_lit_string_α:       sub              rsp, 16
+                        mov              r11, 11
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx29_0]
@@ -201,6 +212,7 @@ n19_lit_string_α:       sub              rsp, 16
 .Lx29_0_s:              .string          "hello"
 #-----------------------------------------------------------------------------------------------------------------------
 n20_lit_string_α:       sub              rsp, 16
+                        mov              r11, 12
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx30_0]
@@ -209,6 +221,7 @@ n20_lit_string_α:       sub              rsp, 16
 .Lx30_0_s:              .string          "world"
 #-----------------------------------------------------------------------------------------------------------------------
 n21_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 13
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]
                         call             join_dcα;                            jmp   .Lx32_2
@@ -232,12 +245,13 @@ n21_call_proc_staged_α: sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 96;                             jmp   main_ω
 .Lx32_240:                                                                    jmp   n22_call_builtin_icon_α
-n21_call_proc_staged_β:                                                       jmp   main_ω
+n21_call_proc_staged_β: mov              r11, 13;                             jmp   main_ω
 .Lx32_0:                .quad            .Lx32_0_s
 .Lx32_0_s:              .string          "join"
 #-----------------------------------------------------------------------------------------------------------------------
 n22_call_builtin_icon_α:
                         sub              rsp, 16
+                        mov              r11, 14
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8

@@ -22,6 +22,7 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:        sub              rsp, 16
+                        mov              r11, 1
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx9_0]
@@ -30,6 +31,7 @@ n0_lit_string_α:        sub              rsp, 16
 .Lx9_0_s:               .string          "hello"
 #-----------------------------------------------------------------------------------------------------------------------
 n1_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 2
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -53,6 +55,7 @@ n1_call_builtin_icon_α: sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 3
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -76,6 +79,7 @@ n2_call_builtin_icon_α: sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n3_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_string_α:        sub              rsp, 16
+                        mov              r11, 4
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx14_0]
@@ -84,6 +88,7 @@ n3_lit_string_α:        sub              rsp, 16
 .Lx14_0_s:              .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n4_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 5
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -107,6 +112,7 @@ n4_call_builtin_icon_α: sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 6
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -130,6 +136,7 @@ n5_call_builtin_icon_α: sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n6_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_lit_string_α:        sub              rsp, 16
+                        mov              r11, 7
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx19_0]
@@ -138,6 +145,7 @@ n6_lit_string_α:        sub              rsp, 16
 .Lx19_0_s:              .string          "a"
 #-----------------------------------------------------------------------------------------------------------------------
 n7_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 8
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -162,6 +170,7 @@ n7_call_builtin_icon_α: sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n8_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 9
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8

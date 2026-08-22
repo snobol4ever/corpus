@@ -22,24 +22,28 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:       sub              rsp, 16
+                        mov              r11, 1
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n1_lit_integer_α
 .Lx6_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:       sub              rsp, 16
+                        mov              r11, 2
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx7_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2_lit_integer_α
 .Lx7_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:       sub              rsp, 16
+                        mov              r11, 3
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx8_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n3_binop_α
 .Lx8_0:                 .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n3_binop_α:             sub              rsp, 16
+                        mov              r11, 4
                         mov              rdi, qword ptr [rsp + 32]            # lit_integer
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]
@@ -55,6 +59,7 @@ n3_binop_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_binop_α:             sub              rsp, 16
+                        mov              r11, 5
                         mov              rdi, qword ptr [rsp + 64]            # lit_integer
                         mov              rsi, qword ptr [rsp + 72]
                         mov              rdx, qword ptr [rsp + 16]            # binop
@@ -70,6 +75,7 @@ n4_binop_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n5_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 6
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8

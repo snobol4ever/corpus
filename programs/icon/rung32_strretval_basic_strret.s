@@ -11,19 +11,22 @@ FN__greet:
                         call             rt_icn_zframe_args_install@PLT
 greet_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_string_α:        mov              qword ptr [rsp + 48], 2              # result
+n0_lit_string_α:        mov              r11, 1
+                        mov              qword ptr [rsp + 48], 2              # result
                         mov              dword ptr [rsp + 52], 6
                         mov              rax, qword ptr [rip + .Lx4_0]
                         mov              qword ptr [rsp + 56], rax;           jmp   n1_var_α
 .Lx4_0:                 .quad            .Lx4_0_s
 .Lx4_0_s:               .string          "hello "
 #-----------------------------------------------------------------------------------------------------------------------
-n1_var_α:               mov              rax, qword ptr [rsp + 16]
+n1_var_α:               mov              r11, 2
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 64], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 72], rax;           jmp   n2_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_binop_α:             mov              rdi, qword ptr [rsp + 48]
+n2_binop_α:             mov              r11, 3
+                        mov              rdi, qword ptr [rsp + 48]
                         mov              rsi, qword ptr [rsp + 56]
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
@@ -34,7 +37,8 @@ n2_binop_α:             mov              rdi, qword ptr [rsp + 48]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_return_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_return_α:            mov              rax, qword ptr [rsp + 32]
+n3_return_α:            mov              r11, 4
+                        mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx;            jmp   greet_γ
@@ -102,6 +106,7 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n10_lit_string_α:       sub              rsp, 16
+                        mov              r11, 5
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx13_0]
@@ -110,6 +115,7 @@ n10_lit_string_α:       sub              rsp, 16
 .Lx13_0_s:              .string          "world"
 #-----------------------------------------------------------------------------------------------------------------------
 n11_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 6
                         lea              rsi, [rsp + 16]                      # lit_string
                         call             greet_dcα;                           jmp   .Lx15_2
 .Lx15_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
@@ -132,12 +138,13 @@ n11_call_proc_staged_α: sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   main_ω
 .Lx15_240:                                                                    jmp   n12_call_builtin_icon_α
-n11_call_proc_staged_β:                                                       jmp   main_ω
+n11_call_proc_staged_β: mov              r11, 6;                              jmp   main_ω
 .Lx15_0:                .quad            .Lx15_0_s
 .Lx15_0_s:              .string          "greet"
 #-----------------------------------------------------------------------------------------------------------------------
 n12_call_builtin_icon_α:
                         sub              rsp, 16
+                        mov              r11, 7
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8

@@ -16,12 +16,14 @@ FN__try:
                         call             rt_icn_zframe_args_install@PLT
 try_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_var_α:               mov              rax, qword ptr [rsp + 16]
+n0_var_α:               mov              r11, 1
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 816], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 824], rax;          jmp   n1_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_call_builtin_icon_α: mov              rax, qword ptr [rsp + 816]
+n1_call_builtin_icon_α: mov              r11, 2
+                        mov              rax, qword ptr [rsp + 816]
                         mov              qword ptr [rsp + 784], rax
                         mov              rax, qword ptr [rsp + 824]
                         mov              qword ptr [rsp + 792], rax
@@ -39,17 +41,20 @@ n1_call_builtin_icon_α: mov              rax, qword ptr [rsp + 816]
                         cmp              al, 104;                             je    n3_disjunction_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n2_assign_α
-n1_call_builtin_icon_β:                                                       jmp   n3_disjunction_α
+n1_call_builtin_icon_β: mov              r11, 2;                              jmp   n3_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_assign_α:            mov              rax, qword ptr [rsp + 768]
+n2_assign_α:            mov              r11, 3
+                        mov              rax, qword ptr [rsp + 768]
                         mov              rdx, qword ptr [rsp + 776]
                         mov              qword ptr [rsp + 832], rax
                         mov              qword ptr [rsp + 840], rdx;          jmp   n3_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_disjunction_α:       mov              qword ptr [rsp + 48], 0
+n3_disjunction_α:       mov              r11, 4
+                        mov              qword ptr [rsp + 48], 0
                         mov              qword ptr [rsp + 56], 0
                         mov              dword ptr [rsp + 64], 0;             jmp   n20_var_α
-n3_disjunction_as:      mov              eax, dword ptr [rsp + 64]
+n3_disjunction_as:      mov              r11, 4
+                        mov              eax, dword ptr [rsp + 64]
                         cmp              eax, 0;                              jne   .Lx32_0
                         mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [rsp + 48], rax
@@ -61,18 +66,22 @@ n3_disjunction_as:      mov              eax, dword ptr [rsp + 64]
                         mov              rax, qword ptr [rsp + 264]
                         mov              qword ptr [rsp + 56], rax;           jmp   try_γ
 .Lx32_1:                                                                      jmp   try_γ
-n3_disjunction_β:       mov              eax, dword ptr [rsp + 64]
+n3_disjunction_β:       mov              r11, 4
+                        mov              eax, dword ptr [rsp + 64]
                         cmp              eax, 0;                              je    try_ω
                                                                               jmp   n4_disjunction_β
-n3_disjunction_af:      add              dword ptr [rsp + 64], 1
+n3_disjunction_af:      mov              r11, 4
+                        add              dword ptr [rsp + 64], 1
                         mov              eax, dword ptr [rsp + 64]
                         cmp              eax, 1;                              je    n4_disjunction_α
                                                                               jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n4_disjunction_α:       mov              qword ptr [rsp + 256], 0
+n4_disjunction_α:       mov              r11, 5
+                        mov              qword ptr [rsp + 256], 0
                         mov              qword ptr [rsp + 264], 0
                         mov              dword ptr [rsp + 272], 0;            jmp   n12_var_α
-n4_disjunction_as:      mov              eax, dword ptr [rsp + 272]
+n4_disjunction_as:      mov              r11, 5
+                        mov              eax, dword ptr [rsp + 272]
                         cmp              eax, 0;                              jne   .Lx34_0
                         mov              rax, qword ptr [rsp + 288]
                         mov              qword ptr [rsp + 256], rax
@@ -84,21 +93,25 @@ n4_disjunction_as:      mov              eax, dword ptr [rsp + 272]
                         mov              rax, qword ptr [rsp + 520]
                         mov              qword ptr [rsp + 264], rax;          jmp   n3_disjunction_as
 .Lx34_1:                                                                      jmp   n3_disjunction_as
-n4_disjunction_β:       mov              eax, dword ptr [rsp + 272]
+n4_disjunction_β:       mov              r11, 5
+                        mov              eax, dword ptr [rsp + 272]
                         cmp              eax, 0;                              je    try_ω
                                                                               jmp   try_ω
-n4_disjunction_af:      add              dword ptr [rsp + 272], 1
+n4_disjunction_af:      mov              r11, 5
+                        add              dword ptr [rsp + 272], 1
                         mov              eax, dword ptr [rsp + 272]
                         cmp              eax, 1;                              je    n5_var_α
                                                                               jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n5_var_α:               mov              rax, qword ptr [rsp + 16]
+n5_var_α:               mov              r11, 6
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 672], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 680], rax;          jmp   n6_call_builtin_icon_α
-n5_var_β:                                                                     jmp   try_ω
+n5_var_β:               mov              r11, 6;                              jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 672]
+n6_call_builtin_icon_α: mov              r11, 7
+                        mov              rax, qword ptr [rsp + 672]
                         mov              qword ptr [rsp + 640], rax
                         mov              rax, qword ptr [rsp + 680]
                         mov              qword ptr [rsp + 648], rax
@@ -116,33 +129,38 @@ n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 672]
                         cmp              al, 104;                             je    try_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n7_lit_string_α
-n6_call_builtin_icon_β:                                                       jmp   try_ω
+n6_call_builtin_icon_β: mov              r11, 7;                              jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n7_lit_string_α:        mov              qword ptr [rsp + 688], 2             # result
+n7_lit_string_α:        mov              r11, 8
+                        mov              qword ptr [rsp + 688], 2             # result
                         mov              dword ptr [rsp + 692], 6
                         mov              rax, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rsp + 696], rax;          jmp   n8_var_α
 .Lx39_0:                .quad            .Lx39_0_s
 .Lx39_0_s:              .string          ": got "
 #-----------------------------------------------------------------------------------------------------------------------
-n8_var_α:               mov              rax, qword ptr [rsp + 832]
+n8_var_α:               mov              r11, 9
+                        mov              rax, qword ptr [rsp + 832]
                         mov              qword ptr [rsp + 704], rax
                         mov              rax, qword ptr [rsp + 840]
                         mov              qword ptr [rsp + 712], rax;          jmp   n9_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n9_lit_string_α:        mov              qword ptr [rsp + 720], 2             # result
+n9_lit_string_α:        mov              r11, 10
+                        mov              qword ptr [rsp + 720], 2             # result
                         mov              dword ptr [rsp + 724], 15
                         mov              rax, qword ptr [rip + .Lx42_0]
                         mov              qword ptr [rsp + 728], rax;          jmp   n10_var_α
 .Lx42_0:                .quad            .Lx42_0_s
 .Lx42_0_s:              .string          ", but expected "
 #-----------------------------------------------------------------------------------------------------------------------
-n10_var_α:              mov              rax, qword ptr [rsp + 32]
+n10_var_α:              mov              r11, 11
+                        mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 736], rax
                         mov              rax, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 744], rax;          jmp   n11_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_call_builtin_icon_α:
+                        mov              r11, 12
                         mov              rax, qword ptr [rsp + 736]
                         mov              qword ptr [rsp + 592], rax
                         mov              rax, qword ptr [rsp + 744]
@@ -178,20 +196,23 @@ n11_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_disjunction_as
 n11_call_builtin_icon_β:
-                                                                              jmp   try_ω
+                        mov              r11, 12;                             jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n12_var_α:              mov              rax, qword ptr [rsp + 32]
+n12_var_α:              mov              r11, 13
+                        mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 480], rax
                         mov              rax, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 488], rax;          jmp   n13_var_α
-n12_var_β:                                                                    jmp   n4_disjunction_af
+n12_var_β:              mov              r11, 13;                             jmp   n4_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
-n13_var_α:              mov              rax, qword ptr [rsp + 832]
+n13_var_α:              mov              r11, 14
+                        mov              rax, qword ptr [rsp + 832]
                         mov              qword ptr [rsp + 496], rax
                         mov              rax, qword ptr [rsp + 840]
                         mov              qword ptr [rsp + 504], rax;          jmp   n14_binop_test_α
 #-----------------------------------------------------------------------------------------------------------------------
-n14_binop_test_α:       mov              rdi, qword ptr [rsp + 32]
+n14_binop_test_α:       mov              r11, 15
+                        mov              rdi, qword ptr [rsp + 32]
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 832]
                         mov              rcx, qword ptr [rsp + 840]
@@ -210,12 +231,14 @@ n14_binop_test_α:       mov              rdi, qword ptr [rsp + 32]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n15_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n15_var_α:              mov              rax, qword ptr [rsp + 16]
+n15_var_α:              mov              r11, 16
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 416], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 424], rax;          jmp   n16_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_call_builtin_icon_α:
+                        mov              r11, 17
                         mov              rax, qword ptr [rsp + 416]
                         mov              qword ptr [rsp + 384], rax
                         mov              rax, qword ptr [rsp + 424]
@@ -235,21 +258,24 @@ n16_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n17_lit_string_α
 n16_call_builtin_icon_β:
-                                                                              jmp   try_ω
+                        mov              r11, 17;                             jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n17_lit_string_α:       mov              qword ptr [rsp + 432], 2             # result
+n17_lit_string_α:       mov              r11, 18
+                        mov              qword ptr [rsp + 432], 2             # result
                         mov              dword ptr [rsp + 436], 2
                         mov              rax, qword ptr [rip + .Lx56_0]
                         mov              qword ptr [rsp + 440], rax;          jmp   n18_var_α
 .Lx56_0:                .quad            .Lx56_0_s
 .Lx56_0_s:              .string          ": "
 #-----------------------------------------------------------------------------------------------------------------------
-n18_var_α:              mov              rax, qword ptr [rsp + 832]
+n18_var_α:              mov              r11, 19
+                        mov              rax, qword ptr [rsp + 832]
                         mov              qword ptr [rsp + 448], rax
                         mov              rax, qword ptr [rsp + 840]
                         mov              qword ptr [rsp + 456], rax;          jmp   n19_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n19_call_builtin_icon_α:
+                        mov              r11, 20
                         mov              rax, qword ptr [rsp + 448]
                         mov              qword ptr [rsp + 336], rax
                         mov              rax, qword ptr [rsp + 456]
@@ -277,26 +303,30 @@ n19_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_disjunction_as
 n19_call_builtin_icon_β:
-                                                                              jmp   try_ω
+                        mov              r11, 20;                             jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n20_var_α:              mov              rax, qword ptr [rsp + 832]
+n20_var_α:              mov              r11, 21
+                        mov              rax, qword ptr [rsp + 832]
                         mov              qword ptr [rsp + 240], rax
                         mov              rax, qword ptr [rsp + 840]
                         mov              qword ptr [rsp + 248], rax;          jmp   n21_unop_test_α
-n20_var_β:                                                                    jmp   n3_disjunction_af
+n20_var_β:              mov              r11, 21;                             jmp   n3_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
-n21_unop_test_α:        mov              eax, dword ptr [rsp + 832]
+n21_unop_test_α:        mov              r11, 22
+                        mov              eax, dword ptr [rsp + 832]
                         cmp              al, 104;                             je    n3_disjunction_af
                         cmp              eax, 0;                              jne   n3_disjunction_af
                         mov              qword ptr [rsp + 224], 0
                         mov              qword ptr [rsp + 232], 0;            jmp   n22_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n22_var_α:              mov              rax, qword ptr [rsp + 16]
+n22_var_α:              mov              r11, 23
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 192], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 200], rax;          jmp   n23_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n23_call_builtin_icon_α:
+                        mov              r11, 24
                         mov              rax, qword ptr [rsp + 192]
                         mov              qword ptr [rsp + 160], rax
                         mov              rax, qword ptr [rsp + 200]
@@ -316,9 +346,10 @@ n23_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n24_lit_string_α
 n23_call_builtin_icon_β:
-                                                                              jmp   try_ω
+                        mov              r11, 24;                             jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n24_lit_string_α:       mov              qword ptr [rsp + 208], 2             # result
+n24_lit_string_α:       mov              r11, 25
+                        mov              qword ptr [rsp + 208], 2             # result
                         mov              dword ptr [rsp + 212], 19
                         mov              rax, qword ptr [rip + .Lx68_0]
                         mov              qword ptr [rsp + 216], rax;          jmp   n25_call_builtin_icon_α
@@ -326,6 +357,7 @@ n24_lit_string_α:       mov              qword ptr [rsp + 208], 2             #
 .Lx68_0_s:              .string          ": failed to convert"
 #-----------------------------------------------------------------------------------------------------------------------
 n25_call_builtin_icon_α:
+                        mov              r11, 26
                         mov              rax, qword ptr [rsp + 208]
                         mov              qword ptr [rsp + 112], rax
                         mov              rax, qword ptr [rsp + 216]
@@ -349,7 +381,7 @@ n25_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_disjunction_as
 n25_call_builtin_icon_β:
-                                                                              jmp   try_ω
+                        mov              r11, 26;                             jmp   try_ω
 #-----------------------------------------------------------------------------------------------------------------------
 try_res:
                         add              rsp, 8
@@ -422,6 +454,7 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n72_lit_string_α:       sub              rsp, 16
+                        mov              r11, 27
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 8
                         mov              rax, qword ptr [rip + .Lx201_0]
@@ -430,12 +463,14 @@ n72_lit_string_α:       sub              rsp, 16
 .Lx201_0_s:             .string          "2r101111"
 #-----------------------------------------------------------------------------------------------------------------------
 n73_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 28
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx202_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n74_call_proc_staged_α
 .Lx202_0:               .quad            47
 #-----------------------------------------------------------------------------------------------------------------------
 n74_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 29
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx204_2
@@ -458,11 +493,12 @@ n74_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx204_240
                         add              rsp, 16;                             jmp   n75_lit_string_α
 .Lx204_240:                                                                   jmp   n75_lit_string_α
-n74_call_proc_staged_β:                                                       jmp   n75_lit_string_α
+n74_call_proc_staged_β: mov              r11, 29;                             jmp   n75_lit_string_α
 .Lx204_0:               .quad            .Lx204_0_s
 .Lx204_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n75_lit_string_α:       sub              rsp, 16
+                        mov              r11, 30
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx205_0]
@@ -471,12 +507,14 @@ n75_lit_string_α:       sub              rsp, 16
 .Lx205_0_s:             .string          "3r201"
 #-----------------------------------------------------------------------------------------------------------------------
 n76_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 31
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx206_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n77_call_proc_staged_α
 .Lx206_0:               .quad            19
 #-----------------------------------------------------------------------------------------------------------------------
 n77_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 32
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx208_2
@@ -499,11 +537,12 @@ n77_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx208_240
                         add              rsp, 16;                             jmp   n78_lit_string_α
 .Lx208_240:                                                                   jmp   n78_lit_string_α
-n77_call_proc_staged_β:                                                       jmp   n78_lit_string_α
+n77_call_proc_staged_β: mov              r11, 32;                             jmp   n78_lit_string_α
 .Lx208_0:               .quad            .Lx208_0_s
 .Lx208_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n78_lit_string_α:       sub              rsp, 16
+                        mov              r11, 33
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx209_0]
@@ -512,12 +551,14 @@ n78_lit_string_α:       sub              rsp, 16
 .Lx209_0_s:             .string          "4r11213"
 #-----------------------------------------------------------------------------------------------------------------------
 n79_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 34
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx210_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n80_call_proc_staged_α
 .Lx210_0:               .quad            359
 #-----------------------------------------------------------------------------------------------------------------------
 n80_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 35
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx212_2
@@ -540,11 +581,12 @@ n80_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx212_240
                         add              rsp, 16;                             jmp   n81_lit_string_α
 .Lx212_240:                                                                   jmp   n81_lit_string_α
-n80_call_proc_staged_β:                                                       jmp   n81_lit_string_α
+n80_call_proc_staged_β: mov              r11, 35;                             jmp   n81_lit_string_α
 .Lx212_0:               .quad            .Lx212_0_s
 .Lx212_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n81_lit_string_α:       sub              rsp, 16
+                        mov              r11, 36
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx213_0]
@@ -553,12 +595,14 @@ n81_lit_string_α:       sub              rsp, 16
 .Lx213_0_s:             .string          "5r1234"
 #-----------------------------------------------------------------------------------------------------------------------
 n82_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 37
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx214_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n83_call_proc_staged_α
 .Lx214_0:               .quad            194
 #-----------------------------------------------------------------------------------------------------------------------
 n83_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 38
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx216_2
@@ -581,11 +625,12 @@ n83_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx216_240
                         add              rsp, 16;                             jmp   n84_lit_string_α
 .Lx216_240:                                                                   jmp   n84_lit_string_α
-n83_call_proc_staged_β:                                                       jmp   n84_lit_string_α
+n83_call_proc_staged_β: mov              r11, 38;                             jmp   n84_lit_string_α
 .Lx216_0:               .quad            .Lx216_0_s
 .Lx216_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n84_lit_string_α:       sub              rsp, 16
+                        mov              r11, 39
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx217_0]
@@ -594,12 +639,14 @@ n84_lit_string_α:       sub              rsp, 16
 .Lx217_0_s:             .string          "6r1253"
 #-----------------------------------------------------------------------------------------------------------------------
 n85_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 40
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx218_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n86_call_proc_staged_α
 .Lx218_0:               .quad            321
 #-----------------------------------------------------------------------------------------------------------------------
 n86_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 41
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx220_2
@@ -622,11 +669,12 @@ n86_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx220_240
                         add              rsp, 16;                             jmp   n87_lit_string_α
 .Lx220_240:                                                                   jmp   n87_lit_string_α
-n86_call_proc_staged_β:                                                       jmp   n87_lit_string_α
+n86_call_proc_staged_β: mov              r11, 41;                             jmp   n87_lit_string_α
 .Lx220_0:               .quad            .Lx220_0_s
 .Lx220_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n87_lit_string_α:       sub              rsp, 16
+                        mov              r11, 42
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx221_0]
@@ -635,12 +683,14 @@ n87_lit_string_α:       sub              rsp, 16
 .Lx221_0_s:             .string          "7r1253"
 #-----------------------------------------------------------------------------------------------------------------------
 n88_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 43
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx222_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n89_call_proc_staged_α
 .Lx222_0:               .quad            479
 #-----------------------------------------------------------------------------------------------------------------------
 n89_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 44
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx224_2
@@ -663,11 +713,12 @@ n89_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx224_240
                         add              rsp, 16;                             jmp   n90_lit_string_α
 .Lx224_240:                                                                   jmp   n90_lit_string_α
-n89_call_proc_staged_β:                                                       jmp   n90_lit_string_α
+n89_call_proc_staged_β: mov              r11, 44;                             jmp   n90_lit_string_α
 .Lx224_0:               .quad            .Lx224_0_s
 .Lx224_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n90_lit_string_α:       sub              rsp, 16
+                        mov              r11, 45
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx225_0]
@@ -676,12 +727,14 @@ n90_lit_string_α:       sub              rsp, 16
 .Lx225_0_s:             .string          "8r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n91_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 46
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx226_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n92_call_proc_staged_α
 .Lx226_0:               .quad            687
 #-----------------------------------------------------------------------------------------------------------------------
 n92_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 47
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx228_2
@@ -704,11 +757,12 @@ n92_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx228_240
                         add              rsp, 16;                             jmp   n93_lit_string_α
 .Lx228_240:                                                                   jmp   n93_lit_string_α
-n92_call_proc_staged_β:                                                       jmp   n93_lit_string_α
+n92_call_proc_staged_β: mov              r11, 47;                             jmp   n93_lit_string_α
 .Lx228_0:               .quad            .Lx228_0_s
 .Lx228_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n93_lit_string_α:       sub              rsp, 16
+                        mov              r11, 48
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx229_0]
@@ -717,12 +771,14 @@ n93_lit_string_α:       sub              rsp, 16
 .Lx229_0_s:             .string          "9r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n94_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 49
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx230_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n95_call_proc_staged_α
 .Lx230_0:               .quad            943
 #-----------------------------------------------------------------------------------------------------------------------
 n95_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 50
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx232_2
@@ -745,11 +801,12 @@ n95_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx232_240
                         add              rsp, 16;                             jmp   n96_lit_string_α
 .Lx232_240:                                                                   jmp   n96_lit_string_α
-n95_call_proc_staged_β:                                                       jmp   n96_lit_string_α
+n95_call_proc_staged_β: mov              r11, 50;                             jmp   n96_lit_string_α
 .Lx232_0:               .quad            .Lx232_0_s
 .Lx232_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n96_lit_string_α:       sub              rsp, 16
+                        mov              r11, 51
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx233_0]
@@ -758,12 +815,14 @@ n96_lit_string_α:       sub              rsp, 16
 .Lx233_0_s:             .string          "10r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n97_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 52
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx234_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n98_call_proc_staged_α
 .Lx234_0:               .quad            1257
 #-----------------------------------------------------------------------------------------------------------------------
 n98_call_proc_staged_α: sub              rsp, 16
+                        mov              r11, 53
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx236_2
@@ -786,11 +845,12 @@ n98_call_proc_staged_α: sub              rsp, 16
                         cmp              al, 104;                             jne   .Lx236_240
                         add              rsp, 16;                             jmp   n99_lit_string_α
 .Lx236_240:                                                                   jmp   n99_lit_string_α
-n98_call_proc_staged_β:                                                       jmp   n99_lit_string_α
+n98_call_proc_staged_β: mov              r11, 53;                             jmp   n99_lit_string_α
 .Lx236_0:               .quad            .Lx236_0_s
 .Lx236_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n99_lit_string_α:       sub              rsp, 16
+                        mov              r11, 54
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx237_0]
@@ -799,6 +859,7 @@ n99_lit_string_α:       sub              rsp, 16
 .Lx237_0_s:             .string          "11r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n100_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 55
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx238_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n101_call_proc_staged_α
@@ -806,6 +867,7 @@ n100_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n101_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 56
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx240_2
@@ -829,11 +891,12 @@ n101_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n102_lit_string_α
 .Lx240_240:                                                                   jmp   n102_lit_string_α
 n101_call_proc_staged_β:
-                                                                              jmp   n102_lit_string_α
+                        mov              r11, 56;                             jmp   n102_lit_string_α
 .Lx240_0:               .quad            .Lx240_0_s
 .Lx240_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n102_lit_string_α:      sub              rsp, 16
+                        mov              r11, 57
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx241_0]
@@ -842,6 +905,7 @@ n102_lit_string_α:      sub              rsp, 16
 .Lx241_0_s:             .string          "12r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n103_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 58
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx242_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n104_call_proc_staged_α
@@ -849,6 +913,7 @@ n103_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n104_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 59
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx244_2
@@ -872,11 +937,12 @@ n104_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n105_lit_string_α
 .Lx244_240:                                                                   jmp   n105_lit_string_α
 n104_call_proc_staged_β:
-                                                                              jmp   n105_lit_string_α
+                        mov              r11, 59;                             jmp   n105_lit_string_α
 .Lx244_0:               .quad            .Lx244_0_s
 .Lx244_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n105_lit_string_α:      sub              rsp, 16
+                        mov              r11, 60
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx245_0]
@@ -885,6 +951,7 @@ n105_lit_string_α:      sub              rsp, 16
 .Lx245_0_s:             .string          "13r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n106_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 61
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx246_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n107_call_proc_staged_α
@@ -892,6 +959,7 @@ n106_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n107_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 62
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx248_2
@@ -915,11 +983,12 @@ n107_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n108_lit_string_α
 .Lx248_240:                                                                   jmp   n108_lit_string_α
 n107_call_proc_staged_β:
-                                                                              jmp   n108_lit_string_α
+                        mov              r11, 62;                             jmp   n108_lit_string_α
 .Lx248_0:               .quad            .Lx248_0_s
 .Lx248_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n108_lit_string_α:      sub              rsp, 16
+                        mov              r11, 63
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx249_0]
@@ -928,6 +997,7 @@ n108_lit_string_α:      sub              rsp, 16
 .Lx249_0_s:             .string          "19r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n109_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 64
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx250_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n110_call_proc_staged_α
@@ -935,6 +1005,7 @@ n109_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n110_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 65
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx252_2
@@ -958,11 +1029,12 @@ n110_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n111_lit_string_α
 .Lx252_240:                                                                   jmp   n111_lit_string_α
 n110_call_proc_staged_β:
-                                                                              jmp   n111_lit_string_α
+                        mov              r11, 65;                             jmp   n111_lit_string_α
 .Lx252_0:               .quad            .Lx252_0_s
 .Lx252_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n111_lit_string_α:      sub              rsp, 16
+                        mov              r11, 66
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx253_0]
@@ -971,6 +1043,7 @@ n111_lit_string_α:      sub              rsp, 16
 .Lx253_0_s:             .string          "23r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n112_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 67
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx254_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n113_call_proc_staged_α
@@ -978,6 +1051,7 @@ n112_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n113_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 68
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx256_2
@@ -1001,11 +1075,12 @@ n113_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n114_lit_string_α
 .Lx256_240:                                                                   jmp   n114_lit_string_α
 n113_call_proc_staged_β:
-                                                                              jmp   n114_lit_string_α
+                        mov              r11, 68;                             jmp   n114_lit_string_α
 .Lx256_0:               .quad            .Lx256_0_s
 .Lx256_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n114_lit_string_α:      sub              rsp, 16
+                        mov              r11, 69
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx257_0]
@@ -1014,6 +1089,7 @@ n114_lit_string_α:      sub              rsp, 16
 .Lx257_0_s:             .string          "29r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n115_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 70
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx258_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n116_call_proc_staged_α
@@ -1021,6 +1097,7 @@ n115_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n116_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 71
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx260_2
@@ -1044,11 +1121,12 @@ n116_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n117_lit_string_α
 .Lx260_240:                                                                   jmp   n117_lit_string_α
 n116_call_proc_staged_β:
-                                                                              jmp   n117_lit_string_α
+                        mov              r11, 71;                             jmp   n117_lit_string_α
 .Lx260_0:               .quad            .Lx260_0_s
 .Lx260_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n117_lit_string_α:      sub              rsp, 16
+                        mov              r11, 72
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx261_0]
@@ -1057,6 +1135,7 @@ n117_lit_string_α:      sub              rsp, 16
 .Lx261_0_s:             .string          "31r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n118_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 73
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx262_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n119_call_proc_staged_α
@@ -1064,6 +1143,7 @@ n118_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n119_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 74
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx264_2
@@ -1087,11 +1167,12 @@ n119_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n120_lit_string_α
 .Lx264_240:                                                                   jmp   n120_lit_string_α
 n119_call_proc_staged_β:
-                                                                              jmp   n120_lit_string_α
+                        mov              r11, 74;                             jmp   n120_lit_string_α
 .Lx264_0:               .quad            .Lx264_0_s
 .Lx264_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n120_lit_string_α:      sub              rsp, 16
+                        mov              r11, 75
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx265_0]
@@ -1100,6 +1181,7 @@ n120_lit_string_α:      sub              rsp, 16
 .Lx265_0_s:             .string          "36r1257"
 #-----------------------------------------------------------------------------------------------------------------------
 n121_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 76
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx266_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n122_call_proc_staged_α
@@ -1107,6 +1189,7 @@ n121_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n122_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 77
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx268_2
@@ -1130,11 +1213,12 @@ n122_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n123_lit_string_α
 .Lx268_240:                                                                   jmp   n123_lit_string_α
 n122_call_proc_staged_β:
-                                                                              jmp   n123_lit_string_α
+                        mov              r11, 77;                             jmp   n123_lit_string_α
 .Lx268_0:               .quad            .Lx268_0_s
 .Lx268_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n123_lit_string_α:      sub              rsp, 16
+                        mov              r11, 78
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 13
                         mov              rax, qword ptr [rip + .Lx269_0]
@@ -1143,6 +1227,7 @@ n123_lit_string_α:      sub              rsp, 16
 .Lx269_0_s:             .string          "8r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n124_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 79
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx270_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n125_call_proc_staged_α
@@ -1150,6 +1235,7 @@ n124_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n125_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 80
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx272_2
@@ -1173,11 +1259,12 @@ n125_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n126_lit_string_α
 .Lx272_240:                                                                   jmp   n126_lit_string_α
 n125_call_proc_staged_β:
-                                                                              jmp   n126_lit_string_α
+                        mov              r11, 80;                             jmp   n126_lit_string_α
 .Lx272_0:               .quad            .Lx272_0_s
 .Lx272_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n126_lit_string_α:      sub              rsp, 16
+                        mov              r11, 81
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 13
                         mov              rax, qword ptr [rip + .Lx273_0]
@@ -1186,6 +1273,7 @@ n126_lit_string_α:      sub              rsp, 16
 .Lx273_0_s:             .string          "9r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n127_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 82
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx274_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n128_call_proc_staged_α
@@ -1193,6 +1281,7 @@ n127_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n128_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 83
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx276_2
@@ -1216,11 +1305,12 @@ n128_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n129_lit_string_α
 .Lx276_240:                                                                   jmp   n129_lit_string_α
 n128_call_proc_staged_β:
-                                                                              jmp   n129_lit_string_α
+                        mov              r11, 83;                             jmp   n129_lit_string_α
 .Lx276_0:               .quad            .Lx276_0_s
 .Lx276_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n129_lit_string_α:      sub              rsp, 16
+                        mov              r11, 84
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx277_0]
@@ -1229,6 +1319,7 @@ n129_lit_string_α:      sub              rsp, 16
 .Lx277_0_s:             .string          "10r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n130_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 85
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx278_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n131_call_proc_staged_α
@@ -1236,6 +1327,7 @@ n130_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n131_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 86
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx280_2
@@ -1259,11 +1351,12 @@ n131_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n132_lit_string_α
 .Lx280_240:                                                                   jmp   n132_lit_string_α
 n131_call_proc_staged_β:
-                                                                              jmp   n132_lit_string_α
+                        mov              r11, 86;                             jmp   n132_lit_string_α
 .Lx280_0:               .quad            .Lx280_0_s
 .Lx280_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n132_lit_string_α:      sub              rsp, 16
+                        mov              r11, 87
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx281_0]
@@ -1272,6 +1365,7 @@ n132_lit_string_α:      sub              rsp, 16
 .Lx281_0_s:             .string          "11r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n133_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 88
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx282_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n134_call_proc_staged_α
@@ -1279,6 +1373,7 @@ n133_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n134_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 89
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx284_2
@@ -1302,11 +1397,12 @@ n134_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n135_lit_string_α
 .Lx284_240:                                                                   jmp   n135_lit_string_α
 n134_call_proc_staged_β:
-                                                                              jmp   n135_lit_string_α
+                        mov              r11, 89;                             jmp   n135_lit_string_α
 .Lx284_0:               .quad            .Lx284_0_s
 .Lx284_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n135_lit_string_α:      sub              rsp, 16
+                        mov              r11, 90
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx285_0]
@@ -1315,6 +1411,7 @@ n135_lit_string_α:      sub              rsp, 16
 .Lx285_0_s:             .string          "12r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n136_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 91
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx286_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n137_call_proc_staged_α
@@ -1322,6 +1419,7 @@ n136_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n137_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 92
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx288_2
@@ -1345,11 +1443,12 @@ n137_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n138_lit_string_α
 .Lx288_240:                                                                   jmp   n138_lit_string_α
 n137_call_proc_staged_β:
-                                                                              jmp   n138_lit_string_α
+                        mov              r11, 92;                             jmp   n138_lit_string_α
 .Lx288_0:               .quad            .Lx288_0_s
 .Lx288_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n138_lit_string_α:      sub              rsp, 16
+                        mov              r11, 93
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx289_0]
@@ -1358,6 +1457,7 @@ n138_lit_string_α:      sub              rsp, 16
 .Lx289_0_s:             .string          "13r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n139_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 94
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx290_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n140_call_proc_staged_α
@@ -1365,6 +1465,7 @@ n139_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n140_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 95
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx292_2
@@ -1388,11 +1489,12 @@ n140_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n141_lit_string_α
 .Lx292_240:                                                                   jmp   n141_lit_string_α
 n140_call_proc_staged_β:
-                                                                              jmp   n141_lit_string_α
+                        mov              r11, 95;                             jmp   n141_lit_string_α
 .Lx292_0:               .quad            .Lx292_0_s
 .Lx292_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n141_lit_string_α:      sub              rsp, 16
+                        mov              r11, 96
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx293_0]
@@ -1401,6 +1503,7 @@ n141_lit_string_α:      sub              rsp, 16
 .Lx293_0_s:             .string          "19r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n142_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 97
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx294_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n143_call_proc_staged_α
@@ -1408,6 +1511,7 @@ n142_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n143_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 98
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx296_2
@@ -1431,11 +1535,12 @@ n143_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n144_lit_string_α
 .Lx296_240:                                                                   jmp   n144_lit_string_α
 n143_call_proc_staged_β:
-                                                                              jmp   n144_lit_string_α
+                        mov              r11, 98;                             jmp   n144_lit_string_α
 .Lx296_0:               .quad            .Lx296_0_s
 .Lx296_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n144_lit_string_α:      sub              rsp, 16
+                        mov              r11, 99
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx297_0]
@@ -1444,6 +1549,7 @@ n144_lit_string_α:      sub              rsp, 16
 .Lx297_0_s:             .string          "23r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n145_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 100
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx298_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n146_call_proc_staged_α
@@ -1451,6 +1557,7 @@ n145_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n146_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 101
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx300_2
@@ -1474,11 +1581,12 @@ n146_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n147_lit_string_α
 .Lx300_240:                                                                   jmp   n147_lit_string_α
 n146_call_proc_staged_β:
-                                                                              jmp   n147_lit_string_α
+                        mov              r11, 101;                            jmp   n147_lit_string_α
 .Lx300_0:               .quad            .Lx300_0_s
 .Lx300_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n147_lit_string_α:      sub              rsp, 16
+                        mov              r11, 102
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx301_0]
@@ -1487,6 +1595,7 @@ n147_lit_string_α:      sub              rsp, 16
 .Lx301_0_s:             .string          "29r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n148_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 103
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx302_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n149_call_proc_staged_α
@@ -1494,6 +1603,7 @@ n148_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n149_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 104
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx304_2
@@ -1517,11 +1627,12 @@ n149_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n150_lit_string_α
 .Lx304_240:                                                                   jmp   n150_lit_string_α
 n149_call_proc_staged_β:
-                                                                              jmp   n150_lit_string_α
+                        mov              r11, 104;                            jmp   n150_lit_string_α
 .Lx304_0:               .quad            .Lx304_0_s
 .Lx304_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n150_lit_string_α:      sub              rsp, 16
+                        mov              r11, 105
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx305_0]
@@ -1530,6 +1641,7 @@ n150_lit_string_α:      sub              rsp, 16
 .Lx305_0_s:             .string          "31r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n151_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 106
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx306_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n152_call_proc_staged_α
@@ -1537,6 +1649,7 @@ n151_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n152_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 107
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx308_2
@@ -1560,11 +1673,12 @@ n152_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n153_lit_string_α
 .Lx308_240:                                                                   jmp   n153_lit_string_α
 n152_call_proc_staged_β:
-                                                                              jmp   n153_lit_string_α
+                        mov              r11, 107;                            jmp   n153_lit_string_α
 .Lx308_0:               .quad            .Lx308_0_s
 .Lx308_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n153_lit_string_α:      sub              rsp, 16
+                        mov              r11, 108
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 14
                         mov              rax, qword ptr [rip + .Lx309_0]
@@ -1573,6 +1687,7 @@ n153_lit_string_α:      sub              rsp, 16
 .Lx309_0_s:             .string          "36r76054132752"
 #-----------------------------------------------------------------------------------------------------------------------
 n154_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 109
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx310_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n155_call_proc_staged_α
@@ -1580,6 +1695,7 @@ n154_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n155_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 110
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx312_2
@@ -1603,11 +1719,12 @@ n155_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n156_lit_string_α
 .Lx312_240:                                                                   jmp   n156_lit_string_α
 n155_call_proc_staged_β:
-                                                                              jmp   n156_lit_string_α
+                        mov              r11, 110;                            jmp   n156_lit_string_α
 .Lx312_0:               .quad            .Lx312_0_s
 .Lx312_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n156_lit_string_α:      sub              rsp, 16
+                        mov              r11, 111
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 22
                         mov              rax, qword ptr [rip + .Lx313_0]
@@ -1616,6 +1733,7 @@ n156_lit_string_α:      sub              rsp, 16
 .Lx313_0_s:             .string          "2r01001010100010101010"
 #-----------------------------------------------------------------------------------------------------------------------
 n157_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 112
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx314_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n158_call_proc_staged_α
@@ -1623,6 +1741,7 @@ n157_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n158_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 113
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx316_2
@@ -1646,11 +1765,12 @@ n158_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n159_lit_string_α
 .Lx316_240:                                                                   jmp   n159_lit_string_α
 n158_call_proc_staged_β:
-                                                                              jmp   n159_lit_string_α
+                        mov              r11, 113;                            jmp   n159_lit_string_α
 .Lx316_0:               .quad            .Lx316_0_s
 .Lx316_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n159_lit_string_α:      sub              rsp, 16
+                        mov              r11, 114
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 65
                         mov              rax, qword ptr [rip + .Lx317_0]
@@ -1659,6 +1779,7 @@ n159_lit_string_α:      sub              rsp, 16
 .Lx317_0_s:             .string          "2r111111111111111111111111111111111111111111111111111111111111111"
 #-----------------------------------------------------------------------------------------------------------------------
 n160_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 115
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx318_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n161_call_proc_staged_α
@@ -1666,6 +1787,7 @@ n160_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n161_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 116
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx320_2
@@ -1689,11 +1811,12 @@ n161_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n162_lit_string_α
 .Lx320_240:                                                                   jmp   n162_lit_string_α
 n161_call_proc_staged_β:
-                                                                              jmp   n162_lit_string_α
+                        mov              r11, 116;                            jmp   n162_lit_string_α
 .Lx320_0:               .quad            .Lx320_0_s
 .Lx320_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n162_lit_string_α:      sub              rsp, 16
+                        mov              r11, 117
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 66
                         mov              rax, qword ptr [rip + .Lx321_0]
@@ -1702,6 +1825,7 @@ n162_lit_string_α:      sub              rsp, 16
 .Lx321_0_s:             .string          "2r1111111111111111111111111111111111111111111111111111111111111111"
 #-----------------------------------------------------------------------------------------------------------------------
 n163_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 118
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx322_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n164_call_proc_staged_α
@@ -1709,6 +1833,7 @@ n163_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n164_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 119
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx324_2
@@ -1732,11 +1857,12 @@ n164_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n165_lit_string_α
 .Lx324_240:                                                                   jmp   n165_lit_string_α
 n164_call_proc_staged_β:
-                                                                              jmp   n165_lit_string_α
+                        mov              r11, 119;                            jmp   n165_lit_string_α
 .Lx324_0:               .quad            .Lx324_0_s
 .Lx324_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n165_lit_string_α:      sub              rsp, 16
+                        mov              r11, 120
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 67
                         mov              rax, qword ptr [rip + .Lx325_0]
@@ -1745,6 +1871,7 @@ n165_lit_string_α:      sub              rsp, 16
 .Lx325_0_s:             .string          "2r11111111111111111111111111111111111111111111111111111111111111111"
 #-----------------------------------------------------------------------------------------------------------------------
 n166_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 121
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx326_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n167_call_proc_staged_α
@@ -1752,6 +1879,7 @@ n166_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n167_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 122
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx328_2
@@ -1775,11 +1903,12 @@ n167_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n168_lit_string_α
 .Lx328_240:                                                                   jmp   n168_lit_string_α
 n167_call_proc_staged_β:
-                                                                              jmp   n168_lit_string_α
+                        mov              r11, 122;                            jmp   n168_lit_string_α
 .Lx328_0:               .quad            .Lx328_0_s
 .Lx328_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n168_lit_string_α:      sub              rsp, 16
+                        mov              r11, 123
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 10
                         mov              rax, qword ptr [rip + .Lx329_0]
@@ -1788,6 +1917,7 @@ n168_lit_string_α:      sub              rsp, 16
 .Lx329_0_s:             .string          "8r01234567"
 #-----------------------------------------------------------------------------------------------------------------------
 n169_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 124
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx330_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n170_call_proc_staged_α
@@ -1795,6 +1925,7 @@ n169_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n170_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 125
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx332_2
@@ -1818,11 +1949,12 @@ n170_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n171_lit_string_α
 .Lx332_240:                                                                   jmp   n171_lit_string_α
 n170_call_proc_staged_β:
-                                                                              jmp   n171_lit_string_α
+                        mov              r11, 125;                            jmp   n171_lit_string_α
 .Lx332_0:               .quad            .Lx332_0_s
 .Lx332_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n171_lit_string_α:      sub              rsp, 16
+                        mov              r11, 126
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 23
                         mov              rax, qword ptr [rip + .Lx333_0]
@@ -1831,6 +1963,7 @@ n171_lit_string_α:      sub              rsp, 16
 .Lx333_0_s:             .string          "8r377777777777777777777"
 #-----------------------------------------------------------------------------------------------------------------------
 n172_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 127
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx334_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n173_call_proc_staged_α
@@ -1838,6 +1971,7 @@ n172_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n173_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 128
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx336_2
@@ -1861,11 +1995,12 @@ n173_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n174_lit_string_α
 .Lx336_240:                                                                   jmp   n174_lit_string_α
 n173_call_proc_staged_β:
-                                                                              jmp   n174_lit_string_α
+                        mov              r11, 128;                            jmp   n174_lit_string_α
 .Lx336_0:               .quad            .Lx336_0_s
 .Lx336_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n174_lit_string_α:      sub              rsp, 16
+                        mov              r11, 129
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 19
                         mov              rax, qword ptr [rip + .Lx337_0]
@@ -1874,6 +2009,7 @@ n174_lit_string_α:      sub              rsp, 16
 .Lx337_0_s:             .string          "16r0123456789ABCDEF"
 #-----------------------------------------------------------------------------------------------------------------------
 n175_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 130
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx338_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n176_call_proc_staged_α
@@ -1881,6 +2017,7 @@ n175_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n176_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 131
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx340_2
@@ -1904,11 +2041,12 @@ n176_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n177_lit_string_α
 .Lx340_240:                                                                   jmp   n177_lit_string_α
 n176_call_proc_staged_β:
-                                                                              jmp   n177_lit_string_α
+                        mov              r11, 131;                            jmp   n177_lit_string_α
 .Lx340_0:               .quad            .Lx340_0_s
 .Lx340_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n177_lit_string_α:      sub              rsp, 16
+                        mov              r11, 132
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 19
                         mov              rax, qword ptr [rip + .Lx341_0]
@@ -1917,6 +2055,7 @@ n177_lit_string_α:      sub              rsp, 16
 .Lx341_0_s:             .string          "16r7fffffffffffffff"
 #-----------------------------------------------------------------------------------------------------------------------
 n178_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 133
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx342_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n179_call_proc_staged_α
@@ -1924,6 +2063,7 @@ n178_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n179_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 134
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx344_2
@@ -1947,11 +2087,12 @@ n179_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n180_lit_string_α
 .Lx344_240:                                                                   jmp   n180_lit_string_α
 n179_call_proc_staged_β:
-                                                                              jmp   n180_lit_string_α
+                        mov              r11, 134;                            jmp   n180_lit_string_α
 .Lx344_0:               .quad            .Lx344_0_s
 .Lx344_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n180_lit_string_α:      sub              rsp, 16
+                        mov              r11, 135
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 19
                         mov              rax, qword ptr [rip + .Lx345_0]
@@ -1960,6 +2101,7 @@ n180_lit_string_α:      sub              rsp, 16
 .Lx345_0_s:             .string          "16rffffffffffffffff"
 #-----------------------------------------------------------------------------------------------------------------------
 n181_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 136
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx346_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n182_call_proc_staged_α
@@ -1967,6 +2109,7 @@ n181_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n182_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 137
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx348_2
@@ -1990,11 +2133,12 @@ n182_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n183_lit_string_α
 .Lx348_240:                                                                   jmp   n183_lit_string_α
 n182_call_proc_staged_β:
-                                                                              jmp   n183_lit_string_α
+                        mov              r11, 137;                            jmp   n183_lit_string_α
 .Lx348_0:               .quad            .Lx348_0_s
 .Lx348_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n183_lit_string_α:      sub              rsp, 16
+                        mov              r11, 138
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 20
                         mov              rax, qword ptr [rip + .Lx349_0]
@@ -2003,6 +2147,7 @@ n183_lit_string_α:      sub              rsp, 16
 .Lx349_0_s:             .string          "16r10000000000000000"
 #-----------------------------------------------------------------------------------------------------------------------
 n184_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 139
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx350_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n185_call_proc_staged_α
@@ -2010,6 +2155,7 @@ n184_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n185_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 140
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx352_2
@@ -2033,11 +2179,12 @@ n185_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n186_lit_string_α
 .Lx352_240:                                                                   jmp   n186_lit_string_α
 n185_call_proc_staged_β:
-                                                                              jmp   n186_lit_string_α
+                        mov              r11, 140;                            jmp   n186_lit_string_α
 .Lx352_0:               .quad            .Lx352_0_s
 .Lx352_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n186_lit_string_α:      sub              rsp, 16
+                        mov              r11, 141
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 23
                         mov              rax, qword ptr [rip + .Lx353_0]
@@ -2046,6 +2193,7 @@ n186_lit_string_α:      sub              rsp, 16
 .Lx353_0_s:             .string          "16r123456789ABCDEF01234"
 #-----------------------------------------------------------------------------------------------------------------------
 n187_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 142
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx354_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n188_call_proc_staged_α
@@ -2053,6 +2201,7 @@ n187_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n188_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 143
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx356_2
@@ -2076,11 +2225,12 @@ n188_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n189_lit_string_α
 .Lx356_240:                                                                   jmp   n189_lit_string_α
 n188_call_proc_staged_β:
-                                                                              jmp   n189_lit_string_α
+                        mov              r11, 143;                            jmp   n189_lit_string_α
 .Lx356_0:               .quad            .Lx356_0_s
 .Lx356_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n189_lit_string_α:      sub              rsp, 16
+                        mov              r11, 144
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx357_0]
@@ -2089,6 +2239,7 @@ n189_lit_string_α:      sub              rsp, 16
 .Lx357_0_s:             .string          "36rICON"
 #-----------------------------------------------------------------------------------------------------------------------
 n190_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 145
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx358_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n191_call_proc_staged_α
@@ -2096,6 +2247,7 @@ n190_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n191_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 146
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx360_2
@@ -2119,11 +2271,12 @@ n191_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n192_lit_string_α
 .Lx360_240:                                                                   jmp   n192_lit_string_α
 n191_call_proc_staged_β:
-                                                                              jmp   n192_lit_string_α
+                        mov              r11, 146;                            jmp   n192_lit_string_α
 .Lx360_0:               .quad            .Lx360_0_s
 .Lx360_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n192_lit_string_α:      sub              rsp, 16
+                        mov              r11, 147
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx361_0]
@@ -2132,6 +2285,7 @@ n192_lit_string_α:      sub              rsp, 16
 .Lx361_0_s:             .string          "36rIcon"
 #-----------------------------------------------------------------------------------------------------------------------
 n193_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 148
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx362_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n194_call_proc_staged_α
@@ -2139,6 +2293,7 @@ n193_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n194_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 149
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx364_2
@@ -2162,11 +2317,12 @@ n194_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n195_lit_string_α
 .Lx364_240:                                                                   jmp   n195_lit_string_α
 n194_call_proc_staged_β:
-                                                                              jmp   n195_lit_string_α
+                        mov              r11, 149;                            jmp   n195_lit_string_α
 .Lx364_0:               .quad            .Lx364_0_s
 .Lx364_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n195_lit_string_α:      sub              rsp, 16
+                        mov              r11, 150
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 17
                         mov              rax, qword ptr [rip + .Lx365_0]
@@ -2175,6 +2331,7 @@ n195_lit_string_α:      sub              rsp, 16
 .Lx365_0_s:             .string          "36r123456789AEIOU"
 #-----------------------------------------------------------------------------------------------------------------------
 n196_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 151
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx366_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n197_call_proc_staged_α
@@ -2182,6 +2339,7 @@ n196_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n197_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 152
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx368_2
@@ -2205,11 +2363,12 @@ n197_call_proc_staged_α:
                         add              rsp, 16;                             jmp   n198_lit_string_α
 .Lx368_240:                                                                   jmp   n198_lit_string_α
 n197_call_proc_staged_β:
-                                                                              jmp   n198_lit_string_α
+                        mov              r11, 152;                            jmp   n198_lit_string_α
 .Lx368_0:               .quad            .Lx368_0_s
 .Lx368_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------
 n198_lit_string_α:      sub              rsp, 16
+                        mov              r11, 153
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 39
                         mov              rax, qword ptr [rip + .Lx369_0]
@@ -2218,6 +2377,7 @@ n198_lit_string_α:      sub              rsp, 16
 .Lx369_0_s:             .string          "36rZYXWVYTSRQPONMLKJIHGFEDCBA9876543210"
 #-----------------------------------------------------------------------------------------------------------------------
 n199_lit_integer_α:     sub              rsp, 16
+                        mov              r11, 154
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx370_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n200_call_proc_staged_α
@@ -2225,6 +2385,7 @@ n199_lit_integer_α:     sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n200_call_proc_staged_α:
                         sub              rsp, 16
+                        mov              r11, 155
                         lea              rsi, [rsp + 32]                      # lit_string
                         lea              rdx, [rsp + 16]                      # lit_integer
                         call             try_dcα;                             jmp   .Lx372_2
@@ -2249,7 +2410,7 @@ n200_call_proc_staged_α:
                         add              rsp, 2048;                           jmp   main_ω
 .Lx372_240:             add              rsp, 2064;                           jmp   main_γ
 n200_call_proc_staged_β:
-                                                                              jmp   main_ω
+                        mov              r11, 155;                            jmp   main_ω
 .Lx372_0:               .quad            .Lx372_0_s
 .Lx372_0_s:             .string          "try"
 #-----------------------------------------------------------------------------------------------------------------------

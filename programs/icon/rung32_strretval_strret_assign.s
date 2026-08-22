@@ -11,19 +11,22 @@ FN__shout:
                         call             rt_icn_zframe_args_install@PLT
 shout_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_var_α:               mov              rax, qword ptr [rsp + 16]
+n0_var_α:               mov              r11, 1
+                        mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [rsp + 24]
                         mov              qword ptr [rsp + 56], rax;           jmp   n1_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_lit_string_α:        mov              qword ptr [rsp + 64], 2              # result
+n1_lit_string_α:        mov              r11, 2
+                        mov              qword ptr [rsp + 64], 2              # result
                         mov              dword ptr [rsp + 68], 1
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 72], rax;           jmp   n2_binop_α
 .Lx6_0:                 .quad            .Lx6_0_s
 .Lx6_0_s:               .string          "!"
 #-----------------------------------------------------------------------------------------------------------------------
-n2_binop_α:             mov              rdi, qword ptr [rsp + 16]
+n2_binop_α:             mov              r11, 3
+                        mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 64]
                         mov              rcx, qword ptr [rsp + 72]
@@ -34,7 +37,8 @@ n2_binop_α:             mov              rdi, qword ptr [rsp + 16]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_return_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_return_α:            mov              rax, qword ptr [rsp + 32]
+n3_return_α:            mov              r11, 4
+                        mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx;            jmp   shout_γ
@@ -106,14 +110,16 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n10_lit_string_α:       mov              qword ptr [rsp + 240], 2             # result
+n10_lit_string_α:       mov              r11, 5
+                        mov              qword ptr [rsp + 240], 2             # result
                         mov              dword ptr [rsp + 244], 2
                         mov              rax, qword ptr [rip + .Lx18_0]
                         mov              qword ptr [rsp + 248], rax;          jmp   n11_call_proc_staged_α
 .Lx18_0:                .quad            .Lx18_0_s
 .Lx18_0_s:              .string          "hi"
 #-----------------------------------------------------------------------------------------------------------------------
-n11_call_proc_staged_α: lea              rsi, [rsp + 240]
+n11_call_proc_staged_α: mov              r11, 6
+                        lea              rsi, [rsp + 240]
                         call             shout_dcα;                           jmp   .Lx20_2
 .Lx20_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -133,21 +139,24 @@ n11_call_proc_staged_α: lea              rsi, [rsp + 240]
                         mov              qword ptr [rsp + 200], rdx
                         cmp              al, 104;                             je    n13_var_α
                                                                               jmp   n12_assign_α
-n11_call_proc_staged_β:                                                       jmp   n13_var_α
+n11_call_proc_staged_β: mov              r11, 6;                              jmp   n13_var_α
 .Lx20_0:                .quad            .Lx20_0_s
 .Lx20_0_s:              .string          "shout"
 #-----------------------------------------------------------------------------------------------------------------------
-n12_assign_α:           mov              rax, qword ptr [rsp + 192]
+n12_assign_α:           mov              r11, 7
+                        mov              rax, qword ptr [rsp + 192]
                         mov              rdx, qword ptr [rsp + 200]
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx;          jmp   n13_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n13_var_α:              mov              rax, qword ptr [rsp + 256]
+n13_var_α:              mov              r11, 8
+                        mov              rax, qword ptr [rsp + 256]
                         mov              qword ptr [rsp + 160], rax
                         mov              rax, qword ptr [rsp + 264]
                         mov              qword ptr [rsp + 168], rax;          jmp   n14_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_call_builtin_icon_α:
+                        mov              r11, 9
                         mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [rsp + 128], rax
                         mov              rax, qword ptr [rsp + 168]
@@ -167,16 +176,18 @@ n14_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n15_lit_string_α
 n14_call_builtin_icon_β:
-                                                                              jmp   n15_lit_string_α
+                        mov              r11, 9;                              jmp   n15_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n15_lit_string_α:       mov              qword ptr [rsp + 96], 2              # result
+n15_lit_string_α:       mov              r11, 10
+                        mov              qword ptr [rsp + 96], 2              # result
                         mov              dword ptr [rsp + 100], 3
                         mov              rax, qword ptr [rip + .Lx26_0]
                         mov              qword ptr [rsp + 104], rax;          jmp   n16_call_proc_staged_α
 .Lx26_0:                .quad            .Lx26_0_s
 .Lx26_0_s:              .string          "bye"
 #-----------------------------------------------------------------------------------------------------------------------
-n16_call_proc_staged_α: lea              rsi, [rsp + 96]
+n16_call_proc_staged_α: mov              r11, 11
+                        lea              rsi, [rsp + 96]
                         call             shout_dcα;                           jmp   .Lx28_2
 .Lx28_2:                mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -196,11 +207,12 @@ n16_call_proc_staged_α: lea              rsi, [rsp + 96]
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   n17_call_builtin_icon_α
-n16_call_proc_staged_β:                                                       jmp   main_ω
+n16_call_proc_staged_β: mov              r11, 11;                             jmp   main_ω
 .Lx28_0:                .quad            .Lx28_0_s
 .Lx28_0_s:              .string          "shout"
 #-----------------------------------------------------------------------------------------------------------------------
 n17_call_builtin_icon_α:
+                        mov              r11, 12
                         mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
@@ -220,7 +232,7 @@ n17_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n17_call_builtin_icon_β:
-                                                                              jmp   main_ω
+                        mov              r11, 12;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω

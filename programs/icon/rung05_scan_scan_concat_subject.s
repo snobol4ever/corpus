@@ -21,14 +21,16 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_string_α:        mov              qword ptr [rsp + 160], 2             # result
+n0_lit_string_α:        mov              r11, 1
+                        mov              qword ptr [rsp + 160], 2             # result
                         mov              dword ptr [rsp + 164], 6
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 168], rax;          jmp   n1_scan_enter_α
 .Lx6_0:                 .quad            .Lx6_0_s
 .Lx6_0_s:               .string          "foobar"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_scan_enter_α:        mov              rdi, qword ptr [rsp + 160]
+n1_scan_enter_α:        mov              r11, 2
+                        mov              rdi, qword ptr [rsp + 160]
                         mov              rsi, qword ptr [rsp + 168]
                         mov              rdx, r13
                         mov              rcx, r14
@@ -41,11 +43,13 @@ n1_scan_enter_α:        mov              rdi, qword ptr [rsp + 160]
                         mov              r15, rdx
                         mov              r14, 0;                              jmp   n2_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_keyword_icon_α:      mov              qword ptr [rsp + 128], 2
+n2_keyword_icon_α:      mov              r11, 3
+                        mov              qword ptr [rsp + 128], 2
                         mov              qword ptr [rsp + 136], r13;          jmp   n3_call_builtin_icon_α
-n2_keyword_icon_β:                                                            jmp   n5_scan_α
+n2_keyword_icon_β:      mov              r11, 3;                              jmp   n5_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 128]
+n3_call_builtin_icon_α: mov              r11, 4
+                        mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 104], rax
@@ -63,9 +67,10 @@ n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 128]
                         cmp              al, 104;                             je    n5_scan_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_scan_α
-n3_call_builtin_icon_β:                                                       jmp   n5_scan_α
+n3_call_builtin_icon_β: mov              r11, 4;                              jmp   n5_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
-n4_scan_α:              mov              rax, qword ptr [rsp + 80]
+n4_scan_α:              mov              r11, 5
+                        mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 56], rax
@@ -77,9 +82,10 @@ n4_scan_α:              mov              rax, qword ptr [rsp + 80]
                         mov              r13, qword ptr [rsp + 16]
                         mov              r14, qword ptr [rsp + 24]
                         mov              r15, qword ptr [rsp + 32];           jmp   main_γ
-n4_scan_β:                                                                    jmp   main_ω
+n4_scan_β:              mov              r11, 5;                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n5_scan_α:              lea              rdi, [rsp + 16]
+n5_scan_α:              mov              r11, 6
+                        lea              rdi, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_scan_leave@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -87,7 +93,7 @@ n5_scan_α:              lea              rdi, [rsp + 16]
                         mov              r13, qword ptr [rsp + 16]
                         mov              r14, qword ptr [rsp + 24]
                         mov              r15, qword ptr [rsp + 32];           jmp   main_ω
-n5_scan_β:                                                                    jmp   main_ω
+n5_scan_β:              mov              r11, 6;                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
