@@ -1,0 +1,27 @@
+i=1 n=-1        -> FAILS
+i=1 n=0         -> "hello world"
+i=1 n=1         -> "h"
+i=1 n=99        -> FAILS
+i=1 n=omitted   -> "hello world"
+i=5 n=-1        -> FAILS
+i=5 n=0         -> "o world"
+i=5 n=1         -> "o"
+i=5 n=99        -> FAILS
+i=5 n=omitted   -> "o world"
+i=1 n=11        -> "hello world"
+i=1 n=12        -> FAILS
+i=5 n=7         -> "o world"
+i=5 n=8         -> FAILS
+i=11 n=1        -> "d"
+i=11 n=2        -> FAILS
+i=12 n=0        -> ""
+i=12 n=1        -> FAILS
+i=0 n=1         -> FAILS
+i=-1 n=1        -> FAILS
+i=0 n=0         -> FAILS
+i=12 n=omitted  -> ""
+i=13 n=omitted  -> FAILS
+i=13 n=0        -> FAILS
+i=13 n=1        -> FAILS
+i=99 n=0        -> FAILS
+contract holds
