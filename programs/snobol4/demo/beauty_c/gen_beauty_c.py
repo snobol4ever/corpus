@@ -36,7 +36,14 @@ def transform_line(l):
         spans.append((a,b))
     res=[]; last=0
     for a,b in spans: res.append(l[last:a]); res.append('&'+l[a:b]); last=b
-    res.append(l[last:]); return ''.join(res)
+    res.append(l[last:]); out=''.join(res)
+    # ALIGNMENT COMPENSATION: a defining occurrence (name right after the leading indent) grew by one
+    # '&' character, which would push the ppStop[2] '=' column right by one and break beauty's own
+    # tab-stop convention (header: "ppStop[2] - pattern or ="). Drop one padding space to compensate,
+    # restoring the original '=' column exactly -- this IS the beautified form, not a cosmetic add-on.
+    m=re.match(r'^(\s+)&(\w+)( +)(=.*)$', out)
+    if m and len(m.group(3))>=2: out=m.group(1)+'&'+m.group(2)+m.group(3)[:-1]+m.group(4)
+    return out
 here=os.path.dirname(os.path.abspath(__file__)); src=os.path.join(here,'..','beauty')
 # CN-9b: the declaration statement, spliced in as the FIRST executable statement (right after the START
 # label, BEFORE the -INCLUDEs whose transformed &name assignments are the constants being declared).
