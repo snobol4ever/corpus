@@ -5065,7 +5065,7 @@ n473_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1746_240
@@ -5139,7 +5139,7 @@ n480_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1755_240
@@ -5215,7 +5215,7 @@ n487_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1764_240
@@ -5293,7 +5293,7 @@ n494_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1773_240
@@ -5395,7 +5395,7 @@ n502_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1783_240
@@ -5497,7 +5497,7 @@ n510_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1793_240
@@ -5573,7 +5573,7 @@ n517_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1802_240
@@ -5649,7 +5649,7 @@ n524_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # lit_string
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1811_240
@@ -6062,7 +6062,7 @@ n561_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1865_240
@@ -6242,7 +6242,7 @@ n573_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # call
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx1880_240
@@ -9710,7 +9710,7 @@ n789_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2188_240
@@ -10263,7 +10263,7 @@ n836_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2260_240
@@ -10339,7 +10339,7 @@ n843_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2269_240
@@ -10413,7 +10413,7 @@ n850_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2278_240
@@ -10848,7 +10848,7 @@ n886_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2334_240
@@ -10924,7 +10924,7 @@ n893_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2343_240
@@ -10998,7 +10998,7 @@ n900_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2352_240
@@ -11290,7 +11290,7 @@ n923_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2388_240
@@ -12384,7 +12384,7 @@ n990_subscript_α:       sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2489_240
@@ -12590,7 +12590,7 @@ n1005_subscript_α:      sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]            # deref
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2506_240
@@ -13954,7 +13954,7 @@ n1098_subscript_α:      sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_subscript_var_container_only@PLT
+                        call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         cmp              al, 104;                             jne   .Lx2642_240
