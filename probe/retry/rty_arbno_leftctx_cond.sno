@@ -1,0 +1,9 @@
+*  HQ's UNMEASURED PREDICTION (FINDING-2026-08-22-s256): the byte-identical defect at
+*  lower_snobol4.c:1439-1442 (TT_CAPT_COND_ASGN, the . operator) should hang on the SAME
+*  shape rty_arbno_leftctx_inline hangs on with $ -- this is the falsification witness,
+*  minted by the curing seat per HQ LAW 17 before assuming the prediction is correct.
+*  ⛔ CAPTURE STDOUT WITH A HARD timeout WHEN RUNNING THIS -- MAY NOT TERMINATE.
+	&ANCHOR = 1
+	subj = "this is a test ."
+	subj (BREAK(' ') ARBNO(LEN(1))) . OUTPUT '.'
+END
