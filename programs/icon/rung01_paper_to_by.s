@@ -91,7 +91,7 @@ n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 304]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx
-                        cmp              eax, 104;                            je    n3_to_by_β
+                        cmp              al, 104;                             je    n3_to_by_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_to_by_β
 n4_call_builtin_icon_β:                                                       jmp   n3_to_by_β
@@ -166,7 +166,7 @@ n9_call_builtin_icon_α: mov              rax, qword ptr [rsp + 176]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
-                        cmp              eax, 104;                            je    n8_to_by_β
+                        cmp              al, 104;                             je    n8_to_by_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n8_to_by_β
 n9_call_builtin_icon_β:                                                       jmp   n8_to_by_β
@@ -242,7 +242,7 @@ n14_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    n13_to_by_β
+                        cmp              al, 104;                             je    n13_to_by_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n13_to_by_β
 n14_call_builtin_icon_β:

@@ -116,14 +116,14 @@ n9_proc_gen_α:          mov              qword ptr [rsp + 128], 0
                         mov              rdx, qword ptr [rsp + 120]
 .Lx14_29:               mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
-                        cmp              eax, 104;                            je    n11_lit_string_α
+                        cmp              al, 104;                             je    n11_lit_string_α
                                                                               jmp   n10_call_builtin_icon_α
 n9_proc_gen_β:          call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rsp + 136];          jmp   qword ptr [rsp]
 .Lx14_7:                add              rsp, 8
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
-                        cmp              eax, 104;                            je    n11_lit_string_α
+                        cmp              al, 104;                             je    n11_lit_string_α
                                                                               jmp   n10_call_builtin_icon_α
 .Lx14_0:                .quad            .Lx14_0_s
 .Lx14_0_s:              .string          "g"
@@ -144,7 +144,7 @@ n10_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
-                        cmp              eax, 104;                            je    n9_proc_gen_β
+                        cmp              al, 104;                             je    n9_proc_gen_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n9_proc_gen_β
 n10_call_builtin_icon_β:
@@ -173,7 +173,7 @@ n12_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n12_call_builtin_icon_β:

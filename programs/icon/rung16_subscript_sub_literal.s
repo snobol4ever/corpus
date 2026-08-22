@@ -44,7 +44,7 @@ n2_subscript_α:         sub              rsp, 16
                         call             rt_subscript_var@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        cmp              eax, 104;                            jne   .Lx7_240
+                        cmp              al, 104;                             jne   .Lx7_240
                         add              rsp, 16
                         add              rsp, 32;                             jmp   main_ω
 .Lx7_240:               mov              qword ptr [rsp + 0], rax             # result
@@ -57,7 +57,7 @@ n3_deref_α:             sub              rsp, 16
                         call             rt_deref@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        cmp              eax, 104;                            jne   .Lx8_240
+                        cmp              al, 104;                             jne   .Lx8_240
                         add              rsp, 16
                         add              rsp, 48;                             jmp   main_ω
 .Lx8_240:               mov              qword ptr [rsp + 0], rax             # result
@@ -81,7 +81,7 @@ n4_call_builtin_icon_α: sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx9_240
+                        cmp              al, 104;                             jne   .Lx9_240
                         add              rsp, 16
                         add              rsp, 64;                             jmp   main_ω
 .Lx9_240:               mov              qword ptr [rsp + 0], rax             # result

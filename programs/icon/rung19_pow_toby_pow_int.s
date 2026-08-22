@@ -40,7 +40,7 @@ n2_binop_α:             sub              rsp, 16
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pow@PLT
-                        cmp              eax, 104;                            jne   .Lx6_240
+                        cmp              al, 104;                             jne   .Lx6_240
                         add              rsp, 16
                         add              rsp, 32;                             jmp   main_ω
 .Lx6_240:               mov              qword ptr [rsp + 0], rax             # result
@@ -66,7 +66,7 @@ n3_call_builtin_icon_α: sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx7_240
+                        cmp              al, 104;                             jne   .Lx7_240
                         add              rsp, 16
                         add              rsp, 48;                             jmp   main_ω
 .Lx7_240:               mov              qword ptr [rsp + 0], rax             # result

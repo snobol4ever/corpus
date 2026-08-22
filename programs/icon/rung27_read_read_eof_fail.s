@@ -67,7 +67,7 @@ n2_call_builtin_icon_α: mov              rax, qword ptr [rsp + 176]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n0_disjunction_as
 n2_call_builtin_icon_β:                                                       jmp   main_ω
@@ -83,7 +83,7 @@ n3_call_builtin_icon_α: .section         .rodata
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
-                        cmp              eax, 104;                            je    n0_disjunction_af
+                        cmp              al, 104;                             je    n0_disjunction_af
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_lit_string_α
 n3_call_builtin_icon_β:                                                       jmp   n0_disjunction_af
@@ -110,7 +110,7 @@ n5_call_builtin_icon_α: mov              rax, qword ptr [rsp + 80]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n0_disjunction_as
 n5_call_builtin_icon_β:                                                       jmp   main_ω

@@ -167,7 +167,7 @@ n15_call_proc_staged_α: lea              rsi, [rsp + 96]
                         mov              rdx, qword ptr [rsp + 56]
 .Lx23_29:               mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 104;                            je    n14_disjunction_β
+                        cmp              al, 104;                             je    n14_disjunction_β
                                                                               jmp   n16_call_builtin_icon_α
 n15_call_proc_staged_β:                                                       jmp   n14_disjunction_β
 .Lx23_0:                .quad            .Lx23_0_s
@@ -189,7 +189,7 @@ n16_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    n14_disjunction_β
+                        cmp              al, 104;                             je    n14_disjunction_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n14_disjunction_β
 n16_call_builtin_icon_β:

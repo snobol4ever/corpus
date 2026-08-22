@@ -37,7 +37,7 @@ n0_call_builtin_icon_α: .section         .rodata
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx
-                        cmp              eax, 104;                            je    n2_var_α
+                        cmp              al, 104;                             je    n2_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n1_assign_α
 n0_call_builtin_icon_β:                                                       jmp   n2_var_α
@@ -87,7 +87,7 @@ n5_call_builtin_icon_α: mov              rax, qword ptr [rsp + 288]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 184], rdx
-                        cmp              eax, 104;                            je    n6_var_α
+                        cmp              al, 104;                             je    n6_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n6_var_α
 n5_call_builtin_icon_β:                                                       jmp   n6_var_α
@@ -139,7 +139,7 @@ n11_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
-                        cmp              eax, 104;                            je    n12_unmark_α
+                        cmp              al, 104;                             je    n12_unmark_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n12_unmark_α
 n11_call_builtin_icon_β:

@@ -192,7 +192,7 @@ n21_call_proc_staged_α: lea              rsi, [rsp + 128]
                         mov              rdx, qword ptr [rsp + 88]
 .Lx27_29:               mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
-                        cmp              eax, 104;                            je    wrap_ω
+                        cmp              al, 104;                             je    wrap_ω
                                                                               jmp   n22_call_proc_staged_α
 n21_call_proc_staged_β:                                                       jmp   wrap_ω
 .Lx27_0:                .quad            .Lx27_0_s
@@ -216,7 +216,7 @@ n22_call_proc_staged_α: lea              rsi, [rsp + 80]
                         mov              rdx, qword ptr [rsp + 40]
 .Lx29_29:               mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    wrap_ω
+                        cmp              al, 104;                             je    wrap_ω
                                                                               jmp   n23_return_α
 n22_call_proc_staged_β:                                                       jmp   wrap_ω
 .Lx29_0:                .quad            .Lx29_0_s
@@ -316,7 +316,7 @@ n33_call_proc_staged_α: sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 8]
 .Lx37_29:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            jne   .Lx37_240
+                        cmp              al, 104;                             jne   .Lx37_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   main_ω
 .Lx37_240:                                                                    jmp   n34_call_builtin_icon_α
@@ -343,7 +343,7 @@ n34_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx38_240
+                        cmp              al, 104;                             jne   .Lx38_240
                         add              rsp, 16
                         add              rsp, 32;                             jmp   main_ω
 .Lx38_240:              mov              qword ptr [rsp + 0], rax             # result

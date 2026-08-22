@@ -57,7 +57,7 @@ n2_to_α:                mov              rdi, qword ptr [rsp + 96]
 n2_to_β:                inc              qword ptr [rsp + 80];                jmp   .Lx8_0
 #-----------------------------------------------------------------------------------------------------------------------
 n3_unop_test_α:         mov              eax, dword ptr [rsp + 64]
-                        cmp              eax, 104;                            je    n2_to_β
+                        cmp              al, 104;                             je    n2_to_β
                         cmp              eax, 0;                              je    n2_to_β
                         mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [rsp + 48], rax
@@ -79,7 +79,7 @@ n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    n2_to_β
+                        cmp              al, 104;                             je    n2_to_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n2_to_β
 n4_call_builtin_icon_β:                                                       jmp   n2_to_β

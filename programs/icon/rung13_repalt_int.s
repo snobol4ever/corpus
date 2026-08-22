@@ -69,7 +69,7 @@ n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    n1_repalt_β
+                        cmp              al, 104;                             je    n1_repalt_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n1_repalt_β
 n3_call_builtin_icon_β:                                                       jmp   n1_repalt_β

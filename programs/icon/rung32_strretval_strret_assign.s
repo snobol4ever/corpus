@@ -131,7 +131,7 @@ n11_call_proc_staged_α: lea              rsi, [rsp + 240]
                         mov              rdx, qword ptr [rsp + 200]
 .Lx20_29:               mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
-                        cmp              eax, 104;                            je    n13_var_α
+                        cmp              al, 104;                             je    n13_var_α
                                                                               jmp   n12_assign_α
 n11_call_proc_staged_β:                                                       jmp   n13_var_α
 .Lx20_0:                .quad            .Lx20_0_s
@@ -163,7 +163,7 @@ n14_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
-                        cmp              eax, 104;                            je    n15_lit_string_α
+                        cmp              al, 104;                             je    n15_lit_string_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n15_lit_string_α
 n14_call_builtin_icon_β:
@@ -194,7 +194,7 @@ n16_call_proc_staged_α: lea              rsi, [rsp + 96]
                         mov              rdx, qword ptr [rsp + 56]
 .Lx28_29:               mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                                                                               jmp   n17_call_builtin_icon_α
 n16_call_proc_staged_β:                                                       jmp   main_ω
 .Lx28_0:                .quad            .Lx28_0_s
@@ -216,7 +216,7 @@ n17_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n17_call_builtin_icon_β:

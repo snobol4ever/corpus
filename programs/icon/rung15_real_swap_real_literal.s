@@ -45,7 +45,7 @@ n1_call_builtin_icon_α: sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx3_240
+                        cmp              al, 104;                             jne   .Lx3_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   main_ω
 .Lx3_240:               mov              qword ptr [rsp + 0], rax             # result

@@ -42,7 +42,7 @@ n2_binop_α:             mov              rdi, qword ptr [rsp + 112]
                         mov              rcx, qword ptr [rsp + 136]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pow@PLT
-                        cmp              eax, 104;                            je    n6_var_α
+                        cmp              al, 104;                             je    n6_var_α
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -57,7 +57,7 @@ n4_binop_α:             mov              eax, dword ptr [rsp + 96]
                         mov              ecx, 3
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx12_2
+                        cmp              dl, 3;                               jne   .Lx12_2
                         mov              rax, qword ptr [rsp + 104]
                         mov              rdx, 1
                         add              rax, rdx
@@ -66,10 +66,10 @@ n4_binop_α:             mov              eax, dword ptr [rsp + 96]
 .Lx12_2:                and              edx, 1;                              jz    .Lx12_0
                         mov              rsi, qword ptr [rsp + 104]
                         mov              rdi, 1
-                        cmp              eax, 5;                              je    .Lx12_3
+                        cmp              al, 5;                               je    .Lx12_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx12_4
 .Lx12_3:                movq             xmm0, rsi
-.Lx12_4:                cmp              ecx, 5;                              je    .Lx12_5
+.Lx12_4:                cmp              cl, 5;                               je    .Lx12_5
                         cvtsi2sd         xmm1, rdi;                           jmp   .Lx12_6
 .Lx12_5:                movq             xmm1, rdi
 .Lx12_6:                addsd            xmm0, xmm1
@@ -83,7 +83,7 @@ n4_binop_α:             mov              eax, dword ptr [rsp + 96]
                         mov              rcx, qword ptr [rsp + 152]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_add@PLT
-                        cmp              eax, 104;                            je    n6_var_α
+                        cmp              al, 104;                             je    n6_var_α
                         mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -114,7 +114,7 @@ n7_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n7_call_builtin_icon_β:                                                       jmp   main_ω

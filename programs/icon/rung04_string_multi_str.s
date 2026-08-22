@@ -47,7 +47,7 @@ n1_call_builtin_icon_α: sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx7_240
+                        cmp              al, 104;                             jne   .Lx7_240
                         add              rsp, 16;                             jmp   n2_lit_string_α
 .Lx7_240:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2_lit_string_α
@@ -78,7 +78,7 @@ n3_call_builtin_icon_α: sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx10_240
+                        cmp              al, 104;                             jne   .Lx10_240
                         add              rsp, 16;                             jmp   n4_lit_string_α
 .Lx10_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4_lit_string_α
@@ -109,7 +109,7 @@ n5_call_builtin_icon_α: sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx13_240
+                        cmp              al, 104;                             jne   .Lx13_240
                         add              rsp, 16
                         add              rsp, 80;                             jmp   main_ω
 .Lx13_240:              mov              qword ptr [rsp + 0], rax             # result

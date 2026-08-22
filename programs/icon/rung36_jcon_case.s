@@ -93,7 +93,7 @@ n2_call_α:              mov              rax, qword ptr [rsp + 2624]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 2576], rax
                         mov              qword ptr [rsp + 2584], rdx
-                        cmp              eax, 104;                            je    n4_create_α
+                        cmp              al, 104;                             je    n4_create_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_assign_α
 n2_call_β:                                                                    jmp   n4_create_α
@@ -252,7 +252,7 @@ n25_call_α:             .section         .rodata
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 2352], rax
                         mov              qword ptr [rsp + 2360], rdx
-                        cmp              eax, 104;                            je    n31_var_α
+                        cmp              al, 104;                             je    n31_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n26_var_α
 n25_call_β:                                                                   jmp   n31_var_α
@@ -412,7 +412,7 @@ n33_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 1552], rax
                         mov              qword ptr [rsp + 1560], rdx
-                        cmp              eax, 104;                            je    n34_var_α
+                        cmp              al, 104;                             je    n34_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n34_var_α
 n33_call_builtin_icon_β:
@@ -473,7 +473,7 @@ n40_call_builtin_α:     mov              rax, qword ptr [rsp + 1456]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 1488], rax
                         mov              qword ptr [rsp + 1496], rdx
-                        cmp              eax, 104;                            je    n43_lit_charset_α
+                        cmp              al, 104;                             je    n43_lit_charset_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n41_lit_string_α
 n40_call_builtin_β:                                                           jmp   n43_lit_charset_α
@@ -516,7 +516,7 @@ n44_call_builtin_α:     mov              rax, qword ptr [rsp + 1360]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 1392], rax
                         mov              qword ptr [rsp + 1400], rdx
-                        cmp              eax, 104;                            je    n47_lit_real_α
+                        cmp              al, 104;                             je    n47_lit_real_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n45_lit_string_α
 n44_call_builtin_β:                                                           jmp   n47_lit_real_α
@@ -557,7 +557,7 @@ n48_call_builtin_α:     mov              rax, qword ptr [rsp + 1264]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 1296], rax
                         mov              qword ptr [rsp + 1304], rdx
-                        cmp              eax, 104;                            je    n51_lit_string_α
+                        cmp              al, 104;                             je    n51_lit_string_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n49_lit_string_α
 n48_call_builtin_β:                                                           jmp   n51_lit_string_α
@@ -600,7 +600,7 @@ n52_call_builtin_α:     mov              rax, qword ptr [rsp + 1168]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 1200], rax
                         mov              qword ptr [rsp + 1208], rdx
-                        cmp              eax, 104;                            je    n55_keyword_icon_α
+                        cmp              al, 104;                             je    n55_keyword_icon_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n53_lit_string_α
 n52_call_builtin_β:                                                           jmp   n55_keyword_icon_α
@@ -640,7 +640,7 @@ n56_call_builtin_α:     mov              rax, qword ptr [rsp + 1056]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 1104], rax
                         mov              qword ptr [rsp + 1112], rdx
-                        cmp              eax, 104;                            je    n59_proc_value_α
+                        cmp              al, 104;                             je    n59_proc_value_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n57_lit_string_α
 n56_call_builtin_β:                                                           jmp   n59_proc_value_α
@@ -683,7 +683,7 @@ n60_call_builtin_α:     mov              rax, qword ptr [rsp + 960]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 992], rax
                         mov              qword ptr [rsp + 1000], rdx
-                        cmp              eax, 104;                            je    n63_proc_value_α
+                        cmp              al, 104;                             je    n63_proc_value_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n61_lit_string_α
 n60_call_builtin_β:                                                           jmp   n63_proc_value_α
@@ -726,7 +726,7 @@ n64_call_builtin_α:     mov              rax, qword ptr [rsp + 864]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 896], rax
                         mov              qword ptr [rsp + 904], rdx
-                        cmp              eax, 104;                            je    n67_call_α
+                        cmp              al, 104;                             je    n67_call_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n65_lit_string_α
 n64_call_builtin_β:                                                           jmp   n67_call_α
@@ -754,7 +754,7 @@ n67_call_α:             .section         .rodata
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 752], rax
                         mov              qword ptr [rsp + 760], rdx
-                        cmp              eax, 104;                            je    n87_var_α
+                        cmp              al, 104;                             je    n87_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n68_call_builtin_α
 n67_call_β:                                                                   jmp   n87_var_α
@@ -778,7 +778,7 @@ n68_call_builtin_α:     mov              rax, qword ptr [rsp + 752]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 800], rax
                         mov              qword ptr [rsp + 808], rdx
-                        cmp              eax, 104;                            je    n71_var_α
+                        cmp              al, 104;                             je    n71_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n69_lit_string_α
 n68_call_builtin_β:                                                           jmp   n71_var_α
@@ -819,7 +819,7 @@ n72_call_builtin_α:     mov              rax, qword ptr [rsp + 656]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 688], rax
                         mov              qword ptr [rsp + 696], rdx
-                        cmp              eax, 104;                            je    n75_var_α
+                        cmp              al, 104;                             je    n75_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n73_lit_string_α
 n72_call_builtin_β:                                                           jmp   n75_var_α
@@ -860,7 +860,7 @@ n76_call_builtin_α:     mov              rax, qword ptr [rsp + 560]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 592], rax
                         mov              qword ptr [rsp + 600], rdx
-                        cmp              eax, 104;                            je    n79_var_α
+                        cmp              al, 104;                             je    n79_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n77_lit_string_α
 n76_call_builtin_β:                                                           jmp   n79_var_α
@@ -901,7 +901,7 @@ n80_call_builtin_α:     mov              rax, qword ptr [rsp + 464]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 496], rax
                         mov              qword ptr [rsp + 504], rdx
-                        cmp              eax, 104;                            je    n83_lit_string_α
+                        cmp              al, 104;                             je    n83_lit_string_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n81_lit_string_α
 n80_call_builtin_β:                                                           jmp   n83_lit_string_α
@@ -970,7 +970,7 @@ n89_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx
-                        cmp              eax, 104;                            je    n95_unmark_α
+                        cmp              al, 104;                             je    n95_unmark_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n90_lit_string_α
 n89_call_builtin_icon_β:
@@ -1004,7 +1004,7 @@ n92_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 360], rdx
-                        cmp              eax, 104;                            je    n95_unmark_α
+                        cmp              al, 104;                             je    n95_unmark_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n93_call_builtin_icon_α
 n92_call_builtin_icon_β:
@@ -1034,7 +1034,7 @@ n93_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx
-                        cmp              eax, 104;                            je    n95_unmark_α
+                        cmp              al, 104;                             je    n95_unmark_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n94_conjunction_α
 n93_call_builtin_icon_β:

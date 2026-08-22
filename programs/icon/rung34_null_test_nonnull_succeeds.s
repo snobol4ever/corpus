@@ -32,7 +32,7 @@ n0_lit_integer_α:       mov              qword ptr [rsp + 96], 3              #
 .Lx5_0:                 .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n1_unop_test_α:         mov              eax, dword ptr [rsp + 96]
-                        cmp              eax, 104;                            je    n3_var_α
+                        cmp              al, 104;                             je    n3_var_α
                         cmp              eax, 0;                              je    n3_var_α
                         mov              rax, qword ptr [rsp + 96]
                         mov              qword ptr [rsp + 80], rax
@@ -64,7 +64,7 @@ n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n4_call_builtin_icon_β:                                                       jmp   main_ω

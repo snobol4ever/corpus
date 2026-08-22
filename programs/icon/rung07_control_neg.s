@@ -42,10 +42,10 @@ n2_var_α:               mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 88], rax;           jmp   n3_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_coerce_numeric_α:    mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 5;                              je    .Lx11_1
-                        cmp              eax, 3;                              jne   .Lx11_0
+                        cmp              al, 5;                               je    .Lx11_1
+                        cmp              al, 3;                               jne   .Lx11_0
                         mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3;                              jne   .Lx11_0
+                        cmp              al, 3;                               jne   .Lx11_0
 .Lx11_1:                mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 64], rax
                         mov              rax, qword ptr [rsp + 136]
@@ -83,7 +83,7 @@ n5_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n5_call_builtin_icon_β:                                                       jmp   main_ω

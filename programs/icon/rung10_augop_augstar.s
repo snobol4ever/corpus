@@ -47,10 +47,10 @@ n3_lit_integer_α:       mov              qword ptr [rsp + 128], 3             #
 .Lx13_0:                .quad            4
 #-----------------------------------------------------------------------------------------------------------------------
 n4_coerce_numeric_α:    mov              eax, dword ptr [rsp + 160]
-                        cmp              eax, 5;                              je    .Lx15_1
-                        cmp              eax, 3;                              jne   .Lx15_0
+                        cmp              al, 5;                               je    .Lx15_1
+                        cmp              al, 3;                               jne   .Lx15_0
                         mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3;                              jne   .Lx15_0
+                        cmp              al, 3;                               jne   .Lx15_0
 .Lx15_1:                mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 168]
@@ -68,7 +68,7 @@ n5_binop_α:             mov              eax, dword ptr [rsp + 96]
                         mov              ecx, 3
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx16_2
+                        cmp              dl, 3;                               jne   .Lx16_2
                         mov              rax, qword ptr [rsp + 104]
                         mov              rdx, 4
                         imul             rax, rdx
@@ -77,10 +77,10 @@ n5_binop_α:             mov              eax, dword ptr [rsp + 96]
 .Lx16_2:                and              edx, 1;                              jz    .Lx16_0
                         mov              rsi, qword ptr [rsp + 104]
                         mov              rdi, 4
-                        cmp              eax, 5;                              je    .Lx16_3
+                        cmp              al, 5;                               je    .Lx16_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx16_4
 .Lx16_3:                movq             xmm0, rsi
-.Lx16_4:                cmp              ecx, 5;                              je    .Lx16_5
+.Lx16_4:                cmp              cl, 5;                               je    .Lx16_5
                         cvtsi2sd         xmm1, rdi;                           jmp   .Lx16_6
 .Lx16_5:                movq             xmm1, rdi
 .Lx16_6:                mulsd            xmm0, xmm1
@@ -94,7 +94,7 @@ n5_binop_α:             mov              eax, dword ptr [rsp + 96]
                         mov              rcx, qword ptr [rsp + 136]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_mul@PLT
-                        cmp              eax, 104;                            je    n7_var_α
+                        cmp              al, 104;                             je    n7_var_α
                         mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -125,7 +125,7 @@ n8_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n8_call_builtin_icon_β:                                                       jmp   main_ω

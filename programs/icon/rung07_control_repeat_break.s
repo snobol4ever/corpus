@@ -62,13 +62,13 @@ n4_lit_integer_α:       mov              qword ptr [rsp + 144], 3             #
 .Lx15_0:                .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
 n5_binop_test_α:        mov              eax, dword ptr [rsp + 192]
-                        cmp              eax, 112;                            je    .Lx16_0
+                        cmp              al, 112;                             je    .Lx16_0
                         mov              eax, dword ptr [rsp + 144]
-                        cmp              eax, 112;                            je    .Lx16_0
+                        cmp              al, 112;                             je    .Lx16_0
                         mov              eax, dword ptr [rsp + 192]
-                        cmp              eax, 3;                              jne   .Lx16_2
+                        cmp              al, 3;                               jne   .Lx16_2
                         mov              eax, dword ptr [rsp + 144]
-                        cmp              eax, 3;                              jne   .Lx16_2
+                        cmp              al, 3;                               jne   .Lx16_2
 .Lx16_1:                mov              rax, qword ptr [rsp + 200]
                         mov              rcx, qword ptr [rsp + 152]
                         cmp              rax, rcx;                            jge   n6_var_α
@@ -128,7 +128,7 @@ n8_call_builtin_icon_α: mov              rax, qword ptr [rsp + 80]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n2_disjunction_as
 n8_call_builtin_icon_β:                                                       jmp   main_ω

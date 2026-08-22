@@ -84,7 +84,7 @@ n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 368]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 328], rdx
-                        cmp              eax, 104;                            je    n6_scan_α
+                        cmp              al, 104;                             je    n6_scan_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n5_scan_α
 n4_call_builtin_icon_β:                                                       jmp   n6_scan_α
@@ -172,7 +172,7 @@ n10_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
-                        cmp              eax, 104;                            je    n9_disjunction_β
+                        cmp              al, 104;                             je    n9_disjunction_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n11_scan_α
 n10_call_builtin_icon_β:

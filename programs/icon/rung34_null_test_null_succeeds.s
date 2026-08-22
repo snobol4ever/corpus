@@ -37,13 +37,13 @@ n1_lit_integer_α:       mov              qword ptr [rsp + 128], 3             #
 .Lx8_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n2_binop_test_α:        mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 112;                            je    .Lx9_0
+                        cmp              al, 112;                             je    .Lx9_0
                         mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 112;                            je    .Lx9_0
+                        cmp              al, 112;                             je    .Lx9_0
                         mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 3;                              jne   .Lx9_2
+                        cmp              al, 3;                               jne   .Lx9_2
                         mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3;                              jne   .Lx9_2
+                        cmp              al, 3;                               jne   .Lx9_2
 .Lx9_1:                 mov              rax, qword ptr [rsp + 120]
                         mov              rcx, qword ptr [rsp + 136]
                         cmp              rax, rcx;                            jle   n5_lit_string_α
@@ -80,7 +80,7 @@ n2_binop_test_α:        mov              eax, dword ptr [rsp + 112]
                         mov              qword ptr [rsp + 104], rax;          jmp   n3_unop_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_unop_test_α:         mov              eax, dword ptr [rsp + 96]
-                        cmp              eax, 104;                            je    n5_lit_string_α
+                        cmp              al, 104;                             je    n5_lit_string_α
                         cmp              eax, 0;                              jne   n5_lit_string_α
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 88], 0;             jmp   n4_assign_α
@@ -112,7 +112,7 @@ n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n6_call_builtin_icon_β:                                                       jmp   main_ω

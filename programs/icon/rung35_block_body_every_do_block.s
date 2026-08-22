@@ -79,10 +79,10 @@ n6_lit_integer_α:       mov              qword ptr [rsp + 256], 3             #
 .Lx23_0:                .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n7_coerce_numeric_α:    mov              eax, dword ptr [rsp + 272]
-                        cmp              eax, 5;                              je    .Lx25_1
-                        cmp              eax, 3;                              jne   .Lx25_0
+                        cmp              al, 5;                               je    .Lx25_1
+                        cmp              al, 3;                               jne   .Lx25_0
                         mov              eax, dword ptr [rsp + 256]
-                        cmp              eax, 3;                              jne   .Lx25_0
+                        cmp              al, 3;                               jne   .Lx25_0
 .Lx25_1:                mov              rax, qword ptr [rsp + 272]
                         mov              qword ptr [rsp + 224], rax
                         mov              rax, qword ptr [rsp + 280]
@@ -100,7 +100,7 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 224]
                         mov              ecx, 3
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx26_2
+                        cmp              dl, 3;                               jne   .Lx26_2
                         mov              rax, qword ptr [rsp + 232]
                         mov              rdx, 2
                         imul             rax, rdx
@@ -109,10 +109,10 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 224]
 .Lx26_2:                and              edx, 1;                              jz    .Lx26_0
                         mov              rsi, qword ptr [rsp + 232]
                         mov              rdi, 2
-                        cmp              eax, 5;                              je    .Lx26_3
+                        cmp              al, 5;                               je    .Lx26_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx26_4
 .Lx26_3:                movq             xmm0, rsi
-.Lx26_4:                cmp              ecx, 5;                              je    .Lx26_5
+.Lx26_4:                cmp              cl, 5;                               je    .Lx26_5
                         cvtsi2sd         xmm1, rdi;                           jmp   .Lx26_6
 .Lx26_5:                movq             xmm1, rdi
 .Lx26_6:                mulsd            xmm0, xmm1
@@ -126,7 +126,7 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 224]
                         mov              rcx, qword ptr [rsp + 264]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_mul@PLT
-                        cmp              eax, 104;                            je    n10_var_α
+                        cmp              al, 104;                             je    n10_var_α
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 216], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -158,7 +158,7 @@ n11_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 152], rdx
-                        cmp              eax, 104;                            je    n13_unmark_α
+                        cmp              al, 104;                             je    n13_unmark_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n12_conjunction_α
 n11_call_builtin_icon_β:

@@ -104,7 +104,7 @@ n5_call_proc_staged_α:  call             setup_dcα;                           
                         mov              rdx, qword ptr [rsp + 72]
 .Lx9_29:                mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
-                        cmp              eax, 104;                            je    n6_var_α
+                        cmp              al, 104;                             je    n6_var_α
                                                                               jmp   n6_var_α
 n5_call_proc_staged_β:                                                        jmp   n6_var_α
 .Lx9_0:                 .quad            .Lx9_0_s
@@ -130,7 +130,7 @@ n7_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
 n7_call_builtin_icon_β:                                                       jmp   main_ω

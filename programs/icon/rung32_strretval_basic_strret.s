@@ -128,7 +128,7 @@ n11_call_proc_staged_α: sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 8]
 .Lx15_29:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            jne   .Lx15_240
+                        cmp              al, 104;                             jne   .Lx15_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   main_ω
 .Lx15_240:                                                                    jmp   n12_call_builtin_icon_α
@@ -155,7 +155,7 @@ n12_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx16_240
+                        cmp              al, 104;                             jne   .Lx16_240
                         add              rsp, 16
                         add              rsp, 32;                             jmp   main_ω
 .Lx16_240:              mov              qword ptr [rsp + 0], rax             # result

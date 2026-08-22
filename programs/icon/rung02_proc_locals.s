@@ -67,10 +67,10 @@ n5_to_α:                mov              rdi, qword ptr [rsp + 160]
 n5_to_β:                inc              qword ptr [rsp + 144];               jmp   .Lx20_0
 #-----------------------------------------------------------------------------------------------------------------------
 n6_coerce_numeric_α:    mov              eax, dword ptr [rsp + 208]
-                        cmp              eax, 5;                              je    .Lx22_1
-                        cmp              eax, 3;                              jne   .Lx22_0
+                        cmp              al, 5;                               je    .Lx22_1
+                        cmp              al, 3;                               jne   .Lx22_0
                         mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3;                              jne   .Lx22_0
+                        cmp              al, 3;                               jne   .Lx22_0
 .Lx22_1:                mov              rax, qword ptr [rsp + 208]
                         mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 216]
@@ -85,10 +85,10 @@ n6_coerce_numeric_α:    mov              eax, dword ptr [rsp + 208]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n7_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_coerce_numeric_α:    mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 5;                              je    .Lx24_1
-                        cmp              eax, 3;                              jne   .Lx24_0
+                        cmp              al, 5;                               je    .Lx24_1
+                        cmp              al, 3;                               jne   .Lx24_0
                         mov              eax, dword ptr [rsp + 208]
-                        cmp              eax, 3;                              jne   .Lx24_0
+                        cmp              al, 3;                               jne   .Lx24_0
 .Lx24_1:                mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 80], rax
                         mov              rax, qword ptr [rsp + 136]
@@ -106,7 +106,7 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 96]
                         mov              ecx, dword ptr [rsp + 80]
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx25_2
+                        cmp              dl, 3;                               jne   .Lx25_2
                         mov              rax, qword ptr [rsp + 104]
                         mov              rdx, qword ptr [rsp + 88]
                         add              rax, rdx
@@ -115,10 +115,10 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 96]
 .Lx25_2:                and              edx, 1;                              jz    .Lx25_0
                         mov              rsi, qword ptr [rsp + 104]
                         mov              rdi, qword ptr [rsp + 88]
-                        cmp              eax, 5;                              je    .Lx25_3
+                        cmp              al, 5;                               je    .Lx25_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx25_4
 .Lx25_3:                movq             xmm0, rsi
-.Lx25_4:                cmp              ecx, 5;                              je    .Lx25_5
+.Lx25_4:                cmp              cl, 5;                               je    .Lx25_5
                         cvtsi2sd         xmm1, rdi;                           jmp   .Lx25_6
 .Lx25_5:                movq             xmm1, rdi
 .Lx25_6:                addsd            xmm0, xmm1
@@ -132,7 +132,7 @@ n8_binop_α:             mov              eax, dword ptr [rsp + 96]
                         mov              rcx, qword ptr [rsp + 88]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_add@PLT
-                        cmp              eax, 104;                            je    n10_var_α
+                        cmp              al, 104;                             je    n10_var_α
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -240,7 +240,7 @@ n32_call_proc_staged_α: sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 8]
 .Lx36_29:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            jne   .Lx36_240
+                        cmp              al, 104;                             jne   .Lx36_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   main_ω
 .Lx36_240:                                                                    jmp   n33_call_builtin_icon_α
@@ -267,7 +267,7 @@ n33_call_builtin_icon_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx37_240
+                        cmp              al, 104;                             jne   .Lx37_240
                         add              rsp, 16
                         add              rsp, 32;                             jmp   main_ω
 .Lx37_240:              mov              qword ptr [rsp + 0], rax             # result

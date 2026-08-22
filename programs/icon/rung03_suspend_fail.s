@@ -34,13 +34,13 @@ n2_lit_integer_α:       mov              qword ptr [rsp + 112], 3             #
 .Lx10_0:                .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n3_binop_test_α:        mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 112;                            je    .Lx11_0
+                        cmp              al, 112;                             je    .Lx11_0
                         mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 112;                            je    .Lx11_0
+                        cmp              al, 112;                             je    .Lx11_0
                         mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 3;                              jne   .Lx11_2
+                        cmp              al, 3;                               jne   .Lx11_2
                         mov              eax, dword ptr [rsp + 112]
-                        cmp              eax, 3;                              jne   .Lx11_2
+                        cmp              al, 3;                               jne   .Lx11_2
 .Lx11_1:                mov              rax, qword ptr [rsp + 24]
                         mov              rcx, qword ptr [rsp + 120]
                         cmp              rax, rcx;                            jle   n0_disjunction_af
@@ -186,7 +186,7 @@ n18_call_proc_staged_α: lea              rsi, [rsp + 368]
                         mov              rdx, qword ptr [rsp + 328]
 .Lx32_29:               mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 328], rdx
-                        cmp              eax, 104;                            je    n16_disjunction_af
+                        cmp              al, 104;                             je    n16_disjunction_af
                                                                               jmp   n19_lit_integer_α
 n18_call_proc_staged_β:                                                       jmp   n16_disjunction_af
 .Lx32_0:                .quad            .Lx32_0_s
@@ -213,7 +213,7 @@ n20_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx
-                        cmp              eax, 104;                            je    n21_disjunction_α
+                        cmp              al, 104;                             je    n21_disjunction_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n16_disjunction_as
 n20_call_builtin_icon_β:
@@ -264,7 +264,7 @@ n23_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n21_disjunction_as
 n23_call_builtin_icon_β:
@@ -294,7 +294,7 @@ n25_call_proc_staged_α: lea              rsi, [rsp + 144]
                         mov              rdx, qword ptr [rsp + 104]
 .Lx43_29:               mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
-                        cmp              eax, 104;                            je    n21_disjunction_af
+                        cmp              al, 104;                             je    n21_disjunction_af
                                                                               jmp   n26_lit_integer_α
 n25_call_proc_staged_β:                                                       jmp   n21_disjunction_af
 .Lx43_0:                .quad            .Lx43_0_s
@@ -321,7 +321,7 @@ n27_call_builtin_icon_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n21_disjunction_as
 n27_call_builtin_icon_β:
