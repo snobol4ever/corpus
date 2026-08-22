@@ -1,0 +1,13 @@
+* PROBE: same loop body, but A and ZI declared as true DEFINE-locals (the real kernels do NOT do this).
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        DEFINE('ZBODY(ZKN)A,ZI')                        :(ZBODY_END)
+ZBODY   A = 0
+        ZI = 1
+ZBL     A = A + 1
+        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
+        ZBODY = A                                       :(RETURN)
+ZBODY_END
+        OUTPUT = ZBODY(1000)
+END
