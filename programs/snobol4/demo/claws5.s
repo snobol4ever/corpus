@@ -1330,14 +1330,14 @@ n156_lit_integer_β:     add              rsp, 16;                             j
 .Lx323_0:               .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n157_binop_α:           sub              rsp, 16
-                        mov              eax, dword ptr [rsp + 32]            # deref
-                        cmp              eax, 3;                              jne   .Lx324_2
+                        mov              ecx, dword ptr [rsp + 32]            # deref
                         mov              rax, qword ptr [rsp + 40]
-                        mov              rdx, 1
-                        add              rax, rdx
+                        cmp              ecx, 3;                              jne   .Lx324_2
+                        add              rax, 1
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx324_7
-.Lx324_2:               mov              edx, eax
+.Lx324_2:               mov              eax, ecx
+                        mov              edx, ecx
                         and              edx, 1;                              jz    .Lx324_0
                         mov              rsi, qword ptr [rsp + 40]            # deref
                         mov              rdi, 1
