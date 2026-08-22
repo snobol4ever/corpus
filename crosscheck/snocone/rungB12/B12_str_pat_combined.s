@@ -107,7 +107,17 @@ n12_coerce_string_α:    sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n13_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_cmp_test_α:         sub              rsp, 16
-                        lea              rdi, [rsp + 32]                      # coerce_string
+                        mov              eax, dword ptr [rsp + 32]            # coerce_string
+                        mov              ecx, dword ptr [rsp + 16]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx44_0
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 24]
+                        cmp              rax, rdx;                            je    .Lx44_239
+                        add              rsp, 16;                             jmp   n22_statement_end_α
+.Lx44_239:                                                                    jmp   n14_var_α
+.Lx44_0:                lea              rdi, [rsp + 32]
                         lea              rsi, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_cmp_d@PLT

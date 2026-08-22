@@ -109,7 +109,17 @@ n12_coerce_string_α:    sub              rsp, 16
 n12_coerce_string_β:    add              rsp, 16;                             jmp   n11_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_cmp_test_α:         sub              rsp, 16
-                        lea              rdi, [rsp + 32]                      # coerce_string
+                        mov              eax, dword ptr [rsp + 32]            # coerce_string
+                        mov              ecx, dword ptr [rsp + 16]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx59_0
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 24]
+                        cmp              rax, rdx;                            je    .Lx59_239
+                        add              rsp, 16;                             jmp   n12_coerce_string_β
+.Lx59_239:                                                                    jmp   n14_lit_string_α
+.Lx59_0:                lea              rdi, [rsp + 32]
                         lea              rsi, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_cmp_d@PLT
@@ -236,7 +246,17 @@ n31_coerce_string_α:    sub              rsp, 16
 n31_coerce_string_β:    add              rsp, 16;                             jmp   n30_coerce_string_β
 #-----------------------------------------------------------------------------------------------------------------------
 n32_cmp_test_α:         sub              rsp, 16
-                        lea              rdi, [rsp + 32]                      # coerce_string
+                        mov              eax, dword ptr [rsp + 32]            # coerce_string
+                        mov              ecx, dword ptr [rsp + 16]
+                        mov              edx, eax
+                        and              edx, ecx
+                        cmp              edx, 3;                              jne   .Lx87_0
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 24]
+                        cmp              rax, rdx;                            je    .Lx87_239
+                        add              rsp, 16;                             jmp   n31_coerce_string_β
+.Lx87_239:                                                                    jmp   n33_lit_string_α
+.Lx87_0:                lea              rdi, [rsp + 32]
                         lea              rsi, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_cmp_d@PLT
