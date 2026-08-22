@@ -87,14 +87,12 @@ n3_scan_move_α:         mov              rax, 1
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r11
-                        push             r11
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
-                        pop              r11
+                        add              rsp, 16
                         mov              qword ptr [rsp + 1088], rax
                         mov              qword ptr [rsp + 1096], rdx;         jmp   n4_scan_α
 n3_scan_move_β:         mov              r14, qword ptr [rsp + 1104];         jmp   n6_scan_α
@@ -247,14 +245,12 @@ n14_scan_tab_α:         mov              rax, 2
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r11
-                        push             r11
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
-                        pop              r11
+                        add              rsp, 16
                         mov              qword ptr [rsp + 800], rax
                         mov              qword ptr [rsp + 808], rdx;          jmp   n15_scan_α
 n14_scan_tab_β:         mov              r14, qword ptr [rsp + 816];          jmp   n17_scan_α
@@ -618,14 +614,12 @@ n42_scan_move_α:        mov              rax, 5
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r11
-                        push             r11
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
-                        pop              r11
+                        add              rsp, 16
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx;          jmp   n43_scan_α
 n42_scan_move_β:        mov              r14, qword ptr [rsp + 176];          jmp   n45_scan_α

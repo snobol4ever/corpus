@@ -1,11 +1,25 @@
 # TIME-based SNOBOL4 benchmarks -- MEASURED run-to-run noise floor
-# baked 2026-08-22T16:28:36Z by scripts/bake_noise_floor_snobol4_timed.sh  reps=5  nivcsw_flag=20
-#   MACHINE LOAD AT BAKE: nproc=16 loadavg=2.37 1.99 1.37
+# baked 2026-08-22T21:37:36Z by scripts/bake_noise_floor_snobol4_timed.sh  reps=5  nivcsw_flag=20
+#   MACHINE LOAD AT BAKE: nproc=16 loadavg=9.44 9.19 7.36
 #   ⛔ THE FLOOR IS A PROPERTY OF MACHINE LOAD, NOT ONLY OF THE ENGINE (s200).  The 2026-08-20 bake ran
 #   while EIGHT fleet seats shared this box and its min_detectable reached 47.9% -- a floor that wide
 #   cannot see a 1.4x regression.  A solo re-bake of the SAME binaries moved sbl +20.9% and m3 +13.0%,
 #   i.e. the shift was LOAD, not the engine and not the oracle flag: -b vs -bf measured back-to-back on a
 #   quiet box is -0.3% (+/-2.6%), ZERO.  ⛔ NEVER compare a floor baked under load with one baked solo.
+#   ⭐ THIS BAKE, row oracle-two-face-adoption (seat12): fleet grew 8->12 seats at s255 and postoffice/
+#   BOARD.md now shows up to 16 seat directories -- nproc=16 on this box matches a full-fleet ceiling, not
+#   just 12.  loadavg climbed 9.44->15.92 DURING this bake (17 concurrently-active `claude` processes
+#   observed, several visibly compiling/running/testing -- see FINDING for the timeline).  Result: 15 of
+#   45 rows (33%) came back FULLY CONTAMINATED (every one of 5 reps over the nivcsw threshold, NA, not a
+#   number) -- roman/string_concat/string_manip/string_pattern/table_access all-engine, plus var_access
+#   sbl.  Of the 30 rows that DID produce a number, mean min_detectable_pct=19.0%, worst=var_access/m3 at
+#   62.3% -- WORSE than the historical 8-seat 47.9% ceiling; op_dispatch/sbl (49.4%) also exceeds it;
+#   arith_loop/m4 (45.4%) sits just under it.  ⛔ SO THE 8-VS-12(-16) DELTA IS NOT "WIDER, SAME KIND" --
+#   AT SUFFICIENT LOAD THE FLOOR STOPS BEING A NUMBER AND BECOMES A REFUSAL FOR A THIRD OF THE SUITE.
+#   Compare against the light-load bake this one supersedes: nproc=16 loadavg=2.37 (2026-08-22T16:28:36Z,
+#   commit 4b46a457) had ZERO NA rows.  ⛔ NEVER compare a floor baked under heavy load with one baked
+#   light/solo -- this line exists so the next reader sees the SAME caution the s200 header already gives,
+#   now with a THIRD load class on record (solo / 8-seat / 16-seat-class) instead of two.
 # SCRIP_NOHUGE=1  SCRIP_HEAP_MB=1024  (arena sized past the window so no
 #   collection fires inside it -- a GC row measures an ~835ms stall, not dispersion)
 # ⛔ THE ALLOCATING ROWS' DISPERSION WAS THE GC STALL LOTTERY, NOT THP (BM-3 correction):
@@ -34,52 +48,63 @@
 #   per-rep runtime is more exposed to preemption -- show every rep nivcsw-contaminated and read NA
 #   rather than a number the contamination filter cannot vouch for; see FINDING-2026-08-22-seat2-bench-
 #   harness-unmeasurable.md for the callgrind Ir numbers these wall-clock rows do not replace).
+#   ⛔ THESE 45 -fixed ROWS ARE CARRIED OVER UNCHANGED from the 2026-08-22T16:28:36Z bake (commit
+#   4b46a457) -- NOT re-baked alongside the TIME-mode rows above.  A same-pass re-bake attempt under the
+#   escalating load documented above (bake_noise_floor_snobol4_fixed.sh, reps=3) was started and TIMED OUT
+#   (180s budget, 5 of 15 kernels done, all showing NA/heavily contaminated) -- discarded rather than
+#   committed partial, since a 5-of-15 fragment would misrepresent the row as complete.  These rows'
+#   OWN load note (loadavg 2.16, two lines up) therefore does NOT describe the same moment as the TIME
+#   header above it; treat the two blocks as two independently-provenanced bakes sharing one file, not
+#   one bake.  A full -fixed re-bake under heavy load is still open for whichever seat/session next has a
+#   load window and the time budget for it (REPS=3 x 3 engines x 15 kernels ran ~40-45s/kernel here vs
+#   ~6-10s/kernel in a same-day earlier light-load trial -- budget accordingly, this is not a quick pass
+#   once the box is this busy).
 bench	engine	thp	reps	mean_per_s	cv_pct	maxmin	min_detectable_pct	used	contaminated	nivcsw_max	mean_per_s_elapsed	cv_elapsed_pct	min_detectable_elapsed_pct	mean_per_s_cpu	cv_cpu_pct	min_detectable_cpu_pct
-arith_loop	sbl	n/a	5	20155239	1.2	1.03	3.6	5	0	7	17990478	1.9	5.8	17997110	1.9	5.8
-arith_loop	m3	nohuge=1	5	137365000	3.6	1.10	10.7	5	0	15	120585708	3.7	11.1	120637411	3.7	11.0
-arith_loop	m4	nohuge=1	5	145345537	1.1	1.03	3.2	5	0	12	129083672	1.6	4.8	129167517	1.6	4.8
-array_sum	sbl	n/a	5	16305	2.6	1.07	7.7	5	0	10	14446	2.7	8.0	14453	2.7	8.0
-array_sum	m3	nohuge=1	5	15774	1.0	1.03	3.0	5	0	10	12221	0.8	2.5	12229	0.8	2.5
-array_sum	m4	nohuge=1	5	15607	4.2	1.12	12.7	5	0	12	12125	4.8	14.4	12131	4.8	14.4
-eval_fixed	sbl	n/a	5	5888124	0.5	1.01	1.4	4	1	25	5352923	0.4	1.2	5355283	0.4	1.2
-eval_fixed	m3	nohuge=1	5	5463104	1.2	1.04	3.6	5	0	11	4902117	1.6	4.7	4904571	1.6	4.7
-eval_fixed	m4	nohuge=1	5	5787741	1.8	1.05	5.5	5	0	20	5243865	1.9	5.7	5248213	1.8	5.5
-fibonacci	sbl	n/a	5	6128	3.5	1.11	10.6	5	0	12	5539	3.2	9.5	5542	3.2	9.5
-fibonacci	m3	nohuge=1	5	36346	1.2	1.03	3.5	5	0	16	32113	1.2	3.6	32129	1.2	3.6
-fibonacci	m4	nohuge=1	5	37272	0.3	1.01	0.8	5	0	12	33343	0.4	1.3	33357	0.4	1.3
-func_call	sbl	n/a	5	12841725	2.3	1.06	7.0	5	0	13	11560582	2.9	8.8	11566522	2.9	8.8
-func_call	m3	nohuge=1	5	92164914	0.9	1.03	2.7	5	0	14	83101232	1.1	3.2	83136511	1.0	3.1
-func_call	m4	nohuge=1	5	94000806	2.6	1.07	7.9	5	0	11	85803294	2.7	8.0	85856047	2.7	8.0
-indirect_dispatch	sbl	n/a	5	10276785	0.8	1.02	2.4	5	0	17	9273077	0.6	1.9	9277993	0.6	1.9
-indirect_dispatch	m3	nohuge=1	5	8119595	0.8	1.02	2.4	5	0	14	7088971	0.6	1.8	7092412	0.6	1.8
-indirect_dispatch	m4	nohuge=1	5	8358949	0.5	1.01	1.6	5	0	10	7363382	0.9	2.6	7366894	0.9	2.6
-mixed_workload	sbl	n/a	5	292344	0.4	1.01	1.2	5	0	12	261386	0.4	1.2	261488	0.4	1.2
-mixed_workload	m3	nohuge=1	5	157972	1.3	1.04	4.0	5	0	12	131837	1.2	3.5	131903	1.2	3.6
-mixed_workload	m4	nohuge=1	5	159578	0.9	1.03	2.8	5	0	16	135509	1.1	3.2	135582	1.1	3.2
-op_dispatch	sbl	n/a	5	10317380	0.9	1.03	2.6	5	0	15	9288728	1.3	3.9	9297247	1.3	3.9
-op_dispatch	m3	nohuge=1	5	73992583	0.8	1.02	2.3	5	0	15	65609441	0.8	2.3	65651123	0.8	2.3
-op_dispatch	m4	nohuge=1	5	77407816	1.0	1.03	2.9	5	0	14	69196130	0.8	2.5	69234745	0.8	2.5
-pattern_bt	sbl	n/a	5	1017077	1.5	1.04	4.4	5	0	14	896414	1.4	4.2	896875	1.4	4.2
-pattern_bt	m3	nohuge=1	5	2873409	1.1	1.03	3.4	5	0	15	2570347	1.2	3.7	2571496	1.2	3.7
-pattern_bt	m4	nohuge=1	5	2806420	1.0	1.03	3.0	5	0	16	2528746	1.0	3.0	2530397	1.0	3.0
-roman	sbl	n/a	5	452606	0.5	1.01	1.4	5	0	12	395500	0.5	1.6	395708	0.6	1.7
-roman	m3	nohuge=1	5	232320	1.1	1.03	3.2	5	0	18	199600	1.6	4.8	199720	1.6	4.8
-roman	m4	nohuge=1	5	230705	2.0	1.05	6.0	4	1	22	199269	2.2	6.5	199361	2.2	6.5
-string_concat	sbl	n/a	5	5023817	2.1	1.06	6.2	5	0	17	4994259	2.1	6.2	4997507	2.1	6.2
-string_concat	m3	nohuge=1	5	16068359	11.3	1.39	33.9	5	0	9	15785955	11.3	33.9	15792995	11.3	33.9
-string_concat	m4	nohuge=1	5	17776000	1.4	1.04	4.2	5	0	11	17593315	1.3	4.0	17602998	1.3	4.0
-string_manip	sbl	n/a	5	9212714	0.6	1.02	1.7	5	0	14	8227705	0.7	2.2	8231766	0.7	2.2
-string_manip	m3	nohuge=1	5	5449274	5.8	1.17	17.3	5	0	11	4799220	6.0	17.9	4801178	6.0	17.9
-string_manip	m4	nohuge=1	5	5546812	1.1	1.03	3.3	5	0	11	4902006	1.5	4.4	4904436	1.5	4.4
-string_pattern	sbl	n/a	5	3804439	0.5	1.02	1.6	5	0	11	3327739	0.6	1.7	3330231	0.6	1.7
-string_pattern	m3	nohuge=1	5	5908633	1.7	1.05	5.1	5	0	13	5141633	1.5	4.5	5144476	1.5	4.6
-string_pattern	m4	nohuge=1	5	5960479	3.2	1.10	9.7	5	0	13	5241532	3.2	9.5	5244312	3.2	9.5
-table_access	sbl	n/a	5	17570	0.9	1.02	2.7	5	0	12	15624	0.8	2.4	15634	0.8	2.4
-table_access	m3	nohuge=1	5	8013	0.9	1.03	2.6	5	0	15	6471	1.3	3.8	6474	1.3	3.8
-table_access	m4	nohuge=1	5	7940	1.5	1.04	4.5	5	0	19	6457	1.1	3.2	6460	1.0	3.1
-var_access	sbl	n/a	5	8393730	2.2	1.06	6.6	5	0	16	7411626	2.1	6.4	7416117	2.1	6.4
-var_access	m3	nohuge=1	5	67409559	1.6	1.05	4.7	5	0	15	59048763	1.6	4.8	59077579	1.6	4.8
-var_access	m4	nohuge=1	5	73872848	0.3	1.01	0.8	5	0	11	65690127	0.4	1.2	65728588	0.4	1.2
+arith_loop	sbl	n/a	5	17617993	4.8	1.15	14.5	5	0	5	15512710	4.9	14.6	15521203	4.9	14.7
+arith_loop	m3	nohuge=1	5	65901969	8.3	1.26	25.0	5	0	6	57418613	9.1	27.2	57465012	9.0	27.1
+arith_loop	m4	nohuge=1	5	71225806	15.1	1.59	45.4	5	0	7	63433029	15.7	47.1	63491638	15.6	46.9
+array_sum	sbl	n/a	5	14874	3.2	1.10	9.7	5	0	4	13058	3.0	9.0	13076	2.9	8.8
+array_sum	m3	nohuge=1	5	7438	5.4	1.18	16.2	5	0	6	5800	4.6	13.9	5802	4.6	13.9
+array_sum	m4	nohuge=1	5	8246	1.8	1.04	5.3	3	2	34	6419	1.7	5.2	6421	1.7	5.2
+eval_fixed	sbl	n/a	5	2938752	3.0	1.09	9.0	5	0	9	2665796	3.1	9.3	2667127	3.1	9.3
+eval_fixed	m3	nohuge=1	5	2395135	5.2	1.14	15.7	5	0	17	2079536	5.8	17.3	2082409	5.8	17.5
+eval_fixed	m4	nohuge=1	5	2588468	5.7	1.19	17.1	5	0	9	2320292	6.3	18.8	2321360	6.3	18.8
+fibonacci	sbl	n/a	5	5622	6.5	1.19	19.5	5	0	14	5093	6.7	20.0	5096	6.6	19.9
+fibonacci	m3	nohuge=1	5	17093	6.3	1.20	19.0	5	0	8	14812	6.3	19.0	14817	6.3	19.0
+fibonacci	m4	nohuge=1	5	17204	5.0	1.15	14.9	5	0	14	15276	4.7	14.1	15285	4.7	14.2
+func_call	sbl	n/a	5	14357527	3.2	1.09	9.7	4	1	96	12929686	3.0	9.0	12935995	3.0	9.0
+func_call	m3	nohuge=1	5	47048452	2.2	1.06	6.6	5	0	11	42033775	2.3	6.9	42101951	2.3	6.9
+func_call	m4	nohuge=1	5	53175977	1.7	1.05	5.2	5	0	14	46551384	3.1	9.4	46583391	3.1	9.3
+indirect_dispatch	sbl	n/a	5	8914198	4.8	1.14	14.3	5	0	16	7962985	4.9	14.8	7969691	4.9	14.7
+indirect_dispatch	m3	nohuge=1	5	3542346	3.1	1.09	9.2	5	0	13	3027601	3.1	9.2	3030423	3.1	9.2
+indirect_dispatch	m4	nohuge=1	5	3934813	4.3	1.12	12.8	4	1	35	3477114	3.2	9.5	3479764	3.2	9.6
+mixed_workload	sbl	n/a	5	343265	5.0	1.15	15.0	5	0	10	309753	5.3	15.9	310219	5.2	15.7
+mixed_workload	m3	nohuge=1	5	84730	1.7	1.04	5.2	3	2	52	70937	1.8	5.5	70961	1.8	5.5
+mixed_workload	m4	nohuge=1	5	83890	2.4	1.08	7.2	5	0	19	71414	2.7	8.0	71452	2.7	8.0
+op_dispatch	sbl	n/a	5	9104753	16.5	1.63	49.4	5	0	12	8193971	16.1	48.3	8205785	16.0	48.0
+op_dispatch	m3	nohuge=1	5	36592305	5.2	1.13	15.6	5	0	11	32087903	6.7	20.0	32107100	6.7	20.0
+op_dispatch	m4	nohuge=1	5	35450433	12.5	1.32	37.4	5	0	12	31517069	13.2	39.5	31530732	13.1	39.4
+pattern_bt	sbl	n/a	5	2118550	10.4	1.35	31.3	5	0	8	1878340	10.7	32.0	1879098	10.7	32.0
+pattern_bt	m3	nohuge=1	5	1433760	6.8	1.18	20.4	5	0	11	1267492	7.0	21.0	1268151	7.0	21.0
+pattern_bt	m4	nohuge=1	5	1366649	7.2	1.24	21.7	5	0	9	1217398	7.7	23.0	1218421	7.6	22.9
+roman	sbl	n/a	5	537914	4.2	1.11	12.6	3	2	139	479566	4.6	13.9	479797	4.6	13.9
+roman	m3	nohuge=1	5	NA	NA	NA	NA	1	4	183	NA	NA	NA	NA	NA	NA
+roman	m4	nohuge=1	5	NA	NA	NA	NA	0	5	113	NA	NA	NA	NA	NA	NA
+string_concat	sbl	n/a	5	NA	NA	NA	NA	0	5	150	NA	NA	NA	NA	NA	NA
+string_concat	m3	nohuge=1	5	NA	NA	NA	NA	0	5	143	NA	NA	NA	NA	NA	NA
+string_concat	m4	nohuge=1	5	NA	NA	NA	NA	0	5	169	NA	NA	NA	NA	NA	NA
+string_manip	sbl	n/a	5	NA	NA	NA	NA	0	5	159	NA	NA	NA	NA	NA	NA
+string_manip	m3	nohuge=1	5	NA	NA	NA	NA	0	5	129	NA	NA	NA	NA	NA	NA
+string_manip	m4	nohuge=1	5	NA	NA	NA	NA	0	5	106	NA	NA	NA	NA	NA	NA
+string_pattern	sbl	n/a	5	NA	NA	NA	NA	0	5	161	NA	NA	NA	NA	NA	NA
+string_pattern	m3	nohuge=1	5	NA	NA	NA	NA	0	5	108	NA	NA	NA	NA	NA	NA
+string_pattern	m4	nohuge=1	5	NA	NA	NA	NA	0	5	127	NA	NA	NA	NA	NA	NA
+table_access	sbl	n/a	5	NA	NA	NA	NA	0	5	137	NA	NA	NA	NA	NA	NA
+table_access	m3	nohuge=1	5	NA	NA	NA	NA	0	5	159	NA	NA	NA	NA	NA	NA
+table_access	m4	nohuge=1	5	NA	NA	NA	NA	0	5	137	NA	NA	NA	NA	NA	NA
+var_access	sbl	n/a	5	NA	NA	NA	NA	0	5	134	NA	NA	NA	NA	NA	NA
+var_access	m3	nohuge=1	5	20460363	20.8	1.70	62.3	4	1	42	17365892	20.8	62.5	17392083	20.7	62.2
+var_access	m4	nohuge=1	5	24876668	7.4	1.22	22.2	5	0	4	21908160	7.1	21.3	21936026	7.1	21.2
 arith_loop	sbl-fixed	n/a	3	NA	NA	NA	NA	0	3	289	NA	NA	NA	NA	NA	NA
 arith_loop	m3-fixed	nohuge=1	3	NA	NA	NA	NA	0	3	32	NA	NA	NA	NA	NA	NA
 arith_loop	m4-fixed	nohuge=1	3	NA	NA	NA	NA	0	3	36	NA	NA	NA	NA	NA	NA

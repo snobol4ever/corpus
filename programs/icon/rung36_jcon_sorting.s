@@ -9764,14 +9764,12 @@ n1925_scan_tab_α:       mov              rax, qword ptr [rsp + 904]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r11
-                        push             r11
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
-                        pop              r11
+                        add              rsp, 16
                         mov              qword ptr [rsp + 864], rax
                         mov              qword ptr [rsp + 872], rdx;          jmp   n1926_scan_α
 n1925_scan_tab_β:       mov              r14, qword ptr [rsp + 880];          jmp   n1923_disjunction_β
@@ -9850,14 +9848,12 @@ n1931_scan_tab_α:       mov              rax, qword ptr [rsp + 728]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r11
-                        push             r11
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
-                        pop              r11
+                        add              rsp, 16
                         mov              qword ptr [rsp + 688], rax
                         mov              qword ptr [rsp + 696], rdx;          jmp   n1932_scan_α
 n1931_scan_tab_β:       mov              r14, qword ptr [rsp + 704];          jmp   n1933_scan_α
