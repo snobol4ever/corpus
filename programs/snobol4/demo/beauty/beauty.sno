@@ -25,8 +25,8 @@ START
 -INCLUDE 'omega.inc'
 -INCLUDE 'trace.inc'
 
-                  &FULLSCAN     =  1
-                  &MAXLNGTH     =  524288
+                  &FULLSCAN      =  1
+                  &MAXLNGTH      =  524288
 *
 *                 Four tab-stops defined for the pretty-print routine.
 *                 ppStop[1] - subject
@@ -63,8 +63,10 @@ START
 +                                   )
                   &Id            =  ANY(&UCASE &LCASE) FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)
                   &Function      =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(&Functions, &TxInList)
-                  &BuiltinVar    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(&BuiltinVars, &TxInList)
-                  &SpecialNm     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(&SpecialNms, &TxInList)
+                  &BuiltinVar    =  SPAN('.' digits &UCASE '_' &LCASE)
++                                 $ tx $ *match(&BuiltinVars, &TxInList)
+                  &SpecialNm     =  SPAN('.' digits &UCASE '_' &LCASE)
++                                 $ tx $ *match(&SpecialNms, &TxInList)
                   &ProtKwd       =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(&ProtKwds, &TxInList)
                   &UnprotKwd     =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(UnprotKwds, &TxInList)
 
@@ -157,7 +159,8 @@ START
 +                                 | '=' *&Expr14 ("'='" & 1)
 +                                 | '|' *&Expr14 ("'|'" & 1)
 +                                 | *&Expr15
-                  &Expr15        =  *&Expr17 FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
+                  &Expr15        =  *&Expr17
++                                   FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
                   Expr16         =  nInc()
 +                                   ($'[' *&ExprList $']' | $'<' *&ExprList $'>')
 +                                   FENCE(*Expr16 | epsilon)
@@ -191,7 +194,10 @@ START
 +                                   | *&SorF
 +                                     *&Target
 +                                     ("*(':' sf Brackets)" & 1)
-+                                     FENCE(*&Gray *&SorF *&Target ("*(':' sf Brackets)" & 1) | epsilon ~ '')
++                                     FENCE(
++                                       *&Gray *&SorF *&Target ("*(':' sf Brackets)" & 1)
++                                     | epsilon ~ ''
++                                     )
 +                                   )
                   &Control       =  '-' BREAK(nl ';')
                   &Comment       =  '*' BREAK(nl)
@@ -471,7 +477,7 @@ ss_BuiltinVar     ss             =  upr(v)                                      
 ss_Function       ss             =  upr(v)                                       :(ss_atomic)
 ss_Id             ss             =  v                                            :(ss_atomic)
 ss_Integer        ss             =  v                                            :(ss_atomic)
-ss_Label          v              POS(0) *&SpecialNm RPOS(0)                       :S(ss_Label0)F(ss_Label1)
+ss_Label          v              POS(0) *&SpecialNm RPOS(0)                      :S(ss_Label0)F(ss_Label1)
 ss_Label0         ss             =  upr(v)                                       :(ss_atomic)
 ss_Label1         ss             =  v                                            :(ss_atomic)
 ss_ProtKwd        ss             =  upr(v)                                       :(ss_atomic)
@@ -610,10 +616,10 @@ main01            Src            =
 main02            Src            =  Src Line nl
                   Line           =  INPUT                                        :F(main05)
                   Line           POS(0) ANY('.+')                                :S(main02)
-                  Src            POS(0) *&Parse *&Space RPOS(0)                    :F(mainErr1)
+                  Src            POS(0) *&Parse *&Space RPOS(0)                  :F(mainErr1)
                   DIFFER(sno = Pop())                                            :F(mainErr2)
                   pp(sno)                                                        :(main01)
-main05            Src            POS(0) *&Parse *&Space RPOS(0)                    :F(mainErr1)
+main05            Src            POS(0) *&Parse *&Space RPOS(0)                  :F(mainErr1)
                   DIFFER(sno = Pop())                                            :F(mainErr2)
                   pp(sno)                                                        :(END)
 mainErr1          OUTPUT         =  'Parse Error'
