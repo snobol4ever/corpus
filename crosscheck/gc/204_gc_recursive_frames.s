@@ -101,10 +101,10 @@ build_α:                sub              rsp, 96
                         mov              qword ptr [rsp + 88], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx56_41:               lea              r10, [rip + build_γ]
+.Lx56_41:               lea              rcx, [rip + build_γ]
                         lea              r11, [rip + build_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n3_statement_begin_α];   jmp   rax
 build_γ:                mov              rdi, qword ptr [r9 + 0]              # build
                         mov              rsi, qword ptr [r9 + 8]

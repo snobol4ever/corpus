@@ -94,10 +94,10 @@ grab_α:                 sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx65_41:               lea              r10, [rip + grab_γ]
+.Lx65_41:               lea              rcx, [rip + grab_γ]
                         lea              r11, [rip + grab_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n6_statement_begin_α];   jmp   rax
 grab_γ:                 mov              rdi, qword ptr [r9 + 0]              # grab
                         mov              rsi, qword ptr [r9 + 8]
@@ -204,10 +204,10 @@ catch_α:                sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx72_41:               lea              r10, [rip + catch_γ]
+.Lx72_41:               lea              rcx, [rip + catch_γ]
                         lea              r11, [rip + catch_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n17_statement_begin_α];  jmp   rax
 catch_γ:                mov              rdi, qword ptr [r9 + 32]             # catch
                         mov              rsi, qword ptr [r9 + 40]

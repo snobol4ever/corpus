@@ -127,10 +127,10 @@ j3_α:                   sub              rsp, 96
                         mov              qword ptr [rsp + 88], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx58_43:               lea              r10, [rip + j3_γ]
+.Lx58_43:               lea              rcx, [rip + j3_γ]
                         lea              r11, [rip + j3_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n3_statement_begin_α];   jmp   rax
 j3_γ:                   mov              rdi, qword ptr [r9 + 0]              # j3
                         mov              rsi, qword ptr [r9 + 8]

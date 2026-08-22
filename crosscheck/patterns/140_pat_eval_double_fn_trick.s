@@ -96,10 +96,10 @@ inner_α:                sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx71_41:               lea              r10, [rip + inner_γ]
+.Lx71_41:               lea              rcx, [rip + inner_γ]
                         lea              r11, [rip + inner_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n6_statement_begin_α];   jmp   rax
 inner_γ:                mov              rdi, qword ptr [r9 + 0]              # inner
                         mov              rsi, qword ptr [r9 + 8]
@@ -206,10 +206,10 @@ outer_α:                sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx78_41:               lea              r10, [rip + outer_γ]
+.Lx78_41:               lea              rcx, [rip + outer_γ]
                         lea              r11, [rip + outer_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n17_statement_begin_α];  jmp   rax
 outer_γ:                mov              rdi, qword ptr [r9 + 32]             # outer
                         mov              rsi, qword ptr [r9 + 40]

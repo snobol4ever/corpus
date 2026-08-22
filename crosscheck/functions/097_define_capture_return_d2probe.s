@@ -93,10 +93,10 @@ F_α:                    sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx28_41:               lea              r10, [rip + F_γ]
+.Lx28_41:               lea              rcx, [rip + F_γ]
                         lea              r11, [rip + F_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n3_statement_begin_α];   jmp   rax
 F_γ:                    mov              rdi, qword ptr [r9 + 0]              # F
                         mov              rsi, qword ptr [r9 + 8]
