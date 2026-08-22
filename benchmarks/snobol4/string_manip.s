@@ -261,10 +261,10 @@ ZBODY_α:                sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx283_41:              lea              r10, [rip + ZBODY_γ]
+.Lx283_41:              lea              rcx, [rip + ZBODY_γ]
                         lea              r11, [rip + ZBODY_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n28_statement_begin_α];  jmp   rax
 ZBODY_γ:                mov              rdi, qword ptr [r9 + 0]              # ZBODY
                         mov              rsi, qword ptr [r9 + 8]

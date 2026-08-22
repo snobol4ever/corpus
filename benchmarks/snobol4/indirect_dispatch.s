@@ -265,10 +265,10 @@ ADD1_α:                 sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx294_41:              lea              r10, [rip + ADD1_γ]
+.Lx294_41:              lea              rcx, [rip + ADD1_γ]
                         lea              r11, [rip + ADD1_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n28_statement_begin_α];  jmp   rax
 ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              # ADD1
                         mov              rsi, qword ptr [r9 + 8]
@@ -462,10 +462,10 @@ ZBODY_α:                sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx319_41:              lea              r10, [rip + ZBODY_γ]
+.Lx319_41:              lea              rcx, [rip + ZBODY_γ]
                         lea              r11, [rip + ZBODY_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n43_statement_begin_α];  jmp   rax
 ZBODY_γ:                mov              rdi, qword ptr [r9 + 32]             # ZBODY
                         mov              rsi, qword ptr [r9 + 40]
