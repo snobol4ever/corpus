@@ -1386,10 +1386,10 @@ ListValue_α:            sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 32], 0
                         mov              qword ptr [r9 + 40], 0
-.Lx726_42:              lea              r10, [rip + ListValue_γ]
+.Lx726_42:              lea              rcx, [rip + ListValue_γ]
                         lea              r11, [rip + ListValue_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n117_statement_begin_α]; jmp   rax
 ListValue_γ:            mov              rdi, qword ptr [r9 + 0]              # ListValue
                         mov              rsi, qword ptr [r9 + 8]
@@ -1535,10 +1535,10 @@ ListName_α:             sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 32], 0
                         mov              qword ptr [r9 + 40], 0
-.Lx733_42:              lea              r10, [rip + ListName_γ]
+.Lx733_42:              lea              rcx, [rip + ListName_γ]
                         lea              r11, [rip + ListName_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n137_statement_begin_α]; jmp   rax
 ListName_γ:             mov              rdi, qword ptr [r9 + 48]             # ListName
                         mov              rsi, qword ptr [r9 + 56]
@@ -1684,10 +1684,10 @@ ListAppend_α:           sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx740_42:              lea              r10, [rip + ListAppend_γ]
+.Lx740_42:              lea              rcx, [rip + ListAppend_γ]
                         lea              r11, [rip + ListAppend_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n156_statement_begin_α]; jmp   rax
 ListAppend_γ:           mov              rdi, qword ptr [r9 + 64]             # ListAppend
                         mov              rsi, qword ptr [r9 + 72]
@@ -1833,10 +1833,10 @@ ListPrepend_α:          sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx747_42:              lea              r10, [rip + ListPrepend_γ]
+.Lx747_42:              lea              rcx, [rip + ListPrepend_γ]
                         lea              r11, [rip + ListPrepend_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n164_statement_begin_α]; jmp   rax
 ListPrepend_γ:          mov              rdi, qword ptr [r9 + 96]             # ListPrepend
                         mov              rsi, qword ptr [r9 + 104]
@@ -2017,10 +2017,10 @@ ListInsert_α:           sub              rsp, 144
                         mov              qword ptr [rsp + 136], rax
                         mov              qword ptr [r9 + 32], 0
                         mov              qword ptr [r9 + 40], 0
-.Lx754_43:              lea              r10, [rip + ListInsert_γ]
+.Lx754_43:              lea              rcx, [rip + ListInsert_γ]
                         lea              r11, [rip + ListInsert_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n171_statement_begin_α]; jmp   rax
 ListInsert_γ:           mov              rdi, qword ptr [r9 + 112]            # ListInsert
                         mov              rsi, qword ptr [r9 + 120]
@@ -2224,10 +2224,10 @@ ListRemove_α:           sub              rsp, 112
                         mov              qword ptr [rsp + 104], rax
                         mov              qword ptr [r9 + 32], 0
                         mov              qword ptr [r9 + 40], 0
-.Lx761_42:              lea              r10, [rip + ListRemove_γ]
+.Lx761_42:              lea              rcx, [rip + ListRemove_γ]
                         lea              r11, [rip + ListRemove_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n350_statement_begin_α]; jmp   rax
 ListRemove_γ:           mov              rdi, qword ptr [r9 + 176]            # ListRemove
                         mov              rsi, qword ptr [r9 + 184]
@@ -2372,10 +2372,10 @@ ListPop_α:              sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx768_41:              lea              r10, [rip + ListPop_γ]
+.Lx768_41:              lea              rcx, [rip + ListPop_γ]
                         lea              r11, [rip + ListPop_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n434_statement_begin_α]; jmp   rax
 ListPop_γ:              mov              rdi, qword ptr [r9 + 192]            # ListPop
                         mov              rsi, qword ptr [r9 + 200]
@@ -2482,10 +2482,10 @@ ListSize_α:             sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx775_41:              lea              r10, [rip + ListSize_γ]
+.Lx775_41:              lea              rcx, [rip + ListSize_γ]
                         lea              r11, [rip + ListSize_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n441_statement_begin_α]; jmp   rax
 ListSize_γ:             mov              rdi, qword ptr [r9 + 208]            # ListSize
                         mov              rsi, qword ptr [r9 + 216]
@@ -6848,10 +6848,10 @@ Init_list_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 240], 0
                         mov              qword ptr [r9 + 248], 0
-.Lx1290_41:             lea              r10, [rip + Init_list_γ]
+.Lx1290_41:             lea              rcx, [rip + Init_list_γ]
                         lea              r11, [rip + Init_list_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n498_statement_begin_α]; jmp   rax
 Init_list_γ:            mov              rdi, qword ptr [r9 + 224]            # Init_list
                         mov              rsi, qword ptr [r9 + 232]
@@ -6958,10 +6958,10 @@ init_list_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 272], 0
                         mov              qword ptr [r9 + 280], 0
-.Lx1297_41:             lea              r10, [rip + init_list_γ]
+.Lx1297_41:             lea              rcx, [rip + init_list_γ]
                         lea              r11, [rip + init_list_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n542_statement_begin_α]; jmp   rax
 init_list_γ:            mov              rdi, qword ptr [r9 + 256]            # init_list
                         mov              rsi, qword ptr [r9 + 264]
@@ -7068,10 +7068,10 @@ Push_list_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 240], 0
                         mov              qword ptr [r9 + 248], 0
-.Lx1304_41:             lea              r10, [rip + Push_list_γ]
+.Lx1304_41:             lea              rcx, [rip + Push_list_γ]
                         lea              r11, [rip + Push_list_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n507_statement_begin_α]; jmp   rax
 Push_list_γ:            mov              rdi, qword ptr [r9 + 288]            # Push_list
                         mov              rsi, qword ptr [r9 + 296]
@@ -7178,10 +7178,10 @@ push_list_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 272], 0
                         mov              qword ptr [r9 + 280], 0
-.Lx1311_41:             lea              r10, [rip + push_list_γ]
+.Lx1311_41:             lea              rcx, [rip + push_list_γ]
                         lea              r11, [rip + push_list_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n561_statement_begin_α]; jmp   rax
 push_list_γ:            mov              rdi, qword ptr [r9 + 304]            # push_list
                         mov              rsi, qword ptr [r9 + 312]
@@ -7288,10 +7288,10 @@ Push_item_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 240], 0
                         mov              qword ptr [r9 + 248], 0
-.Lx1318_41:             lea              r10, [rip + Push_item_γ]
+.Lx1318_41:             lea              rcx, [rip + Push_item_γ]
                         lea              r11, [rip + Push_item_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n516_statement_begin_α]; jmp   rax
 Push_item_γ:            mov              rdi, qword ptr [r9 + 320]            # Push_item
                         mov              rsi, qword ptr [r9 + 328]
@@ -7398,10 +7398,10 @@ push_item_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 272], 0
                         mov              qword ptr [r9 + 280], 0
-.Lx1325_41:             lea              r10, [rip + push_item_γ]
+.Lx1325_41:             lea              rcx, [rip + push_item_γ]
                         lea              r11, [rip + push_item_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n591_statement_begin_α]; jmp   rax
 push_item_γ:            mov              rdi, qword ptr [r9 + 336]            # push_item
                         mov              rsi, qword ptr [r9 + 344]
@@ -7491,10 +7491,10 @@ Pop_list_α:             sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + Pop_list_γ]
+                        lea              rcx, [rip + Pop_list_γ]
                         lea              r11, [rip + Pop_list_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n525_statement_begin_α]; jmp   rax
 Pop_list_γ:             mov              rdi, qword ptr [r9 + 352]
                         mov              rsi, qword ptr [r9 + 360]
@@ -7562,10 +7562,10 @@ pop_list_α:             sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + pop_list_γ]
+                        lea              rcx, [rip + pop_list_γ]
                         lea              r11, [rip + pop_list_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n604_statement_begin_α]; jmp   rax
 pop_list_γ:             mov              rdi, qword ptr [r9 + 368]
                         mov              rsi, qword ptr [r9 + 376]
@@ -7650,10 +7650,10 @@ Pop_final_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 240], 0
                         mov              qword ptr [r9 + 248], 0
-.Lx1346_41:             lea              r10, [rip + Pop_final_γ]
+.Lx1346_41:             lea              rcx, [rip + Pop_final_γ]
                         lea              r11, [rip + Pop_final_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n533_statement_begin_α]; jmp   rax
 Pop_final_γ:            mov              rdi, qword ptr [r9 + 384]            # Pop_final
                         mov              rsi, qword ptr [r9 + 392]
@@ -7760,10 +7760,10 @@ pop_final_α:            sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 272], 0
                         mov              qword ptr [r9 + 280], 0
-.Lx1353_41:             lea              r10, [rip + pop_final_γ]
+.Lx1353_41:             lea              rcx, [rip + pop_final_γ]
                         lea              r11, [rip + pop_final_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n618_statement_begin_α]; jmp   rax
 pop_final_γ:            mov              rdi, qword ptr [r9 + 400]            # pop_final
                         mov              rsi, qword ptr [r9 + 408]

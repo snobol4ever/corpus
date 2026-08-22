@@ -1606,10 +1606,10 @@ EMIT_α:                 sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + EMIT_γ]
+                        lea              rcx, [rip + EMIT_γ]
                         lea              r11, [rip + EMIT_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n154_statement_begin_α]; jmp   rax
 EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
@@ -1837,10 +1837,10 @@ PSH_α:                  sub              rsp, 48
                         mov              qword ptr [rsp + 32], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
-                        lea              r10, [rip + PSH_γ]
+                        lea              rcx, [rip + PSH_γ]
                         lea              r11, [rip + PSH_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n176_statement_begin_α]; jmp   rax
 PSH_γ:                  mov              rdi, qword ptr [r9 + 16]
                         mov              rsi, qword ptr [r9 + 24]
@@ -2032,10 +2032,10 @@ DRF_α:                  sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 48], 0
                         mov              qword ptr [r9 + 56], 0
-.Lx648_41:              lea              r10, [rip + DRF_γ]
+.Lx648_41:              lea              rcx, [rip + DRF_γ]
                         lea              r11, [rip + DRF_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n193_statement_begin_α]; jmp   rax
 DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             # DRF
                         mov              rsi, qword ptr [r9 + 40]
@@ -2336,10 +2336,10 @@ ADD_α:                  sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx687_41:              lea              r10, [rip + ADD_γ]
+.Lx687_41:              lea              rcx, [rip + ADD_γ]
                         lea              r11, [rip + ADD_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n217_statement_begin_α]; jmp   rax
 ADD_γ:                  mov              rdi, qword ptr [r9 + 64]             # ADD
                         mov              rsi, qword ptr [r9 + 72]
@@ -2918,10 +2918,10 @@ SUB_α:                  sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx741_41:              lea              r10, [rip + SUB_γ]
+.Lx741_41:              lea              rcx, [rip + SUB_γ]
                         lea              r11, [rip + SUB_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n256_statement_begin_α]; jmp   rax
 SUB_γ:                  mov              rdi, qword ptr [r9 + 96]             # SUB
                         mov              rsi, qword ptr [r9 + 104]
@@ -3393,10 +3393,10 @@ MUL_α:                  sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx795_41:              lea              r10, [rip + MUL_γ]
+.Lx795_41:              lea              rcx, [rip + MUL_γ]
                         lea              r11, [rip + MUL_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n293_statement_begin_α]; jmp   rax
 MUL_γ:                  mov              rdi, qword ptr [r9 + 112]            # MUL
                         mov              rsi, qword ptr [r9 + 120]
@@ -3868,10 +3868,10 @@ DIV_α:                  sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx849_41:              lea              r10, [rip + DIV_γ]
+.Lx849_41:              lea              rcx, [rip + DIV_γ]
                         lea              r11, [rip + DIV_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n330_statement_begin_α]; jmp   rax
 DIV_γ:                  mov              rdi, qword ptr [r9 + 128]            # DIV
                         mov              rsi, qword ptr [r9 + 136]
@@ -4319,10 +4319,10 @@ SGN_α:                  sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx903_41:              lea              r10, [rip + SGN_γ]
+.Lx903_41:              lea              rcx, [rip + SGN_γ]
                         lea              r11, [rip + SGN_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n367_statement_begin_α]; jmp   rax
 SGN_γ:                  mov              rdi, qword ptr [r9 + 144]            # SGN
                         mov              rsi, qword ptr [r9 + 152]

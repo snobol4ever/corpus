@@ -100,10 +100,10 @@ ROMAN_α:                sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Lx90_41:               lea              r10, [rip + ROMAN_γ]
+.Lx90_41:               lea              rcx, [rip + ROMAN_γ]
                         lea              r11, [rip + ROMAN_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n3_statement_begin_α];   jmp   rax
 ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              # ROMAN
                         mov              rsi, qword ptr [r9 + 8]
@@ -715,10 +715,10 @@ TEST_α:                 sub              rsp, 80
                         mov              qword ptr [rsp + 72], rax
                         mov              qword ptr [r9 + 80], 0
                         mov              qword ptr [r9 + 88], 0
-.Lx151_42:              lea              r10, [rip + TEST_γ]
+.Lx151_42:              lea              rcx, [rip + TEST_γ]
                         lea              r11, [rip + TEST_ω]
                         push             r11
-                        push             r10
+                        push             rcx
                         lea              rax, [rip + n40_statement_begin_α];  jmp   rax
 TEST_γ:                 mov              rdi, qword ptr [r9 + 48]             # TEST
                         mov              rsi, qword ptr [r9 + 56]
