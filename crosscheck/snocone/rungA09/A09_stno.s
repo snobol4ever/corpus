@@ -255,12 +255,9 @@ n19_cmp_test_α:         sub              rsp, 16
                         cmp              rax, rdx;                            jg    .Lx55_239
                         add              rsp, 16;                             jmp   n18_coerce_numeric_β
 .Lx55_239:                                                                    jmp   n20_lit_string_α
-.Lx55_0:                lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx55_0:                lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            jg    .Lx55_240
                         add              rsp, 16;                             jmp   n18_coerce_numeric_β
 .Lx55_240:                                                                    jmp   n20_lit_string_α
