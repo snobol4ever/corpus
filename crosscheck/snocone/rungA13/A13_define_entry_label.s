@@ -10,24 +10,29 @@ bumpit_α_body:
 #=======================================================================================================================
 #         <stmt 1, line 3: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n0_statement_begin_α:                                                         jmp   n1_var_α
-n0_statement_begin_β:                                                         jmp   bumpit_γ
+n0_statement_begin_α:   mov              r11, 1
+                        mov              r10, 1;                              jmp   n1_var_α
+n0_statement_begin_β:   mov              r11, 1;                              jmp   bumpit_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               sub              rsp, 16
+                        mov              r11, 2
                         mov              rax, qword ptr [r9 + 16]             # v
                         mov              rdx, qword ptr [r9 + 24]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:       sub              rsp, 16
+                        mov              r11, 3
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx8_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n3_binop_α
-n2_lit_integer_β:       add              rsp, 16
+n2_lit_integer_β:       mov              r11, 3
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   bumpit_γ
 .Lx8_0:                 .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n3_binop_α:             sub              rsp, 16
+                        mov              r11, 4
                         mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
                         cmp              cl, 3;                               jne   .Lx9_2
@@ -60,9 +65,11 @@ n3_binop_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_assign_α
-n3_binop_β:             add              rsp, 16;                             jmp   n2_lit_integer_β
+n3_binop_β:             mov              r11, 4
+                        add              rsp, 16;                             jmp   n2_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
-n4_assign_α:            mov              rax, qword ptr [rsp + 0]             # binop
+n4_assign_α:            mov              r11, 5
+                        mov              rax, qword ptr [rsp + 0]             # binop
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 0], rax              # bumpit
                         mov              qword ptr [r9 + 8], rdx
@@ -118,23 +125,28 @@ main_α_body:
 #=======================================================================================================================
 #         <stmt 2, line 4: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n11_statement_begin_α:                                                        jmp   n12_statement_end_α
-n11_statement_begin_β:                                                        jmp   n13_statement_begin_α
+n11_statement_begin_α:  mov              r11, 6
+                        mov              r10, 2;                              jmp   n12_statement_end_α
+n11_statement_begin_β:  mov              r11, 6;                              jmp   n13_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n12_statement_end_α:                                                          jmp   n13_statement_begin_α
+n12_statement_end_α:    mov              r11, 7
+                        mov              r10, 2;                              jmp   n13_statement_begin_α
 #=======================================================================================================================
 #         <stmt 3, line 5: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n13_statement_begin_α:                                                        jmp   n14_lit_integer_α
-n13_statement_begin_β:                                                        jmp   main_γ
+n13_statement_begin_α:  mov              r11, 8
+                        mov              r10, 3;                              jmp   n14_lit_integer_α
+n13_statement_begin_β:  mov              r11, 8;                              jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n14_lit_integer_α:      sub              rsp, 16
+                        mov              r11, 9
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx24_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n15_call_α
 .Lx24_0:                .quad            41
 #-----------------------------------------------------------------------------------------------------------------------
 n15_call_α:             sub              rsp, 16
+                        mov              r11, 10
                         lea              rcx, [rip + .Lsig26z]
                         lea              rax, [rip + bumpit_α];               jmp   rax
 .Lsig26z:               .quad            1
@@ -161,11 +173,12 @@ n15_call_α:             sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n13_statement_begin_β
 .Lx26_240:                                                                    jmp   n16_assign_α
-n15_call_β:                                                                   jmp   n13_statement_begin_β
+n15_call_β:             mov              r11, 10;                             jmp   n13_statement_begin_β
 .Lx26_0:                .quad            .Lx26_0_s
 .Lx26_0_s:              .string          "bumpit"
 #-----------------------------------------------------------------------------------------------------------------------
-n16_assign_α:           mov              rsi, qword ptr [rsp + 0]             # call
+n16_assign_α:           mov              r11, 11
+                        mov              rsi, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx27_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -175,7 +188,9 @@ n16_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx27_0:                .quad            .Lx27_0_s
 .Lx27_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n17_statement_end_α:    add              rsp, 32;                             jmp   main_γ
+n17_statement_end_α:    mov              r11, 12
+                        mov              r10, 3
+                        add              rsp, 32;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω

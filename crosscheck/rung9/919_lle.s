@@ -14,17 +14,21 @@ main:
 main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_statement_begin_α:                                                         jmp   n1_statement_end_α
-n0_statement_begin_β:                                                         jmp   n2_statement_begin_α
+n0_statement_begin_α:   mov              r11, 1
+                        mov              r10, 0;                              jmp   n1_statement_end_α
+n0_statement_begin_β:   mov              r11, 1;                              jmp   n2_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1_statement_end_α:                                                           jmp   n2_statement_begin_α
+n1_statement_end_α:     mov              r11, 2
+                        mov              r10, 1;                              jmp   n2_statement_begin_α
 #=======================================================================================================================
 #         LLE('abc', 'abc')          :s(e001)
 #-----------------------------------------------------------------------------------------------------------------------
-n2_statement_begin_α:                                                         jmp   n3_lit_string_α
-n2_statement_begin_β:                                                         jmp   n7_statement_begin_α
+n2_statement_begin_α:   mov              r11, 3
+                        mov              r10, 2;                              jmp   n3_lit_string_α
+n2_statement_begin_β:   mov              r11, 3;                              jmp   n7_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_string_α:        sub              rsp, 16
+                        mov              r11, 4
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx78_0]
@@ -33,16 +37,19 @@ n3_lit_string_α:        sub              rsp, 16
 .Lx78_0_s:              .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
 n4_lit_string_α:        sub              rsp, 16
+                        mov              r11, 5
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx79_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n5_cmp_test_α
-n4_lit_string_β:        add              rsp, 16
+n4_lit_string_β:        mov              r11, 5
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n2_statement_begin_β
 .Lx79_0:                .quad            .Lx79_0_s
 .Lx79_0_s:              .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
 n5_cmp_test_α:          sub              rsp, 16
+                        mov              r11, 6
                         mov              eax, dword ptr [rsp + 32]            # lit_string
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
@@ -63,14 +70,18 @@ n5_cmp_test_α:          sub              rsp, 16
                         add              rsp, 16;                             jmp   n4_lit_string_β
 .Lx81_240:                                                                    jmp   n6_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n6_statement_end_α:     add              rsp, 48;                             jmp   n11_statement_begin_α
+n6_statement_end_α:     mov              r11, 7
+                        mov              r10, 2
+                        add              rsp, 48;                             jmp   n11_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 919/001: LLE(abc,abc) should succeed' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n7_statement_begin_α:                                                         jmp   n8_lit_string_α
-n7_statement_begin_β:                                                         jmp   main_γ
+n7_statement_begin_α:   mov              r11, 8
+                        mov              r10, 3;                              jmp   n8_lit_string_α
+n7_statement_begin_β:   mov              r11, 8;                              jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_string_α:        sub              rsp, 16
+                        mov              r11, 9
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 41
                         mov              rax, qword ptr [rip + .Lx86_0]
@@ -78,7 +89,8 @@ n8_lit_string_α:        sub              rsp, 16
 .Lx86_0:                .quad            .Lx86_0_s
 .Lx86_0_s:              .string          "FAIL 919/001: LLE(abc,abc) should succeed"
 #-----------------------------------------------------------------------------------------------------------------------
-n9_assign_α:            mov              rsi, qword ptr [rsp + 0]             # lit_string
+n9_assign_α:            mov              r11, 10
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx87_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -88,21 +100,27 @@ n9_assign_α:            mov              rsi, qword ptr [rsp + 0]             #
 .Lx87_0:                .quad            .Lx87_0_s
 .Lx87_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n10_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n10_statement_end_α:    mov              r11, 11
+                        mov              r10, 3
+                        add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
 # e001  <stmt 4, line 8: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n11_statement_begin_α:                                                        jmp   n12_statement_end_α
-n11_statement_begin_β:                                                        jmp   n13_statement_begin_α
+n11_statement_begin_α:  mov              r11, 12
+                        mov              r10, 4;                              jmp   n12_statement_end_α
+n11_statement_begin_β:  mov              r11, 12;                             jmp   n13_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n12_statement_end_α:                                                          jmp   n13_statement_begin_α
+n12_statement_end_α:    mov              r11, 13
+                        mov              r10, 4;                              jmp   n13_statement_begin_α
 #=======================================================================================================================
 #         LLE('abc', 'xyz')          :s(e002)
 #-----------------------------------------------------------------------------------------------------------------------
-n13_statement_begin_α:                                                        jmp   n14_lit_string_α
-n13_statement_begin_β:                                                        jmp   n18_statement_begin_α
+n13_statement_begin_α:  mov              r11, 14
+                        mov              r10, 5;                              jmp   n14_lit_string_α
+n13_statement_begin_β:  mov              r11, 14;                             jmp   n18_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_lit_string_α:       sub              rsp, 16
+                        mov              r11, 15
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx96_0]
@@ -111,16 +129,19 @@ n14_lit_string_α:       sub              rsp, 16
 .Lx96_0_s:              .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
 n15_lit_string_α:       sub              rsp, 16
+                        mov              r11, 16
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx97_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n16_cmp_test_α
-n15_lit_string_β:       add              rsp, 16
+n15_lit_string_β:       mov              r11, 16
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n13_statement_begin_β
 .Lx97_0:                .quad            .Lx97_0_s
 .Lx97_0_s:              .string          "xyz"
 #-----------------------------------------------------------------------------------------------------------------------
 n16_cmp_test_α:         sub              rsp, 16
+                        mov              r11, 17
                         mov              eax, dword ptr [rsp + 32]            # lit_string
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
@@ -141,14 +162,18 @@ n16_cmp_test_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n15_lit_string_β
 .Lx99_240:                                                                    jmp   n17_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n17_statement_end_α:    add              rsp, 48;                             jmp   n22_statement_begin_α
+n17_statement_end_α:    mov              r11, 18
+                        mov              r10, 5
+                        add              rsp, 48;                             jmp   n22_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 919/002: LLE(abc,xyz) should succeed' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n18_statement_begin_α:                                                        jmp   n19_lit_string_α
-n18_statement_begin_β:                                                        jmp   main_γ
+n18_statement_begin_α:  mov              r11, 19
+                        mov              r10, 6;                              jmp   n19_lit_string_α
+n18_statement_begin_β:  mov              r11, 19;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n19_lit_string_α:       sub              rsp, 16
+                        mov              r11, 20
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 41
                         mov              rax, qword ptr [rip + .Lx104_0]
@@ -156,7 +181,8 @@ n19_lit_string_α:       sub              rsp, 16
 .Lx104_0:               .quad            .Lx104_0_s
 .Lx104_0_s:             .string          "FAIL 919/002: LLE(abc,xyz) should succeed"
 #-----------------------------------------------------------------------------------------------------------------------
-n20_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
+n20_assign_α:           mov              r11, 21
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx105_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -166,21 +192,27 @@ n20_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx105_0:               .quad            .Lx105_0_s
 .Lx105_0_s:             .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n21_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n21_statement_end_α:    mov              r11, 22
+                        mov              r10, 6
+                        add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
 # e002  <stmt 7, line 13: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n22_statement_begin_α:                                                        jmp   n23_statement_end_α
-n22_statement_begin_β:                                                        jmp   n24_statement_begin_α
+n22_statement_begin_α:  mov              r11, 23
+                        mov              r10, 7;                              jmp   n23_statement_end_α
+n22_statement_begin_β:  mov              r11, 23;                             jmp   n24_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n23_statement_end_α:                                                          jmp   n24_statement_begin_α
+n23_statement_end_α:    mov              r11, 24
+                        mov              r10, 7;                              jmp   n24_statement_begin_α
 #=======================================================================================================================
 #         LLE('xyz', 'abc')          :f(e003)
 #-----------------------------------------------------------------------------------------------------------------------
-n24_statement_begin_α:                                                        jmp   n25_lit_string_α
-n24_statement_begin_β:                                                        jmp   n33_statement_begin_α
+n24_statement_begin_α:  mov              r11, 25
+                        mov              r10, 8;                              jmp   n25_lit_string_α
+n24_statement_begin_β:  mov              r11, 25;                             jmp   n33_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n25_lit_string_α:       sub              rsp, 16
+                        mov              r11, 26
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx114_0]
@@ -189,16 +221,19 @@ n25_lit_string_α:       sub              rsp, 16
 .Lx114_0_s:             .string          "xyz"
 #-----------------------------------------------------------------------------------------------------------------------
 n26_lit_string_α:       sub              rsp, 16
+                        mov              r11, 27
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx115_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n27_cmp_test_α
-n26_lit_string_β:       add              rsp, 16
+n26_lit_string_β:       mov              r11, 27
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n24_statement_begin_β
 .Lx115_0:               .quad            .Lx115_0_s
 .Lx115_0_s:             .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
 n27_cmp_test_α:         sub              rsp, 16
+                        mov              r11, 28
                         mov              eax, dword ptr [rsp + 32]            # lit_string
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
@@ -219,14 +254,18 @@ n27_cmp_test_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n26_lit_string_β
 .Lx117_240:                                                                   jmp   n28_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n28_statement_end_α:    add              rsp, 48;                             jmp   n29_statement_begin_α
+n28_statement_end_α:    mov              r11, 29
+                        mov              r10, 8
+                        add              rsp, 48;                             jmp   n29_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 919/003: LLE(xyz,abc) should fail'   :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n29_statement_begin_α:                                                        jmp   n30_lit_string_α
-n29_statement_begin_β:                                                        jmp   main_γ
+n29_statement_begin_α:  mov              r11, 30
+                        mov              r10, 9;                              jmp   n30_lit_string_α
+n29_statement_begin_β:  mov              r11, 30;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n30_lit_string_α:       sub              rsp, 16
+                        mov              r11, 31
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 38
                         mov              rax, qword ptr [rip + .Lx122_0]
@@ -234,7 +273,8 @@ n30_lit_string_α:       sub              rsp, 16
 .Lx122_0:               .quad            .Lx122_0_s
 .Lx122_0_s:             .string          "FAIL 919/003: LLE(xyz,abc) should fail"
 #-----------------------------------------------------------------------------------------------------------------------
-n31_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
+n31_assign_α:           mov              r11, 32
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx123_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -244,21 +284,27 @@ n31_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx123_0:               .quad            .Lx123_0_s
 .Lx123_0_s:             .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n32_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n32_statement_end_α:    mov              r11, 33
+                        mov              r10, 9
+                        add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
 # e003  <stmt 10, line 18: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n33_statement_begin_α:                                                        jmp   n34_statement_end_α
-n33_statement_begin_β:                                                        jmp   n35_statement_begin_α
+n33_statement_begin_α:  mov              r11, 34
+                        mov              r10, 10;                             jmp   n34_statement_end_α
+n33_statement_begin_β:  mov              r11, 34;                             jmp   n35_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n34_statement_end_α:                                                          jmp   n35_statement_begin_α
+n34_statement_end_α:    mov              r11, 35
+                        mov              r10, 10;                             jmp   n35_statement_begin_α
 #=======================================================================================================================
 #         LLE('', 'abc')             :s(e004)
 #-----------------------------------------------------------------------------------------------------------------------
-n35_statement_begin_α:                                                        jmp   n36_lit_string_α
-n35_statement_begin_β:                                                        jmp   n40_statement_begin_α
+n35_statement_begin_α:  mov              r11, 36
+                        mov              r10, 11;                             jmp   n36_lit_string_α
+n35_statement_begin_β:  mov              r11, 36;                             jmp   n40_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n36_lit_string_α:       sub              rsp, 16
+                        mov              r11, 37
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx132_0]
@@ -267,16 +313,19 @@ n36_lit_string_α:       sub              rsp, 16
 .Lx132_0_s:             .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n37_lit_string_α:       sub              rsp, 16
+                        mov              r11, 38
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx133_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n38_cmp_test_α
-n37_lit_string_β:       add              rsp, 16
+n37_lit_string_β:       mov              r11, 38
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n35_statement_begin_β
 .Lx133_0:               .quad            .Lx133_0_s
 .Lx133_0_s:             .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
 n38_cmp_test_α:         sub              rsp, 16
+                        mov              r11, 39
                         mov              eax, dword ptr [rsp + 32]            # lit_string
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
@@ -297,14 +346,18 @@ n38_cmp_test_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n37_lit_string_β
 .Lx135_240:                                                                   jmp   n39_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n39_statement_end_α:    add              rsp, 48;                             jmp   n44_statement_begin_α
+n39_statement_end_α:    mov              r11, 40
+                        mov              r10, 11
+                        add              rsp, 48;                             jmp   n44_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 919/004: LLE(null,abc) should succeed' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n40_statement_begin_α:                                                        jmp   n41_lit_string_α
-n40_statement_begin_β:                                                        jmp   main_γ
+n40_statement_begin_α:  mov              r11, 41
+                        mov              r10, 12;                             jmp   n41_lit_string_α
+n40_statement_begin_β:  mov              r11, 41;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n41_lit_string_α:       sub              rsp, 16
+                        mov              r11, 42
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 42
                         mov              rax, qword ptr [rip + .Lx140_0]
@@ -312,7 +365,8 @@ n41_lit_string_α:       sub              rsp, 16
 .Lx140_0:               .quad            .Lx140_0_s
 .Lx140_0_s:             .string          "FAIL 919/004: LLE(null,abc) should succeed"
 #-----------------------------------------------------------------------------------------------------------------------
-n42_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
+n42_assign_α:           mov              r11, 43
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx141_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -322,21 +376,27 @@ n42_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx141_0:               .quad            .Lx141_0_s
 .Lx141_0_s:             .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n43_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n43_statement_end_α:    mov              r11, 44
+                        mov              r10, 12
+                        add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
 # e004  <stmt 13, line 23: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n44_statement_begin_α:                                                        jmp   n45_statement_end_α
-n44_statement_begin_β:                                                        jmp   n46_statement_begin_α
+n44_statement_begin_α:  mov              r11, 45
+                        mov              r10, 13;                             jmp   n45_statement_end_α
+n44_statement_begin_β:  mov              r11, 45;                             jmp   n46_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n45_statement_end_α:                                                          jmp   n46_statement_begin_α
+n45_statement_end_α:    mov              r11, 46
+                        mov              r10, 13;                             jmp   n46_statement_begin_α
 #=======================================================================================================================
 #         LLE('', '')                :s(e005)
 #-----------------------------------------------------------------------------------------------------------------------
-n46_statement_begin_α:                                                        jmp   n47_lit_string_α
-n46_statement_begin_β:                                                        jmp   n51_statement_begin_α
+n46_statement_begin_α:  mov              r11, 47
+                        mov              r10, 14;                             jmp   n47_lit_string_α
+n46_statement_begin_β:  mov              r11, 47;                             jmp   n51_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n47_lit_string_α:       sub              rsp, 16
+                        mov              r11, 48
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx150_0]
@@ -345,16 +405,19 @@ n47_lit_string_α:       sub              rsp, 16
 .Lx150_0_s:             .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n48_lit_string_α:       sub              rsp, 16
+                        mov              r11, 49
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx151_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n49_cmp_test_α
-n48_lit_string_β:       add              rsp, 16
+n48_lit_string_β:       mov              r11, 49
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n46_statement_begin_β
 .Lx151_0:               .quad            .Lx151_0_s
 .Lx151_0_s:             .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n49_cmp_test_α:         sub              rsp, 16
+                        mov              r11, 50
                         mov              eax, dword ptr [rsp + 32]            # lit_string
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
@@ -375,14 +438,18 @@ n49_cmp_test_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n48_lit_string_β
 .Lx153_240:                                                                   jmp   n50_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n50_statement_end_α:    add              rsp, 48;                             jmp   n55_statement_begin_α
+n50_statement_end_α:    mov              r11, 51
+                        mov              r10, 14
+                        add              rsp, 48;                             jmp   n55_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 919/005: LLE(null,null) should succeed' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n51_statement_begin_α:                                                        jmp   n52_lit_string_α
-n51_statement_begin_β:                                                        jmp   main_γ
+n51_statement_begin_α:  mov              r11, 52
+                        mov              r10, 15;                             jmp   n52_lit_string_α
+n51_statement_begin_β:  mov              r11, 52;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n52_lit_string_α:       sub              rsp, 16
+                        mov              r11, 53
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 43
                         mov              rax, qword ptr [rip + .Lx158_0]
@@ -390,7 +457,8 @@ n52_lit_string_α:       sub              rsp, 16
 .Lx158_0:               .quad            .Lx158_0_s
 .Lx158_0_s:             .string          "FAIL 919/005: LLE(null,null) should succeed"
 #-----------------------------------------------------------------------------------------------------------------------
-n53_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
+n53_assign_α:           mov              r11, 54
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx159_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -400,21 +468,27 @@ n53_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx159_0:               .quad            .Lx159_0_s
 .Lx159_0_s:             .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n54_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n54_statement_end_α:    mov              r11, 55
+                        mov              r10, 15
+                        add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
 # e005  <stmt 16, line 28: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n55_statement_begin_α:                                                        jmp   n56_statement_end_α
-n55_statement_begin_β:                                                        jmp   n57_statement_begin_α
+n55_statement_begin_α:  mov              r11, 56
+                        mov              r10, 16;                             jmp   n56_statement_end_α
+n55_statement_begin_β:  mov              r11, 56;                             jmp   n57_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n56_statement_end_α:                                                          jmp   n57_statement_begin_α
+n56_statement_end_α:    mov              r11, 57
+                        mov              r10, 16;                             jmp   n57_statement_begin_α
 #=======================================================================================================================
 #         LLE('A', 'a')              :s(e006)
 #-----------------------------------------------------------------------------------------------------------------------
-n57_statement_begin_α:                                                        jmp   n58_lit_string_α
-n57_statement_begin_β:                                                        jmp   n62_statement_begin_α
+n57_statement_begin_α:  mov              r11, 58
+                        mov              r10, 17;                             jmp   n58_lit_string_α
+n57_statement_begin_β:  mov              r11, 58;                             jmp   n62_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n58_lit_string_α:       sub              rsp, 16
+                        mov              r11, 59
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx168_0]
@@ -423,16 +497,19 @@ n58_lit_string_α:       sub              rsp, 16
 .Lx168_0_s:             .string          "A"
 #-----------------------------------------------------------------------------------------------------------------------
 n59_lit_string_α:       sub              rsp, 16
+                        mov              r11, 60
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx169_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n60_cmp_test_α
-n59_lit_string_β:       add              rsp, 16
+n59_lit_string_β:       mov              r11, 60
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n57_statement_begin_β
 .Lx169_0:               .quad            .Lx169_0_s
 .Lx169_0_s:             .string          "a"
 #-----------------------------------------------------------------------------------------------------------------------
 n60_cmp_test_α:         sub              rsp, 16
+                        mov              r11, 61
                         mov              eax, dword ptr [rsp + 32]            # lit_string
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
@@ -453,14 +530,18 @@ n60_cmp_test_α:         sub              rsp, 16
                         add              rsp, 16;                             jmp   n59_lit_string_β
 .Lx171_240:                                                                   jmp   n61_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n61_statement_end_α:    add              rsp, 48;                             jmp   n66_statement_begin_α
+n61_statement_end_α:    mov              r11, 62
+                        mov              r10, 17
+                        add              rsp, 48;                             jmp   n66_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 919/006: LLE(A,a) should succeed (ordinal)' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n62_statement_begin_α:                                                        jmp   n63_lit_string_α
-n62_statement_begin_β:                                                        jmp   main_γ
+n62_statement_begin_α:  mov              r11, 63
+                        mov              r10, 18;                             jmp   n63_lit_string_α
+n62_statement_begin_β:  mov              r11, 63;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n63_lit_string_α:       sub              rsp, 16
+                        mov              r11, 64
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 47
                         mov              rax, qword ptr [rip + .Lx176_0]
@@ -468,7 +549,8 @@ n63_lit_string_α:       sub              rsp, 16
 .Lx176_0:               .quad            .Lx176_0_s
 .Lx176_0_s:             .string          "FAIL 919/006: LLE(A,a) should succeed (ordinal)"
 #-----------------------------------------------------------------------------------------------------------------------
-n64_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
+n64_assign_α:           mov              r11, 65
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx177_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -478,21 +560,27 @@ n64_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx177_0:               .quad            .Lx177_0_s
 .Lx177_0_s:             .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n65_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n65_statement_end_α:    mov              r11, 66
+                        mov              r10, 18
+                        add              rsp, 16;                             jmp   main_γ
 #=======================================================================================================================
 # e006  <stmt 19, line 33: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n66_statement_begin_α:                                                        jmp   n67_statement_end_α
-n66_statement_begin_β:                                                        jmp   n68_statement_begin_α
+n66_statement_begin_α:  mov              r11, 67
+                        mov              r10, 19;                             jmp   n67_statement_end_α
+n66_statement_begin_β:  mov              r11, 67;                             jmp   n68_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n67_statement_end_α:                                                          jmp   n68_statement_begin_α
+n67_statement_end_α:    mov              r11, 68
+                        mov              r10, 19;                             jmp   n68_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'PASS 919_lle (6/6)'
 #-----------------------------------------------------------------------------------------------------------------------
-n68_statement_begin_α:                                                        jmp   n69_lit_string_α
-n68_statement_begin_β:                                                        jmp   main_γ
+n68_statement_begin_α:  mov              r11, 69
+                        mov              r10, 20;                             jmp   n69_lit_string_α
+n68_statement_begin_β:  mov              r11, 69;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n69_lit_string_α:       sub              rsp, 16
+                        mov              r11, 70
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 18
                         mov              rax, qword ptr [rip + .Lx186_0]
@@ -500,7 +588,8 @@ n69_lit_string_α:       sub              rsp, 16
 .Lx186_0:               .quad            .Lx186_0_s
 .Lx186_0_s:             .string          "PASS 919_lle (6/6)"
 #-----------------------------------------------------------------------------------------------------------------------
-n70_assign_α:           mov              rsi, qword ptr [rsp + 0]             # lit_string
+n70_assign_α:           mov              r11, 71
+                        mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx187_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -510,7 +599,9 @@ n70_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx187_0:               .quad            .Lx187_0_s
 .Lx187_0_s:             .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n71_statement_end_α:    add              rsp, 16;                             jmp   main_γ
+n71_statement_end_α:    mov              r11, 72
+                        mov              r10, 20
+                        add              rsp, 16;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω

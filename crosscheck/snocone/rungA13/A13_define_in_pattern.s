@@ -10,16 +10,19 @@ upcase_α_body:
 #=======================================================================================================================
 #         <stmt 1, line 3: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n0_statement_begin_α:                                                         jmp   n1_var_α
-n0_statement_begin_β:                                                         jmp   upcase_γ
+n0_statement_begin_α:   mov              r11, 1
+                        mov              r10, 1;                              jmp   n1_var_α
+n0_statement_begin_β:   mov              r11, 1;                              jmp   upcase_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               sub              rsp, 16
+                        mov              r11, 2
                         mov              rax, qword ptr [r9 + 16]             # s
                         mov              rdx, qword ptr [r9 + 24]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2_keyword_snobol4_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_keyword_snobol4_α:   sub              rsp, 16
+                        mov              r11, 3
                         mov              rdi, qword ptr [rip + .Lx9_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_kw_read_idx@PLT
@@ -30,6 +33,7 @@ n2_keyword_snobol4_α:   sub              rsp, 16
 .Lx9_0:                 .quad            22
 #-----------------------------------------------------------------------------------------------------------------------
 n3_keyword_snobol4_α:   sub              rsp, 16
+                        mov              r11, 4
                         mov              rdi, qword ptr [rip + .Lx10_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_kw_read_idx@PLT
@@ -40,6 +44,7 @@ n3_keyword_snobol4_α:   sub              rsp, 16
 .Lx10_0:                .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
 n4_call_α:              sub              rsp, 16
+                        mov              r11, 5
                         sub              rsp, 48
                         mov              r8, qword ptr [rsp + 96]
                         mov              qword ptr [rsp + 0], r8
@@ -70,10 +75,12 @@ n4_call_α:              sub              rsp, 16
                         add              rsp, 48;                             jmp   upcase_γ
 .Lx11_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n5_assign_α
-n4_call_β:              add              rsp, 16
+n4_call_β:              mov              r11, 5
+                        add              rsp, 16
                         add              rsp, 48;                             jmp   upcase_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n5_assign_α:            mov              rax, qword ptr [rsp + 0]             # call
+n5_assign_α:            mov              r11, 6
+                        mov              rax, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 0], rax              # upcase
                         mov              qword ptr [r9 + 8], rdx
@@ -129,17 +136,21 @@ main_α_body:
 #=======================================================================================================================
 #         <stmt 2, line 4: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n14_statement_begin_α:                                                        jmp   n15_statement_end_α
-n14_statement_begin_β:                                                        jmp   n16_statement_begin_α
+n14_statement_begin_α:  mov              r11, 7
+                        mov              r10, 2;                              jmp   n15_statement_end_α
+n14_statement_begin_β:  mov              r11, 7;                              jmp   n16_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n15_statement_end_α:                                                          jmp   n16_statement_begin_α
+n15_statement_end_α:    mov              r11, 8
+                        mov              r10, 2;                              jmp   n16_statement_begin_α
 #=======================================================================================================================
 #         <stmt 3, line 5: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n16_statement_begin_α:                                                        jmp   n17_lit_string_α
-n16_statement_begin_β:                                                        jmp   n21_statement_begin_α
+n16_statement_begin_α:  mov              r11, 9
+                        mov              r10, 3;                              jmp   n17_lit_string_α
+n16_statement_begin_β:  mov              r11, 9;                              jmp   n21_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_lit_string_α:       sub              rsp, 16
+                        mov              r11, 10
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx32_0]
@@ -148,6 +159,7 @@ n17_lit_string_α:       sub              rsp, 16
 .Lx32_0_s:              .string          "hello"
 #-----------------------------------------------------------------------------------------------------------------------
 n18_call_α:             sub              rsp, 16
+                        mov              r11, 11
                         lea              rcx, [rip + .Lsig34z]
                         lea              rax, [rip + upcase_α];               jmp   rax
 .Lsig34z:               .quad            1
@@ -174,11 +186,12 @@ n18_call_α:             sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n16_statement_begin_β
 .Lx34_240:                                                                    jmp   n19_assign_α
-n18_call_β:                                                                   jmp   n16_statement_begin_β
+n18_call_β:             mov              r11, 11;                             jmp   n16_statement_begin_β
 .Lx34_0:                .quad            .Lx34_0_s
 .Lx34_0_s:              .string          "upcase"
 #-----------------------------------------------------------------------------------------------------------------------
-n19_assign_α:           mov              rsi, qword ptr [rsp + 0]             # call
+n19_assign_α:           mov              r11, 12
+                        mov              rsi, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx35_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -188,14 +201,18 @@ n19_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx35_0:                .quad            .Lx35_0_s
 .Lx35_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n20_statement_end_α:    add              rsp, 32;                             jmp   n21_statement_begin_α
+n20_statement_end_α:    mov              r11, 13
+                        mov              r10, 3
+                        add              rsp, 32;                             jmp   n21_statement_begin_α
 #=======================================================================================================================
 #         <stmt 4, line 6: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n21_statement_begin_α:                                                        jmp   n22_lit_string_α
-n21_statement_begin_β:                                                        jmp   main_γ
+n21_statement_begin_α:  mov              r11, 14
+                        mov              r10, 4;                              jmp   n22_lit_string_α
+n21_statement_begin_β:  mov              r11, 14;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n22_lit_string_α:       sub              rsp, 16
+                        mov              r11, 15
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx40_0]
@@ -204,6 +221,7 @@ n22_lit_string_α:       sub              rsp, 16
 .Lx40_0_s:              .string          "world"
 #-----------------------------------------------------------------------------------------------------------------------
 n23_call_α:             sub              rsp, 16
+                        mov              r11, 16
                         lea              rcx, [rip + .Lsig42z]
                         lea              rax, [rip + upcase_α];               jmp   rax
 .Lsig42z:               .quad            1
@@ -230,11 +248,12 @@ n23_call_α:             sub              rsp, 16
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n21_statement_begin_β
 .Lx42_240:                                                                    jmp   n24_assign_α
-n23_call_β:                                                                   jmp   n21_statement_begin_β
+n23_call_β:             mov              r11, 16;                             jmp   n21_statement_begin_β
 .Lx42_0:                .quad            .Lx42_0_s
 .Lx42_0_s:              .string          "upcase"
 #-----------------------------------------------------------------------------------------------------------------------
-n24_assign_α:           mov              rsi, qword ptr [rsp + 0]             # call
+n24_assign_α:           mov              r11, 17
+                        mov              rsi, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx43_0]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -244,7 +263,9 @@ n24_assign_α:           mov              rsi, qword ptr [rsp + 0]             #
 .Lx43_0:                .quad            .Lx43_0_s
 .Lx43_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n25_statement_end_α:    add              rsp, 32;                             jmp   main_γ
+n25_statement_end_α:    mov              r11, 18
+                        mov              r10, 4
+                        add              rsp, 32;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
