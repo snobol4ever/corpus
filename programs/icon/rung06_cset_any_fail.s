@@ -68,12 +68,12 @@ n5_scan_any_α:          mov              eax, r14d
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx20_0]
-                        sub              rsp, 8
+                        push             rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        add              rsp, 8
+                        pop              rdx
                         test             rax, rax;                            je    n10_scan_α
                         mov              qword ptr [rsp + 192], 3
                         mov              rax, r14
