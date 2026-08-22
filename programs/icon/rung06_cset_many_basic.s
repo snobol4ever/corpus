@@ -54,12 +54,12 @@ n3_scan_many_α:         mov              eax, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx12_2]
                         push             rax
-                        push             r11
+                        sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        add              rsp, 8
                         test             rax, rax
                         pop              rax;                                 je    .Lx12_1
                         add              eax, 1;                              jmp   .Lx12_0
