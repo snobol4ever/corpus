@@ -1,0 +1,24 @@
+*  ident_differ_inline.sno -- correctness witness for the s199 IR_IDENT/IR_DIFFER inline slice (slices 2+3).
+*  Covers: 1-arg and 2-arg forms of both IDENT and DIFFER, over string/integer/null operands (both same-
+*  type and mixed-type), plus the claws5 hot idiom `IDENT(x) default_value` (PRED(a,b) expr conditional-
+*  value form) that motivated inlining IDENT/DIFFER in the first place.
+        counters = TABLE()
+        OUTPUT = IDENT('')
+        OUTPUT = IDENT('word')
+        OUTPUT = IDENT('word','word')
+        OUTPUT = IDENT('word','other')
+        OUTPUT = IDENT(7,7)
+        OUTPUT = IDENT(7,'7')
+        OUTPUT = DIFFER('')
+        OUTPUT = DIFFER('word')
+        OUTPUT = DIFFER('word','word')
+        OUTPUT = DIFFER('word','other')
+        OUTPUT = DIFFER(7,7)
+        first_use = IDENT(counters['new_word']) 0
+        counters['new_word'] = counters['new_word'] + 1
+        OUTPUT = counters['new_word']
+        seen = IDENT(counters['seen_word']) 'first'
+        counters['seen_word'] = 'again'
+        OUTPUT = seen
+        OUTPUT = counters['seen_word']
+END

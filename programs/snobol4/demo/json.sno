@@ -234,8 +234,8 @@ enul_end
 +                                     FENCE(ANY('eE') FENCE(ANY('+-') | '') SPAN(dig) | '')
 +                                   ) . jxn
 *------------------------------------------------------------------------------
-                jkey            =   dq jstrbody . jxk dq (epsilon . *ekey())
-                jstring         =   dq jstrbody . jxs dq (epsilon . *estr())
+                jkey            =   dq jstrbody . jxk dq FENCE (epsilon . *ekey())
+                jstring         =   dq jstrbody . jxs dq FENCE (epsilon . *estr())
 *------------------------------------------------------------------------------
                 jmember         =   ws jkey ws ':' *jelement
                 jobject         =   '{' (epsilon . *pobj())
