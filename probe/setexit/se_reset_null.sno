@@ -1,0 +1,10 @@
+* SETEXIT FACE 6 -- FIRING RESETS THE STORED ARGUMENT TO NULL, so a handler asking
+* SETEXIT what was armed is answered with the null string, not with its own label.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	D = 0
+	X = 1 / D
+	:(END)
+H	OUTPUT = "PREV=[" SETEXIT("") "]"
+	:(END)
+END

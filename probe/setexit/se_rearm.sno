@@ -1,0 +1,14 @@
+* SETEXIT FACE 5 -- A HANDLER THAT RE-ARMS ITSELF CATCHES THE NEXT ERROR TOO.
+* The companion to se_oneshot: same program, one added SETEXIT inside the handler.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	D = 0
+	X = 1 / D		:F(S5)
+S5	OUTPUT = "MID"
+	Y = 1 / D		:F(S7)
+S7	OUTPUT = "AFTER"
+	:(END)
+H	OUTPUT = "HANDLER S" &LASTNO
+	SETEXIT(.H)
+	:(CONTINUE)
+END

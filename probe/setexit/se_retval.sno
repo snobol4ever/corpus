@@ -1,0 +1,9 @@
+* SETEXIT FACE 1 -- SETEXIT is a FUNCTION and RETURNS THE PREVIOUSLY ARMED LABEL.
+* First call answers the null string; each later call answers what the call before it armed.
+	OUTPUT = SETEXIT(.FOO)
+	OUTPUT = SETEXIT(.BAR)
+	OUTPUT = SETEXIT()
+	OUTPUT = SETEXIT()
+FOO
+BAR
+END
