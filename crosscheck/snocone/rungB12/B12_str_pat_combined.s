@@ -133,12 +133,9 @@ n13_cmp_test_α:         sub              rsp, 16
                         cmp              rax, rdx;                            je    .Lx44_239
                         add              rsp, 16;                             jmp   n22_statement_end_α
 .Lx44_239:                                                                    jmp   n14_var_α
-.Lx44_0:                lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx44_0:                lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            je    .Lx44_240
                         add              rsp, 16;                             jmp   n22_statement_end_α
 .Lx44_240:                                                                    jmp   n14_var_α

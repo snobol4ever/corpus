@@ -222,12 +222,9 @@ n17_cmp_test_α:         sub              rsp, 16
                         cmp              rax, rdx;                            jl    .Lx81_239
                         add              rsp, 16;                             jmp   n16_coerce_numeric_β
 .Lx81_239:                                                                    jmp   n18_var_α
-.Lx81_0:                lea              rdi, [rsp + 32]
-                        lea              rsi, [rsp + 16]
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lx81_0:                lea              rdi, [rsp + 32]                      # a
+                        lea              rsi, [rsp + 16]                      # b
                         call             rt_cmp_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         test             eax, eax;                            js    .Lx81_240
                         add              rsp, 16;                             jmp   n16_coerce_numeric_β
 .Lx81_240:                                                                    jmp   n18_var_α
