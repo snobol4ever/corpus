@@ -102,8 +102,8 @@ build_α:                sub              rsp, 96
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
 .Lx56_41:               lea              rcx, [rip + build_γ]
-                        lea              r11, [rip + build_ω]
-                        push             r11
+                        lea              rax, [rip + build_ω]
+                        push             rax
                         push             rcx
                         lea              rax, [rip + n3_statement_begin_α];   jmp   rax
 build_γ:                mov              rdi, qword ptr [r9 + 0]              # build
@@ -124,11 +124,13 @@ build_γ:                mov              rdi, qword ptr [r9 + 0]              #
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 40], rax
                         cmp              rdx, 0;                              jbe   .Lx56_80
-                        mov              r11, qword ptr [rcx + 24]
-                        add              r11, r8
-                        mov              rax, qword ptr [r11 + 0]
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
                         mov              qword ptr [r9 + 16], rax             # n
-                        mov              rax, qword ptr [r11 + 8]
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx56_110
 .Lx56_80:               mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [r9 + 16], rax
@@ -154,11 +156,13 @@ build_ω:                mov              rcx, qword ptr [rsp + 64]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 40], rax
                         cmp              rdx, 0;                              jbe   .Lx56_150
-                        mov              r11, qword ptr [rcx + 24]
-                        add              r11, r8
-                        mov              rax, qword ptr [r11 + 0]
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
                         mov              qword ptr [r9 + 16], rax             # n
-                        mov              rax, qword ptr [r11 + 8]
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
                         mov              qword ptr [r9 + 24], rax;            jmp   .Lx56_180
 .Lx56_150:              mov              rax, qword ptr [rsp + 80]
                         mov              qword ptr [r9 + 16], rax

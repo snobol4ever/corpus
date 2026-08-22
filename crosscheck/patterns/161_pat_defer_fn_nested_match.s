@@ -182,8 +182,8 @@ F_α:                    sub              rsp, 48
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         lea              rcx, [rip + F_γ]
-                        lea              r11, [rip + F_ω]
-                        push             r11
+                        lea              rax, [rip + F_ω]
+                        push             rax
                         push             rcx
                         lea              rax, [rip + n19_statement_begin_α];  jmp   rax
 F_γ:                    mov              rdi, qword ptr [r9 + 0]
