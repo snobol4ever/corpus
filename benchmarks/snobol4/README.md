@@ -14,11 +14,31 @@ Three phases per program: **CHECK** (fixed count, deterministic — the `check:`
 only thing the `.ref` holds and the only thing diffed) · **CALIBRATE** (double the batch
 until it spans `ZFLR` ms) · **MEASURE** (batches to a `ZBUD` ms deadline, printing `iters:`
 and `ms:`). Fix the TIME, count the ITERATIONS — a throughput directly comparable across
-engines, and a suite whose wall cost is bounded by construction.
+engines, and a suite whose wall cost is bounded by construction. **This TIME-based shape is
+still the default** — selected whenever stdin is EOF, i.e. every existing call site's
+`< /dev/null` convention, unchanged.
+
+⭐ **FIXED-WORK MODE (bench-harness-unmeasurable, 2026-08-22).** A wall-clock deadline cannot
+be instruction-counted: under callgrind (or any ~30–100x instrument) every arm self-shrinks
+its batch to fit the budget's *slowed* real time, so total `Ir` measures the INSTRUMENT's own
+throughput, not the kernel's — MEASURED, `arith_loop` and `table_access` land within 5% of
+each other under callgrind despite a ~20,481x native throughput gap. Pipe one line holding a
+positive integer on stdin and the harness runs `ZBODY` that many times total with no deadline
+anywhere in the run, batching at the kernel's own pinned `ZK` when it has one (so a
+non-steady-state kernel like `string_concat` still measures many `ZK`-sized batches, not one
+giant call):
+```bash
+./scrip --run   arith_loop.sno < /dev/null    # TIME mode (default, unchanged)
+echo 75000000 | ./scrip --run arith_loop.sno  # FIXED-WORK mode, 75,000,000 total iterations
+```
+No new killswitch, global, or builtin — the switch is a pure stdin gate in `harness.inc`
+(`INPUT` fails cleanly at EOF, exactly the SNOBOL4/SPITBOL semantics `.ref`-diffing already
+relies on for the CHECK phase). Full detail and the callgrind numbers for all 15 kernels in
+both modes: `FINDING-2026-08-22-bench-harness-unmeasurable.md`.
 
 ```bash
 bash SCRIP/scripts/test_bench_snobol4_timed.sh         # sbl / m3 / m4 throughput table + check gate
-bash SCRIP/scripts/bake_noise_floor_snobol4_timed.sh   # re-bake NOISE-FLOOR.tsv
+bash SCRIP/scripts/bake_noise_floor_snobol4_timed.sh   # re-bake NOISE-FLOOR.tsv (TIME-mode rows)
 ```
 
 The `.spt` files are SPITBOL-dialect programs (`-TITLE`, `./*` directives) from the original
@@ -76,8 +96,8 @@ untrusted rather than averaging an ~835 ms stall into it (BM-3).
 
 1. Write the kernel as `DEFINE('ZBODY(ZKN)')` returning a check value that **witnesses the
    computation** (a census, not "it ran"), set `ZCHK`/`ZBUD`/`ZFLR`, end with
-   `-INCLUDE 'harness.inc'`. Reserved: labels `ZCAL ZMEAS ZB`, variables
-   `ZT ZD ZE ZN ZK ZKN ZCHK ZBUD ZFLR`.
+   `-INCLUDE 'harness.inc'`. Reserved: labels `ZCAL ZMEAS ZB ZFIXRUN ZFB ZFL ZEXIT`, variables
+   `ZT ZD ZE ZN ZK ZKN ZCHK ZBUD ZFLR fixed_n`.
 2. Put the phase-1 value in a sibling `.ref` as the single line `check: <value>`, taken from
    the live oracle (`x64/bin/sbl -b`).
 3. Update this table, then re-bake `NOISE-FLOOR.tsv`.

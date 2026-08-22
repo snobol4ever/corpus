@@ -23,6 +23,17 @@
 #   elapsed is reported alongside so min_detectable_cpu_pct and min_detectable_elapsed_pct can be
 #   read BY NAME side by side -- cpu should read tighter under load (a descheduled ms counts
 #   against elapsed but not against cpu).
+# ⭐ FIXED-WORK ROWS ADDED (bench-harness-unmeasurable, 2026-08-22) by
+#   scripts/bake_noise_floor_snobol4_fixed.sh -- engine names suffixed "-fixed" (sbl-fixed/m3-fixed/
+#   m4-fixed), sitting beside each kernel's existing TIME-mode triple.  Same columns, same statistics;
+#   the only difference is stdin holds the kernel's pinned N (see that script's header) instead of
+#   /dev/null, so harness.inc runs fixed-work mode (no calibration, no deadline) instead of TIME mode.
+#   reps=3, not 5 -- fixed-work mode has no self-calibration loop to add jitter, so fewer reps already
+#   characterize the floor.  MACHINE LOAD AT THIS BAKE: nproc=16 loadavg=2.16 3.23 2.70 (busier than the
+#   TIME-mode bake above; several rows -- particularly sbl-fixed on the largest-N kernels, whose longer
+#   per-rep runtime is more exposed to preemption -- show every rep nivcsw-contaminated and read NA
+#   rather than a number the contamination filter cannot vouch for; see FINDING-2026-08-22-seat2-bench-
+#   harness-unmeasurable.md for the callgrind Ir numbers these wall-clock rows do not replace).
 bench	engine	thp	reps	mean_per_s	cv_pct	maxmin	min_detectable_pct	used	contaminated	nivcsw_max	mean_per_s_elapsed	cv_elapsed_pct	min_detectable_elapsed_pct	mean_per_s_cpu	cv_cpu_pct	min_detectable_cpu_pct
 arith_loop	sbl	n/a	5	20155239	1.2	1.03	3.6	5	0	7	17990478	1.9	5.8	17997110	1.9	5.8
 arith_loop	m3	nohuge=1	5	137365000	3.6	1.10	10.7	5	0	15	120585708	3.7	11.1	120637411	3.7	11.0
@@ -69,3 +80,48 @@ table_access	m4	nohuge=1	5	7940	1.5	1.04	4.5	5	0	19	6457	1.1	3.2	6460	1.0	3.1
 var_access	sbl	n/a	5	8393730	2.2	1.06	6.6	5	0	16	7411626	2.1	6.4	7416117	2.1	6.4
 var_access	m3	nohuge=1	5	67409559	1.6	1.05	4.7	5	0	15	59048763	1.6	4.8	59077579	1.6	4.8
 var_access	m4	nohuge=1	5	73872848	0.3	1.01	0.8	5	0	11	65690127	0.4	1.2	65728588	0.4	1.2
+arith_loop	sbl-fixed	n/a	3	NA	NA	NA	NA	0	3	289	NA	NA	NA	NA	NA	NA
+arith_loop	m3-fixed	nohuge=1	3	NA	NA	NA	NA	0	3	32	NA	NA	NA	NA	NA	NA
+arith_loop	m4-fixed	nohuge=1	3	NA	NA	NA	NA	0	3	36	NA	NA	NA	NA	NA	NA
+array_sum	sbl-fixed	n/a	3	13275	1.9	1.05	5.6	3	0	6	13180	1.9	5.6	13185	1.9	5.6
+array_sum	m3-fixed	nohuge=1	3	13104	4.3	1.11	12.9	3	0	15	11470	3.4	10.2	11474	3.4	10.2
+array_sum	m4-fixed	nohuge=1	3	12806	6.9	1.17	20.8	3	0	15	11295	6.0	17.9	11303	5.9	17.8
+eval_fixed	sbl-fixed	n/a	3	3639183	3.5	1.09	10.4	3	0	6	3608517	3.4	10.3	3609823	3.4	10.3
+eval_fixed	m3-fixed	nohuge=1	3	2349430	0.9	1.02	2.6	2	1	33	2296907	0.6	1.8	2297662	0.6	1.8
+eval_fixed	m4-fixed	nohuge=1	3	2364314	1.0	1.02	3.1	2	1	37	2339081	0.9	2.8	2340193	0.9	2.8
+fibonacci	sbl-fixed	n/a	3	NA	NA	NA	NA	1	2	62	NA	NA	NA	NA	NA	NA
+fibonacci	m3-fixed	nohuge=1	3	28694	0.4	1.01	1.3	3	0	11	28065	0.3	0.8	28074	0.3	0.8
+fibonacci	m4-fixed	nohuge=1	3	29056	1.5	1.04	4.4	3	0	13	28798	1.5	4.6	28812	1.5	4.5
+func_call	sbl-fixed	n/a	3	NA	NA	NA	NA	0	3	58	NA	NA	NA	NA	NA	NA
+func_call	m3-fixed	nohuge=1	3	35244507	0.8	1.02	2.4	2	1	22	34861123	0.9	2.6	34886423	0.9	2.7
+func_call	m4-fixed	nohuge=1	3	36091254	0.5	1.01	1.6	3	0	18	35940286	0.5	1.6	35966008	0.5	1.6
+indirect_dispatch	sbl-fixed	n/a	3	7859260	2.7	1.07	8.2	3	0	8	7786819	2.8	8.3	7793600	2.8	8.3
+indirect_dispatch	m3-fixed	nohuge=1	3	3929464	0.7	1.02	2.1	3	0	12	3836737	0.9	2.8	3838983	0.9	2.8
+indirect_dispatch	m4-fixed	nohuge=1	3	3916653	0.7	1.02	2.2	3	0	10	3877526	0.8	2.3	3879304	0.8	2.3
+mixed_workload	sbl-fixed	n/a	3	257726	1.5	1.03	4.5	3	0	11	255280	1.4	4.3	255496	1.4	4.3
+mixed_workload	m3-fixed	nohuge=1	3	143462	1.1	1.02	3.4	3	0	11	131959	1.3	3.9	132030	1.3	3.9
+mixed_workload	m4-fixed	nohuge=1	3	139286	1.4	1.03	4.3	3	0	10	130678	1.5	4.5	130735	1.5	4.5
+op_dispatch	sbl-fixed	n/a	3	NA	NA	NA	NA	0	3	48	NA	NA	NA	NA	NA	NA
+op_dispatch	m3-fixed	nohuge=1	3	30127963	2.4	1.06	7.2	3	0	20	29779299	2.3	7.0	29794671	2.3	7.0
+op_dispatch	m4-fixed	nohuge=1	3	31164426	0.6	1.01	1.7	3	0	18	31003686	0.6	1.7	31012350	0.6	1.8
+pattern_bt	sbl-fixed	n/a	3	827497	2.4	1.05	7.2	2	1	32	825445	2.4	7.3	825631	2.4	7.3
+pattern_bt	m3-fixed	nohuge=1	3	2411913	1.7	1.04	5.0	3	0	12	2341269	1.6	4.8	2342542	1.6	4.8
+pattern_bt	m4-fixed	nohuge=1	3	2338958	3.5	1.08	10.5	3	0	10	2299297	3.4	10.3	2300843	3.4	10.3
+roman	sbl-fixed	n/a	3	343114	2.7	1.06	8.1	3	0	16	339111	2.5	7.6	339388	2.5	7.5
+roman	m3-fixed	nohuge=1	3	150253	1.4	1.03	4.1	3	0	12	145797	1.1	3.4	145852	1.1	3.4
+roman	m4-fixed	nohuge=1	3	146002	1.1	1.03	3.2	3	0	11	142976	1.0	3.1	143039	1.0	3.1
+string_concat	sbl-fixed	n/a	3	NA	NA	NA	NA	0	3	61	NA	NA	NA	NA	NA	NA
+string_concat	m3-fixed	nohuge=1	3	15069809	5.6	1.13	16.7	3	0	9	14716128	5.4	16.2	14731363	5.5	16.4
+string_concat	m4-fixed	nohuge=1	3	13293374	4.5	1.11	13.5	3	0	10	13131475	4.4	13.1	13138294	4.4	13.1
+string_manip	sbl-fixed	n/a	3	5714631	0.8	1.02	2.3	3	0	7	5635310	1.0	2.9	5639420	1.0	2.9
+string_manip	m3-fixed	nohuge=1	3	2179276	3.6	1.09	10.7	3	0	12	2105670	3.8	11.3	2107034	3.7	11.2
+string_manip	m4-fixed	nohuge=1	3	2330546	1.4	1.03	4.2	3	0	13	2277529	1.6	4.7	2278777	1.6	4.7
+string_pattern	sbl-fixed	n/a	3	3107603	1.5	1.04	4.6	3	0	18	3096096	1.5	4.6	3097249	1.6	4.7
+string_pattern	m3-fixed	nohuge=1	3	4660575	6.6	1.16	19.8	3	0	10	4428593	6.5	19.5	4430772	6.5	19.5
+string_pattern	m4-fixed	nohuge=1	3	4911083	2.3	1.06	7.0	3	0	5	4707290	2.6	7.9	4709234	2.6	7.9
+table_access	sbl-fixed	n/a	3	15667	1.0	1.02	3.1	3	0	10	15409	1.0	2.9	15421	1.0	2.9
+table_access	m3-fixed	nohuge=1	3	7268	2.2	1.05	6.7	3	0	14	6605	2.3	6.8	6608	2.3	6.8
+table_access	m4-fixed	nohuge=1	3	7368	3.7	1.09	11.1	3	0	9	6756	3.6	10.7	6761	3.5	10.6
+var_access	sbl-fixed	n/a	3	NA	NA	NA	NA	0	3	75	NA	NA	NA	NA	NA	NA
+var_access	m3-fixed	nohuge=1	3	33231247	0.7	1.01	2.2	2	1	21	32891524	0.7	2.0	32903690	0.7	2.0
+var_access	m4-fixed	nohuge=1	3	35075075	1.4	1.03	4.1	2	1	22	34905544	1.4	4.1	34927576	1.3	4.0
