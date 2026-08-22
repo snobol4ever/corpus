@@ -109,7 +109,7 @@ n5_call_α:              sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx35_240
+                        cmp              al, 104;                             jne   .Lx35_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n3_statement_begin_β
 .Lx35_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -293,7 +293,7 @@ n23_match_defer_α:      lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              rax, qword ptr [rdx + 0];            jmp   .Lx64_11
 .Lx64_13:               mov              rax, qword ptr [r9 + 0]              # DIGIT
                         mov              rdx, qword ptr [r9 + 8]
-                        cmp              eax, 8;                              jne   .Lx64_9
+                        cmp              al, 8;                               jne   .Lx64_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lx64_10
                         mov              rdi, rdx
@@ -302,7 +302,7 @@ n23_match_defer_α:      lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx64_10
-.Lx64_9:                cmp              eax, 88;                             jne   .Lx64_21
+.Lx64_9:                cmp              al, 88;                              jne   .Lx64_21
                         mov              rdi, rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_defer_xpat_dtp@PLT

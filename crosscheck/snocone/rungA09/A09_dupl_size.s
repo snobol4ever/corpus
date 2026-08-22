@@ -70,7 +70,7 @@ n3_call_α:              sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 32
-                        cmp              eax, 104;                            jne   .Lx19_240
+                        cmp              al, 104;                             jne   .Lx19_240
                         add              rsp, 16;                             jmp   n2_lit_integer_β
 .Lx19_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4_assign_α
@@ -112,7 +112,7 @@ n8_call_α:              sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx27_240
+                        cmp              al, 104;                             jne   .Lx27_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n6_statement_begin_β
 .Lx27_240:              mov              qword ptr [rsp + 0], rax             # result

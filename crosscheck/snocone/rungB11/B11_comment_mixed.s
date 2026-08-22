@@ -89,7 +89,7 @@ n11_binop_α:            sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx30_2
+                        cmp              dl, 3;                               jne   .Lx30_2
                         mov              rax, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 24]
                         add              rax, rdx
@@ -98,10 +98,10 @@ n11_binop_α:            sub              rsp, 16
 .Lx30_2:                and              edx, 1;                              jz    .Lx30_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, qword ptr [rsp + 24]
-                        cmp              eax, 5;                              je    .Lx30_3
+                        cmp              al, 5;                               je    .Lx30_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx30_4
 .Lx30_3:                movq             xmm0, rsi
-.Lx30_4:                cmp              ecx, 5;                              je    .Lx30_5
+.Lx30_4:                cmp              cl, 5;                               je    .Lx30_5
                         cvtsi2sd         xmm1, rdi;                           jmp   .Lx30_6
 .Lx30_5:                movq             xmm1, rdi
 .Lx30_6:                addsd            xmm0, xmm1
@@ -115,7 +115,7 @@ n11_binop_α:            sub              rsp, 16
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_add@PLT
-                        cmp              eax, 104;                            jne   .Lx30_240
+                        cmp              al, 104;                             jne   .Lx30_240
                         add              rsp, 16;                             jmp   n10_var_β
 .Lx30_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx

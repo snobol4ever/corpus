@@ -45,7 +45,7 @@ n2_call_α:              sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx15_240
+                        cmp              al, 104;                             jne   .Lx15_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n0_statement_begin_β
 .Lx15_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -124,7 +124,7 @@ n9_call_α:              sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 48
-                        cmp              eax, 104;                            jne   .Lx25_240
+                        cmp              al, 104;                             jne   .Lx25_240
                         add              rsp, 16
                         add              rsp, 48;                             jmp   n5_statement_begin_β
 .Lx25_240:              mov              qword ptr [rsp + 0], rax             # result

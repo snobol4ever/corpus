@@ -420,7 +420,7 @@ n39_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx84_240
+                        cmp              al, 104;                             jne   .Lx84_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n37_statement_begin_β
 .Lx84_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -466,7 +466,7 @@ n44_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx92_240
+                        cmp              al, 104;                             jne   .Lx92_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n42_statement_begin_β
 .Lx92_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -550,7 +550,7 @@ n54_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 32
-                        cmp              eax, 104;                            jne   .Lx105_240
+                        cmp              al, 104;                             jne   .Lx105_240
                         add              rsp, 16;                             jmp   n53_lit_string_β
 .Lx105_240:             mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n55_assign_α

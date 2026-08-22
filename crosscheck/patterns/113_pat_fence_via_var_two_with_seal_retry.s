@@ -210,7 +210,7 @@ n20_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx52_240
+                        cmp              al, 104;                             jne   .Lx52_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n18_statement_begin_β
 .Lx52_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -256,7 +256,7 @@ n25_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx60_240
+                        cmp              al, 104;                             jne   .Lx60_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n23_statement_begin_β
 .Lx60_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -358,7 +358,7 @@ n36_match_defer_α:      sub              rsp, 16
                         mov              rbp, rsp
                         mov              rax, qword ptr [r9 + 0]              # cmd1
                         mov              rdx, qword ptr [r9 + 8]
-                        cmp              eax, 8;                              jne   .Lx77_9
+                        cmp              al, 8;                               jne   .Lx77_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lx77_10
                         mov              rdi, rdx
@@ -367,7 +367,7 @@ n36_match_defer_α:      sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx77_10
-.Lx77_9:                cmp              eax, 88;                             jne   .Lx77_21
+.Lx77_9:                cmp              al, 88;                              jne   .Lx77_21
                         mov              rdi, rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_defer_xpat_dtp@PLT
@@ -422,7 +422,7 @@ n37_match_defer_α:      sub              rsp, 16
                         mov              rbp, rsp
                         mov              rax, qword ptr [r9 + 16]             # cmd2
                         mov              rdx, qword ptr [r9 + 24]
-                        cmp              eax, 8;                              jne   .Lx78_9
+                        cmp              al, 8;                               jne   .Lx78_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lx78_10
                         mov              rdi, rdx
@@ -431,7 +431,7 @@ n37_match_defer_α:      sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rdx, qword ptr [r9 + 24];            jmp   .Lx78_10
-.Lx78_9:                cmp              eax, 88;                             jne   .Lx78_21
+.Lx78_9:                cmp              al, 88;                              jne   .Lx78_21
                         mov              rdi, rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_defer_xpat_dtp@PLT

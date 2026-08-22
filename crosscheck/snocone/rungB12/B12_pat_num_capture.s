@@ -187,10 +187,10 @@ n12_lit_integer_α:      sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n13_coerce_numeric_α:   sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 5;                              je    .Lx41_1
-                        cmp              eax, 3;                              jne   .Lx41_0
+                        cmp              al, 5;                               je    .Lx41_1
+                        cmp              al, 3;                               jne   .Lx41_0
                         mov              eax, dword ptr [rsp + 16]            # lit_integer
-                        cmp              eax, 3;                              jne   .Lx41_0
+                        cmp              al, 3;                               jne   .Lx41_0
 .Lx41_1:                mov              rax, qword ptr [rsp + 32]            # var
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              rax, qword ptr [rsp + 40]            # var
@@ -206,10 +206,10 @@ n13_coerce_numeric_α:   sub              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n14_coerce_numeric_α:   sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]            # lit_integer
-                        cmp              eax, 5;                              je    .Lx43_1
-                        cmp              eax, 3;                              jne   .Lx43_0
+                        cmp              al, 5;                               je    .Lx43_1
+                        cmp              al, 3;                               jne   .Lx43_0
                         mov              eax, dword ptr [rsp + 48]            # var
-                        cmp              eax, 3;                              jne   .Lx43_0
+                        cmp              al, 3;                               jne   .Lx43_0
 .Lx43_1:                mov              rax, qword ptr [rsp + 32]            # lit_integer
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              rax, qword ptr [rsp + 40]            # lit_integer
@@ -228,7 +228,7 @@ n15_cmp_test_α:         sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx45_0
+                        cmp              dl, 3;                               jne   .Lx45_0
                         mov              rax, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 24]
                         cmp              rax, rdx;                            je    .Lx45_239

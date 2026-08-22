@@ -65,7 +65,7 @@ n4_call_α:              sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 48
-                        cmp              eax, 104;                            jne   .Lx11_240
+                        cmp              al, 104;                             jne   .Lx11_240
                         add              rsp, 16
                         add              rsp, 48;                             jmp   upcase_γ
 .Lx11_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -170,7 +170,7 @@ n18_call_α:             sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 8]
 .Lx34_29:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            jne   .Lx34_240
+                        cmp              al, 104;                             jne   .Lx34_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n16_statement_begin_β
 .Lx34_240:                                                                    jmp   n19_assign_α
@@ -226,7 +226,7 @@ n23_call_α:             sub              rsp, 16
                         mov              rdx, qword ptr [rsp + 8]
 .Lx42_29:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        cmp              eax, 104;                            jne   .Lx42_240
+                        cmp              al, 104;                             jne   .Lx42_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n21_statement_begin_β
 .Lx42_240:                                                                    jmp   n24_assign_α

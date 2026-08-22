@@ -67,7 +67,7 @@ n6_lit_integer_β:       add              rsp, 16
 n7_binop_α:             sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
-                        cmp              ecx, 3;                              jne   .Lx24_2
+                        cmp              cl, 3;                               jne   .Lx24_2
                         add              rax, 5
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx24_7
@@ -76,7 +76,7 @@ n7_binop_α:             sub              rsp, 16
                         and              edx, 1;                              jz    .Lx24_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 5
-                        cmp              eax, 5;                              je    .Lx24_3
+                        cmp              al, 5;                               je    .Lx24_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx24_4
 .Lx24_3:                movq             xmm0, rsi
 .Lx24_4:                cvtsi2sd         xmm1, rdi
@@ -91,7 +91,7 @@ n7_binop_α:             sub              rsp, 16
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_add@PLT
-                        cmp              eax, 104;                            jne   .Lx24_240
+                        cmp              al, 104;                             jne   .Lx24_240
                         add              rsp, 16;                             jmp   n6_lit_integer_β
 .Lx24_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx

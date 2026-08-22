@@ -88,10 +88,10 @@ n10_var_β:              add              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n11_coerce_numeric_α:   sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 5;                              je    .Lx51_1
-                        cmp              eax, 3;                              jne   .Lx51_0
+                        cmp              al, 5;                               je    .Lx51_1
+                        cmp              al, 3;                               jne   .Lx51_0
                         mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 3;                              jne   .Lx51_0
+                        cmp              al, 3;                               jne   .Lx51_0
 .Lx51_1:                mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              rax, qword ptr [rsp + 40]            # var
@@ -108,10 +108,10 @@ n11_coerce_numeric_β:   add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n12_coerce_numeric_α:   sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 5;                              je    .Lx53_1
-                        cmp              eax, 3;                              jne   .Lx53_0
+                        cmp              al, 5;                               je    .Lx53_1
+                        cmp              al, 3;                               jne   .Lx53_0
                         mov              eax, dword ptr [rsp + 48]
-                        cmp              eax, 3;                              jne   .Lx53_0
+                        cmp              al, 3;                               jne   .Lx53_0
 .Lx53_1:                mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              rax, qword ptr [rsp + 40]            # var
@@ -131,7 +131,7 @@ n13_cmp_test_α:         sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx55_0
+                        cmp              dl, 3;                               jne   .Lx55_0
                         mov              rax, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 24]
                         cmp              rax, rdx;                            je    .Lx55_239
@@ -223,10 +223,10 @@ n25_var_β:              add              rsp, 16
 #-----------------------------------------------------------------------------------------------------------------------
 n26_coerce_numeric_α:   sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 5;                              je    .Lx73_1
-                        cmp              eax, 3;                              jne   .Lx73_0
+                        cmp              al, 5;                               je    .Lx73_1
+                        cmp              al, 3;                               jne   .Lx73_0
                         mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 3;                              jne   .Lx73_0
+                        cmp              al, 3;                               jne   .Lx73_0
 .Lx73_1:                mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              rax, qword ptr [rsp + 40]            # var
@@ -243,10 +243,10 @@ n26_coerce_numeric_β:   add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n27_coerce_numeric_α:   sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 5;                              je    .Lx75_1
-                        cmp              eax, 3;                              jne   .Lx75_0
+                        cmp              al, 5;                               je    .Lx75_1
+                        cmp              al, 3;                               jne   .Lx75_0
                         mov              eax, dword ptr [rsp + 48]
-                        cmp              eax, 3;                              jne   .Lx75_0
+                        cmp              al, 3;                               jne   .Lx75_0
 .Lx75_1:                mov              rax, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              rax, qword ptr [rsp + 40]            # var
@@ -266,7 +266,7 @@ n28_cmp_test_α:         sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 16]
                         mov              edx, eax
                         and              edx, ecx
-                        cmp              edx, 3;                              jne   .Lx77_0
+                        cmp              dl, 3;                               jne   .Lx77_0
                         mov              rax, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 24]
                         cmp              rax, rdx;                            je    .Lx77_239

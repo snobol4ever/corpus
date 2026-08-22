@@ -67,7 +67,7 @@ n6_lit_integer_β:       add              rsp, 16
 n7_binop_α:             sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
-                        cmp              ecx, 3;                              jne   .Lx36_2
+                        cmp              cl, 3;                               jne   .Lx36_2
                         add              rax, 3
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx36_7
@@ -76,7 +76,7 @@ n7_binop_α:             sub              rsp, 16
                         and              edx, 1;                              jz    .Lx36_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 3
-                        cmp              eax, 5;                              je    .Lx36_3
+                        cmp              al, 5;                               je    .Lx36_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx36_4
 .Lx36_3:                movq             xmm0, rsi
 .Lx36_4:                cvtsi2sd         xmm1, rdi
@@ -91,7 +91,7 @@ n7_binop_α:             sub              rsp, 16
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_add@PLT
-                        cmp              eax, 104;                            jne   .Lx36_240
+                        cmp              al, 104;                             jne   .Lx36_240
                         add              rsp, 16;                             jmp   n6_lit_integer_β
 .Lx36_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
@@ -127,7 +127,7 @@ n12_lit_integer_β:      add              rsp, 16
 n13_binop_α:            sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
-                        cmp              ecx, 3;                              jne   .Lx44_2
+                        cmp              cl, 3;                               jne   .Lx44_2
                         mov              rdx, 4
                         imul             rax, rdx
                         mov              qword ptr [rsp + 0], 3               # result
@@ -137,7 +137,7 @@ n13_binop_α:            sub              rsp, 16
                         and              edx, 1;                              jz    .Lx44_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 4
-                        cmp              eax, 5;                              je    .Lx44_3
+                        cmp              al, 5;                               je    .Lx44_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx44_4
 .Lx44_3:                movq             xmm0, rsi
 .Lx44_4:                cvtsi2sd         xmm1, rdi
@@ -152,7 +152,7 @@ n13_binop_α:            sub              rsp, 16
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_mul@PLT
-                        cmp              eax, 104;                            jne   .Lx44_240
+                        cmp              al, 104;                             jne   .Lx44_240
                         add              rsp, 16;                             jmp   n12_lit_integer_β
 .Lx44_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
@@ -188,7 +188,7 @@ n18_lit_integer_β:      add              rsp, 16
 n19_binop_α:            sub              rsp, 16
                         mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
-                        cmp              ecx, 3;                              jne   .Lx52_2
+                        cmp              cl, 3;                               jne   .Lx52_2
                         sub              rax, 2
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx52_7
@@ -197,7 +197,7 @@ n19_binop_α:            sub              rsp, 16
                         and              edx, 1;                              jz    .Lx52_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 2
-                        cmp              eax, 5;                              je    .Lx52_3
+                        cmp              al, 5;                               je    .Lx52_3
                         cvtsi2sd         xmm0, rsi;                           jmp   .Lx52_4
 .Lx52_3:                movq             xmm0, rsi
 .Lx52_4:                cvtsi2sd         xmm1, rdi
@@ -212,7 +212,7 @@ n19_binop_α:            sub              rsp, 16
                         mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_sub@PLT
-                        cmp              eax, 104;                            jne   .Lx52_240
+                        cmp              al, 104;                             jne   .Lx52_240
                         add              rsp, 16;                             jmp   n18_lit_integer_β
 .Lx52_240:              mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx

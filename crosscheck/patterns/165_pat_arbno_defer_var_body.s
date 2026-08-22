@@ -169,7 +169,7 @@ n11_statement_end_α:    add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_defer_α:      mov              rax, qword ptr [r9 + 0]              # Q
                         mov              rdx, qword ptr [r9 + 8]
-                        cmp              eax, 8;                              jne   .Lx61_9
+                        cmp              al, 8;                               jne   .Lx61_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lx61_10
                         mov              rdi, rdx
@@ -178,7 +178,7 @@ n12_match_defer_α:      mov              rax, qword ptr [r9 + 0]              #
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx61_10
-.Lx61_9:                cmp              eax, 88;                             jne   .Lx61_21
+.Lx61_9:                cmp              al, 88;                              jne   .Lx61_21
                         mov              rdi, rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_defer_xpat_dtp@PLT
@@ -417,7 +417,7 @@ n32_statement_end_α:    add              rsp, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n33_match_defer_α:      mov              rax, qword ptr [r9 + 0]              # Q
                         mov              rdx, qword ptr [r9 + 8]
-                        cmp              eax, 8;                              jne   .Lx93_9
+                        cmp              al, 8;                               jne   .Lx93_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lx93_10
                         mov              rdi, rdx
@@ -426,7 +426,7 @@ n33_match_defer_α:      mov              rax, qword ptr [r9 + 0]              #
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx93_10
-.Lx93_9:                cmp              eax, 88;                             jne   .Lx93_21
+.Lx93_9:                cmp              al, 88;                              jne   .Lx93_21
                         mov              rdi, rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_defer_xpat_dtp@PLT

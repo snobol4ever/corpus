@@ -135,7 +135,7 @@ n11_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              eax, 104;                            jne   .Lx38_240
+                        cmp              al, 104;                             jne   .Lx38_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n9_statement_begin_β
 .Lx38_240:              mov              qword ptr [rsp + 0], rax             # result
@@ -237,7 +237,7 @@ n22_match_defer_α:      sub              rsp, 16
                         mov              rbp, rsp
                         mov              rax, qword ptr [r9 + 0]              # cmd
                         mov              rdx, qword ptr [r9 + 8]
-                        cmp              eax, 8;                              jne   .Lx55_9
+                        cmp              al, 8;                               jne   .Lx55_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax;                            jne   .Lx55_10
                         mov              rdi, rdx
@@ -246,7 +246,7 @@ n22_match_defer_α:      sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              rdx, qword ptr [r9 + 8];             jmp   .Lx55_10
-.Lx55_9:                cmp              eax, 88;                             jne   .Lx55_21
+.Lx55_9:                cmp              al, 88;                              jne   .Lx55_21
                         mov              rdi, rdx
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_defer_xpat_dtp@PLT
