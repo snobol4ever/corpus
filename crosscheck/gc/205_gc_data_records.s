@@ -939,58 +939,57 @@ n81_var_α:              sub              rsp, 16
                         mov              rax, qword ptr [r9 + 80]             # P
                         mov              rdx, qword ptr [r9 + 88]
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n82_call_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n82_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n82_call_α:             sub              rsp, 16
+n82_lit_string_α:       sub              rsp, 16
                         mov              r11, 83
-                        sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
-                        .section         .rodata
-.Lrkfnzd234:            .string          "DIFFER"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd234]
-                        lea              rsi, [rsp + 0]
-                        mov              edx, 1
+                        mov              qword ptr [rsp + 0], 2               # result
+                        mov              dword ptr [rsp + 4], 0
+                        mov              rax, qword ptr [rip + .Lx233_0]
+                        mov              qword ptr [rsp + 8], rax;            jmp   n83_differ_α
+n82_lit_string_β:       mov              r11, 83
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n80_statement_begin_β
+.Lx233_0:               .quad            .Lx233_0_s
+.Lx233_0_s:             .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n83_differ_α:           sub              rsp, 16
+                        mov              r11, 84
+                        mov              rdi, qword ptr [rsp + 32]            # var
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]            # lit_string
+                        mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_call_arr@PLT
+                        call             descr_identical@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        add              rsp, 16
-                        cmp              al, 104;                             jne   .Lx233_240
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n80_statement_begin_β
-.Lx233_240:             mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n83_var_α
-n82_call_β:             mov              r11, 83
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n80_statement_begin_β
+                        test             eax, eax;                            je    .Lx235_240
+                        add              rsp, 16;                             jmp   n82_lit_string_β
+.Lx235_240:                                                                   jmp   n84_var_α
+n83_differ_β:           mov              r11, 84
+                        add              rsp, 16;                             jmp   n82_lit_string_β
 #-----------------------------------------------------------------------------------------------------------------------
-n83_var_α:              sub              rsp, 16
-                        mov              r11, 84
+n84_var_α:              sub              rsp, 16
+                        mov              r11, 85
                         mov              rax, qword ptr [r9 + 80]             # P
                         mov              rdx, qword ptr [r9 + 88]
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n84_call_α
-n83_var_β:              mov              r11, 84
-                        add              rsp, 16
-                        add              rsp, 32;                             jmp   n80_statement_begin_β
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n85_call_α
+n84_var_β:              mov              r11, 85
+                        add              rsp, 16;                             jmp   n83_differ_β
 #-----------------------------------------------------------------------------------------------------------------------
-n84_call_α:             sub              rsp, 16
-                        mov              r11, 85
+n85_call_α:             sub              rsp, 16
+                        mov              r11, 86
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lrkfnzd237:            .string          "nxt"
+.Lrkfnzd238:            .string          "nxt"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd237]
+                        lea              rdi, [rip + .Lrkfnzd238]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -998,28 +997,15 @@ n84_call_α:             sub              rsp, 16
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         add              rsp, 16
-                        cmp              al, 104;                             jne   .Lx236_240
-                        add              rsp, 16;                             jmp   n83_var_β
-.Lx236_240:             mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n85_binop_α
-n84_call_β:             mov              r11, 85
-                        add              rsp, 16;                             jmp   n83_var_β
-#-----------------------------------------------------------------------------------------------------------------------
-n85_binop_α:            sub              rsp, 16
-                        mov              r11, 86
-                        mov              rdi, qword ptr [rsp + 48]            # call
-                        mov              rsi, qword ptr [rsp + 56]
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n86_assign_α
+                        cmp              al, 104;                             jne   .Lx237_240
+                        add              rsp, 16;                             jmp   n84_var_β
+.Lx237_240:             mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n86_assign_α
+n85_call_β:             mov              r11, 86
+                        add              rsp, 16;                             jmp   n84_var_β
 #-----------------------------------------------------------------------------------------------------------------------
 n86_assign_α:           mov              r11, 87
-                        mov              rax, qword ptr [rsp + 0]             # binop
+                        mov              rax, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 80], rax             # P
                         mov              qword ptr [r9 + 88], rdx;            jmp   n87_statement_end_α

@@ -485,10 +485,10 @@ cap_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__icase:
 icase_α_body:
-                        sub              rsp, 240
-                        mov              qword ptr [rsp + 216], rcx
-                        mov              qword ptr [rsp + 224], rdx
-                        mov              qword ptr [rsp + 232], rbp
+                        sub              rsp, 192
+                        mov              qword ptr [rsp + 168], rcx
+                        mov              qword ptr [rsp + 176], rdx
+                        mov              qword ptr [rsp + 184], rbp
 #=======================================================================================================================
 #         <stmt 10, line 16: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
@@ -571,41 +571,24 @@ n69_call_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             jne   .Lx78_240
                         add              rsp, 16;                             jmp   n68_var_β
-.Lx78_240:                                                                    jmp   n70_call_α
+.Lx78_240:                                                                    jmp   n70_ident_α
 n69_call_β:             mov              r11, 33;                             jmp   n68_var_β
 .Lx78_0:                .quad            .Lx78_0_s
 .Lx78_0_s:              .string          "lwr"
 #-----------------------------------------------------------------------------------------------------------------------
-n70_call_α:             sub              rsp, 16
+n70_ident_α:            sub              rsp, 16
                         mov              r11, 34
-                        sub              rsp, 32
-                        mov              r8, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 8], r8
-                        mov              r8, qword ptr [rsp + 48]
-                        mov              qword ptr [rsp + 16], r8
-                        mov              r8, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 24], r8
-                        .section         .rodata
-.Lrkfnzd80:             .string          "IDENT"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd80]
-                        lea              rsi, [rsp + 0]
-                        mov              edx, 2
+                        mov              rdi, qword ptr [rsp + 48]            # call
+                        mov              rsi, qword ptr [rsp + 56]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_call_arr@PLT
+                        call             descr_identical@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        add              rsp, 32
-                        cmp              al, 104;                             jne   .Lx79_240
+                        test             eax, eax;                            jne   .Lx80_240
                         add              rsp, 32;                             jmp   n68_var_β
-.Lx79_240:              mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 80;                             jmp   icase_γ
-n70_call_β:             mov              r11, 34
-                        add              rsp, 32;                             jmp   n68_var_β
+.Lx80_240:              add              rsp, 80;                             jmp   icase_γ
 #-----------------------------------------------------------------------------------------------------------------------
 icase_res:
                         add              rsp, 8
@@ -615,13 +598,13 @@ icase_β:
                                                                               jmp   icase_ω
 #-----------------------------------------------------------------------------------------------------------------------
 icase_γ:
-                        add              rsp, 240
+                        add              rsp, 192
                         add              rsp, 16
                         mov              eax, 2
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 icase_ω:
-                        add              rsp, 240
+                        add              rsp, 192
                         add              rsp, 16
                         mov              eax, 104
                         ret
