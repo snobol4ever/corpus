@@ -17,7 +17,7 @@
 +                                   ANY('0123456789abcdefABCDEF')
 +                                 )
                 jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
-                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"' FENCE
 *------------------------------------------------------------------------------
                 jnumber        =  FENCE('-' | '')
 +                                 ('0' | ANY('123456789') FENCE(SPAN('0123456789') | ''))
