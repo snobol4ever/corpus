@@ -851,8 +851,10 @@ CHOOSE_END
 *
 	DEFINE( 'MAKE(CHOSEN,VAL)' )			:(MAKE_END)
 MAKE
+*	TIME() is integer nanoseconds off a monotonic wall clock (FINDING s249);
+*	divide by 1000000 for milliseconds, same idiom as harness.inc's "ms:" line.
 	REPORT(NUM(MOVEOF(CHOSEN)),
-+	 VAL, BNODES, TNODES, TIME() - SECS )
++	 VAL, BNODES, TNODES, (TIME() - SECS) / 1000000 )
 	MOVE(PLAYER(CHOSEN),MOVEOF(CHOSEN))		:F(MAKE1)
 	PRINTBRD()					:(RETURN)
 MAKE1

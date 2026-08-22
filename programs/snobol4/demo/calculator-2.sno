@@ -91,11 +91,13 @@ SGN_end
 * read all at once: raw fd 0, one 4 MiB-max transfer (larger inputs truncate)
         INPUT(.INPUT, 9, '[-f0 -r4194304]')
         src = INPUT
+* TIME() is integer nanoseconds off a monotonic wall clock (FINDING s249);
+* divide by 1000000 for match_ms, same idiom as harness.inc's "ms:" line.
         t0 = TIME()
         src C                                   :F(bad)
         t1 = TIME()
-        TERMINAL = 'match_ms=' (t1 - t0)        :(END)
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000        :(END)
 bad     t1 = TIME()
         OUTPUT = 'Boo!'
-        TERMINAL = 'match_ms=' (t1 - t0)
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END

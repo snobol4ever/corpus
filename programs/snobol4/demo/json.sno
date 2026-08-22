@@ -265,10 +265,11 @@ enul_end
                 src             =   INPUT                       :F(slurped)
 slurped         OUTPUT          =   'input bytes=' SIZE(src)
 *------------------------------------------------------------------------------
-*  THE ONE BIG PATTERN MATCH - timed alone.  TIME() is milliseconds of compute
-*  since program start (Unix: I/O wait excluded), so t1 - t0 is the match only:
-*  no slurp, no reporting, no start-up.  The figure is written to TERMINAL, i.e.
-*  stderr, so that stdout stays deterministic and byte-comparable against .ref.
+*  THE ONE BIG PATTERN MATCH - timed alone.  TIME() is integer nanoseconds off a
+*  monotonic wall clock (FINDING s249), so t1 - t0 is the match only: no slurp,
+*  no reporting, no start-up; divide by 1000000 for match_ms, same idiom as
+*  harness.inc's "ms:" line.  Written to TERMINAL, i.e. stderr, so that stdout
+*  stays deterministic and byte-comparable against .ref.
 *------------------------------------------------------------------------------
                 t0              =   TIME()
                 src             json                            :F(fail)
@@ -284,10 +285,10 @@ slurped         OUTPUT          =   'input bytes=' SIZE(src)
                 OUTPUT          =   'booleans=' nBool
                 OUTPUT          =   'nulls=' nNull
                 OUTPUT          =   'maxdepth=' maxdep
-                TERMINAL        =   'match_ms=' (t1 - t0)       :(END)
+                TERMINAL        =   'match_ms=' (t1 - t0) / 1000000       :(END)
 *------------------------------------------------------------------------------
 fail            t1              =   TIME()
                 OUTPUT          =   'Pattern match failed'
-                TERMINAL        =   'match_ms=' (t1 - t0)
+                TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
