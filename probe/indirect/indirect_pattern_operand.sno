@@ -1,0 +1,22 @@
+*	indirect_pattern_operand.sno -- a match statement whose pattern operand is a
+*	bare indirect reference ($name), not a literal pattern shape.  Minimal
+*	witness for queue row lower-fatal-bombs-two (bomb 1): the lowerer refused
+*	this shape outright (FATAL lower_snobol4 GZ#5: "pattern shape outside the
+*	SN4-PAT subset").  csnobol4-suite/comment.sno hits the identical construct
+*	through a DEFINE'd subroutine parameter ("TEST STR $PAT"); this file
+*	isolates the same AST shape with no subroutine at all, and exercises both
+*	the success and failure exits of the match.
+	vowel_set = SPAN('aeiou')
+	pattern_name = .vowel_set
+	sample = 'aeiou' 'zzz'
+	sample $pattern_name				:F(no_match)
+	OUTPUT = 'match ok'				:(check_fail)
+no_match	OUTPUT = 'match ERR'
+check_fail
+	digit_set = SPAN('0123456789')
+	digit_name = .digit_set
+	word = 'hello'
+	word $digit_name				:S(fail_err)
+	OUTPUT = 'fail ok'				:(END)
+fail_err	OUTPUT = 'fail ERR'
+END
