@@ -43,7 +43,7 @@ n0_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx28_101:              mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n1_lit_string_α
 n0_call_builtin_prolog_β:
@@ -143,7 +143,7 @@ n12_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n13_call_builtin_prolog_α
 n12_call_builtin_prolog_β:
@@ -166,7 +166,7 @@ n13_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 280], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n14_call_builtin_prolog_α
 n13_call_builtin_prolog_β:
@@ -189,7 +189,7 @@ n14_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 352], rax
                         mov              qword ptr [rsp + 360], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n15_call_builtin_prolog_α
 n14_call_builtin_prolog_β:
@@ -212,7 +212,7 @@ n15_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 440], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n16_call_builtin_prolog_α
 n15_call_builtin_prolog_β:
@@ -235,7 +235,7 @@ n16_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 512], rax
                         mov              qword ptr [rsp + 520], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n17_call_builtin_prolog_α
 n16_call_builtin_prolog_β:
@@ -258,7 +258,7 @@ n17_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 592], rax
                         mov              qword ptr [rsp + 600], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n18_call_builtin_prolog_α
 n17_call_builtin_prolog_β:
@@ -281,7 +281,7 @@ n18_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 672], rax
                         mov              qword ptr [rsp + 680], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n19_call_builtin_prolog_α
 n18_call_builtin_prolog_β:
@@ -304,7 +304,7 @@ n19_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 752], rax
                         mov              qword ptr [rsp + 760], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n20_call_builtin_prolog_α
 n19_call_builtin_prolog_β:
@@ -327,7 +327,7 @@ n20_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 832], rax
                         mov              qword ptr [rsp + 840], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n21_call_builtin_prolog_α
 n20_call_builtin_prolog_β:
@@ -350,7 +350,7 @@ n21_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 912], rax
                         mov              qword ptr [rsp + 920], rdx
-                        cmp              eax, 104;                            je    n27_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n27_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n22_lit_string_α
 n21_call_builtin_prolog_β:
@@ -388,7 +388,7 @@ n24_call_proc_staged_α: lea              rsi, [rsp + 912]
                         mov              rdx, qword ptr [rsp + 104]
 .Lx54_29:               mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
-                        cmp              eax, 104;                            je    n27_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n27_call_builtin_prolog_α
                                                                               jmp   n25_move_label_α
 n24_call_proc_staged_β:                                                       jmp   n27_call_builtin_prolog_α
 .Lx54_0:                .quad            .Lx54_0_s
@@ -418,7 +418,7 @@ n27_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
-                        cmp              eax, 104;                            je    log10$2F0_ω
+                        cmp              al, 104;                             je    log10$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   log10$2F0_ω
 n27_call_builtin_prolog_β:
@@ -496,7 +496,7 @@ n61_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx339_101:             mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n62_var_ref_α
 n61_call_builtin_prolog_β:
@@ -540,7 +540,7 @@ n65_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 8016], rax
                         mov              qword ptr [rsp + 8024], rdx
-                        cmp              eax, 104;                            je    n92_var_ref_α
+                        cmp              al, 104;                             je    n92_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n66_var_ref_α
 n65_call_builtin_prolog_β:
@@ -589,7 +589,7 @@ n70_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 7920], rax
                         mov              qword ptr [rsp + 7928], rdx
-                        cmp              eax, 104;                            je    n91_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n91_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n71_call_builtin_prolog_α
 n70_call_builtin_prolog_β:
@@ -607,7 +607,7 @@ n71_call_builtin_prolog_α:
                         lea              rdi, [rsp + 7840]
                         lea              r8, [rsp + 7840]
 .Lx353_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx353_56
+                        cmp              al, 40;                              jne   .Lx353_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx353_41
@@ -617,14 +617,14 @@ n71_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx353_41
                         mov              r8, rax;                             jmp   .Lx353_40
-.Lx353_56:              cmp              eax, 72;                             jne   .Lx353_41
+.Lx353_56:              cmp              al, 72;                              jne   .Lx353_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx353_41
                         cmp              rax, r8;                             je    .Lx353_41
                         mov              r8, rax;                             jmp   .Lx353_40
 .Lx353_41:              lea              r9, [rsp + 7856]
 .Lx353_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx353_58
+                        cmp              al, 40;                              jne   .Lx353_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx353_43
@@ -634,23 +634,23 @@ n71_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx353_43
                         mov              r9, rax;                             jmp   .Lx353_42
-.Lx353_58:              cmp              eax, 72;                             jne   .Lx353_43
+.Lx353_58:              cmp              al, 72;                              jne   .Lx353_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx353_43
                         cmp              rax, r9;                             je    .Lx353_43
                         mov              r9, rax;                             jmp   .Lx353_42
 .Lx353_43:              cmp              r8, r9;                              je    .Lx353_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx353_44
-                        cmp              eax, 104;                            je    .Lx353_44
-                        cmp              eax, 72;                             jne   .Lx353_45
+                        cmp              al, 0;                               je    .Lx353_44
+                        cmp              al, 104;                             je    .Lx353_44
+                        cmp              al, 72;                              jne   .Lx353_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx353_44
                                                                               jmp   .Lx353_45
 .Lx353_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx353_53
-                        cmp              eax, 104;                            je    .Lx353_53
-                        cmp              eax, 72;                             jne   .Lx353_46
+                        cmp              al, 0;                               je    .Lx353_53
+                        cmp              al, 104;                             je    .Lx353_53
+                        cmp              al, 72;                              jne   .Lx353_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx353_53
                                                                               jmp   .Lx353_46
@@ -677,9 +677,9 @@ n71_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx353_51
 .Lx353_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx353_47
-                        cmp              eax, 104;                            je    .Lx353_47
-                        cmp              eax, 72;                             jne   .Lx353_48
+                        cmp              al, 0;                               je    .Lx353_47
+                        cmp              al, 104;                             je    .Lx353_47
+                        cmp              al, 72;                              jne   .Lx353_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx353_47
                                                                               jmp   .Lx353_48
@@ -707,14 +707,14 @@ n71_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx353_51
 .Lx353_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx353_49
-                        cmp              edx, 80;                             je    .Lx353_53
+                        cmp              cl, 80;                              jne   .Lx353_49
+                        cmp              dl, 80;                              je    .Lx353_53
                                                                               jmp   .Lx353_52
-.Lx353_49:              cmp              edx, 80;                             je    .Lx353_52
-                        cmp              ecx, 5;                              je    .Lx353_53
-                        cmp              edx, 5;                              je    .Lx353_53
-                        cmp              ecx, 3;                              jne   .Lx353_50
-                        cmp              edx, 3;                              jne   .Lx353_50
+.Lx353_49:              cmp              dl, 80;                              je    .Lx353_52
+                        cmp              cl, 5;                               je    .Lx353_53
+                        cmp              dl, 5;                               je    .Lx353_53
+                        cmp              cl, 3;                               jne   .Lx353_50
+                        cmp              dl, 3;                               jne   .Lx353_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx353_53
                         mov              rax, qword ptr [r9 + 0]
@@ -740,7 +740,7 @@ n71_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx353_54:              mov              qword ptr [rsp + 7824], rax
                         mov              qword ptr [rsp + 7832], rdx
-                        cmp              eax, 104;                            je    n91_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n91_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n72_var_ref_α
 n71_call_builtin_prolog_β:
@@ -768,7 +768,7 @@ n74_call_builtin_prolog_α:
                         lea              rdi, [rsp + 7760]
                         lea              r8, [rsp + 7760]
 .Lx358_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx358_56
+                        cmp              al, 40;                              jne   .Lx358_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx358_41
@@ -778,14 +778,14 @@ n74_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx358_41
                         mov              r8, rax;                             jmp   .Lx358_40
-.Lx358_56:              cmp              eax, 72;                             jne   .Lx358_41
+.Lx358_56:              cmp              al, 72;                              jne   .Lx358_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx358_41
                         cmp              rax, r8;                             je    .Lx358_41
                         mov              r8, rax;                             jmp   .Lx358_40
 .Lx358_41:              lea              r9, [rsp + 7776]
 .Lx358_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx358_58
+                        cmp              al, 40;                              jne   .Lx358_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx358_43
@@ -795,23 +795,23 @@ n74_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx358_43
                         mov              r9, rax;                             jmp   .Lx358_42
-.Lx358_58:              cmp              eax, 72;                             jne   .Lx358_43
+.Lx358_58:              cmp              al, 72;                              jne   .Lx358_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx358_43
                         cmp              rax, r9;                             je    .Lx358_43
                         mov              r9, rax;                             jmp   .Lx358_42
 .Lx358_43:              cmp              r8, r9;                              je    .Lx358_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx358_44
-                        cmp              eax, 104;                            je    .Lx358_44
-                        cmp              eax, 72;                             jne   .Lx358_45
+                        cmp              al, 0;                               je    .Lx358_44
+                        cmp              al, 104;                             je    .Lx358_44
+                        cmp              al, 72;                              jne   .Lx358_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx358_44
                                                                               jmp   .Lx358_45
 .Lx358_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx358_53
-                        cmp              eax, 104;                            je    .Lx358_53
-                        cmp              eax, 72;                             jne   .Lx358_46
+                        cmp              al, 0;                               je    .Lx358_53
+                        cmp              al, 104;                             je    .Lx358_53
+                        cmp              al, 72;                              jne   .Lx358_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx358_53
                                                                               jmp   .Lx358_46
@@ -838,9 +838,9 @@ n74_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx358_51
 .Lx358_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx358_47
-                        cmp              eax, 104;                            je    .Lx358_47
-                        cmp              eax, 72;                             jne   .Lx358_48
+                        cmp              al, 0;                               je    .Lx358_47
+                        cmp              al, 104;                             je    .Lx358_47
+                        cmp              al, 72;                              jne   .Lx358_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx358_47
                                                                               jmp   .Lx358_48
@@ -868,14 +868,14 @@ n74_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx358_51
 .Lx358_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx358_49
-                        cmp              edx, 80;                             je    .Lx358_53
+                        cmp              cl, 80;                              jne   .Lx358_49
+                        cmp              dl, 80;                              je    .Lx358_53
                                                                               jmp   .Lx358_52
-.Lx358_49:              cmp              edx, 80;                             je    .Lx358_52
-                        cmp              ecx, 5;                              je    .Lx358_53
-                        cmp              edx, 5;                              je    .Lx358_53
-                        cmp              ecx, 3;                              jne   .Lx358_50
-                        cmp              edx, 3;                              jne   .Lx358_50
+.Lx358_49:              cmp              dl, 80;                              je    .Lx358_52
+                        cmp              cl, 5;                               je    .Lx358_53
+                        cmp              dl, 5;                               je    .Lx358_53
+                        cmp              cl, 3;                               jne   .Lx358_50
+                        cmp              dl, 3;                               jne   .Lx358_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx358_53
                         mov              rax, qword ptr [r9 + 0]
@@ -901,7 +901,7 @@ n74_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx358_54:              mov              qword ptr [rsp + 7744], rax
                         mov              qword ptr [rsp + 7752], rdx
-                        cmp              eax, 104;                            je    n91_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n91_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n75_var_ref_α
 n74_call_builtin_prolog_β:
@@ -950,7 +950,7 @@ n79_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 7648], rax
                         mov              qword ptr [rsp + 7656], rdx
-                        cmp              eax, 104;                            je    n91_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n91_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n80_call_builtin_prolog_α
 n79_call_builtin_prolog_β:
@@ -968,7 +968,7 @@ n80_call_builtin_prolog_α:
                         lea              rdi, [rsp + 7568]
                         lea              r8, [rsp + 7568]
 .Lx367_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx367_56
+                        cmp              al, 40;                              jne   .Lx367_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx367_41
@@ -978,14 +978,14 @@ n80_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx367_41
                         mov              r8, rax;                             jmp   .Lx367_40
-.Lx367_56:              cmp              eax, 72;                             jne   .Lx367_41
+.Lx367_56:              cmp              al, 72;                              jne   .Lx367_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx367_41
                         cmp              rax, r8;                             je    .Lx367_41
                         mov              r8, rax;                             jmp   .Lx367_40
 .Lx367_41:              lea              r9, [rsp + 7584]
 .Lx367_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx367_58
+                        cmp              al, 40;                              jne   .Lx367_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx367_43
@@ -995,23 +995,23 @@ n80_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx367_43
                         mov              r9, rax;                             jmp   .Lx367_42
-.Lx367_58:              cmp              eax, 72;                             jne   .Lx367_43
+.Lx367_58:              cmp              al, 72;                              jne   .Lx367_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx367_43
                         cmp              rax, r9;                             je    .Lx367_43
                         mov              r9, rax;                             jmp   .Lx367_42
 .Lx367_43:              cmp              r8, r9;                              je    .Lx367_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx367_44
-                        cmp              eax, 104;                            je    .Lx367_44
-                        cmp              eax, 72;                             jne   .Lx367_45
+                        cmp              al, 0;                               je    .Lx367_44
+                        cmp              al, 104;                             je    .Lx367_44
+                        cmp              al, 72;                              jne   .Lx367_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx367_44
                                                                               jmp   .Lx367_45
 .Lx367_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx367_53
-                        cmp              eax, 104;                            je    .Lx367_53
-                        cmp              eax, 72;                             jne   .Lx367_46
+                        cmp              al, 0;                               je    .Lx367_53
+                        cmp              al, 104;                             je    .Lx367_53
+                        cmp              al, 72;                              jne   .Lx367_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx367_53
                                                                               jmp   .Lx367_46
@@ -1038,9 +1038,9 @@ n80_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx367_51
 .Lx367_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx367_47
-                        cmp              eax, 104;                            je    .Lx367_47
-                        cmp              eax, 72;                             jne   .Lx367_48
+                        cmp              al, 0;                               je    .Lx367_47
+                        cmp              al, 104;                             je    .Lx367_47
+                        cmp              al, 72;                              jne   .Lx367_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx367_47
                                                                               jmp   .Lx367_48
@@ -1068,14 +1068,14 @@ n80_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx367_51
 .Lx367_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx367_49
-                        cmp              edx, 80;                             je    .Lx367_53
+                        cmp              cl, 80;                              jne   .Lx367_49
+                        cmp              dl, 80;                              je    .Lx367_53
                                                                               jmp   .Lx367_52
-.Lx367_49:              cmp              edx, 80;                             je    .Lx367_52
-                        cmp              ecx, 5;                              je    .Lx367_53
-                        cmp              edx, 5;                              je    .Lx367_53
-                        cmp              ecx, 3;                              jne   .Lx367_50
-                        cmp              edx, 3;                              jne   .Lx367_50
+.Lx367_49:              cmp              dl, 80;                              je    .Lx367_52
+                        cmp              cl, 5;                               je    .Lx367_53
+                        cmp              dl, 5;                               je    .Lx367_53
+                        cmp              cl, 3;                               jne   .Lx367_50
+                        cmp              dl, 3;                               jne   .Lx367_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx367_53
                         mov              rax, qword ptr [r9 + 0]
@@ -1101,7 +1101,7 @@ n80_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx367_54:              mov              qword ptr [rsp + 7552], rax
                         mov              qword ptr [rsp + 7560], rdx
-                        cmp              eax, 104;                            je    n91_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n91_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n81_cut_α
 n80_call_builtin_prolog_β:
@@ -1144,7 +1144,7 @@ n85_call_proc_staged_α: lea              rsi, [rsp + 7504]
                         mov              rdx, qword ptr [rsp + 7432]
 .Lx376_29:              mov              qword ptr [rsp + 7424], rax
                         mov              qword ptr [rsp + 7432], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n86_var_ref_α
 n85_call_proc_staged_β:                                                       jmp   n338_call_builtin_prolog_α
 .Lx376_0:               .quad            .Lx376_0_s
@@ -1185,7 +1185,7 @@ n89_call_proc_staged_α: lea              rsi, [rsp + 7376]
                         mov              rdx, qword ptr [rsp + 7304]
 .Lx384_29:              mov              qword ptr [rsp + 7296], rax
                         mov              qword ptr [rsp + 7304], rdx
-                        cmp              eax, 104;                            je    n85_call_proc_staged_β
+                        cmp              al, 104;                             je    n85_call_proc_staged_β
                                                                               jmp   n90_move_label_α
 n89_call_proc_staged_β:                                                       jmp   n85_call_proc_staged_β
 .Lx384_0:               .quad            .Lx384_0_s
@@ -1207,7 +1207,7 @@ n91_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 7264], rax
                         mov              qword ptr [rsp + 7272], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n92_var_ref_α
 n91_call_builtin_prolog_β:
@@ -1251,7 +1251,7 @@ n95_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 7152], rax
                         mov              qword ptr [rsp + 7160], rdx
-                        cmp              eax, 104;                            je    n122_var_ref_α
+                        cmp              al, 104;                             je    n122_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n96_var_ref_α
 n95_call_builtin_prolog_β:
@@ -1300,7 +1300,7 @@ n100_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 7056], rax
                         mov              qword ptr [rsp + 7064], rdx
-                        cmp              eax, 104;                            je    n121_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n121_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n101_call_builtin_prolog_α
 n100_call_builtin_prolog_β:
@@ -1318,7 +1318,7 @@ n101_call_builtin_prolog_α:
                         lea              rdi, [rsp + 6976]
                         lea              r8, [rsp + 6976]
 .Lx401_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx401_56
+                        cmp              al, 40;                              jne   .Lx401_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx401_41
@@ -1328,14 +1328,14 @@ n101_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx401_41
                         mov              r8, rax;                             jmp   .Lx401_40
-.Lx401_56:              cmp              eax, 72;                             jne   .Lx401_41
+.Lx401_56:              cmp              al, 72;                              jne   .Lx401_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx401_41
                         cmp              rax, r8;                             je    .Lx401_41
                         mov              r8, rax;                             jmp   .Lx401_40
 .Lx401_41:              lea              r9, [rsp + 6992]
 .Lx401_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx401_58
+                        cmp              al, 40;                              jne   .Lx401_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx401_43
@@ -1345,23 +1345,23 @@ n101_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx401_43
                         mov              r9, rax;                             jmp   .Lx401_42
-.Lx401_58:              cmp              eax, 72;                             jne   .Lx401_43
+.Lx401_58:              cmp              al, 72;                              jne   .Lx401_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx401_43
                         cmp              rax, r9;                             je    .Lx401_43
                         mov              r9, rax;                             jmp   .Lx401_42
 .Lx401_43:              cmp              r8, r9;                              je    .Lx401_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx401_44
-                        cmp              eax, 104;                            je    .Lx401_44
-                        cmp              eax, 72;                             jne   .Lx401_45
+                        cmp              al, 0;                               je    .Lx401_44
+                        cmp              al, 104;                             je    .Lx401_44
+                        cmp              al, 72;                              jne   .Lx401_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx401_44
                                                                               jmp   .Lx401_45
 .Lx401_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx401_53
-                        cmp              eax, 104;                            je    .Lx401_53
-                        cmp              eax, 72;                             jne   .Lx401_46
+                        cmp              al, 0;                               je    .Lx401_53
+                        cmp              al, 104;                             je    .Lx401_53
+                        cmp              al, 72;                              jne   .Lx401_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx401_53
                                                                               jmp   .Lx401_46
@@ -1388,9 +1388,9 @@ n101_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx401_51
 .Lx401_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx401_47
-                        cmp              eax, 104;                            je    .Lx401_47
-                        cmp              eax, 72;                             jne   .Lx401_48
+                        cmp              al, 0;                               je    .Lx401_47
+                        cmp              al, 104;                             je    .Lx401_47
+                        cmp              al, 72;                              jne   .Lx401_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx401_47
                                                                               jmp   .Lx401_48
@@ -1418,14 +1418,14 @@ n101_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx401_51
 .Lx401_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx401_49
-                        cmp              edx, 80;                             je    .Lx401_53
+                        cmp              cl, 80;                              jne   .Lx401_49
+                        cmp              dl, 80;                              je    .Lx401_53
                                                                               jmp   .Lx401_52
-.Lx401_49:              cmp              edx, 80;                             je    .Lx401_52
-                        cmp              ecx, 5;                              je    .Lx401_53
-                        cmp              edx, 5;                              je    .Lx401_53
-                        cmp              ecx, 3;                              jne   .Lx401_50
-                        cmp              edx, 3;                              jne   .Lx401_50
+.Lx401_49:              cmp              dl, 80;                              je    .Lx401_52
+                        cmp              cl, 5;                               je    .Lx401_53
+                        cmp              dl, 5;                               je    .Lx401_53
+                        cmp              cl, 3;                               jne   .Lx401_50
+                        cmp              dl, 3;                               jne   .Lx401_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx401_53
                         mov              rax, qword ptr [r9 + 0]
@@ -1451,7 +1451,7 @@ n101_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx401_54:              mov              qword ptr [rsp + 6960], rax
                         mov              qword ptr [rsp + 6968], rdx
-                        cmp              eax, 104;                            je    n121_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n121_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n102_var_ref_α
 n101_call_builtin_prolog_β:
@@ -1479,7 +1479,7 @@ n104_call_builtin_prolog_α:
                         lea              rdi, [rsp + 6896]
                         lea              r8, [rsp + 6896]
 .Lx406_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx406_56
+                        cmp              al, 40;                              jne   .Lx406_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx406_41
@@ -1489,14 +1489,14 @@ n104_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx406_41
                         mov              r8, rax;                             jmp   .Lx406_40
-.Lx406_56:              cmp              eax, 72;                             jne   .Lx406_41
+.Lx406_56:              cmp              al, 72;                              jne   .Lx406_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx406_41
                         cmp              rax, r8;                             je    .Lx406_41
                         mov              r8, rax;                             jmp   .Lx406_40
 .Lx406_41:              lea              r9, [rsp + 6912]
 .Lx406_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx406_58
+                        cmp              al, 40;                              jne   .Lx406_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx406_43
@@ -1506,23 +1506,23 @@ n104_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx406_43
                         mov              r9, rax;                             jmp   .Lx406_42
-.Lx406_58:              cmp              eax, 72;                             jne   .Lx406_43
+.Lx406_58:              cmp              al, 72;                              jne   .Lx406_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx406_43
                         cmp              rax, r9;                             je    .Lx406_43
                         mov              r9, rax;                             jmp   .Lx406_42
 .Lx406_43:              cmp              r8, r9;                              je    .Lx406_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx406_44
-                        cmp              eax, 104;                            je    .Lx406_44
-                        cmp              eax, 72;                             jne   .Lx406_45
+                        cmp              al, 0;                               je    .Lx406_44
+                        cmp              al, 104;                             je    .Lx406_44
+                        cmp              al, 72;                              jne   .Lx406_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx406_44
                                                                               jmp   .Lx406_45
 .Lx406_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx406_53
-                        cmp              eax, 104;                            je    .Lx406_53
-                        cmp              eax, 72;                             jne   .Lx406_46
+                        cmp              al, 0;                               je    .Lx406_53
+                        cmp              al, 104;                             je    .Lx406_53
+                        cmp              al, 72;                              jne   .Lx406_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx406_53
                                                                               jmp   .Lx406_46
@@ -1549,9 +1549,9 @@ n104_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx406_51
 .Lx406_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx406_47
-                        cmp              eax, 104;                            je    .Lx406_47
-                        cmp              eax, 72;                             jne   .Lx406_48
+                        cmp              al, 0;                               je    .Lx406_47
+                        cmp              al, 104;                             je    .Lx406_47
+                        cmp              al, 72;                              jne   .Lx406_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx406_47
                                                                               jmp   .Lx406_48
@@ -1579,14 +1579,14 @@ n104_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx406_51
 .Lx406_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx406_49
-                        cmp              edx, 80;                             je    .Lx406_53
+                        cmp              cl, 80;                              jne   .Lx406_49
+                        cmp              dl, 80;                              je    .Lx406_53
                                                                               jmp   .Lx406_52
-.Lx406_49:              cmp              edx, 80;                             je    .Lx406_52
-                        cmp              ecx, 5;                              je    .Lx406_53
-                        cmp              edx, 5;                              je    .Lx406_53
-                        cmp              ecx, 3;                              jne   .Lx406_50
-                        cmp              edx, 3;                              jne   .Lx406_50
+.Lx406_49:              cmp              dl, 80;                              je    .Lx406_52
+                        cmp              cl, 5;                               je    .Lx406_53
+                        cmp              dl, 5;                               je    .Lx406_53
+                        cmp              cl, 3;                               jne   .Lx406_50
+                        cmp              dl, 3;                               jne   .Lx406_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx406_53
                         mov              rax, qword ptr [r9 + 0]
@@ -1612,7 +1612,7 @@ n104_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx406_54:              mov              qword ptr [rsp + 6880], rax
                         mov              qword ptr [rsp + 6888], rdx
-                        cmp              eax, 104;                            je    n121_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n121_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n105_var_ref_α
 n104_call_builtin_prolog_β:
@@ -1661,7 +1661,7 @@ n109_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 6784], rax
                         mov              qword ptr [rsp + 6792], rdx
-                        cmp              eax, 104;                            je    n121_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n121_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n110_call_builtin_prolog_α
 n109_call_builtin_prolog_β:
@@ -1679,7 +1679,7 @@ n110_call_builtin_prolog_α:
                         lea              rdi, [rsp + 6704]
                         lea              r8, [rsp + 6704]
 .Lx415_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx415_56
+                        cmp              al, 40;                              jne   .Lx415_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx415_41
@@ -1689,14 +1689,14 @@ n110_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx415_41
                         mov              r8, rax;                             jmp   .Lx415_40
-.Lx415_56:              cmp              eax, 72;                             jne   .Lx415_41
+.Lx415_56:              cmp              al, 72;                              jne   .Lx415_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx415_41
                         cmp              rax, r8;                             je    .Lx415_41
                         mov              r8, rax;                             jmp   .Lx415_40
 .Lx415_41:              lea              r9, [rsp + 6720]
 .Lx415_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx415_58
+                        cmp              al, 40;                              jne   .Lx415_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx415_43
@@ -1706,23 +1706,23 @@ n110_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx415_43
                         mov              r9, rax;                             jmp   .Lx415_42
-.Lx415_58:              cmp              eax, 72;                             jne   .Lx415_43
+.Lx415_58:              cmp              al, 72;                              jne   .Lx415_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx415_43
                         cmp              rax, r9;                             je    .Lx415_43
                         mov              r9, rax;                             jmp   .Lx415_42
 .Lx415_43:              cmp              r8, r9;                              je    .Lx415_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx415_44
-                        cmp              eax, 104;                            je    .Lx415_44
-                        cmp              eax, 72;                             jne   .Lx415_45
+                        cmp              al, 0;                               je    .Lx415_44
+                        cmp              al, 104;                             je    .Lx415_44
+                        cmp              al, 72;                              jne   .Lx415_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx415_44
                                                                               jmp   .Lx415_45
 .Lx415_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx415_53
-                        cmp              eax, 104;                            je    .Lx415_53
-                        cmp              eax, 72;                             jne   .Lx415_46
+                        cmp              al, 0;                               je    .Lx415_53
+                        cmp              al, 104;                             je    .Lx415_53
+                        cmp              al, 72;                              jne   .Lx415_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx415_53
                                                                               jmp   .Lx415_46
@@ -1749,9 +1749,9 @@ n110_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx415_51
 .Lx415_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx415_47
-                        cmp              eax, 104;                            je    .Lx415_47
-                        cmp              eax, 72;                             jne   .Lx415_48
+                        cmp              al, 0;                               je    .Lx415_47
+                        cmp              al, 104;                             je    .Lx415_47
+                        cmp              al, 72;                              jne   .Lx415_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx415_47
                                                                               jmp   .Lx415_48
@@ -1779,14 +1779,14 @@ n110_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx415_51
 .Lx415_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx415_49
-                        cmp              edx, 80;                             je    .Lx415_53
+                        cmp              cl, 80;                              jne   .Lx415_49
+                        cmp              dl, 80;                              je    .Lx415_53
                                                                               jmp   .Lx415_52
-.Lx415_49:              cmp              edx, 80;                             je    .Lx415_52
-                        cmp              ecx, 5;                              je    .Lx415_53
-                        cmp              edx, 5;                              je    .Lx415_53
-                        cmp              ecx, 3;                              jne   .Lx415_50
-                        cmp              edx, 3;                              jne   .Lx415_50
+.Lx415_49:              cmp              dl, 80;                              je    .Lx415_52
+                        cmp              cl, 5;                               je    .Lx415_53
+                        cmp              dl, 5;                               je    .Lx415_53
+                        cmp              cl, 3;                               jne   .Lx415_50
+                        cmp              dl, 3;                               jne   .Lx415_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx415_53
                         mov              rax, qword ptr [r9 + 0]
@@ -1812,7 +1812,7 @@ n110_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx415_54:              mov              qword ptr [rsp + 6688], rax
                         mov              qword ptr [rsp + 6696], rdx
-                        cmp              eax, 104;                            je    n121_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n121_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n111_cut_α
 n110_call_builtin_prolog_β:
@@ -1856,7 +1856,7 @@ n115_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 6568]
 .Lx424_29:              mov              qword ptr [rsp + 6560], rax
                         mov              qword ptr [rsp + 6568], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n116_var_ref_α
 n115_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -1899,7 +1899,7 @@ n119_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 6440]
 .Lx432_29:              mov              qword ptr [rsp + 6432], rax
                         mov              qword ptr [rsp + 6440], rdx
-                        cmp              eax, 104;                            je    n115_call_proc_staged_β
+                        cmp              al, 104;                             je    n115_call_proc_staged_β
                                                                               jmp   n120_move_label_α
 n119_call_proc_staged_β:
                                                                               jmp   n115_call_proc_staged_β
@@ -1922,7 +1922,7 @@ n121_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 6400], rax
                         mov              qword ptr [rsp + 6408], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n122_var_ref_α
 n121_call_builtin_prolog_β:
@@ -1966,7 +1966,7 @@ n125_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 6288], rax
                         mov              qword ptr [rsp + 6296], rdx
-                        cmp              eax, 104;                            je    n158_var_ref_α
+                        cmp              al, 104;                             je    n158_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n126_var_ref_α
 n125_call_builtin_prolog_β:
@@ -2015,7 +2015,7 @@ n130_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 6192], rax
                         mov              qword ptr [rsp + 6200], rdx
-                        cmp              eax, 104;                            je    n157_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n157_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n131_call_builtin_prolog_α
 n130_call_builtin_prolog_β:
@@ -2033,7 +2033,7 @@ n131_call_builtin_prolog_α:
                         lea              rdi, [rsp + 6112]
                         lea              r8, [rsp + 6112]
 .Lx449_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx449_56
+                        cmp              al, 40;                              jne   .Lx449_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx449_41
@@ -2043,14 +2043,14 @@ n131_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx449_41
                         mov              r8, rax;                             jmp   .Lx449_40
-.Lx449_56:              cmp              eax, 72;                             jne   .Lx449_41
+.Lx449_56:              cmp              al, 72;                              jne   .Lx449_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx449_41
                         cmp              rax, r8;                             je    .Lx449_41
                         mov              r8, rax;                             jmp   .Lx449_40
 .Lx449_41:              lea              r9, [rsp + 6128]
 .Lx449_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx449_58
+                        cmp              al, 40;                              jne   .Lx449_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx449_43
@@ -2060,23 +2060,23 @@ n131_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx449_43
                         mov              r9, rax;                             jmp   .Lx449_42
-.Lx449_58:              cmp              eax, 72;                             jne   .Lx449_43
+.Lx449_58:              cmp              al, 72;                              jne   .Lx449_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx449_43
                         cmp              rax, r9;                             je    .Lx449_43
                         mov              r9, rax;                             jmp   .Lx449_42
 .Lx449_43:              cmp              r8, r9;                              je    .Lx449_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx449_44
-                        cmp              eax, 104;                            je    .Lx449_44
-                        cmp              eax, 72;                             jne   .Lx449_45
+                        cmp              al, 0;                               je    .Lx449_44
+                        cmp              al, 104;                             je    .Lx449_44
+                        cmp              al, 72;                              jne   .Lx449_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx449_44
                                                                               jmp   .Lx449_45
 .Lx449_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx449_53
-                        cmp              eax, 104;                            je    .Lx449_53
-                        cmp              eax, 72;                             jne   .Lx449_46
+                        cmp              al, 0;                               je    .Lx449_53
+                        cmp              al, 104;                             je    .Lx449_53
+                        cmp              al, 72;                              jne   .Lx449_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx449_53
                                                                               jmp   .Lx449_46
@@ -2103,9 +2103,9 @@ n131_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx449_51
 .Lx449_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx449_47
-                        cmp              eax, 104;                            je    .Lx449_47
-                        cmp              eax, 72;                             jne   .Lx449_48
+                        cmp              al, 0;                               je    .Lx449_47
+                        cmp              al, 104;                             je    .Lx449_47
+                        cmp              al, 72;                              jne   .Lx449_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx449_47
                                                                               jmp   .Lx449_48
@@ -2133,14 +2133,14 @@ n131_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx449_51
 .Lx449_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx449_49
-                        cmp              edx, 80;                             je    .Lx449_53
+                        cmp              cl, 80;                              jne   .Lx449_49
+                        cmp              dl, 80;                              je    .Lx449_53
                                                                               jmp   .Lx449_52
-.Lx449_49:              cmp              edx, 80;                             je    .Lx449_52
-                        cmp              ecx, 5;                              je    .Lx449_53
-                        cmp              edx, 5;                              je    .Lx449_53
-                        cmp              ecx, 3;                              jne   .Lx449_50
-                        cmp              edx, 3;                              jne   .Lx449_50
+.Lx449_49:              cmp              dl, 80;                              je    .Lx449_52
+                        cmp              cl, 5;                               je    .Lx449_53
+                        cmp              dl, 5;                               je    .Lx449_53
+                        cmp              cl, 3;                               jne   .Lx449_50
+                        cmp              dl, 3;                               jne   .Lx449_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx449_53
                         mov              rax, qword ptr [r9 + 0]
@@ -2166,7 +2166,7 @@ n131_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx449_54:              mov              qword ptr [rsp + 6096], rax
                         mov              qword ptr [rsp + 6104], rdx
-                        cmp              eax, 104;                            je    n157_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n157_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n132_var_ref_α
 n131_call_builtin_prolog_β:
@@ -2194,7 +2194,7 @@ n134_call_builtin_prolog_α:
                         lea              rdi, [rsp + 6032]
                         lea              r8, [rsp + 6032]
 .Lx454_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx454_56
+                        cmp              al, 40;                              jne   .Lx454_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx454_41
@@ -2204,14 +2204,14 @@ n134_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx454_41
                         mov              r8, rax;                             jmp   .Lx454_40
-.Lx454_56:              cmp              eax, 72;                             jne   .Lx454_41
+.Lx454_56:              cmp              al, 72;                              jne   .Lx454_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx454_41
                         cmp              rax, r8;                             je    .Lx454_41
                         mov              r8, rax;                             jmp   .Lx454_40
 .Lx454_41:              lea              r9, [rsp + 6048]
 .Lx454_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx454_58
+                        cmp              al, 40;                              jne   .Lx454_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx454_43
@@ -2221,23 +2221,23 @@ n134_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx454_43
                         mov              r9, rax;                             jmp   .Lx454_42
-.Lx454_58:              cmp              eax, 72;                             jne   .Lx454_43
+.Lx454_58:              cmp              al, 72;                              jne   .Lx454_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx454_43
                         cmp              rax, r9;                             je    .Lx454_43
                         mov              r9, rax;                             jmp   .Lx454_42
 .Lx454_43:              cmp              r8, r9;                              je    .Lx454_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx454_44
-                        cmp              eax, 104;                            je    .Lx454_44
-                        cmp              eax, 72;                             jne   .Lx454_45
+                        cmp              al, 0;                               je    .Lx454_44
+                        cmp              al, 104;                             je    .Lx454_44
+                        cmp              al, 72;                              jne   .Lx454_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx454_44
                                                                               jmp   .Lx454_45
 .Lx454_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx454_53
-                        cmp              eax, 104;                            je    .Lx454_53
-                        cmp              eax, 72;                             jne   .Lx454_46
+                        cmp              al, 0;                               je    .Lx454_53
+                        cmp              al, 104;                             je    .Lx454_53
+                        cmp              al, 72;                              jne   .Lx454_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx454_53
                                                                               jmp   .Lx454_46
@@ -2264,9 +2264,9 @@ n134_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx454_51
 .Lx454_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx454_47
-                        cmp              eax, 104;                            je    .Lx454_47
-                        cmp              eax, 72;                             jne   .Lx454_48
+                        cmp              al, 0;                               je    .Lx454_47
+                        cmp              al, 104;                             je    .Lx454_47
+                        cmp              al, 72;                              jne   .Lx454_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx454_47
                                                                               jmp   .Lx454_48
@@ -2294,14 +2294,14 @@ n134_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx454_51
 .Lx454_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx454_49
-                        cmp              edx, 80;                             je    .Lx454_53
+                        cmp              cl, 80;                              jne   .Lx454_49
+                        cmp              dl, 80;                              je    .Lx454_53
                                                                               jmp   .Lx454_52
-.Lx454_49:              cmp              edx, 80;                             je    .Lx454_52
-                        cmp              ecx, 5;                              je    .Lx454_53
-                        cmp              edx, 5;                              je    .Lx454_53
-                        cmp              ecx, 3;                              jne   .Lx454_50
-                        cmp              edx, 3;                              jne   .Lx454_50
+.Lx454_49:              cmp              dl, 80;                              je    .Lx454_52
+                        cmp              cl, 5;                               je    .Lx454_53
+                        cmp              dl, 5;                               je    .Lx454_53
+                        cmp              cl, 3;                               jne   .Lx454_50
+                        cmp              dl, 3;                               jne   .Lx454_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx454_53
                         mov              rax, qword ptr [r9 + 0]
@@ -2327,7 +2327,7 @@ n134_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx454_54:              mov              qword ptr [rsp + 6016], rax
                         mov              qword ptr [rsp + 6024], rdx
-                        cmp              eax, 104;                            je    n157_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n157_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n135_var_ref_α
 n134_call_builtin_prolog_β:
@@ -2383,7 +2383,7 @@ n140_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 5696], rax
                         mov              qword ptr [rsp + 5704], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n141_lit_string_α
 n140_call_builtin_prolog_β:
@@ -2427,7 +2427,7 @@ n144_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 5824], rax
                         mov              qword ptr [rsp + 5832], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n145_call_builtin_prolog_α
 n144_call_builtin_prolog_β:
@@ -2454,7 +2454,7 @@ n145_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 5920], rax
                         mov              qword ptr [rsp + 5928], rdx
-                        cmp              eax, 104;                            je    n157_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n157_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n146_call_builtin_prolog_α
 n145_call_builtin_prolog_β:
@@ -2472,7 +2472,7 @@ n146_call_builtin_prolog_α:
                         lea              rdi, [rsp + 5616]
                         lea              r8, [rsp + 5616]
 .Lx471_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx471_56
+                        cmp              al, 40;                              jne   .Lx471_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx471_41
@@ -2482,14 +2482,14 @@ n146_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx471_41
                         mov              r8, rax;                             jmp   .Lx471_40
-.Lx471_56:              cmp              eax, 72;                             jne   .Lx471_41
+.Lx471_56:              cmp              al, 72;                              jne   .Lx471_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx471_41
                         cmp              rax, r8;                             je    .Lx471_41
                         mov              r8, rax;                             jmp   .Lx471_40
 .Lx471_41:              lea              r9, [rsp + 5632]
 .Lx471_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx471_58
+                        cmp              al, 40;                              jne   .Lx471_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx471_43
@@ -2499,23 +2499,23 @@ n146_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx471_43
                         mov              r9, rax;                             jmp   .Lx471_42
-.Lx471_58:              cmp              eax, 72;                             jne   .Lx471_43
+.Lx471_58:              cmp              al, 72;                              jne   .Lx471_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx471_43
                         cmp              rax, r9;                             je    .Lx471_43
                         mov              r9, rax;                             jmp   .Lx471_42
 .Lx471_43:              cmp              r8, r9;                              je    .Lx471_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx471_44
-                        cmp              eax, 104;                            je    .Lx471_44
-                        cmp              eax, 72;                             jne   .Lx471_45
+                        cmp              al, 0;                               je    .Lx471_44
+                        cmp              al, 104;                             je    .Lx471_44
+                        cmp              al, 72;                              jne   .Lx471_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx471_44
                                                                               jmp   .Lx471_45
 .Lx471_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx471_53
-                        cmp              eax, 104;                            je    .Lx471_53
-                        cmp              eax, 72;                             jne   .Lx471_46
+                        cmp              al, 0;                               je    .Lx471_53
+                        cmp              al, 104;                             je    .Lx471_53
+                        cmp              al, 72;                              jne   .Lx471_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx471_53
                                                                               jmp   .Lx471_46
@@ -2542,9 +2542,9 @@ n146_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx471_51
 .Lx471_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx471_47
-                        cmp              eax, 104;                            je    .Lx471_47
-                        cmp              eax, 72;                             jne   .Lx471_48
+                        cmp              al, 0;                               je    .Lx471_47
+                        cmp              al, 104;                             je    .Lx471_47
+                        cmp              al, 72;                              jne   .Lx471_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx471_47
                                                                               jmp   .Lx471_48
@@ -2572,14 +2572,14 @@ n146_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx471_51
 .Lx471_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx471_49
-                        cmp              edx, 80;                             je    .Lx471_53
+                        cmp              cl, 80;                              jne   .Lx471_49
+                        cmp              dl, 80;                              je    .Lx471_53
                                                                               jmp   .Lx471_52
-.Lx471_49:              cmp              edx, 80;                             je    .Lx471_52
-                        cmp              ecx, 5;                              je    .Lx471_53
-                        cmp              edx, 5;                              je    .Lx471_53
-                        cmp              ecx, 3;                              jne   .Lx471_50
-                        cmp              edx, 3;                              jne   .Lx471_50
+.Lx471_49:              cmp              dl, 80;                              je    .Lx471_52
+                        cmp              cl, 5;                               je    .Lx471_53
+                        cmp              dl, 5;                               je    .Lx471_53
+                        cmp              cl, 3;                               jne   .Lx471_50
+                        cmp              dl, 3;                               jne   .Lx471_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx471_53
                         mov              rax, qword ptr [r9 + 0]
@@ -2605,7 +2605,7 @@ n146_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx471_54:              mov              qword ptr [rsp + 5600], rax
                         mov              qword ptr [rsp + 5608], rdx
-                        cmp              eax, 104;                            je    n157_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n157_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n147_cut_α
 n146_call_builtin_prolog_β:
@@ -2649,7 +2649,7 @@ n151_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 5480]
 .Lx480_29:              mov              qword ptr [rsp + 5472], rax
                         mov              qword ptr [rsp + 5480], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n152_var_ref_α
 n151_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -2692,7 +2692,7 @@ n155_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 5352]
 .Lx488_29:              mov              qword ptr [rsp + 5344], rax
                         mov              qword ptr [rsp + 5352], rdx
-                        cmp              eax, 104;                            je    n151_call_proc_staged_β
+                        cmp              al, 104;                             je    n151_call_proc_staged_β
                                                                               jmp   n156_move_label_α
 n155_call_proc_staged_β:
                                                                               jmp   n151_call_proc_staged_β
@@ -2715,7 +2715,7 @@ n157_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 5312], rax
                         mov              qword ptr [rsp + 5320], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n158_var_ref_α
 n157_call_builtin_prolog_β:
@@ -2759,7 +2759,7 @@ n161_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 5200], rax
                         mov              qword ptr [rsp + 5208], rdx
-                        cmp              eax, 104;                            je    n200_var_ref_α
+                        cmp              al, 104;                             je    n200_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n162_var_ref_α
 n161_call_builtin_prolog_β:
@@ -2808,7 +2808,7 @@ n166_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 5104], rax
                         mov              qword ptr [rsp + 5112], rdx
-                        cmp              eax, 104;                            je    n199_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n199_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n167_call_builtin_prolog_α
 n166_call_builtin_prolog_β:
@@ -2826,7 +2826,7 @@ n167_call_builtin_prolog_α:
                         lea              rdi, [rsp + 5024]
                         lea              r8, [rsp + 5024]
 .Lx505_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx505_56
+                        cmp              al, 40;                              jne   .Lx505_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx505_41
@@ -2836,14 +2836,14 @@ n167_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx505_41
                         mov              r8, rax;                             jmp   .Lx505_40
-.Lx505_56:              cmp              eax, 72;                             jne   .Lx505_41
+.Lx505_56:              cmp              al, 72;                              jne   .Lx505_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx505_41
                         cmp              rax, r8;                             je    .Lx505_41
                         mov              r8, rax;                             jmp   .Lx505_40
 .Lx505_41:              lea              r9, [rsp + 5040]
 .Lx505_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx505_58
+                        cmp              al, 40;                              jne   .Lx505_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx505_43
@@ -2853,23 +2853,23 @@ n167_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx505_43
                         mov              r9, rax;                             jmp   .Lx505_42
-.Lx505_58:              cmp              eax, 72;                             jne   .Lx505_43
+.Lx505_58:              cmp              al, 72;                              jne   .Lx505_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx505_43
                         cmp              rax, r9;                             je    .Lx505_43
                         mov              r9, rax;                             jmp   .Lx505_42
 .Lx505_43:              cmp              r8, r9;                              je    .Lx505_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx505_44
-                        cmp              eax, 104;                            je    .Lx505_44
-                        cmp              eax, 72;                             jne   .Lx505_45
+                        cmp              al, 0;                               je    .Lx505_44
+                        cmp              al, 104;                             je    .Lx505_44
+                        cmp              al, 72;                              jne   .Lx505_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx505_44
                                                                               jmp   .Lx505_45
 .Lx505_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx505_53
-                        cmp              eax, 104;                            je    .Lx505_53
-                        cmp              eax, 72;                             jne   .Lx505_46
+                        cmp              al, 0;                               je    .Lx505_53
+                        cmp              al, 104;                             je    .Lx505_53
+                        cmp              al, 72;                              jne   .Lx505_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx505_53
                                                                               jmp   .Lx505_46
@@ -2896,9 +2896,9 @@ n167_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx505_51
 .Lx505_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx505_47
-                        cmp              eax, 104;                            je    .Lx505_47
-                        cmp              eax, 72;                             jne   .Lx505_48
+                        cmp              al, 0;                               je    .Lx505_47
+                        cmp              al, 104;                             je    .Lx505_47
+                        cmp              al, 72;                              jne   .Lx505_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx505_47
                                                                               jmp   .Lx505_48
@@ -2926,14 +2926,14 @@ n167_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx505_51
 .Lx505_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx505_49
-                        cmp              edx, 80;                             je    .Lx505_53
+                        cmp              cl, 80;                              jne   .Lx505_49
+                        cmp              dl, 80;                              je    .Lx505_53
                                                                               jmp   .Lx505_52
-.Lx505_49:              cmp              edx, 80;                             je    .Lx505_52
-                        cmp              ecx, 5;                              je    .Lx505_53
-                        cmp              edx, 5;                              je    .Lx505_53
-                        cmp              ecx, 3;                              jne   .Lx505_50
-                        cmp              edx, 3;                              jne   .Lx505_50
+.Lx505_49:              cmp              dl, 80;                              je    .Lx505_52
+                        cmp              cl, 5;                               je    .Lx505_53
+                        cmp              dl, 5;                               je    .Lx505_53
+                        cmp              cl, 3;                               jne   .Lx505_50
+                        cmp              dl, 3;                               jne   .Lx505_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx505_53
                         mov              rax, qword ptr [r9 + 0]
@@ -2959,7 +2959,7 @@ n167_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx505_54:              mov              qword ptr [rsp + 5008], rax
                         mov              qword ptr [rsp + 5016], rdx
-                        cmp              eax, 104;                            je    n199_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n199_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n168_var_ref_α
 n167_call_builtin_prolog_β:
@@ -2987,7 +2987,7 @@ n170_call_builtin_prolog_α:
                         lea              rdi, [rsp + 4944]
                         lea              r8, [rsp + 4944]
 .Lx510_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx510_56
+                        cmp              al, 40;                              jne   .Lx510_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx510_41
@@ -2997,14 +2997,14 @@ n170_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx510_41
                         mov              r8, rax;                             jmp   .Lx510_40
-.Lx510_56:              cmp              eax, 72;                             jne   .Lx510_41
+.Lx510_56:              cmp              al, 72;                              jne   .Lx510_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx510_41
                         cmp              rax, r8;                             je    .Lx510_41
                         mov              r8, rax;                             jmp   .Lx510_40
 .Lx510_41:              lea              r9, [rsp + 4960]
 .Lx510_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx510_58
+                        cmp              al, 40;                              jne   .Lx510_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx510_43
@@ -3014,23 +3014,23 @@ n170_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx510_43
                         mov              r9, rax;                             jmp   .Lx510_42
-.Lx510_58:              cmp              eax, 72;                             jne   .Lx510_43
+.Lx510_58:              cmp              al, 72;                              jne   .Lx510_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx510_43
                         cmp              rax, r9;                             je    .Lx510_43
                         mov              r9, rax;                             jmp   .Lx510_42
 .Lx510_43:              cmp              r8, r9;                              je    .Lx510_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx510_44
-                        cmp              eax, 104;                            je    .Lx510_44
-                        cmp              eax, 72;                             jne   .Lx510_45
+                        cmp              al, 0;                               je    .Lx510_44
+                        cmp              al, 104;                             je    .Lx510_44
+                        cmp              al, 72;                              jne   .Lx510_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx510_44
                                                                               jmp   .Lx510_45
 .Lx510_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx510_53
-                        cmp              eax, 104;                            je    .Lx510_53
-                        cmp              eax, 72;                             jne   .Lx510_46
+                        cmp              al, 0;                               je    .Lx510_53
+                        cmp              al, 104;                             je    .Lx510_53
+                        cmp              al, 72;                              jne   .Lx510_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx510_53
                                                                               jmp   .Lx510_46
@@ -3057,9 +3057,9 @@ n170_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx510_51
 .Lx510_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx510_47
-                        cmp              eax, 104;                            je    .Lx510_47
-                        cmp              eax, 72;                             jne   .Lx510_48
+                        cmp              al, 0;                               je    .Lx510_47
+                        cmp              al, 104;                             je    .Lx510_47
+                        cmp              al, 72;                              jne   .Lx510_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx510_47
                                                                               jmp   .Lx510_48
@@ -3087,14 +3087,14 @@ n170_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx510_51
 .Lx510_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx510_49
-                        cmp              edx, 80;                             je    .Lx510_53
+                        cmp              cl, 80;                              jne   .Lx510_49
+                        cmp              dl, 80;                              je    .Lx510_53
                                                                               jmp   .Lx510_52
-.Lx510_49:              cmp              edx, 80;                             je    .Lx510_52
-                        cmp              ecx, 5;                              je    .Lx510_53
-                        cmp              edx, 5;                              je    .Lx510_53
-                        cmp              ecx, 3;                              jne   .Lx510_50
-                        cmp              edx, 3;                              jne   .Lx510_50
+.Lx510_49:              cmp              dl, 80;                              je    .Lx510_52
+                        cmp              cl, 5;                               je    .Lx510_53
+                        cmp              dl, 5;                               je    .Lx510_53
+                        cmp              cl, 3;                               jne   .Lx510_50
+                        cmp              dl, 3;                               jne   .Lx510_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx510_53
                         mov              rax, qword ptr [r9 + 0]
@@ -3120,7 +3120,7 @@ n170_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx510_54:              mov              qword ptr [rsp + 4928], rax
                         mov              qword ptr [rsp + 4936], rdx
-                        cmp              eax, 104;                            je    n199_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n199_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n171_var_ref_α
 n170_call_builtin_prolog_β:
@@ -3183,7 +3183,7 @@ n177_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 4384], rax
                         mov              qword ptr [rsp + 4392], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n178_lit_string_α
 n177_call_builtin_prolog_β:
@@ -3227,7 +3227,7 @@ n181_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 4512], rax
                         mov              qword ptr [rsp + 4520], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n182_call_builtin_prolog_α
 n181_call_builtin_prolog_β:
@@ -3254,7 +3254,7 @@ n182_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 4608], rax
                         mov              qword ptr [rsp + 4616], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n183_lit_string_α
 n182_call_builtin_prolog_β:
@@ -3298,7 +3298,7 @@ n186_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 4736], rax
                         mov              qword ptr [rsp + 4744], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n187_call_builtin_prolog_α
 n186_call_builtin_prolog_β:
@@ -3325,7 +3325,7 @@ n187_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 4832], rax
                         mov              qword ptr [rsp + 4840], rdx
-                        cmp              eax, 104;                            je    n199_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n199_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n188_call_builtin_prolog_α
 n187_call_builtin_prolog_β:
@@ -3343,7 +3343,7 @@ n188_call_builtin_prolog_α:
                         lea              rdi, [rsp + 4304]
                         lea              r8, [rsp + 4304]
 .Lx534_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx534_56
+                        cmp              al, 40;                              jne   .Lx534_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx534_41
@@ -3353,14 +3353,14 @@ n188_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx534_41
                         mov              r8, rax;                             jmp   .Lx534_40
-.Lx534_56:              cmp              eax, 72;                             jne   .Lx534_41
+.Lx534_56:              cmp              al, 72;                              jne   .Lx534_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx534_41
                         cmp              rax, r8;                             je    .Lx534_41
                         mov              r8, rax;                             jmp   .Lx534_40
 .Lx534_41:              lea              r9, [rsp + 4320]
 .Lx534_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx534_58
+                        cmp              al, 40;                              jne   .Lx534_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx534_43
@@ -3370,23 +3370,23 @@ n188_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx534_43
                         mov              r9, rax;                             jmp   .Lx534_42
-.Lx534_58:              cmp              eax, 72;                             jne   .Lx534_43
+.Lx534_58:              cmp              al, 72;                              jne   .Lx534_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx534_43
                         cmp              rax, r9;                             je    .Lx534_43
                         mov              r9, rax;                             jmp   .Lx534_42
 .Lx534_43:              cmp              r8, r9;                              je    .Lx534_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx534_44
-                        cmp              eax, 104;                            je    .Lx534_44
-                        cmp              eax, 72;                             jne   .Lx534_45
+                        cmp              al, 0;                               je    .Lx534_44
+                        cmp              al, 104;                             je    .Lx534_44
+                        cmp              al, 72;                              jne   .Lx534_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx534_44
                                                                               jmp   .Lx534_45
 .Lx534_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx534_53
-                        cmp              eax, 104;                            je    .Lx534_53
-                        cmp              eax, 72;                             jne   .Lx534_46
+                        cmp              al, 0;                               je    .Lx534_53
+                        cmp              al, 104;                             je    .Lx534_53
+                        cmp              al, 72;                              jne   .Lx534_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx534_53
                                                                               jmp   .Lx534_46
@@ -3413,9 +3413,9 @@ n188_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx534_51
 .Lx534_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx534_47
-                        cmp              eax, 104;                            je    .Lx534_47
-                        cmp              eax, 72;                             jne   .Lx534_48
+                        cmp              al, 0;                               je    .Lx534_47
+                        cmp              al, 104;                             je    .Lx534_47
+                        cmp              al, 72;                              jne   .Lx534_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx534_47
                                                                               jmp   .Lx534_48
@@ -3443,14 +3443,14 @@ n188_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx534_51
 .Lx534_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx534_49
-                        cmp              edx, 80;                             je    .Lx534_53
+                        cmp              cl, 80;                              jne   .Lx534_49
+                        cmp              dl, 80;                              je    .Lx534_53
                                                                               jmp   .Lx534_52
-.Lx534_49:              cmp              edx, 80;                             je    .Lx534_52
-                        cmp              ecx, 5;                              je    .Lx534_53
-                        cmp              edx, 5;                              je    .Lx534_53
-                        cmp              ecx, 3;                              jne   .Lx534_50
-                        cmp              edx, 3;                              jne   .Lx534_50
+.Lx534_49:              cmp              dl, 80;                              je    .Lx534_52
+                        cmp              cl, 5;                               je    .Lx534_53
+                        cmp              dl, 5;                               je    .Lx534_53
+                        cmp              cl, 3;                               jne   .Lx534_50
+                        cmp              dl, 3;                               jne   .Lx534_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx534_53
                         mov              rax, qword ptr [r9 + 0]
@@ -3476,7 +3476,7 @@ n188_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx534_54:              mov              qword ptr [rsp + 4288], rax
                         mov              qword ptr [rsp + 4296], rdx
-                        cmp              eax, 104;                            je    n199_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n199_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n189_cut_α
 n188_call_builtin_prolog_β:
@@ -3520,7 +3520,7 @@ n193_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 4168]
 .Lx543_29:              mov              qword ptr [rsp + 4160], rax
                         mov              qword ptr [rsp + 4168], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n194_var_ref_α
 n193_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -3563,7 +3563,7 @@ n197_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 4040]
 .Lx551_29:              mov              qword ptr [rsp + 4032], rax
                         mov              qword ptr [rsp + 4040], rdx
-                        cmp              eax, 104;                            je    n193_call_proc_staged_β
+                        cmp              al, 104;                             je    n193_call_proc_staged_β
                                                                               jmp   n198_move_label_α
 n197_call_proc_staged_β:
                                                                               jmp   n193_call_proc_staged_β
@@ -3586,7 +3586,7 @@ n199_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 4000], rax
                         mov              qword ptr [rsp + 4008], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n200_var_ref_α
 n199_call_builtin_prolog_β:
@@ -3630,7 +3630,7 @@ n203_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 3888], rax
                         mov              qword ptr [rsp + 3896], rdx
-                        cmp              eax, 104;                            je    n239_var_ref_α
+                        cmp              al, 104;                             je    n239_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n204_var_ref_α
 n203_call_builtin_prolog_β:
@@ -3679,7 +3679,7 @@ n208_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 3792], rax
                         mov              qword ptr [rsp + 3800], rdx
-                        cmp              eax, 104;                            je    n238_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n238_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n209_call_builtin_prolog_α
 n208_call_builtin_prolog_β:
@@ -3697,7 +3697,7 @@ n209_call_builtin_prolog_α:
                         lea              rdi, [rsp + 3712]
                         lea              r8, [rsp + 3712]
 .Lx568_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx568_56
+                        cmp              al, 40;                              jne   .Lx568_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx568_41
@@ -3707,14 +3707,14 @@ n209_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx568_41
                         mov              r8, rax;                             jmp   .Lx568_40
-.Lx568_56:              cmp              eax, 72;                             jne   .Lx568_41
+.Lx568_56:              cmp              al, 72;                              jne   .Lx568_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx568_41
                         cmp              rax, r8;                             je    .Lx568_41
                         mov              r8, rax;                             jmp   .Lx568_40
 .Lx568_41:              lea              r9, [rsp + 3728]
 .Lx568_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx568_58
+                        cmp              al, 40;                              jne   .Lx568_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx568_43
@@ -3724,23 +3724,23 @@ n209_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx568_43
                         mov              r9, rax;                             jmp   .Lx568_42
-.Lx568_58:              cmp              eax, 72;                             jne   .Lx568_43
+.Lx568_58:              cmp              al, 72;                              jne   .Lx568_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx568_43
                         cmp              rax, r9;                             je    .Lx568_43
                         mov              r9, rax;                             jmp   .Lx568_42
 .Lx568_43:              cmp              r8, r9;                              je    .Lx568_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx568_44
-                        cmp              eax, 104;                            je    .Lx568_44
-                        cmp              eax, 72;                             jne   .Lx568_45
+                        cmp              al, 0;                               je    .Lx568_44
+                        cmp              al, 104;                             je    .Lx568_44
+                        cmp              al, 72;                              jne   .Lx568_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx568_44
                                                                               jmp   .Lx568_45
 .Lx568_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx568_53
-                        cmp              eax, 104;                            je    .Lx568_53
-                        cmp              eax, 72;                             jne   .Lx568_46
+                        cmp              al, 0;                               je    .Lx568_53
+                        cmp              al, 104;                             je    .Lx568_53
+                        cmp              al, 72;                              jne   .Lx568_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx568_53
                                                                               jmp   .Lx568_46
@@ -3767,9 +3767,9 @@ n209_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx568_51
 .Lx568_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx568_47
-                        cmp              eax, 104;                            je    .Lx568_47
-                        cmp              eax, 72;                             jne   .Lx568_48
+                        cmp              al, 0;                               je    .Lx568_47
+                        cmp              al, 104;                             je    .Lx568_47
+                        cmp              al, 72;                              jne   .Lx568_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx568_47
                                                                               jmp   .Lx568_48
@@ -3797,14 +3797,14 @@ n209_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx568_51
 .Lx568_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx568_49
-                        cmp              edx, 80;                             je    .Lx568_53
+                        cmp              cl, 80;                              jne   .Lx568_49
+                        cmp              dl, 80;                              je    .Lx568_53
                                                                               jmp   .Lx568_52
-.Lx568_49:              cmp              edx, 80;                             je    .Lx568_52
-                        cmp              ecx, 5;                              je    .Lx568_53
-                        cmp              edx, 5;                              je    .Lx568_53
-                        cmp              ecx, 3;                              jne   .Lx568_50
-                        cmp              edx, 3;                              jne   .Lx568_50
+.Lx568_49:              cmp              dl, 80;                              je    .Lx568_52
+                        cmp              cl, 5;                               je    .Lx568_53
+                        cmp              dl, 5;                               je    .Lx568_53
+                        cmp              cl, 3;                               jne   .Lx568_50
+                        cmp              dl, 3;                               jne   .Lx568_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx568_53
                         mov              rax, qword ptr [r9 + 0]
@@ -3830,7 +3830,7 @@ n209_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx568_54:              mov              qword ptr [rsp + 3696], rax
                         mov              qword ptr [rsp + 3704], rdx
-                        cmp              eax, 104;                            je    n238_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n238_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n210_var_ref_α
 n209_call_builtin_prolog_β:
@@ -3858,7 +3858,7 @@ n212_call_builtin_prolog_α:
                         lea              rdi, [rsp + 3632]
                         lea              r8, [rsp + 3632]
 .Lx573_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx573_56
+                        cmp              al, 40;                              jne   .Lx573_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx573_41
@@ -3868,14 +3868,14 @@ n212_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx573_41
                         mov              r8, rax;                             jmp   .Lx573_40
-.Lx573_56:              cmp              eax, 72;                             jne   .Lx573_41
+.Lx573_56:              cmp              al, 72;                              jne   .Lx573_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx573_41
                         cmp              rax, r8;                             je    .Lx573_41
                         mov              r8, rax;                             jmp   .Lx573_40
 .Lx573_41:              lea              r9, [rsp + 3648]
 .Lx573_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx573_58
+                        cmp              al, 40;                              jne   .Lx573_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx573_43
@@ -3885,23 +3885,23 @@ n212_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx573_43
                         mov              r9, rax;                             jmp   .Lx573_42
-.Lx573_58:              cmp              eax, 72;                             jne   .Lx573_43
+.Lx573_58:              cmp              al, 72;                              jne   .Lx573_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx573_43
                         cmp              rax, r9;                             je    .Lx573_43
                         mov              r9, rax;                             jmp   .Lx573_42
 .Lx573_43:              cmp              r8, r9;                              je    .Lx573_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx573_44
-                        cmp              eax, 104;                            je    .Lx573_44
-                        cmp              eax, 72;                             jne   .Lx573_45
+                        cmp              al, 0;                               je    .Lx573_44
+                        cmp              al, 104;                             je    .Lx573_44
+                        cmp              al, 72;                              jne   .Lx573_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx573_44
                                                                               jmp   .Lx573_45
 .Lx573_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx573_53
-                        cmp              eax, 104;                            je    .Lx573_53
-                        cmp              eax, 72;                             jne   .Lx573_46
+                        cmp              al, 0;                               je    .Lx573_53
+                        cmp              al, 104;                             je    .Lx573_53
+                        cmp              al, 72;                              jne   .Lx573_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx573_53
                                                                               jmp   .Lx573_46
@@ -3928,9 +3928,9 @@ n212_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx573_51
 .Lx573_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx573_47
-                        cmp              eax, 104;                            je    .Lx573_47
-                        cmp              eax, 72;                             jne   .Lx573_48
+                        cmp              al, 0;                               je    .Lx573_47
+                        cmp              al, 104;                             je    .Lx573_47
+                        cmp              al, 72;                              jne   .Lx573_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx573_47
                                                                               jmp   .Lx573_48
@@ -3958,14 +3958,14 @@ n212_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx573_51
 .Lx573_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx573_49
-                        cmp              edx, 80;                             je    .Lx573_53
+                        cmp              cl, 80;                              jne   .Lx573_49
+                        cmp              dl, 80;                              je    .Lx573_53
                                                                               jmp   .Lx573_52
-.Lx573_49:              cmp              edx, 80;                             je    .Lx573_52
-                        cmp              ecx, 5;                              je    .Lx573_53
-                        cmp              edx, 5;                              je    .Lx573_53
-                        cmp              ecx, 3;                              jne   .Lx573_50
-                        cmp              edx, 3;                              jne   .Lx573_50
+.Lx573_49:              cmp              dl, 80;                              je    .Lx573_52
+                        cmp              cl, 5;                               je    .Lx573_53
+                        cmp              dl, 5;                               je    .Lx573_53
+                        cmp              cl, 3;                               jne   .Lx573_50
+                        cmp              dl, 3;                               jne   .Lx573_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx573_53
                         mov              rax, qword ptr [r9 + 0]
@@ -3991,7 +3991,7 @@ n212_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx573_54:              mov              qword ptr [rsp + 3616], rax
                         mov              qword ptr [rsp + 3624], rdx
-                        cmp              eax, 104;                            je    n238_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n238_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n213_var_ref_α
 n212_call_builtin_prolog_β:
@@ -4047,7 +4047,7 @@ n218_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 3296], rax
                         mov              qword ptr [rsp + 3304], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n219_lit_string_α
 n218_call_builtin_prolog_β:
@@ -4091,7 +4091,7 @@ n222_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 3424], rax
                         mov              qword ptr [rsp + 3432], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n223_call_builtin_prolog_α
 n222_call_builtin_prolog_β:
@@ -4118,7 +4118,7 @@ n223_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 3520], rax
                         mov              qword ptr [rsp + 3528], rdx
-                        cmp              eax, 104;                            je    n238_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n238_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n224_call_builtin_prolog_α
 n223_call_builtin_prolog_β:
@@ -4136,7 +4136,7 @@ n224_call_builtin_prolog_α:
                         lea              rdi, [rsp + 3216]
                         lea              r8, [rsp + 3216]
 .Lx590_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx590_56
+                        cmp              al, 40;                              jne   .Lx590_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx590_41
@@ -4146,14 +4146,14 @@ n224_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx590_41
                         mov              r8, rax;                             jmp   .Lx590_40
-.Lx590_56:              cmp              eax, 72;                             jne   .Lx590_41
+.Lx590_56:              cmp              al, 72;                              jne   .Lx590_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx590_41
                         cmp              rax, r8;                             je    .Lx590_41
                         mov              r8, rax;                             jmp   .Lx590_40
 .Lx590_41:              lea              r9, [rsp + 3232]
 .Lx590_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx590_58
+                        cmp              al, 40;                              jne   .Lx590_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx590_43
@@ -4163,23 +4163,23 @@ n224_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx590_43
                         mov              r9, rax;                             jmp   .Lx590_42
-.Lx590_58:              cmp              eax, 72;                             jne   .Lx590_43
+.Lx590_58:              cmp              al, 72;                              jne   .Lx590_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx590_43
                         cmp              rax, r9;                             je    .Lx590_43
                         mov              r9, rax;                             jmp   .Lx590_42
 .Lx590_43:              cmp              r8, r9;                              je    .Lx590_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx590_44
-                        cmp              eax, 104;                            je    .Lx590_44
-                        cmp              eax, 72;                             jne   .Lx590_45
+                        cmp              al, 0;                               je    .Lx590_44
+                        cmp              al, 104;                             je    .Lx590_44
+                        cmp              al, 72;                              jne   .Lx590_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx590_44
                                                                               jmp   .Lx590_45
 .Lx590_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx590_53
-                        cmp              eax, 104;                            je    .Lx590_53
-                        cmp              eax, 72;                             jne   .Lx590_46
+                        cmp              al, 0;                               je    .Lx590_53
+                        cmp              al, 104;                             je    .Lx590_53
+                        cmp              al, 72;                              jne   .Lx590_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx590_53
                                                                               jmp   .Lx590_46
@@ -4206,9 +4206,9 @@ n224_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx590_51
 .Lx590_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx590_47
-                        cmp              eax, 104;                            je    .Lx590_47
-                        cmp              eax, 72;                             jne   .Lx590_48
+                        cmp              al, 0;                               je    .Lx590_47
+                        cmp              al, 104;                             je    .Lx590_47
+                        cmp              al, 72;                              jne   .Lx590_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx590_47
                                                                               jmp   .Lx590_48
@@ -4236,14 +4236,14 @@ n224_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx590_51
 .Lx590_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx590_49
-                        cmp              edx, 80;                             je    .Lx590_53
+                        cmp              cl, 80;                              jne   .Lx590_49
+                        cmp              dl, 80;                              je    .Lx590_53
                                                                               jmp   .Lx590_52
-.Lx590_49:              cmp              edx, 80;                             je    .Lx590_52
-                        cmp              ecx, 5;                              je    .Lx590_53
-                        cmp              edx, 5;                              je    .Lx590_53
-                        cmp              ecx, 3;                              jne   .Lx590_50
-                        cmp              edx, 3;                              jne   .Lx590_50
+.Lx590_49:              cmp              dl, 80;                              je    .Lx590_52
+                        cmp              cl, 5;                               je    .Lx590_53
+                        cmp              dl, 5;                               je    .Lx590_53
+                        cmp              cl, 3;                               jne   .Lx590_50
+                        cmp              dl, 3;                               jne   .Lx590_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx590_53
                         mov              rax, qword ptr [r9 + 0]
@@ -4269,7 +4269,7 @@ n224_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx590_54:              mov              qword ptr [rsp + 3200], rax
                         mov              qword ptr [rsp + 3208], rdx
-                        cmp              eax, 104;                            je    n238_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n238_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n225_cut_α
 n224_call_builtin_prolog_β:
@@ -4298,7 +4298,7 @@ n227_call_builtin_prolog_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 3152], rax
                         mov              qword ptr [rsp + 3160], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n228_var_ref_α
 n227_call_builtin_prolog_β:
@@ -4336,7 +4336,7 @@ n231_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 3056], rax
                         mov              qword ptr [rsp + 3064], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n232_call_builtin_prolog_α
 n231_call_builtin_prolog_β:
@@ -4359,7 +4359,7 @@ n232_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2992], rax
                         mov              qword ptr [rsp + 3000], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n233_var_ref_α
 n232_call_builtin_prolog_β:
@@ -4401,7 +4401,7 @@ n236_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 2872]
 .Lx610_29:              mov              qword ptr [rsp + 2864], rax
                         mov              qword ptr [rsp + 2872], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n237_move_label_α
 n236_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -4424,7 +4424,7 @@ n238_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2832], rax
                         mov              qword ptr [rsp + 2840], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n239_var_ref_α
 n238_call_builtin_prolog_β:
@@ -4468,7 +4468,7 @@ n242_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2720], rax
                         mov              qword ptr [rsp + 2728], rdx
-                        cmp              eax, 104;                            je    n263_var_ref_α
+                        cmp              al, 104;                             je    n263_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n243_var_ref_α
 n242_call_builtin_prolog_β:
@@ -4508,7 +4508,7 @@ n246_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2640], rax
                         mov              qword ptr [rsp + 2648], rdx
-                        cmp              eax, 104;                            je    n262_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n262_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n247_call_builtin_prolog_α
 n246_call_builtin_prolog_β:
@@ -4526,7 +4526,7 @@ n247_call_builtin_prolog_α:
                         lea              rdi, [rsp + 2576]
                         lea              r8, [rsp + 2576]
 .Lx625_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx625_56
+                        cmp              al, 40;                              jne   .Lx625_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx625_41
@@ -4536,14 +4536,14 @@ n247_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx625_41
                         mov              r8, rax;                             jmp   .Lx625_40
-.Lx625_56:              cmp              eax, 72;                             jne   .Lx625_41
+.Lx625_56:              cmp              al, 72;                              jne   .Lx625_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx625_41
                         cmp              rax, r8;                             je    .Lx625_41
                         mov              r8, rax;                             jmp   .Lx625_40
 .Lx625_41:              lea              r9, [rsp + 2592]
 .Lx625_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx625_58
+                        cmp              al, 40;                              jne   .Lx625_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx625_43
@@ -4553,23 +4553,23 @@ n247_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx625_43
                         mov              r9, rax;                             jmp   .Lx625_42
-.Lx625_58:              cmp              eax, 72;                             jne   .Lx625_43
+.Lx625_58:              cmp              al, 72;                              jne   .Lx625_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx625_43
                         cmp              rax, r9;                             je    .Lx625_43
                         mov              r9, rax;                             jmp   .Lx625_42
 .Lx625_43:              cmp              r8, r9;                              je    .Lx625_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx625_44
-                        cmp              eax, 104;                            je    .Lx625_44
-                        cmp              eax, 72;                             jne   .Lx625_45
+                        cmp              al, 0;                               je    .Lx625_44
+                        cmp              al, 104;                             je    .Lx625_44
+                        cmp              al, 72;                              jne   .Lx625_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx625_44
                                                                               jmp   .Lx625_45
 .Lx625_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx625_53
-                        cmp              eax, 104;                            je    .Lx625_53
-                        cmp              eax, 72;                             jne   .Lx625_46
+                        cmp              al, 0;                               je    .Lx625_53
+                        cmp              al, 104;                             je    .Lx625_53
+                        cmp              al, 72;                              jne   .Lx625_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx625_53
                                                                               jmp   .Lx625_46
@@ -4596,9 +4596,9 @@ n247_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx625_51
 .Lx625_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx625_47
-                        cmp              eax, 104;                            je    .Lx625_47
-                        cmp              eax, 72;                             jne   .Lx625_48
+                        cmp              al, 0;                               je    .Lx625_47
+                        cmp              al, 104;                             je    .Lx625_47
+                        cmp              al, 72;                              jne   .Lx625_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx625_47
                                                                               jmp   .Lx625_48
@@ -4626,14 +4626,14 @@ n247_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx625_51
 .Lx625_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx625_49
-                        cmp              edx, 80;                             je    .Lx625_53
+                        cmp              cl, 80;                              jne   .Lx625_49
+                        cmp              dl, 80;                              je    .Lx625_53
                                                                               jmp   .Lx625_52
-.Lx625_49:              cmp              edx, 80;                             je    .Lx625_52
-                        cmp              ecx, 5;                              je    .Lx625_53
-                        cmp              edx, 5;                              je    .Lx625_53
-                        cmp              ecx, 3;                              jne   .Lx625_50
-                        cmp              edx, 3;                              jne   .Lx625_50
+.Lx625_49:              cmp              dl, 80;                              je    .Lx625_52
+                        cmp              cl, 5;                               je    .Lx625_53
+                        cmp              dl, 5;                               je    .Lx625_53
+                        cmp              cl, 3;                               jne   .Lx625_50
+                        cmp              dl, 3;                               jne   .Lx625_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx625_53
                         mov              rax, qword ptr [r9 + 0]
@@ -4659,7 +4659,7 @@ n247_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx625_54:              mov              qword ptr [rsp + 2560], rax
                         mov              qword ptr [rsp + 2568], rdx
-                        cmp              eax, 104;                            je    n262_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n262_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n248_var_ref_α
 n247_call_builtin_prolog_β:
@@ -4687,7 +4687,7 @@ n250_call_builtin_prolog_α:
                         lea              rdi, [rsp + 2496]
                         lea              r8, [rsp + 2496]
 .Lx630_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx630_56
+                        cmp              al, 40;                              jne   .Lx630_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx630_41
@@ -4697,14 +4697,14 @@ n250_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx630_41
                         mov              r8, rax;                             jmp   .Lx630_40
-.Lx630_56:              cmp              eax, 72;                             jne   .Lx630_41
+.Lx630_56:              cmp              al, 72;                              jne   .Lx630_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx630_41
                         cmp              rax, r8;                             je    .Lx630_41
                         mov              r8, rax;                             jmp   .Lx630_40
 .Lx630_41:              lea              r9, [rsp + 2512]
 .Lx630_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx630_58
+                        cmp              al, 40;                              jne   .Lx630_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx630_43
@@ -4714,23 +4714,23 @@ n250_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx630_43
                         mov              r9, rax;                             jmp   .Lx630_42
-.Lx630_58:              cmp              eax, 72;                             jne   .Lx630_43
+.Lx630_58:              cmp              al, 72;                              jne   .Lx630_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx630_43
                         cmp              rax, r9;                             je    .Lx630_43
                         mov              r9, rax;                             jmp   .Lx630_42
 .Lx630_43:              cmp              r8, r9;                              je    .Lx630_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx630_44
-                        cmp              eax, 104;                            je    .Lx630_44
-                        cmp              eax, 72;                             jne   .Lx630_45
+                        cmp              al, 0;                               je    .Lx630_44
+                        cmp              al, 104;                             je    .Lx630_44
+                        cmp              al, 72;                              jne   .Lx630_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx630_44
                                                                               jmp   .Lx630_45
 .Lx630_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx630_53
-                        cmp              eax, 104;                            je    .Lx630_53
-                        cmp              eax, 72;                             jne   .Lx630_46
+                        cmp              al, 0;                               je    .Lx630_53
+                        cmp              al, 104;                             je    .Lx630_53
+                        cmp              al, 72;                              jne   .Lx630_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx630_53
                                                                               jmp   .Lx630_46
@@ -4757,9 +4757,9 @@ n250_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx630_51
 .Lx630_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx630_47
-                        cmp              eax, 104;                            je    .Lx630_47
-                        cmp              eax, 72;                             jne   .Lx630_48
+                        cmp              al, 0;                               je    .Lx630_47
+                        cmp              al, 104;                             je    .Lx630_47
+                        cmp              al, 72;                              jne   .Lx630_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx630_47
                                                                               jmp   .Lx630_48
@@ -4787,14 +4787,14 @@ n250_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx630_51
 .Lx630_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx630_49
-                        cmp              edx, 80;                             je    .Lx630_53
+                        cmp              cl, 80;                              jne   .Lx630_49
+                        cmp              dl, 80;                              je    .Lx630_53
                                                                               jmp   .Lx630_52
-.Lx630_49:              cmp              edx, 80;                             je    .Lx630_52
-                        cmp              ecx, 5;                              je    .Lx630_53
-                        cmp              edx, 5;                              je    .Lx630_53
-                        cmp              ecx, 3;                              jne   .Lx630_50
-                        cmp              edx, 3;                              jne   .Lx630_50
+.Lx630_49:              cmp              dl, 80;                              je    .Lx630_52
+                        cmp              cl, 5;                               je    .Lx630_53
+                        cmp              dl, 5;                               je    .Lx630_53
+                        cmp              cl, 3;                               jne   .Lx630_50
+                        cmp              dl, 3;                               jne   .Lx630_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx630_53
                         mov              rax, qword ptr [r9 + 0]
@@ -4820,7 +4820,7 @@ n250_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx630_54:              mov              qword ptr [rsp + 2480], rax
                         mov              qword ptr [rsp + 2488], rdx
-                        cmp              eax, 104;                            je    n262_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n262_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n251_var_ref_α
 n250_call_builtin_prolog_β:
@@ -4860,7 +4860,7 @@ n254_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2400], rax
                         mov              qword ptr [rsp + 2408], rdx
-                        cmp              eax, 104;                            je    n262_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n262_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n255_call_builtin_prolog_α
 n254_call_builtin_prolog_β:
@@ -4878,7 +4878,7 @@ n255_call_builtin_prolog_α:
                         lea              rdi, [rsp + 2336]
                         lea              r8, [rsp + 2336]
 .Lx637_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx637_56
+                        cmp              al, 40;                              jne   .Lx637_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx637_41
@@ -4888,14 +4888,14 @@ n255_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx637_41
                         mov              r8, rax;                             jmp   .Lx637_40
-.Lx637_56:              cmp              eax, 72;                             jne   .Lx637_41
+.Lx637_56:              cmp              al, 72;                              jne   .Lx637_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx637_41
                         cmp              rax, r8;                             je    .Lx637_41
                         mov              r8, rax;                             jmp   .Lx637_40
 .Lx637_41:              lea              r9, [rsp + 2352]
 .Lx637_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx637_58
+                        cmp              al, 40;                              jne   .Lx637_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx637_43
@@ -4905,23 +4905,23 @@ n255_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx637_43
                         mov              r9, rax;                             jmp   .Lx637_42
-.Lx637_58:              cmp              eax, 72;                             jne   .Lx637_43
+.Lx637_58:              cmp              al, 72;                              jne   .Lx637_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx637_43
                         cmp              rax, r9;                             je    .Lx637_43
                         mov              r9, rax;                             jmp   .Lx637_42
 .Lx637_43:              cmp              r8, r9;                              je    .Lx637_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx637_44
-                        cmp              eax, 104;                            je    .Lx637_44
-                        cmp              eax, 72;                             jne   .Lx637_45
+                        cmp              al, 0;                               je    .Lx637_44
+                        cmp              al, 104;                             je    .Lx637_44
+                        cmp              al, 72;                              jne   .Lx637_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx637_44
                                                                               jmp   .Lx637_45
 .Lx637_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx637_53
-                        cmp              eax, 104;                            je    .Lx637_53
-                        cmp              eax, 72;                             jne   .Lx637_46
+                        cmp              al, 0;                               je    .Lx637_53
+                        cmp              al, 104;                             je    .Lx637_53
+                        cmp              al, 72;                              jne   .Lx637_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx637_53
                                                                               jmp   .Lx637_46
@@ -4948,9 +4948,9 @@ n255_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx637_51
 .Lx637_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx637_47
-                        cmp              eax, 104;                            je    .Lx637_47
-                        cmp              eax, 72;                             jne   .Lx637_48
+                        cmp              al, 0;                               je    .Lx637_47
+                        cmp              al, 104;                             je    .Lx637_47
+                        cmp              al, 72;                              jne   .Lx637_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx637_47
                                                                               jmp   .Lx637_48
@@ -4978,14 +4978,14 @@ n255_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx637_51
 .Lx637_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx637_49
-                        cmp              edx, 80;                             je    .Lx637_53
+                        cmp              cl, 80;                              jne   .Lx637_49
+                        cmp              dl, 80;                              je    .Lx637_53
                                                                               jmp   .Lx637_52
-.Lx637_49:              cmp              edx, 80;                             je    .Lx637_52
-                        cmp              ecx, 5;                              je    .Lx637_53
-                        cmp              edx, 5;                              je    .Lx637_53
-                        cmp              ecx, 3;                              jne   .Lx637_50
-                        cmp              edx, 3;                              jne   .Lx637_50
+.Lx637_49:              cmp              dl, 80;                              je    .Lx637_52
+                        cmp              cl, 5;                               je    .Lx637_53
+                        cmp              dl, 5;                               je    .Lx637_53
+                        cmp              cl, 3;                               jne   .Lx637_50
+                        cmp              dl, 3;                               jne   .Lx637_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx637_53
                         mov              rax, qword ptr [r9 + 0]
@@ -5011,7 +5011,7 @@ n255_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx637_54:              mov              qword ptr [rsp + 2320], rax
                         mov              qword ptr [rsp + 2328], rdx
-                        cmp              eax, 104;                            je    n262_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n262_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n256_cut_α
 n255_call_builtin_prolog_β:
@@ -5055,7 +5055,7 @@ n260_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 2200]
 .Lx646_29:              mov              qword ptr [rsp + 2192], rax
                         mov              qword ptr [rsp + 2200], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n261_move_label_α
 n260_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -5078,7 +5078,7 @@ n262_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2160], rax
                         mov              qword ptr [rsp + 2168], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n263_var_ref_α
 n262_call_builtin_prolog_β:
@@ -5122,7 +5122,7 @@ n266_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 2048], rax
                         mov              qword ptr [rsp + 2056], rdx
-                        cmp              eax, 104;                            je    n290_var_ref_α
+                        cmp              al, 104;                             je    n290_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n267_var_ref_α
 n266_call_builtin_prolog_β:
@@ -5162,7 +5162,7 @@ n270_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1968], rax
                         mov              qword ptr [rsp + 1976], rdx
-                        cmp              eax, 104;                            je    n289_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n289_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n271_call_builtin_prolog_α
 n270_call_builtin_prolog_β:
@@ -5180,7 +5180,7 @@ n271_call_builtin_prolog_α:
                         lea              rdi, [rsp + 1904]
                         lea              r8, [rsp + 1904]
 .Lx661_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx661_56
+                        cmp              al, 40;                              jne   .Lx661_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx661_41
@@ -5190,14 +5190,14 @@ n271_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx661_41
                         mov              r8, rax;                             jmp   .Lx661_40
-.Lx661_56:              cmp              eax, 72;                             jne   .Lx661_41
+.Lx661_56:              cmp              al, 72;                              jne   .Lx661_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx661_41
                         cmp              rax, r8;                             je    .Lx661_41
                         mov              r8, rax;                             jmp   .Lx661_40
 .Lx661_41:              lea              r9, [rsp + 1920]
 .Lx661_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx661_58
+                        cmp              al, 40;                              jne   .Lx661_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx661_43
@@ -5207,23 +5207,23 @@ n271_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx661_43
                         mov              r9, rax;                             jmp   .Lx661_42
-.Lx661_58:              cmp              eax, 72;                             jne   .Lx661_43
+.Lx661_58:              cmp              al, 72;                              jne   .Lx661_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx661_43
                         cmp              rax, r9;                             je    .Lx661_43
                         mov              r9, rax;                             jmp   .Lx661_42
 .Lx661_43:              cmp              r8, r9;                              je    .Lx661_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx661_44
-                        cmp              eax, 104;                            je    .Lx661_44
-                        cmp              eax, 72;                             jne   .Lx661_45
+                        cmp              al, 0;                               je    .Lx661_44
+                        cmp              al, 104;                             je    .Lx661_44
+                        cmp              al, 72;                              jne   .Lx661_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx661_44
                                                                               jmp   .Lx661_45
 .Lx661_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx661_53
-                        cmp              eax, 104;                            je    .Lx661_53
-                        cmp              eax, 72;                             jne   .Lx661_46
+                        cmp              al, 0;                               je    .Lx661_53
+                        cmp              al, 104;                             je    .Lx661_53
+                        cmp              al, 72;                              jne   .Lx661_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx661_53
                                                                               jmp   .Lx661_46
@@ -5250,9 +5250,9 @@ n271_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx661_51
 .Lx661_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx661_47
-                        cmp              eax, 104;                            je    .Lx661_47
-                        cmp              eax, 72;                             jne   .Lx661_48
+                        cmp              al, 0;                               je    .Lx661_47
+                        cmp              al, 104;                             je    .Lx661_47
+                        cmp              al, 72;                              jne   .Lx661_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx661_47
                                                                               jmp   .Lx661_48
@@ -5280,14 +5280,14 @@ n271_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx661_51
 .Lx661_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx661_49
-                        cmp              edx, 80;                             je    .Lx661_53
+                        cmp              cl, 80;                              jne   .Lx661_49
+                        cmp              dl, 80;                              je    .Lx661_53
                                                                               jmp   .Lx661_52
-.Lx661_49:              cmp              edx, 80;                             je    .Lx661_52
-                        cmp              ecx, 5;                              je    .Lx661_53
-                        cmp              edx, 5;                              je    .Lx661_53
-                        cmp              ecx, 3;                              jne   .Lx661_50
-                        cmp              edx, 3;                              jne   .Lx661_50
+.Lx661_49:              cmp              dl, 80;                              je    .Lx661_52
+                        cmp              cl, 5;                               je    .Lx661_53
+                        cmp              dl, 5;                               je    .Lx661_53
+                        cmp              cl, 3;                               jne   .Lx661_50
+                        cmp              dl, 3;                               jne   .Lx661_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx661_53
                         mov              rax, qword ptr [r9 + 0]
@@ -5313,7 +5313,7 @@ n271_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx661_54:              mov              qword ptr [rsp + 1888], rax
                         mov              qword ptr [rsp + 1896], rdx
-                        cmp              eax, 104;                            je    n289_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n289_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n272_var_ref_α
 n271_call_builtin_prolog_β:
@@ -5341,7 +5341,7 @@ n274_call_builtin_prolog_α:
                         lea              rdi, [rsp + 1824]
                         lea              r8, [rsp + 1824]
 .Lx666_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx666_56
+                        cmp              al, 40;                              jne   .Lx666_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx666_41
@@ -5351,14 +5351,14 @@ n274_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx666_41
                         mov              r8, rax;                             jmp   .Lx666_40
-.Lx666_56:              cmp              eax, 72;                             jne   .Lx666_41
+.Lx666_56:              cmp              al, 72;                              jne   .Lx666_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx666_41
                         cmp              rax, r8;                             je    .Lx666_41
                         mov              r8, rax;                             jmp   .Lx666_40
 .Lx666_41:              lea              r9, [rsp + 1840]
 .Lx666_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx666_58
+                        cmp              al, 40;                              jne   .Lx666_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx666_43
@@ -5368,23 +5368,23 @@ n274_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx666_43
                         mov              r9, rax;                             jmp   .Lx666_42
-.Lx666_58:              cmp              eax, 72;                             jne   .Lx666_43
+.Lx666_58:              cmp              al, 72;                              jne   .Lx666_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx666_43
                         cmp              rax, r9;                             je    .Lx666_43
                         mov              r9, rax;                             jmp   .Lx666_42
 .Lx666_43:              cmp              r8, r9;                              je    .Lx666_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx666_44
-                        cmp              eax, 104;                            je    .Lx666_44
-                        cmp              eax, 72;                             jne   .Lx666_45
+                        cmp              al, 0;                               je    .Lx666_44
+                        cmp              al, 104;                             je    .Lx666_44
+                        cmp              al, 72;                              jne   .Lx666_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx666_44
                                                                               jmp   .Lx666_45
 .Lx666_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx666_53
-                        cmp              eax, 104;                            je    .Lx666_53
-                        cmp              eax, 72;                             jne   .Lx666_46
+                        cmp              al, 0;                               je    .Lx666_53
+                        cmp              al, 104;                             je    .Lx666_53
+                        cmp              al, 72;                              jne   .Lx666_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx666_53
                                                                               jmp   .Lx666_46
@@ -5411,9 +5411,9 @@ n274_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx666_51
 .Lx666_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx666_47
-                        cmp              eax, 104;                            je    .Lx666_47
-                        cmp              eax, 72;                             jne   .Lx666_48
+                        cmp              al, 0;                               je    .Lx666_47
+                        cmp              al, 104;                             je    .Lx666_47
+                        cmp              al, 72;                              jne   .Lx666_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx666_47
                                                                               jmp   .Lx666_48
@@ -5441,14 +5441,14 @@ n274_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx666_51
 .Lx666_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx666_49
-                        cmp              edx, 80;                             je    .Lx666_53
+                        cmp              cl, 80;                              jne   .Lx666_49
+                        cmp              dl, 80;                              je    .Lx666_53
                                                                               jmp   .Lx666_52
-.Lx666_49:              cmp              edx, 80;                             je    .Lx666_52
-                        cmp              ecx, 5;                              je    .Lx666_53
-                        cmp              edx, 5;                              je    .Lx666_53
-                        cmp              ecx, 3;                              jne   .Lx666_50
-                        cmp              edx, 3;                              jne   .Lx666_50
+.Lx666_49:              cmp              dl, 80;                              je    .Lx666_52
+                        cmp              cl, 5;                               je    .Lx666_53
+                        cmp              dl, 5;                               je    .Lx666_53
+                        cmp              cl, 3;                               jne   .Lx666_50
+                        cmp              dl, 3;                               jne   .Lx666_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx666_53
                         mov              rax, qword ptr [r9 + 0]
@@ -5474,7 +5474,7 @@ n274_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx666_54:              mov              qword ptr [rsp + 1808], rax
                         mov              qword ptr [rsp + 1816], rdx
-                        cmp              eax, 104;                            je    n289_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n289_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n275_var_ref_α
 n274_call_builtin_prolog_β:
@@ -5521,7 +5521,7 @@ n279_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1616], rax
                         mov              qword ptr [rsp + 1624], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n280_var_ref_α
 n279_call_builtin_prolog_β:
@@ -5553,7 +5553,7 @@ n281_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1712], rax
                         mov              qword ptr [rsp + 1720], rdx
-                        cmp              eax, 104;                            je    n289_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n289_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n282_call_builtin_prolog_α
 n281_call_builtin_prolog_β:
@@ -5571,7 +5571,7 @@ n282_call_builtin_prolog_α:
                         lea              rdi, [rsp + 1552]
                         lea              r8, [rsp + 1552]
 .Lx677_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx677_56
+                        cmp              al, 40;                              jne   .Lx677_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx677_41
@@ -5581,14 +5581,14 @@ n282_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx677_41
                         mov              r8, rax;                             jmp   .Lx677_40
-.Lx677_56:              cmp              eax, 72;                             jne   .Lx677_41
+.Lx677_56:              cmp              al, 72;                              jne   .Lx677_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx677_41
                         cmp              rax, r8;                             je    .Lx677_41
                         mov              r8, rax;                             jmp   .Lx677_40
 .Lx677_41:              lea              r9, [rsp + 1568]
 .Lx677_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx677_58
+                        cmp              al, 40;                              jne   .Lx677_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx677_43
@@ -5598,23 +5598,23 @@ n282_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx677_43
                         mov              r9, rax;                             jmp   .Lx677_42
-.Lx677_58:              cmp              eax, 72;                             jne   .Lx677_43
+.Lx677_58:              cmp              al, 72;                              jne   .Lx677_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx677_43
                         cmp              rax, r9;                             je    .Lx677_43
                         mov              r9, rax;                             jmp   .Lx677_42
 .Lx677_43:              cmp              r8, r9;                              je    .Lx677_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx677_44
-                        cmp              eax, 104;                            je    .Lx677_44
-                        cmp              eax, 72;                             jne   .Lx677_45
+                        cmp              al, 0;                               je    .Lx677_44
+                        cmp              al, 104;                             je    .Lx677_44
+                        cmp              al, 72;                              jne   .Lx677_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx677_44
                                                                               jmp   .Lx677_45
 .Lx677_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx677_53
-                        cmp              eax, 104;                            je    .Lx677_53
-                        cmp              eax, 72;                             jne   .Lx677_46
+                        cmp              al, 0;                               je    .Lx677_53
+                        cmp              al, 104;                             je    .Lx677_53
+                        cmp              al, 72;                              jne   .Lx677_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx677_53
                                                                               jmp   .Lx677_46
@@ -5641,9 +5641,9 @@ n282_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx677_51
 .Lx677_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx677_47
-                        cmp              eax, 104;                            je    .Lx677_47
-                        cmp              eax, 72;                             jne   .Lx677_48
+                        cmp              al, 0;                               je    .Lx677_47
+                        cmp              al, 104;                             je    .Lx677_47
+                        cmp              al, 72;                              jne   .Lx677_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx677_47
                                                                               jmp   .Lx677_48
@@ -5671,14 +5671,14 @@ n282_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx677_51
 .Lx677_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx677_49
-                        cmp              edx, 80;                             je    .Lx677_53
+                        cmp              cl, 80;                              jne   .Lx677_49
+                        cmp              dl, 80;                              je    .Lx677_53
                                                                               jmp   .Lx677_52
-.Lx677_49:              cmp              edx, 80;                             je    .Lx677_52
-                        cmp              ecx, 5;                              je    .Lx677_53
-                        cmp              edx, 5;                              je    .Lx677_53
-                        cmp              ecx, 3;                              jne   .Lx677_50
-                        cmp              edx, 3;                              jne   .Lx677_50
+.Lx677_49:              cmp              dl, 80;                              je    .Lx677_52
+                        cmp              cl, 5;                               je    .Lx677_53
+                        cmp              dl, 5;                               je    .Lx677_53
+                        cmp              cl, 3;                               jne   .Lx677_50
+                        cmp              dl, 3;                               jne   .Lx677_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx677_53
                         mov              rax, qword ptr [r9 + 0]
@@ -5704,7 +5704,7 @@ n282_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx677_54:              mov              qword ptr [rsp + 1536], rax
                         mov              qword ptr [rsp + 1544], rdx
-                        cmp              eax, 104;                            je    n289_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n289_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n283_cut_α
 n282_call_builtin_prolog_β:
@@ -5748,7 +5748,7 @@ n287_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 1416]
 .Lx686_29:              mov              qword ptr [rsp + 1408], rax
                         mov              qword ptr [rsp + 1416], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n288_move_label_α
 n287_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -5771,7 +5771,7 @@ n289_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1376], rax
                         mov              qword ptr [rsp + 1384], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n290_var_ref_α
 n289_call_builtin_prolog_β:
@@ -5815,7 +5815,7 @@ n293_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1264], rax
                         mov              qword ptr [rsp + 1272], rdx
-                        cmp              eax, 104;                            je    n315_var_ref_α
+                        cmp              al, 104;                             je    n315_var_ref_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n294_var_ref_α
 n293_call_builtin_prolog_β:
@@ -5855,7 +5855,7 @@ n297_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 1184], rax
                         mov              qword ptr [rsp + 1192], rdx
-                        cmp              eax, 104;                            je    n314_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n314_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n298_call_builtin_prolog_α
 n297_call_builtin_prolog_β:
@@ -5873,7 +5873,7 @@ n298_call_builtin_prolog_α:
                         lea              rdi, [rsp + 1120]
                         lea              r8, [rsp + 1120]
 .Lx701_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx701_56
+                        cmp              al, 40;                              jne   .Lx701_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx701_41
@@ -5883,14 +5883,14 @@ n298_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx701_41
                         mov              r8, rax;                             jmp   .Lx701_40
-.Lx701_56:              cmp              eax, 72;                             jne   .Lx701_41
+.Lx701_56:              cmp              al, 72;                              jne   .Lx701_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx701_41
                         cmp              rax, r8;                             je    .Lx701_41
                         mov              r8, rax;                             jmp   .Lx701_40
 .Lx701_41:              lea              r9, [rsp + 1136]
 .Lx701_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx701_58
+                        cmp              al, 40;                              jne   .Lx701_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx701_43
@@ -5900,23 +5900,23 @@ n298_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx701_43
                         mov              r9, rax;                             jmp   .Lx701_42
-.Lx701_58:              cmp              eax, 72;                             jne   .Lx701_43
+.Lx701_58:              cmp              al, 72;                              jne   .Lx701_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx701_43
                         cmp              rax, r9;                             je    .Lx701_43
                         mov              r9, rax;                             jmp   .Lx701_42
 .Lx701_43:              cmp              r8, r9;                              je    .Lx701_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx701_44
-                        cmp              eax, 104;                            je    .Lx701_44
-                        cmp              eax, 72;                             jne   .Lx701_45
+                        cmp              al, 0;                               je    .Lx701_44
+                        cmp              al, 104;                             je    .Lx701_44
+                        cmp              al, 72;                              jne   .Lx701_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx701_44
                                                                               jmp   .Lx701_45
 .Lx701_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx701_53
-                        cmp              eax, 104;                            je    .Lx701_53
-                        cmp              eax, 72;                             jne   .Lx701_46
+                        cmp              al, 0;                               je    .Lx701_53
+                        cmp              al, 104;                             je    .Lx701_53
+                        cmp              al, 72;                              jne   .Lx701_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx701_53
                                                                               jmp   .Lx701_46
@@ -5943,9 +5943,9 @@ n298_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx701_51
 .Lx701_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx701_47
-                        cmp              eax, 104;                            je    .Lx701_47
-                        cmp              eax, 72;                             jne   .Lx701_48
+                        cmp              al, 0;                               je    .Lx701_47
+                        cmp              al, 104;                             je    .Lx701_47
+                        cmp              al, 72;                              jne   .Lx701_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx701_47
                                                                               jmp   .Lx701_48
@@ -5973,14 +5973,14 @@ n298_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx701_51
 .Lx701_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx701_49
-                        cmp              edx, 80;                             je    .Lx701_53
+                        cmp              cl, 80;                              jne   .Lx701_49
+                        cmp              dl, 80;                              je    .Lx701_53
                                                                               jmp   .Lx701_52
-.Lx701_49:              cmp              edx, 80;                             je    .Lx701_52
-                        cmp              ecx, 5;                              je    .Lx701_53
-                        cmp              edx, 5;                              je    .Lx701_53
-                        cmp              ecx, 3;                              jne   .Lx701_50
-                        cmp              edx, 3;                              jne   .Lx701_50
+.Lx701_49:              cmp              dl, 80;                              je    .Lx701_52
+                        cmp              cl, 5;                               je    .Lx701_53
+                        cmp              dl, 5;                               je    .Lx701_53
+                        cmp              cl, 3;                               jne   .Lx701_50
+                        cmp              dl, 3;                               jne   .Lx701_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx701_53
                         mov              rax, qword ptr [r9 + 0]
@@ -6006,7 +6006,7 @@ n298_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx701_54:              mov              qword ptr [rsp + 1104], rax
                         mov              qword ptr [rsp + 1112], rdx
-                        cmp              eax, 104;                            je    n314_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n314_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n299_var_ref_α
 n298_call_builtin_prolog_β:
@@ -6034,7 +6034,7 @@ n301_call_builtin_prolog_α:
                         lea              rdi, [rsp + 1040]
                         lea              r8, [rsp + 1040]
 .Lx706_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx706_56
+                        cmp              al, 40;                              jne   .Lx706_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx706_41
@@ -6044,14 +6044,14 @@ n301_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx706_41
                         mov              r8, rax;                             jmp   .Lx706_40
-.Lx706_56:              cmp              eax, 72;                             jne   .Lx706_41
+.Lx706_56:              cmp              al, 72;                              jne   .Lx706_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx706_41
                         cmp              rax, r8;                             je    .Lx706_41
                         mov              r8, rax;                             jmp   .Lx706_40
 .Lx706_41:              lea              r9, [rsp + 1056]
 .Lx706_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx706_58
+                        cmp              al, 40;                              jne   .Lx706_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx706_43
@@ -6061,23 +6061,23 @@ n301_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx706_43
                         mov              r9, rax;                             jmp   .Lx706_42
-.Lx706_58:              cmp              eax, 72;                             jne   .Lx706_43
+.Lx706_58:              cmp              al, 72;                              jne   .Lx706_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx706_43
                         cmp              rax, r9;                             je    .Lx706_43
                         mov              r9, rax;                             jmp   .Lx706_42
 .Lx706_43:              cmp              r8, r9;                              je    .Lx706_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx706_44
-                        cmp              eax, 104;                            je    .Lx706_44
-                        cmp              eax, 72;                             jne   .Lx706_45
+                        cmp              al, 0;                               je    .Lx706_44
+                        cmp              al, 104;                             je    .Lx706_44
+                        cmp              al, 72;                              jne   .Lx706_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx706_44
                                                                               jmp   .Lx706_45
 .Lx706_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx706_53
-                        cmp              eax, 104;                            je    .Lx706_53
-                        cmp              eax, 72;                             jne   .Lx706_46
+                        cmp              al, 0;                               je    .Lx706_53
+                        cmp              al, 104;                             je    .Lx706_53
+                        cmp              al, 72;                              jne   .Lx706_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx706_53
                                                                               jmp   .Lx706_46
@@ -6104,9 +6104,9 @@ n301_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx706_51
 .Lx706_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx706_47
-                        cmp              eax, 104;                            je    .Lx706_47
-                        cmp              eax, 72;                             jne   .Lx706_48
+                        cmp              al, 0;                               je    .Lx706_47
+                        cmp              al, 104;                             je    .Lx706_47
+                        cmp              al, 72;                              jne   .Lx706_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx706_47
                                                                               jmp   .Lx706_48
@@ -6134,14 +6134,14 @@ n301_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx706_51
 .Lx706_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx706_49
-                        cmp              edx, 80;                             je    .Lx706_53
+                        cmp              cl, 80;                              jne   .Lx706_49
+                        cmp              dl, 80;                              je    .Lx706_53
                                                                               jmp   .Lx706_52
-.Lx706_49:              cmp              edx, 80;                             je    .Lx706_52
-                        cmp              ecx, 5;                              je    .Lx706_53
-                        cmp              edx, 5;                              je    .Lx706_53
-                        cmp              ecx, 3;                              jne   .Lx706_50
-                        cmp              edx, 3;                              jne   .Lx706_50
+.Lx706_49:              cmp              dl, 80;                              je    .Lx706_52
+                        cmp              cl, 5;                               je    .Lx706_53
+                        cmp              dl, 5;                               je    .Lx706_53
+                        cmp              cl, 3;                               jne   .Lx706_50
+                        cmp              dl, 3;                               jne   .Lx706_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx706_53
                         mov              rax, qword ptr [r9 + 0]
@@ -6167,7 +6167,7 @@ n301_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx706_54:              mov              qword ptr [rsp + 1024], rax
                         mov              qword ptr [rsp + 1032], rdx
-                        cmp              eax, 104;                            je    n314_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n314_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n302_var_ref_α
 n301_call_builtin_prolog_β:
@@ -6216,7 +6216,7 @@ n306_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 928], rax
                         mov              qword ptr [rsp + 936], rdx
-                        cmp              eax, 104;                            je    n314_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n314_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n307_call_builtin_prolog_α
 n306_call_builtin_prolog_β:
@@ -6234,7 +6234,7 @@ n307_call_builtin_prolog_α:
                         lea              rdi, [rsp + 848]
                         lea              r8, [rsp + 848]
 .Lx715_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx715_56
+                        cmp              al, 40;                              jne   .Lx715_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx715_41
@@ -6244,14 +6244,14 @@ n307_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx715_41
                         mov              r8, rax;                             jmp   .Lx715_40
-.Lx715_56:              cmp              eax, 72;                             jne   .Lx715_41
+.Lx715_56:              cmp              al, 72;                              jne   .Lx715_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx715_41
                         cmp              rax, r8;                             je    .Lx715_41
                         mov              r8, rax;                             jmp   .Lx715_40
 .Lx715_41:              lea              r9, [rsp + 864]
 .Lx715_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx715_58
+                        cmp              al, 40;                              jne   .Lx715_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx715_43
@@ -6261,23 +6261,23 @@ n307_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx715_43
                         mov              r9, rax;                             jmp   .Lx715_42
-.Lx715_58:              cmp              eax, 72;                             jne   .Lx715_43
+.Lx715_58:              cmp              al, 72;                              jne   .Lx715_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx715_43
                         cmp              rax, r9;                             je    .Lx715_43
                         mov              r9, rax;                             jmp   .Lx715_42
 .Lx715_43:              cmp              r8, r9;                              je    .Lx715_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx715_44
-                        cmp              eax, 104;                            je    .Lx715_44
-                        cmp              eax, 72;                             jne   .Lx715_45
+                        cmp              al, 0;                               je    .Lx715_44
+                        cmp              al, 104;                             je    .Lx715_44
+                        cmp              al, 72;                              jne   .Lx715_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx715_44
                                                                               jmp   .Lx715_45
 .Lx715_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx715_53
-                        cmp              eax, 104;                            je    .Lx715_53
-                        cmp              eax, 72;                             jne   .Lx715_46
+                        cmp              al, 0;                               je    .Lx715_53
+                        cmp              al, 104;                             je    .Lx715_53
+                        cmp              al, 72;                              jne   .Lx715_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx715_53
                                                                               jmp   .Lx715_46
@@ -6304,9 +6304,9 @@ n307_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx715_51
 .Lx715_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx715_47
-                        cmp              eax, 104;                            je    .Lx715_47
-                        cmp              eax, 72;                             jne   .Lx715_48
+                        cmp              al, 0;                               je    .Lx715_47
+                        cmp              al, 104;                             je    .Lx715_47
+                        cmp              al, 72;                              jne   .Lx715_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx715_47
                                                                               jmp   .Lx715_48
@@ -6334,14 +6334,14 @@ n307_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx715_51
 .Lx715_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx715_49
-                        cmp              edx, 80;                             je    .Lx715_53
+                        cmp              cl, 80;                              jne   .Lx715_49
+                        cmp              dl, 80;                              je    .Lx715_53
                                                                               jmp   .Lx715_52
-.Lx715_49:              cmp              edx, 80;                             je    .Lx715_52
-                        cmp              ecx, 5;                              je    .Lx715_53
-                        cmp              edx, 5;                              je    .Lx715_53
-                        cmp              ecx, 3;                              jne   .Lx715_50
-                        cmp              edx, 3;                              jne   .Lx715_50
+.Lx715_49:              cmp              dl, 80;                              je    .Lx715_52
+                        cmp              cl, 5;                               je    .Lx715_53
+                        cmp              dl, 5;                               je    .Lx715_53
+                        cmp              cl, 3;                               jne   .Lx715_50
+                        cmp              dl, 3;                               jne   .Lx715_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx715_53
                         mov              rax, qword ptr [r9 + 0]
@@ -6367,7 +6367,7 @@ n307_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx715_54:              mov              qword ptr [rsp + 832], rax
                         mov              qword ptr [rsp + 840], rdx
-                        cmp              eax, 104;                            je    n314_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n314_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n308_cut_α
 n307_call_builtin_prolog_β:
@@ -6411,7 +6411,7 @@ n312_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 712]
 .Lx724_29:              mov              qword ptr [rsp + 704], rax
                         mov              qword ptr [rsp + 712], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                                                                               jmp   n313_move_label_α
 n312_call_proc_staged_β:
                                                                               jmp   n338_call_builtin_prolog_α
@@ -6434,7 +6434,7 @@ n314_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 672], rax
                         mov              qword ptr [rsp + 680], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n315_var_ref_α
 n314_call_builtin_prolog_β:
@@ -6462,7 +6462,7 @@ n317_call_builtin_prolog_α:
                         lea              rdi, [rsp + 608]
                         lea              r8, [rsp + 608]
 .Lx732_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx732_56
+                        cmp              al, 40;                              jne   .Lx732_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx732_41
@@ -6472,14 +6472,14 @@ n317_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx732_41
                         mov              r8, rax;                             jmp   .Lx732_40
-.Lx732_56:              cmp              eax, 72;                             jne   .Lx732_41
+.Lx732_56:              cmp              al, 72;                              jne   .Lx732_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx732_41
                         cmp              rax, r8;                             je    .Lx732_41
                         mov              r8, rax;                             jmp   .Lx732_40
 .Lx732_41:              lea              r9, [rsp + 624]
 .Lx732_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx732_58
+                        cmp              al, 40;                              jne   .Lx732_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx732_43
@@ -6489,23 +6489,23 @@ n317_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx732_43
                         mov              r9, rax;                             jmp   .Lx732_42
-.Lx732_58:              cmp              eax, 72;                             jne   .Lx732_43
+.Lx732_58:              cmp              al, 72;                              jne   .Lx732_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx732_43
                         cmp              rax, r9;                             je    .Lx732_43
                         mov              r9, rax;                             jmp   .Lx732_42
 .Lx732_43:              cmp              r8, r9;                              je    .Lx732_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx732_44
-                        cmp              eax, 104;                            je    .Lx732_44
-                        cmp              eax, 72;                             jne   .Lx732_45
+                        cmp              al, 0;                               je    .Lx732_44
+                        cmp              al, 104;                             je    .Lx732_44
+                        cmp              al, 72;                              jne   .Lx732_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx732_44
                                                                               jmp   .Lx732_45
 .Lx732_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx732_53
-                        cmp              eax, 104;                            je    .Lx732_53
-                        cmp              eax, 72;                             jne   .Lx732_46
+                        cmp              al, 0;                               je    .Lx732_53
+                        cmp              al, 104;                             je    .Lx732_53
+                        cmp              al, 72;                              jne   .Lx732_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx732_53
                                                                               jmp   .Lx732_46
@@ -6532,9 +6532,9 @@ n317_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx732_51
 .Lx732_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx732_47
-                        cmp              eax, 104;                            je    .Lx732_47
-                        cmp              eax, 72;                             jne   .Lx732_48
+                        cmp              al, 0;                               je    .Lx732_47
+                        cmp              al, 104;                             je    .Lx732_47
+                        cmp              al, 72;                              jne   .Lx732_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx732_47
                                                                               jmp   .Lx732_48
@@ -6562,14 +6562,14 @@ n317_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx732_51
 .Lx732_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx732_49
-                        cmp              edx, 80;                             je    .Lx732_53
+                        cmp              cl, 80;                              jne   .Lx732_49
+                        cmp              dl, 80;                              je    .Lx732_53
                                                                               jmp   .Lx732_52
-.Lx732_49:              cmp              edx, 80;                             je    .Lx732_52
-                        cmp              ecx, 5;                              je    .Lx732_53
-                        cmp              edx, 5;                              je    .Lx732_53
-                        cmp              ecx, 3;                              jne   .Lx732_50
-                        cmp              edx, 3;                              jne   .Lx732_50
+.Lx732_49:              cmp              dl, 80;                              je    .Lx732_52
+                        cmp              cl, 5;                               je    .Lx732_53
+                        cmp              dl, 5;                               je    .Lx732_53
+                        cmp              cl, 3;                               jne   .Lx732_50
+                        cmp              dl, 3;                               jne   .Lx732_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx732_53
                         mov              rax, qword ptr [r9 + 0]
@@ -6595,7 +6595,7 @@ n317_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx732_54:              mov              qword ptr [rsp + 592], rax
                         mov              qword ptr [rsp + 600], rdx
-                        cmp              eax, 104;                            je    n326_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n326_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n318_var_ref_α
 n317_call_builtin_prolog_β:
@@ -6623,7 +6623,7 @@ n320_call_builtin_prolog_α:
                         lea              rdi, [rsp + 528]
                         lea              r8, [rsp + 528]
 .Lx737_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx737_56
+                        cmp              al, 40;                              jne   .Lx737_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx737_41
@@ -6633,14 +6633,14 @@ n320_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx737_41
                         mov              r8, rax;                             jmp   .Lx737_40
-.Lx737_56:              cmp              eax, 72;                             jne   .Lx737_41
+.Lx737_56:              cmp              al, 72;                              jne   .Lx737_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx737_41
                         cmp              rax, r8;                             je    .Lx737_41
                         mov              r8, rax;                             jmp   .Lx737_40
 .Lx737_41:              lea              r9, [rsp + 544]
 .Lx737_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx737_58
+                        cmp              al, 40;                              jne   .Lx737_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx737_43
@@ -6650,23 +6650,23 @@ n320_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx737_43
                         mov              r9, rax;                             jmp   .Lx737_42
-.Lx737_58:              cmp              eax, 72;                             jne   .Lx737_43
+.Lx737_58:              cmp              al, 72;                              jne   .Lx737_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx737_43
                         cmp              rax, r9;                             je    .Lx737_43
                         mov              r9, rax;                             jmp   .Lx737_42
 .Lx737_43:              cmp              r8, r9;                              je    .Lx737_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx737_44
-                        cmp              eax, 104;                            je    .Lx737_44
-                        cmp              eax, 72;                             jne   .Lx737_45
+                        cmp              al, 0;                               je    .Lx737_44
+                        cmp              al, 104;                             je    .Lx737_44
+                        cmp              al, 72;                              jne   .Lx737_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx737_44
                                                                               jmp   .Lx737_45
 .Lx737_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx737_53
-                        cmp              eax, 104;                            je    .Lx737_53
-                        cmp              eax, 72;                             jne   .Lx737_46
+                        cmp              al, 0;                               je    .Lx737_53
+                        cmp              al, 104;                             je    .Lx737_53
+                        cmp              al, 72;                              jne   .Lx737_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx737_53
                                                                               jmp   .Lx737_46
@@ -6693,9 +6693,9 @@ n320_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx737_51
 .Lx737_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx737_47
-                        cmp              eax, 104;                            je    .Lx737_47
-                        cmp              eax, 72;                             jne   .Lx737_48
+                        cmp              al, 0;                               je    .Lx737_47
+                        cmp              al, 104;                             je    .Lx737_47
+                        cmp              al, 72;                              jne   .Lx737_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx737_47
                                                                               jmp   .Lx737_48
@@ -6723,14 +6723,14 @@ n320_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx737_51
 .Lx737_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx737_49
-                        cmp              edx, 80;                             je    .Lx737_53
+                        cmp              cl, 80;                              jne   .Lx737_49
+                        cmp              dl, 80;                              je    .Lx737_53
                                                                               jmp   .Lx737_52
-.Lx737_49:              cmp              edx, 80;                             je    .Lx737_52
-                        cmp              ecx, 5;                              je    .Lx737_53
-                        cmp              edx, 5;                              je    .Lx737_53
-                        cmp              ecx, 3;                              jne   .Lx737_50
-                        cmp              edx, 3;                              jne   .Lx737_50
+.Lx737_49:              cmp              dl, 80;                              je    .Lx737_52
+                        cmp              cl, 5;                               je    .Lx737_53
+                        cmp              dl, 5;                               je    .Lx737_53
+                        cmp              cl, 3;                               jne   .Lx737_50
+                        cmp              dl, 3;                               jne   .Lx737_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx737_53
                         mov              rax, qword ptr [r9 + 0]
@@ -6756,7 +6756,7 @@ n320_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx737_54:              mov              qword ptr [rsp + 512], rax
                         mov              qword ptr [rsp + 520], rdx
-                        cmp              eax, 104;                            je    n326_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n326_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n321_var_ref_α
 n320_call_builtin_prolog_β:
@@ -6785,7 +6785,7 @@ n323_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 440], rdx
-                        cmp              eax, 104;                            je    n326_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n326_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n324_cut_α
 n323_call_builtin_prolog_β:
@@ -6809,7 +6809,7 @@ n326_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 400], rax
                         mov              qword ptr [rsp + 408], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n327_var_ref_α
 n326_call_builtin_prolog_β:
@@ -6837,7 +6837,7 @@ n329_call_builtin_prolog_α:
                         lea              rdi, [rsp + 336]
                         lea              r8, [rsp + 336]
 .Lx750_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx750_56
+                        cmp              al, 40;                              jne   .Lx750_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx750_41
@@ -6847,14 +6847,14 @@ n329_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx750_41
                         mov              r8, rax;                             jmp   .Lx750_40
-.Lx750_56:              cmp              eax, 72;                             jne   .Lx750_41
+.Lx750_56:              cmp              al, 72;                              jne   .Lx750_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx750_41
                         cmp              rax, r8;                             je    .Lx750_41
                         mov              r8, rax;                             jmp   .Lx750_40
 .Lx750_41:              lea              r9, [rsp + 352]
 .Lx750_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx750_58
+                        cmp              al, 40;                              jne   .Lx750_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx750_43
@@ -6864,23 +6864,23 @@ n329_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx750_43
                         mov              r9, rax;                             jmp   .Lx750_42
-.Lx750_58:              cmp              eax, 72;                             jne   .Lx750_43
+.Lx750_58:              cmp              al, 72;                              jne   .Lx750_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx750_43
                         cmp              rax, r9;                             je    .Lx750_43
                         mov              r9, rax;                             jmp   .Lx750_42
 .Lx750_43:              cmp              r8, r9;                              je    .Lx750_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx750_44
-                        cmp              eax, 104;                            je    .Lx750_44
-                        cmp              eax, 72;                             jne   .Lx750_45
+                        cmp              al, 0;                               je    .Lx750_44
+                        cmp              al, 104;                             je    .Lx750_44
+                        cmp              al, 72;                              jne   .Lx750_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx750_44
                                                                               jmp   .Lx750_45
 .Lx750_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx750_53
-                        cmp              eax, 104;                            je    .Lx750_53
-                        cmp              eax, 72;                             jne   .Lx750_46
+                        cmp              al, 0;                               je    .Lx750_53
+                        cmp              al, 104;                             je    .Lx750_53
+                        cmp              al, 72;                              jne   .Lx750_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx750_53
                                                                               jmp   .Lx750_46
@@ -6907,9 +6907,9 @@ n329_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx750_51
 .Lx750_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx750_47
-                        cmp              eax, 104;                            je    .Lx750_47
-                        cmp              eax, 72;                             jne   .Lx750_48
+                        cmp              al, 0;                               je    .Lx750_47
+                        cmp              al, 104;                             je    .Lx750_47
+                        cmp              al, 72;                              jne   .Lx750_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx750_47
                                                                               jmp   .Lx750_48
@@ -6937,14 +6937,14 @@ n329_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx750_51
 .Lx750_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx750_49
-                        cmp              edx, 80;                             je    .Lx750_53
+                        cmp              cl, 80;                              jne   .Lx750_49
+                        cmp              dl, 80;                              je    .Lx750_53
                                                                               jmp   .Lx750_52
-.Lx750_49:              cmp              edx, 80;                             je    .Lx750_52
-                        cmp              ecx, 5;                              je    .Lx750_53
-                        cmp              edx, 5;                              je    .Lx750_53
-                        cmp              ecx, 3;                              jne   .Lx750_50
-                        cmp              edx, 3;                              jne   .Lx750_50
+.Lx750_49:              cmp              dl, 80;                              je    .Lx750_52
+                        cmp              cl, 5;                               je    .Lx750_53
+                        cmp              dl, 5;                               je    .Lx750_53
+                        cmp              cl, 3;                               jne   .Lx750_50
+                        cmp              dl, 3;                               jne   .Lx750_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx750_53
                         mov              rax, qword ptr [r9 + 0]
@@ -6970,7 +6970,7 @@ n329_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx750_54:              mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 328], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n330_var_ref_α
 n329_call_builtin_prolog_β:
@@ -6998,7 +6998,7 @@ n332_call_builtin_prolog_α:
                         lea              rdi, [rsp + 256]
                         lea              r8, [rsp + 256]
 .Lx755_40:              mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 40;                             jne   .Lx755_56
+                        cmp              al, 40;                              jne   .Lx755_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx755_41
@@ -7008,14 +7008,14 @@ n332_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx755_41
                         mov              r8, rax;                             jmp   .Lx755_40
-.Lx755_56:              cmp              eax, 72;                             jne   .Lx755_41
+.Lx755_56:              cmp              al, 72;                              jne   .Lx755_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax;                            je    .Lx755_41
                         cmp              rax, r8;                             je    .Lx755_41
                         mov              r8, rax;                             jmp   .Lx755_40
 .Lx755_41:              lea              r9, [rsp + 272]
 .Lx755_42:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 40;                             jne   .Lx755_58
+                        cmp              al, 40;                              jne   .Lx755_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx755_43
@@ -7025,23 +7025,23 @@ n332_call_builtin_prolog_α:
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax;                            je    .Lx755_43
                         mov              r9, rax;                             jmp   .Lx755_42
-.Lx755_58:              cmp              eax, 72;                             jne   .Lx755_43
+.Lx755_58:              cmp              al, 72;                              jne   .Lx755_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax;                            je    .Lx755_43
                         cmp              rax, r9;                             je    .Lx755_43
                         mov              r9, rax;                             jmp   .Lx755_42
 .Lx755_43:              cmp              r8, r9;                              je    .Lx755_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              eax, 0;                              je    .Lx755_44
-                        cmp              eax, 104;                            je    .Lx755_44
-                        cmp              eax, 72;                             jne   .Lx755_45
+                        cmp              al, 0;                               je    .Lx755_44
+                        cmp              al, 104;                             je    .Lx755_44
+                        cmp              al, 72;                              jne   .Lx755_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8;                             je    .Lx755_44
                                                                               jmp   .Lx755_45
 .Lx755_44:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx755_53
-                        cmp              eax, 104;                            je    .Lx755_53
-                        cmp              eax, 72;                             jne   .Lx755_46
+                        cmp              al, 0;                               je    .Lx755_53
+                        cmp              al, 104;                             je    .Lx755_53
+                        cmp              al, 72;                              jne   .Lx755_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx755_53
                                                                               jmp   .Lx755_46
@@ -7068,9 +7068,9 @@ n332_call_builtin_prolog_α:
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax;             jmp   .Lx755_51
 .Lx755_45:              mov              eax, dword ptr [r9 + 0]
-                        cmp              eax, 0;                              je    .Lx755_47
-                        cmp              eax, 104;                            je    .Lx755_47
-                        cmp              eax, 72;                             jne   .Lx755_48
+                        cmp              al, 0;                               je    .Lx755_47
+                        cmp              al, 104;                             je    .Lx755_47
+                        cmp              al, 72;                              jne   .Lx755_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9;                             je    .Lx755_47
                                                                               jmp   .Lx755_48
@@ -7098,14 +7098,14 @@ n332_call_builtin_prolog_α:
                         mov              qword ptr [r9 + 8], rax;             jmp   .Lx755_51
 .Lx755_48:              mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              ecx, 80;                             jne   .Lx755_49
-                        cmp              edx, 80;                             je    .Lx755_53
+                        cmp              cl, 80;                              jne   .Lx755_49
+                        cmp              dl, 80;                              je    .Lx755_53
                                                                               jmp   .Lx755_52
-.Lx755_49:              cmp              edx, 80;                             je    .Lx755_52
-                        cmp              ecx, 5;                              je    .Lx755_53
-                        cmp              edx, 5;                              je    .Lx755_53
-                        cmp              ecx, 3;                              jne   .Lx755_50
-                        cmp              edx, 3;                              jne   .Lx755_50
+.Lx755_49:              cmp              dl, 80;                              je    .Lx755_52
+                        cmp              cl, 5;                               je    .Lx755_53
+                        cmp              dl, 5;                               je    .Lx755_53
+                        cmp              cl, 3;                               jne   .Lx755_50
+                        cmp              dl, 3;                               jne   .Lx755_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 3;                              jne   .Lx755_53
                         mov              rax, qword ptr [r9 + 0]
@@ -7131,7 +7131,7 @@ n332_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx755_54:              mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n333_var_ref_α
 n332_call_builtin_prolog_β:
@@ -7160,7 +7160,7 @@ n335_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx
-                        cmp              eax, 104;                            je    n338_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n338_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n336_move_label_α
 n335_call_builtin_prolog_β:
@@ -7190,7 +7190,7 @@ n338_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
-                        cmp              eax, 104;                            je    d$2F3_ω
+                        cmp              al, 104;                             je    d$2F3_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   d$2F3_ω
 n338_call_builtin_prolog_β:
@@ -7295,7 +7295,7 @@ n766_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx770_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
-                        cmp              eax, 104;                            je    top$2F0_ω
+                        cmp              al, 104;                             je    top$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n767_call_proc_staged_α
 n766_call_builtin_prolog_β:
@@ -7319,7 +7319,7 @@ n767_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 88]
 .Lx772_29:              mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
-                        cmp              eax, 104;                            je    n769_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n769_call_builtin_prolog_α
                                                                               jmp   n768_suspend_α
 n767_call_proc_staged_β:
                                                                               jmp   n769_call_builtin_prolog_α
@@ -7362,7 +7362,7 @@ n769_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 104;                            je    top$2F0_ω
+                        cmp              al, 104;                             je    top$2F0_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   top$2F0_ω
 n769_call_builtin_prolog_β:
@@ -7449,7 +7449,7 @@ n776_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
 .Lx787_101:             mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n777_call_proc_staged_α
 n776_call_builtin_prolog_β:
@@ -7503,7 +7503,7 @@ n777_call_proc_staged_α:
                         mov              rdx, qword ptr [rsp + 248]
 .Lx789_29:              mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx
-                        cmp              eax, 104;                            je    n780_lit_string_α
+                        cmp              al, 104;                             je    n780_lit_string_α
                                                                               jmp   n778_lit_string_α
 n777_call_proc_staged_β:
                         call             rt_gen_spine_resume_enter@PLT
@@ -7538,7 +7538,7 @@ n777_call_proc_staged_β:
 .Lx789_7:               add              rsp, 8
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx
-                        cmp              eax, 104;                            je    n780_lit_string_α
+                        cmp              al, 104;                             je    n780_lit_string_α
                                                                               jmp   n778_lit_string_α
 .Lx789_0:               .quad            .Lx789_0_s
 .Lx789_0_s:             .string          "top/0"
@@ -7566,7 +7566,7 @@ n779_call_builtin_prolog_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 152], rdx
-                        cmp              eax, 104;                            je    n786_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n786_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n782_lit_string_α
 n779_call_builtin_prolog_β:
@@ -7595,7 +7595,7 @@ n781_call_builtin_prolog_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
-                        cmp              eax, 104;                            je    n786_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n786_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n782_lit_string_α
 n781_call_builtin_prolog_β:
@@ -7624,7 +7624,7 @@ n783_call_builtin_prolog_α:
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
-                        cmp              eax, 104;                            je    n786_call_builtin_prolog_α
+                        cmp              al, 104;                             je    n786_call_builtin_prolog_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n784_move_label_α
 n783_call_builtin_prolog_β:
@@ -7654,7 +7654,7 @@ n786_call_builtin_prolog_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
-                        cmp              eax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_ω
 n786_call_builtin_prolog_β:
