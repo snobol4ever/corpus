@@ -324,8 +324,8 @@ token_α:                sub              rsp, 48
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]
                         lea              rcx, [rip + token_γ]
-                        lea              r11, [rip + token_ω]
-                        push             r11
+                        lea              rax, [rip + token_ω]
+                        push             rax
                         push             rcx
                         lea              rax, [rip + n67_statement_begin_α];  jmp   rax
 token_γ:                mov              rdi, qword ptr [r9 + 0]
