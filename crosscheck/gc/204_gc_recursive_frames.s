@@ -81,8 +81,6 @@ build_α:                sub              rsp, 96
                         mov              qword ptr [rsp + 40], rax
                         mov              qword ptr [r9 + 0], 0
                         mov              qword ptr [r9 + 8], 0
-                        mov              qword ptr [rsp + 48], r10
-                        mov              qword ptr [rsp + 56], r11
                         mov              qword ptr [rsp + 64], rcx
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 96]
@@ -136,9 +134,7 @@ build_γ:                mov              rdi, qword ptr [r9 + 0]              #
                         mov              qword ptr [r9 + 16], rax
                         mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [r9 + 24], rax
-.Lx56_110:              mov              r10, qword ptr [rsp + 48]
-                        mov              r11, qword ptr [rsp + 56]
-                        mov              rcx, qword ptr [rcx + 8]
+.Lx56_110:              mov              rcx, qword ptr [rcx + 8]
                         add              rsp, 96
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
@@ -168,9 +164,7 @@ build_ω:                mov              rcx, qword ptr [rsp + 64]
                         mov              qword ptr [r9 + 16], rax
                         mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [r9 + 24], rax
-.Lx56_180:              mov              r10, qword ptr [rsp + 48]
-                        mov              r11, qword ptr [rsp + 56]
-                        mov              rcx, qword ptr [rcx + 16]
+.Lx56_180:              mov              rcx, qword ptr [rcx + 16]
                         add              rsp, 96
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
