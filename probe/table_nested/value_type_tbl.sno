@@ -1,0 +1,29 @@
+* value_type_tbl -- MECHANISM PROBE, row table-nested-subscript-cost. ISOLATES: "nested-table value
+* boxing" -- same shape as chain_read_d1.sno (single hop, 8-slot cycle, pre-built, no IDENT) except
+* the VALUE stored at each slot is a TABLE reference instead of an INTEGER.  Compare its per-iteration
+* cost directly against chain_read_d1.sno: any delta is the cost of a table-typed vs scalar-typed
+* value at the SAME single hop.  Cannot sum a table value, so the check counts iterations instead
+* (still forces a real read+assign each pass: `fetched` is reassigned live every iteration).
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        level1 = TABLE()
+        slot = 0
+seed1   inner = TABLE()
+        level1[slot] = inner
+        slot = LT(slot, 7) slot + 1                     :S(seed1)
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZKN = ZKN + 0
+        ZI = 1
+        total = 0
+        slot = 0
+ZBL     fetched = level1[slot]
+        total = total + 1
+        EQ(slot, 7)                                      :S(zreset)
+        slot = slot + 1                                   :(zcont)
+zreset  slot = 0
+zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
+        ZBODY = total                                     :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'

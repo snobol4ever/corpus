@@ -1,0 +1,26 @@
+* chain_read_d1 -- MECHANISM PROBE, row table-nested-subscript-cost (FINDING-2026-08-21-s199).
+* ISOLATES: single-hop table READ cost, pre-built table (no creation/IDENT in the timed loop), key
+* cycles through 8 pre-seeded slots so the read cannot be trivially loop-hoisted.  Leaf VALUE TYPE is
+* INTEGER -- this is the depth-1 rung of the chain_read_d1/d2/d3 ladder (same leaf, same slot cycle,
+* only hop count differs) and also the INTEGER control for value_type_tbl.sno's boxing isolation.
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        level1 = TABLE()
+        slot = 0
+seed1   level1[slot] = slot * 3
+        slot = LT(slot, 7) slot + 1                     :S(seed1)
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZKN = ZKN + 0
+        ZI = 1
+        total = 0
+        slot = 0
+ZBL     total = total + level1[slot]
+        EQ(slot, 7)                                      :S(zreset)
+        slot = slot + 1                                   :(zcont)
+zreset  slot = 0
+zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
+        ZBODY = total                                     :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'

@@ -1,0 +1,28 @@
+* ident_guard_d1 -- MECHANISM PROBE, row table-nested-subscript-cost. ISOLATES: the IDENT() auto-
+* vivify guard's STEADY-STATE (fast-fail) cost.  Same shape as chain_read_d1.sno (single hop, 8-slot
+* cycle, pre-built table) but each pass does `level1[slot] = IDENT(level1[slot]) 99999` instead of a
+* plain read -- since every slot is already seeded non-null, IDENT always FAILS and the assignment
+* never fires (claws5's own steady-state path once a key has been seen once).  Compare against
+* chain_read_d1.sno at the same depth to isolate the guard's own dispatched-call overhead.
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        level1 = TABLE()
+        slot = 0
+seed1   level1[slot] = slot * 3
+        slot = LT(slot, 7) slot + 1                     :S(seed1)
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZKN = ZKN + 0
+        ZI = 1
+        total = 0
+        slot = 0
+ZBL     level1[slot] = IDENT(level1[slot]) 99999
+        total = total + 1
+        EQ(slot, 7)                                      :S(zreset)
+        slot = slot + 1                                   :(zcont)
+zreset  slot = 0
+zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
+        ZBODY = total                                     :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'

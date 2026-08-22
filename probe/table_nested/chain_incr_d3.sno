@@ -1,0 +1,28 @@
+* chain_incr_d3 -- MECHANISM PROBE, row table-nested-subscript-cost. Depth-3 rung of the
+* chain_incr_d1/d2/d3 ladder: read-then-write `level1[slot][slot][slot] = ...+ 1`, no IDENT, table
+* pre-built/pre-seeded (diagonal) so no creation happens in the timed loop.  Mirrors claws5's own
+* `mem[num][wrd][tag] = mem[num][wrd][tag] + 1` line exactly in hop count and read+write shape.
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        level1 = TABLE()
+        slot = 0
+seed1   inner2 = TABLE()
+        inner3 = TABLE()
+        inner3[slot] = slot * 3
+        inner2[slot] = inner3
+        level1[slot] = inner2
+        slot = LT(slot, 7) slot + 1                     :S(seed1)
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZKN = ZKN + 0
+        ZI = 1
+        slot = 0
+ZBL     level1[slot][slot][slot] = level1[slot][slot][slot] + 1
+        EQ(slot, 7)                                      :S(zreset)
+        slot = slot + 1                                   :(zcont)
+zreset  slot = 0
+zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
+        ZBODY = level1[0][0][0]                           :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'
