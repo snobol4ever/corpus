@@ -7,7 +7,7 @@
 # Transform: every wave-name token -> &name (defs AND refs, so *X -> *&X), skipping quoted strings, comment/
 # control lines, goto fields (labels!), col-1 label tokens, call syntax name(, and already-&/captured tokens.
 # Fixed point law: beauty_c beautifying CLASSIC beauty.sno must emit beauty.sno byte-identically.
-import re, glob, os
+import re, glob, os, subprocess, sys
 WAVE1 = """BuiltinVar BuiltinVars Commands Comment Control DQ Expr Expr0 Expr1 Expr10
 Expr11 Expr12 Expr13 Expr14 Expr15 Expr17 Expr2 Expr3 Expr4 Expr5
 Expr6 Expr7 Expr8 Expr9 ExprList FGoto Function Functions Goto Gray
@@ -59,3 +59,32 @@ for f in ['beauty.sno']+sorted(os.path.basename(p) for p in glob.glob(src+'/*.in
     out='\n'.join(tl)
     open(os.path.join(here,'beauty_c.sno' if f=='beauty.sno' else f),'w',encoding='utf-8').write(out)
 print("regenerated beauty_c from ../beauty")
+# SELF-BEAUTIFY PASS (BEAUTY-CN, this session): the regex transform above only ever INSERTS '&' characters
+# -- it never recomputes the ppStop tab-stop column padding that beauty's own pretty-printer derives from
+# identifier width, so the raw output is not itself a fixed point of the engine it becomes part of (every
+# widened 'Name' -> '&Name' is one column wider and the checked-in padding goes stale). The cure is the same
+# one s117 already established for classic beauty.sno: run the file through its OWN engine and check in
+# what comes out. Iterate to a stable point (2 iterations sufficed when this was measured by hand; loop a
+# few more for safety) and refuse to touch the checked-in file if the compiler can't be found or a fixed
+# point is never reached -- a partially-beautified file checked in silently would be worse than the raw one.
+root = os.path.join(here, '..', '..', '..', '..', '..')
+scrip = os.environ.get('SCRIP_BIN', os.path.join(root, 'SCRIP', 'scrip'))
+main_path = os.path.join(here, 'beauty_c.sno')
+if os.path.isfile(scrip) and os.access(scrip, os.X_OK):
+    cur = open(main_path, encoding='utf-8').read()
+    for i in range(5):
+        r = subprocess.run([scrip, '--run', main_path], input=cur, capture_output=True, text=True,
+                            env={**os.environ, 'SNO_LIB': here}, timeout=30)
+        nxt = r.stdout
+        if nxt == cur:
+            if i > 0: open(main_path, 'w', encoding='utf-8').write(cur)
+            print(f"self-beautify: fixed point reached after {i} re-beautify pass(es)")
+            break
+        cur = nxt
+    else:
+        print("self-beautify: NOT a fixed point after 5 passes -- beauty_c.sno left as the raw generated "
+              "(non-fixed-point) text; do not check this in without investigating", file=sys.stderr)
+        sys.exit(1)
+else:
+    print(f"self-beautify: SKIPPED, no scrip binary at {scrip} -- beauty_c.sno is the raw generated text, "
+          "NOT yet confirmed to be a fixed point; build SCRIP and re-run before checking in", file=sys.stderr)
