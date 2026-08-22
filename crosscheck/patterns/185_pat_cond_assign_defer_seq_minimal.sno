@@ -1,0 +1,16 @@
+*  185_pat_cond_assign_defer_seq_minimal.sno -- loop-free reduction of 184.
+*  Same defect as 184 (queue row cond-assign-double-fire) with ARBNO, SPAN and
+*  digits all removed: two `(epsilon . *f())` sites concatenated, nothing else.
+*  Proves the bug is about a SECOND `. *f()` site being reached after the first
+*  one already rejected the match -- ARBNO/looping is not required to trigger it.
+*  ORACLE PROVENANCE: x64/bin/sbl -bf (correctness oracle, s255 two-oracle ruling).
+        DEFINE('mark_fire()')                          :(mark_fire_end)
+mark_fire       fire_count = fire_count + 1
+        mark_fire = ''                                 :(RETURN)
+mark_fire_end
+        fire_count = 0
+        pattern = (epsilon . *mark_fire()) (epsilon . *mark_fire())
+        'X' ? pattern                                  :S(matched)F(no_match)
+matched OUTPUT = 'MATCH fire_count=' fire_count        :(END)
+no_match        OUTPUT = 'NOMATCH fire_count=' fire_count
+END
