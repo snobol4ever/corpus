@@ -10074,10 +10074,10 @@ houses$2F1_dcα:
                         push             r11
                         push             r11
                         push             rsi
-                        mov              r10, qword ptr [rsp + 0]
+                        mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
-                        mov              rsi, qword ptr [r10 + 0]
-                        mov              rdx, qword ptr [r10 + 8]
+                        mov              rsi, qword ptr [rax + 0]
+                        mov              rdx, qword ptr [rax + 8]
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_arg_stage@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
