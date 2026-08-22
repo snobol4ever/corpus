@@ -28,14 +28,15 @@ n2_var_β:               add              rsp, 16
                         add              rsp, 16;                             jmp   double_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n3_binop_α:             sub              rsp, 16
-                        mov              ecx, dword ptr [rsp + 16]            # var
-                        cmp              ecx, 3;                              jne   .Lx9_2
-                        mov              rax, 2
+                        mov              eax, dword ptr [rsp + 16]            # var
                         mov              rdx, qword ptr [rsp + 24]
+                        cmp              eax, 3;                              jne   .Lx9_2
+                        mov              rax, 2
                         imul             rax, rdx
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx9_7
-.Lx9_2:                 mov              edx, ecx
+.Lx9_2:                 mov              ecx, eax
+                        mov              edx, eax
                         and              edx, 1;                              jz    .Lx9_0
                         mov              rsi, 2
                         mov              rdi, qword ptr [rsp + 24]            # var

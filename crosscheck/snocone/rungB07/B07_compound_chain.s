@@ -65,14 +65,14 @@ n6_lit_integer_β:       add              rsp, 16
 .Lx35_0:                .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n7_binop_α:             sub              rsp, 16
-                        mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 3;                              jne   .Lx36_2
+                        mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
-                        mov              rdx, 3
-                        add              rax, rdx
+                        cmp              ecx, 3;                              jne   .Lx36_2
+                        add              rax, 3
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx36_7
-.Lx36_2:                mov              edx, eax
+.Lx36_2:                mov              eax, ecx
+                        mov              edx, ecx
                         and              edx, 1;                              jz    .Lx36_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 3
@@ -125,14 +125,15 @@ n12_lit_integer_β:      add              rsp, 16
 .Lx43_0:                .quad            4
 #-----------------------------------------------------------------------------------------------------------------------
 n13_binop_α:            sub              rsp, 16
-                        mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 3;                              jne   .Lx44_2
+                        mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
+                        cmp              ecx, 3;                              jne   .Lx44_2
                         mov              rdx, 4
                         imul             rax, rdx
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx44_7
-.Lx44_2:                mov              edx, eax
+.Lx44_2:                mov              eax, ecx
+                        mov              edx, ecx
                         and              edx, 1;                              jz    .Lx44_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 4
@@ -185,14 +186,14 @@ n18_lit_integer_β:      add              rsp, 16
 .Lx51_0:                .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n19_binop_α:            sub              rsp, 16
-                        mov              eax, dword ptr [rsp + 32]            # var
-                        cmp              eax, 3;                              jne   .Lx52_2
+                        mov              ecx, dword ptr [rsp + 32]            # var
                         mov              rax, qword ptr [rsp + 40]
-                        mov              rdx, 2
-                        sub              rax, rdx
+                        cmp              ecx, 3;                              jne   .Lx52_2
+                        sub              rax, 2
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              qword ptr [rsp + 8], rax;            jmp   .Lx52_7
-.Lx52_2:                mov              edx, eax
+.Lx52_2:                mov              eax, ecx
+                        mov              edx, ecx
                         and              edx, 1;                              jz    .Lx52_0
                         mov              rsi, qword ptr [rsp + 40]            # var
                         mov              rdi, 2
