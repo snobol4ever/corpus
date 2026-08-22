@@ -26,14 +26,16 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_string_α:        mov              qword ptr [rsp + 240], 2             # result
+n0_lit_string_α:        mov              r11, 1
+                        mov              qword ptr [rsp + 240], 2             # result
                         mov              dword ptr [rsp + 244], 5
                         mov              rax, qword ptr [rip + .Lx8_0]
                         mov              qword ptr [rsp + 248], rax;          jmp   n1_call_builtin_icon_α
 .Lx8_0:                 .quad            .Lx8_0_s
 .Lx8_0_s:               .string          "hello"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_call_builtin_icon_α: mov              rax, qword ptr [rsp + 240]
+n1_call_builtin_icon_α: mov              r11, 2
+                        mov              rax, qword ptr [rsp + 240]
                         mov              qword ptr [rsp + 208], rax
                         mov              rax, qword ptr [rsp + 248]
                         mov              qword ptr [rsp + 216], rax
@@ -51,19 +53,22 @@ n1_call_builtin_icon_α: mov              rax, qword ptr [rsp + 240]
                         cmp              al, 104;                             je    n3_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n2_assign_α
-n1_call_builtin_icon_β:                                                       jmp   n3_var_α
+n1_call_builtin_icon_β: mov              r11, 2;                              jmp   n3_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_assign_α:            mov              rax, qword ptr [rsp + 192]
+n2_assign_α:            mov              r11, 3
+                        mov              rax, qword ptr [rsp + 192]
                         mov              rdx, qword ptr [rsp + 200]
                         mov              qword ptr [rsp + 256], rax
                         mov              qword ptr [rsp + 264], rdx;          jmp   n3_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_var_α:               mov              rax, qword ptr [rsp + 256]
+n3_var_α:               mov              r11, 4
+                        mov              rax, qword ptr [rsp + 256]
                         mov              qword ptr [rsp + 160], rax
                         mov              rax, qword ptr [rsp + 264]
                         mov              qword ptr [rsp + 168], rax;          jmp   n4_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
-n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 160]
+n4_call_builtin_icon_α: mov              r11, 5
+                        mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [rsp + 128], rax
                         mov              rax, qword ptr [rsp + 168]
                         mov              qword ptr [rsp + 136], rax
@@ -81,14 +86,16 @@ n4_call_builtin_icon_α: mov              rax, qword ptr [rsp + 160]
                         cmp              al, 104;                             je    n5_var_α
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n5_var_α
-n4_call_builtin_icon_β:                                                       jmp   n5_var_α
+n4_call_builtin_icon_β: mov              r11, 5;                              jmp   n5_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n5_var_α:               mov              rax, qword ptr [rsp + 256]
+n5_var_α:               mov              r11, 6
+                        mov              rax, qword ptr [rsp + 256]
                         mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 264]
                         mov              qword ptr [rsp + 104], rax;          jmp   n6_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
-n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 96]
+n6_call_builtin_icon_α: mov              r11, 7
+                        mov              rax, qword ptr [rsp + 96]
                         mov              qword ptr [rsp + 64], rax
                         mov              rax, qword ptr [rsp + 104]
                         mov              qword ptr [rsp + 72], rax
@@ -106,9 +113,10 @@ n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 96]
                         cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   n7_call_builtin_icon_α
-n6_call_builtin_icon_β:                                                       jmp   main_ω
+n6_call_builtin_icon_β: mov              r11, 7;                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n7_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
+n7_call_builtin_icon_α: mov              r11, 8
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
@@ -126,7 +134,7 @@ n7_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
-n7_call_builtin_icon_β:                                                       jmp   main_ω
+n7_call_builtin_icon_β: mov              r11, 8;                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω

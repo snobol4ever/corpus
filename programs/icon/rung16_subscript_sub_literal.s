@@ -22,6 +22,7 @@ main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:        sub              rsp, 16
+                        mov              r11, 1
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Lx5_0]
@@ -30,12 +31,14 @@ n0_lit_string_α:        sub              rsp, 16
 .Lx5_0_s:               .string          "icon"
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:       sub              rsp, 16
+                        mov              r11, 2
                         mov              qword ptr [rsp + 0], 3               # result
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2_subscript_α
 .Lx6_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n2_subscript_α:         sub              rsp, 16
+                        mov              r11, 3
                         mov              rdi, qword ptr [rsp + 32]            # lit_string
                         mov              rsi, qword ptr [rsp + 40]
                         mov              rdx, qword ptr [rsp + 16]            # lit_integer
@@ -51,6 +54,7 @@ n2_subscript_α:         sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n3_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_deref_α:             sub              rsp, 16
+                        mov              r11, 4
                         mov              rdi, qword ptr [rsp + 16]            # subscript
                         mov              rsi, qword ptr [rsp + 24]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -64,6 +68,7 @@ n3_deref_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 8], rdx;            jmp   n4_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_call_builtin_icon_α: sub              rsp, 16
+                        mov              r11, 5
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
