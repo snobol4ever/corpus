@@ -80,12 +80,12 @@ n7_scan_upto_α:         mov              qword ptr [rsp + 176], r14
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx31_2]
                         push             rax
-                        push             r10
+                        push             r11
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r10
+                        pop              r11
                         test             rax, rax
                         pop              rax;                                 je    .Lx31_1
                         mov              qword ptr [rsp + 160], 3
@@ -110,14 +110,14 @@ n8_scan_tab_α:          mov              rax, qword ptr [rsp + 168]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r10
-                        push             r10
+                        push             r11
+                        push             r11
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r10
-                        pop              r10
+                        pop              r11
+                        pop              r11
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx;          jmp   n9_lit_charset_α
 n8_scan_tab_β:          mov              r14, qword ptr [rsp + 144];          jmp   n7_scan_upto_β
@@ -135,12 +135,12 @@ n10_scan_many_α:        mov              eax, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx36_2]
                         push             rax
-                        push             r10
+                        push             r11
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r10
+                        pop              r11
                         test             rax, rax
                         pop              rax;                                 je    .Lx36_1
                         add              eax, 1;                              jmp   .Lx36_0
@@ -167,14 +167,14 @@ n11_scan_tab_α:         mov              rax, qword ptr [rsp + 344]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             r10
-                        push             r10
+                        push             r11
+                        push             r11
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r10
-                        pop              r10
+                        pop              r11
+                        pop              r11
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx;          jmp   n12_var_α
 n11_scan_tab_β:         mov              r14, qword ptr [rsp + 320];          jmp   n12_var_α

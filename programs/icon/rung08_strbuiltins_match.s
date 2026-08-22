@@ -55,12 +55,12 @@ n3_scan_match_α:        mov              rax, r15
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
-                        push             r10
+                        push             r11
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r10
+                        pop              r11
                         test             eax, eax;                            jne   n6_scan_α
                         mov              qword ptr [rsp + 368], 3
                         mov              rax, r14
@@ -213,12 +213,12 @@ n14_scan_match_α:       mov              rax, r15
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
-                        push             r10
+                        push             r11
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r10
+                        pop              r11
                         test             eax, eax;                            jne   n9_disjunction_af
                         mov              qword ptr [rsp + 160], 3
                         mov              rax, r14
