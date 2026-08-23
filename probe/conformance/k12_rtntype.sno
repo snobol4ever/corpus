@@ -1,0 +1,10 @@
+        DEFINE('retter(v)')
+        DEFINE('fretter(v)')                         :(main)
+retter  retter = v                                    :(RETURN)
+fretter EQ(v,999)                                      :F(FRETURN)
+        fretter = v                                    :(RETURN)
+main    retter(1)
+        OUTPUT = 'after-return=' &RTNTYPE
+        fretter(1)
+        OUTPUT = 'after-freturn=' &RTNTYPE
+END

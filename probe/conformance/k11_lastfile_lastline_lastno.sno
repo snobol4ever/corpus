@@ -1,0 +1,6 @@
+        aa = 1
+        bb = 2
+        OUTPUT = 'lastno=' &LASTNO
+        OUTPUT = 'lastline=' &LASTLINE
+        OUTPUT = &LASTFILE
+END

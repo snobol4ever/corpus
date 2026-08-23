@@ -1,0 +1,4 @@
+        vname = 'TARGET'
+        $vname = 'hit'
+        OUTPUT = TARGET
+END

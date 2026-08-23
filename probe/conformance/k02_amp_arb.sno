@@ -1,0 +1,5 @@
+        'ABCDEF' ? 'A' (&ARB | 'D') 'E'            :F(bad)
+        OUTPUT = 'amp-arb-ok'                        :(fin)
+bad     OUTPUT = 'amp-arb-bad'
+fin
+END

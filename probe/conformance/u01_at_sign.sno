@@ -1,0 +1,3 @@
+        'ABCDEF' ? 'ABC' @cursor
+        OUTPUT = cursor
+END

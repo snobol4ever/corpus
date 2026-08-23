@@ -1,0 +1,5 @@
+        '(A(B)C)D' ? BAL . matched 'D'            :F(bad)
+        OUTPUT = 'bal-matched=' matched            :(fin)
+bad     OUTPUT = 'bal-bad'
+fin
+END

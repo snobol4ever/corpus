@@ -1,0 +1,2 @@
+        OUTPUT = 'ftrace-initial=' &FTRACE
+END

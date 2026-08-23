@@ -1,0 +1,2 @@
+        OUTPUT = 'fullscan-initial=' &FULLSCAN
+END

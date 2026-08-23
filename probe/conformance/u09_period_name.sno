@@ -1,0 +1,7 @@
+        ABC = 'named-ok'
+        pname = .ABC
+        'named-ok' ? pname                      :F(bad)
+        OUTPUT = 'name-pattern-ok'               :(fin)
+bad     OUTPUT = 'name-pattern-bad'
+fin
+END

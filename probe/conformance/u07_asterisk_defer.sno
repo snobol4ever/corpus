@@ -1,0 +1,8 @@
+        pat = TAB(*posn) . OUTPUT SPAN(*chset) . OUTPUT
+        subj = '123AABBCC'
+        posn = 4
+        chset = 'AB'
+        subj ? pat
+        posn = 3
+        subj ? pat
+END

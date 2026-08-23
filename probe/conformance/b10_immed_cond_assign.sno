@@ -1,0 +1,7 @@
+        fpat = SPAN('0123456789') $ n LEN(*n) . field
+        '12ABCDEFGHIJKLMNOPQ' ? fpat             :F(bad)
+        OUTPUT = 'n=' n
+        OUTPUT = 'field=' field                  :(fin)
+bad     OUTPUT = 'immed-cond-bad'
+fin
+END

@@ -1,0 +1,9 @@
+        'A' ? ('X' | FAIL | 'A')                :S(sawthird1)
+        OUTPUT = 'fail-should-backtrack-not-here' :(midpoint)
+sawthird1 OUTPUT = 'fail-lets-third-alt-win-ok'
+midpoint
+        'A' ? ('X' | ABORT | 'A')                :S(sawthird2)
+        OUTPUT = 'abort-shortcircuits-ok'         :(fin)
+sawthird2 OUTPUT = 'abort-wrongly-reached-third'
+fin
+END

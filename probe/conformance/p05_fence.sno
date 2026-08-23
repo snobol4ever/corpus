@@ -1,0 +1,9 @@
+        'XABC' ? 'ABC'                            :F(bad1)
+        OUTPUT = 'unanchored-finds-abc'             :(next)
+bad1    OUTPUT = 'unanchored-should-have-matched'
+next
+        'XABC' ? FENCE 'ABC'                      :S(bad2)
+        OUTPUT = 'fence-anchors-and-fails'          :(fin)
+bad2    OUTPUT = 'fence-did-not-anchor'
+fin
+END

@@ -1,0 +1,8 @@
+        DEFINE('failer(a)')                        :(main)
+failer  EQ(a,1)                                     :F(FRETURN)
+        failer = 'was-one'                          :(RETURN)
+main    OUTPUT = IDENT(failer(2),'was-one')          :S(bad)
+        OUTPUT = 'freturn-ok'                        :(fin)
+bad     OUTPUT = 'freturn-bad'
+fin
+END

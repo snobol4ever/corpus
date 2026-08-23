@@ -1,0 +1,5 @@
+        'X' ? ('A' | &FAIL)                        :S(bad)
+        OUTPUT = 'amp-fail-ok'                       :(fin)
+bad     OUTPUT = 'amp-fail-bad'
+fin
+END

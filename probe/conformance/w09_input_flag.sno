@@ -1,0 +1,2 @@
+        OUTPUT = 'input-initial=' &INPUT
+END

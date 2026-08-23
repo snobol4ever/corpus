@@ -1,0 +1,2 @@
+        OUTPUT = 'trace-initial=' &TRACE
+END

@@ -1,0 +1,3 @@
+        OUTPUT = &LCASE
+        OUTPUT = &UCASE
+END

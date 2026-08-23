@@ -1,0 +1,5 @@
+        'ABCDE' ? 'AB' &REM . rest                 :F(bad)
+        OUTPUT = 'amp-rem-rest=' rest                :(fin)
+bad     OUTPUT = 'amp-rem-bad'
+fin
+END

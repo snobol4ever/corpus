@@ -1,0 +1,5 @@
+        '' ? &SUCCEED                              :F(bad)
+        OUTPUT = 'amp-succeed-ok'                    :(fin)
+bad     OUTPUT = 'amp-succeed-bad'
+fin
+END

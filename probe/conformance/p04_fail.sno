@@ -1,0 +1,5 @@
+        'X' ? ('A' | FAIL)                        :S(bad)
+        OUTPUT = 'fail-ok'                          :(fin)
+bad     OUTPUT = 'fail-bad'
+fin
+END

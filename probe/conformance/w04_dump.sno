@@ -1,0 +1,2 @@
+        OUTPUT = 'dump-initial=' &DUMP
+END

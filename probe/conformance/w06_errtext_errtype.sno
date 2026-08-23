@@ -1,0 +1,3 @@
+        OUTPUT = 'errtext-initial=' &ERRTEXT
+        OUTPUT = 'errtype-initial=' &ERRTYPE
+END

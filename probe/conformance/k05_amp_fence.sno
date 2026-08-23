@@ -1,0 +1,5 @@
+        'XABC' ? &FENCE 'ABC'                      :S(bad)
+        OUTPUT = 'amp-fence-anchors-ok'              :(fin)
+bad     OUTPUT = 'amp-fence-bad'
+fin
+END

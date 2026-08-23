@@ -1,0 +1,9 @@
+        s = 'ABCDEF'
+        p = 'ABC'
+        n = 0
+        n = ?(s ? p) n + 1
+        OUTPUT = 'after-success-match n=' n
+        p = 'ZZZ'
+        n = ?(s ? p) n + 1
+        OUTPUT = 'after-failed-match n=' n
+END

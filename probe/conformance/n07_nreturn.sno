@@ -1,0 +1,6 @@
+        DEFINE('namer()namedvar')                    :(main)
+namer   namedvar = 'set-by-namer'
+        namer = .namedvar                             :(NRETURN)
+main    result = namer()
+        OUTPUT = result
+END

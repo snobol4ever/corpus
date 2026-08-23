@@ -1,0 +1,5 @@
+        '' ? SUCCEED                              :F(bad)
+        OUTPUT = 'succeed-ok'                       :(fin)
+bad     OUTPUT = 'succeed-bad'
+fin
+END
