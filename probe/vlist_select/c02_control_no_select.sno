@@ -1,0 +1,6 @@
+        DATA('list(n,a)')
+        x = list(0, ARRAY('0:3'))
+        a(x)[0] = 5
+        OUTPUT = 'v=' a(x)[0]
+        OUTPUT = 'p=' PROTOTYPE(a(x))
+END

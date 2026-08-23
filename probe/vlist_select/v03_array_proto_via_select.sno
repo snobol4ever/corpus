@@ -1,0 +1,10 @@
+        DATA('list(n,a)')
+        x = list(0, )
+        OUTPUT = 'ident-empty=' IDENT(a(x)) 'YES'
+        sz = 1
+        a = ARRAY('0:' (IDENT(a(x)) 0, sz * 2 - 1))
+        OUTPUT = 'proto=' PROTOTYPE(a)
+        y = list(1, ARRAY('0:0'))
+        a2 = ARRAY('0:' (IDENT(a(y)) 0, sz * 2 - 1))
+        OUTPUT = 'proto2=' PROTOTYPE(a2)
+END
