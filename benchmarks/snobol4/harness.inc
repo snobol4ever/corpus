@@ -29,6 +29,15 @@
 *   `scrip --run k.sno < /dev/null` (time-based, unchanged).  Contract: N is a positive integer, one
 *   line, nothing else on stdin -- the harness does not validate malformed input, matching every other
 *   reserved-variable contract below.
+* ⭐ FIXED_N NUMERIC COERCION (rung-harness-zk-string-coercion, 2026-08-23, credit seat06's diagnosis +
+*   proposed fix): `INPUT` always returns a STRING (SNOBOL4/SCRIP), so a stdin-fed `fixed_n` stayed
+*   STRING for the rest of the run -- both `ZK = fixed_n` and every kernel-internal `LT(.., ZKN)` then
+*   re-ran a full string->numeric coercion on EVERY steady-state iteration instead of once.  MEASURED
+*   (callgrind Ir, this session, fresh build): `rt_coerce_num2_d` alone cost 564,000,282 Ir on a
+*   2,000,000-iteration run -- 62.05% of arith_loop's total Ir and 51.30% of func_call's, confirming the
+*   defect on both kernels the row named.  ZFIXRUN now coerces `fixed_n` to numeric ONCE, at entry,
+*   before either downstream use (`ZK = fixed_n` and `LT(ZN, fixed_n)`) can see the string.  A
+*   pre-baked (`--mode=iter`) `fixed_n` is already numeric, so the extra `+ 0` there is a no-op.
 * Phase 1 CHECK     -- fixed count, deterministic, ref-diffable.  The ONLY line in the .ref.  Runs
 *                      FIRST, unconditionally, in BOTH modes -- this is what already makes every
 *                      kernel's check value oracle-comparable regardless of which mode runs after it.
@@ -81,7 +90,8 @@ ZB      ZBODY(ZK)
         OUTPUT = "iters: " ZN
         OUTPUT = "ns: " ZE
         OUTPUT = "ms: " ZE / 1000000                    :(ZEXIT)
-ZFIXRUN DIFFER(ZK)                                      :S(ZFB)
+ZFIXRUN fixed_n = fixed_n + 0
+        DIFFER(ZK)                                      :S(ZFB)
         ZK = fixed_n
 ZFB     ZT = TIME()
         ZN = 0
