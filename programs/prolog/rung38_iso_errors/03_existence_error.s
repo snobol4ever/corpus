@@ -279,13 +279,13 @@ n12_lit_integer_α:      mov              r11, 13
 n13_call_proc_staged_α: mov              r11, 14
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx37_20
+                        test             eax, eax;                            jne   .Lx37_200
                         mov              rax, qword ptr [rsp + 672]
                         mov              rdx, qword ptr [rsp + 680]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx37_21
-.Lx37_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx37_201
+.Lx37_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 672]
                         mov              rdx, qword ptr [rsp + 680]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -296,7 +296,7 @@ n13_call_proc_staged_α: mov              r11, 14
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx37_21:               mov              rdi, qword ptr [rip + .Lx37_0]
+.Lx37_201:              mov              rdi, qword ptr [rip + .Lx37_0]
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10

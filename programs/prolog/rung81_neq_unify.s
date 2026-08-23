@@ -1467,13 +1467,13 @@ n85_call_proc_staged_α: mov              r11, 65
                         mov              qword ptr [rsp + 848], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx189_20
+                        test             eax, eax;                            jne   .Lx189_200
                         mov              rax, qword ptr [rsp + 880]
                         mov              rdx, qword ptr [rsp + 888]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx189_21
-.Lx189_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx189_201
+.Lx189_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 880]
                         mov              rdx, qword ptr [rsp + 888]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1484,7 +1484,7 @@ n85_call_proc_staged_α: mov              r11, 65
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx189_21:              lea              rax, [rip + .Lx189_7]
+.Lx189_201:             lea              rax, [rip + .Lx189_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1

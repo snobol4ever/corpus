@@ -227,13 +227,13 @@ n31_proc_gen_α:         mov              r11, 14
                         mov              qword ptr [rsp + 208], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx38_20
+                        test             eax, eax;                            jne   .Lx38_200
                         mov              rax, qword ptr [rsp + 240]
                         mov              rdx, qword ptr [rsp + 248]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx38_21
-.Lx38_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx38_201
+.Lx38_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 240]
                         mov              rdx, qword ptr [rsp + 248]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -244,7 +244,7 @@ n31_proc_gen_α:         mov              r11, 14
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx38_21:               lea              rax, [rip + .Lx38_7]
+.Lx38_201:              lea              rax, [rip + .Lx38_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1
@@ -357,13 +357,13 @@ n34_proc_gen_α:         mov              r11, 17
                         mov              qword ptr [rsp + 80], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx43_20
+                        test             eax, eax;                            jne   .Lx43_200
                         mov              rax, qword ptr [rsp + 112]
                         mov              rdx, qword ptr [rsp + 120]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx43_21
-.Lx43_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx43_201
+.Lx43_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 112]
                         mov              rdx, qword ptr [rsp + 120]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -374,7 +374,7 @@ n34_proc_gen_α:         mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx43_21:               lea              rax, [rip + .Lx43_7]
+.Lx43_201:              lea              rax, [rip + .Lx43_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1

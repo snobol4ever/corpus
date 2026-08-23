@@ -485,13 +485,13 @@ n27_call_proc_staged_α: mov              r11, 22
                         mov              qword ptr [rsp + 304], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx62_20
+                        test             eax, eax;                            jne   .Lx62_200
                         mov              rax, qword ptr [rsp + 336]
                         mov              rdx, qword ptr [rsp + 344]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx62_21
-.Lx62_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx62_201
+.Lx62_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 336]
                         mov              rdx, qword ptr [rsp + 344]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -502,7 +502,7 @@ n27_call_proc_staged_α: mov              r11, 22
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx62_21:               lea              rax, [rip + .Lx62_7]
+.Lx62_201:              lea              rax, [rip + .Lx62_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1

@@ -319,13 +319,13 @@ n17_call_proc_staged_α: mov              r11, 13
                         mov              qword ptr [rsp + 464], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx49_20
+                        test             eax, eax;                            jne   .Lx49_200
                         mov              rax, qword ptr [rsp + 496]
                         mov              rdx, qword ptr [rsp + 504]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx49_21
-.Lx49_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx49_201
+.Lx49_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 496]
                         mov              rdx, qword ptr [rsp + 504]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -336,7 +336,7 @@ n17_call_proc_staged_α: mov              r11, 13
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx49_21:               lea              rax, [rip + .Lx49_7]
+.Lx49_201:              lea              rax, [rip + .Lx49_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1

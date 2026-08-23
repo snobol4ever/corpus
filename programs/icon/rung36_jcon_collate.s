@@ -4413,13 +4413,13 @@ n637_proc_gen_α:        mov              r11, 274
                         mov              qword ptr [rsp + 368], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx657_20
+                        test             eax, eax;                            jne   .Lx657_200
                         mov              rax, qword ptr [rsp + 400]
                         mov              rdx, qword ptr [rsp + 408]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx657_21
-.Lx657_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx657_201
+.Lx657_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 400]
                         mov              rdx, qword ptr [rsp + 408]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4430,7 +4430,7 @@ n637_proc_gen_α:        mov              r11, 274
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx657_21:              lea              rax, [rip + .Lx657_7]
+.Lx657_201:             lea              rax, [rip + .Lx657_7]
                         push             rax
                         mov              edi, 3
                         mov              esi, 1
@@ -4874,13 +4874,13 @@ n692_proc_gen_α:        mov              r11, 302
                         mov              qword ptr [rsp + 240], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx734_20
+                        test             eax, eax;                            jne   .Lx734_200
                         mov              rax, qword ptr [rsp + 272]
                         mov              rdx, qword ptr [rsp + 280]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx734_21
-.Lx734_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx734_201
+.Lx734_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 272]
                         mov              rdx, qword ptr [rsp + 280]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4891,7 +4891,7 @@ n692_proc_gen_α:        mov              r11, 302
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx734_21:              lea              rax, [rip + .Lx734_7]
+.Lx734_201:             lea              rax, [rip + .Lx734_7]
                         push             rax
                         mov              edi, 3
                         mov              esi, 1

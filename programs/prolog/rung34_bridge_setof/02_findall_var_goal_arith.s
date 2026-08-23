@@ -1223,13 +1223,13 @@ n90_call_proc_staged_α: mov              r11, 49
                         mov              qword ptr [rsp + 432], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx127_20
+                        test             eax, eax;                            jne   .Lx127_200
                         mov              rax, qword ptr [rsp + 464]
                         mov              rdx, qword ptr [rsp + 472]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx127_21
-.Lx127_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx127_201
+.Lx127_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 464]
                         mov              rdx, qword ptr [rsp + 472]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1240,7 +1240,7 @@ n90_call_proc_staged_α: mov              r11, 49
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx127_21:              lea              rax, [rip + .Lx127_7]
+.Lx127_201:             lea              rax, [rip + .Lx127_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1

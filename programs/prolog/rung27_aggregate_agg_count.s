@@ -501,13 +501,13 @@ n41_call_proc_staged_α: mov              r11, 20
                         mov              qword ptr [rsp + 384], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx59_20
+                        test             eax, eax;                            jne   .Lx59_200
                         mov              rax, qword ptr [rsp + 416]
                         mov              rdx, qword ptr [rsp + 424]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx59_21
-.Lx59_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx59_201
+.Lx59_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 416]
                         mov              rdx, qword ptr [rsp + 424]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -518,7 +518,7 @@ n41_call_proc_staged_α: mov              r11, 20
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx59_21:               lea              rax, [rip + .Lx59_7]
+.Lx59_201:              lea              rax, [rip + .Lx59_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1

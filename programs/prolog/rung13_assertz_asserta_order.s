@@ -477,13 +477,13 @@ n40_call_proc_staged_α: mov              r11, 19
                         mov              qword ptr [rsp + 256], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx53_20
+                        test             eax, eax;                            jne   .Lx53_200
                         mov              rax, qword ptr [rsp + 288]
                         mov              rdx, qword ptr [rsp + 296]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx53_21
-.Lx53_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx53_201
+.Lx53_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 288]
                         mov              rdx, qword ptr [rsp + 296]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -494,7 +494,7 @@ n40_call_proc_staged_α: mov              r11, 19
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx53_21:               lea              rax, [rip + .Lx53_7]
+.Lx53_201:              lea              rax, [rip + .Lx53_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 1
