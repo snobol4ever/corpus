@@ -1,0 +1,17 @@
+*  CONTROL, GREEN -- row goto-tail-wires-audit (seat3 s190, deliberately not taken; picked up
+*  by seat10, 2026-08-23).  The igt_computed_goto family's red/controls all end their transferee
+*  in :(RETURN); this one deliberately does NOT -- LADD falls off its end with no :(...) at all,
+*  first into another mainline statement, then off the true end of the program.  Proves the
+*  SCRIP_GOTO_TAIL tail-jmp arm (bb_goto_deferred.cpp) needs no rcx/rdx wires here: RETURN's own
+*  floater (x86_srf_floater, x86_asm.h) loads its landing from a FIXED STACK SLOT populated at
+*  CALL time, never from live rcx/rdx, so a transferee that never reaches RETURN at all has
+*  nothing to read either -- falling off the end lands on a plain compile-time-wired jmp (next
+*  statement, or main_gamma/exit at true end), never a register.  See FINDING-2026-08-23-seat10-
+*  goto-tail-wires-audit-the-tail-arm-needs-no-rcx-rdx-because-nothing-downstream-reads-them.md.
+        DEFINE('f(OP)')                 :(fmain)
+fmain   f('ADD')
+        OUTPUT = 'back'                 :(END)
+f                                       :($('L' OP))
+LADD    OUTPUT = 'op=ADD'
+        OUTPUT = 'fell through mid-program'
+END
