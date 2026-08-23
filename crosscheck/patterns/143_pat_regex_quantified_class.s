@@ -112,12 +112,15 @@ PAT$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_arbno_α:      mov              r11, 5
                         mov              dword ptr [rbp + -48], r14d
-                        mov              dword ptr [rbp + -44], r14d;         jmp   PAT$1_γ
-n12_match_arbno_β:      mov              r11, 5;                              jmp   n13_match_defer_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   PAT$1_γ
+n12_match_arbno_β:      mov              r11, 5
+                        mov              r12, qword ptr [rbp + -40];          jmp   n13_match_defer_α
 n12_match_arbno_as:     mov              r11, 5
                         mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n13_match_defer_β
-                        mov              dword ptr [rbp + -44], r14d;         jmp   PAT$1_γ
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   PAT$1_γ
 n12_match_arbno_af:     mov              r11, 5
                         mov              eax, dword ptr [rbp + -48]
                         cmp              r14d, eax;                           jmp   PAT$1_ω

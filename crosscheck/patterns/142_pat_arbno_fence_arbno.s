@@ -258,12 +258,15 @@ n16_match_pos_β:        mov              r11, 16;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_arbno_α:      mov              r11, 17
                         mov              dword ptr [rbp + -64], r14d
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n18_match_rpos_α
-n17_match_arbno_β:      mov              r11, 17;                             jmp   n21_match_len_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n18_match_rpos_α
+n17_match_arbno_β:      mov              r11, 17
+                        mov              r12, qword ptr [rbp + -56];          jmp   n21_match_len_α
 n17_match_arbno_as:     mov              r11, 17
                         mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n17_match_arbno_af
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n18_match_rpos_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n18_match_rpos_α
 n17_match_arbno_af:     mov              r11, 17
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n16_match_pos_β

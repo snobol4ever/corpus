@@ -233,12 +233,15 @@ n14_match_pos_β:        mov              r11, 14;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n15_match_arbno_α:      mov              r11, 15
                         mov              dword ptr [rbp + -64], r14d
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n16_match_rpos_α
-n15_match_arbno_β:      mov              r11, 15;                             jmp   n20_match_defer_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n16_match_rpos_α
+n15_match_arbno_β:      mov              r11, 15
+                        mov              r12, qword ptr [rbp + -56];          jmp   n20_match_defer_α
 n15_match_arbno_as:     mov              r11, 15
                         mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n20_match_defer_β
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n16_match_rpos_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n16_match_rpos_α
 n15_match_arbno_af:     mov              r11, 15
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n14_match_pos_β
@@ -531,12 +534,15 @@ n32_match_pos_β:        mov              r11, 32;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n33_match_arbno_α:      mov              r11, 33
                         mov              dword ptr [rbp + -64], r14d
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n34_match_rpos_α
-n33_match_arbno_β:      mov              r11, 33;                             jmp   n38_match_defer_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n34_match_rpos_α
+n33_match_arbno_β:      mov              r11, 33
+                        mov              r12, qword ptr [rbp + -56];          jmp   n38_match_defer_α
 n33_match_arbno_as:     mov              r11, 33
                         mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n38_match_defer_β
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n34_match_rpos_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n34_match_rpos_α
 n33_match_arbno_af:     mov              r11, 33
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n32_match_pos_β

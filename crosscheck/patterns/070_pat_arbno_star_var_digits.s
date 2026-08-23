@@ -246,12 +246,15 @@ n16_match_assign_save_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_arbno_α:      mov              r11, 16
                         mov              dword ptr [rbp + -80], r14d
-                        mov              dword ptr [rbp + -76], r14d;         jmp   n18_match_assign_cond_α
-n17_match_arbno_β:      mov              r11, 16;                             jmp   n23_match_defer_α
+                        mov              dword ptr [rbp + -76], r14d
+                        mov              qword ptr [rbp + -72], r12;          jmp   n18_match_assign_cond_α
+n17_match_arbno_β:      mov              r11, 16
+                        mov              r12, qword ptr [rbp + -72];          jmp   n23_match_defer_α
 n17_match_arbno_as:     mov              r11, 16
                         mov              eax, dword ptr [rbp + -76]
                         cmp              r14d, eax;                           je    n23_match_defer_β
-                        mov              dword ptr [rbp + -76], r14d;         jmp   n18_match_assign_cond_α
+                        mov              dword ptr [rbp + -76], r14d
+                        mov              qword ptr [rbp + -72], r12;          jmp   n18_match_assign_cond_α
 n17_match_arbno_af:     mov              r11, 16
                         mov              eax, dword ptr [rbp + -80]
                         cmp              r14d, eax;                           jmp   n16_match_assign_save_β

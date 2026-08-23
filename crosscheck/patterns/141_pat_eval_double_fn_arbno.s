@@ -709,12 +709,15 @@ n42_match_pos_β:        mov              r11, 43;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n43_match_arbno_α:      mov              r11, 44
                         mov              dword ptr [rbp + -64], r14d
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n44_match_rpos_α
-n43_match_arbno_β:      mov              r11, 44;                             jmp   n47_match_defer_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n44_match_rpos_α
+n43_match_arbno_β:      mov              r11, 44
+                        mov              r12, qword ptr [rbp + -56];          jmp   n47_match_defer_α
 n43_match_arbno_as:     mov              r11, 44
                         mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n47_match_defer_β
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n44_match_rpos_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n44_match_rpos_α
 n43_match_arbno_af:     mov              r11, 44
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jne   n47_match_defer_β

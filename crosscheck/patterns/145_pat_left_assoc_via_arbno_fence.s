@@ -149,12 +149,15 @@ n5_match_assign_cond_β: mov              r11, 4
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_arbno_α:       mov              r11, 5
                         mov              dword ptr [rbp + -64], r14d
-                        mov              dword ptr [rbp + -60], r14d;         jmp   PAT$1_γ
-n6_match_arbno_β:       mov              r11, 5;                              jmp   n7_match_fence1_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   PAT$1_γ
+n6_match_arbno_β:       mov              r11, 5
+                        mov              r12, qword ptr [rbp + -56];          jmp   n7_match_fence1_α
 n6_match_arbno_as:      mov              r11, 5
                         mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n10_match_assign_cond_β
-                        mov              dword ptr [rbp + -60], r14d;         jmp   PAT$1_γ
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   PAT$1_γ
 n6_match_arbno_af:      mov              r11, 5
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n5_match_assign_cond_β

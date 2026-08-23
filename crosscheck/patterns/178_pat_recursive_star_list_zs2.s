@@ -244,12 +244,15 @@ n9_match_defer_β:       mov              r11, 5
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_arbno_α:      mov              r11, 6
                         mov              dword ptr [rbp + -48], r14d
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n11_match_lit_α
-n10_match_arbno_β:      mov              r11, 6;                              jmp   n12_match_lit_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   n11_match_lit_α
+n10_match_arbno_β:      mov              r11, 6
+                        mov              r12, qword ptr [rbp + -40];          jmp   n12_match_lit_α
 n10_match_arbno_as:     mov              r11, 6
                         mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n12_match_lit_β
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n11_match_lit_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   n11_match_lit_α
 n10_match_arbno_af:     mov              r11, 6
                         mov              eax, dword ptr [rbp + -48]
                         cmp              r14d, eax;                           jne   n13_match_defer_β
