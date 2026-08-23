@@ -25,41 +25,34 @@
 * Run: sbl -b calculator-2.sno < calculator.input
 *      scrip --run calculator-2.sno < calculator.input
 *------------------------------------------------------------------------------
-        DEFINE('EMIT()')                        :(EMIT_end)
+        DEFINE('EMIT()')
+        DEFINE('PSH()')
+        DEFINE('DRF(nm)')
+        DEFINE('ADD()')
+        DEFINE('SUB()')
+        DEFINE('MUL()')
+        DEFINE('DIV()')
+        DEFINE('SGN()p1')                       :(FNS_end)
 EMIT    OUTPUT = DRF(S[1])
         sp = 0
         EMIT = .dm                              :(NRETURN)
-EMIT_end
-        DEFINE('PSH()')                         :(PSH_end)
 PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
-PSH_end
-        DEFINE('DRF(nm)')                       :(DRF_end)
 DRF     DRF = nm
         nm POS(0) ANY(&LCASE) RPOS(0)           :F(RETURN)
         DRF = vars[nm]                          :(RETURN)
-DRF_end
-        DEFINE('ADD()')                         :(ADD_end)
 ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
         ADD = .dm                               :(NRETURN)
-ADD_end
-        DEFINE('SUB()')                         :(SUB_end)
 SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
         SUB = .dm                               :(NRETURN)
-SUB_end
-        DEFINE('MUL()')                         :(MUL_end)
 MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
         MUL = .dm                               :(NRETURN)
-MUL_end
-        DEFINE('DIV()')                         :(DIV_end)
 DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
         DIV = .dm                               :(NRETURN)
-DIV_end
-        DEFINE('SGN()p1')                       :(SGN_end)
 SGN     p1 = DRF(S[sp])
         p1 = IDENT(S[sp = sp - 1], '-') -p1
         S[sp] = p1
         SGN = .dm                               :(NRETURN)
-SGN_end
+FNS_end
 *------------------------------------------------------------------------------
         S = ARRAY(65536)
         LCASE = &LCASE
