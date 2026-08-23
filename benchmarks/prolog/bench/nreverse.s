@@ -657,13 +657,13 @@ n14_call_proc_staged_α: mov              r11, 15
                         mov              qword ptr [rsp + 736], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx59_20
+                        test             eax, eax;                            jne   .Lx59_200
                         mov              rax, qword ptr [rsp + 768]
                         mov              rdx, qword ptr [rsp + 776]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx59_21
-.Lx59_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx59_201
+.Lx59_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 768]
                         mov              rdx, qword ptr [rsp + 776]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -674,15 +674,15 @@ n14_call_proc_staged_α: mov              r11, 15
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx59_21:               lea              r8, [rip + g_gc_pending]
+.Lx59_201:              lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx59_22
+                        test             eax, eax;                            jne   .Lx59_202
                         mov              rax, qword ptr [rsp + 784]
                         mov              rdx, qword ptr [rsp + 792]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx59_23
-.Lx59_22:               mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx59_203
+.Lx59_202:              mov              edi, 1
                         mov              rsi, qword ptr [rsp + 784]
                         mov              rdx, qword ptr [rsp + 792]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -693,7 +693,7 @@ n14_call_proc_staged_α: mov              r11, 15
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx59_23:               lea              rax, [rip + .Lx59_7]
+.Lx59_203:              lea              rax, [rip + .Lx59_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 2
@@ -901,13 +901,13 @@ n21_call_proc_staged_α: mov              r11, 22
                         mov              qword ptr [rsp + 496], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx70_20
+                        test             eax, eax;                            jne   .Lx70_200
                         mov              rax, qword ptr [rsp + 528]
                         mov              rdx, qword ptr [rsp + 536]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx70_21
-.Lx70_20:               mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx70_201
+.Lx70_200:              mov              edi, 0
                         mov              rsi, qword ptr [rsp + 528]
                         mov              rdx, qword ptr [rsp + 536]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -918,15 +918,15 @@ n21_call_proc_staged_α: mov              r11, 22
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx70_21:               lea              r8, [rip + g_gc_pending]
+.Lx70_201:              lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx70_22
+                        test             eax, eax;                            jne   .Lx70_202
                         mov              rax, qword ptr [rsp + 576]
                         mov              rdx, qword ptr [rsp + 584]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx70_23
-.Lx70_22:               mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx70_203
+.Lx70_202:              mov              edi, 1
                         mov              rsi, qword ptr [rsp + 576]
                         mov              rdx, qword ptr [rsp + 584]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -937,15 +937,15 @@ n21_call_proc_staged_α: mov              r11, 22
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx70_23:               lea              r8, [rip + g_gc_pending]
+.Lx70_203:              lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx70_24
+                        test             eax, eax;                            jne   .Lx70_204
                         mov              rax, qword ptr [rsp + 672]
                         mov              rdx, qword ptr [rsp + 680]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx70_25
-.Lx70_24:               mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx70_205
+.Lx70_204:              mov              edi, 2
                         mov              rsi, qword ptr [rsp + 672]
                         mov              rdx, qword ptr [rsp + 680]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -956,7 +956,7 @@ n21_call_proc_staged_α: mov              r11, 22
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx70_25:               lea              rax, [rip + .Lx70_7]
+.Lx70_205:              lea              rax, [rip + .Lx70_7]
                         push             rax
                         mov              edi, 3
                         mov              esi, 3
@@ -1846,13 +1846,13 @@ n100_call_proc_staged_α:
                         mov              qword ptr [rsp + 176], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx120_20
+                        test             eax, eax;                            jne   .Lx120_200
                         mov              rax, qword ptr [rsp + 208]
                         mov              rdx, qword ptr [rsp + 216]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx120_21
-.Lx120_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx120_201
+.Lx120_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 208]
                         mov              rdx, qword ptr [rsp + 216]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1863,15 +1863,15 @@ n100_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx120_21:              lea              r8, [rip + g_gc_pending]
+.Lx120_201:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx120_22
+                        test             eax, eax;                            jne   .Lx120_202
                         mov              rax, qword ptr [rsp + 224]
                         mov              rdx, qword ptr [rsp + 232]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx120_23
-.Lx120_22:              mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx120_203
+.Lx120_202:             mov              edi, 1
                         mov              rsi, qword ptr [rsp + 224]
                         mov              rdx, qword ptr [rsp + 232]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1882,15 +1882,15 @@ n100_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx120_23:              lea              r8, [rip + g_gc_pending]
+.Lx120_203:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx120_24
+                        test             eax, eax;                            jne   .Lx120_204
                         mov              rax, qword ptr [rsp + 240]
                         mov              rdx, qword ptr [rsp + 248]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx120_25
-.Lx120_24:              mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx120_205
+.Lx120_204:             mov              edi, 2
                         mov              rsi, qword ptr [rsp + 240]
                         mov              rdx, qword ptr [rsp + 248]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1901,7 +1901,7 @@ n100_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx120_25:              lea              rax, [rip + .Lx120_7]
+.Lx120_205:             lea              rax, [rip + .Lx120_7]
                         push             rax
                         mov              edi, 2
                         mov              esi, 3
@@ -3549,13 +3549,13 @@ n160_call_proc_staged_α:
                         mov              qword ptr [rsp + 192], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx219_20
+                        test             eax, eax;                            jne   .Lx219_200
                         mov              rax, qword ptr [rsp + 224]
                         mov              rdx, qword ptr [rsp + 232]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx219_21
-.Lx219_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx219_201
+.Lx219_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 224]
                         mov              rdx, qword ptr [rsp + 232]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3566,15 +3566,15 @@ n160_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx219_21:              lea              r8, [rip + g_gc_pending]
+.Lx219_201:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx219_22
+                        test             eax, eax;                            jne   .Lx219_202
                         mov              rax, qword ptr [rsp + 272]
                         mov              rdx, qword ptr [rsp + 280]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx219_23
-.Lx219_22:              mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx219_203
+.Lx219_202:             mov              edi, 1
                         mov              rsi, qword ptr [rsp + 272]
                         mov              rdx, qword ptr [rsp + 280]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3585,15 +3585,15 @@ n160_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx219_23:              lea              r8, [rip + g_gc_pending]
+.Lx219_203:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx219_24
+                        test             eax, eax;                            jne   .Lx219_204
                         mov              rax, qword ptr [rsp + 368]
                         mov              rdx, qword ptr [rsp + 376]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx219_25
-.Lx219_24:              mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx219_205
+.Lx219_204:             mov              edi, 2
                         mov              rsi, qword ptr [rsp + 368]
                         mov              rdx, qword ptr [rsp + 376]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3604,7 +3604,7 @@ n160_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx219_25:              lea              rax, [rip + .Lx219_7]
+.Lx219_205:             lea              rax, [rip + .Lx219_7]
                         push             rax
                         mov              edi, 2
                         mov              esi, 3
@@ -4818,13 +4818,13 @@ n242_call_proc_staged_α:
                         mov              qword ptr [rsp + 592], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx292_20
+                        test             eax, eax;                            jne   .Lx292_200
                         mov              rax, qword ptr [rsp + 624]
                         mov              rdx, qword ptr [rsp + 632]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx292_21
-.Lx292_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx292_201
+.Lx292_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 624]
                         mov              rdx, qword ptr [rsp + 632]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4835,15 +4835,15 @@ n242_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx292_21:              lea              r8, [rip + g_gc_pending]
+.Lx292_201:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx292_22
+                        test             eax, eax;                            jne   .Lx292_202
                         mov              rax, qword ptr [rsp + 640]
                         mov              rdx, qword ptr [rsp + 648]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx292_23
-.Lx292_22:              mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx292_203
+.Lx292_202:             mov              edi, 1
                         mov              rsi, qword ptr [rsp + 640]
                         mov              rdx, qword ptr [rsp + 648]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4854,15 +4854,15 @@ n242_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx292_23:              lea              r8, [rip + g_gc_pending]
+.Lx292_203:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx292_24
+                        test             eax, eax;                            jne   .Lx292_204
                         mov              rax, qword ptr [rsp + 656]
                         mov              rdx, qword ptr [rsp + 664]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx292_25
-.Lx292_24:              mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lx292_205
+.Lx292_204:             mov              edi, 2
                         mov              rsi, qword ptr [rsp + 656]
                         mov              rdx, qword ptr [rsp + 664]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4873,7 +4873,7 @@ n242_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx292_25:              lea              rax, [rip + .Lx292_7]
+.Lx292_205:             lea              rax, [rip + .Lx292_7]
                         push             rax
                         mov              edi, 3
                         mov              esi, 3
@@ -7178,13 +7178,13 @@ n411_call_proc_staged_α:
                         mov              qword ptr [rsp + 240], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx514_20
+                        test             eax, eax;                            jne   .Lx514_200
                         mov              rax, qword ptr [rsp + 3552]
                         mov              rdx, qword ptr [rsp + 3560]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx514_21
-.Lx514_20:              mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lx514_201
+.Lx514_200:             mov              edi, 0
                         mov              rsi, qword ptr [rsp + 3552]
                         mov              rdx, qword ptr [rsp + 3560]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7195,15 +7195,15 @@ n411_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx514_21:              lea              r8, [rip + g_gc_pending]
+.Lx514_201:             lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lx514_22
+                        test             eax, eax;                            jne   .Lx514_202
                         mov              rax, qword ptr [rsp + 3648]
                         mov              rdx, qword ptr [rsp + 3656]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx514_23
-.Lx514_22:              mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lx514_203
+.Lx514_202:             mov              edi, 1
                         mov              rsi, qword ptr [rsp + 3648]
                         mov              rdx, qword ptr [rsp + 3656]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7214,7 +7214,7 @@ n411_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lx514_23:              lea              rax, [rip + .Lx514_7]
+.Lx514_203:             lea              rax, [rip + .Lx514_7]
                         push             rax
                         mov              edi, 0
                         mov              esi, 2
