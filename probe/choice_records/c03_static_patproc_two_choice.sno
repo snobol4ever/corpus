@@ -1,0 +1,6 @@
+        P = (ANY('1') ARBNO(ANY('1')) | 'z') ('x' | '')
+        S = '11x'
+        S POS(0) P RPOS(0)  :S(OK)F(BAD)
+OK      OUTPUT = 'MATCH'  :(END)
+BAD     OUTPUT = 'FAIL'
+END

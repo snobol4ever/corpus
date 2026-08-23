@@ -1,0 +1,11 @@
+        $' '           =  SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | ''
+        jnumber        =  ANY('0123456789')
+        jarray         =  '[' ( *jelement ARBNO(',' *jelement) | $' ' ) ']'
+        jvalue         =  ( jnumber | jarray )
+        jelement       =  jvalue
+        json           =  POS(0) jelement RPOS(0)
+        src = '[1,2]'
+        src json  :F(BAD)
+        OUTPUT = 'MATCH'  :(END)
+BAD     OUTPUT = 'FAIL'
+END

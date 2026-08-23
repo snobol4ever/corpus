@@ -1,0 +1,6 @@
+        W = ''
+        S = '11'
+        S POS(0) ( ANY('1') ARBNO(ANY('1')) | W ) RPOS(0)  :S(OK)F(BAD)
+OK      OUTPUT = 'MATCH'  :(END)
+BAD     OUTPUT = 'FAIL'
+END

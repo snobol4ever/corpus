@@ -1,0 +1,6 @@
+        $'W' = SPAN(' ') | ''
+        S = '1,2'
+        S POS(0) ( ANY('12') ARBNO(',' ANY('12')) | $'W' ) RPOS(0)  :S(OK)F(BAD)
+OK      OUTPUT = 'MATCH'  :(END)
+BAD     OUTPUT = 'FAIL'
+END
