@@ -204,12 +204,15 @@ n9_match_defer_β:       mov              r11, 5
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_arbno_α:      mov              r11, 6
                         mov              dword ptr [rbp + -48], r14d
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n11_match_lit_α
-n10_match_arbno_β:      mov              r11, 6;                              jmp   n12_match_defer_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   n11_match_lit_α
+n10_match_arbno_β:      mov              r11, 6
+                        mov              r12, qword ptr [rbp + -40];          jmp   n12_match_defer_α
 n10_match_arbno_as:     mov              r11, 6
                         mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n10_match_arbno_af
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n11_match_lit_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   n11_match_lit_α
 n10_match_arbno_af:     mov              r11, 6
                         mov              eax, dword ptr [rbp + -48]
                         cmp              r14d, eax;                           jmp   n9_match_defer_β
@@ -501,12 +504,15 @@ n31_match_pos_β:        mov              r11, 13;                             j
 #-----------------------------------------------------------------------------------------------------------------------
 n32_match_arbno_α:      mov              r11, 14
                         mov              dword ptr [rbp + -48], r14d
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n33_match_rpos_α
-n32_match_arbno_β:      mov              r11, 14;                             jmp   n34_match_arbno_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   n33_match_rpos_α
+n32_match_arbno_β:      mov              r11, 14
+                        mov              r12, qword ptr [rbp + -40];          jmp   n34_match_arbno_α
 n32_match_arbno_as:     mov              r11, 14
                         mov              eax, dword ptr [rbp + -44]
                         cmp              r14d, eax;                           je    n32_match_arbno_af
-                        mov              dword ptr [rbp + -44], r14d;         jmp   n33_match_rpos_α
+                        mov              dword ptr [rbp + -44], r14d
+                        mov              qword ptr [rbp + -40], r12;          jmp   n33_match_rpos_α
 n32_match_arbno_af:     mov              r11, 14
                         mov              eax, dword ptr [rbp + -48]
                         cmp              r14d, eax;                           jmp   n31_match_pos_β
@@ -520,12 +526,15 @@ n33_match_rpos_α:       mov              r11, 15
 #-----------------------------------------------------------------------------------------------------------------------
 n34_match_arbno_α:      mov              r11, 16
                         mov              dword ptr [rbp + -64], r14d
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n35_match_defer_α
-n34_match_arbno_β:      mov              r11, 16;                             jmp   n37_match_defer_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n35_match_defer_α
+n34_match_arbno_β:      mov              r11, 16
+                        mov              r12, qword ptr [rbp + -56];          jmp   n37_match_defer_α
 n34_match_arbno_as:     mov              r11, 16
                         mov              eax, dword ptr [rbp + -60]
                         cmp              r14d, eax;                           je    n34_match_arbno_af
-                        mov              dword ptr [rbp + -60], r14d;         jmp   n35_match_defer_α
+                        mov              dword ptr [rbp + -60], r14d
+                        mov              qword ptr [rbp + -56], r12;          jmp   n35_match_defer_α
 n34_match_arbno_af:     mov              r11, 16
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jmp   n32_match_arbno_af
@@ -812,10 +821,11 @@ n57_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd125]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 589876
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -869,10 +879,11 @@ n62_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd133]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 589876
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -987,10 +998,11 @@ n74_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd148]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
+                        mov              ecx, 589876
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1073,10 +1085,11 @@ n82_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd159]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
+                        mov              ecx, 589876
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1128,10 +1141,11 @@ n87_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd167]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 524341
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1189,10 +1203,11 @@ n90_call_α:             sub              rsp, 16
                         lea              rdi, [rip + .Lbynamefnzd60]
                         lea              rsi, [rsp + 0]
                         mov              edx, 3
+                        mov              ecx, 327680
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1486,10 +1501,11 @@ n107_call_α:            sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd196]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 262193
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
