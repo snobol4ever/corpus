@@ -16,20 +16,27 @@ main_α_body:
 #=======================================================================================================================
 #         <stmt 1, line 2: source not in main file (INCLUDE)>
 #-----------------------------------------------------------------------------------------------------------------------
-n0_statement_begin_α:                                                         jmp   n1_keyword_snobol4_α
-n0_statement_begin_β:                                                         jmp   main_γ
+n0_statement_begin_α:   mov              r11, 1
+                        mov              r10, 1;                              jmp   n1_keyword_snobol4_α
+n0_statement_begin_β:   mov              r11, 1;                              jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1_keyword_snobol4_α:   sub              rsp, 16
+                        mov              r11, 2
                         mov              rdi, qword ptr [rip + .Lx7_0]
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_kw_read_idx@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n2_call_α
 .Lx7_0:                 .quad            25
 #-----------------------------------------------------------------------------------------------------------------------
 n2_call_α:              sub              rsp, 16
+                        mov              r11, 3
                         sub              rsp, 16
                         mov              r8, qword ptr [rsp + 32]
                         mov              qword ptr [rsp + 0], r8
@@ -42,30 +49,43 @@ n2_call_α:              sub              rsp, 16
                         lea              rdi, [rip + .Lrkfnzd9]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 262193
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_call_arr@PLT
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
                         cmp              al, 104;                             jne   .Lx8_240
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n0_statement_begin_β
 .Lx8_240:               mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n3_assign_α
-n2_call_β:              add              rsp, 16
+n2_call_β:              mov              r11, 3
+                        add              rsp, 16
                         add              rsp, 16;                             jmp   n0_statement_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n3_assign_α:            mov              rsi, qword ptr [rsp + 0]             # call
+n3_assign_α:            mov              r11, 4
+                        mov              rsi, qword ptr [rsp + 0]             # call
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx10_0]
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             NV_SET_fn@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n4_statement_end_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n4_statement_end_α
 .Lx10_0:                .quad            .Lx10_0_s
 .Lx10_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n4_statement_end_α:     add              rsp, 32;                             jmp   main_γ
+n4_statement_end_α:     mov              r11, 5
+                        mov              r10, 1
+                        add              rsp, 32;                             jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
