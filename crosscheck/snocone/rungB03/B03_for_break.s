@@ -76,9 +76,13 @@ n5_coerce_numeric_α:    sub              rsp, 16
                         lea              rdx, [rsp + 0]                       # result
                         mov              rcx, 118
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_num2_d@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n6_coerce_numeric_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n6_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_coerce_numeric_α:    sub              rsp, 16
                         mov              r11, 7
@@ -96,9 +100,13 @@ n6_coerce_numeric_α:    sub              rsp, 16
                         lea              rdx, [rsp + 0]                       # result
                         mov              rcx, 119
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_num2_d@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n7_cmp_test_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n7_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_cmp_test_α:          sub              rsp, 16
                         mov              r11, 8
@@ -112,9 +120,13 @@ n7_cmp_test_α:          sub              rsp, 16
                         cmp              rax, rdx;                            jle   .Lx35_239
                         add              rsp, 16;                             jmp   n19_statement_end_α
 .Lx35_239:                                                                    jmp   n8_var_α
-.Lx35_0:                lea              rdi, [rsp + 32]                      # a
-                        lea              rsi, [rsp + 16]                      # b
+.Lx35_0:                lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 16]
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_cmp_d@PLT
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jle   .Lx35_240
                         add              rsp, 16;                             jmp   n19_statement_end_α
 .Lx35_240:                                                                    jmp   n8_var_α
@@ -154,9 +166,13 @@ n10_coerce_numeric_α:   sub              rsp, 16
                         lea              rdx, [rsp + 0]                       # result
                         mov              rcx, 101
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_num2_d@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n11_coerce_numeric_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n11_coerce_numeric_α
 n10_coerce_numeric_β:   mov              r11, 11
                         add              rsp, 16;                             jmp   n9_lit_integer_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -176,9 +192,13 @@ n11_coerce_numeric_α:   sub              rsp, 16
                         lea              rdx, [rsp + 0]                       # result
                         mov              rcx, 102
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_num2_d@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n12_cmp_test_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n12_cmp_test_α
 n11_coerce_numeric_β:   mov              r11, 12
                         add              rsp, 16;                             jmp   n10_coerce_numeric_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -194,9 +214,13 @@ n12_cmp_test_α:         sub              rsp, 16
                         cmp              rax, rdx;                            je    .Lx43_239
                         add              rsp, 16;                             jmp   n11_coerce_numeric_β
 .Lx43_239:                                                                    jmp   n19_statement_end_α
-.Lx43_0:                lea              rdi, [rsp + 32]                      # a
-                        lea              rsi, [rsp + 16]                      # b
+.Lx43_0:                lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 16]
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_cmp_d@PLT
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    .Lx43_240
                         add              rsp, 16;                             jmp   n11_coerce_numeric_β
 .Lx43_240:                                                                    jmp   n19_statement_end_α
@@ -212,9 +236,13 @@ n14_assign_α:           mov              r11, 15
                         mov              rdx, qword ptr [rsp + 184]
                         mov              rdi, qword ptr [rip + .Lx45_0]
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             NV_SET_fn@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n15_var_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n15_var_α
 .Lx45_0:                .quad            .Lx45_0_s
 .Lx45_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
@@ -247,12 +275,16 @@ n17_call_α:             mov              r11, 18
                         lea              rsi, [rsp + 96]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
                         cmp              al, 104;                             je    n0_statement_begin_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n18_assign_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n18_assign_α
 n17_call_β:             mov              r11, 18;                             jmp   n0_statement_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n18_assign_α:           mov              r11, 19
@@ -285,9 +317,13 @@ n22_assign_α:           mov              r11, 23
                         mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx55_0]
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             NV_SET_fn@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n23_statement_end_α
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n23_statement_end_α
 .Lx55_0:                .quad            .Lx55_0_s
 .Lx55_0_s:              .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
