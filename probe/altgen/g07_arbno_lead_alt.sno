@@ -1,0 +1,8 @@
+* altgen ladder g07_arbno_lead_alt -- generator resume under alternation. oracle: sbl -bf. See ARBNO/ARB inside arm 1.
+	ws = SPAN(' ') | ''
+	E = SPAN('0123456789')
+	P = '[' ( ARBNO(*E ',') *E | ws ) ']'
+	'[1,2]' P	:F(NO)
+	OUTPUT = 'MATCHED'	:(END)
+NO	OUTPUT = 'FAILED'
+END
