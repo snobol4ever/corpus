@@ -1,0 +1,4 @@
+        OUTPUT = 'before-load'
+        LOAD('BOGUS(INTEGER)INTEGER', '/nonexistent/path/to/nothing.o')
+        OUTPUT = 'after-load'
+END

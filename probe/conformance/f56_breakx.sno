@@ -1,0 +1,9 @@
+        'EXCEPTIONS ARE AS TRUE AS RULES' ? POS(0) BREAK('A') 'AS'      :S(bad1)
+        OUTPUT = 'break-correctly-fails-no-extend'                        :(next)
+bad1    OUTPUT = 'break-wrongly-extended-past-A'
+next
+        'EXCEPTIONS ARE AS TRUE AS RULES' ? POS(0) BREAKX('A') . X 'AS'  :F(bad2)
+        OUTPUT = 'breakx-extended:' X                                     :(fin)
+bad2    OUTPUT = 'breakx-should-have-matched'
+fin
+END

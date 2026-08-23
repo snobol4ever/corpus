@@ -1,0 +1,11 @@
+        YEARS = ARRAY('1901:2000')
+        YEARS[1989] = 'good-year'
+        OUTPUT = YEARS[1989]
+        CUBE = ARRAY('2,2',-1)
+        CUBE[1,1] = 5
+        OUTPUT = CUBE[1,1]
+        OUTPUT = CUBE[2,2]
+        VEC = ARRAY(3,4)
+        OUTPUT = VEC[2]
+        OUTPUT = DATATYPE(VEC[2])
+END

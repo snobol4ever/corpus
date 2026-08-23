@@ -1,0 +1,5 @@
+        OUTPUT(.o)                                            :F(outfail)
+        o = 'output-default-stdout-ok'                          :(fin)
+outfail OUTPUT = 'output-attach-failed'
+fin
+END

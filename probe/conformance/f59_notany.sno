@@ -1,0 +1,9 @@
+        'xyz' ? NOTANY('xyz')                     :S(bad1)
+        OUTPUT = 'notany-correctly-rejects-member'  :(next)
+bad1    OUTPUT = 'notany-wrongly-matched-member'
+next
+        'abc' ? NOTANY('xyz') . X                 :F(bad2)
+        OUTPUT = 'notany-matched-' X                 :(fin)
+bad2    OUTPUT = 'notany-should-have-matched-non-member'
+fin
+END

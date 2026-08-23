@@ -1,0 +1,8 @@
+        LE(3,3)                                    :F(bad1)
+        OUTPUT = 'le-succeed-ok'                     :(next1)
+bad1    OUTPUT = 'le-succeed-bad'
+next1   LE(4,3)                                    :S(bad2)
+        OUTPUT = 'le-fail-ok'                        :(fin)
+bad2    OUTPUT = 'le-fail-bad'
+fin
+END

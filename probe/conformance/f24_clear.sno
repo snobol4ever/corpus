@@ -1,0 +1,13 @@
+        A = 'one'
+        B = 'two'
+        C = 'three'
+        CLEAR('B')
+        OUTPUT = 'A=' A
+        OUTPUT = 'B=' B
+        OUTPUT = 'C=' C
+        D = 'four'
+        E = 'five'
+        CLEAR()
+        OUTPUT = 'D=' D
+        OUTPUT = 'E=' E
+END

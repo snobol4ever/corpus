@@ -1,0 +1,7 @@
+        DEFINE('foo(x)')                            :(main)
+foo     foo = x * 2                                  :(RETURN)
+main    OUTPUT = foo(5)
+        UNLOAD('foo')
+        OUTPUT = foo(5)
+        OUTPUT = 'unreachable'
+END

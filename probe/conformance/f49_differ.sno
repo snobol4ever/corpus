@@ -1,0 +1,11 @@
+        DIFFER(.ABC, 'ABC')                          :F(bad1)
+        OUTPUT = 'name-string-differ-ok'              :(next1)
+bad1    OUTPUT = 'name-string-differ-bad'
+next1   DIFFER(3, 4)                                  :F(bad2)
+        OUTPUT = 'values-differ-ok'                   :(next2)
+bad2    OUTPUT = 'values-differ-bad'
+next2   DIFFER('x')                                   :F(bad3)
+        OUTPUT = 'omitted-arg2-nonnull-ok'            :(fin)
+bad3    OUTPUT = 'omitted-arg2-nonnull-bad'
+fin
+END

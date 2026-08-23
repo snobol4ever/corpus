@@ -1,0 +1,9 @@
+        'abc' ? ANY('xyz')                        :S(bad1)
+        OUTPUT = 'any-correctly-rejects-non-member' :(next)
+bad1    OUTPUT = 'any-wrongly-matched-non-member'
+next
+        'abc' ? ANY('cba') . X                    :F(bad2)
+        OUTPUT = 'any-matched-' X                   :(fin)
+bad2    OUTPUT = 'any-should-have-matched-member'
+fin
+END

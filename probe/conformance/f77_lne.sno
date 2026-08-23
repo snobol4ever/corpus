@@ -1,0 +1,8 @@
+        LNE('A','B')                               :F(bad1)
+        OUTPUT = 'lne-succeed-ok'                    :(next1)
+bad1    OUTPUT = 'lne-succeed-bad'
+next1   LNE(10,'10')                               :S(bad2)
+        OUTPUT = 'lne-fail-ok'                       :(fin)
+bad2    OUTPUT = 'lne-fail-bad'
+fin
+END

@@ -1,0 +1,4 @@
+        OUTPUT = 'before-exit'
+        EXIT('true')
+        OUTPUT = 'after-exit-should-not-print'
+END

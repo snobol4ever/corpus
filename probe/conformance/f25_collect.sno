@@ -1,0 +1,8 @@
+        X = COLLECT(1)                                    :F(bad1)
+        OUTPUT = 'collect-small-ok-datatype=' DATATYPE(X)   :(chk2)
+bad1    OUTPUT = 'collect-small-failed-bad'
+chk2    COLLECT(2000000000)                                :S(bad2)
+        OUTPUT = 'collect-huge-failed-ok'                     :(fin)
+bad2    OUTPUT = 'collect-huge-succeeded-bad'
+fin
+END

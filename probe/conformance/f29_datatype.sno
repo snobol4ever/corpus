@@ -1,0 +1,7 @@
+        OUTPUT = DATATYPE(23.4)
+        OUTPUT = DATATYPE(12)
+        OUTPUT = DATATYPE('ABCD')
+        OUTPUT = DATATYPE(POS(2) 'C' LEN(3))
+        OUTPUT = DATATYPE(.Q)
+        OUTPUT = DATATYPE(*PAT)
+END

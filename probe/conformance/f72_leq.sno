@@ -1,0 +1,8 @@
+        LEQ('1',1)                                 :F(bad1)
+        OUTPUT = 'leq-succeed-ok'                    :(next1)
+bad1    OUTPUT = 'leq-succeed-bad'
+next1   LEQ('A','B')                               :S(bad2)
+        OUTPUT = 'leq-fail-ok'                       :(fin)
+bad2    OUTPUT = 'leq-fail-bad'
+fin
+END

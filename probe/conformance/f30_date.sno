@@ -1,0 +1,8 @@
+        d = DATE()
+        OUTPUT = 'datatype=' DATATYPE(d)
+        d ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR LEN(1) LEN(2) . HH LEN(1) LEN(2) . MM LEN(1) LEN(2) . SS :F(bad)
+        OUTPUT = 'date-format-ok'
+        :(fin)
+bad     OUTPUT = 'date-format-bad'
+fin
+END

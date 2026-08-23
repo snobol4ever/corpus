@@ -1,0 +1,6 @@
+        DEFINE('adder(a,b)')                        :(main)
+adder   adder = a + b                                :(RETURN)
+main    OUTPUT = APPLY('adder', 3, 4)
+        OUTPUT = APPLY('adder', 3)
+        OUTPUT = APPLY('adder', 3, 4, 5)
+END

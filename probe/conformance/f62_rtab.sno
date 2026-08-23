@@ -1,0 +1,13 @@
+        'abcdef' ? RTAB(2) . X                     :F(bad1)
+        OUTPUT = 'rtab2:' X                           :(next)
+bad1    OUTPUT = 'rtab-should-have-matched'
+next
+        'abcdef' ? RTAB(0) . Y                     :F(bad2)
+        OUTPUT = 'rtab0-eq-rem:' Y                    :(next2)
+bad2    OUTPUT = 'rtab0-should-have-matched'
+next2
+        'abcdef' ? 'abcdef' RTAB(2)                 :S(bad3)
+        OUTPUT = 'rtab-past-target-correctly-fails'    :(fin)
+bad3    OUTPUT = 'rtab-past-target-wrongly-succeeded'
+fin
+END

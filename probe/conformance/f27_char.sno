@@ -1,0 +1,4 @@
+        OUTPUT = 'char65=' CHAR(65)
+        OUTPUT = 'char97=' CHAR(97)
+        OUTPUT = 'sizeoftab=' SIZE(CHAR(9))
+END

@@ -1,0 +1,4 @@
+        OUTPUT = REMDR(7,3)
+        OUTPUT = REMDR(-7,3)
+        OUTPUT = REMDR(7.5,2)
+END

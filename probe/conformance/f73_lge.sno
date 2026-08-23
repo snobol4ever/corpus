@@ -1,0 +1,8 @@
+        LGE('B','A')                               :F(bad1)
+        OUTPUT = 'lge-succeed-ok'                    :(next1)
+bad1    OUTPUT = 'lge-succeed-bad'
+next1   LGE('A','B')                               :S(bad2)
+        OUTPUT = 'lge-fail-ok'                       :(fin)
+bad2    OUTPUT = 'lge-fail-bad'
+fin
+END

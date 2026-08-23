@@ -1,0 +1,4 @@
+        OUTPUT = 'before-savefile'
+        EXIT(-3,'/tmp/f65b_exit_savefile_scratch.spx')
+        OUTPUT = 'after-savefile-should-not-print'
+END

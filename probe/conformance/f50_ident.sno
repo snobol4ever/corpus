@@ -1,0 +1,11 @@
+        IDENT(.ABC, 'ABC')                           :S(bad1)
+        OUTPUT = 'name-string-ident-ok'               :(next1)
+bad1    OUTPUT = 'name-string-ident-bad'
+next1   IDENT(3, 3)                                   :F(bad2)
+        OUTPUT = 'values-ident-ok'                    :(next2)
+bad2    OUTPUT = 'values-ident-bad'
+next2   IDENT('')                                     :F(bad3)
+        OUTPUT = 'omitted-arg2-null-ok'               :(fin)
+bad3    OUTPUT = 'omitted-arg2-null-bad'
+fin
+END

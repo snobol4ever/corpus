@@ -1,0 +1,11 @@
+        DEFINE('twice(x)')
+        DEFINE('sum2(a,b)')                          :(setup)
+twice   twice = x + x                                :(RETURN)
+sum2    sum2 = a + b                                  :(RETURN)
+setup   OPSYN('double', 'twice')
+        OPSYN('!', 'twice', 1)
+        OPSYN('@', 'sum2', 2)
+main    OUTPUT = double(21)
+        OUTPUT = !21
+        OUTPUT = 3 @ 4
+END

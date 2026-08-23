@@ -1,0 +1,8 @@
+        LT(2,3)                                    :F(bad1)
+        OUTPUT = 'lt-succeed-ok'                     :(next1)
+bad1    OUTPUT = 'lt-succeed-bad'
+next1   LT(3,3)                                    :S(bad2)
+        OUTPUT = 'lt-fail-ok'                        :(fin)
+bad2    OUTPUT = 'lt-fail-bad'
+fin
+END

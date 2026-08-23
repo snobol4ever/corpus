@@ -1,0 +1,9 @@
+        &TRACE = 100
+        x = 1
+        TRACE('x')
+        x = 2
+        STOPTR('x')
+        x = 3
+        x = 4
+        OUTPUT = 'stoptr-done'
+END

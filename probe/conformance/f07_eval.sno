@@ -1,0 +1,9 @@
+        N = 21
+        OUTPUT = EVAL('3+4')
+        OUTPUT = EVAL(5)
+        OUTPUT = EVAL(*N)
+        OUTPUT = EVAL('bad(')                        :S(bad1)
+        OUTPUT = 'eval-badsyntax-failed-ok'             :(fin)
+bad1    OUTPUT = 'eval-badsyntax-succeeded-bad'
+fin
+END

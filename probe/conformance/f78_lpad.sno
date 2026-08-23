@@ -1,0 +1,5 @@
+        OUTPUT = 'a=' LPAD('42', 5, '0')
+        OUTPUT = 'b=' LPAD('42', 5)
+        OUTPUT = 'c=' LPAD('hello', 3)
+        OUTPUT = 'd=' LPAD('42', 5, '')
+END

@@ -1,0 +1,4 @@
+        OUTPUT = 'a=' REPLACE('HELLO world', 'aeiouAEIOU', '1234512345')
+        OUTPUT = 'b=' REPLACE('123456', '214365', 'ABCDEF')
+        OUTPUT = 'c=' REPLACE('aaabbbccc', 'abc', '(1)')
+END

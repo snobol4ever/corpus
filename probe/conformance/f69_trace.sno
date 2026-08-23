@@ -1,0 +1,7 @@
+        &TRACE = 100
+        x = 1
+        TRACE('x')
+        x = 2
+        x = 3
+        OUTPUT = 'trace-done'
+END

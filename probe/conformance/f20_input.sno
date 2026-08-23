@@ -1,0 +1,19 @@
+        INPUT(.m, 1, '/tmp/f20_input_does_not_exist.txt')       :F(noexist)
+        OUTPUT = 'input-should-have-failed'                     :(fin)
+noexist OUTPUT(.o, 2, '/tmp/f20_input_fixture.txt')
+        o = 'one'
+        o = 'two'
+        ENDFILE(2)
+        INPUT(.i, 3, '/tmp/f20_input_fixture.txt')
+        a = i
+        b = i
+        c = i                                                 :S(bad)
+        OUTPUT = 'a=' a
+        OUTPUT = 'b=' b
+        OUTPUT = 'input=ok'                                     :(fin)
+bad     OUTPUT = 'a=' a
+        OUTPUT = 'b=' b
+        OUTPUT = 'c=' c
+        OUTPUT = 'input=bad-extra-read-succeeded'
+fin
+END

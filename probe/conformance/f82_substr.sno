@@ -1,0 +1,11 @@
+        OUTPUT = 'a=' SUBSTR('ABCDEFGHIJ', 3, 4)
+        OUTPUT = 'b=' SUBSTR('ABCDEFGHIJ', 6)
+        OUTPUT = 'c=' SUBSTR('ABCDEFGHIJ', 1, 0)
+        SUBSTR('ABCDEFGHIJ', 3, 100)                  :S(bad1)
+        OUTPUT = 'd=oob-len-correctly-failed'          :(next1)
+bad1    OUTPUT = 'd=oob-len-wrongly-succeeded'
+next1   OUTPUT = 'e=' SUBSTR('ABCDEFGHIJ', 3, -1)      :F(negfail)
+        :(fin)
+negfail OUTPUT = 'e=neg-len-failed'
+fin
+END

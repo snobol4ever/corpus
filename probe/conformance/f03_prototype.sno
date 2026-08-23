@@ -1,0 +1,13 @@
+        A = ARRAY(3)
+        OUTPUT = PROTOTYPE(A)
+        OUTPUT = DATATYPE(PROTOTYPE(A))
+        B = ARRAY('2,2')
+        OUTPUT = PROTOTYPE(B)
+        C = ARRAY('1901:2000')
+        OUTPUT = PROTOTYPE(C)
+        T = TABLE()
+        T<1> = 'x'
+        T<2> = 'y'
+        TA = CONVERT(T,'ARRAY')
+        OUTPUT = PROTOTYPE(TA)
+END

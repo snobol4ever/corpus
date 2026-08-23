@@ -1,0 +1,8 @@
+        t = TIME()
+        OUTPUT = 'datatype=' DATATYPE(t)
+        GE(t,0)                                        :F(bad)
+        OUTPUT = 'time-nonneg-ok'
+        :(fin)
+bad     OUTPUT = 'time-nonneg-bad'
+fin
+END

@@ -1,0 +1,8 @@
+        LGT('AB','A')                              :F(bad1)
+        OUTPUT = 'lgt-succeed-ok'                    :(next1)
+bad1    OUTPUT = 'lgt-succeed-bad'
+next1   LGT('A','A')                               :S(bad2)
+        OUTPUT = 'lgt-fail-ok'                       :(fin)
+bad2    OUTPUT = 'lgt-fail-bad'
+fin
+END

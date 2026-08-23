@@ -1,0 +1,8 @@
+        GE(5,3)                                    :F(bad1)
+        OUTPUT = 'ge-succeed-ok'                     :(next1)
+bad1    OUTPUT = 'ge-succeed-bad'
+next1   GE(2,3)                                    :S(bad2)
+        OUTPUT = 'ge-fail-ok'                        :(fin)
+bad2    OUTPUT = 'ge-fail-bad'
+fin
+END

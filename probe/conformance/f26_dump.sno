@@ -1,0 +1,5 @@
+        A = 'hello'
+        B = 42
+        DUMP(1)
+        OUTPUT = 'after-dump'
+END

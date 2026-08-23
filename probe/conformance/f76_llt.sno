@@ -1,0 +1,8 @@
+        LLT('A','B')                               :F(bad1)
+        OUTPUT = 'llt-succeed-ok'                    :(next1)
+bad1    OUTPUT = 'llt-succeed-bad'
+next1   LLT('B','A')                               :S(bad2)
+        OUTPUT = 'llt-fail-ok'                       :(fin)
+bad2    OUTPUT = 'llt-fail-bad'
+fin
+END

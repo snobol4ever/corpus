@@ -1,0 +1,6 @@
+        OUTPUT = CHOP(3.7)
+        OUTPUT = CHOP(-3.7)
+        OUTPUT = CHOP(3.2)
+        OUTPUT = CHOP(-3.2)
+        OUTPUT = CHOP(0.0)
+END

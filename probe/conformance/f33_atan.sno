@@ -1,0 +1,3 @@
+        OUTPUT = ATAN(1)
+        OUTPUT = ATAN(0)
+END

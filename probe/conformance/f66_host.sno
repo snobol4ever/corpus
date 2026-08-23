@@ -1,0 +1,4 @@
+        h = HOST()
+        OUTPUT = 'datatype=' DATATYPE(h)
+        OUTPUT = 'host0=' HOST(0)
+END

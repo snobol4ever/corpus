@@ -1,0 +1,17 @@
+        OUTPUT(.o, 1, '/tmp/f16_backspace_fixture.txt')
+        o = 'AAA'
+        o = 'BBB'
+        ENDFILE(1)
+        INPUT(.i, 2, '/tmp/f16_backspace_fixture.txt')
+        rec1 = i
+        rec2 = i
+        BACKSPACE(2)
+        rec3 = i
+        OUTPUT = 'rec1=' rec1
+        OUTPUT = 'rec2=' rec2
+        OUTPUT = 'rec3=' rec3
+        IDENT(rec2,rec3)                                     :S(yes)F(no)
+no      OUTPUT = 'backspace=no'                                :(fin)
+yes     OUTPUT = 'backspace=yes'
+fin
+END

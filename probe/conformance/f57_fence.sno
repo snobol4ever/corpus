@@ -1,0 +1,9 @@
+        ',abc' ? POS(0) (BREAK(',') | REM) $ STR *DIFFER(STR)           :F(bad1)
+        OUTPUT = 'unfenced-succeeds-via-rem:' STR                         :(next)
+bad1    OUTPUT = 'unfenced-should-have-succeeded-via-rem'
+next
+        ',abc' ? POS(0) FENCE(BREAK(',') | REM) $ STR *DIFFER(STR)      :S(bad2)
+        OUTPUT = 'fence-correctly-blocks-rem-retry'                        :(fin)
+bad2    OUTPUT = 'fence-wrongly-allowed-rem-retry:' STR
+fin
+END

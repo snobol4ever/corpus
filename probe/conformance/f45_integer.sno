@@ -1,0 +1,8 @@
+        INTEGER('42')                              :F(bad1)
+        OUTPUT = 'integer-succeed-ok'                :(next1)
+bad1    OUTPUT = 'integer-succeed-bad'
+next1   INTEGER(5.0)                                :S(bad2)
+        OUTPUT = 'integer-fail-ok'                    :(fin)
+bad2    OUTPUT = 'integer-fail-bad'
+fin
+END

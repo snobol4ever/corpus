@@ -1,0 +1,13 @@
+        OUTPUT(.o, 1, '/tmp/f18_eject_fixture.txt')
+        EJECT(1)
+        o = 'AFTER'
+        ENDFILE(1)
+        INPUT(.i, 2, '/tmp/f18_eject_fixture.txt')
+        ffline = i
+        textline = i
+        OUTPUT = 'textline=' textline
+        IDENT(ffline,CHAR(12))                               :S(yes)F(no)
+no      OUTPUT = 'eject=no'                                    :(fin)
+yes     OUTPUT = 'eject=yes'
+fin
+END
