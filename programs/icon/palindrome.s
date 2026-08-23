@@ -37,7 +37,8 @@ n1_call_builtin_icon_α: mov              r11, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        mov              ecx, 196743
+                        call             rt_call_arr_bl@PLT
                         mov              qword ptr [rsp + 512], rax
                         mov              qword ptr [rsp + 520], rdx
                         cmp              al, 104;                             je    n3_lit_integer_α
@@ -609,10 +610,11 @@ n89_call_builtin_icon_α:
                         lea              rdi, [rip + .Lrkfnzd100]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 327852
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -678,10 +680,11 @@ n92_call_builtin_icon_α:
                         lea              rdi, [rip + .Lrkfnzd105]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 327852
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -748,10 +751,11 @@ n95_call_builtin_icon_α:
                         lea              rdi, [rip + .Lrkfnzd110]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
+                        mov              ecx, 327852
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_call_arr@PLT
+                        call             rt_call_arr_bl@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
