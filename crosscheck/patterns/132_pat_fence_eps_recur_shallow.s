@@ -307,7 +307,7 @@ n15_define_α:           mov              r11, 8
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + FN__makeP]
+                        mov              r9, qword ptr [rip + rt_ab_undef_fn_stub@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
