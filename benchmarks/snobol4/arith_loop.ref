@@ -1,1 +1,2 @@
-check: 1000
+arith_loop(10) = 10
+arith_loop(1000) = 1000

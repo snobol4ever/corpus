@@ -1,4 +1,19 @@
 * harness.inc -- THE ONE timed-benchmark driver.  BM-H/BM-ONE.
+* ⛔ NOT AN INCLUDE ANY MORE IN NORMAL USE.  Since the s265 standalone revamp (Lon: *"the *.sno file
+*   must look like and BE the REAL program application that can be run stand alone"*) no benchmark
+*   program carries `-INCLUDE 'harness.inc'`.  This file is the WRAPPER TEMPLATE that
+*   scripts/bench_wrap.sh INLINES into a temp program built on the fly.  It stays valid as an include
+*   so old material still works, but the .sno files in this corpus are applications now, not wrappers.
+* ⭐ THREE WAYS TO GET A NUMBER OUT OF ONE PROGRAM (Lon s265):
+*     1. STANDALONE   -- no wrapper at all.  Run the .sno itself and time it from OUTSIDE (wall clock,
+*                        /usr/bin/time, perf stat, callgrind).  Real output, real .ref, real program.
+*     2. TIME-BASED   -- bench_wrap.sh --mode=time: fix the ms budget, COUNT THE ITERATIONS.
+*     3. ITERATION-BASED (fixed-work) -- bench_wrap.sh --mode=iter --n=N: run EXACTLY N iterations
+*                        with no deadline anywhere.  This is the arm to use under callgrind/cachegrind.
+*   Mode 3 is selected by `fixed_n` being ALREADY SET when this file runs -- bench_wrap.sh bakes it in.
+*   ⛔ The baked variable, not the stdin gate, is what makes mode 3 reachable for a DATA-DRIVEN
+*   benchmark: porter/json/claws5 read their corpus from stdin, so `fixed_n = INPUT` can never be a
+*   count for them.  The stdin gate below still works and is still the default for microbenchmarks.
 * Shape: FIX THE TIME, COUNT THE ITERATIONS (inverts the legacy iteration-based family).  This is the
 *   TIME-based mode and stays the DEFAULT -- selected whenever stdin is EOF, the existing universal
 *   `< /dev/null` convention every runner already uses.  Byte-identical to before fixed-work mode landed.
@@ -46,6 +61,7 @@
 *           comparison should quote.  Fixed-work mode prints the same three lines; "iters:" is the
 *           actual total run (== fixed_n exactly when ZK, pinned or not, divides it evenly).
         OUTPUT = "check: " ZBODY(ZCHK)
+        DIFFER(fixed_n)                                  :S(ZFIXRUN)
         fixed_n = INPUT                                  :S(ZFIXRUN)
         ZFLR = ZFLR * 1000000
         ZBUD = ZBUD * 1000000

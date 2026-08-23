@@ -1,19 +1,19 @@
-* string_concat -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: string growth; cost rises with length
-* batch PINNED: this kernel's cost per iteration is not steady-state,
+* string_concat -- grows a string one character at a time and reports its length.
+* bottleneck: string growth; cost rises with length.
+* batch PINNED (batch=20000 below): this kernel's cost per iteration is not steady-state,
 * so the batch size is part of the workload and must not float.
+* Standalone:  scrip string_concat.sno   |   sbl -bf string_concat.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 1000
-        ZBUD = 500
-        ZFLR = 20
-        ZK = 20000
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   S = ''
+        DEFINE('STRING_CONCAT(N)')                      :(STRING_CONCAT_END)
+STRING_CONCAT  S = ''
         ZI = 1
 ZBL     S = S 'x'
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = SIZE(S)                                 :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        STRING_CONCAT = SIZE(S)                         :(RETURN)
+STRING_CONCAT_END
+*BENCH kernel=STRING_CONCAT check=1000 bud=500 flr=20 batch=20000
+        OUTPUT = 'length after 10 appends = ' STRING_CONCAT(10)
+        OUTPUT = 'length after 1000 appends = ' STRING_CONCAT(1000)
+END

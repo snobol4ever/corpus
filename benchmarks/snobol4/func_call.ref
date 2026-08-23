@@ -1,1 +1,2 @@
-check: 1000
+INC(0) = 1
+1000 chained calls = 1000

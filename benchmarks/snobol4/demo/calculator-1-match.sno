@@ -1,9 +1,3 @@
-* calculator-1-match -- TIME-BASED: fixed ms budget, count iterations.
-* workload: recursive expression grammar (right-assoc *X descent).
-* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
-* deserializing sibling (calculator-1.sno) which runs the same grammar with sprinkled loads.
-* input: calculator-1.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
-* text, so a missing or truncated input cannot masquerade as a passing run.
         &TRIM   =  0
         I       =  SPAN('0123456789')
         V       =  ANY(&LCASE)
@@ -12,17 +6,21 @@
         T       =  F '*' *T | F '/' *T | F
         X       =  T '+' *X | T '-' *X | T
         C       =  POS(0) ARBNO(X CHAR(10)) RPOS(0)
-        &STLIMIT =  -1
-        ZCHK    =   1
-        ZBUD    =   1000
-        ZFLR    =   20
+*------------------------------------------------------------------------------
+* CALCULATOR_1_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CALCULATOR_1_MATCH(N)')  :(CALCULATOR_1_MATCH_END)
+CALCULATOR_1_MATCH  ZI = 1
+ZBL     src ? C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CALCULATOR_1_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CALCULATOR_1_MATCH = 'Pattern match failed'  :(RETURN)
+CALCULATOR_1_MATCH_END
+*------------------------------------------------------------------------------
         INPUT(.INPUT, 9, '[-f0 -r4194304]')
-        ZSRC    =   INPUT
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI      =   1
-ZBL     ZSRC    ?   C                               :F(ZBAD)
-        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
-        ZBODY   =   SIZE(ZSRC)                          :(RETURN)
-ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
-ZBODY_END
--INCLUDE '../harness.inc'
+        src = INPUT
+*BENCH kernel=CALCULATOR_1_MATCH check=1 bud=1000 flr=20
+        OUTPUT = CALCULATOR_1_MATCH(1)
+END

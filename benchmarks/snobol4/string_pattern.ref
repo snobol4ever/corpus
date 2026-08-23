@@ -1,1 +1,4 @@
-check: gamma
+record = alpha,beta,gamma,delta,epsilon
+field 3 = gamma
+field 1 = alpha
+field 2 = beta

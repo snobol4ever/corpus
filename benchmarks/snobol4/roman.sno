@@ -1,26 +1,34 @@
-* roman -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: recursive function dispatch; RPOS/LEN/BREAK patterns; REPLACE
-* The kernel converts a DIFFERENT integer each iteration (1001..1000+ZKN) rather
-* than the historical fixed '1776': a fixed argument is hoistable in principle and
-* exercises exactly one recursion depth, so a varying one keeps the row honest as
-* the optimizer grows.  Check value = total length of every numeral produced, so
-* the census witnesses each conversion, not just that the loop ran.
+* roman -- converts integers to Roman numerals and prints them.
+* bottleneck: recursive function dispatch; RPOS/LEN/BREAK patterns; REPLACE.
+* The kernel converts a DIFFERENT integer each iteration (1001..1000+N) rather than a
+* fixed '1776': a fixed argument is hoistable in principle and exercises exactly one
+* recursion depth, so a varying one keeps the row honest as the optimizer grows.  Its
+* census is the total length of every numeral produced, so it witnesses each
+* conversion, not just that the loop ran.
+* Standalone:  scrip roman.sno   |   sbl -bf roman.sno   |   snobol4 roman.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 200
-        ZBUD = 500
-        ZFLR = 20
         DEFINE('ROMAN(N)T')                             :(ROMAN_END)
 ROMAN   N ? RPOS(1) LEN(1) . T =                        :F(RETURN)
         '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' T BREAK(',') . T   :F(FRETURN)
         ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T   :S(RETURN)F(FRETURN)
 ROMAN_END
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI = 1
+        DEFINE('ROMAN_RUN(N)')                          :(ROMAN_RUN_END)
+ROMAN_RUN  ZI = 1
         ZS = 0
 ZBL     ZS = ZS + SIZE(ROMAN(1000 + ZI))
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = ZS                                      :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        ROMAN_RUN = ZS                                  :(RETURN)
+ROMAN_RUN_END
+*BENCH kernel=ROMAN_RUN check=200 bud=500 flr=20
+        OUTPUT = '1776 -> ' ROMAN(1776)
+        OUTPUT = '2026 -> ' ROMAN(2026)
+        OUTPUT = '   4 -> ' ROMAN(4)
+        OUTPUT = '  40 -> ' ROMAN(40)
+        OUTPUT = '3999 -> ' ROMAN(3999)
+        K = 1001
+RTAB    OUTPUT = K ' -> ' ROMAN(K)
+        K = LT(K, 1010) K + 1                           :S(RTAB)
+        OUTPUT = 'total numeral length for 1001..1200 = ' ROMAN_RUN(200)
+END

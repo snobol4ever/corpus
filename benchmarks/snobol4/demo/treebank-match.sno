@@ -1,9 +1,3 @@
-* treebank-match -- TIME-BASED: fixed ms budget, count iterations.
-* workload: recursive *group descent over Penn-Treebank bracketed parses.
-* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
-* deserializing sibling (treebank.sno) which runs the same grammar with sprinkled loads.
-* input: treebank.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
-* text, so a missing or truncated input cannot masquerade as a passing run.
         &TRIM       =   0
         delim       =   SPAN(' ' CHAR(10))
         word        =   NOTANY('( )' CHAR(10))
@@ -13,17 +7,21 @@
 +                       ARBNO(delim (*group | word))
 +                       ')'
         treebank    =   POS(0) ARBNO(ARBNO(*group) delim) RPOS(0)
-        &STLIMIT =  -1
-        ZCHK    =   1
-        ZBUD    =   1000
-        ZFLR    =   20
+*------------------------------------------------------------------------------
+* TREEBANK_MATCH(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('TREEBANK_MATCH(N)')  :(TREEBANK_MATCH_END)
+TREEBANK_MATCH  ZI = 1
+ZBL     src ? treebank  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        TREEBANK_MATCH = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    TREEBANK_MATCH = 'Pattern match failed'  :(RETURN)
+TREEBANK_MATCH_END
+*------------------------------------------------------------------------------
         INPUT(.INPUT, 9, '[-f0 -r4194304]')
-        ZSRC    =   INPUT
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI      =   1
-ZBL     ZSRC    ?   treebank                               :F(ZBAD)
-        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
-        ZBODY   =   SIZE(ZSRC)                          :(RETURN)
-ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
-ZBODY_END
--INCLUDE '../harness.inc'
+        src = INPUT
+*BENCH kernel=TREEBANK_MATCH check=1 bud=1000 flr=20
+        OUTPUT = TREEBANK_MATCH(1)
+END

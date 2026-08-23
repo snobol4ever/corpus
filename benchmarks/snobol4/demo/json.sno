@@ -1,14 +1,3 @@
-* json -- TIME-BASED: fixed ms budget, count iterations.
-* workload: 631 KB of twitter.json parsed into real TABLEs/ARRAYs; check is the full node census.
-* DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
-* between them is the cost of the sprinkled loads (capture + *function() + structure build).
-* Every OUTPUT in the original driver is accumulated into the check value instead of printed,
-* so the check witnesses every value computed, not merely that the match succeeded.
-* input: json.dat on stdin (runner redirects <family>.dat).
-        &STLIMIT =  -1
-        ZCHK    =   1
-        ZBUD    =   1000
-        ZFLR    =   20
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
@@ -272,25 +261,60 @@ enul_end
 *  for byte (no line splitting, no newline reconstruction).  Inputs larger
 *  than 4194304 bytes are silently truncated at the -r length.
 *------------------------------------------------------------------------------
-        INPUT(.INPUT, 9, '[-f0 -r4194304]')
-        ZSRC    =   INPUT
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI      =   1
-ZBL     vsp     =   0
-        ksp     =   0
-        dep     =   0
-        maxdep  =   0
-        nObj    =   0
-        nArr    =   0
-        nStr    =   0
-        nInt    =   0
-        nReal   =   0
-        nBool   =   0
-        nNull   =   0
-        ZSRC    ?   json                                :F(ZBAD)
-        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
-        ZBODY   =   nObj '/' nArr '/' nStr '/' nInt '/' nReal '/' nBool '/' nNull '/' maxdep
+*------------------------------------------------------------------------------
+* JSON(N) -- deserialize the slurped text N times and report the node census.
+* Every counter and both stacks are reset per pass, so each pass does the same
+* work and the census is the census of ONE parse, not of N accumulated ones.
+*------------------------------------------------------------------------------
+        DEFINE('JSON(N)')  :(JSON_END)
+JSON    ZI = 1
+ZBL     vsp = 0
+        ksp = 0
+        dep = 0
+        maxdep = 0
+        nObj = 0
+        nArr = 0
+        nStr = 0
+        nInt = 0
+        nReal = 0
+        nBool = 0
+        nNull = 0
+        src json  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        JSON = nObj '/' nArr '/' nStr '/' nInt '/' nReal '/' nBool '/' nNull '/' maxdep
 +                                                       :(RETURN)
-ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
-ZBODY_END
--INCLUDE '../harness.inc'
+ZBAD    JSON = 'Pattern match failed'  :(RETURN)
+JSON_END
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        src             =   INPUT
+*BENCH kernel=JSON check=1 bud=1000 flr=20
+                OUTPUT          =   'input bytes=' SIZE(src)
+*------------------------------------------------------------------------------
+*  THE ONE BIG PATTERN MATCH - timed alone.  TIME() is integer nanoseconds off a
+*  monotonic wall clock (FINDING s249), so t1 - t0 is the match only: no slurp,
+*  no reporting, no start-up; divide by 1000000 for match_ms, same idiom as
+*  harness.inc's "ms:" line.  Written to TERMINAL, i.e. stderr, so that stdout
+*  stays deterministic and byte-comparable against .ref.
+*------------------------------------------------------------------------------
+                t0              =   TIME()
+                src             json                            :F(fail)
+                t1              =   TIME()
+*------------------------------------------------------------------------------
+                root            =   vs[1]
+                OUTPUT          =   'root=' DATATYPE(root)
+                OUTPUT          =   'objects=' nObj
+                OUTPUT          =   'arrays=' nArr
+                OUTPUT          =   'strings=' nStr
+                OUTPUT          =   'integers=' nInt
+                OUTPUT          =   'reals=' nReal
+                OUTPUT          =   'booleans=' nBool
+                OUTPUT          =   'nulls=' nNull
+                OUTPUT          =   'maxdepth=' maxdep
+                TERMINAL        =   'match_ms=' (t1 - t0) / 1000000       :(END)
+*------------------------------------------------------------------------------
+fail            t1              =   TIME()
+                OUTPUT          =   'Pattern match failed'
+                TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
+*------------------------------------------------------------------------------
+END

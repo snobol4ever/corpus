@@ -1,1 +1,10 @@
-check: 1264/1050/4754/2108/1/2791/1946/10
+input bytes=86
+root=jobj
+objects=1
+arrays=1
+strings=3
+integers=1
+reals=0
+booleans=1
+nulls=1
+maxdepth=2

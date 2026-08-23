@@ -1,14 +1,3 @@
-* calculator-2 -- TIME-BASED: fixed ms budget, count iterations.
-* workload: recursive expression grammar evaluating 0 expressions onto an operand stack.
-* DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
-* between them is the cost of the sprinkled loads (capture + *function() + structure build).
-* Every OUTPUT in the original driver is accumulated into the check value instead of printed,
-* so the check witnesses every value computed, not merely that the match succeeded.
-* input: calculator-2.dat on stdin (runner redirects <family>.dat).
-        &STLIMIT =  -1
-        ZCHK    =   1
-        ZBUD    =   1000
-        ZFLR    =   20
 *------------------------------------------------------------------------------
 * calculator-2.sno — precedence calculator, Variant 2: LEFT associativity
 * (Lon, 2026-07-24).  Same atoms/factors as calculator-1; terms and
@@ -36,51 +25,34 @@
 * Run: sbl -b calculator-2.sno < calculator.input
 *      scrip --run calculator-2.sno < calculator.input
 *------------------------------------------------------------------------------
-        DEFINE('EMIT()')                        :(EMIT_end)
-EMIT    ZACC = ZACC + DRF(S[1])
+        DEFINE('EMIT()')
+        DEFINE('PSH()')
+        DEFINE('DRF(nm)')
+        DEFINE('ADD()')
+        DEFINE('SUB()')
+        DEFINE('MUL()')
+        DEFINE('DIV()')
+        DEFINE('SGN()p1')                       :(FNS_end)
+EMIT    OUTPUT = EQ(quiet) DRF(S[1])
         sp = 0
         EMIT = .dm                              :(NRETURN)
-EMIT_end
-        DEFINE('PSH()')                         :(PSH_end)
-PSH     sp = sp + 1
-        PSH = .S[sp]                            :(NRETURN)
-PSH_end
-        DEFINE('DRF(nm)')                       :(DRF_end)
-DRF     nm POS(0) ANY(&LCASE) RPOS(0)           :F(DRF_n)
+PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
+DRF     DRF = nm
+        nm POS(0) ANY(&LCASE) RPOS(0)           :F(RETURN)
         DRF = vars[nm]                          :(RETURN)
-DRF_n   DRF = nm                                :(RETURN)
-DRF_end
-        DEFINE('ADD()p1')                       :(ADD_end)
-ADD     S[sp - 1] = DRF(S[sp - 1]) + DRF(S[sp - 0])
-        sp = sp - 1
+ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
         ADD = .dm                               :(NRETURN)
-ADD_end
-        DEFINE('SUB()p1')                       :(SUB_end)
-SUB     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) - p1
+SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
         SUB = .dm                               :(NRETURN)
-SUB_end
-        DEFINE('MUL()p1')                       :(MUL_end)
-MUL     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) * p1
+MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
         MUL = .dm                               :(NRETURN)
-MUL_end
-        DEFINE('DIV()p1')                       :(DIV_end)
-DIV     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) / p1
+DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
         DIV = .dm                               :(NRETURN)
-DIV_end
-        DEFINE('SGN()p1')                       :(SGN_end)
 SGN     p1 = DRF(S[sp])
-        sp = sp - 1
-        IDENT(S[sp], '-')                       :F(SGN1)
-        p1 = -p1
-SGN1    S[sp] = p1
+        p1 = IDENT(S[sp = sp - 1], '-') -p1
+        S[sp] = p1
         SGN = .dm                               :(NRETURN)
-SGN_end
+FNS_end
 *------------------------------------------------------------------------------
         S = ARRAY(65536)
         LCASE = &LCASE
@@ -100,15 +72,36 @@ SGN_end
         vars['y'] = 2
         vars['z'] = 3
 * read all at once: raw fd 0, one 4 MiB-max transfer (larger inputs truncate)
+*------------------------------------------------------------------------------
+* quiet -- 0 prints every evaluated line (the application's real answer), 1 keeps
+* the arithmetic and suppresses the printing.  CALCULATOR_2(N) below re-evaluates
+* the whole input N times with printing off; the standalone driver at the bottom
+* leaves it on and IS the calculator.
+*------------------------------------------------------------------------------
+        quiet = 0
+        DEFINE('CALCULATOR_2(N)')  :(CALCULATOR_2_END)
+CALCULATOR_2  quiet = 1
+        ZI = 1
+ZBL     sp = 0
+        src C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        quiet = 0
+        CALCULATOR_2 = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    quiet = 0
+        CALCULATOR_2 = 'Pattern match failed'  :(RETURN)
+CALCULATOR_2_END
+*------------------------------------------------------------------------------
         INPUT(.INPUT, 9, '[-f0 -r4194304]')
-        ZSRC    =   INPUT
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI      =   1
-ZBL     ZACC    =   0
-        sp      =   0
-        ZSRC    ?   C                                   :F(ZBAD)
-        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
-        ZBODY   =   ZACC                                :(RETURN)
-ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
-ZBODY_END
--INCLUDE '../harness.inc'
+        src = INPUT
+*BENCH kernel=CALCULATOR_2 check=1 bud=1000 flr=20
+* TIME() is integer nanoseconds off a monotonic wall clock (FINDING s249);
+* divide by 1000000 for match_ms.  TERMINAL is stderr, so stdout stays byte-comparable.
+        t0 = TIME()
+        sp = 0
+        src C                                   :F(bad)
+        t1 = TIME()
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000        :(END)
+bad     t1 = TIME()
+        OUTPUT = 'Boo!'
+        TERMINAL = 'match_ms=' (t1 - t0) / 1000000
+END

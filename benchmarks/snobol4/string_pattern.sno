@@ -1,17 +1,20 @@
-* string_pattern -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: BREAK scanning with conditional capture, field split
+* string_pattern -- splits a comma-separated record into its leading three fields.
+* bottleneck: BREAK scanning with conditional capture, field split.
+* Standalone:  scrip string_pattern.sno   |   sbl -bf string_pattern.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 1000
-        ZBUD = 500
-        ZFLR = 20
         REC = 'alpha,beta,gamma,delta,epsilon'
         PAT = BREAK(',') . F1 ',' BREAK(',') . F2 ',' BREAK(',') . F3
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI = 1
+        DEFINE('STRING_PATTERN(N)')                     :(STRING_PATTERN_END)
+STRING_PATTERN  ZI = 1
 ZBL     REC ? PAT
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = F3                                      :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        STRING_PATTERN = F3                             :(RETURN)
+STRING_PATTERN_END
+*BENCH kernel=STRING_PATTERN check=1000 bud=500 flr=20
+        OUTPUT = 'record = ' REC
+        OUTPUT = 'field 3 = ' STRING_PATTERN(1000)
+        OUTPUT = 'field 1 = ' F1
+        OUTPUT = 'field 2 = ' F2
+END
