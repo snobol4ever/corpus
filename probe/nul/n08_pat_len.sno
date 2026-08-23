@@ -1,0 +1,7 @@
+* NUL-in-counted-strings rung n08_pat_len. oracle: sbl -bf. CHAR(0) is a legal SNOBOL4 character.
+	z = CHAR(0)
+	w = 'a' z 'b'
+	w LEN(3) . m	:F(NO)
+	OUTPUT = SIZE(m)	:(END)
+NO	OUTPUT = 'nomatch'
+END
