@@ -1,0 +1,10 @@
+* dit_imm -- deferred INDIRECT-REFERENCE as an IMMEDIATE-assignment ($) capture target.
+* ORACLE (sbl -bf): "ok dummy=HELLO" -- the assignment lands.
+* SCRIP: "ok dummy=" -- the match succeeds but the assignment is SILENTLY DROPPED.
+* ⛔ This arm is worse than dit_cond: a wrong answer with no failure signal.
+	subject = "HELLO WORLD"
+	p = "HELLO" $ *$("dummy")
+	subject p	:S(ok)F(no)
+ok	OUTPUT = "ok dummy=" dummy	:(END)
+no	OUTPUT = "failed"
+END
