@@ -1,0 +1,39 @@
+* rtcc_define_r9_selfheal -- witness for rtcc-r9-gvarq-collision-bb-define (rank 0, hq_C 2026-08-23):
+* bb_define.cpp is flagged by test_gate_rtcc_claimed_regs.sh as writing the RC-5-GVA claimed register
+* r9 AND reading GVARQ -- COLLISION CLASS by the gate's file-level textual heuristic. Proven a false
+* positive: both r9-write sites self-heal before any GVARQ access, so H1 (local wrong-base read) and
+* H2 (global RT_GVA_VA corruption via veneer writeback) are both structurally impossible here.
+*
+* SITE 1 -- bb_define_bind() role 6, "lea r9,<entry>" before "call rt_define_site": compile with
+*   DEFAULT settings (no env overrides). Reload confirmed via .s: the veneer's writeback
+*   (x86_rtcc_wb_bin) skips r9 unconditionally under RTCC_GLOBAL_R9_GVA=1, and its reload
+*   (x86_rtcc_rl_bin) unconditionally restores r9 from the never-corrupted canonical rtccb+48 seed
+*   right after the call returns -- before bb_define_bind ever touches GVARQ (it never does, in fact).
+*     bash SCRIP/scripts/../../scrip --compile -o /tmp/w.s corpus/probe/rtcc/rtcc_define_r9_selfheal.sno < /dev/null
+*     grep -n 'lea.*r9\|rtccb+48\|rtccb+40' /tmp/w.s   # expect: wb has no "rtccb+48, r9" line; rl does.
+*
+* SITE 2 -- bb_define_activate() role 7, "push r9"/"pop r9" around "call mon_emit_call_bin": this is
+*   LEGACY-AB code, dead under default settings (SCRIP_AB unset -> lower_snobol4.c never populates
+*   g->ab_nodes[], so bb_ab_emit_nodes/bb_define_activate never fires -- confirmed zero hits for
+*   "mon_emit_call_bin" across the entire regenerated corpus). Reachable only opt-in:
+*     SCRIP_AB=1 ./scrip --compile -o /tmp/w_ab.s corpus/probe/rtcc/rtcc_define_r9_selfheal.sno < /dev/null
+*   Inspect the emitted block: push r9 is the LAST write to r9 before the window, pop r9 is the FIRST
+*   restore after it, and zero [r9+off] (GVARQ) access falls between them -- explicit save/restore,
+*   H1 impossible by inspection. The enclosed call is itself auto-veneered (generic x86("call",sym,ptr)
+*   dispatch routes through x86_rtcc_call), so its OWN reload restores r9 a second, redundant time --
+*   H2 impossible for the same skip-writeback-then-reload reason as site 1.
+*
+* Mode-3 (both env variants) and mode-4 default MATCH this .ref: ADD(GV,5) with GV=10 -> 15, then GV
+* re-read unmutated -> 10. Correctness is not what was in question (the gate never claimed wrong
+* output) -- this witness exists to make the r9/GVARQ non-collision inspectable via .s, not asserted.
+* mode-4 SCRIP_AB=1 does NOT assemble: unrelated pre-existing defect, x86("jmp_fn",...) (bb_define.cpp
+* bb_define_activate, line ~150) has no TEXT-medium encoder and emits the literal text "jmp_fn FN__ADD"
+* -- not valid GNU-as syntax. Violates BOTH-MEDIUM MANDATORY (CLAUDE.md). Out of scope for rtcc-r9:
+* the .s up to that line is what this probe inspects, and it assembles fine in isolation; only the
+* full link was blocked. Filed as a secondary observation, not fixed here -- see the FINDING.
+        DEFINE('ADD(A,B)')                      :(START)
+ADD     ADD = A + B                              :(RETURN)
+START   GV = 10
+        OUTPUT = ADD(GV,5)
+        OUTPUT = GV
+END
