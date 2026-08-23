@@ -52,9 +52,13 @@ n3_to_by_α:             mov              r11, 4
                         mov              rcx, qword ptr [rsp + 104]
                         mov              r8d, 6
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_jct_relop@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    main_ω
                                                                               jmp   .Lx9_2
 .Lx9_1:                 mov              rdi, qword ptr [rsp + 64]
@@ -63,9 +67,13 @@ n3_to_by_α:             mov              r11, 4
                         mov              rcx, qword ptr [rsp + 104]
                         mov              r8d, 8
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_jct_relop@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    main_ω
 .Lx9_2:                 mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [rsp + 48], rax
@@ -78,9 +86,13 @@ n3_to_by_β:             mov              r11, 4
                         mov              rcx, qword ptr [rsp + 120]
                         mov              r8d, 0
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_num_arith@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx;           jmp   .Lx9_0
 #-----------------------------------------------------------------------------------------------------------------------
@@ -97,12 +109,16 @@ n4_call_builtin_icon_α: mov              r11, 5
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_call_arr@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    n3_to_by_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_to_by_β
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_to_by_β
 n4_call_builtin_icon_β: mov              r11, 5;                              jmp   n3_to_by_β
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
