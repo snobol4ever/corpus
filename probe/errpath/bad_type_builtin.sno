@@ -1,0 +1,6 @@
+*  probe: SUBSTR called with a non-integer second argument -- Appendix D 193
+        &ERRLIMIT = 100
+        piece = SUBSTR('hello world', 'x', 3)     :F(fail1)
+        OUTPUT = 'accepted ' piece                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END

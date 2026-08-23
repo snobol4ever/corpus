@@ -1,0 +1,6 @@
+*  probe: string far exceeding practical size, built via a single DUPL call -- Appendix D 205 territory
+        &ERRLIMIT = 100
+        big = DUPL('x', 50000000)                 :F(fail1)
+        OUTPUT = 'accepted size=' SIZE(big)       :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END

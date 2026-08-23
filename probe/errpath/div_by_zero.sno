@@ -1,0 +1,6 @@
+*  probe: integer division by zero
+        &ERRLIMIT = 100
+        total = 1 / 0                             :F(fail1)
+        OUTPUT = 'accepted ' total                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END

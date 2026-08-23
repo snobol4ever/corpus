@@ -1,0 +1,6 @@
+*  probe: arithmetic left operand is a non-numeric string -- Appendix D 1
+        &ERRLIMIT = 100
+        total = 'not a number' + 1                :F(fail1)
+        OUTPUT = 'accepted ' total                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END

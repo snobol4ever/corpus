@@ -1,0 +1,5 @@
+*  probe: unbounded recursive function call with no base case -- Appendix D 246 territory
+        DEFINE('spiral(depth)')                   :(mainline)
+spiral  spiral = spiral(depth + 1)                :(RETURN)
+mainline OUTPUT = spiral(0)
+END

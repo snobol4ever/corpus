@@ -1,0 +1,7 @@
+*  probe: array index beyond its declared bounds
+        &ERRLIMIT = 100
+        cells = ARRAY('1:3')
+        cells[7] = 99                             :F(fail1)
+        OUTPUT = 'accepted ' cells[7]              :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END

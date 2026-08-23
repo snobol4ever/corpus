@@ -1,0 +1,2 @@
+*  probe: program has no END statement at all -- Appendix D 216
+        OUTPUT = 'no end here'
