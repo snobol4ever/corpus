@@ -1,0 +1,5 @@
+* NUL-in-counted-strings rung n01_size. oracle: sbl -bf. CHAR(0) is a legal SNOBOL4 character.
+	z = CHAR(0)
+	w = 'a' z 'b'
+	OUTPUT = SIZE(w)
+END

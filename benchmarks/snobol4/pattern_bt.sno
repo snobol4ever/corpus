@@ -1,17 +1,18 @@
-* pattern_bt -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: alternation backtracking; capture on the winning arm
+* pattern_bt -- matches an alternation that must backtrack before the winning arm commits.
+* bottleneck: alternation backtracking; capture on the winning arm.
+* Standalone:  scrip pattern_bt.sno   |   sbl -bf pattern_bt.sno   |   snobol4 pattern_bt.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 1000
-        ZBUD = 500
-        ZFLR = 20
         PAT = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . W
         SUB = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI = 1
+        DEFINE('PATTERN_BT(N)')                         :(PATTERN_BT_END)
+PATTERN_BT  ZI = 1
 ZBL     SUB ? PAT
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = W                                       :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        PATTERN_BT = W                                  :(RETURN)
+PATTERN_BT_END
+*BENCH kernel=PATTERN_BT check=1000 bud=500 flr=20
+        OUTPUT = 'subject = ' SUB
+        OUTPUT = 'captured tail = ' PATTERN_BT(1000)
+END

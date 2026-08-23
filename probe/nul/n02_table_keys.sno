@@ -1,0 +1,9 @@
+* NUL-in-counted-strings rung n02_table_keys. oracle: sbl -bf. CHAR(0) is a legal SNOBOL4 character.
+	z = CHAR(0)
+	w = 'a' z 'b'
+	t = TABLE()
+	t['a' z 'b'] = 'FIRST'
+	t['a' z 'c'] = 'SECOND'
+	t['a'] = 'PLAIN'
+	OUTPUT = t['a' z 'b'] '/' t['a' z 'c'] '/' t['a']
+END

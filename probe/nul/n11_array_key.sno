@@ -1,0 +1,7 @@
+* NUL-in-counted-strings rung n11_array_key. oracle: sbl -bf. CHAR(0) is a legal SNOBOL4 character.
+	z = CHAR(0)
+	w = 'a' z 'b'
+	t = TABLE()
+	t[w] = 1
+	OUTPUT = SIZE(CONVERT(t,'ARRAY')[1,1])
+END

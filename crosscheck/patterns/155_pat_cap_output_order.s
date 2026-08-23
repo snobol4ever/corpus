@@ -40,7 +40,7 @@ n2_match_begin_α:       mov              r11, 3
                         push             r13                                  # outer_Σ
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
-                        sub              rsp, 56
+                        sub              rsp, 24
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -59,7 +59,7 @@ n2_match_begin_α:       mov              r11, 3
                         lea              rax, [rip + .Lx20_13]
                         mov              qword ptr [rcx + 248], rax;          jmp   n3_match_assign_save_α
 n2_match_begin_β:       mov              r11, 3
-.Lx20_13:               lea              rsp, [rbp + -88]                     # retry_whack
+.Lx20_13:               lea              rsp, [rbp + -56]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx20_1
@@ -87,7 +87,7 @@ n2_match_begin_af:      mov              r11, 3
 #-----------------------------------------------------------------------------------------------------------------------
 n3_match_assign_save_α: sub              rsp, 16
                         mov              r11, 4
-                        mov              dword ptr [rbp + -64], r14d;         jmp   n4_match_alternate_α
+                        mov              dword ptr [rsp + 0], r14d;           jmp   n4_match_alternate_α
 n3_match_assign_save_β: mov              r11, 4
                         add              rsp, 16;                             jmp   n2_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ n4_match_alternate_af:  mov              r11, 5
 .Lx24_19:               add              rsp, 32;                             jmp   n3_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_assign_cond_α: mov              r11, 6
-                        mov              eax, dword ptr [rbp + -64]
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S0]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -129,7 +129,7 @@ n5_match_assign_cond_β: mov              r11, 6
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_assign_save_α: sub              rsp, 16
                         mov              r11, 7
-                        mov              dword ptr [rbp + -80], r14d;         jmp   n7_match_alternate_α
+                        mov              dword ptr [rsp + 0], r14d;           jmp   n7_match_alternate_α
 n6_match_assign_save_β: mov              r11, 7
                         add              rsp, 16;                             jmp   n5_match_assign_cond_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -163,7 +163,7 @@ n7_match_alternate_af:  mov              r11, 8
 .Lx30_19:               add              rsp, 32;                             jmp   n6_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n8_match_assign_cond_α: mov              r11, 9
-                        mov              eax, dword ptr [rbp + -80]
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S0]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax

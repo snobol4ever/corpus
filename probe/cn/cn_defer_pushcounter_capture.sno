@@ -1,0 +1,12 @@
+	DEFINE('nPush()')                    :(skip1)
+nPush	nPush          =  "" . *pushc()      :(RETURN)
+skip1	DEFINE('pushc()')                    :(skip3)
+pushc	depth          =  depth + 1
+	pushc          =  .dummy             :(RETURN)
+skip3	Command        =  'x'
+	depth          =  0
+	&Parse5        =  nPush() ARBNO(*Command)
+	Src            =  "xxx"
+	Src *&Parse5 RPOS(0)
+	OUTPUT         =  "depth=" depth
+	END

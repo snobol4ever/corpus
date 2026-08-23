@@ -6,6 +6,8 @@
 * Version:       0.25
 *
 START
+* CN-9b (SN4-CONSTANTS CN-4): open the user-constant namespace before the first &name assignment
+                  &USER_DECLARED_CONSTANTS  =  1
 -INCLUDE 'global.inc'
 -INCLUDE 'case.inc'
 -INCLUDE 'assign.inc'
@@ -48,40 +50,42 @@ START
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 *                 Parser patterns:
 *
-                  Integer        =  SPAN(digits)
-                  DQ             =  '"' BREAK('"' nl) '"'
-                  SQ             =  "'" BREAK("'" nl) "'"
-                  String         =  *SQ | *DQ
-                  Real           =  ( SPAN(digits)
+                  &Integer       =  SPAN(digits)
+                  &DQ            =  '"' BREAK('"' nl) '"'
+                  &SQ            =  "'" BREAK("'" nl) "'"
+                  &String        =  *&SQ | *&DQ
+                  &Real          =  ( SPAN(digits)
 +                                     ('.' FENCE(SPAN(digits) | epsilon) | epsilon)
 +                                     ('E' | 'e')
 +                                     ('+' | '-' | epsilon)
 +                                     SPAN(digits)
 +                                   | SPAN(digits) '.' FENCE(SPAN(digits) | epsilon)
 +                                   )
-                  Id             =  ANY(&UCASE &LCASE) FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)
-                  Function       =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(Functions, TxInList)
-                  BuiltinVar     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(BuiltinVars, TxInList)
-                  SpecialNm      =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(SpecialNms, TxInList)
-                  ProtKwd        =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(ProtKwds, TxInList)
-                  UnprotKwd      =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(UnprotKwds, TxInList)
+                  &Id            =  ANY(&UCASE &LCASE) FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)
+                  &Function      =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *match(&Functions, &TxInList)
+                  &BuiltinVar    =  SPAN('.' digits &UCASE '_' &LCASE)
++                                 $ tx $ *match(&BuiltinVars, &TxInList)
+                  &SpecialNm     =  SPAN('.' digits &UCASE '_' &LCASE)
++                                 $ tx $ *match(&SpecialNms, &TxInList)
+                  &ProtKwd       =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(&ProtKwds, &TxInList)
+                  &UnprotKwd     =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(UnprotKwds, &TxInList)
 
-                  Gray           =  *White | epsilon
-                  White          =  ( SPAN(' ' tab)
+                  &Gray          =  *&White | epsilon
+                  &White         =  ( SPAN(' ' tab)
 +                                     FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
 +                                   | nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon)
 +                                   )
 
-                  TxInList       =  (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
-                  SpecialNms     =  'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START'
-                  BuiltinVars    =  'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL'
-                  ProtKwds       =  'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
+                  &TxInList      =  (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
+                  &SpecialNms    =  'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START'
+                  &BuiltinVars   =  'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL'
+                  &ProtKwds      =  'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
 +                                   'LASTFILE LASTLINE LASTNO LCASE LINE REM RTNTYPE '
 +                                   'STCOUNT STNO SUCCEED UCASE'
                   UnprotKwds     =  'ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT '
 +                                   'ERRTEXT ERRTYPE FTRACE INPUT MAXLNGTH OUTPUT '
 +                                   'PROFILE STLIMIT TRACE TRIM FULLSCAN'
-                  Functions      =  'ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX '
+                  &Functions     =  'ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX '
 +                                   'CHAR CHOP CLEAR CODE COLLECT CONVERT COPY COS DATA '
 +                                   'DATATYPE DATE DEFINE DETACH DIFFER DUMP DUPL EJECT '
 +                                   'ENDFILE EQ EVAL EXIT EXP FENCE FIELD GE GT HOST '
@@ -91,138 +95,142 @@ START
 +                                   'RSORT RTAB SET SETEXIT SIN SIZE SORT SPAN SQRT STOPTR '
 +                                   'SUBSTR TAB TABLE TAN TIME TRACE TRIM UNLOAD'
 
-                  $'='           =  *White '=' *White
-                  $'?'           =  *White '?' *White
-                  $'|'           =  *White '|' *White
-                  $'+'           =  *White '+' *White
-                  $'-'           =  *White '-' *White
-                  $'/'           =  *White '/' *White
-                  $'*'           =  *White '*' *White
-                  $'^'           =  *White '^' *White
-                  $'!'           =  *White '!' *White
-                  $'**'          =  *White '**' *White
-                  $'$'           =  *White '$' *White
-                  $'.'           =  *White '.' *White
-                  $'&'           =  *White '&' *White
-                  $'@'           =  *White '@' *White
-                  $'#'           =  *White '#' *White
-                  $'%'           =  *White '%' *White
-                  $'~'           =  *White '~' *White
-                  $','           =  *Gray ',' *Gray
-                  $'('           =  '(' *Gray
-                  $'['           =  '[' *Gray
-                  $'<'           =  '<' *Gray
-                  $')'           =  *Gray ')'
-                  $']'           =  *Gray ']'
-                  $'>'           =  *Gray '>'
+                  $'='           =  *&White '=' *&White
+                  $'?'           =  *&White '?' *&White
+                  $'|'           =  *&White '|' *&White
+                  $'+'           =  *&White '+' *&White
+                  $'-'           =  *&White '-' *&White
+                  $'/'           =  *&White '/' *&White
+                  $'*'           =  *&White '*' *&White
+                  $'^'           =  *&White '^' *&White
+                  $'!'           =  *&White '!' *&White
+                  $'**'          =  *&White '**' *&White
+                  $'$'           =  *&White '$' *&White
+                  $'.'           =  *&White '.' *&White
+                  $'&'           =  *&White '&' *&White
+                  $'@'           =  *&White '@' *&White
+                  $'#'           =  *&White '#' *&White
+                  $'%'           =  *&White '%' *&White
+                  $'~'           =  *&White '~' *&White
+                  $','           =  *&Gray ',' *&Gray
+                  $'('           =  '(' *&Gray
+                  $'['           =  '[' *&Gray
+                  $'<'           =  '<' *&Gray
+                  $')'           =  *&Gray ')'
+                  $']'           =  *&Gray ']'
+                  $'>'           =  *&Gray '>'
 
-                  ExprList       =  nPush() *XList ("'ExprList'" & '*(GT(nTop(), 1) nTop())') nPop()
-                  XList          =  nInc() (*Expr | epsilon ~ '') FENCE($',' *XList | epsilon)
-                  Expr           =  *Expr0
-                  Expr0          =  *Expr1 FENCE($'=' *Expr0 ("'='" & 2) | epsilon)
-                  Expr1          =  *Expr2 FENCE($'?' *Expr1 ("'?'" & 2) | epsilon)
-                  Expr2          =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon)
-                  Expr3          =  nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop()
-                  X3             =  nInc() *Expr4 FENCE($'|' *X3 | epsilon)
-                  Expr4          =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop()
-                  X4             =  nInc() *Expr5 FENCE(*White *X4 | epsilon)
-                  Expr5          =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon)
-                  Expr6          =  *Expr7
-+                                   FENCE($'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ("'-'" & 2) | epsilon)
-                  Expr7          =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon)
-                  Expr8          =  *Expr9 FENCE($'/' *Expr8 ("'/'" & 2) | epsilon)
-                  Expr9          =  *Expr10 FENCE($'*' *Expr9 ("'*'" & 2) | epsilon)
-                  Expr10         =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon)
-                  Expr11         =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon)
-                  Expr12         =  *Expr13
-+                                   FENCE($'$' *Expr12 ("'$'" & 2) | $'.' *Expr12 ("'.'" & 2) | epsilon)
-                  Expr13         =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon)
-                  Expr14         =  '@' *Expr14 ("'@'" & 1)
-+                                 | '~' *Expr14 ("'~'" & 1)
-+                                 | '?' *Expr14 ("'?'" & 1)
-+                                 | *ProtKwd ~ 'ProtKwd'
-+                                 | *UnprotKwd ~ 'UnprotKwd'
-+                                 | '&' *Expr14 ("'&'" & 1)
-+                                 | '+' *Expr14 ("'+'" & 1)
-+                                 | '-' *Expr14 ("'-'" & 1)
-+                                 | '*' *Expr14 ("'*'" & 1)
-+                                 | '$' *Expr14 ("'$'" & 1)
-+                                 | '.' *Expr14 ("'.'" & 1)
-+                                 | '!' *Expr14 ("'!'" & 1)
-+                                 | '%' *Expr14 ("'%'" & 1)
-+                                 | '/' *Expr14 ("'/'" & 1)
-+                                 | '#' *Expr14 ("'#'" & 1)
-+                                 | '=' *Expr14 ("'='" & 1)
-+                                 | '|' *Expr14 ("'|'" & 1)
-+                                 | *Expr15
-                  Expr15         =  *Expr17 FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
+                  &ExprList      =  nPush() *&XList ("'ExprList'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  &XList         =  nInc() (*&Expr | epsilon ~ '') FENCE($',' *&XList | epsilon)
+                  &Expr          =  *&Expr0
+                  &Expr0         =  *&Expr1 FENCE($'=' *&Expr0 ("'='" & 2) | epsilon)
+                  &Expr1         =  *&Expr2 FENCE($'?' *&Expr1 ("'?'" & 2) | epsilon)
+                  &Expr2         =  *&Expr3 FENCE($'&' *&Expr2 ("'&'" & 2) | epsilon)
+                  &Expr3         =  nPush() *&X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  &X3            =  nInc() *&Expr4 FENCE($'|' *&X3 | epsilon)
+                  &Expr4         =  nPush() *&X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  &X4            =  nInc() *&Expr5 FENCE(*&White *&X4 | epsilon)
+                  &Expr5         =  *&Expr6 FENCE($'@' *&Expr5 ("'@'" & 2) | epsilon)
+                  &Expr6         =  *&Expr7
++                                   FENCE($'+' *&Expr6 ("'+'" & 2) | $'-' *&Expr6 ("'-'" & 2) | epsilon)
+                  &Expr7         =  *&Expr8 FENCE($'#' *&Expr7 ("'#'" & 2) | epsilon)
+                  &Expr8         =  *&Expr9 FENCE($'/' *&Expr8 ("'/'" & 2) | epsilon)
+                  &Expr9         =  *&Expr10 FENCE($'*' *&Expr9 ("'*'" & 2) | epsilon)
+                  &Expr10        =  *&Expr11 FENCE($'%' *&Expr10 ("'%'" & 2) | epsilon)
+                  &Expr11        =  *&Expr12 FENCE(($'^' | $'!' | $'**') *&Expr11 ("'^'" & 2) | epsilon)
+                  &Expr12        =  *&Expr13
++                                   FENCE($'$' *&Expr12 ("'$'" & 2) | $'.' *&Expr12 ("'.'" & 2) | epsilon)
+                  &Expr13        =  *&Expr14 FENCE($'~' *&Expr13 ("'~'" & 2) | epsilon)
+                  &Expr14        =  '@' *&Expr14 ("'@'" & 1)
++                                 | '~' *&Expr14 ("'~'" & 1)
++                                 | '?' *&Expr14 ("'?'" & 1)
++                                 | *&ProtKwd ~ 'ProtKwd'
++                                 | *&UnprotKwd ~ 'UnprotKwd'
++                                 | '&' *&Expr14 ("'&'" & 1)
++                                 | '+' *&Expr14 ("'+'" & 1)
++                                 | '-' *&Expr14 ("'-'" & 1)
++                                 | '*' *&Expr14 ("'*'" & 1)
++                                 | '$' *&Expr14 ("'$'" & 1)
++                                 | '.' *&Expr14 ("'.'" & 1)
++                                 | '!' *&Expr14 ("'!'" & 1)
++                                 | '%' *&Expr14 ("'%'" & 1)
++                                 | '/' *&Expr14 ("'/'" & 1)
++                                 | '#' *&Expr14 ("'#'" & 1)
++                                 | '=' *&Expr14 ("'='" & 1)
++                                 | '|' *&Expr14 ("'|'" & 1)
++                                 | *&Expr15
+                  &Expr15        =  *&Expr17
++                                   FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
                   Expr16         =  nInc()
-+                                   ($'[' *ExprList $']' | $'<' *ExprList $'>')
++                                   ($'[' *&ExprList $']' | $'<' *&ExprList $'>')
 +                                   FENCE(*Expr16 | epsilon)
-                  Expr17         =  FENCE(
+                  &Expr17        =  FENCE(
 +                                     nPush()
 +                                     $'('
-+                                     *Expr
-+                                     ($',' *XList ("','" & 'nTop() + 1') | epsilon ("'()'" & 1))
++                                     *&Expr
++                                     ($',' *&XList ("','" & 'nTop() + 1') | epsilon ("'()'" & 1))
 +                                     $')'
 +                                     nPop()
-+                                   | *Function ~ 'Function' $'(' *ExprList $')' ("'Call'" & 2)
-+                                   | *Id ~ 'Id' $'(' *ExprList $')' ("'Call'" & 2)
-+                                   | *BuiltinVar ~ 'BuiltinVar'
-+                                   | *SpecialNm ~ 'SpecialNm'
-+                                   | *Id ~ 'Id'
-+                                   | *String ~ 'String'
-+                                   | *Real ~ 'Real'
-+                                   | *Integer ~ 'Integer'
++                                   | *&Function ~ 'Function' $'(' *&ExprList $')' ("'Call'" & 2)
++                                   | *&Id ~ 'Id' $'(' *&ExprList $')' ("'Call'" & 2)
++                                   | *&BuiltinVar ~ 'BuiltinVar'
++                                   | *&SpecialNm ~ 'SpecialNm'
++                                   | *&Id ~ 'Id'
++                                   | *&String ~ 'String'
++                                   | *&Real ~ 'Real'
++                                   | *&Integer ~ 'Integer'
 +                                   )
 
-                  SGoto          =  ('S' | 's') . *assign(.sf, *'S')
-                  FGoto          =  ('F' | 'f') . *assign(.sf, *'F')
-                  SorF           =  *SGoto | *FGoto
-                  Target         =  $'(' . *assign(.Brackets, *'()') *Expr $')'
-+                                 | $'<' . *assign(.Brackets, *'<>') *Expr $'>'
-                  Goto           =  *Gray
+                  &SGoto         =  ('S' | 's') . *assign(.sf, *'S')
+                  &FGoto         =  ('F' | 'f') . *assign(.sf, *'F')
+                  &SorF          =  *&SGoto | *&FGoto
+                  &Target        =  $'(' . *assign(.Brackets, *'()') *&Expr $')'
++                                 | $'<' . *assign(.Brackets, *'<>') *&Expr $'>'
+                  &Goto          =  *&Gray
 +                                   ':'
-+                                   *Gray
++                                   *&Gray
 +                                   FENCE(
-+                                     *Target ("*(':' Brackets)" & 1) epsilon ~ ''
-+                                   | *SorF
-+                                     *Target
++                                     *&Target ("*(':' Brackets)" & 1) epsilon ~ ''
++                                   | *&SorF
++                                     *&Target
 +                                     ("*(':' sf Brackets)" & 1)
-+                                     FENCE(*Gray *SorF *Target ("*(':' sf Brackets)" & 1) | epsilon ~ '')
++                                     FENCE(
++                                       *&Gray *&SorF *&Target ("*(':' sf Brackets)" & 1)
++                                     | epsilon ~ ''
++                                     )
 +                                   )
-                  Control        =  '-' BREAK(nl ';')
-                  Comment        =  '*' BREAK(nl)
-                  Label          =  BREAK(' ' tab nl ';') ~ 'Label'
-                  Stmt           =  *Label
-+                                   ( *White
-+                                     *Expr14
+                  &Control       =  '-' BREAK(nl ';')
+                  &Comment       =  '*' BREAK(nl)
+                  &Label         =  BREAK(' ' tab nl ';') ~ 'Label'
+                  &Stmt          =  *&Label
++                                   ( *&White
++                                     *&Expr14
 +                                     FENCE(
 +                                       epsilon ~ ''
-+                                       *White
-+                                       ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
-+                                     | ($'?' | *White)
-+                                       *Expr1
++                                       *&White
++                                       ('=' ~ '=' *&White *&Expr | '=' ~ '=' epsilon ~ '')
++                                     | ($'?' | *&White)
++                                       *&Expr1
 +                                       FENCE(
-+                                         *White ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
++                                         *&White ('=' ~ '=' *&White *&Expr | '=' ~ '=' epsilon ~ '')
 +                                       | epsilon ~ '' epsilon ~ ''
 +                                       )
 +                                     | epsilon ~ '' epsilon ~ '' epsilon ~ ''
 +                                     )
 +                                   | epsilon ~ '' epsilon ~ '' epsilon ~ '' epsilon ~ ''
 +                                   )
-+                                   FENCE(*Goto | epsilon ~ '' epsilon ~ '')
-+                                   *Gray
++                                   FENCE(*&Goto | epsilon ~ '' epsilon ~ '')
++                                   *&Gray
 
-                  Commands       =  *Command FENCE(*Commands | epsilon)
+                  &Commands      =  *Command FENCE(*&Commands | epsilon)
                   Command        =  nInc()
 +                                   FENCE(
-+                                     *Comment ~ 'comment' ("'Comment'" & 1) nl
-+                                   | *Control ~ 'control' ("'Control'" & 1) (nl | ';')
-+                                   | *Stmt ("'Stmt'" & 7) (nl | ';')
++                                     *&Comment ~ 'comment' ("'Comment'" & 1) nl
++                                   | *&Control ~ 'control' ("'Control'" & 1) (nl | ';')
++                                   | *&Stmt ("'Stmt'" & 7) (nl | ';')
 +                                   )
 
-                  Parse          =  nPush() ARBNO(*Command) ("'Parse'" & 'nTop()') nPop()
+                  &Parse         =  nPush() ARBNO(*Command) ("'Parse'" & 'nTop()') nPop()
 
                   Compiland      =  nPush()
 +                                   ARBNO(*Command)
@@ -469,7 +477,7 @@ ss_BuiltinVar     ss             =  upr(v)                                      
 ss_Function       ss             =  upr(v)                                       :(ss_atomic)
 ss_Id             ss             =  v                                            :(ss_atomic)
 ss_Integer        ss             =  v                                            :(ss_atomic)
-ss_Label          v              POS(0) *SpecialNm RPOS(0)                       :S(ss_Label0)F(ss_Label1)
+ss_Label          v              POS(0) *&SpecialNm RPOS(0)                      :S(ss_Label0)F(ss_Label1)
 ss_Label0         ss             =  upr(v)                                       :(ss_atomic)
 ss_Label1         ss             =  v                                            :(ss_atomic)
 ss_ProtKwd        ss             =  upr(v)                                       :(ss_atomic)
@@ -600,7 +608,7 @@ refsEnd
 *                 Generate a more beautiful SNOBOL4 program.
 *
                   doDebug        =  0
-                  Space          =  SPAN(' ' tab) | epsilon
+                  &Space         =  SPAN(' ' tab) | epsilon
 main00            Line           =  INPUT                                        :F(END)
 main01            Src            =
                   Line           POS(0) ANY('*-')                                :F(main02)
@@ -608,10 +616,10 @@ main01            Src            =
 main02            Src            =  Src Line nl
                   Line           =  INPUT                                        :F(main05)
                   Line           POS(0) ANY('.+')                                :S(main02)
-                  Src            POS(0) *Parse *Space RPOS(0)                    :F(mainErr1)
+                  Src            POS(0) *&Parse *&Space RPOS(0)                  :F(mainErr1)
                   DIFFER(sno = Pop())                                            :F(mainErr2)
                   pp(sno)                                                        :(main01)
-main05            Src            POS(0) *Parse *Space RPOS(0)                    :F(mainErr1)
+main05            Src            POS(0) *&Parse *&Space RPOS(0)                  :F(mainErr1)
                   DIFFER(sno = Pop())                                            :F(mainErr2)
                   pp(sno)                                                        :(END)
 mainErr1          OUTPUT         =  'Parse Error'

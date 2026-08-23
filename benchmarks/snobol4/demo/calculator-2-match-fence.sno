@@ -1,9 +1,3 @@
-* calculator-2-match-fence -- TIME-BASED: fixed ms budget, count iterations.
-* workload: as calculator-2-match, with FENCE pruning the operator arms.
-* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
-* deserializing sibling (calculator-2.sno) which runs the same grammar with sprinkled loads.
-* input: calculator-2.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
-* text, so a missing or truncated input cannot masquerade as a passing run.
         V              =  ANY('abcdefghijklmnopqrstuvwxyz')
         I              =  SPAN('0123456789')
         A              =  FENCE(V | I | '(' *X ')')
@@ -13,17 +7,21 @@
         eol            =  CHAR(10)
         C              =  POS(0) ARBNO(X eol) RPOS(0)
         &TRIM          =  0
-        &STLIMIT =  -1
-        ZCHK    =   1
-        ZBUD    =   1000
-        ZFLR    =   20
+*------------------------------------------------------------------------------
+* CALCULATOR_2_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('CALCULATOR_2_MATCH_FENCE(N)')  :(CALCULATOR_2_MATCH_FENCE_END)
+CALCULATOR_2_MATCH_FENCE  ZI = 1
+ZBL     src C  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        CALCULATOR_2_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    CALCULATOR_2_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+CALCULATOR_2_MATCH_FENCE_END
+*------------------------------------------------------------------------------
         INPUT(.INPUT, 9, '[-f0 -r4194304]')
-        ZSRC    =   INPUT
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI      =   1
-ZBL     ZSRC    ?   C                               :F(ZBAD)
-        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
-        ZBODY   =   SIZE(ZSRC)                          :(RETURN)
-ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
-ZBODY_END
--INCLUDE '../harness.inc'
+        src = INPUT
+*BENCH kernel=CALCULATOR_2_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = CALCULATOR_2_MATCH_FENCE(1)
+END

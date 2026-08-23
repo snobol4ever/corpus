@@ -25,51 +25,34 @@
 * Run: sbl -b calculator-2.sno < calculator.input
 *      scrip --run calculator-2.sno < calculator.input
 *------------------------------------------------------------------------------
-        DEFINE('EMIT()')                        :(EMIT_end)
+        DEFINE('EMIT()')
+        DEFINE('PSH()')
+        DEFINE('DRF(nm)')
+        DEFINE('ADD()')
+        DEFINE('SUB()')
+        DEFINE('MUL()')
+        DEFINE('DIV()')
+        DEFINE('SGN()p1')                       :(FNS_end)
 EMIT    OUTPUT = DRF(S[1])
         sp = 0
         EMIT = .dm                              :(NRETURN)
-EMIT_end
-        DEFINE('PSH()')                         :(PSH_end)
-PSH     sp = sp + 1
-        PSH = .S[sp]                            :(NRETURN)
-PSH_end
-        DEFINE('DRF(nm)')                       :(DRF_end)
-DRF     nm POS(0) ANY(&LCASE) RPOS(0)           :F(DRF_n)
+PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
+DRF     DRF = nm
+        nm POS(0) ANY(&LCASE) RPOS(0)           :F(RETURN)
         DRF = vars[nm]                          :(RETURN)
-DRF_n   DRF = nm                                :(RETURN)
-DRF_end
-        DEFINE('ADD()p1')                       :(ADD_end)
-ADD     S[sp - 1] = DRF(S[sp - 1]) + DRF(S[sp - 0])
-        sp = sp - 1
+ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
         ADD = .dm                               :(NRETURN)
-ADD_end
-        DEFINE('SUB()p1')                       :(SUB_end)
-SUB     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) - p1
+SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
         SUB = .dm                               :(NRETURN)
-SUB_end
-        DEFINE('MUL()p1')                       :(MUL_end)
-MUL     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) * p1
+MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
         MUL = .dm                               :(NRETURN)
-MUL_end
-        DEFINE('DIV()p1')                       :(DIV_end)
-DIV     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) / p1
+DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
         DIV = .dm                               :(NRETURN)
-DIV_end
-        DEFINE('SGN()p1')                       :(SGN_end)
 SGN     p1 = DRF(S[sp])
-        sp = sp - 1
-        IDENT(S[sp], '-')                       :F(SGN1)
-        p1 = -p1
-SGN1    S[sp] = p1
+        p1 = IDENT(S[sp = sp - 1], '-') -p1
+        S[sp] = p1
         SGN = .dm                               :(NRETURN)
-SGN_end
+FNS_end
 *------------------------------------------------------------------------------
         S = ARRAY(65536)
         LCASE = &LCASE

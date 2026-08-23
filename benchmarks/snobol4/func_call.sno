@@ -1,19 +1,20 @@
-* func_call -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: program-defined function call and return overhead
+* func_call -- drives a counter through N program-defined function calls.
+* bottleneck: program-defined function call and return overhead.
+* Standalone:  scrip func_call.sno   |   sbl -bf func_call.sno   |   snobol4 func_call.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 1000
-        ZBUD = 500
-        ZFLR = 20
         DEFINE('INC(N)')                                :(INCE)
-INC    INC = N + 1                                     :(RETURN)
+INC     INC = N + 1                                     :(RETURN)
 INCE
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   R = 0
+        DEFINE('FUNC_CALL(N)')                          :(FUNC_CALL_END)
+FUNC_CALL  R = 0
         ZI = 1
 ZBL     R = INC(R)
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = R                                       :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        FUNC_CALL = R                                   :(RETURN)
+FUNC_CALL_END
+*BENCH kernel=FUNC_CALL check=1000 bud=500 flr=20
+        OUTPUT = 'INC(0) = ' INC(0)
+        OUTPUT = '1000 chained calls = ' FUNC_CALL(1000)
+END

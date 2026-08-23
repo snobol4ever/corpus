@@ -1,0 +1,65 @@
+* table_variety -- probes one TABLE with keys of EVERY datatype and reports the census.
+* bottleneck: table key handling across every key datatype, not just integers.
+* ⭐ WHY THIS EXISTS (hq_P s262, Lon): table_access is integer-keyed only, so the
+*   s262 typed-key cure -- one hash function per datatype -- shipped with coverage
+*   of exactly ONE of the six types it added.  This kernel exercises integer,
+*   string, real and null keys, negative and zero integers, keys that collide,
+*   overwrite-in-place, deletion, lookup misses, and a table whose keys are of
+*   MIXED type in one table -- the case where "hash by datatype first" is the only
+*   thing keeping two different keys apart.
+* ⛔ The census is a sum over EVERY probe, so a wrong bucket, a wrong compare or a
+*   lost entry changes it.  It is not a smoke test that only proves we ran.
+* Standalone:  scrip table_variety.sno   |   sbl -bf table_variety.sno
+        &TRIM = 1
+        &ANCHOR = 0
+        &STLIMIT = -1
+        DEFINE('TABLE_VARIETY(N)')                      :(TABLE_VARIETY_END)
+TABLE_VARIETY  ZI = 1
+        ZS = 0
+ZBL     tab = TABLE(64)
+*       integers: positive, zero, negative -- all three sign paths of the int hash
+        ix = -30
+INTFILL tab[ix] = ix * 3
+        ix = LT(ix, 30) ix + 1                          :S(INTFILL)
+*       strings: short and long, and one that looks like an integer
+        sx = 1
+STRFILL tab['k' sx] = sx * 5
+        tab['a_much_longer_key_' sx] = sx * 7
+        sx = LT(sx, 20) sx + 1                          :S(STRFILL)
+        tab['17'] = 1700
+*       reals, and the null key
+        rx = 1
+REALFIL tab[rx / 2.0] = rx * 11
+        rx = LT(rx, 12) rx + 1                          :S(REALFIL)
+        tab[''] = 99
+*       ⭐ THE MIXED-TYPE PROBE: 17 and '17' are DIFFERENT keys.  A hash or a
+*       compare that ignores the datatype collapses them and the census moves.
+        tab[17] = 1717
+        ZS = ZS + tab[17] + tab['17']
+*       overwrite in place must not add an entry
+        tab[5] = 500
+        tab[5] = 501
+        ZS = ZS + tab[5]
+*       read every integer back
+        ix = -30
+INTREAD ZS = ZS + tab[ix]
+        ix = LT(ix, 30) ix + 1                          :S(INTREAD)
+*       read every string back
+        sx = 1
+STRREAD ZS = ZS + tab['k' sx] + tab['a_much_longer_key_' sx]
+        sx = LT(sx, 20) sx + 1                          :S(STRREAD)
+*       read every real back
+        rx = 1
+REALRD  ZS = ZS + tab[rx / 2.0]
+        rx = LT(rx, 12) rx + 1                          :S(REALRD)
+        ZS = ZS + tab['']
+*       misses must return the null value, not a neighbour's
+        ZS = ZS + SIZE(tab[9999]) + SIZE(tab['absent']) + SIZE(tab[-9999])
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        TABLE_VARIETY = ZS                              :(RETURN)
+TABLE_VARIETY_END
+*BENCH kernel=TABLE_VARIETY check=40 bud=500 flr=20
+        OUTPUT = 'census of one pass  = ' TABLE_VARIETY(1)
+        OUTPUT = 'census of 40 passes = ' TABLE_VARIETY(40)
+        OUTPUT = 'tab[17] = ' tab[17] '   tab["17"] = ' tab['17'] '   tab[5] = ' tab[5]
+END

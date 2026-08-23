@@ -1,1 +1,3 @@
-check: 125750
+dispatching through the name ADD1
+APPLY(ZFN, 41) = 42
+sum of ADD1(1..500) = 125750

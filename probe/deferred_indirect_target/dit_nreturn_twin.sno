@@ -1,0 +1,12 @@
+* dit_nreturn_twin -- the SAME shape via an NRETURN function instead of $().
+* Both engines: "ok dummy=HELLO".  This PASSES and is the control: it proves the
+* deferred-capture machinery works, and isolates the defect to the $() name path.
+	subject = "HELLO WORLD"
+	DEFINE("note()")	:(note_end)
+note	note = .dummy	:(NRETURN)
+note_end
+	p = "HELLO" . *note()
+	subject p	:S(ok)F(no)
+ok	OUTPUT = "ok dummy=" dummy	:(END)
+no	OUTPUT = "failed"
+END

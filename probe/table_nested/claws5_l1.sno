@@ -1,0 +1,47 @@
+* claws5_l1 -- REALISTIC LADDER rung 1/3, row table-nested-subscript-cost (FINDING-2026-08-21-s199,
+* sibling row table-flat-1level-segv / FINDING-2026-08-22-seat6). Byte-identical to
+* corpus/benchmarks/snobol4/demo/claws5.sno except token()'s mem[num][wrd][tag] 3-level build is
+* flattened to ONE level, mem[wrd] -- same recipe FINDING-2026-08-21-s199 named (num dropped
+* entirely, not just the tag level, matching seat6's already-validated correctness witness
+* corpus/probe/claws5_table_flat1.sno).  Real claws5.dat on stdin (symlinked beside this file) so
+* the token STREAM and its key-repeat distribution are identical to the level-3 original -- only the
+* table shape differs.  Deliberately kept in corpus/probe/ (not corpus/benchmarks/.../demo/) so it
+* does not join the scored demo suite by construction; graded here via BENCH_DIR override only.
+        &STLIMIT =  -1
+        ZCHK    =   1
+        ZBUD    =   1000
+        ZFLR    =   20
+*------------------------------------------------------------------------------
+        DEFINE('token()')  :(token_end)
+token   num = +num
+        mem = IDENT(mem) TABLE()
+        mem[wrd] = IDENT(mem[wrd]) 0
+        mem[wrd] = mem[wrd] + 1
+        ZTOK = ZTOK + 1
+        token = .dummy  :(NRETURN)
+token_end
+*------------------------------------------------------------------------------
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789') . num) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_')) . wrd
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag . *token()
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        ZSRC    =   INPUT
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI      =   1
+ZBL     mem     =
+        ZTOK    =   0
+        ZSRC    ?   claws                               :F(ZBAD)
+        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
+        ZBODY   =   ZTOK                                :(RETURN)
+ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'

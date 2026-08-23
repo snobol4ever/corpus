@@ -1,16 +1,17 @@
-* arith_loop -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: counter increment; loop dispatch
+* arith_loop -- counts to N by repeated increment and reports the total.
+* bottleneck: counter increment; loop dispatch.
+* Standalone:  scrip arith_loop.sno   |   sbl -bf arith_loop.sno   |   snobol4 arith_loop.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 1000
-        ZBUD = 500
-        ZFLR = 20
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   A = 0
+        DEFINE('ARITH_LOOP(N)')                         :(ARITH_LOOP_END)
+ARITH_LOOP  A = 0
         ZI = 1
 ZBL     A = A + 1
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = A                                       :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        ARITH_LOOP = A                                  :(RETURN)
+ARITH_LOOP_END
+*BENCH kernel=ARITH_LOOP check=1000 bud=500 flr=20
+        OUTPUT = 'arith_loop(10) = ' ARITH_LOOP(10)
+        OUTPUT = 'arith_loop(1000) = ' ARITH_LOOP(1000)
+END

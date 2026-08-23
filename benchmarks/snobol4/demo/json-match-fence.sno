@@ -1,9 +1,3 @@
-* json-match-fence -- TIME-BASED: fixed ms budget, count iterations.
-* workload: as json-match, with FENCE pruning the value alternation.
-* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
-* deserializing sibling (json.sno) which runs the same grammar with sprinkled loads.
-* input: json.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
-* text, so a missing or truncated input cannot masquerade as a passing run.
 *------------------------------------------------------------------------------
                 &TRIM          =  0
                 $' '           =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
@@ -40,17 +34,21 @@
                 jelement       =  $' ' *jvalue $' '
                 json           =  POS(0) jelement RPOS(0)
 *------------------------------------------------------------------------------
-        &STLIMIT =  -1
-        ZCHK    =   1
-        ZBUD    =   1000
-        ZFLR    =   20
+*------------------------------------------------------------------------------
+* JSON_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
+* number of bytes it matched.  N=1 is what the standalone driver below asks for;
+* the timed twin built by scripts/bench_wrap.sh asks for many.
+*------------------------------------------------------------------------------
+        DEFINE('JSON_MATCH_FENCE(N)')  :(JSON_MATCH_FENCE_END)
+JSON_MATCH_FENCE  ZI = 1
+ZBL     src json  :F(ZBAD)
+        ZI = LT(ZI, N) ZI + 1  :S(ZBL)
+        JSON_MATCH_FENCE = 'matched bytes=' SIZE(src)  :(RETURN)
+ZBAD    JSON_MATCH_FENCE = 'Pattern match failed'  :(RETURN)
+JSON_MATCH_FENCE_END
+*------------------------------------------------------------------------------
         INPUT(.INPUT, 9, '[-f0 -r4194304]')
-        ZSRC    =   INPUT
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI      =   1
-ZBL     ZSRC    ?   json                               :F(ZBAD)
-        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
-        ZBODY   =   SIZE(ZSRC)                          :(RETURN)
-ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
-ZBODY_END
--INCLUDE '../harness.inc'
+        src = INPUT
+*BENCH kernel=JSON_MATCH_FENCE check=1 bud=1000 flr=20
+        OUTPUT = JSON_MATCH_FENCE(1)
+END

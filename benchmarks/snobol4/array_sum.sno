@@ -1,13 +1,11 @@
-* array_sum -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: array allocation, indexed store and fetch
+* array_sum -- builds an ARRAY(500) of even numbers and totals it, N times over.
+* bottleneck: array allocation, indexed store and fetch.
+* Standalone:  scrip array_sum.sno   |   sbl -bf array_sum.sno   |   snobol4 array_sum.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 20
-        ZBUD = 500
-        ZFLR = 20
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   ZI = 1
+        DEFINE('ARRAY_SUM(N)')                          :(ARRAY_SUM_END)
+ARRAY_SUM  ZI = 1
 ZBL     V = ARRAY(500)
         I = 1
 ZFILL   V[I] = I * 2
@@ -16,7 +14,10 @@ ZFILL   V[I] = I * 2
         I = 1
 ZREAD   SUM = SUM + V[I]
         I = LT(I, 500) I + 1                            :S(ZREAD)
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = SUM                                     :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        ARRAY_SUM = SUM                                 :(RETURN)
+ARRAY_SUM_END
+*BENCH kernel=ARRAY_SUM check=20 bud=500 flr=20
+        OUTPUT = 'sum of 2,4,..,1000 = ' ARRAY_SUM(1)
+        OUTPUT = 'after 20 rebuilds  = ' ARRAY_SUM(20)
+END

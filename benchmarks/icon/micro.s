@@ -13431,14 +13431,12 @@ n01499_scan_move_α:      mov              rax, 0
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 216], rdx;          jmp   n01500_unmark_α
 n01499_scan_move_β:      mov              r14, qword ptr [rsp + 224];          jmp   n01500_unmark_α
@@ -13616,14 +13614,12 @@ n01521_scan_move_α:      mov              rax, 1
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 280], rdx;          jmp   n01523_lit_integer_α
 n01521_scan_move_β:      mov              r14, qword ptr [rsp + 288];          jmp   n01522_unmark_α
@@ -13646,14 +13642,12 @@ n01525_scan_move_α:      mov              rax, -1
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 232], rdx;          jmp   n01526_conjunction_α
 n01525_scan_move_β:      mov              r14, qword ptr [rsp + 240];          jmp   n01521_scan_move_β
@@ -14153,14 +14147,12 @@ n01583_scan_tab_α:       mov              rax, 3
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 216], rdx;          jmp   n01585_unmark_α
 n01583_scan_tab_β:       mov              r14, qword ptr [rsp + 224];          jmp   n01585_unmark_α
@@ -14545,14 +14537,12 @@ n01632_scan_tab_α:       mov              rax, qword ptr [rsp + 248]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 216], rdx;          jmp   n01630_unmark_α
 n01632_scan_tab_β:       mov              r14, qword ptr [rsp + 224];          jmp   n01630_unmark_α
@@ -14898,12 +14888,12 @@ n01677_scan_any_α:       mov              eax, r14d
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx01679_0]
-                        push             rdx
+                        sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rdx
+                        add              rsp, 8
                         test             rax, rax;                            je    n01678_unmark_α
                         mov              qword ptr [rsp + 208], 3
                         mov              rax, r14
@@ -15080,12 +15070,12 @@ n01700_scan_many_α:      mov              eax, r14d
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx01701_2]
                         push             rax
-                        push             rcx
+                        sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
+                        add              rsp, 8
                         test             rax, rax
                         pop              rax;                                 je    .Lx01701_1
                         add              eax, 1;                              jmp   .Lx01701_0
@@ -15267,12 +15257,12 @@ n01723_scan_upto_α:      mov              qword ptr [rsp + 224], r14
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx01724_2]
                         push             rax
-                        push             rcx
+                        sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
+                        add              rsp, 8
                         test             rax, rax
                         pop              rax;                                 je    .Lx01724_1
                         mov              qword ptr [rsp + 208], 3
@@ -15632,12 +15622,12 @@ n01769_scan_upto_α:      mov              qword ptr [rsp + 224], r14
                         movzx            esi, byte ptr [r13+rcx]
                         mov              rdi, qword ptr [rip + .Lx01770_2]
                         push             rax
-                        push             rcx
+                        sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         call             strchr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
+                        add              rsp, 8
                         test             rax, rax
                         pop              rax;                                 je    .Lx01770_1
                         mov              qword ptr [rsp + 208], 3

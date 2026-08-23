@@ -1,0 +1,44 @@
+* claws5_l2 -- REALISTIC LADDER rung 2/3, row table-nested-subscript-cost. Byte-identical to
+* corpus/benchmarks/snobol4/demo/claws5.sno except token()'s 3-level mem[num][wrd][tag] build drops
+* just the innermost [tag] level, keeping the num->wrd 2-level chain (one fewer hop than the
+* original, one more than claws5_l1.sno).  Real claws5.dat on stdin (symlinked beside this file).
+* See claws5_l1.sno for the full rationale (kept in corpus/probe/, graded via BENCH_DIR override).
+        &STLIMIT =  -1
+        ZCHK    =   1
+        ZBUD    =   1000
+        ZFLR    =   20
+*------------------------------------------------------------------------------
+        DEFINE('token()')  :(token_end)
+token   num = +num
+        mem = IDENT(mem) TABLE()
+        mem[num] = IDENT(mem[num]) TABLE()
+        mem[num][wrd] = IDENT(mem[num][wrd]) 0
+        mem[num][wrd] = mem[num][wrd] + 1
+        ZTOK = ZTOK + 1
+        token = .dummy  :(NRETURN)
+token_end
+*------------------------------------------------------------------------------
+        &TRIM   =   0
+        claws   =   POS(0)
++                   ARBNO(
++                     FENCE(
++                       (SPAN('0123456789') . num) '_CRD :_PUN'
++                     | (NOTANY('_') BREAK('_')) . wrd
++                       '_'
++                       (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag . *token()
++                     )
++                     SPAN(' ' CHAR(10))
++                   )
++                   RPOS(0)
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        ZSRC    =   INPUT
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI      =   1
+ZBL     mem     =
+        ZTOK    =   0
+        ZSRC    ?   claws                               :F(ZBAD)
+        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
+        ZBODY   =   ZTOK                                :(RETURN)
+ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'

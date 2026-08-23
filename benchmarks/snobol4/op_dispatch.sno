@@ -1,19 +1,20 @@
-* op_dispatch -- TIME-BASED: fixed ms budget, count iterations.
-* bottleneck: arithmetic operator dispatch and predicate test
+* op_dispatch -- runs a value through a fixed add/subtract/multiply/divide chain N times.
+* bottleneck: arithmetic operator dispatch and predicate test.
+* Standalone:  scrip op_dispatch.sno   |   sbl -bf op_dispatch.sno   |   snobol4 op_dispatch.sno
         &TRIM = 1
         &ANCHOR = 0
         &STLIMIT = -1
-        ZCHK = 1000
-        ZBUD = 500
-        ZFLR = 20
-        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
-ZBODY   N = 1
+        DEFINE('OP_DISPATCH(N)')                        :(OP_DISPATCH_END)
+OP_DISPATCH  M = 1
         ZI = 1
-ZBL     N = N + 3
-        N = N - 1
-        N = N * 2
-        N = GE(N, 1000000) N / 1000
-        ZI = LT(ZI, ZKN) ZI + 1                         :S(ZBL)
-        ZBODY = N                                       :(RETURN)
-ZBODY_END
--INCLUDE 'harness.inc'
+ZBL     M = M + 3
+        M = M - 1
+        M = M * 2
+        M = GE(M, 1000000) M / 1000
+        ZI = LT(ZI, N) ZI + 1                           :S(ZBL)
+        OP_DISPATCH = M                                 :(RETURN)
+OP_DISPATCH_END
+*BENCH kernel=OP_DISPATCH check=1000 bud=500 flr=20
+        OUTPUT = 'after 1 pass    = ' OP_DISPATCH(1)
+        OUTPUT = 'after 1000 passes = ' OP_DISPATCH(1000)
+END

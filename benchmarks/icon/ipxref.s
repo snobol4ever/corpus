@@ -4301,14 +4301,12 @@ n00408_scan_tab_α:        mov              rax, qword ptr [rsp + 2296]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 2256], rax
                         mov              qword ptr [rsp + 2264], rdx;         jmp   n00410_lit_integer_α
 n00408_scan_tab_β:        mov              r14, qword ptr [rsp + 2272];         jmp   n00395_disjunction_af
@@ -4371,14 +4369,12 @@ n00421_scan_move_α:       mov              rax, 1
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 416], rax
                         mov              qword ptr [rsp + 424], rdx;          jmp   n00422_assign_α
 n00421_scan_move_β:       mov              r14, qword ptr [rsp + 432];          jmp   n00400_scan_α
@@ -5169,14 +5165,12 @@ n00504_scan_tab_α:        mov              rax, 0
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 1408], rax
                         mov              qword ptr [rsp + 1416], rdx;         jmp   n00506_binop_test_α
 n00504_scan_tab_β:        mov              r14, qword ptr [rsp + 1424];         jmp   n00455_disjunction_af
@@ -5254,14 +5248,12 @@ n00510_scan_tab_α:        mov              rax, qword ptr [rsp + 2152]
                         mov              rdx, rax
                         sub              rdx, 1
                         mov              r14, rdx
-                        push             rcx
-                        push             rcx
+                        sub              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_substr@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              rcx
-                        pop              rcx
+                        add              rsp, 16
                         mov              qword ptr [rsp + 2112], rax
                         mov              qword ptr [rsp + 2120], rdx;         jmp   n00512_lit_integer_α
 n00510_scan_tab_β:        mov              r14, qword ptr [rsp + 2128];         jmp   n00416_disjunction_af

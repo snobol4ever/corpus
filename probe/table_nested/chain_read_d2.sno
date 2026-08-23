@@ -1,0 +1,27 @@
+* chain_read_d2 -- MECHANISM PROBE, row table-nested-subscript-cost. Depth-2 rung of the
+* chain_read_d1/d2/d3 ladder: same slot cycle, same leaf INTEGER value (slot*3), one extra chained
+* hop (level1[slot][slot], a diagonal so seeding stays a single pass).  Table pre-built, no
+* creation/IDENT in the timed loop -- isolates pure chained re-lookup cost added by ONE more hop.
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        level1 = TABLE()
+        slot = 0
+seed1   inner = TABLE()
+        inner[slot] = slot * 3
+        level1[slot] = inner
+        slot = LT(slot, 7) slot + 1                     :S(seed1)
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZKN = ZKN + 0
+        ZI = 1
+        total = 0
+        slot = 0
+ZBL     total = total + level1[slot][slot]
+        EQ(slot, 7)                                      :S(zreset)
+        slot = slot + 1                                   :(zcont)
+zreset  slot = 0
+zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
+        ZBODY = total                                     :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'

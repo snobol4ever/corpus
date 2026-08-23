@@ -1,0 +1,26 @@
+* chain_incr_d1 -- MECHANISM PROBE, row table-nested-subscript-cost. ISOLATES: the READ-THEN-WRITE
+* cost of `t[k] = t[k] + 1` (claws5's own increment line shape) at depth 1, no IDENT, table
+* pre-built and pre-seeded so no creation happens in the timed loop -- only the chain is walked
+* twice (once to read, once to store) instead of once as in chain_read_d1.sno.  Compare against
+* chain_read_d1.sno at the same depth to isolate the "extra write" tax named in FINDING-2026-08-21-
+* s199 ("each read walks three levels; the increment does it twice").
+        &STLIMIT = -1
+        ZCHK = 20
+        ZBUD = 500
+        ZFLR = 20
+        level1 = TABLE()
+        slot = 0
+seed1   level1[slot] = slot * 3
+        slot = LT(slot, 7) slot + 1                     :S(seed1)
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZKN = ZKN + 0
+        ZI = 1
+        slot = 0
+ZBL     level1[slot] = level1[slot] + 1
+        EQ(slot, 7)                                      :S(zreset)
+        slot = slot + 1                                   :(zcont)
+zreset  slot = 0
+zcont   ZI = LT(ZI, ZKN) ZI + 1                           :S(ZBL)
+        ZBODY = level1[0]                                 :(RETURN)
+ZBODY_END
+-INCLUDE '../../benchmarks/snobol4/harness.inc'
