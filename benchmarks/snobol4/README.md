@@ -46,14 +46,14 @@ SPITBOL test suite — data for the diagnostics runners, not part of this family
 
 ---
 
-⛔ **`test_bench_snobol4_timed.sh` CURRENTLY GRADES ZERO OF THE 15 (2026-08-23, s265 STANDALONE
-REVAMP).** The runner now builds every kernel's timed twin via `bench_wrap.sh`, which requires a
-`*BENCH kernel=... check=... bud=... flr=...` marker line (see `bench_wrap.sh` header) — none of
-the 15 `.sno` below carry one yet, so every row prints `UNGRADED` and `CHECK RESULT: ok=0 bad=0`.
-The kernels themselves are unaffected and still run correctly as plain harness.inc TIME-mode
-programs; until they are migrated to the `*BENCH`/standalone shape, use
-`scripts/bench_snobol4_timed_direct.sh` (interim bridge, same run1()/best() methodology, bypasses
-`bench_wrap.sh`) to get real numbers. Task: `bench-rebaseline-15-kernels-clean-oracle`.
+⛔ **THE SHAPE DESCRIBED ABOVE (`DEFINE('ZBODY(ZKN)')` + `-INCLUDE 'harness.inc'`, "BM-2 end
+state") IS STALE.** Commit `cbc2df66e` ("s265-bench-standalone-revamp", 2026-08-23 12:55:48)
+migrated every kernel below to the standalone `*BENCH kernel=... check=... bud=... flr=...`
+marker shape (`bench_wrap.sh` builds the timed twin on the fly; see that script's header for the
+contract) without updating this file's prose. `bash SCRIP/scripts/test_bench_snobol4_timed.sh`
+currently reports `CHECK RESULT: ok=18 bad=0`, `ungraded: none` — the runner and corpus agree,
+only the description above them does not. Needs a real rewrite (out of scope for a measurement
+task); flagged, not fixed, by task `bench-rebaseline-15-kernels-clean-oracle`.
 
 ## Benchmark Programs (15, all graded)
 
@@ -64,8 +64,8 @@ programs; until they are migrated to the `*BENCH`/standalone shape, use
 | `eval_fixed.sno` | Run-time compilation of a fixed expression string | `EVAL()` |
 | `fibonacci.sno` | Recursive call depth | Recursive `FIB` |
 | `func_call.sno` | Program-defined call and return overhead | Direct call to a SNOBOL-defined function |
-| `indirect_dispatch.sno` | **BY-NAME dispatch** | `APPLY(<name in a variable>, arg)` — contrast with `func_call` (direct) and `eval_fixed` (EVAL). ⭐ **m4 status corrected 2026-08-23** (task `bench-rebaseline-15-kernels-clean-oracle`): compiles, links, and runs cleanly (`check: 125750`, matches `.ref`) — the old "m4 XFAIL, B1 class" note is stale (no `indirect_dispatch.xfail` file exists on disk either). Also noted, unacted-on, by seat2 2026-08-22 (`FINDING-2026-08-22-seat2-bench-harness-unmeasurable.md` §4). Re-verify before trusting either status blindly. |
-| `mixed_workload.sno` | Combined | Pattern parse + TABLE + recursion, one of each per iteration. ⭐ **m4 status corrected 2026-08-23** (task `bench-rebaseline-15-kernels-clean-oracle`): compiles, links, and runs cleanly (`check: 12100`, matches `.ref`) — the old "m4 SIGSEGV" note is stale. Also noted, unacted-on, by seat2 2026-08-22 (same FINDING). Re-verify before trusting either status blindly. |
+| `indirect_dispatch.sno` | **BY-NAME dispatch** | `APPLY(<name in a variable>, arg)` — contrast with `func_call` (direct) and `eval_fixed` (EVAL). ⭐ **m4 status corrected 2026-08-23**: compiles, links, and runs cleanly (confirmed both pre- and post-standalone-revamp shape); the old "m4 XFAIL, B1 class" note was stale (no `indirect_dispatch.xfail` file ever existed on disk). Also noted, unacted-on, by seat2 2026-08-22. |
+| `mixed_workload.sno` | Combined | Pattern parse + TABLE + recursion, one of each per iteration. ⭐ **m4 status corrected 2026-08-23**: compiles, links, and runs cleanly (confirmed both pre- and post-standalone-revamp shape); the old "m4 SIGSEGV" note was stale. Also noted, unacted-on, by seat2 2026-08-22. |
 | `op_dispatch.sno` | Arithmetic operator dispatch and predicate test | `+ - * /`, `GE` in a loop |
 | `pattern_bt.sno` | Alternation backtracking | 4 choices + `SPAN`, capture on the winning arm |
 | `roman.sno` | Recursive function dispatch | `DEFINE`, `RPOS`, `LEN`, `BREAK`, `REPLACE`, converting a different integer each iteration |
