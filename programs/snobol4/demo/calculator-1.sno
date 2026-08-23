@@ -8,32 +8,24 @@ EMIT_end
 PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
 PSH_end
         DEFINE('DRF(nm)')                       :(DRF_end)
-DRF     nm ? POS(0) ANY(&LCASE) RPOS(0)         :F(DRF_n)
+DRF     DRF = nm
+        nm ? POS(0) ANY(&LCASE) RPOS(0)         :F(RETURN)
         DRF = vars[nm]                          :(RETURN)
-DRF_n   DRF = nm                                :(RETURN)
 DRF_end
-        DEFINE('ADD()p1')                       :(ADD_end)
-ADD     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) + p1
+        DEFINE('ADD()')                         :(ADD_end)
+ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
         ADD = .dm                               :(NRETURN)
 ADD_end
-        DEFINE('SUB()p1')                       :(SUB_end)
-SUB     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) - p1
+        DEFINE('SUB()')                         :(SUB_end)
+SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
         SUB = .dm                               :(NRETURN)
 SUB_end
-        DEFINE('MUL()p1')                       :(MUL_end)
-MUL     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) * p1
+        DEFINE('MUL()')                         :(MUL_end)
+MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
         MUL = .dm                               :(NRETURN)
 MUL_end
-        DEFINE('DIV()p1')                       :(DIV_end)
-DIV     p1 = DRF(S[sp])
-        sp = sp - 1
-        S[sp] = DRF(S[sp]) / p1
+        DEFINE('DIV()')                         :(DIV_end)
+DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
         DIV = .dm                               :(NRETURN)
 DIV_end
         DEFINE('NEG()')                         :(NEG_end)
