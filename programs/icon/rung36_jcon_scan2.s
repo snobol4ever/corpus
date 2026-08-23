@@ -1688,12 +1688,12 @@ n128_scan_match_α:      mov              r11, 110
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
-                        push             r11
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        pop              r12
                         test             eax, eax;                            jne   n134_keyword_icon_α
                         mov              qword ptr [rsp + 208], 3
                         mov              rax, r14

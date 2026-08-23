@@ -2029,9 +2029,9 @@ collate_ω:
                         add              rsp, 3344;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 collate_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -2053,12 +2053,12 @@ collate_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx373_2]
                         lea              rdx, [rip + .Lx373_3];               jmp   FN__collate
-.Lx373_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx373_3:               pop              r11
-                        pop              r11
+.Lx373_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx373_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__decollate:
                         sub              rsp, 2224
@@ -3725,9 +3725,9 @@ decollate_ω:
                         add              rsp, 2224;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 decollate_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -3749,12 +3749,12 @@ decollate_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx628_2]
                         lea              rdx, [rip + .Lx628_3];               jmp   FN__decollate
-.Lx628_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx628_3:               pop              r11
-                        pop              r11
+.Lx628_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx628_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__perm:
                         sub              rsp, 528
@@ -4044,17 +4044,17 @@ perm_ω:
                         add              rsp, 528;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 perm_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx670_2]
                         lea              rdx, [rip + .Lx670_3];               jmp   FN__perm
-.Lx670_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx670_3:               pop              r11
-                        pop              r11
+.Lx670_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx670_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__permute:
 permute_α_body:

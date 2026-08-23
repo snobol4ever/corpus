@@ -728,17 +728,17 @@ listtest_ω:
                         add              rsp, 1552;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 listtest_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx137_2]
                         lea              rdx, [rip + .Lx137_3];               jmp   FN__listtest
-.Lx137_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx137_3:               pop              r11
-                        pop              r11
+.Lx137_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx137_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__rectest:
                         sub              rsp, 2000
@@ -1632,17 +1632,17 @@ rectest_ω:
                         add              rsp, 2000;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 rectest_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx269_2]
                         lea              rdx, [rip + .Lx269_3];               jmp   FN__rectest
-.Lx269_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx269_3:               pop              r11
-                        pop              r11
+.Lx269_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx269_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__tbltest:
                         sub              rsp, 4240
@@ -3936,17 +3936,17 @@ tbltest_ω:
                         add              rsp, 4240;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 tbltest_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx722_2]
                         lea              rdx, [rip + .Lx722_3];               jmp   FN__tbltest
-.Lx722_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx722_3:               pop              r11
-                        pop              r11
+.Lx722_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx722_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__randval:
                         sub              rsp, 976
@@ -4493,17 +4493,17 @@ randval_ω:
                         add              rsp, 976;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 randval_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx825_2]
                         lea              rdx, [rip + .Lx825_3];               jmp   FN__randval
-.Lx825_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx825_3:               pop              r11
-                        pop              r11
+.Lx825_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx825_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__check:
                         sub              rsp, 2464
@@ -5753,9 +5753,9 @@ check_ω:
                         add              rsp, 2464;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 check_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -5777,12 +5777,12 @@ check_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx1063_2]
                         lea              rdx, [rip + .Lx1063_3];              jmp   FN__check
-.Lx1063_2:              pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx1063_3:              pop              r11
-                        pop              r11
+.Lx1063_2:              pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx1063_3:              pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__wlist:
                         sub              rsp, 432
@@ -5982,10 +5982,10 @@ wlist_ω:
                         add              rsp, 432;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 wlist_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -5998,12 +5998,12 @@ wlist_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx1095_2]
                         lea              rdx, [rip + .Lx1095_3];              jmp   FN__wlist
-.Lx1095_2:              pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx1095_3:              pop              r11
-                        pop              r11
+.Lx1095_2:              pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx1095_3:              pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__copytest:
                         sub              rsp, 4736
@@ -8284,17 +8284,17 @@ copytest_ω:
                         add              rsp, 4736;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 copytest_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx1509_2]
                         lea              rdx, [rip + .Lx1509_3];              jmp   FN__copytest
-.Lx1509_2:              pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx1509_3:              pop              r11
-                        pop              r11
+.Lx1509_2:              pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx1509_3:              pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__messtest:
                         sub              rsp, 5424
@@ -10407,17 +10407,17 @@ messtest_ω:
                         add              rsp, 5424;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 messtest_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx1909_2]
                         lea              rdx, [rip + .Lx1909_3];              jmp   FN__messtest
-.Lx1909_2:              pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx1909_3:              pop              r11
-                        pop              r11
+.Lx1909_2:              pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx1909_3:              pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__wsortf:
                         sub              rsp, 1248
@@ -10621,14 +10621,14 @@ n1923_disjunction_af:   mov              r11, 776
 n1924_scan_match_α:     mov              r11, 777
                         mov              rdi, qword ptr [rsp + 928]
                         mov              rsi, qword ptr [rsp + 936]
-                        push             r11
-                        push             r11
+                        push             r12
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_scan_needle@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
-                        pop              r11
+                        pop              r12
+                        pop              r12
                         mov              qword ptr [rsp + 912], rax
                         mov              qword ptr [rsp + 920], rdx
                         mov              rax, r15
@@ -10638,12 +10638,12 @@ n1924_scan_match_α:     mov              r11, 777
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, qword ptr [rsp + 920]
-                        push             r11
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        pop              r12
                         test             eax, eax;                            jne   n1923_disjunction_β
                         mov              qword ptr [rsp + 896], 3
                         mov              rax, r14
@@ -10729,12 +10729,12 @@ n1930_scan_match_α:     mov              r11, 783
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 18
-                        push             r11
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        pop              r12
                         test             eax, eax;                            jne   n1933_scan_α
                         mov              qword ptr [rsp + 720], 3
                         mov              rax, r14
@@ -11003,9 +11003,9 @@ wsortf_ω:
                         add              rsp, 1248;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 wsortf_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -11027,12 +11027,12 @@ wsortf_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx2023_2]
                         lea              rdx, [rip + .Lx2023_3];              jmp   FN__wsortf
-.Lx2023_2:              pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx2023_3:              pop              r11
-                        pop              r11
+.Lx2023_2:              pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx2023_3:              pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

@@ -737,9 +737,9 @@ tdump_ω:
                         add              rsp, 1648;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 tdump_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -761,12 +761,12 @@ tdump_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx138_2]
                         lea              rdx, [rip + .Lx138_3];               jmp   FN__tdump
-.Lx138_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx138_3:               pop              r11
-                        pop              r11
+.Lx138_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx138_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

@@ -88,10 +88,10 @@ current_prolog_flag$2F2_β:
                                                                               jmp   n2_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_γ:
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
-                        mov              r11, qword ptr [r11]
-                        test             r11, r11;                            je    .Lx10_50
-                        mov              qword ptr [rsp + 144], r11
+                        lea              r12, [rip + g_pl_zf_pending_cursor]
+                        mov              r12, qword ptr [r11]
+                        test             r12, r12;                            je    .Lx10_50
+                        mov              qword ptr [rsp + 144], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pl_zf_resume_clear@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -146,18 +146,18 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n11_call_builtin_prolog_α:
                         mov              r11, 5
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
+                        lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [r11]
                         test             rax, rax;                            je    .Lx74_102
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lx74_101
-.Lx74_102:              lea              r10, [rip + g_plw_cellws_on]
+.Lx74_102:              lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax;                            jne   .Lx74_100
-                        lea              r10, [rip + g_zeta_mode]
+                        lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r10 + 0]
                         cmp              eax, 2;                              je    .Lx74_100
-                        lea              r10, [rip + g_pl_trail]
+                        lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r10 + 32]
                         movsxd           rdx, eax
                         mov              eax, 3;                              jmp   .Lx74_101
@@ -309,8 +309,8 @@ n14_call_proc_staged_β: mov              r11, 8
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n73_call_builtin_prolog_α
-                        lea              r11, [rip + .Lx79_7]
-                        push             r11
+                        lea              r8, [rip + .Lx79_7]
+                        push             r8
                         lea              rcx, [rip + .Lx79_3]
                         lea              rdx, [rip + .Lx79_4];                jmp   rax
 .Lx79_7:                add              rsp, 8
@@ -515,8 +515,8 @@ n21_call_proc_staged_β: mov              r11, 15
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n24_lit_string_α
-                        lea              r11, [rip + .Lx91_7]
-                        push             r11
+                        lea              r8, [rip + .Lx91_7]
+                        push             r8
                         lea              rcx, [rip + .Lx91_3]
                         lea              rdx, [rip + .Lx91_4];                jmp   rax
 .Lx91_7:                add              rsp, 8
@@ -797,8 +797,8 @@ n33_call_proc_staged_β: mov              r11, 27
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n14_call_proc_staged_β
-                        lea              r11, [rip + .Lx109_7]
-                        push             r11
+                        lea              r8, [rip + .Lx109_7]
+                        push             r8
                         lea              rcx, [rip + .Lx109_3]
                         lea              rdx, [rip + .Lx109_4];               jmp   rax
 .Lx109_7:               add              rsp, 8
@@ -975,18 +975,18 @@ n45_call_builtin_prolog_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n46_call_builtin_prolog_α:
                         mov              r11, 40
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
+                        lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [r11]
                         test             rax, rax;                            je    .Lx127_102
                         mov              rax, qword ptr [rsp + 912]
                         mov              rdx, qword ptr [rsp + 920];          jmp   .Lx127_101
-.Lx127_102:             lea              r10, [rip + g_plw_cellws_on]
+.Lx127_102:             lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax;                            jne   .Lx127_100
-                        lea              r10, [rip + g_zeta_mode]
+                        lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r10 + 0]
                         cmp              eax, 2;                              je    .Lx127_100
-                        lea              r10, [rip + g_pl_trail]
+                        lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r10 + 32]
                         movsxd           rdx, eax
                         mov              eax, 3;                              jmp   .Lx127_101
@@ -1230,18 +1230,18 @@ n61_call_builtin_prolog_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n62_call_builtin_prolog_α:
                         mov              r11, 56
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
+                        lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [r11]
                         test             rax, rax;                            je    .Lx149_102
                         mov              rax, qword ptr [rsp + 384]
                         mov              rdx, qword ptr [rsp + 392];          jmp   .Lx149_101
-.Lx149_102:             lea              r10, [rip + g_plw_cellws_on]
+.Lx149_102:             lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax;                            jne   .Lx149_100
-                        lea              r10, [rip + g_zeta_mode]
+                        lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r10 + 0]
                         cmp              eax, 2;                              je    .Lx149_100
-                        lea              r10, [rip + g_pl_trail]
+                        lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r10 + 32]
                         movsxd           rdx, eax
                         mov              eax, 3;                              jmp   .Lx149_101

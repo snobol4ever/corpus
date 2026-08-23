@@ -644,9 +644,9 @@ safe_ω:
                         add              rsp, 752;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 safe_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -668,12 +668,12 @@ safe_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx92_2]
                         lea              rdx, [rip + .Lx92_3];                jmp   FN__safe
-.Lx92_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx92_3:                pop              r11
-                        pop              r11
+.Lx92_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx92_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__show:
                         sub              rsp, 1360
@@ -1516,17 +1516,17 @@ show_ω:
                         add              rsp, 1360;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 show_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx230_2]
                         lea              rdx, [rip + .Lx230_3];               jmp   FN__show
-.Lx230_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx230_3:               pop              r11
-                        pop              r11
+.Lx230_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx230_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__try_col:
                         sub              rsp, 1680
@@ -2796,10 +2796,10 @@ try_col_ω:
                         add              rsp, 1680;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 try_col_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -2812,12 +2812,12 @@ try_col_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx453_2]
                         lea              rdx, [rip + .Lx453_3];               jmp   FN__try_col
-.Lx453_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx453_3:               pop              r11
-                        pop              r11
+.Lx453_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx453_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

@@ -103,17 +103,17 @@ inc_ω:
                         add              rsp, 128;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 inc_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx11_2]
                         lea              rdx, [rip + .Lx11_3];                jmp   FN__inc
-.Lx11_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx11_3:                pop              r11
-                        pop              r11
+.Lx11_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx11_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

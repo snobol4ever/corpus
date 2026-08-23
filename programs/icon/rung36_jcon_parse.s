@@ -41,10 +41,10 @@ f_ω:
                         add              rsp, 112;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 f_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -57,12 +57,12 @@ f_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx5_2]
                         lea              rdx, [rip + .Lx5_3];                 jmp   FN__f
-.Lx5_2:                 pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx5_3:                 pop              r11
-                        pop              r11
+.Lx5_2:                 pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx5_3:                 pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__g:
                         sub              rsp, 160
@@ -166,10 +166,10 @@ g_ω:
                         add              rsp, 160;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 g_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -182,12 +182,12 @@ g_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx18_2]
                         lea              rdx, [rip + .Lx18_3];                jmp   FN__g
-.Lx18_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx18_3:                pop              r11
-                        pop              r11
+.Lx18_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx18_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

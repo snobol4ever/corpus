@@ -228,9 +228,9 @@ cross_ω:
                         add              rsp, 704;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 cross_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             rdx
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
@@ -252,12 +252,12 @@ cross_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx54_2]
                         lea              rdx, [rip + .Lx54_3];                jmp   FN__cross
-.Lx54_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx54_3:                pop              r11
-                        pop              r11
+.Lx54_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx54_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__xprint:
                         sub              rsp, 880
@@ -719,9 +719,9 @@ xprint_ω:
                         add              rsp, 880;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 xprint_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             r8
                         push             rcx
                         push             rdx
@@ -761,12 +761,12 @@ xprint_dcα:
                         add              rsp, 32
                         lea              rcx, [rip + .Lx129_2]
                         lea              rdx, [rip + .Lx129_3];               jmp   FN__xprint
-.Lx129_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx129_3:               pop              r11
-                        pop              r11
+.Lx129_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx129_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

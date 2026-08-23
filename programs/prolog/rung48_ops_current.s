@@ -98,10 +98,10 @@ current_op$2F3_β:
                                                                               jmp   n3_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 current_op$2F3_γ:
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
-                        mov              r11, qword ptr [r11]
-                        test             r11, r11;                            je    .Lx13_50
-                        mov              qword ptr [rsp + 192], r11
+                        lea              r12, [rip + g_pl_zf_pending_cursor]
+                        mov              r12, qword ptr [r11]
+                        test             r12, r12;                            je    .Lx13_50
+                        mov              qword ptr [rsp + 192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pl_zf_resume_clear@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -183,18 +183,18 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n14_call_builtin_prolog_α:
                         mov              r11, 6
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
+                        lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [r11]
                         test             rax, rax;                            je    .Lx106_102
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lx106_101
-.Lx106_102:             lea              r10, [rip + g_plw_cellws_on]
+.Lx106_102:             lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax;                            jne   .Lx106_100
-                        lea              r10, [rip + g_zeta_mode]
+                        lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r10 + 0]
                         cmp              eax, 2;                              je    .Lx106_100
-                        lea              r10, [rip + g_pl_trail]
+                        lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r10 + 32]
                         movsxd           rdx, eax
                         mov              eax, 3;                              jmp   .Lx106_101
@@ -374,8 +374,8 @@ n18_call_proc_staged_β: mov              r11, 10
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n28_lit_string_α
-                        lea              r11, [rip + .Lx113_7]
-                        push             r11
+                        lea              r8, [rip + .Lx113_7]
+                        push             r8
                         lea              rcx, [rip + .Lx113_3]
                         lea              rdx, [rip + .Lx113_4];               jmp   rax
 .Lx113_7:               add              rsp, 8
@@ -737,8 +737,8 @@ n35_call_proc_staged_β: mov              r11, 27
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n45_lit_string_α
-                        lea              r11, [rip + .Lx138_7]
-                        push             r11
+                        lea              r8, [rip + .Lx138_7]
+                        push             r8
                         lea              rcx, [rip + .Lx138_3]
                         lea              rdx, [rip + .Lx138_4];               jmp   rax
 .Lx138_7:               add              rsp, 8
@@ -1100,8 +1100,8 @@ n52_call_proc_staged_β: mov              r11, 44
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n62_lit_string_α
-                        lea              r11, [rip + .Lx163_7]
-                        push             r11
+                        lea              r8, [rip + .Lx163_7]
+                        push             r8
                         lea              rcx, [rip + .Lx163_3]
                         lea              rdx, [rip + .Lx163_4];               jmp   rax
 .Lx163_7:               add              rsp, 8
@@ -1463,8 +1463,8 @@ n69_call_proc_staged_β: mov              r11, 61
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n79_lit_string_α
-                        lea              r11, [rip + .Lx188_7]
-                        push             r11
+                        lea              r8, [rip + .Lx188_7]
+                        push             r8
                         lea              rcx, [rip + .Lx188_3]
                         lea              rdx, [rip + .Lx188_4];               jmp   rax
 .Lx188_7:               add              rsp, 8
@@ -1828,8 +1828,8 @@ n86_call_proc_staged_β: mov              r11, 78
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n89_lit_string_α
-                        lea              r11, [rip + .Lx211_7]
-                        push             r11
+                        lea              r8, [rip + .Lx211_7]
+                        push             r8
                         lea              rcx, [rip + .Lx211_3]
                         lea              rdx, [rip + .Lx211_4];               jmp   rax
 .Lx211_7:               add              rsp, 8
@@ -2095,8 +2095,8 @@ n96_call_proc_staged_β: mov              r11, 88
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n99_lit_string_α
-                        lea              r11, [rip + .Lx227_7]
-                        push             r11
+                        lea              r8, [rip + .Lx227_7]
+                        push             r8
                         lea              rcx, [rip + .Lx227_3]
                         lea              rdx, [rip + .Lx227_4];               jmp   rax
 .Lx227_7:               add              rsp, 8

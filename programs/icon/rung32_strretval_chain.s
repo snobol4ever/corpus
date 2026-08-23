@@ -61,10 +61,10 @@ prefix_ω:
                         add              rsp, 144;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 prefix_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -77,12 +77,12 @@ prefix_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx9_2]
                         lea              rdx, [rip + .Lx9_3];                 jmp   FN__prefix
-.Lx9_2:                 pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx9_3:                 pop              r11
-                        pop              r11
+.Lx9_2:                 pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx9_3:                 pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__suffix:
                         sub              rsp, 144
@@ -144,10 +144,10 @@ suffix_ω:
                         add              rsp, 144;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 suffix_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -160,12 +160,12 @@ suffix_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx19_2]
                         lea              rdx, [rip + .Lx19_3];                jmp   FN__suffix
-.Lx19_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx19_3:                pop              r11
-                        pop              r11
+.Lx19_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx19_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__wrap:
                         sub              rsp, 208
@@ -257,10 +257,10 @@ wrap_ω:
                         add              rsp, 208;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 wrap_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -273,12 +273,12 @@ wrap_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx31_2]
                         lea              rdx, [rip + .Lx31_3];                jmp   FN__wrap
-.Lx31_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx31_3:                pop              r11
-                        pop              r11
+.Lx31_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx31_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

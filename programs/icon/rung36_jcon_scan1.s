@@ -4805,12 +4805,12 @@ n288_scan_match_α:      mov              r11, 289
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 2
-                        push             r11
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        pop              r12
                         test             eax, eax;                            jne   n264_disjunction_af
                         mov              qword ptr [rsp + 3056], 3
                         mov              rax, r14
@@ -4871,12 +4871,12 @@ n292_scan_match_α:      mov              r11, 293
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
-                        push             r11
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        pop              r12
                         test             eax, eax;                            jne   n256_disjunction_af
                         mov              qword ptr [rsp + 3392], 3
                         mov              rax, r14
@@ -4937,12 +4937,12 @@ n296_scan_match_α:      mov              r11, 297
                         mov              rsi, r13
                         add              rsi, r14
                         mov              rdx, 3
-                        push             r11
+                        push             r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             memcmp@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
-                        pop              r11
+                        pop              r12
                         test             eax, eax;                            jne   n249_disjunction_af
                         mov              qword ptr [rsp + 3712], 3
                         mov              rax, r14

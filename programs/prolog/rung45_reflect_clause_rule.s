@@ -78,10 +78,10 @@ $call$2F1_β:
                                                                               jmp   n1_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 $call$2F1_γ:
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
-                        mov              r11, qword ptr [r11]
-                        test             r11, r11;                            je    .Lx7_50
-                        mov              qword ptr [rsp + 96], r11
+                        lea              r12, [rip + g_pl_zf_pending_cursor]
+                        mov              r12, qword ptr [r11]
+                        test             r12, r12;                            je    .Lx7_50
+                        mov              qword ptr [rsp + 96], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pl_zf_resume_clear@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -183,10 +183,10 @@ clause$2F2_β:
                                                                               jmp   n10_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_γ:
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
-                        mov              r11, qword ptr [r11]
-                        test             r11, r11;                            je    .Lx18_50
-                        mov              qword ptr [rsp + 144], r11
+                        lea              r12, [rip + g_pl_zf_pending_cursor]
+                        mov              r12, qword ptr [r11]
+                        test             r12, r12;                            je    .Lx18_50
+                        mov              qword ptr [rsp + 144], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pl_zf_resume_clear@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -280,10 +280,10 @@ greet$2F0_β:
                                                                               jmp   n20_call_builtin_gen_β
 #-----------------------------------------------------------------------------------------------------------------------
 greet$2F0_γ:
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
-                        mov              r11, qword ptr [r11]
-                        test             r11, r11;                            je    .Lx25_50
-                        mov              qword ptr [rsp + 80], r11
+                        lea              r12, [rip + g_pl_zf_pending_cursor]
+                        mov              r12, qword ptr [r11]
+                        test             r12, r12;                            je    .Lx25_50
+                        mov              qword ptr [rsp + 80], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         call             rt_pl_zf_resume_clear@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
@@ -338,18 +338,18 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n26_call_builtin_prolog_α:
                         mov              r11, 11
-                        lea              r11, [rip + g_pl_zf_pending_cursor]
+                        lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [r11]
                         test             rax, rax;                            je    .Lx49_102
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lx49_101
-.Lx49_102:              lea              r10, [rip + g_plw_cellws_on]
+.Lx49_102:              lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax;                            jne   .Lx49_100
-                        lea              r10, [rip + g_zeta_mode]
+                        lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r10 + 0]
                         cmp              eax, 2;                              je    .Lx49_100
-                        lea              r10, [rip + g_pl_trail]
+                        lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r10 + 32]
                         movsxd           rdx, eax
                         mov              eax, 3;                              jmp   .Lx49_101
@@ -652,8 +652,8 @@ n39_call_proc_staged_β: mov              r11, 24
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n42_lit_string_α
-                        lea              r11, [rip + .Lx65_7]
-                        push             r11
+                        lea              r8, [rip + .Lx65_7]
+                        push             r8
                         lea              rcx, [rip + .Lx65_3]
                         lea              rdx, [rip + .Lx65_4];                jmp   rax
 .Lx65_7:                add              rsp, 8
@@ -768,8 +768,8 @@ n41_call_proc_staged_β: mov              r11, 26
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         test             rax, rax;                            je    n48_call_builtin_prolog_α
-                        lea              r11, [rip + .Lx69_7]
-                        push             r11
+                        lea              r8, [rip + .Lx69_7]
+                        push             r8
                         lea              rcx, [rip + .Lx69_3]
                         lea              rdx, [rip + .Lx69_4];                jmp   rax
 .Lx69_7:                add              rsp, 8

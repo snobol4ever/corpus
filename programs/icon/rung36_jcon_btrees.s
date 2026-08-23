@@ -564,10 +564,10 @@ tform_ω:
                         add              rsp, 1040;                           jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 tform_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -580,12 +580,12 @@ tform_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx95_2]
                         lea              rdx, [rip + .Lx95_3];                jmp   FN__tform
-.Lx95_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx95_3:                pop              r11
-                        pop              r11
+.Lx95_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx95_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__walk:
 walk_α_body:

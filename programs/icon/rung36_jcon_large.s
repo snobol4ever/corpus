@@ -240,10 +240,10 @@ optest_ω:
                         add              rsp, 592;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 optest_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rcx
                         push             rdx
                         push             rsi
@@ -274,12 +274,12 @@ optest_dcα:
                         add              rsp, 32
                         lea              rcx, [rip + .Lx35_2]
                         lea              rdx, [rip + .Lx35_3];                jmp   FN__optest
-.Lx35_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx35_3:                pop              r11
-                        pop              r11
+.Lx35_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx35_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__foo:
                         sub              rsp, 96
@@ -310,10 +310,10 @@ foo_ω:
                         add              rsp, 96;                             jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 foo_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -326,12 +326,12 @@ foo_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx36_2]
                         lea              rdx, [rip + .Lx36_3];                jmp   FN__foo
-.Lx36_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx36_3:                pop              r11
-                        pop              r11
+.Lx36_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx36_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8

@@ -663,9 +663,9 @@ cart_ω:
                         add              rsp, 976;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 cart_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         push             r8
                         push             rcx
                         push             rdx
@@ -705,12 +705,12 @@ cart_dcα:
                         add              rsp, 32
                         lea              rcx, [rip + .Lx93_2]
                         lea              rdx, [rip + .Lx93_3];                jmp   FN__cart
-.Lx93_2:                pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx93_3:                pop              r11
-                        pop              r11
+.Lx93_2:                pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx93_3:                pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__pct:
                         sub              rsp, 320
@@ -917,10 +917,10 @@ pct_ω:
                         add              rsp, 320;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 pct_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
+                        push             r12
                         push             rsi
                         mov              rax, qword ptr [rsp + 0]
                         mov              edi, 0
@@ -933,12 +933,12 @@ pct_dcα:
                         add              rsp, 16
                         lea              rcx, [rip + .Lx122_2]
                         lea              rdx, [rip + .Lx122_3];               jmp   FN__pct
-.Lx122_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx122_3:               pop              r11
-                        pop              r11
+.Lx122_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx122_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__newcolor:
                         sub              rsp, 816
@@ -1752,17 +1752,17 @@ newcolor_ω:
                         add              rsp, 816;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 newcolor_dcα:
-                        pop              r11
-                        push             r11
-                        push             r11
+                        pop              r12
+                        push             r12
+                        push             r12
                         lea              rcx, [rip + .Lx236_2]
                         lea              rdx, [rip + .Lx236_3];               jmp   FN__newcolor
-.Lx236_2:               pop              r11
-                        pop              r11;                                 jmp   r11
-.Lx236_3:               pop              r11
-                        pop              r11
+.Lx236_2:               pop              r12
+                        pop              r12;                                 jmp   r12
+.Lx236_3:               pop              r12
+                        pop              r12
                         mov              eax, 104
-                        xor              edx, edx;                            jmp   r11
+                        xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
                         sub              rsp, 8
