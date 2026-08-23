@@ -26,17 +26,20 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_integer_α:       mov              qword ptr [rsp + 112], 3             # result
+n0_lit_integer_α:       mov              r11, 1
+                        mov              qword ptr [rsp + 112], 3             # result
                         mov              rax, qword ptr [rip + .Lx7_0]
                         mov              qword ptr [rsp + 120], rax;          jmp   n1_lit_integer_α
 .Lx7_0:                 .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
-n1_lit_integer_α:       mov              qword ptr [rsp + 128], 3             # result
+n1_lit_integer_α:       mov              r11, 2
+                        mov              qword ptr [rsp + 128], 3             # result
                         mov              rax, qword ptr [rip + .Lx8_0]
                         mov              qword ptr [rsp + 136], rax;          jmp   n2_binop_test_α
 .Lx8_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
-n2_binop_test_α:        mov              eax, dword ptr [rsp + 112]
+n2_binop_test_α:        mov              r11, 3
+                        mov              eax, dword ptr [rsp + 112]
                         cmp              al, 112;                             je    .Lx9_0
                         mov              eax, dword ptr [rsp + 128]
                         cmp              al, 112;                             je    .Lx9_0
@@ -58,9 +61,13 @@ n2_binop_test_α:        mov              eax, dword ptr [rsp + 112]
                         mov              r8d, 7
                         lea              r9, [rsp + 96]
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_relop_overload@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    .Lx9_1
                         cmp              eax, 1;                              je    n5_lit_string_α
                                                                               jmp   n3_unop_test_α
@@ -70,34 +77,42 @@ n2_binop_test_α:        mov              eax, dword ptr [rsp + 112]
                         mov              rcx, qword ptr [rsp + 136]
                         mov              r8d, 7
                         mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             rt_jct_relop@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n5_lit_string_α
                         mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 104], rax;          jmp   n3_unop_test_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_unop_test_α:         mov              eax, dword ptr [rsp + 96]
+n3_unop_test_α:         mov              r11, 4
+                        mov              eax, dword ptr [rsp + 96]
                         cmp              al, 104;                             je    n5_lit_string_α
                         cmp              eax, 0;                              jne   n5_lit_string_α
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 88], 0;             jmp   n4_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
-n4_assign_α:            mov              rax, qword ptr [rsp + 80]
+n4_assign_α:            mov              r11, 5
+                        mov              rax, qword ptr [rsp + 80]
                         mov              rdx, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 152], rdx;          jmp   n5_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n5_lit_string_α:        mov              qword ptr [rsp + 48], 2              # result
+n5_lit_string_α:        mov              r11, 6
+                        mov              qword ptr [rsp + 48], 2              # result
                         mov              dword ptr [rsp + 52], 2
                         mov              rax, qword ptr [rip + .Lx12_0]
                         mov              qword ptr [rsp + 56], rax;           jmp   n6_call_builtin_icon_α
 .Lx12_0:                .quad            .Lx12_0_s
 .Lx12_0_s:              .string          "ok"
 #-----------------------------------------------------------------------------------------------------------------------
-n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
+n6_call_builtin_icon_α: mov              r11, 7
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
@@ -109,13 +124,18 @@ n6_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_call_arr@PLT
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        mov              ecx, 327852
+                        call             rt_call_arr_bl@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   main_γ
-n6_call_builtin_icon_β:                                                       jmp   main_ω
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   main_γ
+n6_call_builtin_icon_β: mov              r11, 7;                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω

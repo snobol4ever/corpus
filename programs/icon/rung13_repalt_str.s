@@ -22,12 +22,14 @@ main_α:
 main_α_body:
                         mov              qword ptr [rsp + 64], 0
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_integer_α:       mov              qword ptr [rsp + 80], 3              # result
+n0_lit_integer_α:       mov              r11, 1
+                        mov              qword ptr [rsp + 80], 3              # result
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 88], rax;           jmp   n1_repalt_α
 .Lx6_0:                 .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
-n1_repalt_α:            mov              qword ptr [rsp + 112], 0
+n1_repalt_α:            mov              r11, 2
+                        mov              qword ptr [rsp + 112], 0
                                                                               jmp   n4_lit_string_α
 n1_repalt_ry:
                         mov              rax, qword ptr [rsp + 128]
@@ -44,7 +46,8 @@ n1_repalt_rt:
 n1_repalt_β:
                                                                               jmp   n1_repalt_rt
 #-----------------------------------------------------------------------------------------------------------------------
-n2_limit_α:             mov              rax, qword ptr [rsp + 64]
+n2_limit_α:             mov              r11, 3
+                        mov              rax, qword ptr [rsp + 64]
                         mov              rcx, qword ptr [rsp + 88]
                         cmp              rax, rcx;                            jge   main_ω
                         inc              qword ptr [rsp + 64]
@@ -52,9 +55,10 @@ n2_limit_α:             mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [rsp + 104]
                         mov              qword ptr [rsp + 56], rax;           jmp   n3_call_builtin_icon_α
-n2_limit_β:                                                                   jmp   n1_repalt_β
+n2_limit_β:             mov              r11, 3;                              jmp   n1_repalt_β
 #-----------------------------------------------------------------------------------------------------------------------
-n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
+n3_call_builtin_icon_α: mov              r11, 4
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
@@ -66,19 +70,25 @@ n3_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_call_arr@PLT
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        mov              ecx, 327852
+                        call             rt_call_arr_bl@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    n1_repalt_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n1_repalt_β
-n3_call_builtin_icon_β:                                                       jmp   n1_repalt_β
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1_repalt_β
+n3_call_builtin_icon_β: mov              r11, 4;                              jmp   n1_repalt_β
 #-----------------------------------------------------------------------------------------------------------------------
-n4_lit_string_α:        mov              qword ptr [rsp + 128], 2             # result
+n4_lit_string_α:        mov              r11, 5
+                        mov              qword ptr [rsp + 128], 2             # result
                         mov              dword ptr [rsp + 132], 2
                         mov              rax, qword ptr [rip + .Lx15_0]
                         mov              qword ptr [rsp + 136], rax;          jmp   n1_repalt_ry
-n4_lit_string_β:                                                              jmp   n1_repalt_rt
+n4_lit_string_β:        mov              r11, 5;                              jmp   n1_repalt_rt
 .Lx15_0:                .quad            .Lx15_0_s
 .Lx15_0_s:              .string          "hi"
 #-----------------------------------------------------------------------------------------------------------------------

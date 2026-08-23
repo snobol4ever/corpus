@@ -27,22 +27,26 @@ main_α:
 main_α_body:
                         mov              qword ptr [rsp + 64], 0
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_integer_α:       mov              qword ptr [rsp + 160], 3             # result
+n0_lit_integer_α:       mov              r11, 1
+                        mov              qword ptr [rsp + 160], 3             # result
                         mov              rax, qword ptr [rip + .Lx8_0]
                         mov              qword ptr [rsp + 168], rax;          jmp   n1_assign_α
 .Lx8_0:                 .quad            5
 #-----------------------------------------------------------------------------------------------------------------------
-n1_assign_α:            mov              rax, qword ptr [rsp + 160]
+n1_assign_α:            mov              r11, 2
+                        mov              rax, qword ptr [rsp + 160]
                         mov              rdx, qword ptr [rsp + 168]
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 184], rdx;          jmp   n2_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_lit_integer_α:       mov              qword ptr [rsp + 80], 3              # result
+n2_lit_integer_α:       mov              r11, 3
+                        mov              qword ptr [rsp + 80], 3              # result
                         mov              rax, qword ptr [rip + .Lx10_0]
                         mov              qword ptr [rsp + 88], rax;           jmp   n3_repalt_α
 .Lx10_0:                .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
-n3_repalt_α:            mov              qword ptr [rsp + 112], 0
+n3_repalt_α:            mov              r11, 4
+                        mov              qword ptr [rsp + 112], 0
                                                                               jmp   n6_var_α
 n3_repalt_ry:
                         mov              rax, qword ptr [rsp + 128]
@@ -59,7 +63,8 @@ n3_repalt_rt:
 n3_repalt_β:
                                                                               jmp   n3_repalt_rt
 #-----------------------------------------------------------------------------------------------------------------------
-n4_limit_α:             mov              rax, qword ptr [rsp + 64]
+n4_limit_α:             mov              r11, 5
+                        mov              rax, qword ptr [rsp + 64]
                         mov              rcx, qword ptr [rsp + 88]
                         cmp              rax, rcx;                            jge   main_ω
                         inc              qword ptr [rsp + 64]
@@ -67,9 +72,10 @@ n4_limit_α:             mov              rax, qword ptr [rsp + 64]
                         mov              qword ptr [rsp + 48], rax
                         mov              rax, qword ptr [rsp + 104]
                         mov              qword ptr [rsp + 56], rax;           jmp   n5_call_builtin_icon_α
-n4_limit_β:                                                                   jmp   n3_repalt_β
+n4_limit_β:             mov              r11, 5;                              jmp   n3_repalt_β
 #-----------------------------------------------------------------------------------------------------------------------
-n5_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
+n5_call_builtin_icon_α: mov              r11, 6
+                        mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
@@ -81,19 +87,25 @@ n5_call_builtin_icon_α: mov              rax, qword ptr [rsp + 48]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
-                        call             rt_call_arr@PLT
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        mov              ecx, 327852
+                        call             rt_call_arr_bl@PLT
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    n3_repalt_β
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48];     jmp   n3_repalt_β
-n5_call_builtin_icon_β:                                                       jmp   n3_repalt_β
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_repalt_β
+n5_call_builtin_icon_β: mov              r11, 6;                              jmp   n3_repalt_β
 #-----------------------------------------------------------------------------------------------------------------------
-n6_var_α:               mov              rax, qword ptr [rsp + 176]
+n6_var_α:               mov              r11, 7
+                        mov              rax, qword ptr [rsp + 176]
                         mov              qword ptr [rsp + 128], rax
                         mov              rax, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 136], rax;          jmp   n3_repalt_ry
-n6_var_β:                                                                     jmp   n3_repalt_rt
+n6_var_β:               mov              r11, 7;                              jmp   n3_repalt_rt
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
