@@ -8568,7 +8568,7 @@ n651_match_begin_α:     mov              r11, 439
                         push             r13                                  # outer_Σ
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
-                        sub              rsp, 40
+                        sub              rsp, 56
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8587,7 +8587,7 @@ n651_match_begin_α:     mov              r11, 439
                         lea              rax, [rip + .Lx1985_13]
                         mov              qword ptr [rcx + 248], rax;          jmp   n652_match_assign_save_α
 n651_match_begin_β:     mov              r11, 439
-.Lx1985_13:             lea              rsp, [rbp + -72]                     # retry_whack
+.Lx1985_13:             lea              rsp, [rbp + -88]                     # retry_whack
                         add              dword ptr [rbp + -40], 1             # start_δ
                         mov              eax, dword ptr [rbp + -40]
                         cmp              eax, r15d;                           jg    .Lx1985_1
@@ -8615,7 +8615,7 @@ n651_match_begin_af:    mov              r11, 439
 n652_match_assign_save_α:
                         sub              rsp, 16
                         mov              r11, 440
-                        mov              dword ptr [rsp + 0], r14d;           jmp   n653_match_alternate_α
+                        mov              dword ptr [rbp + -64], r14d;         jmp   n653_match_alternate_α
 n652_match_assign_save_β:
                         mov              r11, 440
                         add              rsp, 16;                             jmp   n651_match_begin_af
@@ -8649,7 +8649,7 @@ n653_match_alternate_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n654_match_assign_cond_α:
                         mov              r11, 442
-                        mov              eax, dword ptr [rsp + 0]
+                        mov              eax, dword ptr [rbp + -64]
                         lea              rcx, [rip + .S51]
                         mov              qword ptr [r12 + 0], rcx
                         mov              esi, eax
@@ -8855,8 +8855,8 @@ n663_match_lit_β:       mov              r11, 451;                            j
 n664_match_break_α:     sub              rsp, 16
                         mov              r11, 452
                         mov              edi, r14d
-                        mov              rsi, qword ptr [rsp + 184]           # coerce_string
-                        mov              edx, dword ptr [rsp + 180]
+                        mov              rsi, qword ptr [rsp + 200]           # coerce_string
+                        mov              edx, dword ptr [rsp + 196]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8867,10 +8867,10 @@ n664_match_break_α:     sub              rsp, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              eax, r15d;                           jl    .Lx2008_240
                         add              rsp, 16;                             jmp   n653_match_alternate_af
-.Lx2008_240:            mov              dword ptr [rbp + -80], r14d
+.Lx2008_240:            mov              dword ptr [rbp + -96], r14d
                         mov              r14d, eax;                           jmp   n653_match_alternate_s0
 n664_match_break_β:     mov              r11, 452
-                        mov              r14d, dword ptr [rbp + -80]
+                        mov              r14d, dword ptr [rbp + -96]
                         add              rsp, 16;                             jmp   n653_match_alternate_af
 #=======================================================================================================================
 #                 r               =   r seg
