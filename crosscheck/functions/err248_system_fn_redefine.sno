@@ -1,0 +1,17 @@
+        &ERRLIMIT = 20
+        OPSYN('SIZE','TRIM',0)
+        OUTPUT = 'SIZE: ' &ERRTYPE ' ' &ERRTEXT
+        OPSYN('TRIM','SIZE',0)
+        OUTPUT = 'TRIM: ' &ERRTYPE ' ' &ERRTEXT
+        OPSYN('DATATYPE','SIZE',0)
+        OUTPUT = 'DATATYPE: ' &ERRTYPE ' ' &ERRTEXT
+        OPSYN('IDENT','SIZE',0)
+        OUTPUT = 'IDENT: ' &ERRTYPE ' ' &ERRTEXT
+        OPSYN('MYALIAS','TRIM',0)
+        OUTPUT = 'ALIAS-OK: ' MYALIAS(' AB ')
+        OPSYN('=','TRIM',1)
+        OUTPUT = 'OPERATOR-OK'
+        DEFINE('GREET(NAME)')          :(WITNESS)
+GREET   GREET = 'HELLO ' NAME          :(RETURN)
+WITNESS OUTPUT = 'DEFINE-OK: ' GREET('WORLD')
+END
