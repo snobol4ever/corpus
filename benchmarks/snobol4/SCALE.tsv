@@ -1,0 +1,22 @@
+# SCALE.tsv -- per-kernel FIXED ITERATION COUNT for angle 2 (bench_snobol4_fixed_iter.sh).
+# Baked 2026-08-24T23:09:58Z by scripts/calibrate_bench_scale.sh, target=2.5s
+# on the FASTEST of sbl/m3/m4's angle-1-measured rate (a slower engine on this N simply runs
+# longer -- see this script's own header). Regenerate with this script; never hand-edit.
+arith_loop	90000000
+array_sum	20000
+eval_fixed	4000000
+fibonacci	20000
+func_call	50000000
+ident_call1	50000000
+ident_call2	40000000
+indirect_dispatch	10000000
+mixed_workload	400000
+op_dispatch	30000000
+pattern_bt	2000000
+roman	800000
+string_concat	10000000
+string_manip	10000000
+string_pattern	8000000
+table_access	20000
+table_variety	50000
+var_access	30000000
