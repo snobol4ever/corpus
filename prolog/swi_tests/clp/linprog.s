@@ -51,10 +51,7 @@ n0_call_builtin_prolog_α:
 .Lx122_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1_lit_string_α
+                                                                              jmp   n1_lit_string_α
 n0_call_builtin_prolog_β:
                         mov              r11, 1;                              jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -135,10 +132,7 @@ n8_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1968], rax
                         mov              qword ptr [rsp + 1976], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n9_call_builtin_prolog_α
+                                                                              jmp   n9_call_builtin_prolog_α
 n8_call_builtin_prolog_β:
                         mov              r11, 9;                              jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -169,10 +163,7 @@ n9_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2080], rax
                         mov              qword ptr [rsp + 2088], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n10_call_builtin_prolog_α
+                                                                              jmp   n10_call_builtin_prolog_α
 n9_call_builtin_prolog_β:
                         mov              r11, 10;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -203,10 +194,7 @@ n10_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2192], rax
                         mov              qword ptr [rsp + 2200], rdx
                         cmp              al, 104;                             je    n121_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n11_lit_string_α
+                                                                              jmp   n11_lit_string_α
 n10_call_builtin_prolog_β:
                         mov              r11, 11;                             jmp   n121_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -301,10 +289,7 @@ n20_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2320], rax
                         mov              qword ptr [rsp + 2328], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n21_call_builtin_prolog_α
+                                                                              jmp   n21_call_builtin_prolog_α
 n20_call_builtin_prolog_β:
                         mov              r11, 21;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -335,10 +320,7 @@ n21_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2432], rax
                         mov              qword ptr [rsp + 2440], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n22_call_builtin_prolog_α
+                                                                              jmp   n22_call_builtin_prolog_α
 n21_call_builtin_prolog_β:
                         mov              r11, 22;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -369,10 +351,7 @@ n22_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2544], rax
                         mov              qword ptr [rsp + 2552], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n23_call_builtin_prolog_α
+                                                                              jmp   n23_call_builtin_prolog_α
 n22_call_builtin_prolog_β:
                         mov              r11, 23;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -403,10 +382,7 @@ n23_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2656], rax
                         mov              qword ptr [rsp + 2664], rdx
                         cmp              al, 104;                             je    n121_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n24_lit_string_α
+                                                                              jmp   n24_lit_string_α
 n23_call_builtin_prolog_β:
                         mov              r11, 24;                             jmp   n121_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -509,10 +485,7 @@ n34_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3920], rax
                         mov              qword ptr [rsp + 3928], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n35_call_builtin_prolog_α
+                                                                              jmp   n35_call_builtin_prolog_α
 n34_call_builtin_prolog_β:
                         mov              r11, 35;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -543,10 +516,7 @@ n35_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4032], rax
                         mov              qword ptr [rsp + 4040], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n36_call_builtin_prolog_α
+                                                                              jmp   n36_call_builtin_prolog_α
 n35_call_builtin_prolog_β:
                         mov              r11, 36;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -577,10 +547,7 @@ n36_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4144], rax
                         mov              qword ptr [rsp + 4152], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n37_call_builtin_prolog_α
+                                                                              jmp   n37_call_builtin_prolog_α
 n36_call_builtin_prolog_β:
                         mov              r11, 37;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -611,10 +578,7 @@ n37_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4256], rax
                         mov              qword ptr [rsp + 4264], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n38_lit_string_α
+                                                                              jmp   n38_lit_string_α
 n37_call_builtin_prolog_β:
                         mov              r11, 38;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -717,10 +681,7 @@ n48_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3360], rax
                         mov              qword ptr [rsp + 3368], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n49_call_builtin_prolog_α
+                                                                              jmp   n49_call_builtin_prolog_α
 n48_call_builtin_prolog_β:
                         mov              r11, 49;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -751,10 +712,7 @@ n49_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3472], rax
                         mov              qword ptr [rsp + 3480], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n50_call_builtin_prolog_α
+                                                                              jmp   n50_call_builtin_prolog_α
 n49_call_builtin_prolog_β:
                         mov              r11, 50;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -785,10 +743,7 @@ n50_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3584], rax
                         mov              qword ptr [rsp + 3592], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n51_call_builtin_prolog_α
+                                                                              jmp   n51_call_builtin_prolog_α
 n50_call_builtin_prolog_β:
                         mov              r11, 51;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -819,10 +774,7 @@ n51_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3696], rax
                         mov              qword ptr [rsp + 3704], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n52_lit_string_α
+                                                                              jmp   n52_lit_string_α
 n51_call_builtin_prolog_β:
                         mov              r11, 52;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -925,10 +877,7 @@ n62_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2800], rax
                         mov              qword ptr [rsp + 2808], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n63_call_builtin_prolog_α
+                                                                              jmp   n63_call_builtin_prolog_α
 n62_call_builtin_prolog_β:
                         mov              r11, 63;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -959,10 +908,7 @@ n63_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2912], rax
                         mov              qword ptr [rsp + 2920], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n64_call_builtin_prolog_α
+                                                                              jmp   n64_call_builtin_prolog_α
 n63_call_builtin_prolog_β:
                         mov              r11, 64;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -993,10 +939,7 @@ n64_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3024], rax
                         mov              qword ptr [rsp + 3032], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n65_call_builtin_prolog_α
+                                                                              jmp   n65_call_builtin_prolog_α
 n64_call_builtin_prolog_β:
                         mov              r11, 65;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1027,10 +970,7 @@ n65_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3136], rax
                         mov              qword ptr [rsp + 3144], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n66_lit_string_α
+                                                                              jmp   n66_lit_string_α
 n65_call_builtin_prolog_β:
                         mov              r11, 66;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1069,10 +1009,7 @@ n67_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3232], rax
                         mov              qword ptr [rsp + 3240], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n68_call_builtin_prolog_α
+                                                                              jmp   n68_call_builtin_prolog_α
 n67_call_builtin_prolog_β:
                         mov              r11, 68;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1103,10 +1040,7 @@ n68_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3792], rax
                         mov              qword ptr [rsp + 3800], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n69_call_builtin_prolog_α
+                                                                              jmp   n69_call_builtin_prolog_α
 n68_call_builtin_prolog_β:
                         mov              r11, 69;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1137,10 +1071,7 @@ n69_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4352], rax
                         mov              qword ptr [rsp + 4360], rdx
                         cmp              al, 104;                             je    n121_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n70_var_ref_α
+                                                                              jmp   n70_var_ref_α
 n69_call_builtin_prolog_β:
                         mov              r11, 70;                             jmp   n121_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1399,10 +1330,7 @@ n83_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1312], rax
                         mov              qword ptr [rsp + 1320], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n84_call_builtin_prolog_α
+                                                                              jmp   n84_call_builtin_prolog_α
 n83_call_builtin_prolog_β:
                         mov              r11, 84;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1433,10 +1361,7 @@ n84_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1424], rax
                         mov              qword ptr [rsp + 1432], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n85_call_builtin_prolog_α
+                                                                              jmp   n85_call_builtin_prolog_α
 n84_call_builtin_prolog_β:
                         mov              r11, 85;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1467,10 +1392,7 @@ n85_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1536], rax
                         mov              qword ptr [rsp + 1544], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n86_call_builtin_prolog_α
+                                                                              jmp   n86_call_builtin_prolog_α
 n85_call_builtin_prolog_β:
                         mov              r11, 86;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1501,10 +1423,7 @@ n86_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1648], rax
                         mov              qword ptr [rsp + 1656], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n87_lit_string_α
+                                                                              jmp   n87_lit_string_α
 n86_call_builtin_prolog_β:
                         mov              r11, 87;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1607,10 +1526,7 @@ n97_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 752], rax
                         mov              qword ptr [rsp + 760], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n98_call_builtin_prolog_α
+                                                                              jmp   n98_call_builtin_prolog_α
 n97_call_builtin_prolog_β:
                         mov              r11, 98;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1641,10 +1557,7 @@ n98_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 864], rax
                         mov              qword ptr [rsp + 872], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n99_call_builtin_prolog_α
+                                                                              jmp   n99_call_builtin_prolog_α
 n98_call_builtin_prolog_β:
                         mov              r11, 99;                             jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1675,10 +1588,7 @@ n99_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 976], rax
                         mov              qword ptr [rsp + 984], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n100_call_builtin_prolog_α
+                                                                              jmp   n100_call_builtin_prolog_α
 n99_call_builtin_prolog_β:
                         mov              r11, 100;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1709,10 +1619,7 @@ n100_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1088], rax
                         mov              qword ptr [rsp + 1096], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n101_lit_string_α
+                                                                              jmp   n101_lit_string_α
 n100_call_builtin_prolog_β:
                         mov              r11, 101;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1815,10 +1722,7 @@ n111_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n112_call_builtin_prolog_α
+                                                                              jmp   n112_call_builtin_prolog_α
 n111_call_builtin_prolog_β:
                         mov              r11, 112;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1849,10 +1753,7 @@ n112_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n113_call_builtin_prolog_α
+                                                                              jmp   n113_call_builtin_prolog_α
 n112_call_builtin_prolog_β:
                         mov              r11, 113;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1883,10 +1784,7 @@ n113_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 416], rax
                         mov              qword ptr [rsp + 424], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n114_call_builtin_prolog_α
+                                                                              jmp   n114_call_builtin_prolog_α
 n113_call_builtin_prolog_β:
                         mov              r11, 114;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1917,10 +1815,7 @@ n114_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 528], rax
                         mov              qword ptr [rsp + 536], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n115_lit_string_α
+                                                                              jmp   n115_lit_string_α
 n114_call_builtin_prolog_β:
                         mov              r11, 115;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1959,10 +1854,7 @@ n116_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 624], rax
                         mov              qword ptr [rsp + 632], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n117_call_builtin_prolog_α
+                                                                              jmp   n117_call_builtin_prolog_α
 n116_call_builtin_prolog_β:
                         mov              r11, 117;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1993,10 +1885,7 @@ n117_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1184], rax
                         mov              qword ptr [rsp + 1192], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n118_call_builtin_prolog_α
+                                                                              jmp   n118_call_builtin_prolog_α
 n117_call_builtin_prolog_β:
                         mov              r11, 118;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2027,10 +1916,7 @@ n118_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1744], rax
                         mov              qword ptr [rsp + 1752], rdx
                         cmp              al, 104;                             je    n121_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n119_call_builtin_prolog_α
+                                                                              jmp   n119_call_builtin_prolog_α
 n118_call_builtin_prolog_β:
                         mov              r11, 119;                            jmp   n121_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2056,13 +1942,14 @@ n119_call_builtin_prolog_α:
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 524288
                         call             rt_call_arr_bl@PLT
-                        mov              qword ptr [rsp + 80], rax
-                        mov              qword ptr [rsp + 88], rdx
-                        cmp              al, 104;                             je    n71_call_proc_staged_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n120_suspend_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 80], rax
+                        mov              qword ptr [rsp + 88], rdx
+                        cmp              al, 104;                             je    n71_call_proc_staged_β
+                                                                              jmp   n120_suspend_α
 n119_call_builtin_prolog_β:
                         mov              r11, 120;                            jmp   n71_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2117,10 +2004,7 @@ n121_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    transport$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   transport$2F0_ω
+                                                                              jmp   transport$2F0_ω
 n121_call_builtin_prolog_β:
                         mov              r11, 122;                            jmp   transport$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2204,10 +2088,7 @@ n249_call_builtin_prolog_α:
 .Lx254_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         cmp              al, 104;                             je    linprog$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n250_call_proc_staged_α
+                                                                              jmp   n250_call_proc_staged_α
 n249_call_builtin_prolog_β:
                         mov              r11, 123;                            jmp   linprog$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2506,10 +2387,7 @@ n253_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    linprog$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   linprog$2F0_ω
+                                                                              jmp   linprog$2F0_ω
 n253_call_builtin_prolog_β:
                         mov              r11, 127;                            jmp   linprog$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2593,10 +2471,7 @@ n262_call_builtin_prolog_α:
 .Lx269_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         cmp              al, 104;                             je    pj_dir_2$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n263_lit_string_α
+                                                                              jmp   n263_lit_string_α
 n262_call_builtin_prolog_β:
                         mov              r11, 128;                            jmp   pj_dir_2$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2639,10 +2514,7 @@ n265_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 152], rdx
                         cmp              al, 104;                             je    n268_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n266_call_proc_staged_α
+                                                                              jmp   n266_call_proc_staged_α
 n265_call_builtin_prolog_β:
                         mov              r11, 131;                            jmp   n268_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2786,10 +2658,7 @@ n268_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    pj_dir_2$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   pj_dir_2$2F0_ω
+                                                                              jmp   pj_dir_2$2F0_ω
 n268_call_builtin_prolog_β:
                         mov              r11, 134;                            jmp   pj_dir_2$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2873,10 +2742,7 @@ n278_call_builtin_prolog_α:
 .Lx290_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         cmp              al, 104;                             je    pj_dir_0$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n279_lit_string_α
+                                                                              jmp   n279_lit_string_α
 n278_call_builtin_prolog_β:
                         mov              r11, 135;                            jmp   pj_dir_0$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2945,10 +2811,7 @@ n284_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 208], rax
                         mov              qword ptr [rsp + 216], rdx
                         cmp              al, 104;                             je    pj_dir_0$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n285_lit_string_α
+                                                                              jmp   n285_lit_string_α
 n284_call_builtin_prolog_β:
                         mov              r11, 141;                            jmp   pj_dir_0$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2987,10 +2850,7 @@ n286_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx
                         cmp              al, 104;                             je    n289_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n287_call_proc_staged_α
+                                                                              jmp   n287_call_proc_staged_α
 n286_call_builtin_prolog_β:
                         mov              r11, 143;                            jmp   n289_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3153,10 +3013,7 @@ n289_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    pj_dir_0$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   pj_dir_0$2F0_ω
+                                                                              jmp   pj_dir_0$2F0_ω
 n289_call_builtin_prolog_β:
                         mov              r11, 146;                            jmp   pj_dir_0$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3240,10 +3097,7 @@ n304_call_builtin_prolog_α:
 .Lx315_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         cmp              al, 104;                             je    pj_dir_1$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n305_lit_string_α
+                                                                              jmp   n305_lit_string_α
 n304_call_builtin_prolog_β:
                         mov              r11, 147;                            jmp   pj_dir_1$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3306,10 +3160,7 @@ n309_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 160], rax
                         mov              qword ptr [rsp + 168], rdx
                         cmp              al, 104;                             je    pj_dir_1$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n310_lit_integer_α
+                                                                              jmp   n310_lit_integer_α
 n309_call_builtin_prolog_β:
                         mov              r11, 152;                            jmp   pj_dir_1$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3346,10 +3197,7 @@ n311_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 280], rdx
                         cmp              al, 104;                             je    n314_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n312_call_proc_staged_α
+                                                                              jmp   n312_call_proc_staged_α
 n311_call_builtin_prolog_β:
                         mov              r11, 154;                            jmp   n314_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3493,10 +3341,7 @@ n314_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    pj_dir_1$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   pj_dir_1$2F0_ω
+                                                                              jmp   pj_dir_1$2F0_ω
 n314_call_builtin_prolog_β:
                         mov              r11, 157;                            jmp   pj_dir_1$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3580,10 +3425,7 @@ n328_call_builtin_prolog_α:
 .Lx455_101:             mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n329_var_ref_α
+                                                                              jmp   n329_var_ref_α
 n328_call_builtin_prolog_β:
                         mov              r11, 158;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3747,10 +3589,7 @@ n336_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4016], rax
                         mov              qword ptr [rsp + 4024], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n337_lit_string_α
+                                                                              jmp   n337_lit_string_α
 n336_call_builtin_prolog_β:
                         mov              r11, 166;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3811,10 +3650,7 @@ n341_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3792], rax
                         mov              qword ptr [rsp + 3800], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n342_lit_string_α
+                                                                              jmp   n342_lit_string_α
 n341_call_builtin_prolog_β:
                         mov              r11, 171;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3853,10 +3689,7 @@ n343_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3888], rax
                         mov              qword ptr [rsp + 3896], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n344_call_builtin_prolog_α
+                                                                              jmp   n344_call_builtin_prolog_α
 n343_call_builtin_prolog_β:
                         mov              r11, 173;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3887,10 +3720,7 @@ n344_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4112], rax
                         mov              qword ptr [rsp + 4120], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n345_lit_real_α
+                                                                              jmp   n345_lit_real_α
 n344_call_builtin_prolog_β:
                         mov              r11, 174;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3927,10 +3757,7 @@ n346_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 4224], rax
                         mov              qword ptr [rsp + 4232], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n347_var_ref_α
+                                                                              jmp   n347_var_ref_α
 n346_call_builtin_prolog_β:
                         mov              r11, 176;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4138,10 +3965,7 @@ n355_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3328], rax
                         mov              qword ptr [rsp + 3336], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n356_lit_string_α
+                                                                              jmp   n356_lit_string_α
 n355_call_builtin_prolog_β:
                         mov              r11, 185;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4202,10 +4026,7 @@ n360_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3104], rax
                         mov              qword ptr [rsp + 3112], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n361_lit_string_α
+                                                                              jmp   n361_lit_string_α
 n360_call_builtin_prolog_β:
                         mov              r11, 190;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4244,10 +4065,7 @@ n362_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3200], rax
                         mov              qword ptr [rsp + 3208], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n363_call_builtin_prolog_α
+                                                                              jmp   n363_call_builtin_prolog_α
 n362_call_builtin_prolog_β:
                         mov              r11, 192;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4278,10 +4096,7 @@ n363_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3424], rax
                         mov              qword ptr [rsp + 3432], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n364_lit_integer_α
+                                                                              jmp   n364_lit_integer_α
 n363_call_builtin_prolog_β:
                         mov              r11, 193;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4318,10 +4133,7 @@ n365_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 3536], rax
                         mov              qword ptr [rsp + 3544], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n366_var_ref_α
+                                                                              jmp   n366_var_ref_α
 n365_call_builtin_prolog_β:
                         mov              r11, 195;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4529,10 +4341,7 @@ n374_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2640], rax
                         mov              qword ptr [rsp + 2648], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n375_lit_string_α
+                                                                              jmp   n375_lit_string_α
 n374_call_builtin_prolog_β:
                         mov              r11, 204;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4593,10 +4402,7 @@ n379_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2416], rax
                         mov              qword ptr [rsp + 2424], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n380_lit_string_α
+                                                                              jmp   n380_lit_string_α
 n379_call_builtin_prolog_β:
                         mov              r11, 209;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4635,10 +4441,7 @@ n381_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2512], rax
                         mov              qword ptr [rsp + 2520], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n382_call_builtin_prolog_α
+                                                                              jmp   n382_call_builtin_prolog_α
 n381_call_builtin_prolog_β:
                         mov              r11, 211;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4669,10 +4472,7 @@ n382_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2736], rax
                         mov              qword ptr [rsp + 2744], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n383_lit_integer_α
+                                                                              jmp   n383_lit_integer_α
 n382_call_builtin_prolog_β:
                         mov              r11, 212;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4709,10 +4509,7 @@ n384_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2848], rax
                         mov              qword ptr [rsp + 2856], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n385_var_ref_α
+                                                                              jmp   n385_var_ref_α
 n384_call_builtin_prolog_β:
                         mov              r11, 214;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4914,10 +4711,7 @@ n392_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2048], rax
                         mov              qword ptr [rsp + 2056], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n393_lit_integer_α
+                                                                              jmp   n393_lit_integer_α
 n392_call_builtin_prolog_β:
                         mov              r11, 222;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4954,10 +4748,7 @@ n394_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 2160], rax
                         mov              qword ptr [rsp + 2168], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n395_var_ref_α
+                                                                              jmp   n395_var_ref_α
 n394_call_builtin_prolog_β:
                         mov              r11, 224;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5159,10 +4950,7 @@ n402_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1696], rax
                         mov              qword ptr [rsp + 1704], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n403_lit_integer_α
+                                                                              jmp   n403_lit_integer_α
 n402_call_builtin_prolog_β:
                         mov              r11, 232;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5199,10 +4987,7 @@ n404_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1808], rax
                         mov              qword ptr [rsp + 1816], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n405_var_ref_α
+                                                                              jmp   n405_var_ref_α
 n404_call_builtin_prolog_β:
                         mov              r11, 234;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5402,10 +5187,7 @@ n412_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1360], rax
                         mov              qword ptr [rsp + 1368], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n413_lit_string_α
+                                                                              jmp   n413_lit_string_α
 n412_call_builtin_prolog_β:
                         mov              r11, 242;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5466,10 +5248,7 @@ n417_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1136], rax
                         mov              qword ptr [rsp + 1144], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n418_lit_string_α
+                                                                              jmp   n418_lit_string_α
 n417_call_builtin_prolog_β:
                         mov              r11, 247;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5508,10 +5287,7 @@ n419_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1232], rax
                         mov              qword ptr [rsp + 1240], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n420_call_builtin_prolog_α
+                                                                              jmp   n420_call_builtin_prolog_α
 n419_call_builtin_prolog_β:
                         mov              r11, 249;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5542,10 +5318,7 @@ n420_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 1456], rax
                         mov              qword ptr [rsp + 1464], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n421_var_ref_α
+                                                                              jmp   n421_var_ref_α
 n420_call_builtin_prolog_β:
                         mov              r11, 250;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5741,10 +5514,7 @@ n428_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 912], rax
                         mov              qword ptr [rsp + 920], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n429_call_builtin_prolog_α
+                                                                              jmp   n429_call_builtin_prolog_α
 n428_call_builtin_prolog_β:
                         mov              r11, 258;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5771,10 +5541,7 @@ n429_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 816], rax
                         mov              qword ptr [rsp + 824], rdx
                         cmp              al, 104;                             je    n423_call_proc_staged_β
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n430_var_ref_α
+                                                                              jmp   n430_var_ref_α
 n429_call_builtin_prolog_β:
                         mov              r11, 259;                            jmp   n423_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5831,10 +5598,7 @@ n434_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 720], rax
                         mov              qword ptr [rsp + 728], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n435_call_builtin_prolog_α
+                                                                              jmp   n435_call_builtin_prolog_α
 n434_call_builtin_prolog_β:
                         mov              r11, 264;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5861,10 +5625,7 @@ n435_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 624], rax
                         mov              qword ptr [rsp + 632], rdx
                         cmp              al, 104;                             je    n423_call_proc_staged_β
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n436_var_ref_α
+                                                                              jmp   n436_var_ref_α
 n435_call_builtin_prolog_β:
                         mov              r11, 265;                            jmp   n423_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5921,10 +5682,7 @@ n440_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 528], rax
                         mov              qword ptr [rsp + 536], rdx
                         cmp              al, 104;                             je    n454_call_builtin_prolog_α
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n441_call_builtin_prolog_α
+                                                                              jmp   n441_call_builtin_prolog_α
 n440_call_builtin_prolog_β:
                         mov              r11, 270;                            jmp   n454_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5951,10 +5709,7 @@ n441_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 440], rdx
                         cmp              al, 104;                             je    n423_call_proc_staged_β
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n442_var_ref_α
+                                                                              jmp   n442_var_ref_α
 n441_call_builtin_prolog_β:
                         mov              r11, 271;                            jmp   n423_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6423,10 +6178,7 @@ n454_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
                         cmp              al, 104;                             je    radiation$2F0_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   radiation$2F0_ω
+                                                                              jmp   radiation$2F0_ω
 n454_call_builtin_prolog_β:
                         mov              r11, 284;                            jmp   radiation$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6530,10 +6282,7 @@ n617_call_builtin_prolog_α:
                         mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
                         cmp              al, 104;                             je    main_ω
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n618_call_proc_staged_α
+                                                                              jmp   n618_call_proc_staged_α
 n617_call_builtin_prolog_β:
                         mov              r11, 287;                            jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------

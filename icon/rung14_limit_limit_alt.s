@@ -26,38 +26,37 @@ n0_lit_integer_α:       mov              r11, 1
                         mov              qword ptr [rsp + 88], rax;           jmp   n1_disjunction_α
 .Lx10_0:                .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
-n1_disjunction_α:       sub              rsp, 16
-                        mov              r11, 2
-                        mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0
+n1_disjunction_α:       mov              r11, 2
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
                         mov              dword ptr [rsp + 112], 0;            jmp   n8_lit_integer_α
 n1_disjunction_as:      mov              r11, 2
                         mov              eax, dword ptr [rsp + 112]
                         cmp              eax, 0;                              jne   .Lx12_0
                         mov              rax, qword ptr [rsp + 128]
-                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 136]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n2_limit_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   n2_limit_α
 .Lx12_0:                cmp              eax, 1;                              jne   .Lx12_1
                         mov              rax, qword ptr [rsp + 144]
-                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n2_limit_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   n2_limit_α
 .Lx12_1:                cmp              eax, 2;                              jne   .Lx12_2
                         mov              rax, qword ptr [rsp + 160]
-                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n2_limit_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   n2_limit_α
 .Lx12_2:                cmp              eax, 3;                              jne   .Lx12_3
                         mov              rax, qword ptr [rsp + 176]
-                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 184]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n2_limit_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   n2_limit_α
 .Lx12_3:                cmp              eax, 4;                              jne   .Lx12_4
                         mov              rax, qword ptr [rsp + 192]
-                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 200]
-                        mov              qword ptr [rsp + 8], rax;            jmp   n2_limit_α
+                        mov              qword ptr [rsp + 104], rax;          jmp   n2_limit_α
 .Lx12_4:                                                                      jmp   n2_limit_α
 n1_disjunction_β:       mov              r11, 2
                         mov              eax, dword ptr [rsp + 112]
@@ -73,7 +72,7 @@ n1_disjunction_af:      mov              r11, 2
                         cmp              eax, 2;                              je    n6_lit_integer_α
                         cmp              eax, 3;                              je    n5_lit_integer_α
                         cmp              eax, 4;                              je    n4_lit_integer_α
-                        add              rsp, 16;                             jmp   main_ω
+                                                                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n2_limit_α:             mov              r11, 3
                         mov              rax, qword ptr [rsp + 64]
@@ -103,13 +102,14 @@ n3_call_builtin_icon_α: mov              r11, 4
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
                         call             rt_call_arr_bl@PLT
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
-                        cmp              al, 104;                             je    n1_disjunction_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1_disjunction_β
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              al, 104;                             je    n1_disjunction_β
+                                                                              jmp   n1_disjunction_β
 n3_call_builtin_icon_β: mov              r11, 4;                              jmp   n1_disjunction_β
 #-----------------------------------------------------------------------------------------------------------------------
 n4_lit_integer_α:       mov              r11, 5

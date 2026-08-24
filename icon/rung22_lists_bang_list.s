@@ -95,7 +95,7 @@ n6_iterate_α:           mov              r11, 7
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              rax, 104;                            je    main_ω
+                        cmp              al, 104;                             je    main_ω
                                                                               jmp   n7_call_builtin_icon_α
 n6_iterate_β:           mov              r11, 7
                         inc              qword ptr [rsp + 64];                jmp   .Lx17_0
@@ -117,13 +117,14 @@ n7_call_builtin_icon_α: mov              r11, 8
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
                         call             rt_call_arr_bl@PLT
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
-                        cmp              al, 104;                             je    n6_iterate_β
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n6_iterate_β
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              al, 104;                             je    n6_iterate_β
+                                                                              jmp   n6_iterate_β
 n7_call_builtin_icon_β: mov              r11, 8;                              jmp   n6_iterate_β
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
