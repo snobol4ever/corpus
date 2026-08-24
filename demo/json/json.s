@@ -87,14 +87,12 @@ n4_match_span_α:        sub              rsp, 16
                         mov              dword ptr [rbp + -64], eax;          jmp   .Lx13_0
 .Lx13_1:                mov              eax, dword ptr [rbp + -64]
                         cmp              eax, r14d;                           jne   .Lx13_240
-                        add              rsp, 16
-                        add              rsp, 32;                             jmp   n2_match_alternate_af
+                        add              rsp, 16;                             jmp   n2_match_alternate_af
 .Lx13_240:              mov              dword ptr [rbp + -64], r14d
                         mov              r14d, eax;                           jmp   n2_match_alternate_s0
 n4_match_span_β:        mov              r11, 5
                         mov              r14d, dword ptr [rbp + -64]
-                        add              rsp, 16
-                        add              rsp, 32;                             jmp   n2_match_alternate_af
+                        add              rsp, 16;                             jmp   n2_match_alternate_af
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$0_res:
                         mov              rbp, qword ptr [rsp + 24]
@@ -952,7 +950,7 @@ n77_match_any_α:        mov              r11, 41
                         cmp              eax, r15d;                           jge   n61_match_alternate_af
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
-                        lea              rdi, [rip + .C2]
+                        lea              rdi, [rip + .C1]
                         cmp              byte ptr [rdi+rsi], 0;               je    n61_match_alternate_af
                         add              r14d, 1;                             jmp   n78_match_fence1_α
 n77_match_any_β:        mov              r11, 41
@@ -8868,15 +8866,12 @@ n664_match_break_α:     sub              rsp, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              eax, r15d;                           jl    .Lx2008_240
-                        add              rsp, 16
-                        add              rsp, 80;                             jmp   n653_match_alternate_af
+                        add              rsp, 16;                             jmp   n653_match_alternate_af
 .Lx2008_240:            mov              dword ptr [rbp + -96], r14d
-                        mov              r14d, eax
-                        add              rsp, 96;                             jmp   n653_match_alternate_s0
+                        mov              r14d, eax;                           jmp   n653_match_alternate_s0
 n664_match_break_β:     mov              r11, 452
                         mov              r14d, dword ptr [rbp + -96]
-                        add              rsp, 16
-                        add              rsp, 80;                             jmp   n653_match_alternate_af
+                        add              rsp, 16;                             jmp   n653_match_alternate_af
 #=======================================================================================================================
 #                 r               =   r seg
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21317,22 +21312,6 @@ module_init:
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 .C1:                    .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                        .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-.C2:                    .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                         .byte            0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0
