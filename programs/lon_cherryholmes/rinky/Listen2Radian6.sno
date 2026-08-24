@@ -23,8 +23,8 @@
 *           r6DataUrl   =   'http://sandboxapi.radian6.com/socialcloud/v1/data/topicdata/recent'
 *           r6DataUrl   =   'http://sandboxapi.radian6.com/socialcloud/v1/data/topicdata/realtime'
             auth_user   =   'email@company.com'
-            auth_pass   =   'ffffffffffffffffffffffffffffffff'
-            auth_appkey =   '9999999999'
+            auth_pass   =   'REDACTED_PASSWORD'
+            auth_appkey =   'REDACTED_APP_KEY'
             mediatypes  =   '1,2,4,5,8,9,10,11,12,13,14,16'
             pageSize    =   50
 *---------- ----------- --- ------------------------------------------------------- --------------------

@@ -14,7 +14,7 @@
             cookies         =   xListener 'Cookies.txt'
             doParseTree     =   FALSE
             urlReferer      =   'LonCherryholmes.BlogSpot.com'
-            ysAppID         =   'JKOIS9HV34Fgdu8VD..14gU1znY3J8Tnr7SKPO2BNZ39D8rxF6Ain8_8hK7DcCw-' ;* Product: Blogzilla
+            ysAppID         =   'REDACTED_APP_ID' ;* Product: Blogzilla
             ysFlickr        =   'SELECT * FROM flickr.photos.search WHERE text="Cat"'
             ysSocial        =   'SELECT * FROM social.search WHERE text="Cat"'
             ysMyBlogLog     =   'SELECT * FROM mybloglog.search WHERE text="Cat"'

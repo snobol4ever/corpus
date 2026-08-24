@@ -15,7 +15,7 @@
             doParseTree     =   FALSE
             urlReferer      =   'LonCherryholmes.BlogSpot.com'
             bgUrl           =   'http://api.bing.net/json.aspx'
-            bgAppId         =   '22FD5DA61D07B834DCB34006C8F68F2442C7C570'
+            bgAppId         =   'REDACTED_APP_ID'
             bgST            =   TABLE()
             bgST[0]         =   2
             bgST[1]         =   'News'

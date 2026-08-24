@@ -81,7 +81,7 @@ BT02        xmlInteger      =   SPAN('0123456789') @x
             EQ(0, cc = curl_easy_setopt(curl, CURLOPT_USERAGENT, userAgent))        :F(error)
             EQ(0, cc = curl_easy_setopt(curl, CURLOPT_COOKIEFILE, cookies))         :F(error)
             EQ(0, cc = curl_easy_setopt(curl, CURLOPT_COOKIEJAR, cookies))          :F(error)
-            key         =   '75d773f1bd406dc3e668'
+            key         =   'REDACTED_API_KEY'
             q           =   'Katz'
             url         =   'http://api.backtype.com/comments/search.xml?q=' URLEncode(q) '&key=' key
             sFileName   =   'Comments.xml'

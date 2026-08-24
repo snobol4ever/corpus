@@ -16,7 +16,7 @@
             urlReferer  =   'LonCherryholmes.BlogSpot.com'
             ypUrl       =   'http://api.yelp.com/business_review_search'
             ypLimit     =   20
-            ywsID       =   '8wfyjLujWq3uP8knI-JyTQ' ;* Yelp
+            ywsID       =   'REDACTED_API_KEY' ;* Yelp
 *---------- ----------- --- ------------------------------------------------------------------------
             ypExpr      =  *(   'limit'    '=' ypLimit
 +                           '&' 'ywsid'    '=' ywsID

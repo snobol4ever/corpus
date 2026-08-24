@@ -17,7 +17,7 @@
             urlReferer  =   'LonCherryholmes.BlogSpot.com'
             cgUrl       =   'http://api.citygridmedia.com/reviews/v2/search/where'
             cgUrl       =   'http://api.citygridmedia.com/content/reviews/v2/search/where'
-            cgID        =   'rmuafprhx44vcb5ymqrpkh6x' ;* City Grid, Product: 5ivesAlive
+            cgID        =   'REDACTED_API_KEY' ;* City Grid, Product: 5ivesAlive
 *---------- ----------- --- ------------------------------------------------------------------------
             cgExpr      =  *(   'format'    '=' 'json'
 +                           '&' 'publisher' '=' '3052968487'
