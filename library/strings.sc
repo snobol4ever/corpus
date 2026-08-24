@@ -21,7 +21,7 @@ function TrimLeft(s, i, n, ch, found) {
         ch = SUBSTR(s, i, 1);
         if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; }
     }
-    if (IDENT(found, 0)) { TrimLeft = ''; } else { TrimLeft = SUBSTR(s, i); }
+    if (IDENT(found, 0)) TrimLeft = ''; else TrimLeft = SUBSTR(s, i);
     return;
 }
 
@@ -33,7 +33,7 @@ function TrimRight(s, i, n, ch, found) {
         ch = SUBSTR(s, i, 1);
         if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; }
     }
-    if (IDENT(found, 0)) { TrimRight = ''; } else { TrimRight = SUBSTR(s, 1, i); }
+    if (IDENT(found, 0)) TrimRight = ''; else TrimRight = SUBSTR(s, 1, i);
     return;
 }
 
@@ -44,14 +44,14 @@ function Trim(s) {
 
 function StartsWith(s, prefix) {
     // Succeeds if s begins with prefix; freturns otherwise.
-    if (IDENT(SUBSTR(s, 1, SIZE(prefix)), prefix)) { return; } else { freturn; }
+    if (IDENT(SUBSTR(s, 1, SIZE(prefix)), prefix)) return; else freturn;
 }
 
 function EndsWith(s, suffix, n, sn) {
     // Succeeds if s ends with suffix; freturns otherwise.
     n = SIZE(s); sn = SIZE(suffix);
     if (GT(sn, n)) freturn;
-    if (IDENT(SUBSTR(s, n - sn + 1, sn), suffix)) { return; } else { freturn; }
+    if (IDENT(SUBSTR(s, n - sn + 1, sn), suffix)) return; else freturn;
 }
 
 function Split(s, sep, i, n, slen, out_n, start, arr) {

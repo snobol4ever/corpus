@@ -50,22 +50,22 @@ function Remove(x, place, c, i) {
 
 function Equal(x, y, i) {
     // Both null → equal
-    if (IDENT(x, '')   IDENT(y, '')) { return; }
+    if (IDENT(x, '')   IDENT(y, '')) return;
     // One null → not equal
-    if ((IDENT(x, ''), IDENT(y, ''))) { freturn; }
-    if (~IDENT(t(x), t(y))) { freturn; }
-    if (~IDENT(v(x), v(y))) { freturn; }
-    if (~IDENT(n(x), n(y))) { freturn; }
+    if ((IDENT(x, ''), IDENT(y, ''))) freturn;
+    if (~IDENT(t(x), t(y))) freturn;
+    if (~IDENT(v(x), v(y))) freturn;
+    if (~IDENT(n(x), n(y))) freturn;
     i = 0;
     while (LT(i, n(x))) {
         i = i + 1;
-        if (~Equal(c(x)[i], c(y)[i])) { freturn; }
+        if (~Equal(c(x)[i], c(y)[i])) freturn;
     }
     return;
 }
 
 function Visit(x, fnc, i) {
-    if (~APPLY(fnc, x)) { return; }
+    if (~APPLY(fnc, x)) return;
     i = 0;
     while (LT(i, n(x))) {
         i = i + 1;

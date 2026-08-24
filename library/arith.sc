@@ -9,7 +9,7 @@
 function ISqrt(n, i) {
     // Integer square root: largest i such that i*i <= n.
     i = 0;
-    while (LE((i + 1) * (i + 1), n)) { i = i + 1; }
+    while (LE((i + 1) * (i + 1), n)) i = i + 1;
     ISqrt = i; return;
 }
 

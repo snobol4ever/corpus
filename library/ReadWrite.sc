@@ -50,13 +50,13 @@ function Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
         rdLineNo = rdLineNo + 1;
         rdMap[rdOfs] = rdLineNo;
     }
-    if (DIFFER(rdMapName)) { $rdMapName = rdMap; }
+    if (DIFFER(rdMapName)) $rdMapName = rdMap;
     return;
 }
 
 function Write(fileName, fileStr, wrLine, wrOutput, i, n, ch) {
     OUTPUT(.wrOutput, 8, fileName);
-    if (~DIFFER(wrOutput)) { freturn; }
+    if (~DIFFER(wrOutput)) freturn;
     // Write line by line splitting on nl
     n = SIZE(fileStr);
     wrLine = '';
@@ -64,7 +64,7 @@ function Write(fileName, fileStr, wrLine, wrOutput, i, n, ch) {
     while (1) {
         i = i + 1;
         if (GT(i, n)) {
-            if (DIFFER(wrLine)) { wrOutput = wrLine; }
+            if (DIFFER(wrLine)) wrOutput = wrLine;
             break;
         }
         ch = SUBSTR(fileStr, i, 1);
