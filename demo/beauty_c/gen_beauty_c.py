@@ -49,8 +49,7 @@ here=os.path.dirname(os.path.abspath(__file__)); src=os.path.join(here,'..','bea
 # label, BEFORE the -INCLUDEs whose transformed &name assignments are the constants being declared).
 # Runtime-inert today (kwb_own[7] is born open) but load-bearing the day the namespace default flips to
 # oracle-251 closed; also the honest program shape CN-9b's census measures against.
-DECL=['* CN-9b (SN4-CONSTANTS CN-4): open the user-constant namespace before the first &name assignment',
-      '                  &USER_DECLARED_CONSTANTS  =  1']
+DECL=[]  # CN-9b splice retired (Lon 2026-08-24: the line was runtime-inert; the feature is on by default and never depended on it)
 for f in ['beauty.sno']+sorted(os.path.basename(p) for p in glob.glob(src+'/*.inc')):
     lines=open(os.path.join(src,f),encoding='utf-8',errors='replace').read().split('\n')
     tl=[transform_line(l) for l in lines]
