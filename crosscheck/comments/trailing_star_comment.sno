@@ -1,0 +1,4 @@
+*     trailing_star_comment.sno - a ';*' boundary starts a trailing comment mid-line, joining a
+*     would-be comment line onto the same physical line as the statement before it (one-line
+*     suite format; row snobol4-trailing-star-comment-not-lexed)
+        OUTPUT = 1;END;* abc

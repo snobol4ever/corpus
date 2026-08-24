@@ -1,0 +1,4 @@
+*  probe: '*' jammed directly onto a keyword/label with no separating boundary (no ';', no
+*  whitespace, no true column 1) is NOT a trailing-comment start in either engine -- both fail
+*  to recognize a valid END and refuse (row snobol4-trailing-star-comment-not-lexed, witness 3)
+;END*abc
