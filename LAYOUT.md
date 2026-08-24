@@ -1,57 +1,18 @@
 # corpus Layout
 
-All SNOBOL4 source programs live here. One canonical home per file.
-Engine repos do not keep their own copies.
+One canonical home per program; engine repos keep no copies. Flattened 2026-08-24 (the
+`programs/` level is gone; `generated/` and `run/` removed).
 
-```
-corpus/
-│
-├── crosscheck/          ← PRIMARY harness feed — self-contained, deterministic, fast
-│   ├── hello/           ← smoke tests: hello world, empty string, multi-line output
-│   ├── arith/           ← arithmetic, assignment, integer/real ops
-│   ├── strings/         ← concat, SIZE, TRIM, REPLACE, string ops
-│   ├── patterns/        ← ANY SPAN BREAK LEN ARB BAL, pattern matching
-│   ├── capture/         ← . and $ capture, conditional assignment
-│   ├── control/         ← goto, :S :F, loops, label resolution
-│   ├── functions/       ← DEFINE, CALL, RETURN, FRETURN, recursion
-│   ├── arrays/          ← ARRAY, TABLE, DATA types
-│   ├── gc/              ← 3-stage GC torture: one test per collector root family + exhaustion (see SCRIP scripts/test_gc_stress_suite.sh)
-│   └── code/            ← CODE(), EVAL(), dynamic execution
-│
-├── benchmarks/          ← performance programs (timing comparisons)
-│
-├── programs/            ← real-world programs (may need I/O, -INCLUDE, input)
-│   ├── beauty/          ← beauty.sno — merged beautifier + driver
-│   ├── lon/             ← Lon's collection
-│   │   ├── sno/         ← general programs
-│   │   └── rinky/       ← rinky/social media programs
-│   ├── dotnet/          ← programs sourced from snobol4dotnet tests
-│   ├── gimpel/          ← Gimpel book examples (to populate)
-│   └── icon/            ← ICON language translation demos
-│
-├── generated/           ← pinned worm outputs that passed crosscheck
-│                           (starts empty, grows via run-worm-batch)
-│
-├── inc/                 ← shared .inc include files
-│
-├── editor/              ← editor support files (syntax highlighting, etc.)
-│   └── sublime/         ← Sublime Text .sublime-syntax for SNOBOL4 and Snocone
-│
-└── run/                 ← oracle runner scripts
-    ├── run-csnobol4.sh
-    ├── run-spitbol.sh
-    └── sno.mk
-```
+| Folder | Contents |
+|---|---|
+| `snobol4/` | SNOBOL4 programs: `beauty_suite/` `demo/` `bench/` `feat/` `smoke/` `parser/` … |
+| `icon/` `prolog/` `raku/` `pascal/` `rebus/` `snocone/` | per-language programs, rungs, parser fixtures |
+| `gimpel/` `csnobol4-suite/` `aisnobol/` `beauty/` `ebnf/` `dotnet/` `lon/` | imported / historical program sets |
+| `include/` `include-sc/` | shared `-INCLUDE` sources |
+| `crosscheck/` | tiny oracle-diff test pairs (`.sno`+`.ref`) — CONSOLIDATING into `suites/` (line-matched suite files; see .github GOAL-CEO CEO-15) |
+| `probe/` | minimal witness/probe programs — same consolidation |
+| `benchmarks/` | timing programs; `.s` artifacts live ONLY here and beside demos (RULES.md handoff step 4) |
+| `editor/` `lib/` | tooling and library material (LIBRARY curation pending, Lon) |
 
-## Rules for crosscheck/
-
-Programs in `crosscheck/` MUST be:
-- Self-contained — no `-INCLUDE`, no external file I/O
-- Deterministic — no `DATE()`, `TIME()`, random numbers
-- Fast — complete in < 1 second on any engine
-- Named for what they test
-
-## Rules for generated/
-
-Programs land here via `run-worm-batch` when they pass crosscheck.
-They are regression guards — do not edit by hand.
+Test artifacts (`.s` beside tests) are abolished; benchmarks and demos keep theirs.
+Authoritative per-language locations: `.github/CORPUS-LOCATIONS.md`.
