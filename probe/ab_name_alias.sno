@@ -3,7 +3,7 @@
 *
 * DEFINE('max(max,x)') names formal 0 with the FUNCTION'S OWN NAME, so the result
 * variable and formal slot 0 are the SAME NAME.  This is the standard SPITBOL
-* accumulator idiom and is used throughout corpus/lib/math.sno.
+* accumulator idiom and is used throughout corpus/library/math.sno.
 *
 * Under SCRIP_AB=1 the AB call path reads the result from the WRONG GVA SLOT when
 * this aliasing is present; the error scales with nformals (2 formals -> returns
