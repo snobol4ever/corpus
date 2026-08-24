@@ -1,43 +1,42 @@
-// stack.sc — Snocone port of stack.inc
-// General purpose value stack. Global: $'@S' (link chain).
-// xTrace must be set by caller (0 = no debug output).
-// Pop(var): if var='' returns value as function result (return path);
-//           if var≠'' assigns to $var and nreturns .dummy.
-
+//---------------------------------------------------------------------------------------------------
+// A general purpose stack. To be used directly or with conditional assignment within pattern
+// matching. This stack holds the values from the pattern match which were produced as a
+// result of either a Shift() or a Reduce() operation.
+// Global: $'@S' -- link()
+//---------------------------------------------------------------------------------------------------
 struct link { next, value }
 
 function InitStack() {
-    $'@S' = '';
+    $'@S' = ;
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function Push(x) {
+    OUTPUT = GT(xTrace, 4) 'Push(' t(x) ')';
     $'@S' = link($'@S', x);
-    if (IDENT(x, '')) {
-        Push = .value($'@S');
-        nreturn;
-    } else {
-        Push = .dummy;
-        nreturn;
-    }
+    if (Push = IDENT(x) .value($'@S')) nreturn;
+    Push = DIFFER(x) .dummy;
+    nreturn;
 }
-
+//---------------------------------------------------------------------------------------------------
 function Pop(var) {
-    if (~DIFFER($'@S')) freturn;
-    if (IDENT(var, '')) {
+    if (IDENT($'@S')) freturn;
+    if (IDENT(var)) {
         Pop = value($'@S');
+        OUTPUT = GT(xTrace, 4) 'Pop() = ' t(Pop);
         $'@S' = next($'@S');
         return;
-    } else {
-        $var = value($'@S');
-        $'@S' = next($'@S');
-        Pop = .dummy;
-        nreturn;
     }
+    Pop = .dummy;
+    $var = value($'@S');
+    OUTPUT = GT(xTrace, 4) 'Pop() = ' t($var);
+    $'@S' = next($'@S');
+    nreturn;
 }
-
+//---------------------------------------------------------------------------------------------------
 function Top() {
-    if (~DIFFER($'@S')) freturn;
+    if (IDENT($'@S')) freturn;
     Top = .value($'@S');
+    OUTPUT = GT(xTrace, 4) 'Top() = ' t(Top);
     nreturn;
 }

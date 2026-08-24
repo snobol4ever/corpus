@@ -1,79 +1,60 @@
-// ReadWrite.sc — Snocone port of ReadWrite.inc
-// Depends: global.sc (nl, cr)
-// Read(fileName, rdMapName) — reads file into one string, builds line-offset map.
-// Write(fileName, fileStr)  — writes string to file line-by-line.
-// LineMap(str, lmMapName)   — builds offset→lineNo TABLE for a string.
-//
-// Conversion notes:
-//   Subject replacement (str pat =) → SUBSTR restart approach for LineMap.
-//   File I/O (INPUT/OUTPUT channel binding) → freturn on open failure.
-//   ENDFILE(n) → omitted (no equivalent needed in snocone x86 runtime).
-
-function LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
-    lmMap = TABLE();
-    lmLineNo = 1;
-    lmAbs = 0;
-    n = SIZE(str);
-    lmMap[0] = lmLineNo;
-    i = 0;
-    while (1) {
-        i = i + 1;
-        if (GT(i, n)) break;
-        ch = SUBSTR(str, i, 1);
-        if (IDENT(ch, nl)) {
-            lmAbs = lmAbs + i;
-            lmLineNo = lmLineNo + 1;
-            lmMap[lmAbs] = lmLineNo;
-            str = SUBSTR(str, i + 1);
-            n = SIZE(str);
-            i = 0;
-        }
-    }
-    $lmMapName = lmMap;
-    return;
-}
-
-function Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
-    // Attempt to open file — freturn if inaccessible
-    INPUT(.rdContent, 8, fileName);
-    if (~DIFFER(rdContent)) freturn;
+//---------------------------------------------------------------------------------------------------
+// Read(fileName, rdMapName) - Read the specified file into one string with lines seperated
+// by newline characters. Also create a map table indexed by offsets of each line with its
+// corresponding line number.
+//---------------------------------------------------------------------------------------------------
+function Read(fileName, rdMapName,
+              rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
+    if (~INPUT(.rdInput, 8, fileName '[-m10 -l131072]')) freturn;
     rdMap = TABLE();
     rdOfs = 0;
     rdLineNo = 1;
-    Read = '';
-    rdMap[0] = rdLineNo;
+    Read = ;
     while (1) {
-        rdLine = rdContent;
-        if (~DIFFER(rdLine)) break;
-        Read = Read   rdLine   nl;
+        rdMap[rdOfs] = rdLineNo;
+        rdLine = ;
+        while (rdIn = rdInput) {
+            rdLine = rdLine rdIn;
+            if (LT(SIZE(rdIn), 131072)) break;
+        }
+        if (IDENT(rdIn)) {
+            ENDFILE(8);
+            if (~DIFFER(rdMapName)) return;
+            $rdMapName = rdMap;
+            return;
+        }
+        rdLine ? (RPOS(1) cr) = ;
         rdOfs = rdOfs + SIZE(rdLine) + 1;
         rdLineNo = rdLineNo + 1;
-        rdMap[rdOfs] = rdLineNo;
+        Read = Read rdLine nl;
     }
-    if (DIFFER(rdMapName)) $rdMapName = rdMap;
-    return;
 }
-
-function Write(fileName, fileStr, wrLine, wrOutput, i, n, ch) {
-    OUTPUT(.wrOutput, 8, fileName);
-    if (~DIFFER(wrOutput)) freturn;
-    // Write line by line splitting on nl
-    n = SIZE(fileStr);
-    wrLine = '';
-    i = 0;
+//---------------------------------------------------------------------------------------------------
+function Write(fileName, fileStr, wrLine, wrOutput) {
+    if (~OUTPUT(.wrOutput, 8, fileName)) freturn;
     while (1) {
-        i = i + 1;
-        if (GT(i, n)) {
-            if (DIFFER(wrLine)) wrOutput = wrLine;
-            break;
+        if (fileStr ? (POS(0) RPOS(0))) {
+            ENDFILE(8);
+            return;
         }
-        ch = SUBSTR(fileStr, i, 1);
-        if (IDENT(ch, nl)) {
-            wrOutput = wrLine;
-            wrLine = '';
-        } else {
-            wrLine = wrLine   ch;
-        }
+        if (~(fileStr ? (POS(0) BREAK(nl) . wrLine nl) = ))
+            if (~(fileStr ? (POS(0) RTAB(0) . wrLine) = ))
+                error();
+        wrOutput = wrLine;
     }
-    return;
+}
+//---------------------------------------------------------------------------------------------------
+function LineMap(str, lmMapName, lmLineNo, lmMap, lmOfs, xOfs) {
+    lmMap = TABLE();
+    lmOfs = 0;
+    lmLineNo = 1;
+    while (1) {
+        lmMap[lmOfs] = lmLineNo;
+        if (~(str ? (POS(0) BREAK(nl) nl @xOfs) = )) {
+            $lmMapName = lmMap;
+            return;
+        }
+        lmOfs = lmOfs + xOfs;
+        lmLineNo = lmLineNo + 1;
+    }
 }
