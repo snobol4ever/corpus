@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__meander:
                         sub              rsp, 1056
-                        mov              qword ptr [rsp + 1032], rcx
-                        mov              qword ptr [rsp + 1040], rdx
                         mov              rdi, rsp
                         add              rdi, 816
                         xor              eax, eax
@@ -603,12 +601,10 @@ meander_β:
 meander_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 1032]
-                        add              rsp, 1056;                           jmp   rcx
+                        add              rsp, 1056;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 meander_ω:
-                        mov              rcx, qword ptr [rsp + 1040]
-                        add              rsp, 1056;                           jmp   rcx
+                        add              rsp, 1056;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 meander_dcα:
                         pop              r12
@@ -641,11 +637,13 @@ meander_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx112_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx112_2]
-                        lea              rdx, [rip + .Lx112_3];               jmp   FN__meander
-.Lx112_2:               pop              r12
+                        push             rcx;                                 jmp   FN__meander
+.Lx112_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx112_3:               pop              r12
+.Lx112_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -663,8 +661,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 784
-                        mov              qword ptr [rsp + 760], rcx
-                        mov              qword ptr [rsp + 768], rdx
                         mov              rdi, rsp
                         add              rdi, 640
                         xor              eax, eax

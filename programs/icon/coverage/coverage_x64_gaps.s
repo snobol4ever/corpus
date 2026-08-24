@@ -29,8 +29,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 5904
-                        mov              qword ptr [rsp + 5880], rcx
-                        mov              qword ptr [rsp + 5888], rdx
                         mov              rdi, rsp
                         add              rdi, 5552
                         xor              eax, eax

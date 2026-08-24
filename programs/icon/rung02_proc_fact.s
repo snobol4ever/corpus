@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__fact:
                         sub              rsp, 368
-                        mov              qword ptr [rsp + 344], rcx
-                        mov              qword ptr [rsp + 352], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -317,12 +315,10 @@ fact_β:
 fact_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 344]
-                        add              rsp, 368;                            jmp   rcx
+                        add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 fact_ω:
-                        mov              rcx, qword ptr [rsp + 352]
-                        add              rsp, 368;                            jmp   rcx
+                        add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 fact_dcα:
                         pop              r12
@@ -343,11 +339,13 @@ fact_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx40_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx40_2]
-                        lea              rdx, [rip + .Lx40_3];                jmp   FN__fact
-.Lx40_2:                pop              r12
+                        push             rcx;                                 jmp   FN__fact
+.Lx40_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx40_3:                pop              r12
+.Lx40_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -365,8 +363,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 160
-                        mov              qword ptr [rsp + 136], rcx
-                        mov              qword ptr [rsp + 144], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

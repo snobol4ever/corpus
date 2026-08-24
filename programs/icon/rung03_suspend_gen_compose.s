@@ -209,8 +209,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 304
-                        mov              qword ptr [rsp + 280], rcx
-                        mov              qword ptr [rsp + 288], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
@@ -257,9 +255,12 @@ n31_proc_gen_α:         mov              r11, 14
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx38_1
+                        lea              rcx, [rip + .Lx38_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx38_3]
-                        lea              rdx, [rip + .Lx38_4];                jmp   rax
-.Lx38_3:                mov              qword ptr [rsp + 216], rsp
+                        push             rcx;                                 jmp   rax
+.Lx38_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 216], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx38_5
@@ -273,7 +274,8 @@ n31_proc_gen_α:         mov              r11, 14
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx38_2
 .Lx38_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx38_2
-.Lx38_4:                mov              rax, qword ptr [rsp + 208]
+.Lx38_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx38_6
                         mov              qword ptr [rsp + 208], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -387,9 +389,12 @@ n34_proc_gen_α:         mov              r11, 17
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx43_1
+                        lea              rcx, [rip + .Lx43_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx43_3]
-                        lea              rdx, [rip + .Lx43_4];                jmp   rax
-.Lx43_3:                mov              qword ptr [rsp + 88], rsp
+                        push             rcx;                                 jmp   rax
+.Lx43_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 88], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 80]
                         test             rax, rax;                            jne   .Lx43_5
@@ -403,7 +408,8 @@ n34_proc_gen_α:         mov              r11, 17
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx43_2
 .Lx43_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx43_2
-.Lx43_4:                mov              rax, qword ptr [rsp + 80]
+.Lx43_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 80]
                         test             rax, rax;                            jne   .Lx43_6
                         mov              qword ptr [rsp + 80], 1
                         mov              qword ptr [rip + rtccb+40], r8

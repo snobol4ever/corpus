@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__add:
                         sub              rsp, 320
-                        mov              qword ptr [rsp + 296], rcx
-                        mov              qword ptr [rsp + 304], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -209,12 +207,10 @@ add_β:
 add_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 296]
-                        add              rsp, 320;                            jmp   rcx
+                        add              rsp, 320;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 add_ω:
-                        mov              rcx, qword ptr [rsp + 304]
-                        add              rsp, 320;                            jmp   rcx
+                        add              rsp, 320;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 add_dcα:
                         pop              r12
@@ -235,11 +231,13 @@ add_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx31_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx31_2]
-                        lea              rdx, [rip + .Lx31_3];                jmp   FN__add
-.Lx31_2:                pop              r12
+                        push             rcx;                                 jmp   FN__add
+.Lx31_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx31_3:                pop              r12
+.Lx31_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -272,8 +270,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 304
-                        mov              qword ptr [rsp + 280], rcx
-                        mov              qword ptr [rsp + 288], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

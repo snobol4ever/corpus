@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__recogn:
                         sub              rsp, 352
-                        mov              qword ptr [rsp + 328], rcx
-                        mov              qword ptr [rsp + 336], rdx
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 0
@@ -251,12 +249,10 @@ recogn_β:
 recogn_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 328]
-                        add              rsp, 352;                            jmp   rcx
+                        add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 recogn_ω:
-                        mov              rcx, qword ptr [rsp + 336]
-                        add              rsp, 352;                            jmp   rcx
+                        add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 recogn_dcα:
                         pop              r12
@@ -289,11 +285,13 @@ recogn_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx27_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx27_2]
-                        lea              rdx, [rip + .Lx27_3];                jmp   FN__recogn
-.Lx27_2:                pop              r12
+                        push             rcx;                                 jmp   FN__recogn
+.Lx27_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx27_3:                pop              r12
+.Lx27_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -468,9 +466,12 @@ n33_proc_gen_α:         mov              r11, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx51_1
+                        lea              rcx, [rip + .Lx51_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx51_3]
-                        lea              rdx, [rip + .Lx51_4];                jmp   rax
-.Lx51_3:                mov              qword ptr [rsp + 280], rsp
+                        push             rcx;                                 jmp   rax
+.Lx51_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 280], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 272]
                         test             rax, rax;                            jne   .Lx51_5
@@ -484,7 +485,8 @@ n33_proc_gen_α:         mov              r11, 16
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx51_2
 .Lx51_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx51_2
-.Lx51_4:                mov              rax, qword ptr [rsp + 272]
+.Lx51_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 272]
                         test             rax, rax;                            jne   .Lx51_6
                         mov              qword ptr [rsp + 272], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -775,9 +777,12 @@ n41_proc_gen_α:         mov              r11, 24
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx60_1
+                        lea              rcx, [rip + .Lx60_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx60_3]
-                        lea              rdx, [rip + .Lx60_4];                jmp   rax
-.Lx60_3:                mov              qword ptr [rsp + 216], rsp
+                        push             rcx;                                 jmp   rax
+.Lx60_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 216], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx60_5
@@ -791,7 +796,8 @@ n41_proc_gen_α:         mov              r11, 24
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx60_2
 .Lx60_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx60_2
-.Lx60_4:                mov              rax, qword ptr [rsp + 208]
+.Lx60_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx60_6
                         mov              qword ptr [rsp + 208], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1255,9 +1261,12 @@ n73_proc_gen_α:         mov              r11, 37
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx93_1
+                        lea              rcx, [rip + .Lx93_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx93_3]
-                        lea              rdx, [rip + .Lx93_4];                jmp   rax
-.Lx93_3:                mov              qword ptr [rsp + 232], rsp
+                        push             rcx;                                 jmp   rax
+.Lx93_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 232], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx93_5
@@ -1271,7 +1280,8 @@ n73_proc_gen_α:         mov              r11, 37
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx93_2
 .Lx93_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx93_2
-.Lx93_4:                mov              rax, qword ptr [rsp + 224]
+.Lx93_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx93_6
                         mov              qword ptr [rsp + 224], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1486,8 +1496,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 384
-                        mov              qword ptr [rsp + 360], rcx
-                        mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
                         add              rdi, 304
                         xor              eax, eax

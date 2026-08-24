@@ -13,8 +13,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 464
-                        mov              qword ptr [rsp + 440], rcx
-                        mov              qword ptr [rsp + 448], rdx
                         mov              rdi, rsp
                         add              rdi, 384
                         xor              eax, eax

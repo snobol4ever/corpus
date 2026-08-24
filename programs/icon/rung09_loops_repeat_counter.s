@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__count:
                         sub              rsp, 336
-                        mov              qword ptr [rsp + 312], rcx
-                        mov              qword ptr [rsp + 320], rdx
                         mov              rdi, rsp
                         add              rdi, 240
                         xor              eax, eax
@@ -214,12 +212,10 @@ count_β:
 count_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 312]
-                        add              rsp, 336;                            jmp   rcx
+                        add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 count_ω:
-                        mov              rcx, qword ptr [rsp + 320]
-                        add              rsp, 336;                            jmp   rcx
+                        add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 count_dcα:
                         pop              r12
@@ -240,11 +236,13 @@ count_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx27_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx27_2]
-                        lea              rdx, [rip + .Lx27_3];                jmp   FN__count
-.Lx27_2:                pop              r12
+                        push             rcx;                                 jmp   FN__count
+.Lx27_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx27_3:                pop              r12
+.Lx27_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -262,8 +260,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 112
-                        mov              qword ptr [rsp + 88], rcx
-                        mov              qword ptr [rsp + 96], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

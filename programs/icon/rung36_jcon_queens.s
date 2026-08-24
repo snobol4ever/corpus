@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__q:
                         sub              rsp, 2192
-                        mov              qword ptr [rsp + 2168], rcx
-                        mov              qword ptr [rsp + 2176], rdx
                         mov              rdi, rsp
                         add              rdi, 2096
                         xor              eax, eax
@@ -2095,12 +2093,10 @@ q_β:
 q_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 2168]
-                        add              rsp, 2192;                           jmp   rcx
+                        add              rsp, 2192;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 q_ω:
-                        mov              rcx, qword ptr [rsp + 2176]
-                        add              rsp, 2192;                           jmp   rcx
+                        add              rsp, 2192;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 q_dcα:
                         pop              r12
@@ -2121,19 +2117,19 @@ q_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx272_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx272_2]
-                        lea              rdx, [rip + .Lx272_3];               jmp   FN__q
-.Lx272_2:               pop              r12
+                        push             rcx;                                 jmp   FN__q
+.Lx272_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx272_3:               pop              r12
+.Lx272_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__show:
                         sub              rsp, 1280
-                        mov              qword ptr [rsp + 1256], rcx
-                        mov              qword ptr [rsp + 1264], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
@@ -2999,22 +2995,22 @@ show_β:
 show_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 1256]
-                        add              rsp, 1280;                           jmp   rcx
+                        add              rsp, 1280;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 show_ω:
-                        mov              rcx, qword ptr [rsp + 1264]
-                        add              rsp, 1280;                           jmp   rcx
+                        add              rsp, 1280;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 show_dcα:
                         pop              r12
                         push             r12
                         push             r12
+                        lea              rcx, [rip + .Lx400_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx400_2]
-                        lea              rdx, [rip + .Lx400_3];               jmp   FN__show
-.Lx400_2:               pop              r12
+                        push             rcx;                                 jmp   FN__show
+.Lx400_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx400_3:               pop              r12
+.Lx400_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -3068,8 +3064,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 672
-                        mov              qword ptr [rsp + 648], rcx
-                        mov              qword ptr [rsp + 656], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2

@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__foo:
                         sub              rsp, 448
-                        mov              qword ptr [rsp + 424], rcx
-                        mov              qword ptr [rsp + 432], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -297,12 +295,10 @@ foo_β:
 foo_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 424]
-                        add              rsp, 448;                            jmp   rcx
+                        add              rsp, 448;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 foo_ω:
-                        mov              rcx, qword ptr [rsp + 432]
-                        add              rsp, 448;                            jmp   rcx
+                        add              rsp, 448;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 foo_dcα:
                         pop              r12
@@ -323,11 +319,13 @@ foo_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx33_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx33_2]
-                        lea              rdx, [rip + .Lx33_3];                jmp   FN__foo
-.Lx33_2:                pop              r12
+                        push             rcx;                                 jmp   FN__foo
+.Lx33_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx33_3:                pop              r12
+.Lx33_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -558,8 +556,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 432
-                        mov              qword ptr [rsp + 408], rcx
-                        mov              qword ptr [rsp + 416], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
@@ -731,9 +727,12 @@ n67_proc_gen_α:         mov              r11, 31
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx81_1
+                        lea              rcx, [rip + .Lx81_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx81_3]
-                        lea              rdx, [rip + .Lx81_4];                jmp   rax
-.Lx81_3:                mov              qword ptr [rsp + 120], rsp
+                        push             rcx;                                 jmp   rax
+.Lx81_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 120], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 112]
                         test             rax, rax;                            jne   .Lx81_5
@@ -747,7 +746,8 @@ n67_proc_gen_α:         mov              r11, 31
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx81_2
 .Lx81_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx81_2
-.Lx81_4:                mov              rax, qword ptr [rsp + 112]
+.Lx81_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 112]
                         test             rax, rax;                            jne   .Lx81_6
                         mov              qword ptr [rsp + 112], 1
                         mov              qword ptr [rip + rtccb+40], r8

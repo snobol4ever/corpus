@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__inc:
                         sub              rsp, 128
-                        mov              qword ptr [rsp + 104], rcx
-                        mov              qword ptr [rsp + 112], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
@@ -103,22 +101,22 @@ inc_β:
 inc_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 104]
-                        add              rsp, 128;                            jmp   rcx
+                        add              rsp, 128;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 inc_ω:
-                        mov              rcx, qword ptr [rsp + 112]
-                        add              rsp, 128;                            jmp   rcx
+                        add              rsp, 128;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 inc_dcα:
                         pop              r12
                         push             r12
                         push             r12
+                        lea              rcx, [rip + .Lx11_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx11_2]
-                        lea              rdx, [rip + .Lx11_3];                jmp   FN__inc
-.Lx11_2:                pop              r12
+                        push             rcx;                                 jmp   FN__inc
+.Lx11_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx11_3:                pop              r12
+.Lx11_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -149,8 +147,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 240
-                        mov              qword ptr [rsp + 216], rcx
-                        mov              qword ptr [rsp + 224], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

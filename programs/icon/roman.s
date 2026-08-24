@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__roman:
                         sub              rsp, 1552
-                        mov              qword ptr [rsp + 1528], rcx
-                        mov              qword ptr [rsp + 1536], rdx
                         mov              rdi, rsp
                         add              rdi, 1424
                         xor              eax, eax
@@ -777,12 +775,10 @@ roman_β:
 roman_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 1528]
-                        add              rsp, 1552;                           jmp   rcx
+                        add              rsp, 1552;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 roman_ω:
-                        mov              rcx, qword ptr [rsp + 1536]
-                        add              rsp, 1552;                           jmp   rcx
+                        add              rsp, 1552;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 roman_dcα:
                         pop              r12
@@ -803,11 +799,13 @@ roman_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx146_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx146_2]
-                        lea              rdx, [rip + .Lx146_3];               jmp   FN__roman
-.Lx146_2:               pop              r12
+                        push             rcx;                                 jmp   FN__roman
+.Lx146_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx146_3:               pop              r12
+.Lx146_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -825,8 +823,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 384
-                        mov              qword ptr [rsp + 360], rcx
-                        mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

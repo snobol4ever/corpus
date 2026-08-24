@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__cross:
                         sub              rsp, 704
-                        mov              qword ptr [rsp + 680], rcx
-                        mov              qword ptr [rsp + 688], rdx
                         mov              rdi, rsp
                         add              rdi, 560
                         xor              eax, eax
@@ -248,12 +246,10 @@ cross_β:
 cross_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 680]
-                        add              rsp, 704;                            jmp   rcx
+                        add              rsp, 704;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cross_ω:
-                        mov              rcx, qword ptr [rsp + 688]
-                        add              rsp, 704;                            jmp   rcx
+                        add              rsp, 704;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cross_dcα:
                         pop              r12
@@ -286,19 +282,19 @@ cross_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx54_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx54_2]
-                        lea              rdx, [rip + .Lx54_3];                jmp   FN__cross
-.Lx54_2:                pop              r12
+                        push             rcx;                                 jmp   FN__cross
+.Lx54_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx54_3:                pop              r12
+.Lx54_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__xprint:
                         sub              rsp, 880
-                        mov              qword ptr [rsp + 856], rcx
-                        mov              qword ptr [rsp + 864], rdx
                         mov              rdi, rsp
                         mov              esi, 4
                         mov              edx, 0
@@ -829,12 +825,10 @@ xprint_β:
 xprint_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 856]
-                        add              rsp, 880;                            jmp   rcx
+                        add              rsp, 880;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 xprint_ω:
-                        mov              rcx, qword ptr [rsp + 864]
-                        add              rsp, 880;                            jmp   rcx
+                        add              rsp, 880;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 xprint_dcα:
                         pop              r12
@@ -893,11 +887,13 @@ xprint_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 32
+                        lea              rcx, [rip + .Lx129_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx129_2]
-                        lea              rdx, [rip + .Lx129_3];               jmp   FN__xprint
-.Lx129_2:               pop              r12
+                        push             rcx;                                 jmp   FN__xprint
+.Lx129_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx129_3:               pop              r12
+.Lx129_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -915,8 +911,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 544
-                        mov              qword ptr [rsp + 520], rcx
-                        mov              qword ptr [rsp + 528], rdx
                         mov              rdi, rsp
                         add              rdi, 432
                         xor              eax, eax

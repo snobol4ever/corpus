@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__rtest:
                         sub              rsp, 4336
-                        mov              qword ptr [rsp + 4312], rcx
-                        mov              qword ptr [rsp + 4320], rdx
                         mov              rdi, rsp
                         add              rdi, 4256
                         xor              eax, eax
@@ -2372,22 +2370,22 @@ rtest_β:
 rtest_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 4312]
-                        add              rsp, 4336;                           jmp   rcx
+                        add              rsp, 4336;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rtest_ω:
-                        mov              rcx, qword ptr [rsp + 4320]
-                        add              rsp, 4336;                           jmp   rcx
+                        add              rsp, 4336;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rtest_dcα:
                         pop              r12
                         push             r12
                         push             r12
+                        lea              rcx, [rip + .Lx344_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx344_2]
-                        lea              rdx, [rip + .Lx344_3];               jmp   FN__rtest
-.Lx344_2:               pop              r12
+                        push             rcx;                                 jmp   FN__rtest
+.Lx344_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx344_3:               pop              r12
+.Lx344_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -2426,8 +2424,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 384
-                        mov              qword ptr [rsp + 360], rcx
-                        mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
                         add              rdi, 304
                         xor              eax, eax

@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__sum:
                         sub              rsp, 208
-                        mov              qword ptr [rsp + 184], rcx
-                        mov              qword ptr [rsp + 192], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -162,12 +160,10 @@ sum_β:
 sum_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 184]
-                        add              rsp, 208;                            jmp   rcx
+                        add              rsp, 208;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 sum_ω:
-                        mov              rcx, qword ptr [rsp + 192]
-                        add              rsp, 208;                            jmp   rcx
+                        add              rsp, 208;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 sum_dcα:
                         pop              r12
@@ -188,11 +184,13 @@ sum_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx20_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx20_2]
-                        lea              rdx, [rip + .Lx20_3];                jmp   FN__sum
-.Lx20_2:                pop              r12
+                        push             rcx;                                 jmp   FN__sum
+.Lx20_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx20_3:                pop              r12
+.Lx20_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -210,8 +208,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 288
-                        mov              qword ptr [rsp + 264], rcx
-                        mov              qword ptr [rsp + 272], rdx
                         mov              rdi, rsp
                         add              rdi, 224
                         xor              eax, eax

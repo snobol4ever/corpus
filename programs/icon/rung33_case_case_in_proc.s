@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__classify:
                         sub              rsp, 368
-                        mov              qword ptr [rsp + 344], rcx
-                        mov              qword ptr [rsp + 352], rdx
                         mov              rdi, rsp
                         add              rdi, 288
                         xor              eax, eax
@@ -158,12 +156,10 @@ classify_β:
 classify_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 344]
-                        add              rsp, 368;                            jmp   rcx
+                        add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 classify_ω:
-                        mov              rcx, qword ptr [rsp + 352]
-                        add              rsp, 368;                            jmp   rcx
+                        add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 classify_dcα:
                         pop              r12
@@ -184,11 +180,13 @@ classify_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx30_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx30_2]
-                        lea              rdx, [rip + .Lx30_3];                jmp   FN__classify
-.Lx30_2:                pop              r12
+                        push             rcx;                                 jmp   FN__classify
+.Lx30_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx30_3:                pop              r12
+.Lx30_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -206,8 +204,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 384
-                        mov              qword ptr [rsp + 360], rcx
-                        mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

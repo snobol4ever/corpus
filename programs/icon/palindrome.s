@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__palindrome:
                         sub              rsp, 672
-                        mov              qword ptr [rsp + 648], rcx
-                        mov              qword ptr [rsp + 656], rdx
                         mov              rdi, rsp
                         add              rdi, 576
                         xor              eax, eax
@@ -499,12 +497,10 @@ palindrome_β:
 palindrome_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 648]
-                        add              rsp, 672;                            jmp   rcx
+                        add              rsp, 672;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 palindrome_ω:
-                        mov              rcx, qword ptr [rsp + 656]
-                        add              rsp, 672;                            jmp   rcx
+                        add              rsp, 672;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 palindrome_dcα:
                         pop              r12
@@ -525,11 +521,13 @@ palindrome_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx86_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx86_2]
-                        lea              rdx, [rip + .Lx86_3];                jmp   FN__palindrome
-.Lx86_2:                pop              r12
+                        push             rcx;                                 jmp   FN__palindrome
+.Lx86_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx86_3:                pop              r12
+.Lx86_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -547,8 +545,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 384
-                        mov              qword ptr [rsp + 360], rcx
-                        mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

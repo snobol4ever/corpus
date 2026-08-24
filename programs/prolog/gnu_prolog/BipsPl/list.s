@@ -492,12 +492,10 @@ n11_call_proc_staged_α: mov              r11, 12
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx32_4]                 # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx32_4]
                         push             rcx
                         lea              rcx, [rip + .Lx32_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx32_3]
-                        lea              rdx, [rip + .Lx32_4];                jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx32_3:                mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -734,12 +732,10 @@ n38_call_proc_staged_α: mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx44_4]                 # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx44_4]
                         push             rcx
                         lea              rcx, [rip + .Lx44_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx44_3]
-                        lea              rdx, [rip + .Lx44_4];                jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx44_3:                mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1503,9 +1499,12 @@ n59_call_proc_staged_α: mov              r11, 31
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx82_1
+                        lea              rcx, [rip + .Lx82_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx82_3]
-                        lea              rdx, [rip + .Lx82_4];                jmp   rax
-.Lx82_3:                mov              qword ptr [rsp + 184], rsp
+                        push             rcx;                                 jmp   rax
+.Lx82_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx82_5
@@ -1519,7 +1518,8 @@ n59_call_proc_staged_α: mov              r11, 31
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx82_2
 .Lx82_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx82_2
-.Lx82_4:                mov              rax, qword ptr [rsp + 176]
+.Lx82_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx82_6
                         mov              qword ptr [rsp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2357,9 +2357,12 @@ n97_call_proc_staged_α: mov              r11, 45
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx120_1
+                        lea              rcx, [rip + .Lx120_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx120_3]
-                        lea              rdx, [rip + .Lx120_4];               jmp   rax
-.Lx120_3:               mov              qword ptr [rsp + 184], rsp
+                        push             rcx;                                 jmp   rax
+.Lx120_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx120_5
@@ -2373,7 +2376,8 @@ n97_call_proc_staged_α: mov              r11, 45
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx120_2
 .Lx120_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx120_2
-.Lx120_4:               mov              rax, qword ptr [rsp + 176]
+.Lx120_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx120_6
                         mov              qword ptr [rsp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3409,12 +3413,10 @@ n174_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx180_4]                # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx180_4]
                         push             rcx
                         lea              rcx, [rip + .Lx180_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx180_3]
-                        lea              rdx, [rip + .Lx180_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx180_3:               mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4039,12 +4041,10 @@ n195_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx216_4]                # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx216_4]
                         push             rcx
                         lea              rcx, [rip + .Lx216_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx216_3]
-                        lea              rdx, [rip + .Lx216_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx216_3:               mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7610,12 +7610,10 @@ n415_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx436_4]                # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx436_4]
                         push             rcx
                         lea              rcx, [rip + .Lx436_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx436_3]
-                        lea              rdx, [rip + .Lx436_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx436_3:               mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9217,9 +9215,12 @@ n469_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx541_1
+                        lea              rcx, [rip + .Lx541_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx541_3]
-                        lea              rdx, [rip + .Lx541_4];               jmp   rax
-.Lx541_3:               mov              qword ptr [rsp + 792], rsp
+                        push             rcx;                                 jmp   rax
+.Lx541_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 792], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 784]
                         test             rax, rax;                            jne   .Lx541_5
@@ -9233,7 +9234,8 @@ n469_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx541_2
 .Lx541_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx541_2
-.Lx541_4:               mov              rax, qword ptr [rsp + 784]
+.Lx541_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 784]
                         test             rax, rax;                            jne   .Lx541_6
                         mov              qword ptr [rsp + 784], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -10399,9 +10401,12 @@ n490_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx576_1
+                        lea              rcx, [rip + .Lx576_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx576_3]
-                        lea              rdx, [rip + .Lx576_4];               jmp   rax
-.Lx576_3:               mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx576_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx576_5
@@ -10415,7 +10420,8 @@ n490_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx576_2
 .Lx576_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx576_2
-.Lx576_4:               mov              rax, qword ptr [rsp + 192]
+.Lx576_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx576_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -11280,9 +11286,12 @@ n593_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx619_1
+                        lea              rcx, [rip + .Lx619_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx619_3]
-                        lea              rdx, [rip + .Lx619_4];               jmp   rax
-.Lx619_3:               mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx619_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx619_5
@@ -11296,7 +11305,8 @@ n593_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx619_2
 .Lx619_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx619_2
-.Lx619_4:               mov              rax, qword ptr [rsp + 192]
+.Lx619_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx619_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -13013,9 +13023,12 @@ n661_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx724_1
+                        lea              rcx, [rip + .Lx724_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx724_3]
-                        lea              rdx, [rip + .Lx724_4];               jmp   rax
-.Lx724_3:               mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx724_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx724_5
@@ -13029,7 +13042,8 @@ n661_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx724_2
 .Lx724_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx724_2
-.Lx724_4:               mov              rax, qword ptr [rsp + 192]
+.Lx724_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx724_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -14081,12 +14095,10 @@ n754_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx813_4]                # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx813_4]
                         push             rcx
                         lea              rcx, [rip + .Lx813_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx813_3]
-                        lea              rdx, [rip + .Lx813_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx813_3:               mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14849,9 +14861,12 @@ n772_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx844_1
+                        lea              rcx, [rip + .Lx844_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx844_3]
-                        lea              rdx, [rip + .Lx844_4];               jmp   rax
-.Lx844_3:               mov              qword ptr [rsp + 216], rsp
+                        push             rcx;                                 jmp   rax
+.Lx844_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 216], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx844_5
@@ -14865,7 +14880,8 @@ n772_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx844_2
 .Lx844_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx844_2
-.Lx844_4:               mov              rax, qword ptr [rsp + 208]
+.Lx844_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx844_6
                         mov              qword ptr [rsp + 208], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -16559,9 +16575,12 @@ n885_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx966_1
+                        lea              rcx, [rip + .Lx966_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx966_3]
-                        lea              rdx, [rip + .Lx966_4];               jmp   rax
-.Lx966_3:               mov              qword ptr [rsp + 760], rsp
+                        push             rcx;                                 jmp   rax
+.Lx966_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 760], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 752]
                         test             rax, rax;                            jne   .Lx966_5
@@ -16575,7 +16594,8 @@ n885_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx966_2
 .Lx966_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx966_2
-.Lx966_4:               mov              rax, qword ptr [rsp + 752]
+.Lx966_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 752]
                         test             rax, rax;                            jne   .Lx966_6
                         mov              qword ptr [rsp + 752], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -17596,9 +17616,12 @@ n905_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx999_1
+                        lea              rcx, [rip + .Lx999_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx999_3]
-                        lea              rdx, [rip + .Lx999_4];               jmp   rax
-.Lx999_3:               mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx999_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx999_5
@@ -17612,7 +17635,8 @@ n905_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx999_2
 .Lx999_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx999_2
-.Lx999_4:               mov              rax, qword ptr [rsp + 192]
+.Lx999_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx999_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -18850,9 +18874,12 @@ n1022_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1058_1
+                        lea              rcx, [rip + .Lx1058_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1058_3]
-                        lea              rdx, [rip + .Lx1058_4];              jmp   rax
-.Lx1058_3:              mov              qword ptr [rsp + 184], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1058_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx1058_5
@@ -18866,7 +18893,8 @@ n1022_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1058_2
 .Lx1058_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1058_2
-.Lx1058_4:              mov              rax, qword ptr [rsp + 176]
+.Lx1058_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx1058_6
                         mov              qword ptr [rsp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -19939,9 +19967,12 @@ n1085_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1127_1
+                        lea              rcx, [rip + .Lx1127_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1127_3]
-                        lea              rdx, [rip + .Lx1127_4];              jmp   rax
-.Lx1127_3:              mov              qword ptr [rsp + 296], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1127_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 296], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 288]
                         test             rax, rax;                            jne   .Lx1127_5
@@ -19955,7 +19986,8 @@ n1085_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1127_2
 .Lx1127_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1127_2
-.Lx1127_4:              mov              rax, qword ptr [rsp + 288]
+.Lx1127_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 288]
                         test             rax, rax;                            jne   .Lx1127_6
                         mov              qword ptr [rsp + 288], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -20140,9 +20172,12 @@ n1088_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1133_1
+                        lea              rcx, [rip + .Lx1133_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1133_3]
-                        lea              rdx, [rip + .Lx1133_4];              jmp   rax
-.Lx1133_3:              mov              qword ptr [rsp + 168], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1133_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 168], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx1133_5
@@ -20156,7 +20191,8 @@ n1088_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1133_2
 .Lx1133_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1133_2
-.Lx1133_4:              mov              rax, qword ptr [rsp + 160]
+.Lx1133_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx1133_6
                         mov              qword ptr [rsp + 160], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -20458,12 +20494,10 @@ n1139_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1145_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1145_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1145_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1145_3]
-                        lea              rdx, [rip + .Lx1145_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1145_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21268,12 +21302,10 @@ n1164_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1192_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1192_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1192_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1192_3]
-                        lea              rdx, [rip + .Lx1192_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1192_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21512,12 +21544,10 @@ n1198_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1204_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1204_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1204_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1204_3]
-                        lea              rdx, [rip + .Lx1204_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1204_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22862,9 +22892,12 @@ n1235_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1280_1
+                        lea              rcx, [rip + .Lx1280_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1280_3]
-                        lea              rdx, [rip + .Lx1280_4];              jmp   rax
-.Lx1280_3:              mov              qword ptr [rsp + 168], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1280_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 168], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx1280_5
@@ -22878,7 +22911,8 @@ n1235_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1280_2
 .Lx1280_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1280_2
-.Lx1280_4:              mov              rax, qword ptr [rsp + 160]
+.Lx1280_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx1280_6
                         mov              qword ptr [rsp + 160], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -24735,9 +24769,12 @@ n1311_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1361_1
+                        lea              rcx, [rip + .Lx1361_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1361_3]
-                        lea              rdx, [rip + .Lx1361_4];              jmp   rax
-.Lx1361_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1361_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx1361_5
@@ -24751,7 +24788,8 @@ n1311_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1361_2
 .Lx1361_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1361_2
-.Lx1361_4:              mov              rax, qword ptr [rsp + 192]
+.Lx1361_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx1361_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -25404,12 +25442,10 @@ n1373_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1389_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1389_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1389_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1389_3]
-                        lea              rdx, [rip + .Lx1389_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1389_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -25768,12 +25804,10 @@ n1404_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1419_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1419_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1419_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1419_3]
-                        lea              rdx, [rip + .Lx1419_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1419_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -26108,12 +26142,10 @@ n1432_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1445_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1445_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1445_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1445_3]
-                        lea              rdx, [rip + .Lx1445_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1445_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -26424,12 +26456,10 @@ n1456_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1467_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1467_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1467_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1467_3]
-                        lea              rdx, [rip + .Lx1467_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1467_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -26716,12 +26746,10 @@ n1476_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx1485_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx1485_4]
                         push             rcx
                         lea              rcx, [rip + .Lx1485_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx1485_3]
-                        lea              rdx, [rip + .Lx1485_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx1485_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -27707,9 +27735,12 @@ n1506_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1539_1
+                        lea              rcx, [rip + .Lx1539_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1539_3]
-                        lea              rdx, [rip + .Lx1539_4];              jmp   rax
-.Lx1539_3:              mov              qword ptr [rsp + 232], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1539_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 232], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx1539_5
@@ -27723,7 +27754,8 @@ n1506_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1539_2
 .Lx1539_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1539_2
-.Lx1539_4:              mov              rax, qword ptr [rsp + 224]
+.Lx1539_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx1539_6
                         mov              qword ptr [rsp + 224], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -29291,9 +29323,12 @@ n1580_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1662_1
+                        lea              rcx, [rip + .Lx1662_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1662_3]
-                        lea              rdx, [rip + .Lx1662_4];              jmp   rax
-.Lx1662_3:              mov              qword ptr [rsp + 792], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1662_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 792], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 784]
                         test             rax, rax;                            jne   .Lx1662_5
@@ -29307,7 +29342,8 @@ n1580_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1662_2
 .Lx1662_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1662_2
-.Lx1662_4:              mov              rax, qword ptr [rsp + 784]
+.Lx1662_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 784]
                         test             rax, rax;                            jne   .Lx1662_6
                         mov              qword ptr [rsp + 784], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -30473,9 +30509,12 @@ n1601_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1697_1
+                        lea              rcx, [rip + .Lx1697_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1697_3]
-                        lea              rdx, [rip + .Lx1697_4];              jmp   rax
-.Lx1697_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1697_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx1697_5
@@ -30489,7 +30528,8 @@ n1601_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1697_2
 .Lx1697_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1697_2
-.Lx1697_4:              mov              rax, qword ptr [rsp + 192]
+.Lx1697_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx1697_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -31744,9 +31784,12 @@ n1722_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1762_1
+                        lea              rcx, [rip + .Lx1762_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1762_3]
-                        lea              rdx, [rip + .Lx1762_4];              jmp   rax
-.Lx1762_3:              mov              qword ptr [rsp + 264], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1762_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 264], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx1762_5
@@ -31760,7 +31803,8 @@ n1722_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1762_2
 .Lx1762_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1762_2
-.Lx1762_4:              mov              rax, qword ptr [rsp + 256]
+.Lx1762_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx1762_6
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -33232,9 +33276,12 @@ n1791_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1838_1
+                        lea              rcx, [rip + .Lx1838_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1838_3]
-                        lea              rdx, [rip + .Lx1838_4];              jmp   rax
-.Lx1838_3:              mov              qword ptr [rsp + 296], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1838_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 296], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 288]
                         test             rax, rax;                            jne   .Lx1838_5
@@ -33248,7 +33295,8 @@ n1791_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1838_2
 .Lx1838_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1838_2
-.Lx1838_4:              mov              rax, qword ptr [rsp + 288]
+.Lx1838_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 288]
                         test             rax, rax;                            jne   .Lx1838_6
                         mov              qword ptr [rsp + 288], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -34682,9 +34730,12 @@ n1879_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1925_1
+                        lea              rcx, [rip + .Lx1925_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1925_3]
-                        lea              rdx, [rip + .Lx1925_4];              jmp   rax
-.Lx1925_3:              mov              qword ptr [rsp + 280], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1925_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 280], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 272]
                         test             rax, rax;                            jne   .Lx1925_5
@@ -34698,7 +34749,8 @@ n1879_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1925_2
 .Lx1925_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1925_2
-.Lx1925_4:              mov              rax, qword ptr [rsp + 272]
+.Lx1925_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 272]
                         test             rax, rax;                            jne   .Lx1925_6
                         mov              qword ptr [rsp + 272], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -34872,9 +34924,12 @@ n1882_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx1931_1
+                        lea              rcx, [rip + .Lx1931_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx1931_3]
-                        lea              rdx, [rip + .Lx1931_4];              jmp   rax
-.Lx1931_3:              mov              qword ptr [rsp + 168], rsp
+                        push             rcx;                                 jmp   rax
+.Lx1931_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 168], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx1931_5
@@ -34888,7 +34943,8 @@ n1882_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx1931_2
 .Lx1931_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx1931_2
-.Lx1931_4:              mov              rax, qword ptr [rsp + 160]
+.Lx1931_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx1931_6
                         mov              qword ptr [rsp + 160], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -36522,9 +36578,12 @@ n1964_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2018_1
+                        lea              rcx, [rip + .Lx2018_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2018_3]
-                        lea              rdx, [rip + .Lx2018_4];              jmp   rax
-.Lx2018_3:              mov              qword ptr [rsp + 328], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2018_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 328], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 320]
                         test             rax, rax;                            jne   .Lx2018_5
@@ -36538,7 +36597,8 @@ n1964_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2018_2
 .Lx2018_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2018_2
-.Lx2018_4:              mov              rax, qword ptr [rsp + 320]
+.Lx2018_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 320]
                         test             rax, rax;                            jne   .Lx2018_6
                         mov              qword ptr [rsp + 320], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -38375,9 +38435,12 @@ n2070_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2130_1
+                        lea              rcx, [rip + .Lx2130_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2130_3]
-                        lea              rdx, [rip + .Lx2130_4];              jmp   rax
-.Lx2130_3:              mov              qword ptr [rsp + 344], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2130_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 344], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 336]
                         test             rax, rax;                            jne   .Lx2130_5
@@ -38391,7 +38454,8 @@ n2070_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2130_2
 .Lx2130_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2130_2
-.Lx2130_4:              mov              rax, qword ptr [rsp + 336]
+.Lx2130_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 336]
                         test             rax, rax;                            jne   .Lx2130_6
                         mov              qword ptr [rsp + 336], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -38601,9 +38665,12 @@ n2074_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2138_1
+                        lea              rcx, [rip + .Lx2138_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2138_3]
-                        lea              rdx, [rip + .Lx2138_4];              jmp   rax
-.Lx2138_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2138_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx2138_5
@@ -38617,7 +38684,8 @@ n2074_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2138_2
 .Lx2138_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2138_2
-.Lx2138_4:              mov              rax, qword ptr [rsp + 192]
+.Lx2138_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx2138_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -40802,9 +40870,12 @@ n2201_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2275_1
+                        lea              rcx, [rip + .Lx2275_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2275_3]
-                        lea              rdx, [rip + .Lx2275_4];              jmp   rax
-.Lx2275_3:              mov              qword ptr [rsp + 408], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2275_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 408], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 400]
                         test             rax, rax;                            jne   .Lx2275_5
@@ -40818,7 +40889,8 @@ n2201_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2275_2
 .Lx2275_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2275_2
-.Lx2275_4:              mov              rax, qword ptr [rsp + 400]
+.Lx2275_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 400]
                         test             rax, rax;                            jne   .Lx2275_6
                         mov              qword ptr [rsp + 400], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -41064,9 +41136,12 @@ n2206_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2285_1
+                        lea              rcx, [rip + .Lx2285_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2285_3]
-                        lea              rdx, [rip + .Lx2285_4];              jmp   rax
-.Lx2285_3:              mov              qword ptr [rsp + 232], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2285_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 232], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx2285_5
@@ -41080,7 +41155,8 @@ n2206_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2285_2
 .Lx2285_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2285_2
-.Lx2285_4:              mov              rax, qword ptr [rsp + 224]
+.Lx2285_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx2285_6
                         mov              qword ptr [rsp + 224], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -43668,9 +43744,12 @@ n2359_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2447_1
+                        lea              rcx, [rip + .Lx2447_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2447_3]
-                        lea              rdx, [rip + .Lx2447_4];              jmp   rax
-.Lx2447_3:              mov              qword ptr [rsp + 472], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2447_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 472], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 464]
                         test             rax, rax;                            jne   .Lx2447_5
@@ -43684,7 +43763,8 @@ n2359_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2447_2
 .Lx2447_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2447_2
-.Lx2447_4:              mov              rax, qword ptr [rsp + 464]
+.Lx2447_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 464]
                         test             rax, rax;                            jne   .Lx2447_6
                         mov              qword ptr [rsp + 464], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -43966,9 +44046,12 @@ n2365_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2459_1
+                        lea              rcx, [rip + .Lx2459_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2459_3]
-                        lea              rdx, [rip + .Lx2459_4];              jmp   rax
-.Lx2459_3:              mov              qword ptr [rsp + 264], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2459_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 264], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx2459_5
@@ -43982,7 +44065,8 @@ n2365_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2459_2
 .Lx2459_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2459_2
-.Lx2459_4:              mov              rax, qword ptr [rsp + 256]
+.Lx2459_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx2459_6
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -45687,9 +45771,12 @@ n2500_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2581_1
+                        lea              rcx, [rip + .Lx2581_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2581_3]
-                        lea              rdx, [rip + .Lx2581_4];              jmp   rax
-.Lx2581_3:              mov              qword ptr [rsp + 760], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2581_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 760], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 752]
                         test             rax, rax;                            jne   .Lx2581_5
@@ -45703,7 +45790,8 @@ n2500_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2581_2
 .Lx2581_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2581_2
-.Lx2581_4:              mov              rax, qword ptr [rsp + 752]
+.Lx2581_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 752]
                         test             rax, rax;                            jne   .Lx2581_6
                         mov              qword ptr [rsp + 752], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -46724,9 +46812,12 @@ n2520_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2614_1
+                        lea              rcx, [rip + .Lx2614_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2614_3]
-                        lea              rdx, [rip + .Lx2614_4];              jmp   rax
-.Lx2614_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2614_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx2614_5
@@ -46740,7 +46831,8 @@ n2520_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2614_2
 .Lx2614_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2614_2
-.Lx2614_4:              mov              rax, qword ptr [rsp + 192]
+.Lx2614_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx2614_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -49709,9 +49801,12 @@ n2699_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2801_1
+                        lea              rcx, [rip + .Lx2801_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2801_3]
-                        lea              rdx, [rip + .Lx2801_4];              jmp   rax
-.Lx2801_3:              mov              qword ptr [rsp + 536], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2801_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 536], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 528]
                         test             rax, rax;                            jne   .Lx2801_5
@@ -49725,7 +49820,8 @@ n2699_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2801_2
 .Lx2801_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2801_2
-.Lx2801_4:              mov              rax, qword ptr [rsp + 528]
+.Lx2801_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 528]
                         test             rax, rax;                            jne   .Lx2801_6
                         mov              qword ptr [rsp + 528], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -50043,9 +50139,12 @@ n2706_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2815_1
+                        lea              rcx, [rip + .Lx2815_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2815_3]
-                        lea              rdx, [rip + .Lx2815_4];              jmp   rax
-.Lx2815_3:              mov              qword ptr [rsp + 296], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2815_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 296], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 288]
                         test             rax, rax;                            jne   .Lx2815_5
@@ -50059,7 +50158,8 @@ n2706_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2815_2
 .Lx2815_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2815_2
-.Lx2815_4:              mov              rax, qword ptr [rsp + 288]
+.Lx2815_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 288]
                         test             rax, rax;                            jne   .Lx2815_6
                         mov              qword ptr [rsp + 288], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -50762,9 +50862,12 @@ n2828_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx2847_1
+                        lea              rcx, [rip + .Lx2847_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx2847_3]
-                        lea              rdx, [rip + .Lx2847_4];              jmp   rax
-.Lx2847_3:              mov              qword ptr [rsp + 168], rsp
+                        push             rcx;                                 jmp   rax
+.Lx2847_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 168], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx2847_5
@@ -50778,7 +50881,8 @@ n2828_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx2847_2
 .Lx2847_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx2847_2
-.Lx2847_4:              mov              rax, qword ptr [rsp + 160]
+.Lx2847_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx2847_6
                         mov              qword ptr [rsp + 160], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -54128,9 +54232,12 @@ n2943_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3059_1
+                        lea              rcx, [rip + .Lx3059_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3059_3]
-                        lea              rdx, [rip + .Lx3059_4];              jmp   rax
-.Lx3059_3:              mov              qword ptr [rsp + 600], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3059_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 600], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 592]
                         test             rax, rax;                            jne   .Lx3059_5
@@ -54144,7 +54251,8 @@ n2943_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3059_2
 .Lx3059_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3059_2
-.Lx3059_4:              mov              rax, qword ptr [rsp + 592]
+.Lx3059_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 592]
                         test             rax, rax;                            jne   .Lx3059_6
                         mov              qword ptr [rsp + 592], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -54498,9 +54606,12 @@ n2951_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3075_1
+                        lea              rcx, [rip + .Lx3075_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3075_3]
-                        lea              rdx, [rip + .Lx3075_4];              jmp   rax
-.Lx3075_3:              mov              qword ptr [rsp + 328], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3075_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 328], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 320]
                         test             rax, rax;                            jne   .Lx3075_5
@@ -54514,7 +54625,8 @@ n2951_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3075_2
 .Lx3075_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3075_2
-.Lx3075_4:              mov              rax, qword ptr [rsp + 320]
+.Lx3075_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 320]
                         test             rax, rax;                            jne   .Lx3075_6
                         mov              qword ptr [rsp + 320], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -55423,9 +55535,12 @@ n3092_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3118_1
+                        lea              rcx, [rip + .Lx3118_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3118_3]
-                        lea              rdx, [rip + .Lx3118_4];              jmp   rax
-.Lx3118_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3118_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx3118_5
@@ -55439,7 +55554,8 @@ n3092_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3118_2
 .Lx3118_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3118_2
-.Lx3118_4:              mov              rax, qword ptr [rsp + 192]
+.Lx3118_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx3118_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -59192,9 +59308,12 @@ n3225_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3355_1
+                        lea              rcx, [rip + .Lx3355_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3355_3]
-                        lea              rdx, [rip + .Lx3355_4];              jmp   rax
-.Lx3355_3:              mov              qword ptr [rsp + 664], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3355_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 664], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 656]
                         test             rax, rax;                            jne   .Lx3355_5
@@ -59208,7 +59327,8 @@ n3225_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3355_2
 .Lx3355_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3355_2
-.Lx3355_4:              mov              rax, qword ptr [rsp + 656]
+.Lx3355_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 656]
                         test             rax, rax;                            jne   .Lx3355_6
                         mov              qword ptr [rsp + 656], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -59598,9 +59718,12 @@ n3234_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3373_1
+                        lea              rcx, [rip + .Lx3373_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3373_3]
-                        lea              rdx, [rip + .Lx3373_4];              jmp   rax
-.Lx3373_3:              mov              qword ptr [rsp + 360], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3373_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 360], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 352]
                         test             rax, rax;                            jne   .Lx3373_5
@@ -59614,7 +59737,8 @@ n3234_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3373_2
 .Lx3373_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3373_2
-.Lx3373_4:              mov              rax, qword ptr [rsp + 352]
+.Lx3373_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 352]
                         test             rax, rax;                            jne   .Lx3373_6
                         mov              qword ptr [rsp + 352], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -63615,12 +63739,10 @@ n3459_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx3603_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx3603_4]
                         push             rcx
                         lea              rcx, [rip + .Lx3603_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx3603_3]
-                        lea              rdx, [rip + .Lx3603_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx3603_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -63898,9 +64020,12 @@ n3469_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3623_1
+                        lea              rcx, [rip + .Lx3623_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3623_3]
-                        lea              rdx, [rip + .Lx3623_4];              jmp   rax
-.Lx3623_3:              mov              qword ptr [rsp + 392], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3623_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 392], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 384]
                         test             rax, rax;                            jne   .Lx3623_5
@@ -63914,7 +64039,8 @@ n3469_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3623_2
 .Lx3623_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3623_2
-.Lx3623_4:              mov              rax, qword ptr [rsp + 384]
+.Lx3623_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 384]
                         test             rax, rax;                            jne   .Lx3623_6
                         mov              qword ptr [rsp + 384], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -65820,9 +65946,12 @@ n3660_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3721_1
+                        lea              rcx, [rip + .Lx3721_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3721_3]
-                        lea              rdx, [rip + .Lx3721_4];              jmp   rax
-.Lx3721_3:              mov              qword ptr [rsp + 360], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3721_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 360], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 352]
                         test             rax, rax;                            jne   .Lx3721_5
@@ -65836,7 +65965,8 @@ n3660_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3721_2
 .Lx3721_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3721_2
-.Lx3721_4:              mov              rax, qword ptr [rsp + 352]
+.Lx3721_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 352]
                         test             rax, rax;                            jne   .Lx3721_6
                         mov              qword ptr [rsp + 352], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -67918,9 +68048,12 @@ n3762_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3830_1
+                        lea              rcx, [rip + .Lx3830_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3830_3]
-                        lea              rdx, [rip + .Lx3830_4];              jmp   rax
-.Lx3830_3:              mov              qword ptr [rsp + 392], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3830_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 392], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 384]
                         test             rax, rax;                            jne   .Lx3830_5
@@ -67934,7 +68067,8 @@ n3762_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3830_2
 .Lx3830_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3830_2
-.Lx3830_4:              mov              rax, qword ptr [rsp + 384]
+.Lx3830_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 384]
                         test             rax, rax;                            jne   .Lx3830_6
                         mov              qword ptr [rsp + 384], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -68695,9 +68829,12 @@ n3844_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3864_1
+                        lea              rcx, [rip + .Lx3864_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3864_3]
-                        lea              rdx, [rip + .Lx3864_4];              jmp   rax
-.Lx3864_3:              mov              qword ptr [rsp + 184], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3864_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx3864_5
@@ -68711,7 +68848,8 @@ n3844_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3864_2
 .Lx3864_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3864_2
-.Lx3864_4:              mov              rax, qword ptr [rsp + 176]
+.Lx3864_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx3864_6
                         mov              qword ptr [rsp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -70350,9 +70488,12 @@ n3901_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx3956_1
+                        lea              rcx, [rip + .Lx3956_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx3956_3]
-                        lea              rdx, [rip + .Lx3956_4];              jmp   rax
-.Lx3956_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx3956_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx3956_5
@@ -70366,7 +70507,8 @@ n3901_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx3956_2
 .Lx3956_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx3956_2
-.Lx3956_4:              mov              rax, qword ptr [rsp + 192]
+.Lx3956_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx3956_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -70811,12 +70953,10 @@ n3972_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx3988_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx3988_4]
                         push             rcx
                         lea              rcx, [rip + .Lx3988_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx3988_3]
-                        lea              rdx, [rip + .Lx3988_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx3988_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -71163,12 +71303,10 @@ n4002_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx4016_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx4016_4]
                         push             rcx
                         lea              rcx, [rip + .Lx4016_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx4016_3]
-                        lea              rdx, [rip + .Lx4016_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx4016_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -71491,12 +71629,10 @@ n4028_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx4040_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx4040_4]
                         push             rcx
                         lea              rcx, [rip + .Lx4040_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx4040_3]
-                        lea              rdx, [rip + .Lx4040_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx4040_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -71795,12 +71931,10 @@ n4050_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx4060_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx4060_4]
                         push             rcx
                         lea              rcx, [rip + .Lx4060_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx4060_3]
-                        lea              rdx, [rip + .Lx4060_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx4060_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -72566,9 +72700,12 @@ n4075_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4098_1
+                        lea              rcx, [rip + .Lx4098_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4098_3]
-                        lea              rdx, [rip + .Lx4098_4];              jmp   rax
-.Lx4098_3:              mov              qword ptr [rsp + 184], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4098_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx4098_5
@@ -72582,7 +72719,8 @@ n4075_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4098_2
 .Lx4098_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4098_2
-.Lx4098_4:              mov              rax, qword ptr [rsp + 176]
+.Lx4098_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lx4098_6
                         mov              qword ptr [rsp + 176], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -75076,9 +75214,12 @@ n4159_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4236_1
+                        lea              rcx, [rip + .Lx4236_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4236_3]
-                        lea              rdx, [rip + .Lx4236_4];              jmp   rax
-.Lx4236_3:              mov              qword ptr [rsp + 232], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4236_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 232], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx4236_5
@@ -75092,7 +75233,8 @@ n4159_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4236_2
 .Lx4236_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4236_2
-.Lx4236_4:              mov              rax, qword ptr [rsp + 224]
+.Lx4236_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 224]
                         test             rax, rax;                            jne   .Lx4236_6
                         mov              qword ptr [rsp + 224], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -76589,9 +76731,12 @@ n4272_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4350_1
+                        lea              rcx, [rip + .Lx4350_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4350_3]
-                        lea              rdx, [rip + .Lx4350_4];              jmp   rax
-.Lx4350_3:              mov              qword ptr [rsp + 920], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4350_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 920], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 912]
                         test             rax, rax;                            jne   .Lx4350_5
@@ -76605,7 +76750,8 @@ n4272_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4350_2
 .Lx4350_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4350_2
-.Lx4350_4:              mov              rax, qword ptr [rsp + 912]
+.Lx4350_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 912]
                         test             rax, rax;                            jne   .Lx4350_6
                         mov              qword ptr [rsp + 912], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -76806,9 +76952,12 @@ n4277_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4359_1
+                        lea              rcx, [rip + .Lx4359_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4359_3]
-                        lea              rdx, [rip + .Lx4359_4];              jmp   rax
-.Lx4359_3:              mov              qword ptr [rsp + 792], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4359_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 792], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 784]
                         test             rax, rax;                            jne   .Lx4359_5
@@ -76822,7 +76971,8 @@ n4277_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4359_2
 .Lx4359_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4359_2
-.Lx4359_4:              mov              rax, qword ptr [rsp + 784]
+.Lx4359_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 784]
                         test             rax, rax;                            jne   .Lx4359_6
                         mov              qword ptr [rsp + 784], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -77988,9 +78138,12 @@ n4298_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4394_1
+                        lea              rcx, [rip + .Lx4394_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4394_3]
-                        lea              rdx, [rip + .Lx4394_4];              jmp   rax
-.Lx4394_3:              mov              qword ptr [rsp + 200], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4394_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx4394_5
@@ -78004,7 +78157,8 @@ n4298_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4394_2
 .Lx4394_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4394_2
-.Lx4394_4:              mov              rax, qword ptr [rsp + 192]
+.Lx4394_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lx4394_6
                         mov              qword ptr [rsp + 192], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -79217,9 +79371,12 @@ n4416_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4450_1
+                        lea              rcx, [rip + .Lx4450_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4450_3]
-                        lea              rdx, [rip + .Lx4450_4];              jmp   rax
-.Lx4450_3:              mov              qword ptr [rsp + 168], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4450_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 168], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx4450_5
@@ -79233,7 +79390,8 @@ n4416_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4450_2
 .Lx4450_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4450_2
-.Lx4450_4:              mov              rax, qword ptr [rsp + 160]
+.Lx4450_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Lx4450_6
                         mov              qword ptr [rsp + 160], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -80274,12 +80432,10 @@ n4480_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx4539_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx4539_4]
                         push             rcx
                         lea              rcx, [rip + .Lx4539_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx4539_3]
-                        lea              rdx, [rip + .Lx4539_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx4539_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -81042,9 +81198,12 @@ n4498_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx4570_1
+                        lea              rcx, [rip + .Lx4570_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx4570_3]
-                        lea              rdx, [rip + .Lx4570_4];              jmp   rax
-.Lx4570_3:              mov              qword ptr [rsp + 216], rsp
+                        push             rcx;                                 jmp   rax
+.Lx4570_3:              add              rsp, 16
+                        mov              qword ptr [rsp + 216], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx4570_5
@@ -81058,7 +81217,8 @@ n4498_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx4570_2
 .Lx4570_5:              call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx4570_2
-.Lx4570_4:              mov              rax, qword ptr [rsp + 208]
+.Lx4570_4:              add              rsp, 16
+                        mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx4570_6
                         mov              qword ptr [rsp + 208], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -81488,12 +81648,10 @@ n4585_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        lea              rcx, [rip + .Lx4598_4]               # s111 floater pair (LEGACY flat-glue arm): the THIRD non-TINY arm, the one GVA-off actually takes (MONITOR_BIN forces n_gva_m3=0 so the SCC gate and the role-4 TINY shim both refuse and the site falls HERE, to rt_proc_call_open + flat rcx/rdx wires).  s110 patched only the two open_slim tails, so this arm still pushed NOTHING and :(RETURN) popped enclosing-frame bytes.  Push omega then gamma = [rsp+0]=gamma [rsp+8]=omega; the fnrbp2 floater consumes 16 so L(3)/L(4) arrive at today's depth.  SCRIP_SLIM_PAIR=0 restores prior bytes.
+                        lea              rcx, [rip + .Lx4598_4]
                         push             rcx
                         lea              rcx, [rip + .Lx4598_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lx4598_3]
-                        lea              rdx, [rip + .Lx4598_4];              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx4598_3:              mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11

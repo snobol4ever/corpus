@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__greet:
                         sub              rsp, 144
-                        mov              qword ptr [rsp + 120], rcx
-                        mov              qword ptr [rsp + 128], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -57,12 +55,10 @@ greet_β:
 greet_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 120]
-                        add              rsp, 144;                            jmp   rcx
+                        add              rsp, 144;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 greet_ω:
-                        mov              rcx, qword ptr [rsp + 128]
-                        add              rsp, 144;                            jmp   rcx
+                        add              rsp, 144;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 greet_dcα:
                         pop              r12
@@ -83,11 +79,13 @@ greet_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx9_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx9_2]
-                        lea              rdx, [rip + .Lx9_3];                 jmp   FN__greet
-.Lx9_2:                 pop              r12
+                        push             rcx;                                 jmp   FN__greet
+.Lx9_2:                 add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx9_3:                 pop              r12
+.Lx9_3:                 add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -105,8 +103,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 160
-                        mov              qword ptr [rsp + 136], rcx
-                        mov              qword ptr [rsp + 144], rdx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0

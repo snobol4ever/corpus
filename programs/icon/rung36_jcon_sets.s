@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__wset:
                         sub              rsp, 1152
-                        mov              qword ptr [rsp + 1128], rcx
-                        mov              qword ptr [rsp + 1136], rdx
                         mov              rdi, rsp
                         add              rdi, 1040
                         xor              eax, eax
@@ -620,12 +618,10 @@ wset_β:
 wset_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 1128]
-                        add              rsp, 1152;                           jmp   rcx
+                        add              rsp, 1152;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 wset_ω:
-                        mov              rcx, qword ptr [rsp + 1136]
-                        add              rsp, 1152;                           jmp   rcx
+                        add              rsp, 1152;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 wset_dcα:
                         pop              r12
@@ -658,11 +654,13 @@ wset_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx92_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx92_2]
-                        lea              rdx, [rip + .Lx92_3];                jmp   FN__wset
-.Lx92_2:                pop              r12
+                        push             rcx;                                 jmp   FN__wset
+.Lx92_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx92_3:                pop              r12
+.Lx92_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -680,8 +678,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 7776
-                        mov              qword ptr [rsp + 7752], rcx
-                        mov              qword ptr [rsp + 7760], rdx
                         mov              rdi, rsp
                         add              rdi, 7632
                         xor              eax, eax

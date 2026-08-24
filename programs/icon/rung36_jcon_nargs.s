@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__nargs:
                         sub              rsp, 384
-                        mov              qword ptr [rsp + 360], rcx
-                        mov              qword ptr [rsp + 368], rdx
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 0
@@ -137,12 +135,10 @@ nargs_β:
 nargs_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 360]
-                        add              rsp, 384;                            jmp   rcx
+                        add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nargs_ω:
-                        mov              rcx, qword ptr [rsp + 368]
-                        add              rsp, 384;                            jmp   rcx
+                        add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nargs_dcα:
                         pop              r12
@@ -175,11 +171,13 @@ nargs_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx19_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx19_2]
-                        lea              rdx, [rip + .Lx19_3];                jmp   FN__nargs
-.Lx19_2:                pop              r12
+                        push             rcx;                                 jmp   FN__nargs
+.Lx19_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx19_3:                pop              r12
+.Lx19_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -197,8 +195,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 8576
-                        mov              qword ptr [rsp + 8552], rcx
-                        mov              qword ptr [rsp + 8560], rdx
                         mov              rdi, rsp
                         add              rdi, 8256
                         xor              eax, eax

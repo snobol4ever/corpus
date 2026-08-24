@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__collate:
                         sub              rsp, 3344
-                        mov              qword ptr [rsp + 3320], rcx
-                        mov              qword ptr [rsp + 3328], rdx
                         mov              rdi, rsp
                         add              rdi, 3136
                         xor              eax, eax
@@ -2313,12 +2311,10 @@ collate_β:
 collate_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 3320]
-                        add              rsp, 3344;                           jmp   rcx
+                        add              rsp, 3344;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 collate_ω:
-                        mov              rcx, qword ptr [rsp + 3328]
-                        add              rsp, 3344;                           jmp   rcx
+                        add              rsp, 3344;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 collate_dcα:
                         pop              r12
@@ -2351,19 +2347,19 @@ collate_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx373_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx373_2]
-                        lea              rdx, [rip + .Lx373_3];               jmp   FN__collate
-.Lx373_2:               pop              r12
+                        push             rcx;                                 jmp   FN__collate
+.Lx373_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx373_3:               pop              r12
+.Lx373_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__decollate:
                         sub              rsp, 2224
-                        mov              qword ptr [rsp + 2200], rcx
-                        mov              qword ptr [rsp + 2208], rdx
                         mov              rdi, rsp
                         add              rdi, 2112
                         xor              eax, eax
@@ -4253,12 +4249,10 @@ decollate_β:
 decollate_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 2200]
-                        add              rsp, 2224;                           jmp   rcx
+                        add              rsp, 2224;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 decollate_ω:
-                        mov              rcx, qword ptr [rsp + 2208]
-                        add              rsp, 2224;                           jmp   rcx
+                        add              rsp, 2224;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 decollate_dcα:
                         pop              r12
@@ -4291,19 +4285,19 @@ decollate_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx628_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx628_2]
-                        lea              rdx, [rip + .Lx628_3];               jmp   FN__decollate
-.Lx628_2:               pop              r12
+                        push             rcx;                                 jmp   FN__decollate
+.Lx628_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx628_3:               pop              r12
+.Lx628_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__perm:
                         sub              rsp, 528
-                        mov              qword ptr [rsp + 504], rcx
-                        mov              qword ptr [rsp + 512], rdx
                         mov              rdi, rsp
                         add              rdi, 464
                         xor              eax, eax
@@ -4443,9 +4437,12 @@ n637_proc_gen_α:        mov              r11, 274
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx657_1
+                        lea              rcx, [rip + .Lx657_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx657_3]
-                        lea              rdx, [rip + .Lx657_4];               jmp   rax
-.Lx657_3:               mov              qword ptr [rsp + 376], rsp
+                        push             rcx;                                 jmp   rax
+.Lx657_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 376], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 368]
                         test             rax, rax;                            jne   .Lx657_5
@@ -4459,7 +4456,8 @@ n637_proc_gen_α:        mov              r11, 274
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx657_2
 .Lx657_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx657_2
-.Lx657_4:               mov              rax, qword ptr [rsp + 368]
+.Lx657_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 368]
                         test             rax, rax;                            jne   .Lx657_6
                         mov              qword ptr [rsp + 368], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4632,22 +4630,22 @@ perm_β:
 perm_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 504]
-                        add              rsp, 528;                            jmp   rcx
+                        add              rsp, 528;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 perm_ω:
-                        mov              rcx, qword ptr [rsp + 512]
-                        add              rsp, 528;                            jmp   rcx
+                        add              rsp, 528;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 perm_dcα:
                         pop              r12
                         push             r12
                         push             r12
+                        lea              rcx, [rip + .Lx670_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx670_2]
-                        lea              rdx, [rip + .Lx670_3];               jmp   FN__perm
-.Lx670_2:               pop              r12
+                        push             rcx;                                 jmp   FN__perm
+.Lx670_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx670_3:               pop              r12
+.Lx670_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -4904,9 +4902,12 @@ n692_proc_gen_α:        mov              r11, 302
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx734_1
+                        lea              rcx, [rip + .Lx734_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx734_3]
-                        lea              rdx, [rip + .Lx734_4];               jmp   rax
-.Lx734_3:               mov              qword ptr [rsp + 248], rsp
+                        push             rcx;                                 jmp   rax
+.Lx734_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 248], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 240]
                         test             rax, rax;                            jne   .Lx734_5
@@ -4920,7 +4921,8 @@ n692_proc_gen_α:        mov              r11, 302
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx734_2
 .Lx734_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx734_2
-.Lx734_4:               mov              rax, qword ptr [rsp + 240]
+.Lx734_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 240]
                         test             rax, rax;                            jne   .Lx734_6
                         mov              qword ptr [rsp + 240], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5114,8 +5116,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 1248
-                        mov              qword ptr [rsp + 1224], rcx
-                        mov              qword ptr [rsp + 1232], rdx
                         mov              rdi, rsp
                         add              rdi, 1168
                         xor              eax, eax

@@ -228,8 +228,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 592
-                        mov              qword ptr [rsp + 568], rcx
-                        mov              qword ptr [rsp + 576], rdx
                         mov              rdi, rsp
                         add              rdi, 480
                         xor              eax, eax
@@ -429,9 +427,12 @@ n47_proc_gen_α:         mov              r11, 26
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx76_1
+                        lea              rcx, [rip + .Lx76_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx76_3]
-                        lea              rdx, [rip + .Lx76_4];                jmp   rax
-.Lx76_3:                mov              qword ptr [rsp + 216], rsp
+                        push             rcx;                                 jmp   rax
+.Lx76_3:                add              rsp, 16
+                        mov              qword ptr [rsp + 216], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx76_5
@@ -445,7 +446,8 @@ n47_proc_gen_α:         mov              r11, 26
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx76_2
 .Lx76_5:                call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx76_2
-.Lx76_4:                mov              rax, qword ptr [rsp + 208]
+.Lx76_4:                add              rsp, 16
+                        mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx76_6
                         mov              qword ptr [rsp + 208], 1
                         mov              qword ptr [rip + rtccb+40], r8

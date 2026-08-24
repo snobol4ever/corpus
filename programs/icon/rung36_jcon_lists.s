@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__limage:
                         sub              rsp, 512
-                        mov              qword ptr [rsp + 488], rcx
-                        mov              qword ptr [rsp + 496], rdx
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 0
@@ -221,12 +219,10 @@ limage_β:
 limage_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 488]
-                        add              rsp, 512;                            jmp   rcx
+                        add              rsp, 512;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 limage_ω:
-                        mov              rcx, qword ptr [rsp + 496]
-                        add              rsp, 512;                            jmp   rcx
+                        add              rsp, 512;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 limage_dcα:
                         pop              r12
@@ -259,11 +255,13 @@ limage_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 16
+                        lea              rcx, [rip + .Lx34_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx34_2]
-                        lea              rdx, [rip + .Lx34_3];                jmp   FN__limage
-.Lx34_2:                pop              r12
+                        push             rcx;                                 jmp   FN__limage
+.Lx34_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx34_3:                pop              r12
+.Lx34_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -281,8 +279,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 10608
-                        mov              qword ptr [rsp + 10584], rcx
-                        mov              qword ptr [rsp + 10592], rdx
                         mov              rdi, rsp
                         add              rdi, 10432
                         xor              eax, eax

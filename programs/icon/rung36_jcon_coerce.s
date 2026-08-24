@@ -3,8 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
 FN__toby:
                         sub              rsp, 960
-                        mov              qword ptr [rsp + 936], rcx
-                        mov              qword ptr [rsp + 944], rdx
                         mov              rdi, rsp
                         add              rdi, 800
                         xor              eax, eax
@@ -460,12 +458,10 @@ toby_β:
 toby_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 936]
-                        add              rsp, 960;                            jmp   rcx
+                        add              rsp, 960;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 toby_ω:
-                        mov              rcx, qword ptr [rsp + 944]
-                        add              rsp, 960;                            jmp   rcx
+                        add              rsp, 960;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 toby_dcα:
                         pop              r12
@@ -512,19 +508,19 @@ toby_dcα:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 32
+                        lea              rcx, [rip + .Lx78_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx78_2]
-                        lea              rdx, [rip + .Lx78_3];                jmp   FN__toby
-.Lx78_2:                pop              r12
+                        push             rcx;                                 jmp   FN__toby
+.Lx78_2:                add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx78_3:                pop              r12
+.Lx78_3:                add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unop:
                         sub              rsp, 1424
-                        mov              qword ptr [rsp + 1400], rcx
-                        mov              qword ptr [rsp + 1408], rdx
                         mov              rdi, rsp
                         mov              esi, 5
                         mov              edx, 0
@@ -1345,17 +1341,13 @@ unop_β:
 unop_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 1400]
-                        add              rsp, 1424;                           jmp   rcx
+                        add              rsp, 1424;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 unop_ω:
-                        mov              rcx, qword ptr [rsp + 1408]
-                        add              rsp, 1424;                           jmp   rcx
+                        add              rsp, 1424;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 FN__binop:
                         sub              rsp, 3888
-                        mov              qword ptr [rsp + 3864], rcx
-                        mov              qword ptr [rsp + 3872], rdx
                         mov              rdi, rsp
                         mov              esi, 5
                         mov              edx, 0
@@ -3716,12 +3708,10 @@ binop_β:
 binop_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 3864]
-                        add              rsp, 3888;                           jmp   rcx
+                        add              rsp, 3888;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 binop_ω:
-                        mov              rcx, qword ptr [rsp + 3872]
-                        add              rsp, 3888;                           jmp   rcx
+                        add              rsp, 3888;                           jmp   qword ptr [rsp + 8]
                         .globl           main
 main:
                         sub              rsp, 8
@@ -3736,8 +3726,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 2224
-                        mov              qword ptr [rsp + 2200], rcx
-                        mov              qword ptr [rsp + 2208], rdx
                         mov              rdi, rsp
                         add              rdi, 2048
                         xor              eax, eax
@@ -3961,9 +3949,12 @@ n469_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx555_1
+                        lea              rcx, [rip + .Lx555_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx555_3]
-                        lea              rdx, [rip + .Lx555_4];               jmp   rax
-.Lx555_3:               mov              qword ptr [rip + rtccb+40], r8
+                        push             rcx;                                 jmp   rax
+.Lx555_3:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_γ@PLT
@@ -3971,7 +3962,8 @@ n469_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx555_2
-.Lx555_4:               mov              qword ptr [rip + rtccb+40], r8
+.Lx555_4:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_ω@PLT
@@ -4204,9 +4196,12 @@ n476_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx569_1
+                        lea              rcx, [rip + .Lx569_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx569_3]
-                        lea              rdx, [rip + .Lx569_4];               jmp   rax
-.Lx569_3:               mov              qword ptr [rip + rtccb+40], r8
+                        push             rcx;                                 jmp   rax
+.Lx569_3:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_γ@PLT
@@ -4214,7 +4209,8 @@ n476_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx569_2
-.Lx569_4:               mov              qword ptr [rip + rtccb+40], r8
+.Lx569_4:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_ω@PLT
@@ -4450,9 +4446,12 @@ n487_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx584_1
+                        lea              rcx, [rip + .Lx584_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx584_3]
-                        lea              rdx, [rip + .Lx584_4];               jmp   rax
-.Lx584_3:               mov              qword ptr [rip + rtccb+40], r8
+                        push             rcx;                                 jmp   rax
+.Lx584_3:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_γ@PLT
@@ -4460,7 +4459,8 @@ n487_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx584_2
-.Lx584_4:               mov              qword ptr [rip + rtccb+40], r8
+.Lx584_4:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_ω@PLT
@@ -4666,9 +4666,12 @@ n493_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx592_1
+                        lea              rcx, [rip + .Lx592_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx592_3]
-                        lea              rdx, [rip + .Lx592_4];               jmp   rax
-.Lx592_3:               mov              qword ptr [rip + rtccb+40], r8
+                        push             rcx;                                 jmp   rax
+.Lx592_3:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_γ@PLT
@@ -4676,7 +4679,8 @@ n493_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx592_2
-.Lx592_4:               mov              qword ptr [rip + rtccb+40], r8
+.Lx592_4:               add              rsp, 16
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_epilogue_ω@PLT

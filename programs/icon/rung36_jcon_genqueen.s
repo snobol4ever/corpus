@@ -779,9 +779,12 @@ n98_proc_gen_α:         mov              r11, 41
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx116_1
+                        lea              rcx, [rip + .Lx116_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx116_3]
-                        lea              rdx, [rip + .Lx116_4];               jmp   rax
-.Lx116_3:               mov              qword ptr [rsp + 216], rsp
+                        push             rcx;                                 jmp   rax
+.Lx116_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 216], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx116_5
@@ -795,7 +798,8 @@ n98_proc_gen_α:         mov              r11, 41
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx116_2
 .Lx116_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx116_2
-.Lx116_4:               mov              rax, qword ptr [rsp + 208]
+.Lx116_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 208]
                         test             rax, rax;                            jne   .Lx116_6
                         mov              qword ptr [rsp + 208], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -951,9 +955,12 @@ n103_proc_gen_α:        mov              r11, 46
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx124_1
+                        lea              rcx, [rip + .Lx124_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx124_3]
-                        lea              rdx, [rip + .Lx124_4];               jmp   rax
-.Lx124_3:               mov              qword ptr [rsp + 88], rsp
+                        push             rcx;                                 jmp   rax
+.Lx124_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 88], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 80]
                         test             rax, rax;                            jne   .Lx124_5
@@ -967,7 +974,8 @@ n103_proc_gen_α:        mov              r11, 46
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx124_2
 .Lx124_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx124_2
-.Lx124_4:               mov              rax, qword ptr [rsp + 80]
+.Lx124_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 80]
                         test             rax, rax;                            jne   .Lx124_6
                         mov              qword ptr [rsp + 80], 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1146,8 +1154,6 @@ solvequeen_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__writeboard:
                         sub              rsp, 1056
-                        mov              qword ptr [rsp + 1032], rcx
-                        mov              qword ptr [rsp + 1040], rdx
                         mov              rdi, rsp
                         add              rdi, 912
                         xor              eax, eax
@@ -1715,22 +1721,22 @@ writeboard_β:
 writeboard_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 1032]
-                        add              rsp, 1056;                           jmp   rcx
+                        add              rsp, 1056;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 writeboard_ω:
-                        mov              rcx, qword ptr [rsp + 1040]
-                        add              rsp, 1056;                           jmp   rcx
+                        add              rsp, 1056;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 writeboard_dcα:
                         pop              r12
                         push             r12
                         push             r12
+                        lea              rcx, [rip + .Lx229_3]
+                        push             rcx
                         lea              rcx, [rip + .Lx229_2]
-                        lea              rdx, [rip + .Lx229_3];               jmp   FN__writeboard
-.Lx229_2:               pop              r12
+                        push             rcx;                                 jmp   FN__writeboard
+.Lx229_2:               add              rsp, 24
                         pop              r12;                                 jmp   r12
-.Lx229_3:               pop              r12
+.Lx229_3:               add              rsp, 24
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
@@ -1772,8 +1778,6 @@ __gva_names:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 736
-                        mov              qword ptr [rsp + 712], rcx
-                        mov              qword ptr [rsp + 720], rdx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -2253,9 +2257,12 @@ n254_proc_gen_α:        mov              r11, 117
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx294_1
+                        lea              rcx, [rip + .Lx294_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx294_3]
-                        lea              rdx, [rip + .Lx294_4];               jmp   rax
-.Lx294_3:               mov              qword ptr [rsp + 72], rsp
+                        push             rcx;                                 jmp   rax
+.Lx294_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 72], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 64]
                         test             rax, rax;                            jne   .Lx294_5
@@ -2269,7 +2276,8 @@ n254_proc_gen_α:        mov              r11, 117
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx294_2
 .Lx294_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx294_2
-.Lx294_4:               mov              rax, qword ptr [rsp + 64]
+.Lx294_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 64]
                         test             rax, rax;                            jne   .Lx294_6
                         mov              qword ptr [rsp + 64], 1
                         mov              qword ptr [rip + rtccb+40], r8
