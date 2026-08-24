@@ -1,8 +1,0 @@
-*  143 - Regex-style: ARBNO(*LP) where LP = FENCE(char-class)
-        LP   = FENCE('a' | 'b' | 'c')
-        R    = ARBNO(*LP)
-        s    = 'aabbcc'
-        s POS(0) R RPOS(0)                                    :S(YES)F(NO)
-YES     OUTPUT = 'matched ' s                                 :(END)
-NO      OUTPUT = 'fail'
-END

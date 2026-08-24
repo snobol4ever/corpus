@@ -1,0 +1,1076 @@
+*------------------------------------------------------------- 1 038_pat_literal
+        X = 'hello world'
+        X 'hello'                                                   :S(YES)F(NO)
+YES     OUTPUT = 'matched' :(END)
+NO      OUTPUT = 'no match'
+END
+*----------------------------------------------------------------- 2 039_pat_any
+        X = 'hello'
+        X ANY('aeiou') . V                                          :S(YES)
+        OUTPUT = 'no vowel' :(END)
+YES     OUTPUT = V
+END
+*-------------------------------------------------------------- 3 040_pat_notany
+        X = 'hello'
+        X NOTANY('aeiou') . V                                       :S(YES)
+        OUTPUT = 'all vowels' :(END)
+YES     OUTPUT = V
+END
+*---------------------------------------------------------------- 4 041_pat_span
+        X = '12345abc'
+        X SPAN('0123456789') . V                                    :S(YES)
+        OUTPUT = 'no digits' :(END)
+YES     OUTPUT = V
+END
+*--------------------------------------------------------------- 5 042_pat_break
+        X = 'hello world'
+        X BREAK(' ') . V                                            :S(YES)
+        OUTPUT = 'no space' :(END)
+YES     OUTPUT = V
+END
+*----------------------------------------------------------------- 6 043_pat_len
+        X = 'abcdef'
+        X LEN(3) . V                                                :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*----------------------------------------------------------------- 7 044_pat_pos
+        X = 'hello'
+        X POS(0) LEN(3) . V                                        :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*---------------------------------------------------------------- 8 045_pat_rpos
+        X = 'hello'
+        X RPOS(2) LEN(2) . V                                       :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*----------------------------------------------------------------- 9 046_pat_tab
+        X = 'abcdef'
+        X TAB(3) LEN(2) . V                                        :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*--------------------------------------------------------------- 10 047_pat_rtab
+        X = 'abcdef'
+        X RTAB(2) . V                                              :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*---------------------------------------------------------------- 11 048_pat_rem
+        X = 'hello world'
+        X BREAK(' ') LEN(1) REM . V                                :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*---------------------------------------------------------------- 12 049_pat_arb
+        X = 'aXb'
+        X ARB . V LEN(1)                                           :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*------------------------------------------------------------ 13 050_pat_alt_two
+        X = 'dog'
+        X ('cat' | 'dog') . V                                      :S(YES)
+        OUTPUT = 'no match' :(END)
+YES     OUTPUT = V
+END
+*---------------------------------------------------------- 14 051_pat_alt_three
+        X = 'banana'
+        X ('apple' | 'banana' | 'cherry') . V                      :S(YES)
+        OUTPUT = 'no match' :(END)
+YES     OUTPUT = V
+END
+*-------------------------------------------------------------- 15 052_pat_arbno
+        X = 'aaa'
+        X POS(0) ARBNO('a') . V RPOS(0)                           :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*--------------------------------------------------------- 16 053_pat_alt_commit
+        P = ('a' | 'b' | 'c')
+        X = 'b'
+        X P . V                                                     :S(YES)F(NO)
+YES     OUTPUT = V :(END)
+NO      OUTPUT = 'no match'
+END
+*---------------------------------------------------------- 17 054_pat_arbno_alt
+        X = 'abba'
+        X POS(0) ARBNO('a' | 'b') . V RPOS(0)                     :S(YES)F(NO)
+YES     OUTPUT = V :(END)
+NO      OUTPUT = 'no match'
+END
+*--------------------------------------------------------- 18 055_pat_concat_seq
+        X = 'abcdef'
+        X LEN(2) . A LEN(2) . B LEN(2) . C                        :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = A ' ' B ' ' C
+END
+*--------------------------------------------------------- 19 056_pat_star_deref
+        PAT = 'hello'
+        X = 'say hello world'
+        X *PAT . V                                                  :S(YES)
+        OUTPUT = 'fail' :(END)
+YES     OUTPUT = V
+END
+*------------------------------------------------------- 20 057_pat_fail_builtin
+        X = 'abc'
+        X 'abc' FAIL                                                :S(YES)F(NO)
+YES     OUTPUT = 'should not reach' :(END)
+NO      OUTPUT = 'correctly failed'
+END
+*------------------------------------------------------ 21 058_pat_fence_keyword
+        X = 'AB'
+        X  LEN(1)  FENCE  LEN(2)                              :S(YES)F(NO)
+YES     OUTPUT = 'should not reach'                            :(END)
+NO      OUTPUT = 'aborted correctly'
+END
+*----------------------------------------------------- 22 059_pat_fence_fn_basic
+        X = 'hello'
+        X  FENCE('hello')                                      :F(NO)
+        OUTPUT = 'matched'                                     :(END)
+NO      OUTPUT = 'failed'
+END
+*------------------------------------------------------ 23 060_pat_fence_fn_fail
+        X = 'hello'
+        X  FENCE('world')                                      :S(YES)F(NO)
+YES     OUTPUT = 'should not reach'                            :(END)
+NO      OUTPUT = 'failed gracefully'
+END
+*------------------------------------------------------ 24 061_pat_fence_fn_seal
+        X = 'AB'
+        X  POS(0) FENCE(LEN(1) | LEN(2))  RPOS(0)             :S(YES)F(NO)
+YES     OUTPUT = 'should not reach'                            :(END)
+NO      OUTPUT = 'sealed correctly'
+END
+*----------------------------------------------------- 25 062_pat_fence_fn_outer
+        X = 'bx'
+        X  ('a' | 'b')  FENCE('x')                            :F(NO)
+        OUTPUT = 'outer alt worked'                            :(END)
+NO      OUTPUT = 'failed'
+END
+*-------------------------------------------------- 26 063_pat_fence_fn_optional
+        digits = '0123456789'
+        &ANCHOR = 1
+        X = '123abc'
+        X  FENCE(SPAN(digits) | '') . N
+        OUTPUT = N
+END
+*--------------------------------------------------- 27 064_pat_fence_fn_capture
+        alnum = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_'
+        &ANCHOR = 1
+        X = 'hello_world rest'
+        X  ANY(&UCASE &LCASE)  FENCE(SPAN(alnum) | '') . ID
+        OUTPUT = ID
+END
+*------------------------------------------------------ 28 064_replace_multi_arm
+        &TRIM = 1
+        A = 'alpha,beta,gamma,'
+DEL A ',' = ''                              :S(DEL)
+        OUTPUT = 'del: ' A
+        B = 'XXmiddleXX'
+        B 'XX' = 'yy'
+        OUTPUT = 'head: ' B
+        C = 'bodyZZ'
+        C 'ZZ' = 'ww'
+        OUTPUT = 'tail: ' C
+        D = 'a.b.c.d'
+GROW D '.' = '<->'                          :S(GROW)
+        OUTPUT = 'grow: ' D
+        E = 'aaaabbbbcccc'
+        E 'bbbb' = '-'
+        OUTPUT = 'shrink: ' E
+        F = 'n=?'
+        F '?' = 42
+        OUTPUT = 'int: ' F
+        G = 'swap:LEFT|RIGHT'
+        G ('LEFT' . L1) '|' ('RIGHT' . R1) = R1 '|' L1
+        OUTPUT = 'cap: ' G
+        H = ',lead'
+        H BREAK(',') ',' = 'K'
+        OUTPUT = 'null: ' H
+        S = 'one,two,three,four,five,six,seven,eight,nine,ten,'
+        R = ''
+INNER S BREAK(',') . W ',' = ''             :F(FIN)
+        R = R W :(INNER)
+FIN OUTPUT = 'loop: ' R
+END
+*--------------------------------------------------- 29 065_pat_fence_fn_decimal
+        digits = '0123456789'
+        &ANCHOR = 1
+        X = '42rest'
+        X  ANY('123456789')  FENCE(SPAN(digits) | '') . N
+        OUTPUT = N
+END
+*---------------------------------------------------- 30 066_pat_fence_fn_nested
+        digits = '0123456789'
+        &ANCHOR = 1
+        Real = SPAN(digits) '.' FENCE(SPAN(digits) | '')
++          |   SPAN(digits)
+        X = '3.14rest'
+        X  FENCE(Real) . N
+        OUTPUT = N
+END
+*----------------------------------------------------- 31 067_pat_fence_fn_vs_kw
+        X = 'AX'
+        X  LEN(1)  FENCE  LEN(2)                              :S(BAD)
+        X  FENCE('Z')                                         :S(BAD)
+        OUTPUT = 'both correct'                               :(END)
+BAD     OUTPUT = 'wrong'
+END
+*------------------------------------------------- 32 068_pat_fence_fn_three_way
+        X = 'ABC'
+        X POS(0) FENCE('A' | 'AB' | 'ABC') RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'should not reach'                  :(END)
+NO      OUTPUT = 'sealed'
+END
+*--------------------------------------------------- 33 068_pat_fence_fn_via_var
+        cmd = FENCE('a' | 'ab')
+        s = 'ab'
+        s  POS(0) *cmd RPOS(0)                                :S(BAD)F(GOOD)
+BAD     OUTPUT = 'should not match — alternative was tried'   :(END)
+GOOD    OUTPUT = 'sealed correctly'
+END
+*------------------------------------------------ 34 069_pat_fence_fn_full_match
+        X = 'AB'
+        X POS(0) FENCE('AB') RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'matched'                     :(END)
+NO      OUTPUT = 'failed'
+END
+*---------------------------------------------- 35 070_pat_arbno_star_var_digits
+        DIGIT = ANY('0123456789')
+        X = '123'
+        X POS(0) ARBNO(*DIGIT) . V RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = V                           :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------------------------- 36 071_pat_star_var_concat
+        WORD = SPAN(&LCASE)
+        X = 'hello world'
+        X POS(0) *WORD . V1 ' ' *WORD . V2 RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = V1 ', ' V2                          :(END)
+NO      OUTPUT = 'fail'
+END
+*--------------------------------------------- 37 072_pat_star_var_alt_backtrack
+        PAT = 'A' | 'AB'
+        X = 'AB'
+        X POS(0) *PAT 'B' RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'matched'         :(END)
+NO      OUTPUT = 'fail'
+END
+*--------------------------------------------------- 38 073_pat_star_var_capture
+        PAT = LEN(3)
+        X = 'hello'
+        X *PAT . V  :S(YES)F(NO)
+YES     OUTPUT = V  :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------------------------- 39 074_pat_star_var_cursor
+        PAT = LEN(2)
+        X = 'hello'
+        X POS(0) *PAT @POS  :S(YES)F(NO)
+YES     OUTPUT = POS :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------------- 40 075_pat_arbno_star_backtrack
+        Parse = POS(0) ARBNO(LEN(1)) RPOS(0)
+        'AB'  *Parse               :S(WIN)F(LOSE)
+WIN     OUTPUT = 'PASS'            :(END)
+LOSE    OUTPUT = 'FAIL'
+END
+*----------------------------------------------- 41 100_pat_fence_two_alts_first
+        X = 'AB'
+        X  POS(0) FENCE(LEN(1) | LEN(2)) LEN(1) RPOS(0)       :S(YES)F(NO)
+YES     OUTPUT = 'matched first alt then continued'           :(END)
+NO      OUTPUT = 'unexpected fail'
+END
+*------------------------------------------------ 42 101_pat_fence_falls_through
+        X = 'AB'
+        X  POS(0) FENCE('X' | LEN(2)) RPOS(0)                 :S(YES)F(NO)
+YES     OUTPUT = 'second alt taken'                           :(END)
+NO      OUTPUT = 'unexpected fail'
+END
+*------------------------------------------------ 43 102_pat_fence_complete_fail
+        X = 'AB'
+        X  POS(0) FENCE('X' | 'Y' | 'Z')                      :S(YES)F(NO)
+YES     OUTPUT = 'unexpected match'                           :(END)
+NO      OUTPUT = 'no alt matched'
+END
+*---------------------------------------------------- 44 103_pat_fence_in_concat
+        X = 'aXb'
+        X  POS(0) 'a' FENCE('X' | 'XY')  'b'  RPOS(0)         :S(YES)F(NO)
+YES     OUTPUT = 'a-X-b matched'                              :(END)
+NO      OUTPUT = 'unexpected fail'
+END
+*----------------------------------------- 45 104_pat_fence_seals_back_in_concat
+        X = 'aXYb'
+        X  POS(0) 'a' FENCE('X' | 'XY')  'b'  RPOS(0)         :S(YES)F(NO)
+YES     OUTPUT = 'longer alt was tried (NOT fenced)'          :(END)
+NO      OUTPUT = 'fenced'
+END
+*-------------------------------------------------------- 46 105_pat_fence_empty
+        X = 'AB'
+        eps = LEN(0)
+        X  POS(0) FENCE(eps) LEN(2) RPOS(0)                   :S(YES)F(NO)
+YES     OUTPUT = 'epsilon then LEN(2)'                        :(END)
+NO      OUTPUT = 'unexpected fail'
+END
+*------------------------------------------------- 47 106_pat_fence_with_capture
+        X = 'apple'
+        X  POS(0) FENCE('app' | 'apple') $ FRUIT             :S(YES)F(NO)
+YES     OUTPUT = 'captured ' FRUIT                            :(END)
+NO      OUTPUT = 'no match'
+END
+*------------------------------------------------------- 48 107_pat_fence_nested
+        X = 'AB'
+        X  POS(0) FENCE(FENCE(LEN(1)) | LEN(2)) RPOS(0)       :S(YES)F(NO)
+YES     OUTPUT = 'inner LEN(1) then outer alt LEN(2)'         :(END)
+NO      OUTPUT = 'doubly sealed'
+END
+*------------------------------------------------ 49 108_pat_fence_via_var_basic
+        cmd = FENCE(LEN(1) | LEN(2))
+        X = 'AB'
+        X  POS(0) *cmd LEN(1) RPOS(0)                         :S(YES)F(NO)
+YES     OUTPUT = 'star-cmd matched LEN(1) then continued'     :(END)
+NO      OUTPUT = 'fail'
+END
+*------------------------------------ 50 109_pat_fence_via_var_seal_blocks_retry
+        cmd = FENCE('a' | 'ab')
+        s = 'ab'
+        s  POS(0) *cmd RPOS(0)                                :S(BAD)F(GOOD)
+BAD     OUTPUT = 'should not reach (alt was tried)'           :(END)
+GOOD    OUTPUT = 'sealed via star-var'
+END
+*------------------------------------------- 51 110_pat_fence_via_var_then_extra
+        cmd = FENCE('aa' | 'a')
+        s = 'aab'
+        s  POS(0) *cmd 'b' RPOS(0)                            :S(YES)F(NO)
+YES     OUTPUT = 'matched aa then b'                          :(END)
+NO      OUTPUT = 'fail'
+END
+*--------------------------------------- 52 111_pat_fence_via_var_falls_to_outer
+        cmd = FENCE('zz' | 'zzz')
+        s = 'ab'
+        s  POS(0) (*cmd | LEN(2))  RPOS(0)                    :S(YES)F(NO)
+YES     OUTPUT = 'outer alt LEN(2) reached'                   :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------------- 53 112_pat_fence_via_var_two_in_concat
+        cmd1 = FENCE('a' | 'ab')
+        cmd2 = LEN(1)
+        s = 'ab'
+        s  POS(0) *cmd1 *cmd2 RPOS(0)                         :S(YES)F(NO)
+YES     OUTPUT = 'two-star-var matched'                       :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------- 54 113_pat_fence_via_var_two_with_seal_retry
+        cmd1 = FENCE('a' | 'ab')
+        cmd2 = FENCE('b' | 'bc')
+        s = 'abc'
+        s  POS(0) *cmd1 *cmd2 RPOS(0)                         :S(BAD)F(GOOD)
+BAD     OUTPUT = 'unexpected match (alt was tried)'           :(END)
+GOOD    OUTPUT = 'double-sealed'
+END
+*----------------------------------------- 55 114_pat_fence_via_var_in_paren_alt
+        cmd = FENCE('a' | 'ab')
+        outer = (*cmd 'X' | *cmd 'Y' | LEN(0))
+        s = 'aY'
+        s  POS(0) *outer RPOS(0)                              :S(YES)F(NO)
+YES     OUTPUT = 'second outer alt matched aY'                :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------------------- 56 115_pat_fence_via_var_recursive
+        cmd = FENCE('a' *cmd | 'a')
+        s = 'aaa'
+        s  POS(0) *cmd RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'recursive-cmd matched aaa'                  :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------------------- 57 116_pat_arbno_of_fence_inline
+        s = 'aaa'
+        s POS(0) ARBNO(FENCE('a' | 'aa')) RPOS(0)             :S(YES)F(NO)
+YES     OUTPUT = 'arbno-of-fence matched aaa'                 :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------------------- 58 117_pat_arbno_of_star_var_fence
+        cmd = FENCE('a' | 'ab')
+        s = 'aaa'
+        s POS(0) ARBNO(*cmd) RPOS(0)                          :S(YES)F(NO)
+YES     OUTPUT = 'arbno-star-cmd matched aaa'                 :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------- 59 118_pat_arbno_of_star_var_fence_seal_blocks
+        cmd = FENCE('a' | 'ab')
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+        outer = ARBNO(*cmd)
+BAD     OUTPUT = 'should fail (alt was tried)'                :(END)
+GOOD    OUTPUT = 'arbno-star-cmd FENCE sealed'
+END
+*----------------------------------- 60 119_pat_arbno_of_fence_via_var_via_outer
+        cmd = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+BAD     OUTPUT = 'unexpected match (alt was tried)'           :(END)
+GOOD    OUTPUT = 'triple-indirect FENCE sealed'
+END
+*----------------------------------------------------------- 61 120_pat_calc_add
+        num    = SPAN('0123456789')
+        ws     = SPAN(' ') | LEN(0)
+        expr   = num . A ws FENCE('+') ws num . B
+        s = '12 + 34'
+        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'sum: ' A ' + ' B                            :(END)
+NO      OUTPUT = 'parse fail'
+END
+*--------------------------------------------------- 62 121_pat_calc_op_dispatch
+        num    = SPAN('0123456789')
+        ws     = SPAN(' ') | LEN(0)
+        op     = FENCE('+' | '-' | '*' | '/')
+        s = '7 * 3'
+        s POS(0) num . A ws op . OP ws num . B RPOS(0)        :S(YES)F(NO)
+YES     OUTPUT = A ' ' OP ' ' B                               :(END)
+NO      OUTPUT = 'parse fail'
+END
+*--------------------------------------------------- 63 122_pat_calc_seal_prefix
+        cmpop = FENCE('<=' | '<' | '>=' | '>' | '==')
+        s = 'a <= b'
+        s POS(0) LEN(1) . X ' ' cmpop . OP ' ' LEN(1) . Y RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = X ' ' OP ' ' Y                               :(END)
+NO      OUTPUT = 'parse fail'
+END
+*---------------------------------------------------- 64 123_pat_regex_alt_class
+        digit  = ANY('0123456789')
+        alpha  = ANY('abcdefghijklmnopqrstuvwxyz')
+        token  = FENCE(SPAN('0123456789') | SPAN('abcdefghijklmnopqrstuvwxyz'))
+        s = 'abc'
+        s POS(0) token . T RPOS(0)                            :S(YES)F(NO)
+YES     OUTPUT = 'token: ' T                                  :(END)
+NO      OUTPUT = 'fail'
+END
+*------------------------------------------------- 65 124_pat_regex_keyword_seal
+        kw     = FENCE('if' | 'else' | 'while' | 'for')
+        ident  = SPAN('abcdefghijklmnopqrstuvwxyz')
+        token  = (kw . K | ident . I)
+        s = 'iffoo'
+        s POS(0) token RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
+*------------------------------------------------------- 66 125_pat_json_literal
+        lit = FENCE('null' | 'true' | 'false')
+        s = 'true'
+        s POS(0) lit . V RPOS(0)                              :S(YES)F(NO)
+YES     OUTPUT = 'lit=' V                                     :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------------------------------- 67 126_pat_json_number
+        digits = SPAN('0123456789')
+        eps    = LEN(0)
+        num    = digits . INT FENCE('.' digits | eps) . FRAC
+        s = '42.7'
+        s POS(0) num RPOS(0)                                  :S(YES)F(NO)
+YES     OUTPUT = 'int=' INT ' frac=' FRAC                     :(END)
+NO      OUTPUT = 'fail'
+END
+*------------------------------------------------------ 68 127_pat_json_keyvalue
+        ws     = SPAN(' ') | LEN(0)
+        digits = SPAN('0123456789')
+        str    = '"' BREAK('"') . S '"'
+        num    = digits . N
+        bool   = FENCE('true' | 'false') . B
+        value  = FENCE(str | num | bool)
+        pair   = '"' BREAK('"') . K '"' ws ':' ws value
+        s = '"age":42'
+        s POS(0) pair RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'k=' K ' s=' S ' n=' N ' b=' B               :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------------- 69 128_pat_recursive_grammar_right_rec
+        eps = LEN(0)
+        unit = LEN(1)
+        cmds = *unit FENCE(*cmds | eps)
+        s = 'abc'
+        s POS(0) *cmds RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'recursive matched ' s                       :(END)
+NO      OUTPUT = 'fail'
+END
+*------------------------------------- 70 129_pat_arbno_star_var_fence_with_alts
+        cmd   = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+BAD     OUTPUT = 'unexpected match'                           :(END)
+GOOD    OUTPUT = 'beauty-class FENCE seal held'
+END
+*---------------------------------------- 71 130_pat_two_star_fence_concat_outer
+        eps   = LEN(0)
+        cmdA  = FENCE('x' | 'xy')
+        cmdB  = SPAN(' ') | eps
+        outer = *cmdA *cmdB
+        s = 'xy'
+        s POS(0) *outer RPOS(0)                               :S(YES)F(NO)
+YES     OUTPUT = 'sequence of star-cmd-FENCE matched'         :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------------- 72 131_pat_boolean_expr_grammar
+        atom  = FENCE('true' | 'false')
+        ws    = SPAN(' ') | LEN(0)
+        op    = FENCE('AND' | 'OR' | 'XOR')
+        eps   = LEN(0)
+        expr  = atom . A ws (op . OP ws atom . B | eps)
+        s = 'true AND false'
+        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = A ' ' OP ' ' B                               :(END)
+NO      OUTPUT = 'parse fail'
+END
+*-------------------------------------------- 73 132_pat_fence_eps_recur_shallow
+        DEFINE('makeP()')
+        eps  = LEN(0)
+        P    = LEN(1) FENCE(*P | eps)
+        s    = 'aaa'
+        s POS(0) *P RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'matched depth 3'                            :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------------- 74 133_pat_fence_eps_recur_deep
+        eps  = LEN(0)
+        P    = LEN(1) FENCE(*P | eps)
+        s    = DUPL('a', 30)
+        s POS(0) *P RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'matched depth 30'                           :(END)
+NO      OUTPUT = 'fail'
+END
+*--------------------------------------------- 75 134_pat_fence_eps_recur_stress
+        eps  = LEN(0)
+        P    = LEN(1) FENCE(*P | eps)
+        s    = DUPL('a', 100)
+        s POS(0) *P RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'matched depth 100'                          :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------------------- 76 135_pat_balanced_parens_shallow
+        eps  = LEN(0)
+        B    = '(' FENCE(*B | eps) ')'
+        s    = '((()))'
+        s POS(0) *B RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'balanced ' s                                :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------------- 77 136_pat_balanced_parens_deep
+        eps  = LEN(0)
+        B    = '(' FENCE(*B | eps) ')'
+        s    = DUPL('(', 40) DUPL(')', 40)
+        s POS(0) *B RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'balanced depth 40'                          :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------------------- 78 137_pat_balanced_mixed
+        eps    = LEN(0)
+        open   = '(' | '[' | '{' | '<'
+        close  = ')' | ']' | '}' | '>'
+        B      = open FENCE(*B | eps) close
+        s      = '([{<>}])'
+        s POS(0) *B RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'mixed ' s                                   :(END)
+NO      OUTPUT = 'fail'
+END
+*---------------------------------------------------- 79 138_pat_calc_paren_expr
+        digit = ANY('0123456789')
+        num   = SPAN('0123456789')
+        op    = FENCE('+' | '-' | '*' | '/')
+        ws    = SPAN(' ') | LEN(0)
+        expr  = num | '(' *expr op *expr ')'
+        s     = '((1+2)*3)'
+        s POS(0) *expr RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'parsed ' s                                  :(END)
+NO      OUTPUT = 'parse fail'
+END
+*---------------------------------------------------- 80 139_pat_calc_paren_deep
+        num   = SPAN('0123456789')
+        op    = FENCE('+' | '-' | '*' | '/')
+        expr  = num | '(' *expr op *expr ')' | '(' *expr ')'
+        s     = '(((((1)))))'
+        s POS(0) *expr RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'parens depth 5 ' s                          :(END)
+NO      OUTPUT = 'parse fail'
+END
+*----------------------------------------------- 81 140_pat_eval_double_fn_trick
+        DEFINE('inner(c)')
+        DEFINE('outer(cs)')                                   :(both_end)
+inner   stk    = c stk
+        inner  = .stk                                         :(NRETURN)
+outer   outer  = EVAL('LEN(1) . *inner(' cs ')')              :(RETURN)
+both_end
+        stk    = ''
+        s      = 'AB'
+        pat    = outer('c1') outer('c2')
+        s POS(0) pat RPOS(0)                                  :S(YES)F(NO)
+YES     OUTPUT = 'stk=' stk                                   :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------------- 82 141_pat_eval_double_fn_arbno
+        DEFINE('grab(c)')
+        DEFINE('catch(cs)')                                   :(both_end)
+grab    out    = out c
+        grab   = .out                                         :(NRETURN)
+catch   catch  = EVAL('LEN(1) . *grab(' cs ')')               :(RETURN)
+both_end
+        out    = ''
+        s      = 'abcde'
+        s POS(0) ARBNO(catch('cv')) RPOS(0)                   :S(YES)F(NO)
+YES     OUTPUT = 'out=' out                                   :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------------------------- 83 142_pat_arbno_fence_arbno
+        eps  = LEN(0)
+        s    = 'abcde'
+        s POS(0) ARBNO(LEN(1) FENCE(LEN(1) | eps)) RPOS(0)    :S(YES)F(NO)
+YES     OUTPUT = 'arbno fence ok'                             :(END)
+NO      OUTPUT = 'fail'
+END
+*--------------------------------------------- 84 143_pat_regex_quantified_class
+        LP   = FENCE('a' | 'b' | 'c')
+        R    = ARBNO(*LP)
+        s    = 'aabbcc'
+        s POS(0) R RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'matched ' s                                 :(END)
+NO      OUTPUT = 'fail'
+END
+*-------------------------------------------------- 85 144_pat_json_nested_array
+        eps  = LEN(0)
+        choose = FENCE('A' | 'B')
+        layer  = choose ('-' *layer | eps)
+        s      = 'A-A-B'
+        s POS(0) *layer RPOS(0)                               :S(YES)F(NO)
+YES     OUTPUT = 'matched ' s                                 :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------- 86 145_pat_left_assoc_via_arbno_fence
+        num   = SPAN('0123456789')
+        expr  = num . FIRST ARBNO(FENCE('+') num . LAST)
+        s     = '1+2+3+4+5'
+        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'first=' FIRST ' last=' LAST                 :(END)
+NO      OUTPUT = 'fail'
+END
+*--------------------------------------------- 87 146_pat_fence_alt_with_capture
+        num   = SPAN('0123456789')
+        op    = FENCE('++' | '+')
+        expr  = num . A op . OP num . B
+        s     = '1++2'
+        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = A '|' OP '|' B                               :(END)
+NO      OUTPUT = 'fail'
+END
+*------------------------------------------ 88 147_pat_fence_through_unevaluated
+        eps   = LEN(0)
+        inner = (FENCE('a') | 'b')
+        outer = (*inner ' ' *inner)
+        s     = 'a b'
+        s POS(0) outer RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'matched ' s                                 :(END)
+NO      OUTPUT = 'fail'
+END
+*----------------------------------------- 89 148_pat_arbno_star_var_fence_short
+        cmd   = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s     = 'ab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+BAD     OUTPUT = 'leak: seal failed to block ab alt retry'    :(END)
+GOOD    OUTPUT = 'seal blocks ab retry'
+END
+*------------------------------- 90 149_pat_arbno_star_var_fence_outer_pre_match
+        cmd = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+BAD     OUTPUT = 'should fail (seal violated)'                :(END)
+GOOD    OUTPUT = 'arbno-star-cmd FENCE sealed'
+END
+*--------------------------------------- 91 150_pat_star_var_fence_alts_no_arbno
+        cmd   = FENCE('a' | 'ab')
+        outer = (*cmd | *cmd *cmd | *cmd *cmd *cmd)
+        s     = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(MATCH)F(NOM)
+MATCH   OUTPUT = 'matched: ' s                                :(END)
+NOM     OUTPUT = 'no match (seals held all paths)'
+END
+*--------------------------------------- 92 151_pat_arbno_inline_fence_backtrack
+        s = 'aab'
+        s POS(0) ARBNO(FENCE('a' | 'ab')) RPOS(0)             :S(BAD)F(GOOD)
+BAD     OUTPUT = 'leak: inline FENCE ab alt retried'          :(END)
+GOOD    OUTPUT = 'inline FENCE in ARBNO sealed'
+END
+*---------------------------------------------- 93 152_pat_json_keyvalue_renamed
+        ws     = SPAN(' ') | LEN(0)
+        digits = SPAN('0123456789')
+        str    = '"' BREAK('"') . SVAL '"'
+        num    = digits . NVAL
+        bool   = FENCE('true' | 'false') . BVAL
+        value  = FENCE(str | num | bool)
+        pair   = '"' BREAK('"') . KVAL '"' ws ':' ws value
+        s = '"age":42'
+        s POS(0) pair RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'k=' KVAL ' s=' SVAL ' n=' NVAL ' b=' BVAL   :(END)
+NO      OUTPUT = 'fail'
+END
+*------------------------------------------------ 94 153_pat_operand_edge_matrix
+        V = 'q'
+        V = ','
+        'ab,cd' BREAK(V) . W
+        OUTPUT = W
+        V = 'A'
+        'EXCEPTIONS ARE AS TRUE AS RULES' BREAKX(V) . OUTPUT 'AS'
+        C = 'z'
+        C = 'xa'
+        'abc' ANY(C) . W
+        OUTPUT = W
+        C = 'xz'
+        'abc' NOTANY(C) . W
+        OUTPUT = W
+        C = 'ab'
+        'aabbc' SPAN(C) . W
+        OUTPUT = W
+        N = 9
+        N = 3
+        'abcde' TAB(N) . W
+        OUTPUT = W
+        N = 2
+        'abcde' RTAB(N) . W
+        OUTPUT = W
+        N = 3
+        'abcde' RPOS(N) LEN(1) . W
+        OUTPUT = W
+        N = 2
+        'abcde' LEN(N) . W
+        OUTPUT = W
+        N = '2'
+        'abcde' TAB(N) . W
+        OUTPUT = W
+END
+*-------------------------------------------- 95 154_pat_construction_time_hoist
+        V = 'q'
+        V = ','
+        'ab,cd' LEN(1) $ V BREAK(V) . W
+        OUTPUT = 'S:' W ':' V
+        V = ','
+        'ab,cd' BREAK(V) . W
+        OUTPUT = W
+        V = 'd'
+        'ab,cd' BREAK(V) . W
+        OUTPUT = W
+        A = 'q'
+        A = 'x'
+        'axyb' BREAK(A 'y') . W
+        OUTPUT = W
+END
+*--------------------------------------------------- 96 155_pat_cap_output_order
+        'B2' ? ('A' | 'B') . OUTPUT ('1' | '2' | '3') . OUTPUT
+END
+*------------------------------------------------ 97 156_pat_cap_alt_abandon_pop
+        'ab' ? ('ab' . V1 | 'a' . V2) 'b'
+        OUTPUT = 'V1=' V1 ' V2=' V2
+END
+*--------------------------------------------------- 98 157_pat_cap_arb_alt_keep
+        'AC' ? 'A' ARB . V ('B' | 'C')
+        OUTPUT = 'V=[' V ']'
+        'AXB' ? 'A' ARB . W ('B' | 'C')
+        OUTPUT = 'W=[' W ']'
+END
+*------------------------------------------------ 99 158_pat_cap_arbno_each_iter
+        'abc' POS(0) ARBNO(LEN(1) . OUTPUT) RPOS(0)
+END
+*----------------------------------------------- 100 159_pat_cap_reyield_discard
+        'AXB' ? 'A' ARB . OUTPUT ('B' | 'C')
+END
+*---------------------------------------------- 101 160_pat_alt_inner_gen_resume
+        'aXb' ? ('a' ARB . V | 'q') 'b'                              :S(Y)F(N)
+Y OUTPUT = 'V=[' V ']'                                        :(END)
+N OUTPUT = 'fail'
+END
+*--------------------------------------------- 102 161_pat_defer_fn_nested_match
+        DEFINE('F()')                            :(MAIN)
+F       N = N + 1
+        JUNK = 'xxyy'
+        JUNK ? 'xx'
+        F = 'AB'                                 :(RETURN)
+MAIN    N = 0
+        'ABC' ? 'A' *F() 'C'                     :S(YES)F(NO)
+YES     OUTPUT = 'match'                         :(NEXT)
+NO      OUTPUT = 'fail'
+NEXT    OUTPUT = 'calls=' N
+        'AABZ' ? 'A' *F() 'Z'                    :S(Y2)F(N2)
+Y2      OUTPUT = 'match2'                        :(DONE)
+N2      OUTPUT = 'fail2'
+DONE    OUTPUT = 'calls=' N
+END
+*--------------------------------------------- 103 162_pat_arbno_null_body_guard
+        'B' ? POS(0) ARBNO('') 'B' RPOS(0)                           :S(A1)F(B1)
+A1 OUTPUT = '1:null-body-ok'                                  :(T2)
+B1 OUTPUT = '1:null-body-fail'
+T2 'AB' ? POS(0) ARBNO('' | 'A') 'B' RPOS(0)                  :S(A2)F(B2)
+A2 OUTPUT = '2:nullable-first-ok'                             :(T3)
+B2 OUTPUT = '2:nullable-first-fail'
+T3 'AB' ? POS(0) ARBNO('A' | '') 'B' RPOS(0)                  :S(A3)F(B3)
+A3 OUTPUT = '3:nullable-second-ok'                            :(END)
+B3 OUTPUT = '3:nullable-second-fail'
+END
+*--------------------------------------------- 104 163_pat_arbno_inner_alt_trace
+        'AAAB' ? POS(0) ARBNO( ('AA' | 'A') $ OUTPUT ) 'B' RPOS(0)   :S(Y)F(N)
+Y OUTPUT = 'ok'                                               :(END)
+N OUTPUT = 'fail'
+END
+*------------------------------------------------------ 105 164_pat_arbno_nested
+        'aabaab' ? POS(0) ARBNO(ARBNO('a') 'b') RPOS(0)              :S(Y1)F(N1)
+Y1 OUTPUT = '1:ok'                                            :(T2)
+N1 OUTPUT = '1:fail'
+T2 'aabxa' ? POS(0) ARBNO(ARBNO('a') 'b') RPOS(0)             :S(Y2)F(N2)
+Y2 OUTPUT = '2:ok'                                            :(END)
+N2 OUTPUT = '2:fail'
+END
+*---------------------------------------------- 106 165_pat_arbno_defer_var_body
+        Q = 'a'
+        'aaa' ? POS(0) ARBNO(*Q) RPOS(0)                             :S(Y1)F(N1)
+Y1 OUTPUT = '1:ok'                                            :(T2)
+N1 OUTPUT = '1:fail'
+T2 Q = 'aa'
+        'aaa' ? POS(0) ARBNO(*Q) RPOS(0)                             :S(Y2)F(N2)
+Y2 OUTPUT = '2:ok'                                            :(END)
+N2 OUTPUT = '2:fail'
+END
+*------------------------------------------ 107 166_pat_arbno_cond_assign_commit
+        'ab-cd-x' ? POS(0) (ARBNO(LEN(2) . C '-')) . W 'x' RPOS(0)   :S(Y)F(N)
+Y OUTPUT = 'C=[' C '] W=[' W ']'                              :(END)
+N OUTPUT = 'fail'
+END
+*--------------------------------------------------- 108 167_pat_arbno_depth_20k
+        S = DUPL('a',20000) 'b'
+        S ? POS(0) ARBNO('a') 'b' RPOS(0)                            :S(Y)F(N)
+Y OUTPUT = 'depth-ok'                                         :(END)
+N OUTPUT = 'depth-fail'
+END
+*------------------------------------------------- 109 170_pat_abort_kills_match
+        '-AB-1-' ? (ANY('AB') | '1' ABORT)   :S(A)F(B)
+A OUTPUT = 'first ok'                 :(C)
+B OUTPUT = 'first FAIL'
+C '-1B-A-' ? (ANY('AB') | '1' ABORT)  :S(D)F(E)
+D OUTPUT = 'second ok'                :(END)
+E OUTPUT = 'second aborted'
+END
+*------------------------------------------- 110 171_pat_abort_no_anchor_advance
+        '1A' ? ('A' | '1' ABORT)   :S(Y)F(N)
+Y OUTPUT = 'matched'        :(END)
+N OUTPUT = 'aborted'
+END
+*------------------------------------------------- 111 172_pat_fail_forces_retry
+        'abc' ? LEN(1) $ OUTPUT FAIL   :S(Y)F(N)
+Y OUTPUT = 'matched'            :(END)
+N OUTPUT = 'failed as expected'
+END
+*-------------------------------------------- 112 173_pat_fence_kw_blocks_backup
+        '1AB+' ? ANY('AB') FENCE '+'   :S(Y)F(N)
+Y OUTPUT = 'matched'            :(N2)
+N OUTPUT = 'fenced'
+N2 'ABC' ? FENCE 'B'            :S(Y2)F(N3)
+Y2 OUTPUT = 'anchor-broke'      :(END)
+N3 OUTPUT = 'fence-first anchors'
+END
+*------------------------------------------------ 113 174_pat_bal_manual_example
+        'AB+(14-2)*C' ? ANY('+-*/') BAL . OUT ANY('+-*/')   :F(N)
+        OUTPUT = 'BAL=' OUT                                 :(END)
+N OUTPUT = 'no match'
+END
+*----------------------------------------------- 114 175_pat_bal_generator_retry
+        'ABC' ? POS(0) BAL $ OUTPUT FAIL
+        OUTPUT = 'done'
+END
+*------------------------------------------------ 115 176_pat_bal_balanced_forms
+        '(A!(C:D))' ? POS(0) BAL . X RPOS(0)   :F(N1)
+        OUTPUT = 'bal1=' X                      :(T2)
+N1 OUTPUT = 'bal1 FAILED'
+T2 '(AB)+(CD)' ? POS(0) BAL . Y RPOS(0)  :F(N2)
+        OUTPUT = 'bal2=' Y                      :(T3)
+N2 OUTPUT = 'bal2 FAILED'
+T3 '9395' ? POS(0) BAL . Z RPOS(0)       :F(N3)
+        OUTPUT = 'bal3=' Z                      :(END)
+N3 OUTPUT = 'bal3 FAILED'
+END
+*------------------------------------------- 116 177_pat_bal_unbalanced_rejected
+        ')A+B' ? POS(0) BAL RPOS(0)     :S(Y1)F(N1)
+Y1 OUTPUT = 'unbal1 MATCHED'     :(T2)
+N1 OUTPUT = 'unbal1 rejected'
+T2 '(A*(B+)' ? POS(0) BAL RPOS(0) :S(Y2)F(N2)
+Y2 OUTPUT = 'unbal2 MATCHED'     :(T3)
+N2 OUTPUT = 'unbal2 rejected'
+T3 '(X))' ? POS(0) BAL RPOS(0)   :S(Y3)F(N3)
+Y3 OUTPUT = 'unbal3 MATCHED'     :(END)
+N3 OUTPUT = 'unbal3 rejected'
+END
+*------------------------------------------- 117 178_pat_recursive_star_list_zs2
+        ITEM = SPAN("0123456789") | *LIST
+        LIST = "(" ITEM ARBNO("," ITEM) ")"
+        TEST = POS(0) LIST RPOS(0)
+        "(12,(3,45,(6)),78)" ? TEST	:S(OK1)F(BAD1)
+OK1	OUTPUT = "T1 MATCH"	:(T2)
+BAD1	OUTPUT = "T1 FAIL"
+T2	"(12,(34)" ? TEST	:S(BAD2)F(OK2)
+OK2	OUTPUT = "T2 CORRECT-FAIL"	:(END)
+BAD2	OUTPUT = "T2 WRONG-MATCH"
+END
+*---------------------------------------- 118 179_pat_arbno_defer_recursive_list
+        ITEM = SPAN('0123456789') | *LIST
+        LIST = '(' ITEM ARBNO(',' ITEM) ')'
+        TEST = POS(0) LIST RPOS(0)
+        '(12,(3,45,(6)),78)' ? TEST                           :S(OK1)F(BAD1)
+OK1     OUTPUT = 'match1 ok'                                   :(T2)
+BAD1    OUTPUT = 'match1 FAIL'
+T2      '(12,(34)' ? TEST                                     :S(BAD2)F(OK2)
+OK2     OUTPUT = 'match2 rejected ok'                          :(T3)
+BAD2    OUTPUT = 'match2 FAIL'
+T3      '((1,2),(3,(4,5,6)),7)' ? TEST                        :S(OK3)F(BAD3)
+OK3     OUTPUT = 'match3 ok'                                   :(END)
+BAD3    OUTPUT = 'match3 FAIL'
+END
+*------------------------------------------ 119 180_pat_arbno_defer_nonrecursive
+        P = LEN(2)
+        S = 'aabbccddee'
+        S POS(0) ARBNO(*P) RPOS(0)                            :S(OK1)F(BAD1)
+OK1     OUTPUT = 'even ok'                                     :(T2)
+BAD1    OUTPUT = 'even FAIL'
+T2      'abcde' POS(0) ARBNO(*P) RPOS(0)                      :S(BAD2)F(OK2)
+OK2     OUTPUT = 'odd rejected ok'                             :(END)
+BAD2    OUTPUT = 'odd FAIL'
+END
+*---------------------------------------- 120 181_pat_arbno_defer_tail_stressors
+        P = SPAN("ab") "c"
+        Q = SPAN("ab") | ""
+        R = ("x" | SPAN("ab")) "y"
+        W = LEN(3)
+        S1 = "abcabc"
+        S2 = "abcab"
+        S3 = "ab"
+        S4 = "abyxy"
+        S5 = "abcdef"
+        S1 POS(0) ARBNO(*P) RPOS(0)     :S(A1)F(B1)
+A1      OUTPUT = "T1 MATCH"             :(N1)
+B1      OUTPUT = "T1 NOMATCH"
+N1      S2 POS(0) ARBNO(*P) RPOS(0)    :S(A2)F(B2)
+A2      OUTPUT = "T2 MATCH"             :(N2)
+B2      OUTPUT = "T2 NOMATCH"
+N2      S3 POS(0) ARBNO(*Q) RPOS(0)    :S(A3)F(B3)
+A3      OUTPUT = "T3 MATCH"             :(N3)
+B3      OUTPUT = "T3 NOMATCH"
+N3      S4 POS(0) ARBNO(*R) RPOS(0)    :S(A4)F(B4)
+A4      OUTPUT = "T4 MATCH"             :(N4)
+B4      OUTPUT = "T4 NOMATCH"
+N4      S5 POS(0) ARBNO(*W) RPOS(0)    :S(A5)F(B5)
+A5      OUTPUT = "T5 MATCH"             :(N5)
+B5      OUTPUT = "T5 NOMATCH"
+N5      S1 "ab" ARBNO(*P) "bc" RPOS(0) :S(A6)F(B6)
+A6      OUTPUT = "T6 MATCH"             :(N6)
+B6      OUTPUT = "T6 NOMATCH"
+N6
+END
+*----------------------------------------- 121 182_pat_arbno_defer_windowed_leaf
+        ITEM  = SPAN("0123456789")
+        ITEM2 = SPAN("0123456789") | "x"
+        NEST  = SPAN("0123456789") | "(" *NEST ")"
+        LISTP = "(" *ITEM ARBNO("," *ITEM) ")"
+        S1 = "(1,22,333)"
+        S2 = "(7)"
+        S3 = "(1,,2)"
+        S4 = "(11,22)"
+        S5 = "a1,2,3z"
+        S6 = "(4,5)"
+        S7 = "(1,(2),3)"
+        S8 = "(1,2,3,4,5,6,7,8,9,10,11,12)"
+        S1 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)   :S(A1)F(B1)
+A1      OUTPUT = "T1 MATCH"             :(N1)
+B1      OUTPUT = "T1 NOMATCH"
+N1      S2 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)  :S(A2)F(B2)
+A2      OUTPUT = "T2 MATCH"             :(N2)
+B2      OUTPUT = "T2 NOMATCH"
+N2      S3 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)  :S(A3)F(B3)
+A3      OUTPUT = "T3 MATCH"             :(N3)
+B3      OUTPUT = "T3 NOMATCH"
+N3      S4 POS(0) "(" *ITEM ARBNO("," *ITEM) "," *ITEM ")" RPOS(0)  :S(A4)F(B4)
+A4      OUTPUT = "T4 MATCH"             :(N4)
+B4      OUTPUT = "T4 NOMATCH"
+N4      S5 POS(0) "a" *ITEM2 ARBNO("," *ITEM2) "z" RPOS(0)  :S(A5)F(B5)
+A5      OUTPUT = "T5 MATCH"             :(N5)
+B5      OUTPUT = "T5 NOMATCH"
+N5      S6 POS(0) LISTP RPOS(0)         :S(A6)F(B6)
+A6      OUTPUT = "T6 MATCH"             :(N6)
+B6      OUTPUT = "T6 NOMATCH"
+N6      S7 POS(0) "(" *NEST ARBNO("," *NEST) ")" RPOS(0)  :S(A7)F(B7)
+A7      OUTPUT = "T7 MATCH"             :(N7)
+B7      OUTPUT = "T7 NOMATCH"
+N7      S8 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)  :S(A8)F(B8)
+A8      OUTPUT = "T8 MATCH"             :(N8)
+B8      OUTPUT = "T8 NOMATCH"
+N8
+END
+*--------------------------------------- 122 183_pat_arbno_defer_recursive_carry
+        G = "<" SPAN("ab") ARBNO(*G) ">"
+        W = "ab"
+        E = "" | "c"
+        S1 = "<ab>"
+        S2 = "<ab<a><b>>"
+        S3 = "<a<b<a<b<a<b<a<b<a<b<a<b>>>>>>>>>>>>"
+        S4 = "<ab<a><b>"
+        S5 = "abab"
+        S6 = "ccc"
+        S7 = "<a<b>><ab>"
+        S8 = "<a><b>"
+        S1 POS(0) ARBNO(*G) RPOS(0)              :S(A1)F(B1)
+A1      OUTPUT = "T1 MATCH"                      :(N1)
+B1      OUTPUT = "T1 NOMATCH"
+N1      S2 POS(0) ARBNO(*G) RPOS(0)              :S(A2)F(B2)
+A2      OUTPUT = "T2 MATCH"                      :(N2)
+B2      OUTPUT = "T2 NOMATCH"
+N2      S3 POS(0) ARBNO(*G) RPOS(0)              :S(A3)F(B3)
+A3      OUTPUT = "T3 MATCH"                      :(N3)
+B3      OUTPUT = "T3 NOMATCH"
+N3      S4 POS(0) ARBNO(*G) RPOS(0)              :S(A4)F(B4)
+A4      OUTPUT = "T4 MATCH"                      :(N4)
+B4      OUTPUT = "T4 NOMATCH"
+N4      S5 POS(0) ARBNO(*W) RPOS(0)              :S(A5)F(B5)
+A5      OUTPUT = "T5 MATCH"                      :(N5)
+B5      OUTPUT = "T5 NOMATCH"
+N5      S6 POS(0) ARBNO(*E) RPOS(0)              :S(A6)F(B6)
+A6      OUTPUT = "T6 MATCH"                      :(N6)
+B6      OUTPUT = "T6 NOMATCH"
+N6      S7 POS(0) ARBNO(*G) RPOS(0)              :S(A7)F(B7)
+A7      OUTPUT = "T7 MATCH"                      :(N7)
+B7      OUTPUT = "T7 NOMATCH"
+N7      S8 POS(0) ARBNO(*G) *G RPOS(0)           :S(A8)F(B8)
+A8      OUTPUT = "T8 MATCH"                      :(N8)
+B8      OUTPUT = "T8 NOMATCH"
+N8      OUTPUT = "DONE"
+END
+*------------------------------------- 123 184_pat_cond_assign_defer_double_fire
+        DEFINE('mark_fire()')                          :(mark_fire_end)
+mark_fire       fire_count = fire_count + 1
+        mark_fire = ''                                 :(RETURN)
+mark_fire_end
+        fire_count = 0
+        digits = '0123456789'
+        pattern = '[' SPAN(digits) (epsilon . *mark_fire()) ARBNO(',' SPAN(digits) (epsilon . *mark_fire())) ']'
+        '[1,2]' ? pattern                              :S(matched)F(no_match)
+matched OUTPUT = 'MATCH fire_count=' fire_count        :(END)
+no_match        OUTPUT = 'NOMATCH fire_count=' fire_count
+END
+*------------------------------------- 124 185_pat_cond_assign_defer_seq_minimal
+        DEFINE('mark_fire()')                          :(mark_fire_end)
+mark_fire       fire_count = fire_count + 1
+        mark_fire = ''                                 :(RETURN)
+mark_fire_end
+        fire_count = 0
+        pattern = (epsilon . *mark_fire()) (epsilon . *mark_fire())
+        'X' ? pattern                                  :S(matched)F(no_match)
+matched OUTPUT = 'MATCH fire_count=' fire_count        :(END)
+no_match        OUTPUT = 'NOMATCH fire_count=' fire_count
+END

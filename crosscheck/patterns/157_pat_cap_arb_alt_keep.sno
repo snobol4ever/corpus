@@ -1,5 +1,0 @@
- 'AC' ? 'A' ARB . V ('B' | 'C')
- OUTPUT = 'V=[' V ']'
- 'AXB' ? 'A' ARB . W ('B' | 'C')
- OUTPUT = 'W=[' W ']'
-END

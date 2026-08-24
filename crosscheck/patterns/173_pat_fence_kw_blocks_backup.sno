@@ -1,8 +1,0 @@
-* Manual Ch.9 p.125: keyword FENCE succeeds L-to-R but FAILS the match on backup.
- '1AB+' ? ANY('AB') FENCE '+'   :S(Y)F(N)
-Y OUTPUT = 'matched'            :(N2)
-N OUTPUT = 'fenced'
-N2 'ABC' ? FENCE 'B'            :S(Y2)F(N3)
-Y2 OUTPUT = 'anchor-broke'      :(END)
-N3 OUTPUT = 'fence-first anchors'
-END

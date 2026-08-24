@@ -1,8 +1,0 @@
-*  134 - FENCE(*P | epsilon) recursion, depth 100 — stress test
-        eps  = LEN(0)
-        P    = LEN(1) FENCE(*P | eps)
-        s    = DUPL('a', 100)
-        s POS(0) *P RPOS(0)                                   :S(YES)F(NO)
-YES     OUTPUT = 'matched depth 100'                          :(END)
-NO      OUTPUT = 'fail'
-END

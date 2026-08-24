@@ -1,5 +1,0 @@
-* BAL matches the SHORTEST non-null balanced string, and EXTENDS on retry -- it is a
-* generator, which is why it owns runtime state and earns an IR node.
- 'ABC' ? POS(0) BAL $ OUTPUT FAIL
- OUTPUT = 'done'
-END

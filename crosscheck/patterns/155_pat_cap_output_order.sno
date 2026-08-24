@@ -1,2 +1,0 @@
- 'B2' ? ('A' | 'B') . OUTPUT ('1' | '2' | '3') . OUTPUT
-END

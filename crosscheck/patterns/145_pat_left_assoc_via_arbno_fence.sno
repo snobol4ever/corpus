@@ -1,8 +1,0 @@
-*  145 - Left-fold expression: 1+2+3+4+5
-        num   = SPAN('0123456789')
-        expr  = num . FIRST ARBNO(FENCE('+') num . LAST)
-        s     = '1+2+3+4+5'
-        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
-YES     OUTPUT = 'first=' FIRST ' last=' LAST                 :(END)
-NO      OUTPUT = 'fail'
-END

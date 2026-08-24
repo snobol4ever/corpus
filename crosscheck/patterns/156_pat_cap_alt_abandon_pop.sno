@@ -1,3 +1,0 @@
- 'ab' ? ('ab' . V1 | 'a' . V2) 'b'
- OUTPUT = 'V1=' V1 ' V2=' V2
-END

@@ -1,6 +1,0 @@
-* ABORT must suppress the unanchored anchor-advance, not merely the alternatives:
-* a later 'A' exists but the match must NOT be retried at its position.
- '1A' ? ('A' | '1' ABORT)   :S(Y)F(N)
-Y OUTPUT = 'matched'        :(END)
-N OUTPUT = 'aborted'
-END

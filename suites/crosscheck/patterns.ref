@@ -1,0 +1,316 @@
+*------------------------------------------------------------- 1 038_pat_literal
+matched
+*----------------------------------------------------------------- 2 039_pat_any
+e
+*-------------------------------------------------------------- 3 040_pat_notany
+h
+*---------------------------------------------------------------- 4 041_pat_span
+12345
+*--------------------------------------------------------------- 5 042_pat_break
+hello
+*----------------------------------------------------------------- 6 043_pat_len
+abc
+*----------------------------------------------------------------- 7 044_pat_pos
+hel
+*---------------------------------------------------------------- 8 045_pat_rpos
+lo
+*----------------------------------------------------------------- 9 046_pat_tab
+de
+*--------------------------------------------------------------- 10 047_pat_rtab
+abcd
+*---------------------------------------------------------------- 11 048_pat_rem
+world
+*---------------------------------------------------------------- 12 049_pat_arb
+*------------------------------------------------------------ 13 050_pat_alt_two
+dog
+*---------------------------------------------------------- 14 051_pat_alt_three
+banana
+*-------------------------------------------------------------- 15 052_pat_arbno
+aaa
+*--------------------------------------------------------- 16 053_pat_alt_commit
+b
+*---------------------------------------------------------- 17 054_pat_arbno_alt
+abba
+*--------------------------------------------------------- 18 055_pat_concat_seq
+ab cd ef
+*--------------------------------------------------------- 19 056_pat_star_deref
+hello
+*------------------------------------------------------- 20 057_pat_fail_builtin
+correctly failed
+*------------------------------------------------------ 21 058_pat_fence_keyword
+aborted correctly
+*----------------------------------------------------- 22 059_pat_fence_fn_basic
+matched
+*------------------------------------------------------ 23 060_pat_fence_fn_fail
+failed gracefully
+*------------------------------------------------------ 24 061_pat_fence_fn_seal
+sealed correctly
+*----------------------------------------------------- 25 062_pat_fence_fn_outer
+outer alt worked
+*-------------------------------------------------- 26 063_pat_fence_fn_optional
+123
+*--------------------------------------------------- 27 064_pat_fence_fn_capture
+ello_world
+*------------------------------------------------------ 28 064_replace_multi_arm
+del: alphabetagamma
+head: yymiddleXX
+tail: bodyww
+grow: a<->b<->c<->d
+shrink: aaaa-cccc
+int: n=42
+cap: swap:RIGHT|LEFT
+null: Klead
+loop: onetwothreefourfivesixseveneightnineten
+*--------------------------------------------------- 29 065_pat_fence_fn_decimal
+2
+*---------------------------------------------------- 30 066_pat_fence_fn_nested
+3.14
+*----------------------------------------------------- 31 067_pat_fence_fn_vs_kw
+both correct
+*------------------------------------------------- 32 068_pat_fence_fn_three_way
+sealed
+*--------------------------------------------------- 33 068_pat_fence_fn_via_var
+sealed correctly
+*------------------------------------------------ 34 069_pat_fence_fn_full_match
+matched
+*---------------------------------------------- 35 070_pat_arbno_star_var_digits
+123
+*---------------------------------------------------- 36 071_pat_star_var_concat
+hello, world
+*--------------------------------------------- 37 072_pat_star_var_alt_backtrack
+matched
+*--------------------------------------------------- 38 073_pat_star_var_capture
+hel
+*---------------------------------------------------- 39 074_pat_star_var_cursor
+2
+*----------------------------------------------- 40 075_pat_arbno_star_backtrack
+PASS
+*----------------------------------------------- 41 100_pat_fence_two_alts_first
+matched first alt then continued
+*------------------------------------------------ 42 101_pat_fence_falls_through
+second alt taken
+*------------------------------------------------ 43 102_pat_fence_complete_fail
+no alt matched
+*---------------------------------------------------- 44 103_pat_fence_in_concat
+a-X-b matched
+*----------------------------------------- 45 104_pat_fence_seals_back_in_concat
+fenced
+*-------------------------------------------------------- 46 105_pat_fence_empty
+epsilon then LEN(2)
+*------------------------------------------------- 47 106_pat_fence_with_capture
+captured app
+*------------------------------------------------------- 48 107_pat_fence_nested
+doubly sealed
+*------------------------------------------------ 49 108_pat_fence_via_var_basic
+star-cmd matched LEN(1) then continued
+*------------------------------------ 50 109_pat_fence_via_var_seal_blocks_retry
+sealed via star-var
+*------------------------------------------- 51 110_pat_fence_via_var_then_extra
+matched aa then b
+*--------------------------------------- 52 111_pat_fence_via_var_falls_to_outer
+outer alt LEN(2) reached
+*---------------------------------------- 53 112_pat_fence_via_var_two_in_concat
+two-star-var matched
+*---------------------------------- 54 113_pat_fence_via_var_two_with_seal_retry
+double-sealed
+*----------------------------------------- 55 114_pat_fence_via_var_in_paren_alt
+second outer alt matched aY
+*-------------------------------------------- 56 115_pat_fence_via_var_recursive
+recursive-cmd matched aaa
+*---------------------------------------------- 57 116_pat_arbno_of_fence_inline
+arbno-of-fence matched aaa
+*-------------------------------------------- 58 117_pat_arbno_of_star_var_fence
+arbno-star-cmd matched aaa
+*-------------------------------- 59 118_pat_arbno_of_star_var_fence_seal_blocks
+arbno-star-cmd FENCE sealed
+*----------------------------------- 60 119_pat_arbno_of_fence_via_var_via_outer
+triple-indirect FENCE sealed
+*----------------------------------------------------------- 61 120_pat_calc_add
+sum: 12 + 34
+*--------------------------------------------------- 62 121_pat_calc_op_dispatch
+7 * 3
+*--------------------------------------------------- 63 122_pat_calc_seal_prefix
+a <= b
+*---------------------------------------------------- 64 123_pat_regex_alt_class
+token: abc
+*------------------------------------------------- 65 124_pat_regex_keyword_seal
+id=iffoo
+*------------------------------------------------------- 66 125_pat_json_literal
+lit=true
+*-------------------------------------------------------- 67 126_pat_json_number
+int=42 frac=.7
+*------------------------------------------------------ 68 127_pat_json_keyvalue
+k=age s= n=42 b=
+*---------------------------------------- 69 128_pat_recursive_grammar_right_rec
+recursive matched abc
+*------------------------------------- 70 129_pat_arbno_star_var_fence_with_alts
+beauty-class FENCE seal held
+*---------------------------------------- 71 130_pat_two_star_fence_concat_outer
+fail
+*----------------------------------------------- 72 131_pat_boolean_expr_grammar
+true AND false
+*-------------------------------------------- 73 132_pat_fence_eps_recur_shallow
+matched depth 3
+*----------------------------------------------- 74 133_pat_fence_eps_recur_deep
+matched depth 30
+*--------------------------------------------- 75 134_pat_fence_eps_recur_stress
+matched depth 100
+*-------------------------------------------- 76 135_pat_balanced_parens_shallow
+balanced ((()))
+*----------------------------------------------- 77 136_pat_balanced_parens_deep
+balanced depth 40
+*----------------------------------------------------- 78 137_pat_balanced_mixed
+mixed ([{<>}])
+*---------------------------------------------------- 79 138_pat_calc_paren_expr
+parsed ((1+2)*3)
+*---------------------------------------------------- 80 139_pat_calc_paren_deep
+parens depth 5 (((((1)))))
+*----------------------------------------------- 81 140_pat_eval_double_fn_trick
+stk=B
+*----------------------------------------------- 82 141_pat_eval_double_fn_arbno
+out=e
+*-------------------------------------------------- 83 142_pat_arbno_fence_arbno
+arbno fence ok
+*--------------------------------------------- 84 143_pat_regex_quantified_class
+matched aabbcc
+*-------------------------------------------------- 85 144_pat_json_nested_array
+matched A-A-B
+*----------------------------------------- 86 145_pat_left_assoc_via_arbno_fence
+first=1 last=5
+*--------------------------------------------- 87 146_pat_fence_alt_with_capture
+1|++|2
+*------------------------------------------ 88 147_pat_fence_through_unevaluated
+matched a b
+*----------------------------------------- 89 148_pat_arbno_star_var_fence_short
+seal blocks ab retry
+*------------------------------- 90 149_pat_arbno_star_var_fence_outer_pre_match
+arbno-star-cmd FENCE sealed
+*--------------------------------------- 91 150_pat_star_var_fence_alts_no_arbno
+no match (seals held all paths)
+*--------------------------------------- 92 151_pat_arbno_inline_fence_backtrack
+inline FENCE in ARBNO sealed
+*---------------------------------------------- 93 152_pat_json_keyvalue_renamed
+k=age s= n=42 b=
+*------------------------------------------------ 94 153_pat_operand_edge_matrix
+ab
+EXCEPTIONS ARE 
+a
+a
+aabb
+abc
+abc
+c
+ab
+ab
+*-------------------------------------------- 95 154_pat_construction_time_hoist
+S:b:a
+ab
+ab,c
+a
+*--------------------------------------------------- 96 155_pat_cap_output_order
+B
+2
+*------------------------------------------------ 97 156_pat_cap_alt_abandon_pop
+V1= V2=a
+*--------------------------------------------------- 98 157_pat_cap_arb_alt_keep
+V=[]
+W=[X]
+*------------------------------------------------ 99 158_pat_cap_arbno_each_iter
+a
+b
+c
+*----------------------------------------------- 100 159_pat_cap_reyield_discard
+X
+*---------------------------------------------- 101 160_pat_alt_inner_gen_resume
+V=[X]
+*--------------------------------------------- 102 161_pat_defer_fn_nested_match
+fail
+calls=1
+match2
+calls=2
+*--------------------------------------------- 103 162_pat_arbno_null_body_guard
+1:null-body-ok
+2:nullable-first-ok
+3:nullable-second-ok
+*--------------------------------------------- 104 163_pat_arbno_inner_alt_trace
+AA
+A
+ok
+*------------------------------------------------------ 105 164_pat_arbno_nested
+1:ok
+2:fail
+*---------------------------------------------- 106 165_pat_arbno_defer_var_body
+1:ok
+2:fail
+*------------------------------------------ 107 166_pat_arbno_cond_assign_commit
+C=[cd] W=[ab-cd-]
+*--------------------------------------------------- 108 167_pat_arbno_depth_20k
+depth-ok
+*------------------------------------------------- 109 170_pat_abort_kills_match
+first ok
+second aborted
+*------------------------------------------- 110 171_pat_abort_no_anchor_advance
+aborted
+*------------------------------------------------- 111 172_pat_fail_forces_retry
+a
+b
+c
+failed as expected
+*-------------------------------------------- 112 173_pat_fence_kw_blocks_backup
+fenced
+fence-first anchors
+*------------------------------------------------ 113 174_pat_bal_manual_example
+BAL=(14-2)
+*----------------------------------------------- 114 175_pat_bal_generator_retry
+A
+AB
+ABC
+done
+*------------------------------------------------ 115 176_pat_bal_balanced_forms
+bal1=(A!(C:D))
+bal2=(AB)+(CD)
+bal3=9395
+*------------------------------------------- 116 177_pat_bal_unbalanced_rejected
+unbal1 rejected
+unbal2 rejected
+unbal3 rejected
+*------------------------------------------- 117 178_pat_recursive_star_list_zs2
+T1 MATCH
+T2 CORRECT-FAIL
+*---------------------------------------- 118 179_pat_arbno_defer_recursive_list
+match1 ok
+match2 rejected ok
+match3 ok
+*------------------------------------------ 119 180_pat_arbno_defer_nonrecursive
+even ok
+odd rejected ok
+*---------------------------------------- 120 181_pat_arbno_defer_tail_stressors
+T1 MATCH
+T2 NOMATCH
+T3 MATCH
+T4 MATCH
+T5 MATCH
+T6 NOMATCH
+*----------------------------------------- 121 182_pat_arbno_defer_windowed_leaf
+T1 MATCH
+T2 MATCH
+T3 NOMATCH
+T4 MATCH
+T5 MATCH
+T6 MATCH
+T7 MATCH
+T8 MATCH
+*--------------------------------------- 122 183_pat_arbno_defer_recursive_carry
+T1 MATCH
+T2 MATCH
+T3 MATCH
+T4 NOMATCH
+T5 MATCH
+T6 MATCH
+T7 MATCH
+T8 MATCH
+DONE
+*------------------------------------- 123 184_pat_cond_assign_defer_double_fire
+NOMATCH fire_count=1
+*------------------------------------- 124 185_pat_cond_assign_defer_seq_minimal
+NOMATCH fire_count=1

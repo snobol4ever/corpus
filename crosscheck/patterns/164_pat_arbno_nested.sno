@@ -1,7 +1,0 @@
- 'aabaab' ? POS(0) ARBNO(ARBNO('a') 'b') RPOS(0)              :S(Y1)F(N1)
-Y1 OUTPUT = '1:ok'                                            :(T2)
-N1 OUTPUT = '1:fail'
-T2 'aabxa' ? POS(0) ARBNO(ARBNO('a') 'b') RPOS(0)             :S(Y2)F(N2)
-Y2 OUTPUT = '2:ok'                                            :(END)
-N2 OUTPUT = '2:fail'
-END

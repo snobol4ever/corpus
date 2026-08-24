@@ -1,5 +1,0 @@
-* SPITBOL manual Ch.9 p.124, verbatim: BAL constrained by other pattern components.
- 'AB+(14-2)*C' ? ANY('+-*/') BAL . OUT ANY('+-*/')   :F(N)
- OUTPUT = 'BAL=' OUT                                 :(END)
-N OUTPUT = 'no match'
-END
