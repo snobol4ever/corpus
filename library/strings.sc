@@ -63,7 +63,7 @@ function Split(s, sep, i, n, slen, out_n, start, arr) {
             out_n = out_n + 1;
             arr[out_n] = SUBSTR(s, start, i - start);
             i = i + slen; start = i;
-        } else { i = i + 1; }
+        } else i = i + 1;
     }
     out_n = out_n + 1;
     arr[out_n] = SUBSTR(s, start, n - start + 1);
