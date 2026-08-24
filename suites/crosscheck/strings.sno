@@ -1,0 +1,89 @@
+ OUTPUT = SIZE('hello');END;* 065_builtin_size
+ OUTPUT = SUBSTR('hello world', 7, 5);END;* 066_builtin_substr
+ OUTPUT = REPLACE('hello', 'aeiou', 'AEIOU');END;* 067_builtin_replace
+ OUTPUT = SIZE(TRIM('hello '));END;* 068_builtin_trim
+ OUTPUT = DUPL('ab', 3);END;* 069_builtin_dupl
+ OUTPUT = REVERSE('hello');END;* 070_builtin_reverse
+ OUTPUT = &UCASE;END;* 071_builtin_ucase
+ OUTPUT = &LCASE;END;* 072_builtin_lcase
+ OUTPUT = LPAD('hi', 6);END;* 073_builtin_lpad
+ OUTPUT = SIZE(RPAD('hi', 6));END;* 074_builtin_rpad
+*--------------------------------------------------- 11 075_builtin_integer_test
+        INTEGER('42')                                               :S(YES)F(NO)
+YES     OUTPUT = 'numeric' :(NEXT)
+NO      OUTPUT = 'not numeric'
+NEXT    INTEGER('abc')                                              :S(YES2)F(NO2)
+YES2    OUTPUT = 'numeric' :(END)
+NO2     OUTPUT = 'not numeric'
+END
+*-------------------------------------------------- 12 076_builtin_substr_bounds
+        S = "hello world"
+L000	OUTPUT = 'i=1 n=-1        -> "' SUBSTR(S,1,-1) '"'	:S(L001)
+        OUTPUT = 'i=1 n=-1        -> FAILS'
+L001	OUTPUT = 'i=1 n=0         -> "' SUBSTR(S,1,0) '"'	:S(L002)
+        OUTPUT = 'i=1 n=0         -> FAILS'
+L002	OUTPUT = 'i=1 n=1         -> "' SUBSTR(S,1,1) '"'	:S(L003)
+        OUTPUT = 'i=1 n=1         -> FAILS'
+L003	OUTPUT = 'i=1 n=99        -> "' SUBSTR(S,1,99) '"'	:S(L004)
+        OUTPUT = 'i=1 n=99        -> FAILS'
+L004	OUTPUT = 'i=1 n=omitted   -> "' SUBSTR(S,1) '"'	:S(L005)
+        OUTPUT = 'i=1 n=omitted   -> FAILS'
+L005	OUTPUT = 'i=5 n=-1        -> "' SUBSTR(S,5,-1) '"'	:S(L006)
+        OUTPUT = 'i=5 n=-1        -> FAILS'
+L006	OUTPUT = 'i=5 n=0         -> "' SUBSTR(S,5,0) '"'	:S(L007)
+        OUTPUT = 'i=5 n=0         -> FAILS'
+L007	OUTPUT = 'i=5 n=1         -> "' SUBSTR(S,5,1) '"'	:S(L008)
+        OUTPUT = 'i=5 n=1         -> FAILS'
+L008	OUTPUT = 'i=5 n=99        -> "' SUBSTR(S,5,99) '"'	:S(L009)
+        OUTPUT = 'i=5 n=99        -> FAILS'
+L009	OUTPUT = 'i=5 n=omitted   -> "' SUBSTR(S,5) '"'	:S(L010)
+        OUTPUT = 'i=5 n=omitted   -> FAILS'
+L010	OUTPUT = 'i=1 n=11        -> "' SUBSTR(S,1,11) '"'	:S(L011)
+        OUTPUT = 'i=1 n=11        -> FAILS'
+L011	OUTPUT = 'i=1 n=12        -> "' SUBSTR(S,1,12) '"'	:S(L012)
+        OUTPUT = 'i=1 n=12        -> FAILS'
+L012	OUTPUT = 'i=5 n=7         -> "' SUBSTR(S,5,7) '"'	:S(L013)
+        OUTPUT = 'i=5 n=7         -> FAILS'
+L013	OUTPUT = 'i=5 n=8         -> "' SUBSTR(S,5,8) '"'	:S(L014)
+        OUTPUT = 'i=5 n=8         -> FAILS'
+L014	OUTPUT = 'i=11 n=1        -> "' SUBSTR(S,11,1) '"'	:S(L015)
+        OUTPUT = 'i=11 n=1        -> FAILS'
+L015	OUTPUT = 'i=11 n=2        -> "' SUBSTR(S,11,2) '"'	:S(L016)
+        OUTPUT = 'i=11 n=2        -> FAILS'
+L016	OUTPUT = 'i=12 n=0        -> "' SUBSTR(S,12,0) '"'	:S(L017)
+        OUTPUT = 'i=12 n=0        -> FAILS'
+L017	OUTPUT = 'i=12 n=1        -> "' SUBSTR(S,12,1) '"'	:S(L018)
+        OUTPUT = 'i=12 n=1        -> FAILS'
+L018	OUTPUT = 'i=0 n=1         -> "' SUBSTR(S,0,1) '"'	:S(L019)
+        OUTPUT = 'i=0 n=1         -> FAILS'
+L019	OUTPUT = 'i=-1 n=1        -> "' SUBSTR(S,-1,1) '"'	:S(L020)
+        OUTPUT = 'i=-1 n=1        -> FAILS'
+L020	OUTPUT = 'i=0 n=0         -> "' SUBSTR(S,0,0) '"'	:S(L021)
+        OUTPUT = 'i=0 n=0         -> FAILS'
+L021	OUTPUT = 'i=12 n=omitted  -> "' SUBSTR(S,12) '"'	:S(L022)
+        OUTPUT = 'i=12 n=omitted  -> FAILS'
+L022	OUTPUT = 'i=13 n=omitted  -> "' SUBSTR(S,13) '"'	:S(L023)
+        OUTPUT = 'i=13 n=omitted  -> FAILS'
+L023	OUTPUT = 'i=13 n=0        -> "' SUBSTR(S,13,0) '"'	:S(L024)
+        OUTPUT = 'i=13 n=0        -> FAILS'
+L024	OUTPUT = 'i=13 n=1        -> "' SUBSTR(S,13,1) '"'	:S(L025)
+        OUTPUT = 'i=13 n=1        -> FAILS'
+L025	OUTPUT = 'i=99 n=0        -> "' SUBSTR(S,99,0) '"'	:S(L026)
+        OUTPUT = 'i=99 n=0        -> FAILS'
+L026	OUTPUT = 'contract holds'
+END
+*---------------------------------------------------- 13 tbl_counted_string_keys
+        z = CHAR(0)
+        tab = TABLE()
+        tab['a' z 'b'] = 'FIRST'
+        tab['a' z 'c'] = 'SECOND'
+        tab['a'] = 'PLAIN'
+        OUTPUT = 'ab=' tab['a' z 'b'] ' ac=' tab['a' z 'c'] ' a=' tab['a']
+        tab[z] = 'JUSTNUL'
+        tab[''] = 'EMPTY'
+        OUTPUT = 'nul=' tab[z] ' empty=' tab['']
+        OUTPUT = 'sizes=' SIZE('a' z 'b') ',' SIZE(z) ',' SIZE('')
+        tab['pre' z] = 'WITHNUL'
+        tab['pre'] = 'NONUL'
+        OUTPUT = 'pre_nul=' tab['pre' z] ' pre=' tab['pre']
+END

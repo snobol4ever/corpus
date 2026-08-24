@@ -1,4 +1,0 @@
-ab=FIRST ac=SECOND a=PLAIN
-nul=JUSTNUL empty=EMPTY
-sizes=3,1,0
-pre_nul=WITHNUL pre=NONUL
