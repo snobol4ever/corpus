@@ -34,18 +34,14 @@ function PopCounter() {
         $'#N' = next($'#N');
         PopCounter = .dummy;
         nreturn;
-    } else {
-        freturn;
-    }
+    } else freturn;
 }
 
 function TopCounter() {
     if (DIFFER($'#N')) {
         TopCounter = value($'#N');
         return;
-    } else {
-        freturn;
-    }
+    } else freturn;
 }
 
 // --- Tag stacks ---
@@ -71,18 +67,14 @@ function PopBegTag() {
         $'@B' = next($'@B');
         PopBegTag = .dummy;
         nreturn;
-    } else {
-        freturn;
-    }
+    } else freturn;
 }
 
 function TopBegTag() {
     if (DIFFER($'@B')) {
         TopBegTag = value($'@B');
         return;
-    } else {
-        freturn;
-    }
+    } else freturn;
 }
 
 function InitEndTag() {
@@ -106,16 +98,12 @@ function PopEndTag() {
         $'@E' = next($'@E');
         PopEndTag = .dummy;
         nreturn;
-    } else {
-        freturn;
-    }
+    } else freturn;
 }
 
 function TopEndTag() {
     if (DIFFER($'@E')) {
         TopEndTag = value($'@E');
         return;
-    } else {
-        freturn;
-    }
+    } else freturn;
 }

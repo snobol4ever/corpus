@@ -50,7 +50,7 @@ function StartsWith(s, prefix) {
 function EndsWith(s, suffix, n, sn) {
     // Succeeds if s ends with suffix; freturns otherwise.
     n = SIZE(s); sn = SIZE(suffix);
-    if (GT(sn, n)) { freturn; }
+    if (GT(sn, n)) freturn;
     if (IDENT(SUBSTR(s, n - sn + 1, sn), suffix)) { return; } else { freturn; }
 }
 
@@ -76,7 +76,7 @@ function Join(arr, sep, i, n, out) {
     n = arr[0]; out = ''; i = 0;
     while (LT(i, n)) {
         i = i + 1;
-        if (GT(i, 1)) { out = out   sep; }
+        if (GT(i, 1)) out = out   sep;
         out = out   arr[i];
     }
     Join = out; return;

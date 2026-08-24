@@ -21,9 +21,9 @@ function T8Pos(t8Ofs, _map, i) {
         return;
     }
     i = t8Ofs;
-    if (GT(t8Ofs, t8Max)) { t8Max = t8Ofs; }
+    if (GT(t8Ofs, t8Max)) t8Max = t8Ofs;
     while (1) {
-        if (~IDENT(_map[i], '')) { break; }
+        if (~IDENT(_map[i], '')) break;
         i = i - 1;
         if (LT(i, 0)) { T8Pos = LPAD(t8Ofs, 8); return; }
     }
@@ -31,7 +31,7 @@ function T8Pos(t8Ofs, _map, i) {
     _t8pos = t8Ofs - i + 1;
     i = t8Max;
     while (1) {
-        if (~IDENT(_map[i], '')) { break; }
+        if (~IDENT(_map[i], '')) break;
         i = i - 1;
         if (LT(i, 0)) { T8Pos = LPAD(t8Ofs, 8); return; }
     }
@@ -44,22 +44,20 @@ function T8Pos(t8Ofs, _map, i) {
 
 function T8Trace(lvl, str, ofs) {
     T8Trace = .dummy;
-    if (~GT(doDebug, 0)) { nreturn; }
-    if (~LE(lvl, doDebug)) { nreturn; }
+    if (~GT(doDebug, 0)) nreturn;
+    if (~LE(lvl, doDebug)) nreturn;
     if (~GT(doDebug, 1)) {
         // doDebug == 1: suppress ?-prefixed strings
-        if (str ? (POS(0)   '?')) { nreturn; }
+        if (str ? (POS(0)   '?')) nreturn;
         nreturn;
     }
     // doDebug > 1: expand ?-prefix to '? ', else prepend '  '
     if (str ? (POS(0)   '?')) {
         str = '? '   SUBSTR(str, 2);
-    } else {
-        str = '  '   str;
-    }
+    } else str = '  '   str;
     _t8p = T8Pos(strOfs + ofs, t8Map);
-    if (~GE(t8MaxLine, 621)) { nreturn; }
-    if (GE(t8Max, t8MaxLast)) { t8MaxLast = t8Max; }
+    if (~GE(t8MaxLine, 621)) nreturn;
+    if (GE(t8Max, t8MaxLast)) t8MaxLast = t8Max;
     OUTPUT = _t8p   str;
     nreturn;
 }

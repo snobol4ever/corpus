@@ -18,7 +18,7 @@ function LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
     i = 0;
     while (1) {
         i = i + 1;
-        if (GT(i, n)) { break; }
+        if (GT(i, n)) break;
         ch = SUBSTR(str, i, 1);
         if (IDENT(ch, nl)) {
             lmAbs = lmAbs + i;
@@ -36,7 +36,7 @@ function LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
 function Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
     // Attempt to open file — freturn if inaccessible
     INPUT(.rdContent, 8, fileName);
-    if (~DIFFER(rdContent)) { freturn; }
+    if (~DIFFER(rdContent)) freturn;
     rdMap = TABLE();
     rdOfs = 0;
     rdLineNo = 1;
@@ -44,7 +44,7 @@ function Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
     rdMap[0] = rdLineNo;
     while (1) {
         rdLine = rdContent;
-        if (~DIFFER(rdLine)) { break; }
+        if (~DIFFER(rdLine)) break;
         Read = Read   rdLine   nl;
         rdOfs = rdOfs + SIZE(rdLine) + 1;
         rdLineNo = rdLineNo + 1;

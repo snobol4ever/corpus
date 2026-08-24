@@ -38,14 +38,14 @@ function Factorial(n, acc, i) {
 function IsPrime(n, i, lim) {
     // Succeeds if n is prime; freturns otherwise.
     // Uses trial division up to ISqrt(n).
-    if (LE(n, 1)) { freturn; }
-    if (EQ(n, 2)) { return; }
-    if (IDENT(REMDR(n, 2), 0)) { freturn; }
+    if (LE(n, 1)) freturn;
+    if (EQ(n, 2)) return;
+    if (IDENT(REMDR(n, 2), 0)) freturn;
     lim = ISqrt(n); i = 1;
     while (1) {
         i = i + 2;
-        if (GT(i, lim)) { break; }
-        if (IDENT(REMDR(n, i), 0)) { freturn; }
+        if (GT(i, lim)) break;
+        if (IDENT(REMDR(n, i), 0)) freturn;
     }
     return;
 }

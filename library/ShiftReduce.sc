@@ -5,8 +5,7 @@
 // Note: 'v POS(0) whitespace =' (strip leading ws) omitted — callers pass clean values.
 
 function Shift(t, v) {
-    _s = tree(t, v, 0, '');
-    Push(_s);
+    Push(tree(t, v, 0, ''));
     if (IDENT(v, '')) {
         Shift = .value(_s);
         nreturn;
@@ -18,11 +17,8 @@ function Shift(t, v) {
 
 function Reduce(t, n, c, i, r) {
     Reduce = .dummy;
-    if (GE(n, 1)) {
-        c = ARRAY('1:'   n);
-    } else {
-        c = '';
-    }
+    if (GE(n, 1)) c = ARRAY('1:'   n);
+    else c = '';
     i = n + 1;
     while (GT(i, 1)) {
         i = i - 1;

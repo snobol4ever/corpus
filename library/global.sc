@@ -162,15 +162,11 @@ UTF[CHAR(240)   CHAR(159)   CHAR(161)   CHAR(178)] = 'WIDE_HEADED_RIGHTWARDS_MED
 // Note: ~(expr) / IDENT(x,'') do not reliably detect end-of-array in snocone x86;
 // use GT(i, SIZE(arr)) instead.
 UTF_Array = SORT(UTF);
-_utf_n = SIZE(UTF_Array);
 i = 0;
 while (1) {
     i = i + 1;
-    if (GT(i, _utf_n)) { break; }
-    _nm = UTF_Array[i, 2];
-    $_nm = UTF_Array[i, 1];
+    if (GT(i, SIZE(UTF_Array))) break;
+    $(UTF_Array[i, 2]) = UTF_Array[i, 1];
 }
 UTF_Array = '';
-_utf_n = '';
 i = '';
-_nm = '';

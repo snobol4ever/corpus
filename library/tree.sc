@@ -5,25 +5,10 @@
 
 struct tree { t, v, n, c }
 
-function MakeLeaf(type, val) {
-    MakeLeaf = tree(type, val, 0, '');
-    return;
-}
-
-function MakeNode(type, val, nc, kids) {
-    MakeNode = tree(type, val, nc, kids);
-    return;
-}
-
-function Append(x, y) {
-    Append = Insert(x, y, n(x) + 1);
-    return;
-}
-
-function Prepend(x, y) {
-    Prepend = Insert(x, y, 1);
-    return;
-}
+function MakeLeaf(type, val)            { MakeLeaf = tree(type, val, 0, ''); return; }
+function MakeNode(type, val, nc, kids)  { MakeNode = tree(type, val, nc, kids); return; }
+function Append(x, y)                   { Append = Insert(x, y, n(x) + 1); return; }
+function Prepend(x, y)                  { Prepend = Insert(x, y, 1); return; }
 
 function Insert(x, y, place, c, i) {
     Insert = x;
@@ -47,9 +32,7 @@ function Remove(x, place, c, i) {
     Remove = x;
     if (GT(n(x) - 1, 0)) {
         c = ARRAY('1:'   (n(x) - 1));
-    } else {
-        c = '';
-    }
+    } else c = '';
     i = 0;
     while (LT(i, place - 1)) {
         i = i + 1;

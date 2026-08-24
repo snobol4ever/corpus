@@ -23,7 +23,7 @@ function Push(x) {
 }
 
 function Pop(var) {
-    if (~DIFFER($'@S')) { freturn; }
+    if (~DIFFER($'@S')) freturn;
     if (IDENT(var, '')) {
         Pop = value($'@S');
         $'@S' = next($'@S');
@@ -37,7 +37,7 @@ function Pop(var) {
 }
 
 function Top() {
-    if (~DIFFER($'@S')) { freturn; }
+    if (~DIFFER($'@S')) freturn;
     Top = .value($'@S');
     nreturn;
 }
