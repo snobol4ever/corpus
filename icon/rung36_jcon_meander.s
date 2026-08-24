@@ -268,22 +268,23 @@ n20_assign_α:           mov              r11, 21
                         mov              qword ptr [rsp + 832], rax
                         mov              qword ptr [rsp + 840], rdx;          jmp   n21_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n21_disjunction_α:      mov              r11, 22
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
+n21_disjunction_α:      sub              rsp, 16
+                        mov              r11, 22
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 160], 0;            jmp   n29_var_α
 n21_disjunction_as:     mov              r11, 22
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 0;                              jne   .Lx76_0
                         mov              rax, qword ptr [rsp + 176]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 184]
-                        mov              qword ptr [rsp + 152], rax;          jmp   n16_var_ref_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n16_var_ref_α
 .Lx76_0:                cmp              eax, 1;                              jne   .Lx76_1
                         mov              rax, qword ptr [rsp + 480]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 488]
-                        mov              qword ptr [rsp + 152], rax;          jmp   n16_var_ref_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n16_var_ref_α
 .Lx76_1:                                                                      jmp   n16_var_ref_α
 n21_disjunction_β:      mov              r11, 22
                         mov              eax, dword ptr [rsp + 160]
@@ -293,7 +294,7 @@ n21_disjunction_af:     mov              r11, 22
                         add              dword ptr [rsp + 160], 1
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 1;                              je    n22_var_α
-                                                                              jmp   n16_var_ref_α
+                        add              rsp, 16;                             jmp   n16_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n22_var_α:              mov              r11, 23
                         mov              rax, qword ptr [rsp + 816]
@@ -726,22 +727,23 @@ n116_scan_enter_α:      mov              r11, 50
                         mov              r15, rdx
                         mov              r14, 0;                              jmp   n117_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n117_disjunction_α:     mov              r11, 51
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
+n117_disjunction_α:     sub              rsp, 16
+                        mov              r11, 51
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 144], 0;            jmp   n121_lit_charset_α
 n117_disjunction_as:    mov              r11, 51
                         mov              eax, dword ptr [rsp + 144]
                         cmp              eax, 0;                              jne   .Lx145_0
                         mov              rax, qword ptr [rsp + 160]
-                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [rsp + 136], rax;          jmp   n118_scan_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n118_scan_α
 .Lx145_0:               cmp              eax, 1;                              jne   .Lx145_1
                         mov              rax, qword ptr [rsp + 560]
-                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 568]
-                        mov              qword ptr [rsp + 136], rax;          jmp   n118_scan_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n118_scan_α
 .Lx145_1:                                                                     jmp   n118_scan_α
 n117_disjunction_β:     mov              r11, 51
                         mov              eax, dword ptr [rsp + 144]
@@ -751,7 +753,7 @@ n117_disjunction_af:    mov              r11, 51
                         add              dword ptr [rsp + 144], 1
                         mov              eax, dword ptr [rsp + 144]
                         cmp              eax, 1;                              je    n119_lit_string_α
-                                                                              jmp   n136_scan_α
+                        add              rsp, 16;                             jmp   n136_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n118_scan_α:            mov              r11, 52
                         mov              rax, qword ptr [rsp + 128]

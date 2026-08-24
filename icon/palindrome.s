@@ -154,9 +154,10 @@ n10_binop_test_α:       mov              r11, 11
                         mov              rax, qword ptr [rsp + 600]
                         mov              qword ptr [rsp + 56], rax;           jmp   n11_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n11_disjunction_α:      mov              r11, 12
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
+n11_disjunction_α:      sub              rsp, 16
+                        mov              r11, 12
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 288], 0;            jmp   n23_var_ref_α
 n11_disjunction_as:     mov              r11, 12
                         mov              eax, dword ptr [rsp + 288]
@@ -167,7 +168,8 @@ n11_disjunction_β:      mov              r11, 12
                         mov              eax, dword ptr [rsp + 288];          jmp   n12_var_α
 n11_disjunction_af:     mov              r11, 12
                         add              dword ptr [rsp + 288], 1
-                        mov              eax, dword ptr [rsp + 288];          jmp   n12_var_α
+                        mov              eax, dword ptr [rsp + 288]
+                        add              rsp, 16;                             jmp   n12_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_var_α:              mov              r11, 13
                         mov              rax, qword ptr [rsp + 576]

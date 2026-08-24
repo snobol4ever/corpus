@@ -14,23 +14,25 @@ FN__wordcount:
                         call             rt_icn_zframe_args_install@PLT
 wordcount_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 1088], 0;           jmp   n1_var_ref_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 1088]
                         cmp              eax, 0;                              jne   .Lx59_0
                         mov              rax, qword ptr [rsp + 1104]
-                        mov              qword ptr [rsp + 1072], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 1112]
-                        mov              qword ptr [rsp + 1080], rax;         jmp   n9_lit_integer_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n9_lit_integer_α
 .Lx59_0:                                                                      jmp   n9_lit_integer_α
 n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 1088];         jmp   n9_lit_integer_α
 n0_disjunction_af:      mov              r11, 1
                         add              dword ptr [rsp + 1088], 1
-                        mov              eax, dword ptr [rsp + 1088];         jmp   n9_lit_integer_α
+                        mov              eax, dword ptr [rsp + 1088]
+                        add              rsp, 16;                             jmp   n9_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_ref_α:           mov              r11, 2
                         mov              rax, 4294967336

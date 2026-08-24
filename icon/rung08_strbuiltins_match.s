@@ -165,22 +165,23 @@ n8_scan_enter_α:        mov              r11, 9
                         mov              r15, rdx
                         mov              r14, 0;                              jmp   n9_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n9_disjunction_α:       mov              r11, 10
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
+n9_disjunction_α:       sub              rsp, 16
+                        mov              r11, 10
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 144], 0;            jmp   n13_lit_string_α
 n9_disjunction_as:      mov              r11, 10
                         mov              eax, dword ptr [rsp + 144]
                         cmp              eax, 0;                              jne   .Lx32_0
                         mov              rax, qword ptr [rsp + 160]
-                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [rsp + 136], rax;          jmp   n10_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n10_call_builtin_icon_α
 .Lx32_0:                cmp              eax, 1;                              jne   .Lx32_1
                         mov              rax, qword ptr [rsp + 208]
-                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 216]
-                        mov              qword ptr [rsp + 136], rax;          jmp   n10_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n10_call_builtin_icon_α
 .Lx32_1:                                                                      jmp   n10_call_builtin_icon_α
 n9_disjunction_β:       mov              r11, 10
                         mov              eax, dword ptr [rsp + 144]
@@ -190,7 +191,7 @@ n9_disjunction_af:      mov              r11, 10
                         add              dword ptr [rsp + 144], 1
                         mov              eax, dword ptr [rsp + 144]
                         cmp              eax, 1;                              je    n12_lit_integer_α
-                                                                              jmp   n15_scan_α
+                        add              rsp, 16;                             jmp   n15_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_call_builtin_icon_α:
                         mov              r11, 11

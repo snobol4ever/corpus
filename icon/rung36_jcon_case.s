@@ -1246,22 +1246,23 @@ n94_conjunction_β:      mov              r11, 94;                             j
 n95_unmark_α:           mov              r11, 95
                         mov              rsp, qword ptr [rsp + 96];           jmp   n35_iterate_β
 #-----------------------------------------------------------------------------------------------------------------------
-n96_disjunction_α:      mov              r11, 96
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
+n96_disjunction_α:      sub              rsp, 16
+                        mov              r11, 96
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 2528], 0;           jmp   n99_lit_integer_α
 n96_disjunction_as:     mov              r11, 96
                         mov              eax, dword ptr [rsp + 2528]
                         cmp              eax, 0;                              jne   .Lx239_0
                         mov              rax, qword ptr [rsp + 2544]
-                        mov              qword ptr [rsp + 2512], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 2552]
-                        mov              qword ptr [rsp + 2520], rax;         jmp   n97_coret_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n97_coret_α
 .Lx239_0:               cmp              eax, 1;                              jne   .Lx239_1
                         mov              rax, qword ptr [rsp + 2560]
-                        mov              qword ptr [rsp + 2512], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 2568]
-                        mov              qword ptr [rsp + 2520], rax;         jmp   n97_coret_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n97_coret_α
 .Lx239_1:                                                                     jmp   n97_coret_α
 n96_disjunction_β:      mov              r11, 96
                         mov              eax, dword ptr [rsp + 2528]
@@ -1271,7 +1272,7 @@ n96_disjunction_af:     mov              r11, 96
                         add              dword ptr [rsp + 2528], 1
                         mov              eax, dword ptr [rsp + 2528]
                         cmp              eax, 1;                              je    n98_lit_integer_α
-                                                                              jmp   n100_cofail_α
+                        add              rsp, 16;                             jmp   n100_cofail_α
 #-----------------------------------------------------------------------------------------------------------------------
 n97_coret_α:            mov              r11, 97
                         mov              rdi, qword ptr [rsp + 2512]

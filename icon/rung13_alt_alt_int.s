@@ -19,27 +19,28 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 64], 0;             jmp   n4_lit_integer_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 64]
                         cmp              eax, 0;                              jne   .Lx6_0
                         mov              rax, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 56], rax;           jmp   n1_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_call_builtin_icon_α
 .Lx6_0:                 cmp              eax, 1;                              jne   .Lx6_1
                         mov              rax, qword ptr [rsp + 96]
-                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 56], rax;           jmp   n1_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_call_builtin_icon_α
 .Lx6_1:                 cmp              eax, 2;                              jne   .Lx6_2
                         mov              rax, qword ptr [rsp + 112]
-                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 120]
-                        mov              qword ptr [rsp + 56], rax;           jmp   n1_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_call_builtin_icon_α
 .Lx6_2:                                                                       jmp   n1_call_builtin_icon_α
 n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 64]
@@ -51,7 +52,7 @@ n0_disjunction_af:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 64]
                         cmp              eax, 1;                              je    n3_lit_integer_α
                         cmp              eax, 2;                              je    n2_lit_integer_α
-                                                                              jmp   main_ω
+                        add              rsp, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_call_builtin_icon_α: mov              r11, 2
                         mov              rax, qword ptr [rsp + 48]

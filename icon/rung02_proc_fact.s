@@ -9,9 +9,10 @@ FN__fact:
                         call             rt_icn_zframe_args_install@PLT
 fact_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 224], 0;            jmp   n11_var_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 224]
@@ -22,7 +23,8 @@ n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 224];          jmp   n1_var_α
 n0_disjunction_af:      mov              r11, 1
                         add              dword ptr [rsp + 224], 1
-                        mov              eax, dword ptr [rsp + 224];          jmp   n1_var_α
+                        mov              eax, dword ptr [rsp + 224]
+                        add              rsp, 16;                             jmp   n1_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               mov              r11, 2
                         mov              rax, qword ptr [rsp + 16]

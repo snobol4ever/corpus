@@ -25,27 +25,28 @@ n0_lit_real_α:          mov              r11, 1
                         mov              qword ptr [rsp + 72], rax;           jmp   n1_disjunction_α
 .Lx7_0:                 .quad            4613937818241073152
 #-----------------------------------------------------------------------------------------------------------------------
-n1_disjunction_α:       mov              r11, 2
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
+n1_disjunction_α:       sub              rsp, 16
+                        mov              r11, 2
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 96], 0;             jmp   n6_lit_real_α
 n1_disjunction_as:      mov              r11, 2
                         mov              eax, dword ptr [rsp + 96]
                         cmp              eax, 0;                              jne   .Lx9_0
                         mov              rax, qword ptr [rsp + 112]
-                        mov              qword ptr [rsp + 80], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 120]
-                        mov              qword ptr [rsp + 88], rax;           jmp   n2_binop_test_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n2_binop_test_α
 .Lx9_0:                 cmp              eax, 1;                              jne   .Lx9_1
                         mov              rax, qword ptr [rsp + 128]
-                        mov              qword ptr [rsp + 80], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 136]
-                        mov              qword ptr [rsp + 88], rax;           jmp   n2_binop_test_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n2_binop_test_α
 .Lx9_1:                 cmp              eax, 2;                              jne   .Lx9_2
                         mov              rax, qword ptr [rsp + 144]
-                        mov              qword ptr [rsp + 80], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [rsp + 88], rax;           jmp   n2_binop_test_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n2_binop_test_α
 .Lx9_2:                                                                       jmp   n2_binop_test_α
 n1_disjunction_β:       mov              r11, 2
                         mov              eax, dword ptr [rsp + 96]
@@ -57,7 +58,7 @@ n1_disjunction_af:      mov              r11, 2
                         mov              eax, dword ptr [rsp + 96]
                         cmp              eax, 1;                              je    n5_lit_real_α
                         cmp              eax, 2;                              je    n4_lit_real_α
-                                                                              jmp   main_ω
+                        add              rsp, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n2_binop_test_α:        mov              r11, 3
                         mov              rdi, qword ptr [rsp + 64]

@@ -117,23 +117,25 @@ FN__p:
                         call             rt_icn_zframe_args_install@PLT
 p_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n13_disjunction_α:      mov              r11, 6
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
+n13_disjunction_α:      sub              rsp, 16
+                        mov              r11, 6
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 160], 0;            jmp   n21_var_ref_α
 n13_disjunction_as:     mov              r11, 6
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 0;                              jne   .Lx28_0
                         mov              rax, qword ptr [rsp + 176]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 184]
-                        mov              qword ptr [rsp + 152], rax;          jmp   n14_var_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n14_var_α
 .Lx28_0:                                                                      jmp   n14_var_α
 n13_disjunction_β:      mov              r11, 6
                         mov              eax, dword ptr [rsp + 160];          jmp   n14_var_α
 n13_disjunction_af:     mov              r11, 6
                         add              dword ptr [rsp + 160], 1
-                        mov              eax, dword ptr [rsp + 160];          jmp   n14_var_α
+                        mov              eax, dword ptr [rsp + 160]
+                        add              rsp, 16;                             jmp   n14_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_var_α:              mov              r11, 7
                         mov              rax, qword ptr [r9 + 16]             # p__STATIC__c

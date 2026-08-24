@@ -52,23 +52,25 @@ n1_call_builtin_icon_α: mov              r11, 2
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n2_disjunction_α
 n1_call_builtin_icon_β: mov              r11, 2;                              jmp   n2_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n2_disjunction_α:       mov              r11, 3
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
+n2_disjunction_α:       sub              rsp, 16
+                        mov              r11, 3
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 128], 0;            jmp   n3_var_α
 n2_disjunction_as:      mov              r11, 3
                         mov              eax, dword ptr [rsp + 128]
                         cmp              eax, 0;                              jne   .Lx17_0
                         mov              rax, qword ptr [rsp + 144]
-                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [rsp + 120], rax;          jmp   n11_keyword_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n11_keyword_icon_α
 .Lx17_0:                                                                      jmp   n11_keyword_icon_α
 n2_disjunction_β:       mov              r11, 3
                         mov              eax, dword ptr [rsp + 128];          jmp   n11_keyword_icon_α
 n2_disjunction_af:      mov              r11, 3
                         add              dword ptr [rsp + 128], 1
-                        mov              eax, dword ptr [rsp + 128];          jmp   n11_keyword_icon_α
+                        mov              eax, dword ptr [rsp + 128]
+                        add              rsp, 16;                             jmp   n11_keyword_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_var_α:               mov              r11, 4
                         mov              rax, qword ptr [rsp + 16]

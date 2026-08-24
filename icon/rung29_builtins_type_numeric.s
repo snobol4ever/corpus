@@ -139,7 +139,8 @@ n5_call_builtin_icon_α: mov              r11, 6
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n6_disjunction_α
 n5_call_builtin_icon_β: mov              r11, 6;                              jmp   n6_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n6_disjunction_α:       mov              r11, 7
+n6_disjunction_α:       sub              rsp, 16
+                        mov              r11, 7
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 16], 0;             jmp   n9_lit_string_α
@@ -164,7 +165,7 @@ n6_disjunction_af:      mov              r11, 7
                         add              dword ptr [rsp + 16], 1
                         mov              eax, dword ptr [rsp + 16]
                         cmp              eax, 1;                              je    n7_lit_string_α
-                                                                              jmp   main_ω
+                        add              rsp, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n7_lit_string_α:        mov              r11, 8
                         mov              qword ptr [rsp + 208], 2             # result

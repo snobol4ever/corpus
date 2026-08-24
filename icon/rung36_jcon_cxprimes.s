@@ -34,9 +34,10 @@ n2_assign_α:            mov              r11, 3
                         mov              qword ptr [rsp + 272], rax
                         mov              qword ptr [rsp + 280], rdx;          jmp   n3_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n3_disjunction_α:       mov              r11, 4
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
+n3_disjunction_α:       sub              rsp, 16
+                        mov              r11, 4
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 112], 0;            jmp   n4_var_α
 n3_disjunction_as:      mov              r11, 4
                         mov              eax, dword ptr [rsp + 112]
@@ -47,7 +48,8 @@ n3_disjunction_β:       mov              r11, 4
                         mov              eax, dword ptr [rsp + 112];          jmp   n0_var_α
 n3_disjunction_af:      mov              r11, 4
                         add              dword ptr [rsp + 112], 1
-                        mov              eax, dword ptr [rsp + 112];          jmp   n0_var_α
+                        mov              eax, dword ptr [rsp + 112]
+                        add              rsp, 16;                             jmp   n0_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_var_α:               mov              r11, 5
                         mov              rax, qword ptr [rsp + 272]

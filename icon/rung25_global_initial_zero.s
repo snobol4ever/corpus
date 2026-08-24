@@ -9,23 +9,25 @@ FN__counter:
                         call             rt_icn_zframe_args_install@PLT
 counter_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 160], 0;            jmp   n8_var_ref_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 0;                              jne   .Lx15_0
                         mov              rax, qword ptr [rsp + 176]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 184]
-                        mov              qword ptr [rsp + 152], rax;          jmp   n1_var_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_var_α
 .Lx15_0:                                                                      jmp   n1_var_α
 n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 160];          jmp   n1_var_α
 n0_disjunction_af:      mov              r11, 1
                         add              dword ptr [rsp + 160], 1
-                        mov              eax, dword ptr [rsp + 160];          jmp   n1_var_α
+                        mov              eax, dword ptr [rsp + 160]
+                        add              rsp, 16;                             jmp   n1_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:               mov              r11, 2
                         mov              rax, qword ptr [r9 + 0]              # counter__STATIC__n

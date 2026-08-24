@@ -24,37 +24,38 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 128], 0;            jmp   n11_lit_integer_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 128]
                         cmp              eax, 0;                              jne   .Lx13_0
                         mov              rax, qword ptr [rsp + 144]
-                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [rsp + 120], rax;          jmp   n1_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_assign_α
 .Lx13_0:                cmp              eax, 1;                              jne   .Lx13_1
                         mov              rax, qword ptr [rsp + 160]
-                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [rsp + 120], rax;          jmp   n1_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_assign_α
 .Lx13_1:                cmp              eax, 2;                              jne   .Lx13_2
                         mov              rax, qword ptr [rsp + 176]
-                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 184]
-                        mov              qword ptr [rsp + 120], rax;          jmp   n1_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_assign_α
 .Lx13_2:                cmp              eax, 3;                              jne   .Lx13_3
                         mov              rax, qword ptr [rsp + 192]
-                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 200]
-                        mov              qword ptr [rsp + 120], rax;          jmp   n1_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_assign_α
 .Lx13_3:                cmp              eax, 4;                              jne   .Lx13_4
                         mov              rax, qword ptr [rsp + 208]
-                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 216]
-                        mov              qword ptr [rsp + 120], rax;          jmp   n1_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_assign_α
 .Lx13_4:                                                                      jmp   n1_assign_α
 n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 128]
@@ -70,7 +71,7 @@ n0_disjunction_af:      mov              r11, 1
                         cmp              eax, 2;                              je    n9_lit_integer_α
                         cmp              eax, 3;                              je    n8_lit_integer_α
                         cmp              eax, 4;                              je    n7_lit_integer_α
-                                                                              jmp   main_ω
+                        add              rsp, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_assign_α:            mov              r11, 2
                         mov              rax, qword ptr [rsp + 112]

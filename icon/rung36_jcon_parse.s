@@ -652,22 +652,23 @@ n37_call_builtin_icon_α:
 n37_call_builtin_icon_β:
                         mov              r11, 26;                             jmp   n35_call_value_β
 #-----------------------------------------------------------------------------------------------------------------------
-n38_disjunction_α:      mov              r11, 27
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
+n38_disjunction_α:      sub              rsp, 16
+                        mov              r11, 27
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 576], 0;            jmp   n61_lit_integer_α
 n38_disjunction_as:     mov              r11, 27
                         mov              eax, dword ptr [rsp + 576]
                         cmp              eax, 0;                              jne   .Lx96_0
                         mov              rax, qword ptr [rsp + 592]
-                        mov              qword ptr [rsp + 560], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 600]
-                        mov              qword ptr [rsp + 568], rax;          jmp   n39_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n39_call_builtin_icon_α
 .Lx96_0:                cmp              eax, 1;                              jne   .Lx96_1
                         mov              rax, qword ptr [rsp + 672]
-                        mov              qword ptr [rsp + 560], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 680]
-                        mov              qword ptr [rsp + 568], rax;          jmp   n39_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n39_call_builtin_icon_α
 .Lx96_1:                                                                      jmp   n39_call_builtin_icon_α
 n38_disjunction_β:      mov              r11, 27
                         mov              eax, dword ptr [rsp + 576]
@@ -677,7 +678,7 @@ n38_disjunction_af:     mov              r11, 27
                         add              dword ptr [rsp + 576], 1
                         mov              eax, dword ptr [rsp + 576]
                         cmp              eax, 1;                              je    n60_lit_string_α
-                                                                              jmp   n40_lit_integer_α
+                        add              rsp, 16;                             jmp   n40_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n39_call_builtin_icon_α:
                         mov              r11, 28

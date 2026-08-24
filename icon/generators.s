@@ -158,9 +158,10 @@ n26_assign_α:           mov              r11, 12
 n27_bound_α:            mov              r11, 13
                         mov              qword ptr [rsp + 112], rsp;          jmp   n28_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n28_disjunction_α:      mov              r11, 14
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
+n28_disjunction_α:      sub              rsp, 16
+                        mov              r11, 14
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 176], 0;            jmp   n29_var_α
 n28_disjunction_as:     mov              r11, 14
                         mov              eax, dword ptr [rsp + 176]
@@ -171,7 +172,8 @@ n28_disjunction_β:      mov              r11, 14
                         mov              eax, dword ptr [rsp + 176];          jmp   n38_unmark_α
 n28_disjunction_af:     mov              r11, 14
                         add              dword ptr [rsp + 176], 1
-                        mov              eax, dword ptr [rsp + 176];          jmp   n38_unmark_α
+                        mov              eax, dword ptr [rsp + 176]
+                        add              rsp, 16;                             jmp   n38_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_var_α:              mov              r11, 15
                         mov              rax, qword ptr [rsp + 16]
@@ -1072,9 +1074,10 @@ n135_assign_α:          mov              r11, 64
                         mov              qword ptr [rsp + 592], rax
                         mov              qword ptr [rsp + 600], rdx;          jmp   n136_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n136_disjunction_α:     mov              r11, 65
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
+n136_disjunction_α:     sub              rsp, 16
+                        mov              r11, 65
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 240], 0;            jmp   n138_var_α
 n136_disjunction_as:    mov              r11, 65
                         mov              eax, dword ptr [rsp + 240]
@@ -1085,7 +1088,8 @@ n136_disjunction_β:     mov              r11, 65
                         mov              eax, dword ptr [rsp + 240];          jmp   n143_unmark_α
 n136_disjunction_af:    mov              r11, 65
                         add              dword ptr [rsp + 240], 1
-                        mov              eax, dword ptr [rsp + 240];          jmp   n143_unmark_α
+                        mov              eax, dword ptr [rsp + 240]
+                        add              rsp, 16;                             jmp   n143_unmark_α
 #-----------------------------------------------------------------------------------------------------------------------
 n137_conjunction_α:     mov              r11, 66
                         mov              rax, qword ptr [rsp + 224]

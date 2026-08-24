@@ -19,7 +19,8 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 16], 0;             jmp   n3_call_builtin_icon_α
@@ -44,7 +45,7 @@ n0_disjunction_af:      mov              r11, 1
                         add              dword ptr [rsp + 16], 1
                         mov              eax, dword ptr [rsp + 16]
                         cmp              eax, 1;                              je    n1_lit_string_α
-                                                                              jmp   main_ω
+                        add              rsp, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_string_α:        mov              r11, 2
                         mov              qword ptr [rsp + 176], 2             # result

@@ -14,23 +14,25 @@ FN__rtest:
                         call             rt_icn_zframe_args_install@PLT
 rtest_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 3328], 0;           jmp   n1_var_ref_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 3328]
                         cmp              eax, 0;                              jne   .Lx149_0
                         mov              rax, qword ptr [rsp + 3360]
-                        mov              qword ptr [rsp + 3312], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 3368]
-                        mov              qword ptr [rsp + 3320], rax;         jmp   n42_call_builtin_icon_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n42_call_builtin_icon_α
 .Lx149_0:                                                                     jmp   n42_call_builtin_icon_α
 n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 3328];         jmp   n42_call_builtin_icon_α
 n0_disjunction_af:      mov              r11, 1
                         add              dword ptr [rsp + 3328], 1
-                        mov              eax, dword ptr [rsp + 3328];         jmp   n42_call_builtin_icon_α
+                        mov              eax, dword ptr [rsp + 3328]
+                        add              rsp, 16;                             jmp   n42_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_ref_α:           mov              r11, 2
                         mov              rax, 4294967336

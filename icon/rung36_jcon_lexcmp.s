@@ -9,22 +9,23 @@ FN__wr:
                         call             rt_icn_zframe_args_install@PLT
 wr_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_disjunction_α:       mov              r11, 1
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
+n0_disjunction_α:       sub              rsp, 16
+                        mov              r11, 1
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 160], 0;            jmp   n6_var_α
 n0_disjunction_as:      mov              r11, 1
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 0;                              jne   .Lx10_0
                         mov              rax, qword ptr [rsp + 176]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 184]
-                        mov              qword ptr [rsp + 152], rax;          jmp   n1_lit_integer_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_lit_integer_α
 .Lx10_0:                cmp              eax, 1;                              jne   .Lx10_1
                         mov              rax, qword ptr [rsp + 256]
-                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 264]
-                        mov              qword ptr [rsp + 152], rax;          jmp   n1_lit_integer_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n1_lit_integer_α
 .Lx10_1:                                                                      jmp   n1_lit_integer_α
 n0_disjunction_β:       mov              r11, 1
                         mov              eax, dword ptr [rsp + 160]
@@ -34,7 +35,7 @@ n0_disjunction_af:      mov              r11, 1
                         add              dword ptr [rsp + 160], 1
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 1;                              je    n5_lit_string_α
-                                                                              jmp   n4_return_α
+                        add              rsp, 16;                             jmp   n4_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:       mov              r11, 2
                         mov              qword ptr [rsp + 272], 3             # result
@@ -258,47 +259,48 @@ n25_call_builtin_icon_α:
 n25_call_builtin_icon_β:
                         mov              r11, 11;                             jmp   n26_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n26_disjunction_α:      mov              r11, 12
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
+n26_disjunction_α:      sub              rsp, 16
+                        mov              r11, 12
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 176], 0;            jmp   n86_lit_string_α
 n26_disjunction_as:     mov              r11, 12
                         mov              eax, dword ptr [rsp + 176]
                         cmp              eax, 0;                              jne   .Lx91_0
                         mov              rax, qword ptr [rsp + 192]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 200]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_0:                cmp              eax, 1;                              jne   .Lx91_1
                         mov              rax, qword ptr [rsp + 208]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 216]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_1:                cmp              eax, 2;                              jne   .Lx91_2
                         mov              rax, qword ptr [rsp + 224]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 232]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_2:                cmp              eax, 3;                              jne   .Lx91_3
                         mov              rax, qword ptr [rsp + 240]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 248]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_3:                cmp              eax, 4;                              jne   .Lx91_4
                         mov              rax, qword ptr [rsp + 256]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 264]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_4:                cmp              eax, 5;                              jne   .Lx91_5
                         mov              rax, qword ptr [rsp + 272]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 280]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_5:                cmp              eax, 6;                              jne   .Lx91_6
                         mov              rax, qword ptr [rsp + 288]
-                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 296]
-                        mov              qword ptr [rsp + 168], rax;          jmp   n27_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n27_assign_α
 .Lx91_6:                                                                      jmp   n27_assign_α
 n26_disjunction_β:      mov              r11, 12
                         mov              eax, dword ptr [rsp + 176]
@@ -318,7 +320,7 @@ n26_disjunction_af:     mov              r11, 12
                         cmp              eax, 4;                              je    n82_lit_string_α
                         cmp              eax, 5;                              je    n81_lit_integer_α
                         cmp              eax, 6;                              je    n80_lit_charset_α
-                                                                              jmp   main_ω
+                        add              rsp, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n27_assign_α:           mov              r11, 13
                         mov              rax, qword ptr [rsp + 160]
@@ -326,37 +328,38 @@ n27_assign_α:           mov              r11, 13
                         mov              qword ptr [rsp + 1568], rax
                         mov              qword ptr [rsp + 1576], rdx;         jmp   n28_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
-n28_disjunction_α:      mov              r11, 14
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
+n28_disjunction_α:      sub              rsp, 16
+                        mov              r11, 14
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 48], 0;             jmp   n79_lit_string_α
 n28_disjunction_as:     mov              r11, 14
                         mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 0;                              jne   .Lx94_0
                         mov              rax, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], rax;           jmp   n29_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n29_assign_α
 .Lx94_0:                cmp              eax, 1;                              jne   .Lx94_1
                         mov              rax, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 40], rax;           jmp   n29_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n29_assign_α
 .Lx94_1:                cmp              eax, 2;                              jne   .Lx94_2
                         mov              rax, qword ptr [rsp + 96]
-                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 40], rax;           jmp   n29_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n29_assign_α
 .Lx94_2:                cmp              eax, 3;                              jne   .Lx94_3
                         mov              rax, qword ptr [rsp + 112]
-                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 120]
-                        mov              qword ptr [rsp + 40], rax;           jmp   n29_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n29_assign_α
 .Lx94_3:                cmp              eax, 4;                              jne   .Lx94_4
                         mov              rax, qword ptr [rsp + 128]
-                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 136]
-                        mov              qword ptr [rsp + 40], rax;           jmp   n29_assign_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n29_assign_α
 .Lx94_4:                                                                      jmp   n29_assign_α
 n28_disjunction_β:      mov              r11, 14
                         mov              eax, dword ptr [rsp + 48]
@@ -372,7 +375,7 @@ n28_disjunction_af:     mov              r11, 14
                         cmp              eax, 2;                              je    n77_lit_string_α
                         cmp              eax, 3;                              je    n76_lit_charset_α
                         cmp              eax, 4;                              je    n75_lit_charset_α
-                                                                              jmp   n26_disjunction_β
+                        add              rsp, 16;                             jmp   n26_disjunction_β
 #-----------------------------------------------------------------------------------------------------------------------
 n29_assign_α:           mov              r11, 15
                         mov              rax, qword ptr [rsp + 32]
@@ -462,22 +465,23 @@ n35_call_proc_staged_β: mov              r11, 21;                             j
 .Lx106_0:               .quad            .Lx106_0_s
 .Lx106_0_s:             .string          "wr"
 #-----------------------------------------------------------------------------------------------------------------------
-n36_disjunction_α:      mov              r11, 22
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
+n36_disjunction_α:      sub              rsp, 16
+                        mov              r11, 22
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 1264], 0;           jmp   n72_var_α
 n36_disjunction_as:     mov              r11, 22
                         mov              eax, dword ptr [rsp + 1264]
                         cmp              eax, 0;                              jne   .Lx108_0
                         mov              rax, qword ptr [rsp + 1280]
-                        mov              qword ptr [rsp + 1248], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 1288]
-                        mov              qword ptr [rsp + 1256], rax;         jmp   n37_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n37_call_proc_staged_α
 .Lx108_0:               cmp              eax, 1;                              jne   .Lx108_1
                         mov              rax, qword ptr [rsp + 1328]
-                        mov              qword ptr [rsp + 1248], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 1336]
-                        mov              qword ptr [rsp + 1256], rax;         jmp   n37_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n37_call_proc_staged_α
 .Lx108_1:                                                                     jmp   n37_call_proc_staged_α
 n36_disjunction_β:      mov              r11, 22
                         mov              eax, dword ptr [rsp + 1264]
@@ -487,7 +491,7 @@ n36_disjunction_af:     mov              r11, 22
                         add              dword ptr [rsp + 1264], 1
                         mov              eax, dword ptr [rsp + 1264]
                         cmp              eax, 1;                              je    n71_keyword_icon_α
-                                                                              jmp   n38_disjunction_α
+                        add              rsp, 16;                             jmp   n38_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 n37_call_proc_staged_α: mov              r11, 23
                         lea              rsi, [rsp + 1248]
@@ -518,22 +522,23 @@ n37_call_proc_staged_β: mov              r11, 23;                             j
 .Lx110_0:               .quad            .Lx110_0_s
 .Lx110_0_s:             .string          "wr"
 #-----------------------------------------------------------------------------------------------------------------------
-n38_disjunction_α:      mov              r11, 24
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
+n38_disjunction_α:      sub              rsp, 16
+                        mov              r11, 24
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 1104], 0;           jmp   n68_var_α
 n38_disjunction_as:     mov              r11, 24
                         mov              eax, dword ptr [rsp + 1104]
                         cmp              eax, 0;                              jne   .Lx112_0
                         mov              rax, qword ptr [rsp + 1120]
-                        mov              qword ptr [rsp + 1088], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 1128]
-                        mov              qword ptr [rsp + 1096], rax;         jmp   n39_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n39_call_proc_staged_α
 .Lx112_0:               cmp              eax, 1;                              jne   .Lx112_1
                         mov              rax, qword ptr [rsp + 1168]
-                        mov              qword ptr [rsp + 1088], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 1176]
-                        mov              qword ptr [rsp + 1096], rax;         jmp   n39_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n39_call_proc_staged_α
 .Lx112_1:                                                                     jmp   n39_call_proc_staged_α
 n38_disjunction_β:      mov              r11, 24
                         mov              eax, dword ptr [rsp + 1104]
@@ -543,7 +548,7 @@ n38_disjunction_af:     mov              r11, 24
                         add              dword ptr [rsp + 1104], 1
                         mov              eax, dword ptr [rsp + 1104]
                         cmp              eax, 1;                              je    n67_keyword_icon_α
-                                                                              jmp   n40_disjunction_α
+                        add              rsp, 16;                             jmp   n40_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 n39_call_proc_staged_α: mov              r11, 25
                         lea              rsi, [rsp + 1088]
@@ -574,22 +579,23 @@ n39_call_proc_staged_β: mov              r11, 25;                             j
 .Lx114_0:               .quad            .Lx114_0_s
 .Lx114_0_s:             .string          "wr"
 #-----------------------------------------------------------------------------------------------------------------------
-n40_disjunction_α:      mov              r11, 26
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
+n40_disjunction_α:      sub              rsp, 16
+                        mov              r11, 26
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 944], 0;            jmp   n64_var_α
 n40_disjunction_as:     mov              r11, 26
                         mov              eax, dword ptr [rsp + 944]
                         cmp              eax, 0;                              jne   .Lx116_0
                         mov              rax, qword ptr [rsp + 960]
-                        mov              qword ptr [rsp + 928], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 968]
-                        mov              qword ptr [rsp + 936], rax;          jmp   n41_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n41_call_proc_staged_α
 .Lx116_0:               cmp              eax, 1;                              jne   .Lx116_1
                         mov              rax, qword ptr [rsp + 1008]
-                        mov              qword ptr [rsp + 928], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 1016]
-                        mov              qword ptr [rsp + 936], rax;          jmp   n41_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n41_call_proc_staged_α
 .Lx116_1:                                                                     jmp   n41_call_proc_staged_α
 n40_disjunction_β:      mov              r11, 26
                         mov              eax, dword ptr [rsp + 944]
@@ -599,7 +605,7 @@ n40_disjunction_af:     mov              r11, 26
                         add              dword ptr [rsp + 944], 1
                         mov              eax, dword ptr [rsp + 944]
                         cmp              eax, 1;                              je    n63_keyword_icon_α
-                                                                              jmp   n42_disjunction_α
+                        add              rsp, 16;                             jmp   n42_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 n41_call_proc_staged_α: mov              r11, 27
                         lea              rsi, [rsp + 928]
@@ -630,22 +636,23 @@ n41_call_proc_staged_β: mov              r11, 27;                             j
 .Lx118_0:               .quad            .Lx118_0_s
 .Lx118_0_s:             .string          "wr"
 #-----------------------------------------------------------------------------------------------------------------------
-n42_disjunction_α:      mov              r11, 28
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
+n42_disjunction_α:      sub              rsp, 16
+                        mov              r11, 28
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 784], 0;            jmp   n60_var_α
 n42_disjunction_as:     mov              r11, 28
                         mov              eax, dword ptr [rsp + 784]
                         cmp              eax, 0;                              jne   .Lx120_0
                         mov              rax, qword ptr [rsp + 800]
-                        mov              qword ptr [rsp + 768], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 808]
-                        mov              qword ptr [rsp + 776], rax;          jmp   n43_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n43_call_proc_staged_α
 .Lx120_0:               cmp              eax, 1;                              jne   .Lx120_1
                         mov              rax, qword ptr [rsp + 848]
-                        mov              qword ptr [rsp + 768], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 856]
-                        mov              qword ptr [rsp + 776], rax;          jmp   n43_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n43_call_proc_staged_α
 .Lx120_1:                                                                     jmp   n43_call_proc_staged_α
 n42_disjunction_β:      mov              r11, 28
                         mov              eax, dword ptr [rsp + 784]
@@ -655,7 +662,7 @@ n42_disjunction_af:     mov              r11, 28
                         add              dword ptr [rsp + 784], 1
                         mov              eax, dword ptr [rsp + 784]
                         cmp              eax, 1;                              je    n59_keyword_icon_α
-                                                                              jmp   n44_disjunction_α
+                        add              rsp, 16;                             jmp   n44_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 n43_call_proc_staged_α: mov              r11, 29
                         lea              rsi, [rsp + 768]
@@ -686,22 +693,23 @@ n43_call_proc_staged_β: mov              r11, 29;                             j
 .Lx122_0:               .quad            .Lx122_0_s
 .Lx122_0_s:             .string          "wr"
 #-----------------------------------------------------------------------------------------------------------------------
-n44_disjunction_α:      mov              r11, 30
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
+n44_disjunction_α:      sub              rsp, 16
+                        mov              r11, 30
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 624], 0;            jmp   n56_var_α
 n44_disjunction_as:     mov              r11, 30
                         mov              eax, dword ptr [rsp + 624]
                         cmp              eax, 0;                              jne   .Lx124_0
                         mov              rax, qword ptr [rsp + 640]
-                        mov              qword ptr [rsp + 608], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 648]
-                        mov              qword ptr [rsp + 616], rax;          jmp   n45_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n45_call_proc_staged_α
 .Lx124_0:               cmp              eax, 1;                              jne   .Lx124_1
                         mov              rax, qword ptr [rsp + 688]
-                        mov              qword ptr [rsp + 608], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 696]
-                        mov              qword ptr [rsp + 616], rax;          jmp   n45_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n45_call_proc_staged_α
 .Lx124_1:                                                                     jmp   n45_call_proc_staged_α
 n44_disjunction_β:      mov              r11, 30
                         mov              eax, dword ptr [rsp + 624]
@@ -711,7 +719,7 @@ n44_disjunction_af:     mov              r11, 30
                         add              dword ptr [rsp + 624], 1
                         mov              eax, dword ptr [rsp + 624]
                         cmp              eax, 1;                              je    n55_keyword_icon_α
-                                                                              jmp   n46_disjunction_α
+                        add              rsp, 16;                             jmp   n46_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 n45_call_proc_staged_α: mov              r11, 31
                         lea              rsi, [rsp + 608]
@@ -742,22 +750,23 @@ n45_call_proc_staged_β: mov              r11, 31;                             j
 .Lx126_0:               .quad            .Lx126_0_s
 .Lx126_0_s:             .string          "wr"
 #-----------------------------------------------------------------------------------------------------------------------
-n46_disjunction_α:      mov              r11, 32
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
+n46_disjunction_α:      sub              rsp, 16
+                        mov              r11, 32
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                         mov              dword ptr [rsp + 464], 0;            jmp   n52_var_α
 n46_disjunction_as:     mov              r11, 32
                         mov              eax, dword ptr [rsp + 464]
                         cmp              eax, 0;                              jne   .Lx128_0
                         mov              rax, qword ptr [rsp + 480]
-                        mov              qword ptr [rsp + 448], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 488]
-                        mov              qword ptr [rsp + 456], rax;          jmp   n47_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n47_call_proc_staged_α
 .Lx128_0:               cmp              eax, 1;                              jne   .Lx128_1
                         mov              rax, qword ptr [rsp + 528]
-                        mov              qword ptr [rsp + 448], rax
+                        mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [rsp + 536]
-                        mov              qword ptr [rsp + 456], rax;          jmp   n47_call_proc_staged_α
+                        mov              qword ptr [rsp + 8], rax;            jmp   n47_call_proc_staged_α
 .Lx128_1:                                                                     jmp   n47_call_proc_staged_α
 n46_disjunction_β:      mov              r11, 32
                         mov              eax, dword ptr [rsp + 464]
@@ -767,7 +776,7 @@ n46_disjunction_af:     mov              r11, 32
                         add              dword ptr [rsp + 464], 1
                         mov              eax, dword ptr [rsp + 464]
                         cmp              eax, 1;                              je    n51_keyword_icon_α
-                                                                              jmp   n48_call_builtin_icon_α
+                        add              rsp, 16;                             jmp   n48_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n47_call_proc_staged_α: mov              r11, 33
                         lea              rsi, [rsp + 448]
