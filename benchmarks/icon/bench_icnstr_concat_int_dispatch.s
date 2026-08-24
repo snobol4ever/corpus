@@ -132,13 +132,13 @@ n9_binop_α:             mov              r11, 10
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_mod@PLT
-                        cmp              al, 104;                             je    n12_unmark_α
-                        mov              qword ptr [rsp + 240], rax
-                        mov              qword ptr [rsp + 248], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n10_binop_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n12_unmark_α
+                        mov              qword ptr [rsp + 240], rax
+                        mov              qword ptr [rsp + 248], rdx;          jmp   n10_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_binop_α:            mov              r11, 11
                         mov              rdi, qword ptr [rsp + 224]
@@ -203,13 +203,14 @@ n15_call_builtin_icon_α:
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
                         call             rt_call_arr_bl@PLT
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
-                        cmp              al, 104;                             je    main_ω
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   main_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              al, 104;                             je    main_ω
+                                                                              jmp   main_γ
 n15_call_builtin_icon_β:
                         mov              r11, 16;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
