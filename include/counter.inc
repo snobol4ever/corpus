@@ -1,37 +1,37 @@
 *---------------------------------------------------------------------------------------------------
-* A stack of counters. To be used with conditional assignment within pattern matching.
-* These routines are useful for counting items on the stack at multiple nesting levels which
-* are suitable for reduction on the stack.
-* Global: $'#N' -- link_counter()
+*           A stack of counters. To be used with conditional assignment within pattern matching.
+*           These routines are useful for counting items on the stack at multiple nesting levels
+*           which are suitable for reduction on the stack.
+*           Global: $'#N' -- link_counter()
 *---------------------------------------------------------------------------------------------------
-              DEFINE('InitCounter()')
-              DEFINE('PushCounter()')
-              DEFINE('IncCounter()')
-              DEFINE('DecCounter()')
-              DEFINE('TopCounter()')
-              DEFINE('PopCounter()')
-              DATA('link_counter(next,value)')                                      :(CounterEnd)
-InitCounter   $'#N'          =                                                      :(RETURN)
-PushCounter   OUTPUT         =    GT(xTrace, 4) 'PushCounter()'
-              $'#N'          =    link_counter($'#N', 0)
-              PushCounter    =    .dummy                                            :(NRETURN)
-IncCounter    value($'#N')   =    value($'#N') + 1
-              OUTPUT         =    GT(xTrace, 4) value($'#N') ' = IncCounter()'
-              IncCounter     =    .dummy                                            :(NRETURN)
-DecCounter    value($'#N')   =    value($'#N') - 1
-              OUTPUT         =    GT(xTrace, 4) value($'#N') ' = DecCounter()'
-              DecCounter     =    .dummy                                            :(NRETURN)
-PopCounter    OUTPUT         =    GT(xTrace, 4) 'PopCounter()'
-              $'#N'          =    DIFFER($'#N') next($'#N')                         :F(FRETURN)
-              PopCounter     =    .dummy                                            :(NRETURN)
-TopCounter    TopCounter     =    DIFFER($'#N') value($'#N')                        :F(FRETURN)
-              OUTPUT         =    GT(xTrace, 4) TopCounter ' = TopCounter()'        :(RETURN)
+            DEFINE('InitCounter()')
+            DEFINE('PushCounter()')
+            DEFINE('IncCounter()')
+            DEFINE('DecCounter()')
+            DEFINE('TopCounter()')
+            DEFINE('PopCounter()')
+            DATA('link_counter(next,value)')  :(CounterEnd)
+InitCounter $'#N' =  :(RETURN)
+PushCounter OUTPUT = GT(xTrace, 4) 'PushCounter()'
+            $'#N' = link_counter($'#N', 0)
+            PushCounter = .dummy  :(NRETURN)
+IncCounter  value($'#N') = value($'#N') + 1
+            OUTPUT = GT(xTrace, 4) value($'#N') ' = IncCounter()'
+            IncCounter = .dummy  :(NRETURN)
+DecCounter  value($'#N') = value($'#N') - 1
+            OUTPUT = GT(xTrace, 4) value($'#N') ' = DecCounter()'
+            DecCounter = .dummy  :(NRETURN)
+PopCounter  OUTPUT = GT(xTrace, 4) 'PopCounter()'
+            $'#N' = DIFFER($'#N') next($'#N')  :F(FRETURN)
+            PopCounter = .dummy  :(NRETURN)
+TopCounter  TopCounter = DIFFER($'#N') value($'#N')  :F(FRETURN)
+            OUTPUT  = GT(xTrace, 4) TopCounter ' = TopCounter()'  :(RETURN)
 CounterEnd
 *---------------------------------------------------------------------------------------------------
-* A stack of XML or HTML begin and end tags. To be used with unconditional assignment within
-* pattern matching.
-* Global: $'@B' -- link_tag()
-*         $'@E' -- link_tag()
+*           A stack of XML or HTML begin and end tags. To be used with unconditional assignment
+*           within pattern matching.
+*           Global: $'@B' -- link_tag()
+*                   $'@E' -- link_tag()
 *---------------------------------------------------------------------------------------------------
             DATA('link_tag(next,value)')
 *---------------------------------------------------------------------------------------------------
@@ -83,3 +83,4 @@ DumpEndTag3 v               =   DIFFER(e) value(e)                          :F(D
 DumpEndTag9 OUTPUT          =   '@E = (' list ')'                           :(NRETURN)
 EndTagEnd
 *---------------------------------------------------------------------------------------------------
+-
