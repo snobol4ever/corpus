@@ -8424,9 +8424,12 @@ n777_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx789_1
+                        lea              rcx, [rip + .Lx789_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx789_3]
-                        lea              rdx, [rip + .Lx789_4];               jmp   rax
-.Lx789_3:               mov              qword ptr [rsp + 264], rsp
+                        push             rcx;                                 jmp   rax
+.Lx789_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 264], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx789_5
@@ -8440,7 +8443,8 @@ n777_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx789_2
 .Lx789_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx789_2
-.Lx789_4:               mov              rax, qword ptr [rsp + 256]
+.Lx789_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx789_6
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8

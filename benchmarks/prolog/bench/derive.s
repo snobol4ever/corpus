@@ -9650,9 +9650,12 @@ n921_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx933_1
+                        lea              rcx, [rip + .Lx933_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx933_3]
-                        lea              rdx, [rip + .Lx933_4];               jmp   rax
-.Lx933_3:               mov              qword ptr [rsp + 264], rsp
+                        push             rcx;                                 jmp   rax
+.Lx933_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 264], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx933_5
@@ -9666,7 +9669,8 @@ n921_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx933_2
 .Lx933_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx933_2
-.Lx933_4:               mov              rax, qword ptr [rsp + 256]
+.Lx933_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx933_6
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8

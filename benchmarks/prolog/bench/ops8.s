@@ -8384,9 +8384,12 @@ n779_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lx791_1
+                        lea              rcx, [rip + .Lx791_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx791_3]
-                        lea              rdx, [rip + .Lx791_4];               jmp   rax
-.Lx791_3:               mov              qword ptr [rsp + 264], rsp
+                        push             rcx;                                 jmp   rax
+.Lx791_3:               add              rsp, 16
+                        mov              qword ptr [rsp + 264], rsp
                         add              rsp, 8
                         mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx791_5
@@ -8400,7 +8403,8 @@ n779_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lx791_2
 .Lx791_5:               call             rt_gen_spine_pass_γ@PLT;             jmp   .Lx791_2
-.Lx791_4:               mov              rax, qword ptr [rsp + 256]
+.Lx791_4:               add              rsp, 16
+                        mov              rax, qword ptr [rsp + 256]
                         test             rax, rax;                            jne   .Lx791_6
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8
