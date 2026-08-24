@@ -1,4 +1,4 @@
-procedure main()
+procedure main();
   L := [10, 20, 30];
   every v := !L do {
     w := v + 100;

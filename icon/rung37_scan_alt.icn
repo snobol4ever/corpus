@@ -2,7 +2,7 @@
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
 # External beta advances to next subject, never resumes body generator.
-procedure main()
+procedure main();
    local n;
 
    # Non-generative body: move(1) grabs first char; one result per subject
@@ -21,5 +21,5 @@ procedure main()
 
    # Scan failure on first subject ("abc" too short), second succeeds
    every write(("abc"|"abcdef") ? move(5));
-   write()
+   write();
 end

@@ -1,5 +1,5 @@
 # rung37_cset_ops.icn -- IJ-15: cset literal, cset() builtin, cset ops, augmented ops
-procedure main()
+procedure main();
    local cs, cs2, cs3;
    # cset literal type
    cs := 'abc';

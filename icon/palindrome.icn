@@ -1,6 +1,6 @@
 # SCRIP DEMO4 -- Palindrome (Icon section)
 # Idiom: subscript walk inward from both ends
-procedure palindrome(s)
+procedure palindrome(s);
     s := map(s);
     i := 1;
     j := *s;
@@ -12,7 +12,7 @@ procedure palindrome(s)
     return "yes";
 end
 
-procedure main()
+procedure main();
     write(palindrome("racecar"));
     write(palindrome("hello"));
     write(palindrome("level"));

@@ -1,4 +1,4 @@
-procedure show(n)
+procedure show(n);
     local i;
     every i := 1 to n do {
         write(i);

@@ -11,6 +11,6 @@ procedure main();
             n +:= 0
             }
          }
-      }
+      };
    write("iters=", n, " (expect 3)");
 end

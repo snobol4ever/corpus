@@ -1,4 +1,4 @@
-procedure main()
+procedure main();
   x := 7 % 3;
-  write(x)
+  write(x);
 end

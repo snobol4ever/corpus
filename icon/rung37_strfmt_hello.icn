@@ -1,5 +1,5 @@
 # rung37: detab/entab hello — IJ-5
-procedure main()
+procedure main();
    write(detab("\tabc"));
    write(entab("        x"));
    write(center("hi", 6));

@@ -1,6 +1,6 @@
-procedure show(x)
-  write(x)
+procedure show(x);
+  write(x);
 end
-procedure main()
-  show(42)
+procedure main();
+  show(42);
 end

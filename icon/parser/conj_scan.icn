@@ -1,3 +1,3 @@
-procedure main()
-  s ? (x & y)
+procedure main();
+  s ? (x & y);
 end

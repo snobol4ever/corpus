@@ -1,4 +1,4 @@
-procedure main()
+procedure main();
   t := table();
   t["p"] := 7;
   t["q"] := 8;

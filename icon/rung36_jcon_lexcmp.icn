@@ -2,7 +2,7 @@
 
 # lexical comparison test
 
-procedure main()
+procedure main();
    local s, t;
 
    write("    s1    s2    <<   <<=    ==   ~==   >>=    >>");
@@ -18,10 +18,10 @@ procedure main()
       wr(s >>= t | &null);
       wr(s >> t  | &null);
       write();
-      }
+      };
    end
 
-procedure wr(s)
+procedure wr(s);
    writes(right(image(\s) | "---", 6));
    return;
 end

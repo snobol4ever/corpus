@@ -1,4 +1,4 @@
-procedure main()
+procedure main();
   x := a[1];
-  write(x)
+  write(x);
 end

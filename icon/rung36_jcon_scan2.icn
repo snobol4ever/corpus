@@ -2,13 +2,13 @@
 
 # test maintenance of scanning environments.
 
-procedure main()
+procedure main();
 	write("simple");
 	"fghjkl" ? {
 		write(tab(3));
 		write(&pos);
 		write(tab(5));
-	}
+	};
 	write("nested");
 	"123456" ? {
 		write(tab(3));
@@ -16,10 +16,10 @@ procedure main()
 			write(tab(3));
 			write(&pos);
 			write(tab(5));
-		}
+		};
 		write(&pos);
 		write(tab(5));
-	}
+	};
 
 	write("break");
 	every write("98765" ? repeat break upto(&digits));
@@ -33,18 +33,18 @@ procedure main()
 	write("non-local");
 	"qwerty" ? {
 		every write(foo()) do write(move(1));
-	}
+	};
 
 	"abcdef" ? {
 	    write(&pos);
 	    every ="abc" do {
 	        write(&pos);
-	    }
+	    };
 	    write(&pos);
-	}
+	};
 end
 
-procedure foo()
+procedure foo();
 	suspend move(1);
 	"zxc" ? suspend upto(&lcase);
 	suspend upto(&lcase);

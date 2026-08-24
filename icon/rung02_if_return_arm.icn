@@ -1,11 +1,11 @@
-procedure fs(n)
+procedure fs(n);
   if n = 0 then return 1;
   return n * fs(n - 1);
 end
-procedure sign(n)
+procedure sign(n);
   (n > 0 & return "pos") | return "npos";
 end
-procedure main()
+procedure main();
   write(fs(5));
   write(if 2 > 1 then "t" else "e");
   write(sign(4));

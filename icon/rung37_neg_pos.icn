@@ -1,5 +1,5 @@
 #SRC: IJ-10 &pos / &subject keyword swap (:=: and <->)
-procedure main()
+procedure main();
    local x;
 
    # kw_is_lhs: &pos :=: var, both values in range -> full swap
@@ -7,47 +7,47 @@ procedure main()
       &pos := 3; x := 4;
       &pos :=: x;
       write("kw_lhs swap: &pos=", &pos, " x=", x);
-   }
+   };
 
    # kw_is_lhs: &pos :=: var, var value OOB -> nothing written (probe blocks)
    "123456" ? {
       &pos := 3; x := 9;
       if &pos :=: x then write("kw_lhs oob: wrote") else write("kw_lhs oob: blocked");
       write("kw_lhs oob state: &pos=", &pos, " x=", x);
-   }
+   };
 
    # kw_is_rhs: var :=: &pos, both values in range -> full swap
    "123456" ? {
       &pos := 3; x := 4;
       x :=: &pos;
       write("kw_rhs swap: &pos=", &pos, " x=", x);
-   }
+   };
 
    # kw_is_rhs: var :=: &pos, var value OOB for keyword -> var committed, keyword unchanged
    "123456" ? {
       &pos := 3; x := 9;
       x :=: &pos;
       write("kw_rhs oob: &pos=", &pos, " x=", x);
-   }
+   };
 
    # Reversible swap <-> inside every with write body (no subject mutation)
    "123456" ? {
       &pos := 3; x := 9;
       every &pos <-> x do write("rev tick: &pos=", &pos, " x=", x);
       write("after rev &pos<->x: &pos=", &pos, " x=", x);
-   }
+   };
 
    # Reversible swap -- body mutates &subject; lhs revert OOBs -> neither reverts
    "123456" ? {
       &pos := 3; x := 2;
       every &pos <-> x do &subject := "A";
       write("subj_mut &pos<->x: &pos=", &pos, " x=", x);
-   }
+   };
 
    # Reversible swap -- body mutates &subject; lhs (x) reverts OK, rhs (&pos) OOBs -> only x reverts
    "123456" ? {
       &pos := 3; x := 2;
       every x <-> &pos do &subject := "A";
       write("subj_mut x<->&pos: &pos=", &pos, " x=", x);
-   }
+   };
 end

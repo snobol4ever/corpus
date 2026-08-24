@@ -1,3 +1,3 @@
-procedure main()
-  "hello" ? write("found")
+procedure main();
+  "hello" ? write("found");
 end

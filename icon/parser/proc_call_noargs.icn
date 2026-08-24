@@ -1,6 +1,6 @@
-procedure greet()
-  write("hi")
+procedure greet();
+  write("hi");
 end
-procedure main()
-  greet()
+procedure main();
+  greet();
 end

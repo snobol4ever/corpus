@@ -2,7 +2,7 @@
 # Verify bb_strrel coerces int/real to image string, cset to member string.
 # Uses semicolon separators (no auto-semicolon in this frontend).
 
-procedure main()
+procedure main();
    local s; local t;
    # basic string ordering
    s := "a"; t := "b";

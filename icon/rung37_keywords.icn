@@ -1,7 +1,7 @@
 #SRC: IJ-11
 # rung37_keywords.icn -- verify icn_kw_read: type/image/size for cset keywords,
 # math constants, &error r/w, &fail, &null.
-procedure main()
+procedure main();
    # type() detects cset keywords
    write(type(&lcase));
    write(type(&ucase));
@@ -47,6 +47,6 @@ procedure main()
    write(&y);
    write(&level);
 end
-procedure if_ok(x)
+procedure if_ok(x);
    return (x & "yes") | "no";
 end

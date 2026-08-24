@@ -1,6 +1,6 @@
 # rung37: math builtins hello — IJ-4
 # simplest possible check: each builtin produces correct output
-procedure main()
+procedure main();
    write(sqrt(4.0));
    write(sin(0.0));
    write(cos(0.0));

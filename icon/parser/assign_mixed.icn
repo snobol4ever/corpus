@@ -1,5 +1,5 @@
-procedure main()
+procedure main();
   x := 7;
   y := "hi";
-  z := w
+  z := w;
 end
