@@ -1,3 +1,0 @@
-        'b' ? ('b' . Y) | 'a'
-        OUTPUT = Y
-END

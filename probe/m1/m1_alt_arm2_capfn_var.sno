@@ -1,4 +1,0 @@
-        S = 'b'
-        S ? 'a' | (LEN(1) . Y)
-        OUTPUT = Y
-END

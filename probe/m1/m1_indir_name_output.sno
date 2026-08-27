@@ -1,3 +1,0 @@
-        ONM = .OUTPUT
-        $ONM = 'hello'
-END

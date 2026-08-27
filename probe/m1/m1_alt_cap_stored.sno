@@ -1,4 +1,0 @@
-        P = ('a' . X) | ('b' . Y)
-        'b' ? P
-        OUTPUT = Y
-END

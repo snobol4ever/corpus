@@ -1,3 +1,0 @@
-    &ALPHABET POS(0) LEN(1) . nul
-    OUTPUT = 'ok ' SIZE(nul)
-END

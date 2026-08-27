@@ -1,5 +1,0 @@
-        DEFINE('S()')          :(A)
-S       S = .G                 :(NRETURN)
-A       S() = 43
-        OUTPUT = 'g=' G
-END

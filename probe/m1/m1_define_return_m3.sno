@@ -1,6 +1,0 @@
-        DEFINE('FOO()')                                 :(FOO_END)
-FOO     FOO = 'hi'                                       :(RETURN)
-FOO_END
-        OUTPUT = FOO()
-        OUTPUT = 'done'
-END

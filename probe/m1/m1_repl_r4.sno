@@ -1,4 +1,0 @@
-        S = 'abc'
-        S POS(0) LEN(1) =
-        OUTPUT = S
-END

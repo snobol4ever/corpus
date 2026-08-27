@@ -1,4 +1,0 @@
-        S = 'abc'
-        S LEN(1) . C =
-        OUTPUT = C ' ' S
-END

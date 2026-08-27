@@ -1,0 +1,199 @@
+ OUTPUT = 'before' :(SKIPIT); &ALPHABET POS(10) LEN(1) . nl;SKIPIT OUTPUT = 'nl=[' nl '] size=' SIZE(nl);END;* m1_alphabet_unreached_capture
+ 'b' ? ('b' . Y) | 'a'; OUTPUT = Y;END;* m1_alt_arm1_cap
+ 'b' ? 'a' | ('b' . Y); OUTPUT = Y;END;* m1_alt_arm2_cap
+ S = 'b'; S ? 'a' | (LEN(1) . Y); OUTPUT = Y;END;* m1_alt_arm2_capfn_var
+ DEFINE('u(u)') :(ue);u u = REPLACE(u,'ab','AB') :(RETURN);ue P = 'x' | u('b'); 'B' ? P :S(K); OUTPUT = 'nm' :(E);K OUTPUT = 'ok';E;END;* m1_alt_arm_eager_call
+ DEFINE('u(u)') :(ue);u OUTPUT = 'CALLED'; u = REPLACE(u,'ab','AB') :(RETURN);ue 'B' ? 'x' | u('b') :S(K); OUTPUT = 'nm' :(E);K OUTPUT = 'ok';E;END;* m1_alt_arm_eager_call_inline_control
+*------------------------------------------------- 7 m1_alt_arm_eager_call_order
+        DEFINE('u(u)')	:(ue)
+u       OUTPUT = 'CALLED'
+        u = REPLACE(u,'ab','AB')	:(RETURN)
+ue      P = 'x' | u('b')
+        OUTPUT = 'built'
+        'B' ? P	:S(K)
+        OUTPUT = 'nm'	:(E)
+K       OUTPUT = 'ok'
+E
+END
+ 'b' ? ('a' | 'b') . Y; OUTPUT = Y;END;* m1_alt_cap_outside_control
+ P = ('a' . X) | ('b' . Y); 'b' ? P; OUTPUT = Y;END;* m1_alt_cap_stored
+*---------------------------------------------- 10 m1_arbno_capture_call_bracket
+        DEFINE('PC()')	:(PCe)
+PC	PC = .d	:(NRETURN)
+PCe	nP = '' . *PC()
+        C = 'x'
+        P = nP ARBNO(*C) nP
+        Src = 'START'
+        Src POS(0) P RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = 'match'	:(END)
+N	OUTPUT = 'nomatch'
+END
+ &ANCHOR = 1; L = SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ'); C1 = L; 'ABCD' POS(0) ARBNO(*C1) RPOS(0) :F(F1); OUTPUT = 'ok' :(END);F1 OUTPUT = 'FAIL';END;* m1_arbno_nested_defer_grn
+*-------------------------------------------------- 12 m1_arbno_nested_defer_red
+        &ANCHOR      =  1
+        L            =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Sp           =  SPAN(' ') | LEN(0)
+        C2           =  L *Sp
+        'START HERE' POS(0) ARBNO(*C2) RPOS(0)                    :F(F1)
+        OUTPUT       =  'ok'                                      :(END)
+F1       OUTPUT       =  'FAIL'
+END
+*-------------------------------------------------- 13 m1_beauty_arbno_defer_min
+        &ANCHOR      =  1
+        Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Space        =  SPAN(' ') | LEN(0)
+        Command      =  Word *Space
+        Parse        =  ARBNO(*Command)
+        Src          =  'START'
+        Src          POS(0) *Parse *Space RPOS(0)                :F(FA)
+        OUTPUT       =  'A ok'                                   :(B)
+FA       OUTPUT       =  'A FAIL'
+B        Src          =  'START HERE'
+        Src          POS(0) *Parse *Space RPOS(0)                :F(FB)
+        OUTPUT       =  'B ok'                                   :(C)
+FB       OUTPUT       =  'B FAIL'
+C        Src          =  'ONE TWO THREE'
+        Src          POS(0) *Parse *Space RPOS(0)                :F(FC)
+        OUTPUT       =  'C ok'                                   :(D)
+FC       OUTPUT       =  'C FAIL'
+D        Src          =
+        Src          POS(0) *Parse *Space RPOS(0)                :F(FD)
+        OUTPUT       =  'D ok'                                   :(END)
+FD       OUTPUT       =  'D FAIL'
+END
+ 'ab' ? ('a' . X) 'b'; OUTPUT = X;END;* m1_cat_cap_control
+*--------------------------------------------------------------- 15 m1_defer_ALT
+        &ANCHOR      =  1
+        Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Sp           =  SPAN(' ') | LEN(0)
+        Command      =  Word *Sp
+        L            =  ARBNO(*Command)
+        Src          =  'START HERE'
+        Src          POS(0) L RPOS(0)                            :F(FA)
+        OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END
+*-------------------------------------------------------------- 16 m1_defer_LEN0
+        &ANCHOR      =  1
+        Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Sp           =  LEN(0)
+        Command      =  Word *Sp
+        L            =  ARBNO(*Command)
+        Src          =  'STARTHERE'
+        Src          POS(0) L RPOS(0)                            :F(FA)
+        OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END
+*-------------------------------------------------------------- 17 m1_defer_SPAN
+        &ANCHOR      =  1
+        Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Sp           =  SPAN(' ')
+        Command      =  Word *Sp
+        L            =  ARBNO(*Command)
+        Src          =  'START HERE '
+        Src          POS(0) L RPOS(0)                            :F(FA)
+        OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END
+ digits = '0123456789'; P1 = SPAN(digits); P2 = *P1; P3 = *P2; S = 'A1'; S POS(0) 'A' *P3 RPOS(0) :F(NO); OUTPUT = 'match' :(FIN);NO OUTPUT = 'nomatch';FIN;END;* m1_defer_chain
+ digits = '0123456789'; P1 = SPAN(digits); P2 = *P1; S = 'A1'; S POS(0) 'A' *P2 RPOS(0) :F(NO); OUTPUT = 'match' :(FIN);NO OUTPUT = 'nomatch';FIN;END;* m1_defer_chain_ctl
+*----------------------------------------------------------- 20 m1_defer_x_thunk
+        DEFINE('shift(a,b)')
+        OPSYN('~', 'shift', 2)
+        Expr0          =  LEN(1)
+        Expr           =  *Expr0
+        P              =  POS(0) ('=' ~ '=' *Expr) RPOS(0)
+        '=x'           P                                               :F(NO)
+        OUTPUT         =  'match'                                      :(FIN)
+NO                OUTPUT         =  'nomatch'                                    :(FIN)
+shift             shift          =  a                                            :(RETURN)
+FIN
+END
+*------------------------------------------------------- 21 m1_defer_x_thunk_ctl
+        DEFINE('shift(a,b)')
+        OPSYN('~', 'shift', 2)
+        Expr0          =  LEN(1)
+        Expr           =  epsilon *Expr0
+        P              =  POS(0) ('=' ~ '=' *Expr) RPOS(0)
+        '=x'           P                                               :F(NO)
+        OUTPUT         =  'match'                                      :(FIN)
+NO                OUTPUT         =  'nomatch'                                    :(FIN)
+shift             shift          =  a                                            :(RETURN)
+FIN
+END
+ DEFINE('FOO()') :(FOO_END);FOO FOO = 'hi' :(RETURN);FOO_END; OUTPUT = FOO(); OUTPUT = 'done';END;* m1_define_return_m3
+*--------------------------------------------------------- 23 m1_gen_flush_shape
+        nl = CHAR(10)
+        DEFINE('F(str,outNm)outline')          :(F_END)
+F       F = .dummy
+        outNm = IDENT(outNm) .OUTPUT
+        $'$B' = DIFFER($'$B') $'$B' str
+        $'$B' = IDENT($'$B') str
+        $'$B' BREAK(nl) . outline nl REM . $'$B'   :F(NRETURN)
+        $outNm = outline                       :(NRETURN)
+F_END
+        F('line1' nl)
+        OUTPUT = 'after'
+END
+*------------------------------------------------ 24 m1_include_sort_loop_inline
+        UTF = TABLE()
+        UTF['k1'] = 'NAME_1'
+        UTF['k2'] = 'NAME_2'
+        UTF['k3'] = 'NAME_3'
+        UTF['k4'] = 'NAME_4'
+        UTF['k5'] = 'NAME_5'
+        UTF['k6'] = 'NAME_6'
+        UTF['k7'] = 'NAME_7'
+        UTF['k8'] = 'NAME_8'
+        UTF['k9'] = 'NAME_9'
+        UTF['k10'] = 'NAME_10'
+        UTF['k11'] = 'NAME_11'
+        UTF['k12'] = 'NAME_12'
+        UTF['k13'] = 'NAME_13'
+        UTF['k14'] = 'NAME_14'
+        UTF['k15'] = 'NAME_15'
+        UTF['k16'] = 'NAME_16'
+        UTF['k17'] = 'NAME_17'
+        UTF['k18'] = 'NAME_18'
+        UTF['k19'] = 'NAME_19'
+        UTF['k20'] = 'NAME_20'
+        UTF_Array = SORT(UTF)
+        i = 0
+G1  i = i + 1
+        $UTF_Array[i, 2] = UTF_Array[i, 1]  :S(G1)
+        UTF_Array =
+        i =
+        OUTPUT = 'main ' NAME_1 ' ' NAME_20
+END
+ ONM = .OUTPUT; $ONM = 'hello';END;* m1_indir_name_output
+ DEFINE('F(str,outNm)') :(F_END);F F = .dummy; outNm = IDENT(outNm) .OUTPUT; $outNm = str :(NRETURN);F_END; F('hello');END;* m1_indir_name_output_fn
+*-------------------------------------------------------------- 27 m1_inline_ALT
+        &ANCHOR      =  1
+        Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Command      =  Word (SPAN(' ') | LEN(0))
+        L            =  ARBNO(*Command)
+        Src          =  'START HERE'
+        Src          POS(0) L RPOS(0)                            :F(FA)
+        OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END
+ &ALPHABET POS(0) LEN(1) . nul; OUTPUT = 'ok ' SIZE(nul);END;* m1_kw_subject_zres_spill
+*------------------------------------------------------------- 29 m1_nodefer_ALT
+        &ANCHOR      =  1
+        Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        Sp           =  SPAN(' ') | LEN(0)
+        Command      =  Word Sp
+        L            =  ARBNO(*Command)
+        Src          =  'START HERE'
+        Src          POS(0) L RPOS(0)                            :F(FA)
+        OUTPUT       =  'ok'                                     :(END)
+FA       OUTPUT       =  'FAIL'
+END
+ DEFINE('S()') :(A);S S = .G :(NRETURN);A 'AB' ? LEN(1) . *S(); OUTPUT = 'g=' G;END;* m1_nret_defer
+ DEFINE('S()') :(A);S S = .G :(NRETURN);A S() = 43; OUTPUT = 'g=' G;END;* m1_nret_lval
+ DEFINE('F()') :(A);F F = .G :(NRETURN);A G = 5; dummy = F(); OUTPUT = 'ok ' dummy;END;* m1_nret_value
+ S = 'abc'; S 'b' = 'X'; OUTPUT = S;END;* m1_repl_r1
+ S = 'abc'; S POS(0) LEN(1) = 'X'; OUTPUT = S;END;* m1_repl_r2
+ S = 'abc'; S LEN(1) . C =; OUTPUT = C ' ' S;END;* m1_repl_r3
+ S = 'abc'; S POS(0) LEN(1) =; OUTPUT = S;END;* m1_repl_r4
+ S = 'abc'; S POS(0) LEN(1) . C =; OUTPUT = 'c=' C ' s=' S;END;* m1_replace_pos_capture
