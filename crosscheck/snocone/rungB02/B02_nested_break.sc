@@ -7,7 +7,7 @@ while (LE(i, 3)) {
             break;
         }
         OUTPUT = i   '-'   j;
-        j = ADD(j, 1);
+        j = j + 1;
     }
-    i = ADD(i, 1);
+    i = i + 1;
 }

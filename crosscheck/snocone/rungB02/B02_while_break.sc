@@ -5,6 +5,6 @@ while (LE(i, 10)) {
         break;
     }
     OUTPUT = i;
-    i = ADD(i, 1);
+    i = i + 1;
 }
 OUTPUT = 'done';

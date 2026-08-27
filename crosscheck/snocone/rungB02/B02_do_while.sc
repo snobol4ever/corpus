@@ -2,5 +2,5 @@
 i = 5;
 do {
     OUTPUT = 'ran';
-    i = ADD(i, 1);
+    i = i + 1;
 } while (LE(i, 3));

@@ -2,5 +2,5 @@
 i = 1;
 while (LE(i, 3)) {
     OUTPUT = i;
-    i = ADD(i, 1);
+    i = i + 1;
 }
