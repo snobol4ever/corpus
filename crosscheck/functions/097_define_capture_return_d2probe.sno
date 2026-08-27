@@ -1,6 +1,0 @@
-        DEFINE('F(N)T')                                     :(F_END)
-F       N ? LEN(1) . T                                      :F(FRETURN)
-        F = T                                               :(RETURN)
-F_END
-        OUTPUT = F('AB')
-END

@@ -1,0 +1,33 @@
+*------------------------------------------------------- 1 060_pred_operand_edge
+a
+b
+d
+e
+f
+h
+i
+j
+l
+10\n42
+13579
+7\n42
+world hello
+*---------------------------------------------------------- 6 087_define_freturn
+positive
+not positive
+*---------------------------------------------------- 7 088_define_recursive_fib
+0
+1
+8
+55
+HELLO\nWORLD
+42
+A
+*-------------------------------------------------- 11 err248_system_fn_redefine
+SIZE: 248 attempted redefinition of system function
+TRIM: 248 attempted redefinition of system function
+DATATYPE: 248 attempted redefinition of system function
+IDENT: 248 attempted redefinition of system function
+ALIAS-OK:  AB
+OPERATOR-OK
+DEFINE-OK: HELLO WORLD

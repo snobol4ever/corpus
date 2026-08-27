@@ -1,7 +1,0 @@
-SIZE: 248 attempted redefinition of system function
-TRIM: 248 attempted redefinition of system function
-DATATYPE: 248 attempted redefinition of system function
-IDENT: 248 attempted redefinition of system function
-ALIAS-OK:  AB
-OPERATOR-OK
-DEFINE-OK: HELLO WORLD
