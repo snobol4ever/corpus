@@ -4,24 +4,37 @@ Per this family's consolidation task (`probe-consolidate-m1-and-small`, GOAL tex
 "Data inlines in the suite entries; ONLY genuinely stdin/file-driven tests stay
 standalone, marked in a KEEP.md beside them").
 
-## Gate-locked (11 witnesses + 1 .err_sno) — permanent, not a scope gap to close casually
+## UPDATE 2026-08-27 (seat16) — 10 of 11 gate witnesses migrated into the shared suite
 
-`SCRIP/scripts/test_gate_udc.sh` (the CN-4 invariant gate) reads these by hardcoded
-exact filename, compiling each standalone with per-witness custom logic: separate
-stdout/stderr capture, two `SCRIP_CONST_T1` env-var arms, and substring checks on
-error text. That is more than the one-line/banner-block suite format's "run entry,
-diff against .ref" model supports — a suite entry has no path to a standalone
-`.sno` file for `$SCRIP --compile` to open, and no way to express two env-var arms
-or a stderr-silence assertion. Migrating these would mean rewriting the gate
-itself, which is its own deliberate task (risk to a "must never regress"
-invariant), not a side effect of a corpus reorg:
+`SCRIP/scripts/test_gate_udc.sh` used to read all 11 witnesses below by hardcoded
+exact filename. Rewrote it instead: `corpus_suite_harness.py` gained an `extract`
+subcommand (materialize one named suite entry back into a standalone `.sno`/`.ref`
+pair) and the gate now calls that to get its per-witness standalone file, then
+does exactly the same custom logic as before (separate stdout/stderr capture, two
+`SCRIP_CONST_T1` env-var arms, substring checks on error text) against the
+extracted file. The suite file (`tests/snobol4/probe/cn.sno`/`.ref`) is the one
+source of truth; the gate is just another reader of it now, not a second copy of
+the witness text.
 
-`cn_udc_declare` · `cn_udc_reopen` · `cn_t1_eval` · `cn_t2_eval_boundary` ·
-`cn_t1_scalar_fold` · `cn_t1_eval_undecl` · `cn_eval_fails_not_aborts` ·
-`cn_indirect_is_ordinary_var` · `cn_indirect_rewrite` · `cn_indirect_seal` ·
-`cn_udc_declare`/`cn_udc_reopen` (both `.sno`+`.ref`) · `cn_udc_closed` (`.err_sno`
-only, no `.ref` — deliberate repo convention for error witnesses, see the gate's
-own header comment).
+`cn_t1_eval`/`cn_t2_eval_boundary`/`cn_t1_scalar_fold` needed one extra check
+beyond the harness's normal byte-equal-or-no-delete (which only exercises the
+DEFAULT `SCRIP_CONST_T1` arm): hand-verified original-vs-extracted under BOTH
+`SCRIP_CONST_T1` arms, both media, before their loose files were deleted — all
+six combinations matched exactly. CN-4 gate re-verified 40/40 (unchanged from
+before this migration) after the rewrite.
+
+Migrated (now in the shared suite, loose files deleted): `cn_udc_declare`,
+`cn_udc_reopen`, `cn_t1_eval`, `cn_t2_eval_boundary`, `cn_t1_scalar_fold`,
+`cn_t1_eval_undecl`, `cn_eval_fails_not_aborts`, `cn_indirect_is_ordinary_var`,
+`cn_indirect_rewrite`, `cn_indirect_seal`.
+
+## Still gate-locked, permanent — `cn_udc_closed` (`.err_sno`, no `.ref`)
+
+Unlike the ten above, this one doesn't fit even the *extract* model: it has no
+`.ref` at all (deliberate repo convention for error witnesses that both print and
+error — see the gate's own header comment) and is graded by stream-separated
+m3==m4 comparison, not by diffing against oracle text. There's nothing for a
+suite `.ref` line to hold. Stays a loose file, read directly by the gate.
 
 ## Ref-less, pre-existing, not minted here
 

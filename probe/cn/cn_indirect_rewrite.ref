@@ -1,8 +1,0 @@
-w1=[1]
-w2=[2]
-w3=[3]
-dt=INTEGER
-anch-indirect=[X2]
-anch-direct=1
-via-var=[3]
-reached-end

@@ -1,6 +1,0 @@
-r1-direct-anchor=1
-r2-indirect-anchor=[]
-r3-direct-after-indirect-write=1
-r4-indirect-after-indirect-write=[HELLO]
-r5-indirect-neverset=[99]
-reached-end
