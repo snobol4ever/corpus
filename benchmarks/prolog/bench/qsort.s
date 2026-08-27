@@ -18,6 +18,7 @@ FN__partition$2F4:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 partition$2F4_α_body:
+partition$2F4_α:
                         lea              rax, [rip + n28_suspend_β]
                         mov              qword ptr [rsp + 2080], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3314,6 +3315,7 @@ FN__qsort$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 qsort$2F3_α_body:
+qsort$2F3_α:
                         lea              rax, [rip + n220_suspend_β]
                         mov              qword ptr [rsp + 1488], rax
 #-----------------------------------------------------------------------------------------------------------------------

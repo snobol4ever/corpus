@@ -18,6 +18,7 @@ FN__del$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 del$2F3_α_body:
+del$2F3_α:
                         lea              rax, [rip + n11_suspend_β]
                         mov              qword ptr [rsp + 896], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1877,6 +1878,7 @@ FN__el$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 el$2F2_α_body:
+el$2F2_α:
                         lea              rax, [rip + n89_suspend_β]
                         mov              qword ptr [rsp + 656], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3223,6 +3225,7 @@ FN__connect$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 connect$2F2_α_body:
+connect$2F2_α:
                         lea              rax, [rip + n156_suspend_β]
                         mov              qword ptr [rsp + 10960], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11387,6 +11390,7 @@ FN__cycle_ham$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 cycle_ham$2F2_α_body:
+cycle_ham$2F2_α:
                         lea              rax, [rip + n909_suspend_β]
                         mov              qword ptr [rsp + 1008], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12611,6 +12615,7 @@ FN__ham1$2F1:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 ham1$2F1_α_body:
+ham1$2F1_α:
                         lea              rax, [rip + n1023_suspend_β]
                         mov              qword ptr [rsp + 2528], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14053,6 +14058,7 @@ FN__chain_ham$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 chain_ham$2F3_α_body:
+chain_ham$2F3_α:
                         lea              rax, [rip + n1117_suspend_β]
                         mov              qword ptr [rsp + 1680], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16520,6 +16526,7 @@ FN__edge$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 edge$2F2_α_body:
+edge$2F2_α:
                         lea              rax, [rip + n1249_suspend_β]
                         mov              qword ptr [rsp + 496], rax
 #-----------------------------------------------------------------------------------------------------------------------

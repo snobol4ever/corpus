@@ -18,6 +18,7 @@ FN__sel$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 sel$2F3_α_body:
+sel$2F3_α:
                         lea              rax, [rip + n15_suspend_β]
                         mov              qword ptr [rsp + 1120], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2067,6 +2068,7 @@ FN__queens$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 queens$2F3_α_body:
+queens$2F3_α:
                         lea              rax, [rip + n113_suspend_β]
                         mov              qword ptr [rsp + 1280], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3922,6 +3924,7 @@ FN__queens$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 queens$2F2_α_body:
+queens$2F2_α:
                         lea              rax, [rip + n222_suspend_β]
                         mov              qword ptr [rsp + 544], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4682,6 +4685,7 @@ FN__range$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 range$2F3_α_body:
+range$2F3_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n252_call_builtin_prolog_α:
                         mov              r11, 97
@@ -6230,6 +6234,7 @@ FN__not_attack$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 not_attack$2F2_α_body:
+not_attack$2F2_α:
                         lea              rax, [rip + n370_suspend_β]
                         mov              qword ptr [rsp + 416], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6933,6 +6938,7 @@ FN__not_attack$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 not_attack$2F3_α_body:
+not_attack$2F3_α:
                         lea              rax, [rip + n407_suspend_β]
                         mov              qword ptr [rsp + 1536], rax
 #-----------------------------------------------------------------------------------------------------------------------

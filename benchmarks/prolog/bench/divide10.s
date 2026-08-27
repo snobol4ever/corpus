@@ -22,6 +22,7 @@ FN__divide10$2F0:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 divide10$2F0_α_body:
+divide10$2F0_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_call_builtin_prolog_α:
                         mov              r11, 1
@@ -624,6 +625,7 @@ FN__d$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 d$2F3_α_body:
+d$2F3_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n75_call_builtin_prolog_α:
                         mov              r11, 36
@@ -7994,6 +7996,7 @@ FN__top$2F0:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 top$2F0_α_body:
+top$2F0_α:
                         lea              rax, [rip + n782_suspend_β]
                         mov              qword ptr [rsp + 112], rax
 #-----------------------------------------------------------------------------------------------------------------------

@@ -18,6 +18,7 @@ FN__sumdigit$2F5:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 sumdigit$2F5_α_body:
+sumdigit$2F5_α:
                         lea              rax, [rip + n40_suspend_β]
                         mov              qword ptr [rsp + 1296], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1445,6 +1446,7 @@ FN__digit$2F1:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 digit$2F1_α_body:
+digit$2F1_α:
                         lea              rax, [rip + n114_suspend_β]
                         mov              qword ptr [rsp + 2464], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3289,6 +3291,7 @@ FN__solve$2F8:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 solve$2F8_α_body:
+solve$2F8_α:
                         lea              rax, [rip + n459_suspend_β]
                         mov              qword ptr [rsp + 4320], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8092,6 +8095,7 @@ FN__leftdigit$2F1:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 leftdigit$2F1_α_body:
+leftdigit$2F1_α:
                         lea              rax, [rip + n718_suspend_β]
                         mov              qword ptr [rsp + 2224], rax
 #-----------------------------------------------------------------------------------------------------------------------

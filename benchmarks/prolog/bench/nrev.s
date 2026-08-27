@@ -18,6 +18,7 @@ FN__reverse$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 reverse$2F2_α_body:
+reverse$2F2_α:
                         lea              rax, [rip + n11_suspend_β]
                         mov              qword ptr [rsp + 416], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -721,6 +722,7 @@ FN__$reverse_$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 $reverse_$2F3_α_body:
+$reverse_$2F3_α:
                         lea              rax, [rip + n48_suspend_β]
                         mov              qword ptr [rsp + 1168], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2390,6 +2392,7 @@ FN__append$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 append$2F3_α_body:
+append$2F3_α:
                         lea              rax, [rip + n147_suspend_β]
                         mov              qword ptr [rsp + 1088], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4161,6 +4164,7 @@ FN__nrev$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 nrev$2F2_α_body:
+nrev$2F2_α:
                         lea              rax, [rip + n239_suspend_β]
                         mov              qword ptr [rsp + 1104], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5566,6 +5570,7 @@ FN__data$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 data$2F2_α_body:
+data$2F2_α:
                         lea              rax, [rip + n329_suspend_β]
                         mov              qword ptr [rsp + 1088], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6803,6 +6808,7 @@ FN__data$2F1:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 data$2F1_α_body:
+data$2F1_α:
                         lea              rax, [rip + n415_suspend_β]
                         mov              qword ptr [rsp + 288], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7303,6 +7309,7 @@ FN__app$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 app$2F3_α_body:
+app$2F3_α:
                         lea              rax, [rip + n445_suspend_β]
                         mov              qword ptr [rsp + 1088], rax
 #-----------------------------------------------------------------------------------------------------------------------

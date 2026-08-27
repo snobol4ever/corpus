@@ -22,6 +22,7 @@ FN__tak$2F4:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 tak$2F4_α_body:
+tak$2F4_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_call_builtin_prolog_α:
                         mov              r11, 1

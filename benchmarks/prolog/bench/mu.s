@@ -18,6 +18,7 @@ FN__rule$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 rule$2F3_α_body:
+rule$2F3_α:
                         lea              rax, [rip + n17_suspend_β]
                         mov              qword ptr [rsp + 2080], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2910,6 +2911,7 @@ FN__rule4$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 rule4$2F2_α_body:
+rule4$2F2_α:
                         lea              rax, [rip + n203_suspend_β]
                         mov              qword ptr [rsp + 1104], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4540,6 +4542,7 @@ FN__rule2$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 rule2$2F2_α_body:
+rule2$2F2_α:
                         lea              rax, [rip + n288_suspend_β]
                         mov              qword ptr [rsp + 480], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5537,6 +5540,7 @@ FN__theorem$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 theorem$2F3_α_body:
+theorem$2F3_α:
                         lea              rax, [rip + n346_suspend_β]
                         mov              qword ptr [rsp + 2112], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7875,6 +7879,7 @@ FN__mu$2F0:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 mu$2F0_α_body:
+mu$2F0_α:
                         lea              rax, [rip + n491_suspend_β]
                         mov              qword ptr [rsp + 784], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8483,6 +8488,7 @@ FN__rule3$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 rule3$2F2_α_body:
+rule3$2F2_α:
                         lea              rax, [rip + n540_suspend_β]
                         mov              qword ptr [rsp + 1248], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10307,6 +10313,7 @@ FN__rule1$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 rule1$2F2_α_body:
+rule1$2F2_α:
                         lea              rax, [rip + n636_suspend_β]
                         mov              qword ptr [rsp + 1216], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11988,6 +11995,7 @@ FN__my_append$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 my_append$2F3_α_body:
+my_append$2F3_α:
                         lea              rax, [rip + n723_suspend_β]
                         mov              qword ptr [rsp + 1088], rax
 #-----------------------------------------------------------------------------------------------------------------------

@@ -18,6 +18,7 @@ FN__dow$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 dow$2F2_α_body:
+dow$2F2_α:
                         lea              rax, [rip + n11_suspend_β]
                         mov              qword ptr [rsp + 2320], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1607,6 +1608,7 @@ FN__day_of_week$2F4:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 day_of_week$2F4_α_body:
+day_of_week$2F4_α:
                         lea              rax, [rip + n221_suspend_β]
                         mov              qword ptr [rsp + 816], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2946,6 +2948,7 @@ FN__cal_key$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 cal_key$2F3_α_body:
+cal_key$2F3_α:
                         lea              rax, [rip + n281_suspend_β]
                         mov              qword ptr [rsp + 11808], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9918,6 +9921,7 @@ FN__compute_it$2F5:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 compute_it$2F5_α_body:
+compute_it$2F5_α:
                         lea              rax, [rip + n1367_suspend_β]
                         mov              qword ptr [rsp + 1936], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11671,6 +11675,7 @@ FN__leap_year$2F4:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 leap_year$2F4_α_body:
+leap_year$2F4_α:
                         lea              rax, [rip + n1475_suspend_β]
                         mov              qword ptr [rsp + 2768], rax
 #-----------------------------------------------------------------------------------------------------------------------

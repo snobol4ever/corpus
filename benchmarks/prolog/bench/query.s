@@ -18,6 +18,7 @@ FN__area$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 area$2F2_α_body:
+area$2F2_α:
                         lea              rax, [rip + n7_suspend_β]
                         mov              qword ptr [rsp + 5280], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3327,6 +3328,7 @@ FN__query$2F1:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 query$2F1_α_body:
+query$2F1_α:
                         lea              rax, [rip + n515_suspend_β]
                         mov              qword ptr [rsp + 1328], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4425,6 +4427,7 @@ FN__pop$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 pop$2F2_α_body:
+pop$2F2_α:
                         lea              rax, [rip + n584_suspend_β]
                         mov              qword ptr [rsp + 5280], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7734,6 +7737,7 @@ FN__density$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 density$2F2_α_body:
+density$2F2_α:
                         lea              rax, [rip + n1074_suspend_β]
                         mov              qword ptr [rsp + 736], rax
 #-----------------------------------------------------------------------------------------------------------------------
