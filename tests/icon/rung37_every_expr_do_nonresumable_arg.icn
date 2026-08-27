@@ -1,0 +1,7 @@
+# rung37: every EXPR do BODY in EXPRESSION context, non-resumable inner generator (companion to
+# rung37_every_expr_nonresumable_arg.icn -- same defect shape, WITH a do-clause). every still
+# produces no value in expression context: the do-body's side effects run once, then image(...)
+# must never be invoked with a value, so the alternation falls through to "none".
+procedure main();
+   write(image(every write("y") do write("z")) | "none");
+end
