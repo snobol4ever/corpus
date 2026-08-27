@@ -1,7 +1,0 @@
-(STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
-(STMT :go rb_1)
-(STMT :lbl MAIN)
-(STMT :eq :subj (TT_VAR X) :repl (TT_ILIT 1))
-(STMT :go RETURN)
-(STMT :lbl rb_1)
-(STMT :subj (TT_FNC MAIN))
