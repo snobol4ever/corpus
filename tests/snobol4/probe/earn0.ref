@@ -1,0 +1,31 @@
+=S\nW=<unset>
+=S\nW=xy
+=S\nW=xy
+=S\nW=xy
+R=[(cd)]\nDONE
+R=[ef]\nDONE
+MATCH V=[a]\nDONE
+MATCH
+MATCH X=A
+MATCH X=A
+FAIL X=untouched
+MATCH X=untouched
+MATCH X=B
+MATCH X=A
+MATCH X=A
+MATCH X=A
+99
+999
+MATCH\nDONE
+NOMATCH\nDONE
+MATCH\nDONE
+NOMATCH\nDONE
+NOMATCH\nDONE
+R=[abcde]\nDONE
+R=[abc]\nDONE
+R=[aXb]\nDONE
+R=[abc]\nDONE
+R=[abcd]\nDONE
+R=[aabb]\nDONE
+R=[abcd]\nDONE
+R=[aabb]\nDONE

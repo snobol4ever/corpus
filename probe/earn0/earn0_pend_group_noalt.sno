@@ -1,8 +1,0 @@
-* Control D: pending in a plain group, NO alternation anywhere (m4 sanity)
- &ANCHOR = 1
- X = 'untouched'
- 'AC' ( ('A' . X) 'C' ) :F(NO)
- OUTPUT = 'MATCH X=' X :(FIN)
-NO OUTPUT = 'FAIL X=' X
-FIN
-END

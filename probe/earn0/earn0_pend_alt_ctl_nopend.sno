@@ -1,7 +1,0 @@
-* Control A: identical alternation w/ backtrack, NO conditional assignment
- &ANCHOR = 1
- 'AC' ( 'A' 'B' | 'AC' ) :F(NO)
- OUTPUT = 'MATCH' :(FIN)
-NO OUTPUT = 'FAIL'
-FIN
-END

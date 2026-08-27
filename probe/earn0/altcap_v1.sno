@@ -1,8 +1,0 @@
-*  v1  ALT3, NO capture                    (s65c: PASS)
-        SUBJ = 'xycd'
-        W = '<unset>'
-        SUBJ ? POS(0) ('ab' | 'xy' | 'pq')              :F(NO)
-        OUTPUT = '=S'                                   :(EN)
-NO      OUTPUT = '=F'
-EN      OUTPUT = 'W=' W
-END

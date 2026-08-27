@@ -1,8 +1,0 @@
-* Control B: pending inside alternation, first arm succeeds - no backtrack past it
- &ANCHOR = 1
- X = 'untouched'
- 'AB' ( ('A' . X) 'B' | 'AC' ) :F(NO)
- OUTPUT = 'MATCH X=' X :(FIN)
-NO OUTPUT = 'FAIL X=' X
-FIN
-END

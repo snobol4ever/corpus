@@ -1,8 +1,0 @@
-* W1: a conditional-assignment pending created INSIDE FENCE(P) must survive the seal and fire at match end.
- &ANCHOR = 1
- X = 'untouched'
- 'AZ' FENCE('A' . X) 'Z' :F(NO)
- OUTPUT = 'MATCH X=' X :(FIN)
-NO OUTPUT = 'FAIL X=' X
-FIN
-END

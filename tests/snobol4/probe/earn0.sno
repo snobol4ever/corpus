@@ -1,0 +1,31 @@
+ SUBJ = 'xycd'; W = '<unset>'; SUBJ ? POS(0) ('ab' | 'xy' | 'pq') :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN OUTPUT = 'W=' W;END;* altcap_v1
+ SUBJ = 'xycd'; W = '<unset>'; SUBJ ? POS(0) ('ab' | 'xy' . W) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN OUTPUT = 'W=' W;END;* altcap_v2
+ SUBJ = 'xycd'; W = '<unset>'; SUBJ ? POS(0) ('ab' | 'xy') . W :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN OUTPUT = 'W=' W;END;* altcap_v3
+ SUBJ = 'xycd'; W = '<unset>'; SUBJ ? POS(0) ('xy' . W | 'pq') :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN OUTPUT = 'W=' W;END;* altcap_v4
+ S = 'ab+(cd)ef'; S ANY('+') BAL . R 'e' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_cap_after_bal
+ S = 'abcd+efg'; S ANY('+') ARB . R 'g' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_cap_after_varlen
+ P = LEN(1); 'abc' POS(0) P $ V LEN(2) RPOS(0) :S(Y)F(N);Y OUTPUT = 'MATCH V=[' V ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_inline_control
+ &ANCHOR = 1; 'AC' ( 'A' 'B' | 'AC' ) :F(NO); OUTPUT = 'MATCH' :(FIN);NO OUTPUT = 'FAIL';FIN;END;* earn0_pend_alt_ctl_nopend
+ &ANCHOR = 1; X = 'untouched'; 'AB' ( ('A' . X) 'B' | 'AC' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_alt_first_arm
+ &ANCHOR = 1; X = 'untouched'; 'AC' ( 'AB' | ('A' . X) 'C' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_alt_second_arm
+ &ANCHOR = 1; X = 'untouched'; 'AB' FENCE('A' . X) 'Z' :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_blocked_fencefn
+ &ANCHOR = 1; X = 'untouched'; 'AC' ( ('A' . X) 'B' | 'AC' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_dies_on_backtrack
+ &ANCHOR = 1; 'AB' ('A' . X) ('B' . X) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_fire_order
+ &ANCHOR = 1; X = 'untouched'; 'AC' ( ('A' . X) 'C' ) :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_group_noalt
+ &ANCHOR = 1; X = 'untouched'; 'AZ' ('A' . X) FENCE 'Z' :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_survives_fence1
+ &ANCHOR = 1; X = 'untouched'; 'AZ' FENCE('A' . X) 'Z' :F(NO); OUTPUT = 'MATCH X=' X :(FIN);NO OUTPUT = 'FAIL X=' X;FIN;END;* earn0_pend_survives_fencefn
+ digits = '0123456789'; X = '99'; X SPAN(digits) . V :S(YES); OUTPUT = 'no digits' :(END);YES OUTPUT = V;END;* earn0_span_var_arg_2char_wronganswer
+ digits = '0123456789'; X = '999'; X SPAN(digits) . V :S(YES); OUTPUT = 'no digits' :(END);YES OUTPUT = V;END;* earn0_span_var_arg_hang
+ P = LEN(1); Q = POS(0) P LEN(2) RPOS(0); 'abc' Q :S(Y)F(N);Y OUTPUT = 'MATCH' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_stored_varref
+ P = LEN(1); Q = P; '' Q :S(Y)F(N);Y OUTPUT = 'MATCH' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_varref_bare_dropped
+ P = LEN(1); Q = P LEN(2); 'abc' Q :S(Y)F(N);Y OUTPUT = 'MATCH' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_varref_blob_hang
+ P = LEN(1); Q = P P; 'a' Q :S(Y)F(N);Y OUTPUT = 'MATCH' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_varref_cat_dropped
+ P = 'a'; Q = P LEN(2); 'bc' Q :S(Y)F(N);Y OUTPUT = 'MATCH' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* earn0_varref_strvar_control
+ S = 'xy+abcdefg'; S ANY('+') ARB . R 'f' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_arb_pred
+ S = 'q+abc;z'; S ANY('+') BREAK(';') . R ';' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_break_clean
+ S = 'q+aXbXz'; S ANY('+') BREAKX('X') . R 'Xz' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_breakx_clean
+ S = 'q+abc'; S ANY('+') REM . R :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_rem_clean
+ S = 'q+abcdz'; S ANY('+') RTAB(1) . R :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_rtab_clean
+ S = 'q+aabbz'; S ANY('+') SPAN('ab') . R 'z' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_span_clean
+ S = 'q+abcdz'; S ANY('+') TAB(6) . R :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_tab_clean
+ V = 'ab'; S = 'q+aabbz'; S ANY('+') SPAN(V) . R 'z' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l4_span_varg_hang
