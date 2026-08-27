@@ -1,5 +1,0 @@
-        'ABCDEF' ? 'A' (ARB | 'D') 'E' . matched  :F(bad)
-        OUTPUT = 'arb-ok'                          :(fin)
-bad     OUTPUT = 'arb-bad'
-fin
-END

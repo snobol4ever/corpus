@@ -1,0 +1,309 @@
+ 'HELLOWORLD' ? 'WORLD' :F(bad); OUTPUT = 'pm-ok' :(fin);bad OUTPUT = 'pm-bad';fin;END;* b02_pattern_match
+ 'DEF' ? ('ABC' | 'DEF') :F(bad); OUTPUT = 'alt-ok' :(fin);bad OUTPUT = 'alt-bad';fin;END;* b03_alternation
+ OUTPUT = 'AB' 'CD';END;* b04_concatenation
+ OUTPUT = 3 + 4;END;* b05_add
+ OUTPUT = 10 - 3;END;* b06_subtract
+ OUTPUT = 20 / 4;END;* b07_divide
+ OUTPUT = 6 * 7;END;* b08_multiply
+ OUTPUT = 2 ** 10; OUTPUT = 2 ^ 10; OUTPUT = 2 ! 10;END;* b09_exponent
+ fpat = SPAN('0123456789') $ n LEN(*n) . field; '12ABCDEFGHIJKLMNOPQ' ? fpat :F(bad); OUTPUT = 'n=' n; OUTPUT = 'field=' field :(fin);bad OUTPUT = 'immed-cond-bad';fin;END;* b10_immed_cond_assign
+*------------------------------------------------------------------- 10 f02_item
+        A = ARRAY(10)
+        ITEM(A,1) = 5
+        OUTPUT = ITEM(A,1)
+        OUTPUT = A<1>
+        M = ARRAY('2,3')
+        ITEM(M,2,2) = 'mid'
+        OUTPUT = ITEM(M,2,2)
+        T = TABLE()
+        ITEM(T,'key') = 'val'
+        OUTPUT = ITEM(T,'key')
+        OUTPUT = T<'key'>
+END
+*-------------------------------------------------------------- 11 f03_prototype
+        A = ARRAY(3)
+        OUTPUT = PROTOTYPE(A)
+        OUTPUT = DATATYPE(PROTOTYPE(A))
+        B = ARRAY('2,2')
+        OUTPUT = PROTOTYPE(B)
+        C = ARRAY('1901:2000')
+        OUTPUT = PROTOTYPE(C)
+        T = TABLE()
+        T<1> = 'x'
+        T<2> = 'y'
+        TA = CONVERT(T,'ARRAY')
+        OUTPUT = PROTOTYPE(TA)
+END
+*------------------------------------------------------------------- 12 f07_eval
+        N = 21
+        OUTPUT = EVAL('3+4')
+        OUTPUT = EVAL(5)
+        OUTPUT = EVAL(*N)
+        OUTPUT = EVAL('bad(')                        :S(bad1)
+        OUTPUT = 'eval-badsyntax-failed-ok'             :(fin)
+bad1    OUTPUT = 'eval-badsyntax-succeeded-bad'
+fin
+END
+*------------------------------------------------------------------- 13 f08_code
+        C = CODE(" OUTPUT = 'from-code' :(RET)")      :S(ok1)
+        OUTPUT = 'code-compile-failed-bad'              :(fin)
+ok1     OUTPUT = 'before'                                :<C>
+RET     OUTPUT = 'after-code-ok'                          :(chk2)
+chk2    BAD = CODE(' OUTPUT = 3 + ')                    :S(bad2)
+        OUTPUT = 'code-badsyntax-failed-ok'                :(fin)
+bad2    OUTPUT = 'code-badsyntax-succeeded-bad'
+fin
+END
+*----------------------------------------------------------------- 14 f11_define
+        DEFINE('foo(x)', 'entry')
+        DEFINE('bar(x)')
+        DEFINE('rec(n)temp')                         :(main)
+entry   foo = x * 2                                  :(RETURN)
+bar     bar = x * 3                                  :(RETURN)
+rec     temp = n
+        EQ(n,1)                                       :F(rdeep)
+        rec = temp                                    :(RETURN)
+rdeep   rec = rec(n - 1) + temp                        :(RETURN)
+main    OUTPUT = foo(21)
+        OUTPUT = bar(21)
+        OUTPUT = rec(3)
+END
+ OUTPUT = 'char65=' CHAR(65); OUTPUT = 'char97=' CHAR(97); OUTPUT = 'sizeoftab=' SIZE(CHAR(9));END;* f27_char
+*---------------------------------------------------------------- 16 f28_convert
+        OUTPUT = CONVERT(12,'STRING') '-is-string'
+        OUTPUT = CONVERT('42','INTEGER') + 1
+        OUTPUT = DATATYPE(CONVERT(3,'REAL'))
+        OUTPUT = DATATYPE(CONVERT('42','NUMERIC'))
+        OUTPUT = DATATYPE(CONVERT('3.5','NUMERIC'))
+END
+ OUTPUT = DATATYPE(23.4); OUTPUT = DATATYPE(12); OUTPUT = DATATYPE('ABCD'); OUTPUT = DATATYPE(POS(2) 'C' LEN(3)); OUTPUT = DATATYPE(.Q); OUTPUT = DATATYPE(*PAT);END;* f29_datatype
+ OUTPUT = SIZE(''); OUTPUT = SIZE('HELLO'); OUTPUT = SIZE('HELLO WORLD');END;* f31_size
+ t = TIME(); OUTPUT = 'datatype=' DATATYPE(t); GE(t,0) :F(bad); OUTPUT = 'time-nonneg-ok' :(fin);bad OUTPUT = 'time-nonneg-bad';fin;END;* f32_time
+ OUTPUT = ATAN(1); OUTPUT = ATAN(0);END;* f33_atan
+ OUTPUT = CHOP(3.7); OUTPUT = CHOP(-3.7); OUTPUT = CHOP(3.2); OUTPUT = CHOP(-3.2); OUTPUT = CHOP(0.0);END;* f34_chop
+ OUTPUT = COS(0); OUTPUT = COS(1);END;* f35_cos
+ OUTPUT = EXP(0); OUTPUT = EXP(1);END;* f36_exp
+ OUTPUT = LN(1); OUTPUT = LN(10);END;* f37_ln
+ OUTPUT = REMDR(7,3); OUTPUT = REMDR(-7,3); OUTPUT = REMDR(7.5,2);END;* f38_remdr
+ OUTPUT = SIN(0); OUTPUT = SIN(1);END;* f39_sin
+ OUTPUT = SQRT(4); OUTPUT = SQRT(2);END;* f40_sqrt
+ OUTPUT = TAN(0); OUTPUT = TAN(1);END;* f41_tan
+ EQ(3,3) :F(bad1); OUTPUT = 'eq-succeed-ok' :(next1);bad1 OUTPUT = 'eq-succeed-bad';next1 EQ(3,4) :S(bad2); OUTPUT = 'eq-fail-ok' :(fin);bad2 OUTPUT = 'eq-fail-bad';fin;END;* f42_eq
+ GE(5,3) :F(bad1); OUTPUT = 'ge-succeed-ok' :(next1);bad1 OUTPUT = 'ge-succeed-bad';next1 GE(2,3) :S(bad2); OUTPUT = 'ge-fail-ok' :(fin);bad2 OUTPUT = 'ge-fail-bad';fin;END;* f43_ge
+ GT(5,3) :F(bad1); OUTPUT = 'gt-succeed-ok' :(next1);bad1 OUTPUT = 'gt-succeed-bad';next1 GT(3,3) :S(bad2); OUTPUT = 'gt-fail-ok' :(fin);bad2 OUTPUT = 'gt-fail-bad';fin;END;* f44_gt
+*---------------------------------------------------------------- 32 f45_integer
+        INTEGER('42')                              :F(bad1)
+        OUTPUT = 'integer-succeed-ok'                :(next1)
+bad1    OUTPUT = 'integer-succeed-bad'
+next1   INTEGER(5.0)                                :S(bad2)
+        OUTPUT = 'integer-fail-ok'                    :(fin)
+bad2    OUTPUT = 'integer-fail-bad'
+fin
+END
+ LE(3,3) :F(bad1); OUTPUT = 'le-succeed-ok' :(next1);bad1 OUTPUT = 'le-succeed-bad';next1 LE(4,3) :S(bad2); OUTPUT = 'le-fail-ok' :(fin);bad2 OUTPUT = 'le-fail-bad';fin;END;* f46_le
+ LT(2,3) :F(bad1); OUTPUT = 'lt-succeed-ok' :(next1);bad1 OUTPUT = 'lt-succeed-bad';next1 LT(3,3) :S(bad2); OUTPUT = 'lt-fail-ok' :(fin);bad2 OUTPUT = 'lt-fail-bad';fin;END;* f47_lt
+ NE(3,4) :F(bad1); OUTPUT = 'ne-succeed-ok' :(next1);bad1 OUTPUT = 'ne-succeed-bad';next1 NE(3,3) :S(bad2); OUTPUT = 'ne-fail-ok' :(fin);bad2 OUTPUT = 'ne-fail-bad';fin;END;* f48_ne
+*----------------------------------------------------------------- 36 f49_differ
+        DIFFER(.ABC, 'ABC')                          :F(bad1)
+        OUTPUT = 'name-string-differ-ok'              :(next1)
+bad1    OUTPUT = 'name-string-differ-bad'
+next1   DIFFER(3, 4)                                  :F(bad2)
+        OUTPUT = 'values-differ-ok'                   :(next2)
+bad2    OUTPUT = 'values-differ-bad'
+next2   DIFFER('x')                                   :F(bad3)
+        OUTPUT = 'omitted-arg2-nonnull-ok'            :(fin)
+bad3    OUTPUT = 'omitted-arg2-nonnull-bad'
+fin
+END
+*------------------------------------------------------------------ 37 f50_ident
+        IDENT(.ABC, 'ABC')                           :S(bad1)
+        OUTPUT = 'name-string-ident-ok'               :(next1)
+bad1    OUTPUT = 'name-string-ident-bad'
+next1   IDENT(3, 3)                                   :F(bad2)
+        OUTPUT = 'values-ident-ok'                    :(next2)
+bad2    OUTPUT = 'values-ident-bad'
+next2   IDENT('')                                     :F(bad3)
+        OUTPUT = 'omitted-arg2-null-ok'               :(fin)
+bad3    OUTPUT = 'omitted-arg2-null-bad'
+fin
+END
+*-------------------------------------------------------------------- 38 f53_any
+        'abc' ? ANY('xyz')                        :S(bad1)
+        OUTPUT = 'any-correctly-rejects-non-member' :(next)
+bad1    OUTPUT = 'any-wrongly-matched-non-member'
+next
+        'abc' ? ANY('cba') . X                    :F(bad2)
+        OUTPUT = 'any-matched-' X                   :(fin)
+bad2    OUTPUT = 'any-should-have-matched-member'
+fin
+END
+*------------------------------------------------------------------ 39 f54_arbno
+        'aaa' ? ARBNO('a') . Y REM . Z            :F(bad1)
+        OUTPUT = 'lazy:Y=[' Y ']:Z=' Z              :(next)
+bad1    OUTPUT = 'arbno-lazy-should-have-matched'
+next
+        'aaa' ? POS(0) ARBNO('a') . X RPOS(0)     :F(bad2)
+        OUTPUT = 'anchored-full:X=' X                :(fin)
+bad2    OUTPUT = 'arbno-anchored-should-have-matched'
+fin
+END
+ 'Now is the time' ? BREAK('ei') . X :F(bad); OUTPUT = X :(fin);bad OUTPUT = 'break-should-have-matched';fin;END;* f55_break
+*----------------------------------------------------------------- 41 f56_breakx
+        'EXCEPTIONS ARE AS TRUE AS RULES' ? POS(0) BREAK('A') 'AS'      :S(bad1)
+        OUTPUT = 'break-correctly-fails-no-extend'                        :(next)
+bad1    OUTPUT = 'break-wrongly-extended-past-A'
+next
+        'EXCEPTIONS ARE AS TRUE AS RULES' ? POS(0) BREAKX('A') . X 'AS'  :F(bad2)
+        OUTPUT = 'breakx-extended:' X                                     :(fin)
+bad2    OUTPUT = 'breakx-should-have-matched'
+fin
+END
+*-------------------------------------------------------------------- 42 f58_len
+        'abcdef' ? LEN(3) . X                     :F(bad1)
+        OUTPUT = 'len3:' X                           :(next)
+bad1    OUTPUT = 'len-should-have-matched'
+next
+        'ab' ? LEN(0) . Y REM . Z                 :F(bad2)
+        OUTPUT = 'len0:Y=[' Y ']:Z=' Z               :(fin)
+bad2    OUTPUT = 'len0-should-have-matched'
+fin
+END
+*----------------------------------------------------------------- 43 f59_notany
+        'xyz' ? NOTANY('xyz')                     :S(bad1)
+        OUTPUT = 'notany-correctly-rejects-member'  :(next)
+bad1    OUTPUT = 'notany-wrongly-matched-member'
+next
+        'abc' ? NOTANY('xyz') . X                 :F(bad2)
+        OUTPUT = 'notany-matched-' X                 :(fin)
+bad2    OUTPUT = 'notany-should-have-matched-non-member'
+fin
+END
+*-------------------------------------------------------------------- 44 f60_pos
+        'abcdef' ? POS(0) 'abc'                   :F(bad1)
+        OUTPUT = 'pos0-anchors-ok'                   :(next)
+bad1    OUTPUT = 'pos0-should-have-matched'
+next
+        'abcdef' ? 'abc' POS(3) 'def'             :F(bad2)
+        OUTPUT = 'pos3-verified-ok'                  :(next2)
+bad2    OUTPUT = 'pos3-should-have-matched'
+next2
+        'abcdef' ? 'abc' POS(4)                   :S(bad3)
+        OUTPUT = 'pos-mismatch-correctly-fails'       :(fin)
+bad3    OUTPUT = 'pos-mismatch-wrongly-succeeded'
+fin
+END
+*------------------------------------------------------------------- 45 f61_rpos
+        'abcdef' ? 'abc' RPOS(3)                  :F(bad1)
+        OUTPUT = 'rpos3-verified-ok'                 :(next)
+bad1    OUTPUT = 'rpos3-should-have-matched'
+next
+        'abcdef' ? 'abcdef' RPOS(0)                :F(bad2)
+        OUTPUT = 'rpos0-anchors-end-ok'               :(next2)
+bad2    OUTPUT = 'rpos0-should-have-matched'
+next2
+        'abcdef' ? 'abc' RPOS(0)                   :S(bad3)
+        OUTPUT = 'rpos-mismatch-correctly-fails'       :(fin)
+bad3    OUTPUT = 'rpos-mismatch-wrongly-succeeded'
+fin
+END
+*------------------------------------------------------------------- 46 f62_rtab
+        'abcdef' ? RTAB(2) . X                     :F(bad1)
+        OUTPUT = 'rtab2:' X                           :(next)
+bad1    OUTPUT = 'rtab-should-have-matched'
+next
+        'abcdef' ? RTAB(0) . Y                     :F(bad2)
+        OUTPUT = 'rtab0-eq-rem:' Y                    :(next2)
+bad2    OUTPUT = 'rtab0-should-have-matched'
+next2
+        'abcdef' ? 'abcdef' RTAB(2)                 :S(bad3)
+        OUTPUT = 'rtab-past-target-correctly-fails'    :(fin)
+bad3    OUTPUT = 'rtab-past-target-wrongly-succeeded'
+fin
+END
+*------------------------------------------------------------------- 47 f63_span
+        'aaabbbccc' ? SPAN('ab') . X               :F(bad1)
+        OUTPUT = 'span:' X                            :(next)
+bad1    OUTPUT = 'span-should-have-matched'
+next
+        'ccc' ? SPAN('ab')                          :S(bad2)
+        OUTPUT = 'span-correctly-fails-no-member-present' :(fin)
+bad2    OUTPUT = 'span-wrongly-matched-no-member'
+fin
+END
+*-------------------------------------------------------------------- 48 f64_tab
+        'abcdef' ? TAB(3) . X                       :F(bad1)
+        OUTPUT = 'tab3:' X                             :(next)
+bad1    OUTPUT = 'tab-should-have-matched'
+next
+        'abcdef' ? TAB(3) TAB(1)                    :S(bad2)
+        OUTPUT = 'tab-backward-correctly-fails'         :(next2)
+bad2    OUTPUT = 'tab-backward-wrongly-succeeded'
+next2
+        'abcdef' ? TAB(0) . Y                       :F(bad3)
+        OUTPUT = 'tab0-null:[' Y ']'                    :(fin)
+bad3    OUTPUT = 'tab0-should-have-matched'
+fin
+END
+ h = HOST(); OUTPUT = 'datatype=' DATATYPE(h); OUTPUT = 'host0=' HOST(0);END;* f66_host
+ DATA('COMPLEX(REAL,IMAG)'); X = COMPLEX(3.2, 2.0); OUTPUT = REAL(X); OUTPUT = IMAG(X); REAL(X) = 1.0; IMAG(X) = IMAG(X) / 2; OUTPUT = REAL(X); OUTPUT = IMAG(X); OUTPUT = DATATYPE(X);END;* f70_data
+ LEQ('1',1) :F(bad1); OUTPUT = 'leq-succeed-ok' :(next1);bad1 OUTPUT = 'leq-succeed-bad';next1 LEQ('A','B') :S(bad2); OUTPUT = 'leq-fail-ok' :(fin);bad2 OUTPUT = 'leq-fail-bad';fin;END;* f72_leq
+ LGE('B','A') :F(bad1); OUTPUT = 'lge-succeed-ok' :(next1);bad1 OUTPUT = 'lge-succeed-bad';next1 LGE('A','B') :S(bad2); OUTPUT = 'lge-fail-ok' :(fin);bad2 OUTPUT = 'lge-fail-bad';fin;END;* f73_lge
+ LGT('AB','A') :F(bad1); OUTPUT = 'lgt-succeed-ok' :(next1);bad1 OUTPUT = 'lgt-succeed-bad';next1 LGT('A','A') :S(bad2); OUTPUT = 'lgt-fail-ok' :(fin);bad2 OUTPUT = 'lgt-fail-bad';fin;END;* f74_lgt
+ LLE('A','A') :F(bad1); OUTPUT = 'lle-succeed-ok' :(next1);bad1 OUTPUT = 'lle-succeed-bad';next1 LLE('B','A') :S(bad2); OUTPUT = 'lle-fail-ok' :(fin);bad2 OUTPUT = 'lle-fail-bad';fin;END;* f75_lle
+ LLT('A','B') :F(bad1); OUTPUT = 'llt-succeed-ok' :(next1);bad1 OUTPUT = 'llt-succeed-bad';next1 LLT('B','A') :S(bad2); OUTPUT = 'llt-fail-ok' :(fin);bad2 OUTPUT = 'llt-fail-bad';fin;END;* f76_llt
+ LNE('A','B') :F(bad1); OUTPUT = 'lne-succeed-ok' :(next1);bad1 OUTPUT = 'lne-succeed-bad';next1 LNE(10,'10') :S(bad2); OUTPUT = 'lne-fail-ok' :(fin);bad2 OUTPUT = 'lne-fail-bad';fin;END;* f77_lne
+ OUTPUT = 'a=' LPAD('42', 5, '0'); OUTPUT = 'b=' LPAD('42', 5); OUTPUT = 'c=' LPAD('hello', 3); OUTPUT = 'd=' LPAD('42', 5, '');END;* f78_lpad
+ OUTPUT = 'a=' REPLACE('HELLO world', 'aeiouAEIOU', '1234512345'); OUTPUT = 'b=' REPLACE('123456', '214365', 'ABCDEF'); OUTPUT = 'c=' REPLACE('aaabbbccc', 'abc', '(1)');END;* f79_replace
+ OUTPUT = 'a=' REVERSE('SPITBOL'); OUTPUT = 'b=' REVERSE('');END;* f80_reverse
+ OUTPUT = 'a=' RPAD('42', 5, '.'); OUTPUT = 'b=' RPAD('42', 5); OUTPUT = 'c=' RPAD('hello', 3); OUTPUT = 'd=' RPAD('42', 5, '');END;* f81_rpad
+*----------------------------------------------------------------- 61 f82_substr
+        OUTPUT = 'a=' SUBSTR('ABCDEFGHIJ', 3, 4)
+        OUTPUT = 'b=' SUBSTR('ABCDEFGHIJ', 6)
+        OUTPUT = 'c=' SUBSTR('ABCDEFGHIJ', 1, 0)
+        SUBSTR('ABCDEFGHIJ', 3, 100)                  :S(bad1)
+        OUTPUT = 'd=oob-len-correctly-failed'          :(next1)
+bad1    OUTPUT = 'd=oob-len-wrongly-succeeded'
+next1   OUTPUT = 'e=' SUBSTR('ABCDEFGHIJ', 3, -1)      :F(negfail)
+        :(fin)
+negfail OUTPUT = 'e=neg-len-failed'
+fin
+END
+ OUTPUT = 'alphabet-size=' SIZE(&ALPHABET);END;* k08_alphabet
+ line = INPUT :F(bad); OUTPUT = 'input-had-data??' :(fin);bad OUTPUT = 'input-eof-fails-as-expected';fin;END;* n02_input_eof
+ TERMINAL = 'via-terminal';END;* n04_terminal
+ DEFINE('adder(a,b)') :(main);adder adder = a + b :(RETURN);main OUTPUT = adder(3,4);END;* n05_return
+*---------------------------------------------------------------- 66 n06_freturn
+        DEFINE('failer(a)')                        :(main)
+failer  EQ(a,1)                                     :F(FRETURN)
+        failer = 'was-one'                          :(RETURN)
+main    OUTPUT = IDENT(failer(2),'was-one')          :S(bad)
+        OUTPUT = 'freturn-ok'                        :(fin)
+bad     OUTPUT = 'freturn-bad'
+fin
+END
+ 'ABCDEF' ? 'A' (ARB | 'D') 'E' . matched :F(bad); OUTPUT = 'arb-ok' :(fin);bad OUTPUT = 'arb-bad';fin;END;* p02_arb
+ '(A(B)C)D' ? BAL . matched 'D' :F(bad); OUTPUT = 'bal-matched=' matched :(fin);bad OUTPUT = 'bal-bad';fin;END;* p03_bal
+ 'X' ? ('A' | FAIL) :S(bad); OUTPUT = 'fail-ok' :(fin);bad OUTPUT = 'fail-bad';fin;END;* p04_fail
+ 'ABCDE' ? 'AB' REM . rest :F(bad); OUTPUT = 'rest=' rest :(fin);bad OUTPUT = 'rem-bad';fin;END;* p06_rem
+ '' ? SUCCEED :F(bad); OUTPUT = 'succeed-ok' :(fin);bad OUTPUT = 'succeed-bad';fin;END;* p07_succeed
+ 'ABCDEF' ? 'ABC' @cursor; OUTPUT = cursor;END;* u01_at_sign
+ ~IDENT(1,2) :F(check1); OUTPUT = 'neg-of-fail-succeeds';check1 ~IDENT(1,1) :S(check2); OUTPUT = 'neg-of-success-fails';check2;END;* u02_tilde
+ OUTPUT = &LCASE; OUTPUT = &UCASE;END;* u04_ampersand
+ OUTPUT = +5;END;* u05_unary_plus
+ OUTPUT = -5 + 12;END;* u06_unary_minus
+ vname = 'TARGET'; $vname = 'hit'; OUTPUT = TARGET;END;* u08_dollar_indirect
+ ABC = 'named-ok'; pname = .ABC; 'named-ok' ? pname :F(bad); OUTPUT = 'name-pattern-ok' :(fin);bad OUTPUT = 'name-pattern-bad';fin;END;* u09_period_name
+ OUTPUT = 'anchor-initial=' &ANCHOR;END;* w01_anchor
+ OUTPUT = 'code-initial=' &CODE;END;* w03_code
+ OUTPUT = 'dump-initial=' &DUMP;END;* w04_dump
+ OUTPUT = 'errlimit-initial=' &ERRLIMIT;END;* w05_errlimit
+ OUTPUT = 'errtext-initial=' &ERRTEXT; OUTPUT = 'errtype-initial=' &ERRTYPE;END;* w06_errtext_errtype
+ OUTPUT = 'ftrace-initial=' &FTRACE;END;* w07_ftrace
+ OUTPUT = 'fullscan-initial=' &FULLSCAN;END;* w08_fullscan
+ OUTPUT = 'input-initial=' &INPUT;END;* w09_input_flag
+ OUTPUT = 'maxlngth-initial=' &MAXLNGTH;END;* w10_maxlngth
+ OUTPUT = 'output-initial=' &OUTPUT;END;* w11_output_flag
+ OUTPUT = 'profile-initial=' &PROFILE;END;* w12_profile
+ OUTPUT = 'stlimit-initial=' &STLIMIT;END;* w13_stlimit
+ OUTPUT = 'trace-initial=' &TRACE;END;* w14_trace
+ OUTPUT = 'trim-initial=' &TRIM;END;* w15_trim

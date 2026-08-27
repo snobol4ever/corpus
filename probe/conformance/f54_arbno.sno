@@ -1,9 +1,0 @@
-        'aaa' ? ARBNO('a') . Y REM . Z            :F(bad1)
-        OUTPUT = 'lazy:Y=[' Y ']:Z=' Z              :(next)
-bad1    OUTPUT = 'arbno-lazy-should-have-matched'
-next
-        'aaa' ? POS(0) ARBNO('a') . X RPOS(0)     :F(bad2)
-        OUTPUT = 'anchored-full:X=' X                :(fin)
-bad2    OUTPUT = 'arbno-anchored-should-have-matched'
-fin
-END

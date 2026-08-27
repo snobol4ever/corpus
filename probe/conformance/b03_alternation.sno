@@ -1,5 +1,0 @@
-        'DEF' ? ('ABC' | 'DEF')                  :F(bad)
-        OUTPUT = 'alt-ok'                         :(fin)
-bad     OUTPUT = 'alt-bad'
-fin
-END

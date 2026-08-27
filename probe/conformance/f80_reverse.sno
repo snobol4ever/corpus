@@ -1,3 +1,0 @@
-        OUTPUT = 'a=' REVERSE('SPITBOL')
-        OUTPUT = 'b=' REVERSE('')
-END

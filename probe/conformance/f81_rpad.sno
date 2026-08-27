@@ -1,5 +1,0 @@
-        OUTPUT = 'a=' RPAD('42', 5, '.')
-        OUTPUT = 'b=' RPAD('42', 5)
-        OUTPUT = 'c=' RPAD('hello', 3)
-        OUTPUT = 'd=' RPAD('42', 5, '')
-END

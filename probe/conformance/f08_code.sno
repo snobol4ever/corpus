@@ -1,9 +1,0 @@
-        C = CODE(" OUTPUT = 'from-code' :(RET)")      :S(ok1)
-        OUTPUT = 'code-compile-failed-bad'              :(fin)
-ok1     OUTPUT = 'before'                                :<C>
-RET     OUTPUT = 'after-code-ok'                          :(chk2)
-chk2    BAD = CODE(' OUTPUT = 3 + ')                    :S(bad2)
-        OUTPUT = 'code-badsyntax-failed-ok'                :(fin)
-bad2    OUTPUT = 'code-badsyntax-succeeded-bad'
-fin
-END

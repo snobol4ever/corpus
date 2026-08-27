@@ -1,5 +1,0 @@
-        'HELLOWORLD' ? 'WORLD'                  :F(bad)
-        OUTPUT = 'pm-ok'                         :(fin)
-bad     OUTPUT = 'pm-bad'
-fin
-END

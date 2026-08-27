@@ -1,4 +1,0 @@
-        OUTPUT = 2 ** 10
-        OUTPUT = 2 ^ 10
-        OUTPUT = 2 ! 10
-END

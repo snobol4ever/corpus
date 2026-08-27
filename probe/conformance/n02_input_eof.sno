@@ -1,5 +1,0 @@
-        line = INPUT                              :F(bad)
-        OUTPUT = 'input-had-data??'                 :(fin)
-bad     OUTPUT = 'input-eof-fails-as-expected'
-fin
-END

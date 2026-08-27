@@ -1,9 +1,0 @@
-        'abcdef' ? LEN(3) . X                     :F(bad1)
-        OUTPUT = 'len3:' X                           :(next)
-bad1    OUTPUT = 'len-should-have-matched'
-next
-        'ab' ? LEN(0) . Y REM . Z                 :F(bad2)
-        OUTPUT = 'len0:Y=[' Y ']:Z=' Z               :(fin)
-bad2    OUTPUT = 'len0-should-have-matched'
-fin
-END

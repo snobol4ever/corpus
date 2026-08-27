@@ -1,8 +1,0 @@
-        GT(5,3)                                    :F(bad1)
-        OUTPUT = 'gt-succeed-ok'                     :(next1)
-bad1    OUTPUT = 'gt-succeed-bad'
-next1   GT(3,3)                                    :S(bad2)
-        OUTPUT = 'gt-fail-ok'                        :(fin)
-bad2    OUTPUT = 'gt-fail-bad'
-fin
-END

@@ -1,8 +1,0 @@
-        NE(3,4)                                    :F(bad1)
-        OUTPUT = 'ne-succeed-ok'                     :(next1)
-bad1    OUTPUT = 'ne-succeed-bad'
-next1   NE(3,3)                                    :S(bad2)
-        OUTPUT = 'ne-fail-ok'                        :(fin)
-bad2    OUTPUT = 'ne-fail-bad'
-fin
-END

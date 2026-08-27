@@ -1,5 +1,0 @@
-        'ABCDE' ? 'AB' REM . rest                 :F(bad)
-        OUTPUT = 'rest=' rest                       :(fin)
-bad     OUTPUT = 'rem-bad'
-fin
-END

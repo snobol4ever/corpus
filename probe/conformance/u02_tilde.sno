@@ -1,6 +1,0 @@
-        ~IDENT(1,2)             :F(check1)
-        OUTPUT = 'neg-of-fail-succeeds'
-check1  ~IDENT(1,1)             :S(check2)
-        OUTPUT = 'neg-of-success-fails'
-check2
-END

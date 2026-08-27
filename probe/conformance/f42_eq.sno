@@ -1,8 +1,0 @@
-        EQ(3,3)                                    :F(bad1)
-        OUTPUT = 'eq-succeed-ok'                     :(next1)
-bad1    OUTPUT = 'eq-succeed-bad'
-next1   EQ(3,4)                                    :S(bad2)
-        OUTPUT = 'eq-fail-ok'                        :(fin)
-bad2    OUTPUT = 'eq-fail-bad'
-fin
-END

@@ -1,4 +1,0 @@
-        OUTPUT = SIZE('')
-        OUTPUT = SIZE('HELLO')
-        OUTPUT = SIZE('HELLO WORLD')
-END

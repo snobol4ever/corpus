@@ -1,5 +1,0 @@
-        'Now is the time' ? BREAK('ei') . X       :F(bad)
-        OUTPUT = X                                  :(fin)
-bad     OUTPUT = 'break-should-have-matched'
-fin
-END

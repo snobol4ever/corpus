@@ -1,9 +1,0 @@
-        'aaabbbccc' ? SPAN('ab') . X               :F(bad1)
-        OUTPUT = 'span:' X                            :(next)
-bad1    OUTPUT = 'span-should-have-matched'
-next
-        'ccc' ? SPAN('ab')                          :S(bad2)
-        OUTPUT = 'span-correctly-fails-no-member-present' :(fin)
-bad2    OUTPUT = 'span-wrongly-matched-no-member'
-fin
-END

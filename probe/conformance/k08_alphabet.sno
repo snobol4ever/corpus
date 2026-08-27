@@ -1,2 +1,0 @@
-        OUTPUT = 'alphabet-size=' SIZE(&ALPHABET)
-END

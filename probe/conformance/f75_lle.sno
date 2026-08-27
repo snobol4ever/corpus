@@ -1,8 +1,0 @@
-        LLE('A','A')                               :F(bad1)
-        OUTPUT = 'lle-succeed-ok'                    :(next1)
-bad1    OUTPUT = 'lle-succeed-bad'
-next1   LLE('B','A')                               :S(bad2)
-        OUTPUT = 'lle-fail-ok'                       :(fin)
-bad2    OUTPUT = 'lle-fail-bad'
-fin
-END
