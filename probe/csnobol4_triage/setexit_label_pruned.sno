@@ -1,0 +1,14 @@
+* A label reached ONLY through SETEXIT(.label) -- never by an ordinary GOTO/fallthrough edge --
+* whose body reads &LASTNO gets its own emission pruned by scrip's optimizer as unreachable, but
+* the __gva_names address table mode-4 emits for it still references the symbol: gcc -no-pie
+* link fails with "undefined reference to LBL__eh35" (mode-3 in-process binary papers over it,
+* an m3<>m4 divergence).  A same-shape handler body that DOESN'T read &LASTNO links cleanly --
+* the &LASTNO reference specifically is load-bearing for reproduction, cause not yet root-caused
+* past the optimizer/emit boundary.  Ablated from csnobol4_suite/setexit7.sno (3 handler labels,
+* all reproduce independently).  sbl -bf has no link stage to compare; it accepts the
+* SETEXIT/.label construct without complaint (a different, unrelated runtime error fires from
+* deliberately invoking :(CONTINUE) with no error in flight -- ERROR 037).
+	SETEXIT(.eh35)
+	:(CONTINUE)
+eh35	OUTPUT = 'S' &LASTNO
+END

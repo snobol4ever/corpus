@@ -1,0 +1,5 @@
+* -INCLUDE names a file that exists nowhere in the corpus repo.  BOTH scrip and sbl -bf refuse
+* it identically (ERROR 285 upstream) -- a missing corpus fixture, not a SCRIP defect.  Mirrors
+* the already-documented lon_cherryholmes 24-file include gap (RULES.md ABSOLUTE RULES).
+-INCLUDE 'nonexistent_target.sno'
+END

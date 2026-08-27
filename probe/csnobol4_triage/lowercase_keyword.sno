@@ -1,0 +1,6 @@
+* SCRIP requires uppercase END (design choice, RULES.md); csnobol4_suite programs commonly end
+* lowercase.  BOTH scrip and the sbl -bf correctness oracle reject this -- corpus dialect, not a
+* SCRIP-only defect.  Cure: util_uppercase_keywords.py already exists for this normalization.
+	value = 1
+	OUTPUT = value
+end

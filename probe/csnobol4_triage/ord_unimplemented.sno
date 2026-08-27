@@ -1,0 +1,8 @@
+* ORD (character -> ordinal value, the inverse of CHAR) is unimplemented in scrip: fatal parse-
+* time "Error 5 -- Undefined function or operation", no output at all (root cause of
+* csnobol4_suite/ord.sno's RC1).  sbl -bf ALSO refuses it (runtime ERROR 022 -- undefined
+* function called) though it degrades softer (continues to a stats dump, rc=0) rather than
+* refusing to compile.  Both tools lack ORD -- likely a CSNOBOL4-only extension outside SCRIP's
+* stated SPITBOL-semantics target, not a confirmed SCRIP-specific gap.
+	OUTPUT = ORD('A')
+END

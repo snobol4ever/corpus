@@ -1,0 +1,6 @@
+* &DUMP=1 should print a termination dump of variables/keywords (see csnobol4_suite/a.sno + .ref).
+* sbl -bf prints the real dump; scrip accepts the assignment (rc=0) but silently no-ops it,
+* producing zero output.  SCRIP-only defect: &DUMP keyword unimplemented.
+	value = 1
+	&DUMP = 1
+END

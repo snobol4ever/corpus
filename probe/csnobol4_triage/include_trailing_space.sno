@@ -1,0 +1,6 @@
+* csnobol4_suite/line.sno and include.sno both write -INCLUDE "line2.sno " (one trailing space
+* INSIDE the closing quote, present in the suite's own upstream source).  sbl -bf trims it and
+* includes the file; scrip takes the quoted argument literally byte-for-byte, looks for a file
+* named "target.sno " (with the space) and fails.  SCRIP-only defect, oracle-verified.
+-INCLUDE "include_trailing_space_lib.sno "
+END
