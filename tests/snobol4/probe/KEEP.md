@@ -17,7 +17,10 @@ depend on that coincidence.
 - `eval.sno`/`.ref` — 19 of 21 witnesses (commit `9ba7fe4ce`).
 - `gimpel.sno`/`.ref` — 9 of 23 witnesses (commit `04011eb50`).
 - `m1.sno`/`.ref` — 37 of 40 witnesses (commit `e6548ab38`).
-- `cn.sno`/`.ref` — 17 of 20 non-gate-locked witnesses (commit `bd616be5e`).
+- `cn.sno`/`.ref` — 17 of 20 non-gate-locked witnesses (commit `bd616be5e`), later grown to 27
+  entries when 10 of the 11 CN-4-gate-locked witnesses migrated in too (seat16, same day,
+  `probe-consolidate-m1-and-small`) — still converted either way, noted here only so the count
+  doesn't read stale.
 - `earn0.sno`/`.ref` — 31 of 35 witnesses (commit `ad4da9c33`).
 
 Each commit message states its own "N of M" — the gap between N and M is that family's own witnesses
