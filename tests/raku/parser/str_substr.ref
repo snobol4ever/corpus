@@ -1,2 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world")))
-(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "substr") (TT_ILIT 6) (TT_ILIT 5))))

@@ -1,2 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FLIT 3.14)))
-(STMT :subj (TT_SAY (TT_VAR x)))

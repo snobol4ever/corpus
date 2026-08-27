@@ -1,1 +1,0 @@
-(STMT :subj (TT_SAY (TT_MAP (TT_ADD (TT_VAR _) (TT_ILIT 1)) (TT_VAR arr))))

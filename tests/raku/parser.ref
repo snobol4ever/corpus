@@ -1,0 +1,244 @@
+#--------------------------------------------------------------------- 1 arr_get
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))
+(STMT :subj (TT_SAY (TT_VAR x)))
+#--------------------------------------------------------------------- 2 arr_set
+(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
+(STMT :subj (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99)))
+(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))
+#----------------------------------------------------------------- 3 capture_idx
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "e(l+)(o)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_CAPTURE (TT_ILIT 1))))))
+#--------------------------------------------------------------- 4 capture_named
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "(?<word>\\w+)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_NAMED_CAPTURE (TT_QLIT "word"))))))
+#----------------------------------------------------------------- 5 capture_pos
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "e(l+)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_CAPTURE (TT_ILIT 0))))))
+#----------------------------------------------------------- 6 delete_hash_angle
+(STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_QLIT "foo")))
+#----------------------------------------------------------- 7 delete_hash_brace
+(STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "bar")))
+(STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_VAR k)))
+#------------------------------------------------------------------- 8 die_basic
+(STMT :subj (TT_DIE (TT_QLIT "fatal error")))
+#------------------------------------------------------------------- 9 die_in_if
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
+(STMT :subj (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_DIE (TT_QLIT "zero")))))
+#------------------------------------------------------------------- 10 div_expr
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_DIV (TT_ILIT 10) (TT_VAR n))))
+#--------------------------------------------------------------------- 11 div_kw
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_DIV (TT_VAR x) (TT_ILIT 3))))
+#---------------------------------------------------------------- 12 field_write
+(STMT :subj (TT_ASSIGN (TT_VAR obj) (TT_NEW (TT_QLIT "Foo") (TT_QLIT "x") (TT_ILIT 1))))
+(STMT :subj (TT_ASSIGN (TT_FIELD x (TT_VAR obj)) (TT_ILIT 42)))
+#------------------------------------------------------------------ 13 for_basic
+(STMT :subj (TT_EVERY (TT_ITERATE x (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
+#------------------------------------------------------------------ 14 for_named
+(STMT :subj (TT_EVERY (TT_ITERATE item (TT_VAR items)) (TT_SEQ_EXPR (TT_SAY (TT_VAR item)))))
+#---------------------------------------------------------------- 15 for_noarrow
+(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
+(STMT :subj (TT_EVERY (TT_ITERATE (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "x")))))
+#------------------------------------------------------------------ 16 for_range
+(STMT :subj (TT_FOR_RANGE (TT_VAR i) (TT_ILIT 1) (TT_ILIT 5) (TT_SEQ_EXPR (TT_SAY (TT_VAR i))) (TT_ILIT 0)))
+#---------------------------------------------------------------- 17 given_basic
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+(STMT :subj (TT_CASE (TT_VAR x) (TT_ILIT 1) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one"))) (TT_ILIT 2) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "two")))))
+#-------------------------------------------------------------- 18 given_default
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one")))
+  (TT_ILIT 2)
+  (TT_SEQ_EXPR (TT_SAY (TT_QLIT "two")))
+  (TT_NUL)
+  (TT_SEQ_EXPR (TT_SAY (TT_QLIT "other")))
+))
+#------------------------------------------------------------ 19 given_nodefault
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one")))
+  (TT_ILIT 2)
+  (TT_SEQ_EXPR (TT_SAY (TT_QLIT "two")))
+  (TT_ILIT 3)
+  (TT_SEQ_EXPR (TT_SAY (TT_QLIT "three")))
+))
+#--------------------------------------------------------------- 20 given_single
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+(STMT :subj (TT_CASE (TT_VAR x) (TT_ILIT 1) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one")))))
+#------------------------------------------------------------------ 21 given_str
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_QLIT "hello")))
+(STMT :subj (TT_CASE (TT_VAR x) (TT_QLIT "hello") (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes"))) (TT_NUL) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "no")))))
+#----------------------------------------------------------------- 22 grep_basic
+(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_GREP (TT_GT (TT_VAR _) (TT_ILIT 0)) (TT_VAR a))))
+#------------------------------------------------------------------- 23 grep_str
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_GREP (TT_LEQ (TT_VAR _) (TT_QLIT "x")) (TT_VAR words))))
+#---------------------------------------------------------- 24 hash_exists_angle
+(STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
+#---------------------------------------------------------- 25 hash_exists_brace
+(STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
+#------------------------------------------------------------- 26 hash_get_angle
+(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR h) (TT_QLIT "x"))))
+(STMT :subj (TT_SAY (TT_VAR v)))
+#------------------------------------------------------------- 27 hash_get_brace
+(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR h) (TT_QLIT "x"))))
+(STMT :subj (TT_SAY (TT_VAR v)))
+#------------------------------------------------------------- 28 hash_set_angle
+(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
+(STMT :subj (TT_HASH_SET (TT_VAR h) (TT_QLIT "foo") (TT_QLIT "bar")))
+(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_QLIT "foo"))))
+#------------------------------------------------------------- 29 hash_set_brace
+(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
+(STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "foo")))
+(STMT :subj (TT_HASH_SET (TT_VAR h) (TT_VAR k) (TT_QLIT "baz")))
+(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_VAR k))))
+#------------------------------------------------------------------ 30 lit_float
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FLIT 3.14)))
+(STMT :subj (TT_SAY (TT_VAR x)))
+#------------------------------------------------------------------ 31 logic_and
+(STMT :subj (TT_IF (TT_SEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+#---------------------------------------------------------------- 32 logic_chain
+(STMT :subj (TT_IF (TT_SEQ (TT_SEQ (TT_VAR a) (TT_VAR b)) (TT_VAR c)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+#------------------------------------------------------------------ 33 logic_not
+(STMT :subj (TT_IF (TT_NOT (TT_VAR done)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
+#------------------------------------------------------------------- 34 logic_or
+(STMT :subj (TT_IF (TT_ALT (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+#------------------------------------------------------------- 35 logic_or_chain
+(STMT :subj (TT_IF (TT_ALT (TT_ALT (TT_VAR a) (TT_VAR b)) (TT_VAR c)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+#------------------------------------------------------------------ 36 map_basic
+(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_MAP (TT_MUL (TT_VAR _) (TT_ILIT 2)) (TT_VAR a))))
+#-------------------------------------------------------------------- 37 map_say
+(STMT :subj (TT_SAY (TT_MAP (TT_ADD (TT_VAR _) (TT_ILIT 1)) (TT_VAR arr))))
+#--------------------------------------------------------------- 38 match_global
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "aaa")))
+(STMT :subj (TT_ASSIGN (TT_VAR m) (TT_SMATCH (TT_VAR s) (TT_QLIT "a") (TT_QLIT "match_global"))))
+(STMT :subj (TT_SAY (TT_VAR m)))
+#-------------------------------------------------------------------- 39 mod_div
+(STMT :subj (TT_ASSIGN (TT_VAR q) (TT_DIV (TT_VAR x) (TT_VAR y))))
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_VAR x) (TT_VAR y))))
+#--------------------------------------------------------------------- 40 modulo
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_VAR x) (TT_ILIT 3))))
+#--------------------------------------------------------------- 41 modulo_chain
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_MOD (TT_VAR x) (TT_VAR y)) (TT_ILIT 2))))
+#------------------------------------------------------ 42 nested_call_in_method
+(STMT :subj (TT_ASSIGN
+  (TT_VAR r)
+  (TT_METHCALL
+    (TT_VAR s)
+    (TT_QLIT "substr")
+    (TT_FNC find_start (TT_VAR find_start) (TT_VAR s))
+    (TT_FNC find_len (TT_VAR find_len) (TT_VAR s))
+  )
+))
+(STMT :subj (TT_SAY (TT_VAR r)))
+#---------------------------------------------------------- 43 new_with_call_arg
+(STMT :subj (TT_ASSIGN (TT_VAR d) (TT_NEW (TT_QLIT "Dog") (TT_QLIT "name") (TT_FNC get_name (TT_VAR get_name)))))
+(STMT :subj (TT_SAY (TT_VAR d)))
+#-------------------------------------------------------------------- 44 pop_arr
+(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_FNC pop (TT_VAR pop) (TT_VAR a))))
+#------------------------------------------------------------------- 45 push_arr
+(STMT :subj (TT_FNC push (TT_VAR push) (TT_VAR a) (TT_ILIT 1)))
+#----------------------------------------------------------------- 46 range_expr
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_TO (TT_ILIT 1) (TT_ILIT 5))))
+#--------------------------------------------------------------- 47 regex_anchor
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "x")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "^x$") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "anchor")))))
+#------------------------------------------------------------ 48 regex_backslash
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "\\s+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "space")))))
+#------------------------------------------------------------- 49 regex_dot_star
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "anything")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT ".*") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "match")))))
+#------------------------------------------------------------------ 50 regex_lit
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "ell") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "match")))))
+#----------------------------------------------------------------- 51 regex_meta
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "abc123")))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "\\d+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "digit")))))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "[a-z]+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "lower")))))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "a|b") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "alt")))))
+#--------------------------------------------------------------- 52 repeat_basic
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
+(STMT :subj (TT_REPEAT (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_VAR x) (TT_ILIT 1))))))
+(STMT :subj (TT_SAY (TT_VAR x)))
+#---------------------------------------------------------------- 53 return_bare
+(STMT :subj (TT_SUB_DECL (TT_VAR f) (TT_RETURN)))
+(STMT :subj (TT_FNC f (TT_VAR f)))
+#-------------------------------------------------------------------- 54 sort_nc
+(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_SORT (TT_VAR a))))
+#-------------------------------------------------------------------- 55 str_cat
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_VAR a) (TT_VAR b))))
+#-------------------------------------------------------------- 56 str_cat_chain
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_VAR a) (TT_VAR b)) (TT_VAR c))))
+#---------------------------------------------------------------- 57 str_cat_lit
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_QLIT "hello") (TT_QLIT " ")) (TT_QLIT "world"))))
+#-------------------------------------------------------------- 58 str_cat_mixed
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_VAR a) (TT_QLIT "x")) (TT_VAR b))))
+#---------------------------------------------------------------- 59 str_cat_say
+(STMT :subj (TT_SAY (TT_CAT (TT_VAR a) (TT_VAR b))))
+#------------------------------------------------------------------ 60 str_chars
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "chars"))))
+#--------------------------------------------------------------------- 61 str_eq
+(STMT :subj (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+#------------------------------------------------------------------ 62 str_eq_ne
+(STMT :subj (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+(STMT :subj (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR b)))))
+#--------------------------------------------------------------------- 63 str_lc
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "HELLO")))
+(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "lc"))))
+#--------------------------------------------------------------------- 64 str_ne
+(STMT :subj (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
+#----------------------------------------------------------------- 65 str_substr
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world")))
+(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "substr") (TT_ILIT 6) (TT_ILIT 5))))
+#------------------------------------------------------------------- 66 str_trim
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "  hi  ")))
+(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "trim"))))
+#--------------------------------------------------------------------- 67 str_uc
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "uc"))))
+#--------------------------------------------------------------- 68 sub_and_main
+(STMT :subj (TT_SUB_DECL (TT_VAR double) (TT_VAR x) (TT_RETURN (TT_ADD (TT_VAR x) (TT_VAR x)))))
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC double (TT_VAR double) (TT_ILIT 3))))
+(STMT :subj (TT_SAY (TT_VAR r)))
+#------------------------------------------------------------------- 69 sub_call
+(STMT :subj (TT_SUB_DECL (TT_VAR add) (TT_VAR a) (TT_VAR b) (TT_RETURN (TT_ADD (TT_VAR a) (TT_VAR b)))))
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC add (TT_VAR add) (TT_ILIT 1) (TT_ILIT 2))))
+#----------------------------------------------------------- 70 sub_multi_params
+(STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_VAR first) (TT_VAR last) (TT_SAY (TT_VAR first)) (TT_SAY (TT_VAR last))))
+#------------------------------------------------------------- 71 sub_multi_stmt
+(STMT :subj (TT_SUB_DECL (TT_VAR add) (TT_VAR a) (TT_VAR b) (TT_ASSIGN (TT_VAR r) (TT_ADD (TT_VAR a) (TT_VAR b))) (TT_RETURN (TT_VAR r))))
+#--------------------------------------------------------------- 72 sub_noparams
+(STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_SAY (TT_QLIT "hello"))))
+#----------------------------------------------------------------- 73 sub_params
+(STMT :subj (TT_SUB_DECL (TT_VAR add) (TT_VAR a) (TT_VAR b) (TT_RETURN (TT_ADD (TT_VAR a) (TT_VAR b)))))
+#--------------------------------------------------------------- 74 subst_single
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_SMATCH (TT_VAR s) (TT_QLIT "l\x01r\x01-") (TT_QLIT "subst")))
+(STMT :subj (TT_SAY (TT_VAR s)))
+#------------------------------------------------------------- 75 typed_arr_bare
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums)))
+(STMT :subj (TT_SAY (TT_VAR nums)))
+#------------------------------------------------------------- 76 typed_arr_decl
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums) (TT_SORT (TT_VAR data))))
+(STMT :subj (TT_SAY (TT_VAR nums)))
+#----------------------------------------------------------------- 77 typed_decl
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR x) (TT_ILIT 5)))
+(STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR s)))
+(STMT :subj (TT_SAY (TT_VAR x)))
+#------------------------------------------------------------ 78 typed_hash_decl
+(STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR h) (TT_FNC raku_new_hash (TT_VAR raku_new_hash))))
+(STMT :subj (TT_SAY (TT_VAR h)))
+#---------------------------------------------------------------- 79 unary_minus
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_MNS (TT_ILIT 5))))
+#------------------------------------------------------------ 80 unary_minus_var
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_MNS (TT_VAR x))))
+#--------------------------------------------------------------- 81 unless_basic
+(STMT :subj (TT_UNLESS (TT_EQ (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
+#---------------------------------------------------------------- 82 unless_else
+(STMT :subj (TT_UNLESS (TT_EQ (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x))) (TT_SEQ_EXPR (TT_SAY (TT_ILIT 0)))))
+#---------------------------------------------------------------- 83 until_basic
+(STMT :subj (TT_UNTIL (TT_GT (TT_VAR x) (TT_ILIT 5)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))

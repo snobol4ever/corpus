@@ -1,3 +1,0 @@
-(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
-(STMT :subj (TT_HASH_SET (TT_VAR h) (TT_QLIT "foo") (TT_QLIT "bar")))
-(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_QLIT "foo"))))

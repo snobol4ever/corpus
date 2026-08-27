@@ -1,1 +1,0 @@
-(STMT :subj (TT_FOR_RANGE (TT_VAR i) (TT_ILIT 1) (TT_ILIT 5) (TT_SEQ_EXPR (TT_SAY (TT_VAR i))) (TT_ILIT 0)))

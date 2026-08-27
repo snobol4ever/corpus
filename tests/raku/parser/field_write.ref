@@ -1,2 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR obj) (TT_NEW (TT_QLIT "Foo") (TT_QLIT "x") (TT_ILIT 1))))
-(STMT :subj (TT_ASSIGN (TT_FIELD x (TT_VAR obj)) (TT_ILIT 42)))

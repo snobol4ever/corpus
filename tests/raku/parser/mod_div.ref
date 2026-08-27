@@ -1,2 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR q) (TT_DIV (TT_VAR x) (TT_VAR y))))
-(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_VAR x) (TT_VAR y))))

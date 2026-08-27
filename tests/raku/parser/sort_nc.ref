@@ -1,1 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_SORT (TT_VAR a))))

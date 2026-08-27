@@ -1,3 +1,0 @@
-(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
-(STMT :subj (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99)))
-(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))

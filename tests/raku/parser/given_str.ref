@@ -1,2 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_QLIT "hello")))
-(STMT :subj (TT_CASE (TT_VAR x) (TT_QLIT "hello") (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes"))) (TT_NUL) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "no")))))

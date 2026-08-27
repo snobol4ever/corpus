@@ -1,1 +1,0 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_SAY (TT_QLIT "hello"))))

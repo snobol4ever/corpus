@@ -1,2 +1,0 @@
-(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums) (TT_SORT (TT_VAR data))))
-(STMT :subj (TT_SAY (TT_VAR nums)))

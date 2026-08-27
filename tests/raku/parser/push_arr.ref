@@ -1,1 +1,0 @@
-(STMT :subj (TT_FNC push (TT_VAR push) (TT_VAR a) (TT_ILIT 1)))

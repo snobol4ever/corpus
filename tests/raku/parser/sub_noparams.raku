@@ -1,3 +1,0 @@
-sub greet() {
-    say("hello");
-}

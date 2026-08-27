@@ -1,2 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
-(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "(?<word>\\w+)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_NAMED_CAPTURE (TT_QLIT "word"))))))
