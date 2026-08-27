@@ -1,6 +1,0 @@
-program m4asg;
-var x : integer;
-begin
-  x := 5;
-  writeln(x)
-end.
