@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung03_unify_unify
 % rung03_unify — head unification, compound terms
 % Expected output: b a
 :- initialization(main).
