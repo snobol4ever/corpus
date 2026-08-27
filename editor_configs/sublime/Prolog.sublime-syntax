@@ -1,0 +1,264 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+#
+# Prolog.sublime-syntax — companion to SNOBOL4.sublime-syntax,
+# Snocone.sublime-syntax, and Icon.sublime-syntax (fourth of the
+# family; SNOBOL4 by Lon, Snocone by Claude Sonnet, Icon by Claude,
+# Prolog by Claude Fable).  Replaces the third-party SWI-Prolog
+# grammar that previously sat uncommitted in Packages/User — that
+# file was a strict push/pop grammar that painted anything it did
+# not expect invalid.illegal red, and it colored NESTED block
+# comments, which our lexer does not have.
+#
+# THE DIALECT THIS FILE COLORS IS SCRIP PROLOG.  Every lexical fact
+# below is deduced from SCRIP's hand-written lexer and parser
+# (SCRIP/src/frontend/prolog/prolog_lex.c + prolog_parse.c +
+# prolog_builtin.c), with line numbers cited.  Where SCRIP diverges
+# from SWI, SCRIP wins here; the divergences are noted:
+#
+#   * BLOCK COMMENTS DO NOT NEST.  skip_ws (prolog_lex.c:49-57) has
+#     no depth counter — the first `*/` closes the comment.  SWI
+#     nests; we do not, and neither does this file.
+#   * `%` comments run to end of line (prolog_lex.c:45-48).
+#   * QUOTED ATOMS ('...') double the quote to escape it ('' —
+#     scan_quoted_atom:109-113); STRINGS ("...") do NOT double —
+#     only backslash escapes (scan_string:128-148).  Both are
+#     MULTI-LINE: the scanners loop to the closing quote, and a raw
+#     newline is legal body (only '\0' is "unterminated").
+#   * ESCAPES (decode_escape:70-99): \a \b \f \n \r \t \v \e,
+#     octal \NNN with an OPTIONAL TRAILING BACKSLASH consumed
+#     (:84), \xHH.. likewise (:90), \\ \' \" \`, and
+#     backslash-newline as a LINE CONTINUATION that emits nothing
+#     (:97).  An UNKNOWN escape is kept literally, backslash and
+#     all (:98 default arm) — colored as plain body here, mirroring
+#     the lexer, same policy as the Icon file.
+#   * NUMBERS (scan_number:150-223): 0'c character codes including
+#     0'\n-style escapes and 0''' (:154-160); 0b / 0o / 0x radix
+#     integers with underscores IGNORED as separators (:162-179);
+#     decimal floats with exponent, and bare 123e5 (:205-212).
+#     ⚠ SCRIP EXTENSION: digit groups may be separated by SINGLE
+#     SPACES — `1 000 000` lexes as ONE integer (:171-172,
+#     :183-187).  A syntax file cannot join tokens across spaces,
+#     so each group colors as its own number; documented cosmetic
+#     limit, not a bug.  Float NaN/Inf tails (1.5NaN) are consumed
+#     (:200-204) and colored with the float.
+#   * VARIABLES start upper or underscore (lexer_next:263-278);
+#     a LONE `_` is the anonymous variable (TK_ANON, :270-273).
+#   * GRAPHIC ATOMS are maximal-munch runs over
+#     + - * / \ ^ < > = ~ ? @ # & : . !   (is_graphic:234-239),
+#     never consuming `,` or `|` (:244).  `:-` and `?-` are the
+#     neck/query tokens (:247-248).  `.` ends a clause ONLY when
+#     followed by whitespace or EOF (lexer_next:296-298) — so
+#     `=..` is one operator and `X.Y` never terminates a clause.
+#   * THE OPERATOR SET colored as operators is the parser's own
+#     precedence table (prolog_builtin.c pl_op_prec:15-30):
+#     :- ; -> ,  = \= is =:= =\= < > =< >= == \== @< @> @=< @>=
+#     =..  + - * / // mod rem << >> ** ^  unary-  \+ not.
+#     `-->` (DCG) and dynamic op/3 declarations with
+#     fx fy xfx xfy yfx xf yf are parsed (prolog_parse.c); ops
+#     minted at runtime by op/3 obviously cannot be pre-colored.
+#   * DIRECTIVES after :- recognized by the parser
+#     (prolog_parse.c): dynamic discontiguous multifile module
+#     use_module ensure_loaded initialization meta_predicate
+#     module_transparent mode op current_prolog_flag, and the
+#     conditional-compilation family if elif else endif.
+#
+# Builtin predicates colored support.function are the names the
+# lowerers actually wire (prolog_lower.c + lower_prolog.c string
+# census, 2026-08-28) — SWI predicates SCRIP does not implement are
+# deliberately NOT in the list, so an unimplemented call reads as a
+# plain atom, which is the truth.
+#
+# Scope vocabulary kept consistent with the other three files so
+# one color scheme renders all four dialects alike.
+
+name: Prolog
+file_extensions: [pl]
+scope: source.pl
+
+variables:
+  # lexer_next:263-278 — upper or underscore start, alnum_ continuation.
+  var: '\b[A-Z][0-9A-Za-z_]*\b|(?<![0-9A-Za-z_])_[0-9A-Za-z_]+\b'
+  # scan_word:225-232 — lower start, alnum_ continuation.
+  atom: '\b[a-z][0-9A-Za-z_]*\b'
+  # decode_escape:70-99.  Octal/hex may eat one trailing backslash.
+  escape: '\\(?:[abfnrtve\\''"`]|[0-7]+\\?|x\h+\\?|\n)'
+  # is_graphic:234-239 minus the , | exclusions of scan_graphic:244.
+  graphic: '[+\-*/\\^<>=~?@#&:.!]'
+
+contexts:
+  main:
+    - include: comments
+    - include: necks
+    - include: numbers
+    - include: strings
+    - include: quoted-atoms
+    - include: variables
+    - include: cut
+    - include: operators
+    - include: words
+    - include: punctuation
+
+  comments:
+    # skip_ws:45-48 — line comment to EOL.
+    - match: '%'
+      scope: punctuation.definition.comment.pl
+      push:
+        - meta_scope: comment.line.percentage.pl
+        - match: $
+          pop: true
+    # skip_ws:49-57 — block comment, NON-NESTING: first */ closes.
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.pl
+      push:
+        - meta_scope: comment.block.pl
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.pl
+          pop: true
+
+  necks:
+    # prolog_lex.c:247-248 — :- (TK_NECK) and ?- (TK_QUERY); the
+    # DCG arrow is parsed as a clause neck too (prolog_parse.c).
+    # A directive head after :- gets keyword.other; a clause head
+    # BEFORE :- / --> is caught by `words` below.
+    - match: '(:-)\s*(dynamic|discontiguous|multifile|module_transparent|meta_predicate|use_module|ensure_loaded|initialization|module|mode|op|current_prolog_flag|if|elif|else|endif)\b'
+      captures:
+        1: keyword.operator.definition.pl
+        2: keyword.other.directive.pl
+    - match: ':-|\?-|-->'
+      scope: keyword.operator.definition.pl
+
+  numbers:
+    # scan_number:154-160 — 0'c char code, incl. 0'\e escapes and 0'''.
+    - match: '0''(?:\\(?:[abfnrtve\\''"`]|[0-7]+\\?|x\h+\\?)|''''|.)'
+      scope: constant.character.pl
+    # scan_number:162-179 — 0b/0o/0x with _ separators ignored.
+    - match: '\b0[bB][01_]+\b'
+      scope: constant.numeric.integer.binary.pl
+    - match: '\b0[oO][0-7_]+\b'
+      scope: constant.numeric.integer.octal.pl
+    - match: '\b0[xX][\h_]+\b'
+      scope: constant.numeric.integer.hexadecimal.pl
+    # scan_number:188-212 — floats: 1.5, 1.5e-3, bare 2e8, NaN/Inf tails.
+    - match: '\b[0-9]+\.[0-9]+(?:[eE][+-]?[0-9]+)?(?:NaN|Inf)?\b'
+      scope: constant.numeric.float.pl
+    - match: '\b[0-9]+[eE][+-]?[0-9]+\b'
+      scope: constant.numeric.float.pl
+    # Decimal integer.  ⚠ space-grouped digits (`1 000`) are ONE
+    # token to the lexer (:183-187) but color as separate numbers
+    # here — see the header note.
+    - match: '\b[0-9]+\b'
+      scope: constant.numeric.integer.pl
+
+  strings:
+    # scan_string:128-148 — multi-line, backslash escapes, no "" doubling.
+    - match: '"'
+      scope: punctuation.definition.string.begin.pl
+      push:
+        - meta_scope: string.quoted.double.pl
+        - match: '{{escape}}'
+          scope: constant.character.escape.pl
+        - match: '"'
+          scope: punctuation.definition.string.end.pl
+          pop: true
+
+  quoted-atoms:
+    # scan_quoted_atom:102-126 — multi-line, '' doubling AND backslash escapes.
+    - match: ''''
+      scope: punctuation.definition.string.begin.pl
+      push:
+        - meta_scope: string.quoted.single.pl
+        - match: ''''''
+          scope: constant.character.escape.pl
+        - match: '{{escape}}'
+          scope: constant.character.escape.pl
+        - match: ''''
+          scope: punctuation.definition.string.end.pl
+          pop: true
+
+  variables:
+    # lexer_next:270-273 — lone _ is the anonymous variable.
+    - match: '(?<![0-9A-Za-z_])_(?![0-9A-Za-z_])'
+      scope: variable.language.anonymous.pl
+    - match: '{{var}}'
+      scope: variable.other.pl
+
+  cut:
+    # lexer_next:292 — solo ! is TK_CUT.
+    - match: '!'
+      scope: keyword.control.cut.pl
+
+  operators:
+    # pl_op_prec (prolog_builtin.c:15-30), longest spellings first.
+    # Comparison family:
+    - match: '=\.\.|=:=|=\\=|\\==|@=<|@>=|=<|>=|==|@<|@>|\\=|<|>'
+      scope: keyword.operator.comparison.pl
+    # Control family:
+    - match: '->|;'
+      scope: keyword.operator.logical.pl
+    - match: '\\\+'
+      scope: keyword.operator.logical.negation.pl
+    # Arithmetic family (word ops handled under `words`):
+    - match: '\*\*|<<|>>|//|[+\-*/^]'
+      scope: keyword.operator.arithmetic.pl
+    - match: '='
+      scope: keyword.operator.unification.pl
+    # Any remaining maximal-munch graphic run (is_graphic:234-239) —
+    # e.g. ops minted later by op/3 — colors as a generic operator
+    # rather than as an error: permissive, per family policy.
+    - match: '{{graphic}}{{graphic}}+'
+      scope: keyword.operator.pl
+
+  words:
+    # A functor at clause-head position: start of line, name directly
+    # before ( or before :- / --> .
+    - match: '^\s*({{atom}})(?=\s*(?:\(|:-|-->))'
+      captures:
+        1: entity.name.function.pl
+    # Word operators from pl_op_prec: is, mod, rem; negation `not`.
+    - match: '\b(?:is|mod|rem|xor)\b'
+      scope: keyword.operator.word.pl
+    - match: '\bnot\b'
+      scope: keyword.operator.logical.negation.pl
+    # Logical constants (parser: "true"/"fail"/"false").
+    - match: '\b(?:true|fail|false)\b'
+      scope: constant.language.pl
+    # Builtins the lowerers actually wire (prolog_lower.c +
+    # lower_prolog.c census, 2026-08-28).  Head position wins ABOVE,
+    # so `foo :- ...` colors foo as a definition even when the name
+    # collides with a builtin.
+    - match: |-
+        (?x)\b(?:
+          abolish|abs|acos|acyclic_term|aggregate_all|arg|asin|assert|asserta|assertz
+         |atan|atom|atom_chars|atom_codes|atom_concat|atomic|atomic_list_concat
+         |atom_length|atom_number|atom_string|bagof|between|call|callable|catch
+         |ceiling|char_type|clause|compound|concat_atom|copy_term|cos|current_op
+         |current_predicate|current_prolog_flag|current_stream|downcase_atom|exp
+         |findall|float|float_fractional_part|float_integer_part|floor
+         |flush_output|forall|format|functor|gcd|ground|halt|ignore|integer
+         |is_list|log|max|min|msort|name|nb_getval|nb_setval|nl|nonvar|number
+         |number_chars|number_codes|number_string|numbervars|once|phrase|plus
+         |predicate_property|print|put_char|read|read_term|retract|retractall
+         |round|setof|setup_call_cleanup|sign|sin|sort|sqrt|stream_property
+         |string_chars|string_codes|string_concat|string_length|string_lower
+         |string_to_atom|string_upper|sub_atom|succ|tab|tan|term_string
+         |term_to_atom|throw|truncate|upcase_atom|var|with_output_to|write
+         |write_canonical|writeln|writeq
+        )\b(?=\s*\()
+      scope: support.function.pl
+    - match: '\b(?:nl|halt|fail|true|listing)\b'
+      scope: support.function.pl
+    # Everything else lower-led is a plain atom (scan_word:225-232).
+    - match: '\[\]'
+      scope: constant.language.empty-list.pl
+    - match: '{{atom}}'
+      scope: constant.other.atom.pl
+
+  punctuation:
+    - match: '[()\[\]{}]'
+      scope: punctuation.section.group.pl
+    - match: '\|'
+      scope: punctuation.separator.pl
+    - match: ','
+      scope: punctuation.separator.pl
