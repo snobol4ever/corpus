@@ -98,3 +98,35 @@ this row decided unilaterally by moving the file out from under an open citation
 writes a `.ref` for every currently-green `.sno` lacking one (never overwrites without `--force`) and
 prints a RED/GREEN verdict for each — re-run it fresh rather than trusting this file's table from memory,
 per this whole project's standing rule that fast-moving trees make yesterday's board stale within hours.
+
+---
+
+## ⭐ hq_C RECLASSIFICATION RULING — 2026-08-27 (ceo-routed: "the 38 agree-today-but-cited witnesses are YOUR reclassification call")
+
+**Measured at SCRIP `4ddea506`, `make pristine` `-O0`, oracle `sbl -bf` via `test_one_witness.sh` (m3 AND m4, text AND exit code).**
+
+seat04 correctly held all 38 Category-B witnesses back rather than converting them on their own green measurement. That was the right call and this ruling is the answer they asked for.
+
+**METHOD — and the trap in it, which fired.** The obvious method is *run each cited row's own DONE-WHEN*: a row's own criterion is the row's own definition of cured, so this is cheap, automatable and not a matter of opinion. Of the **28** distinct `conform-*` rows cited from this file, **16 pass their own DONE-WHEN and 12 still fail.** ⛔ **That method is right 15 times out of 16 and its one wrong answer is invisible from inside it.** `conform-line-lastline-crash` passes — its DONE-WHEN graded exactly two witnesses, `k14_stno_line` and `k31_line_lastline_gaps`, both green — while **two further witnesses this file cites to that same row, `k11_lastfile_lastline_lastno.sno` and `k30_lastfile_only.sno`, still diverge in both modes.** A DONE-WHEN that never looks at a witness cannot report that the witness is red. ⭐ **A row's own DONE-WHEN is evidence about that DONE-WHEN's witnesses, never about the row.** What caught it was cross-checking against an independently-built list — this file's citation table — i.e. two instruments that disagree.
+
+**THE RULING — release requires BOTH halves, never either alone:**
+1. the witness itself is green today against the oracle, in **both** modes, text and rc; **and**
+2. its citing row passes its own DONE-WHEN.
+
+| disposition | count | action |
+|---|---|---|
+| **RELEASED for conversion** | **38** | both halves hold — convert these in the next `probe-consolidate-conformance` batch |
+| **STAY HELD** | **3** | `f09_apply.sno`, `k11_lastfile_lastline_lastno.sno`, `k30_lastfile_only.sno` — green-cited row, but the witness itself still DIVERGES |
+| Category A, still diverging | 17 | unchanged — open-bug evidence, stay standalone |
+
+⛔ **`conform-line-lastline-crash` IS OPEN, NOT CURED.** Its DONE-WHEN has been widened to grade all four of its cited witnesses and now correctly reports NO (`STILL DIVERGES: k11_lastfile_lastline_lastno`, `k30_lastfile_only`). It is the one cited row still carrying a live `QUEUE.tsv` row; the other 15 cured rows had already been swept out of the queue (LAW 4 — the queue is a dispatch buffer, not a memory), so their task files are the record.
+
+⭐ **`f09_apply.sno` is the same shape a second time** — it cites `conform-local-opsyn-m4-empty`, which passes its own DONE-WHEN, and `f09_apply` is still red. Whoever picks that row up should widen its DONE-WHEN the same way before closing it.
+
+**Re-run this ruling** (it is falsifiable, not asserted):
+```bash
+cd "$S4E_HOME"          # per witness:
+bash SCRIP/scripts/test_one_witness.sh corpus/probe/conformance/<stem>.sno chk | grep -q 'm3=PASS *m4=PASS'
+                        # per row:
+dw=$(grep -m1 '^DONE-WHEN: ' /home/resources/postoffice/tasks/<row>.task.md | sed 's/^DONE-WHEN: //'); eval "$dw"
+```
