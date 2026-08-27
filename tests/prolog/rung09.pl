@@ -1,3 +1,4 @@
+%---------------------------------------------------- 1 rung09_builtins_builtins
 % rung09_builtins — functor/3, arg/3, =../2, type tests
 % Expected output: foo 2  b  [foo,a,b]  yes yes no no
 :- initialization(main).
