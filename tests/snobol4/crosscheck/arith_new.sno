@@ -1,0 +1,8 @@
+ OUTPUT = 1 + 2;END;* 023_arith_add
+ OUTPUT = 10 - 3;END;* 024_arith_subtract
+ OUTPUT = 6 * 7;END;* 025_arith_multiply
+ OUTPUT = 10 / 4;END;* 026_arith_divide
+ OUTPUT = 2 ** 8;END;* 027_arith_exponent
+ OUTPUT = -5;END;* 028_arith_unary_minus
+ OUTPUT = 2 + 3 * 4;END;* 029_arith_precedence
+ OUTPUT = REMDR(10, 3);END;* 030_arith_remdr

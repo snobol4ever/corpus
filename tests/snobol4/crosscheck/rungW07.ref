@@ -1,0 +1,12 @@
+PASS W07/001: c1=ABC c2=DEF
+*--------------------------------------------------------------- 2 W07_capt_cond
+PASS W07/001: cond cap=HELLO
+PASS W07/002: cond cap correctly fails
+*---------------------------------------------------------------- 3 W07_capt_cur
+PASS W07/001: cursor pos=3
+PASS W07/002: cursor after match=5
+*--------------------------------------------------------------- 4 W07_capt_fail
+PASS W07/001: no match, cap1 unchanged
+*---------------------------------------------------------------- 5 W07_capt_imm
+PASS W07/001: imm cap=FOO
+PASS W07/002: imm cap BAR=BAR

@@ -1,0 +1,3 @@
+;END;;* leading_empty_semicolons
+ OUTPUT = ';* not a comment';END;* semicolon_star_not_string_comment
+ OUTPUT = 1;END;* abc;* trailing_star_comment

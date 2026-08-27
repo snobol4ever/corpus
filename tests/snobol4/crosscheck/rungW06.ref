@@ -1,0 +1,16 @@
+*--------------------------------------------------------------------- 1 W06_len
+PASS W06/001: LEN(3) then DE matched
+PASS W06/002: LEN(0) then full string matched
+PASS W06/003: LEN(5) on 2-char string correctly fails
+*--------------------------------------------------------------------- 2 W06_pos
+PASS W06/001: POS(0) matched
+PASS W06/002: POS(3) after EL matched
+PASS W06/003: POS(2) H correctly fails
+*-------------------------------------------------------------------- 3 W06_rpos
+PASS W06/001: RPOS(0) at end matched
+PASS W06/002: RPOS(2) after HEL matched
+PASS W06/003: RPOS(1) LO correctly fails
+*--------------------------------------------------------------------- 4 W06_tab
+PASS W06/001: TAB(3) then DE matched
+PASS W06/002: AB TAB(2) CDE matched
+PASS W06/003: TAB(1) behind cursor correctly fails

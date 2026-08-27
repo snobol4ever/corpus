@@ -1,8 +1,0 @@
-* W01_pat_lit_fail.sno — literal pattern match: fail case
-* Rung W01.
-
-        subject = 'hello world'
-        subject 'xyz'                      :s(e001)
-        OUTPUT = 'PASS W01/002: literal mismatch failed correctly'   :(END)
-e001    OUTPUT = 'FAIL W01/002: literal mismatch should fail'
-END

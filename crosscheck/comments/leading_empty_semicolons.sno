@@ -1,7 +1,0 @@
-;END;
-*     leading_empty_semicolons.sno - a lone ';' at a fresh statement position (true column 1, or
-*     mid-line right after a prior ';') is an empty no-op statement, not a full-line comment
-*     trigger; both the leading and trailing ';' here must be tolerated. Program produces no
-*     output and exits cleanly (row snobol4-trailing-star-comment-not-lexed, witness 2). The doc
-*     comment lives AFTER the witness line on purpose -- putting it first would stop the leading
-*     ';' from being at true column 1, which is exactly the case under test.

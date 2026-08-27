@@ -1,0 +1,9 @@
+ subject = 'foobar'; pat = 'foo' 'bar'; subject pat :f(e001); OUTPUT = 'PASS W02/001: seq match succeeded' :(END);e001 OUTPUT = 'FAIL W02/001: seq match should succeed';END;* W02_seq_basic
+ subject = 'foobar'; pat = 'foo' 'xyz'; subject pat :s(e001); OUTPUT = 'PASS W02/003: seq rightly failed' :(END);e001 OUTPUT = 'FAIL W02/003: seq should have failed';END;* W02_seq_fail_propagate
+*-------------------------------------------------------------- 3 W02_seq_nested
+        subject = 'xabc'
+        pat = 'a' 'b' 'c'
+        subject pat              :f(e001)
+        OUTPUT = 'PASS W02/002: nested seq match succeeded'  :(END)
+e001    OUTPUT = 'FAIL W02/002: nested seq match should succeed'
+END

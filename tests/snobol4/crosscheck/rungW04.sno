@@ -1,0 +1,3 @@
+ subject = 'xxx'; subject (ARBNO('ab') 'xxx') :f(e001); OUTPUT = 'PASS W04/003: arbno zero then literal' :(END);e001 OUTPUT = 'FAIL W04/003: should have matched';END;* W04_arbno_backtrack
+ subject = 'ababX'; subject (ARBNO('ab') 'X') :f(e001); OUTPUT = 'PASS W04/001: arbno matched' :(END);e001 OUTPUT = 'FAIL W04/001: arbno should match';END;* W04_arbno_basic
+ subject = 'hello'; subject (ARBNO('xyz') 'hello') :f(e001); OUTPUT = 'PASS W04/002: arbno zero match' :(END);e001 OUTPUT = 'FAIL W04/002: arbno zero should succeed';END;* W04_arbno_zero

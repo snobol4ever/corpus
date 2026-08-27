@@ -1,0 +1,7 @@
+ OUTPUT = 'before' :(DONE); OUTPUT = 'skipped';DONE;END;* 031_goto_unconditional
+ N = 0;LOOP N = N + 1; GT(N, 5) :S(DONE); :(LOOP);DONE OUTPUT = N;END;* 032_goto_loop_count
+ X = 'hello world'; X 'hello' :S(FOUND)F(NOTFOUND);FOUND OUTPUT = 'found' :(END);NOTFOUND OUTPUT = 'not found';END;* 033_goto_success
+ X = 'hello world'; X 'goodbye' :S(FOUND)F(NOTFOUND);FOUND OUTPUT = 'found' :(END);NOTFOUND OUTPUT = 'not found';END;* 034_goto_failure
+ X = 'abc'; X 'abc' :S(YES); OUTPUT = 'no' :(END);YES OUTPUT = 'yes';END;* 035_goto_both_branches
+ OUTPUT = 'one' :(END); OUTPUT = 'two';END;* 036_goto_skip_to_end
+ :(A); OUTPUT = 'skip';A OUTPUT = 'a' :(B); OUTPUT = 'skip';B OUTPUT = 'b';END;* 037_goto_nested_labels

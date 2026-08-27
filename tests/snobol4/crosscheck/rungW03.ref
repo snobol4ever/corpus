@@ -1,0 +1,5 @@
+PASS W03/001: alt first branch matched
+*----------------------------------------------------------- 2 W03_alt_both_fail
+PASS W03/003: alt both fail as expected
+*-------------------------------------------------------------- 3 W03_alt_second
+PASS W03/002: alt second branch matched

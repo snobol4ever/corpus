@@ -1,0 +1,37 @@
+ subject = 'ABCDEF'; subject (('ABC' . c1) ('DEF' . c2)) :f(e001); OUTPUT = 'PASS W07/001: c1=' c1 ' c2=' c2 :(END);e001 OUTPUT = 'FAIL W07/001: chained captures should match';END;* W07_capt_chain
+*--------------------------------------------------------------- 2 W07_capt_cond
+        subject = 'HELLO WORLD'
+        subject ('HELLO' . cap1)  :f(e001)
+        OUTPUT = 'PASS W07/001: cond cap=' cap1   :(t002)
+e001    OUTPUT = 'FAIL W07/001: cond capture should match'
+t002    subject = 'ABC'
+        subject ('XYZ' . cap2)  :s(e002)
+        OUTPUT = 'PASS W07/002: cond cap correctly fails'  :(END)
+e002    OUTPUT = 'FAIL W07/002: failed match should not succeed'
+END
+*---------------------------------------------------------------- 3 W07_capt_cur
+        subject = 'ABCDE'
+        subject ('ABC' @pos1)  :f(e001)
+        OUTPUT = 'PASS W07/001: cursor pos=' pos1   :(t002)
+e001    OUTPUT = 'FAIL W07/001: cursor capture should match'
+t002    subject = 'ABCDE'
+        subject ('ABCDE' @pos2)  :f(e002)
+        OUTPUT = 'PASS W07/002: cursor after match=' pos2   :(END)
+e002    OUTPUT = 'FAIL W07/002: cursor after match should match'
+END
+*--------------------------------------------------------------- 4 W07_capt_fail
+        subject = 'HELLO'
+        subject ('WORLD' . cap1)  :s(e001)
+        OUTPUT = 'PASS W07/001: no match, cap1 unchanged'  :(END)
+e001    OUTPUT = 'FAIL W07/001: failed pattern should not branch success'
+END
+*---------------------------------------------------------------- 5 W07_capt_imm
+        subject = 'FOOBAR'
+        subject ('FOO' $ cap1)  :f(e001)
+        OUTPUT = 'PASS W07/001: imm cap=' cap1   :(t002)
+e001    OUTPUT = 'FAIL W07/001: imm capture should match'
+t002    subject = 'FOOBAR'
+        subject ('BAR' $ cap2)  :f(e002)
+        OUTPUT = 'PASS W07/002: imm cap BAR=' cap2   :(END)
+e002    OUTPUT = 'FAIL W07/002: BAR capture should match'
+END

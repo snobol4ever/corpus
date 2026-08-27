@@ -1,0 +1,8 @@
+*---------------------------------------------------------- 1 W01_pat_lit_anchor
+        subject = 'hello world'
+        subject 'world'                    :f(e001)
+        OUTPUT = 'PASS W01/003: unanchored substring match'  :(END)
+e001    OUTPUT = 'FAIL W01/003: unanchored substring match should succeed'
+END
+ subject = 'hello world'; subject 'world' :f(e001); OUTPUT = 'PASS W01/001: literal match succeeded' :(END);e001 OUTPUT = 'FAIL W01/001: literal match should succeed';END;* W01_pat_lit_basic
+ subject = 'hello world'; subject 'xyz' :s(e001); OUTPUT = 'PASS W01/002: literal mismatch failed correctly' :(END);e001 OUTPUT = 'FAIL W01/002: literal mismatch should fail';END;* W01_pat_lit_fail

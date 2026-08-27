@@ -1,4 +1,0 @@
-*     semicolon_star_not_string_comment.sno - a ';*' sequence INSIDE a quoted string literal is
-*     ordinary text, not a trailing-comment start; the mandatory guard witness against curing
-*     the reported bug by over-triggering on '*' (row snobol4-trailing-star-comment-not-lexed)
-        OUTPUT = ';* not a comment';END

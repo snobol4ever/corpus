@@ -1,0 +1,34 @@
+*---------------------------------------------------------- 1 310_concat_strings
+        DIFFER('a' 'b', 'ab')                   :f(e001)
+        OUTPUT = 'FAIL 310/001: two-string concat'      :(END)
+e001
+        DIFFER('a' 'b' 'c', 'abc')                   :f(e002)
+        OUTPUT = 'FAIL 310/002: three-string concat'    :(END)
+e002
+        DIFFER(('hello' ' ') 'world', 'hello world')                   :f(e003)
+        OUTPUT = 'FAIL 310/003: left-associative concat' :(END)
+e003
+        OUTPUT = 'PASS 310_concat_strings (3/3)'
+END
+*---------------------------------------------------------- 2 311_concat_numeric
+        DIFFER(1 2, '12')                   :f(e001)
+        OUTPUT = 'FAIL 311/001: int int concat'         :(END)
+e001
+        DIFFER(2 2 2, '222')                   :f(e002)
+        OUTPUT = 'FAIL 311/002: three int concat'       :(END)
+e002
+        DIFFER(1 3.4, '13.4')                   :f(e003)
+        OUTPUT = 'FAIL 311/003: int real concat'        :(END)
+e003
+        OUTPUT = 'PASS 311_concat_numeric (3/3)'
+END
+*------------------------------------------------------------- 3 312_concat_null
+        x = 'hello'
+        DIFFER(x '', x)                   :f(e001)
+        OUTPUT = 'FAIL 312/001: null right identity'    :(END)
+e001
+        DIFFER('' x, x)                   :f(e002)
+        OUTPUT = 'FAIL 312/002: null left identity'     :(END)
+e002
+        OUTPUT = 'PASS 312_concat_null (2/2)'
+END

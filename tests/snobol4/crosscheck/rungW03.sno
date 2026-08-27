@@ -1,0 +1,14 @@
+ subject = 'foobar'; subject ('foo' | 'baz') :f(e001); OUTPUT = 'PASS W03/001: alt first branch matched' :(END);e001 OUTPUT = 'FAIL W03/001: alt first branch should match';END;* W03_alt_basic
+*----------------------------------------------------------- 2 W03_alt_both_fail
+        subject = 'foobar'
+        subject ('baz' | 'qux')  :s(e001)
+        OUTPUT = 'PASS W03/003: alt both fail as expected'   :(END)
+e001    OUTPUT = 'FAIL W03/003: alt should have failed but succeeded'
+END
+*-------------------------------------------------------------- 3 W03_alt_second
+        subject = 'foobar'
+        pat = 'baz' | 'bar'
+        subject pat              :f(e001)
+        OUTPUT = 'PASS W03/002: alt second branch matched'   :(END)
+e001    OUTPUT = 'FAIL W03/002: alt second branch should match'
+END

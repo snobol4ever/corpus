@@ -1,0 +1,3 @@
+PASS W04/003: arbno zero then literal
+PASS W04/001: arbno matched
+PASS W04/002: arbno zero match
