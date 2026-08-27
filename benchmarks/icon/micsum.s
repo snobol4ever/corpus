@@ -13,6 +13,7 @@ FN__dofile:
                         mov              edx, 8
                         call             rt_icn_zframe_args_install@PLT
 dofile_α_body:
+dofile_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_make_list_α:         mov              r11, 1
                         lea              rdi, [rsp + 2960]
@@ -100,11 +101,11 @@ n7_var_α:               mov              r11, 8
                         mov              qword ptr [rsp + 2920], rax;         jmp   n8_scan_enter_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_scan_enter_α:        mov              r11, 9
+                        mov              qword ptr [rsp + 2160], r13
+                        mov              qword ptr [rsp + 2168], r14
+                        mov              qword ptr [rsp + 2176], r15
                         mov              rdi, qword ptr [rsp + 2912]
                         mov              rsi, qword ptr [rsp + 2920]
-                        mov              rdx, r13
-                        mov              rcx, r14
-                        mov              r8, r15
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -434,7 +435,8 @@ n25_scan_α:             mov              r11, 26
                         mov              qword ptr [rsp + 2192], rax
                         mov              rax, qword ptr [rsp + 2232]
                         mov              qword ptr [rsp + 2200], rax
-                        lea              rdi, [rsp + 2160]
+                        mov              rdi, qword ptr [rsp + 2160]
+                        mov              rsi, qword ptr [rsp + 2168]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -668,7 +670,8 @@ n40_assign_α:           mov              r11, 41
 n40_assign_β:           mov              r11, 41;                             jmp   n41_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n41_scan_α:             mov              r11, 42
-                        lea              rdi, [rsp + 2160]
+                        mov              rdi, qword ptr [rsp + 2160]
+                        mov              rsi, qword ptr [rsp + 2168]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2769,7 +2772,7 @@ main_γ:
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         and              rsp, -16
-                        mov              edi, 1
+                        xor              edi, edi
                         call             exit@PLT
 module_init:
                         sub              rsp, 8

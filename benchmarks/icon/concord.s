@@ -13,6 +13,7 @@ FN__tabulate:
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
 tabulate_α_body:
+tabulate_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:               mov              r11, 1
                         mov              rax, qword ptr [rsp + 32]
@@ -112,11 +113,11 @@ n8_deref_α:             mov              r11, 9
                         mov              qword ptr [rsp + 1240], rdx;         jmp   n9_scan_enter_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_scan_enter_α:        mov              r11, 10
+                        mov              qword ptr [rsp + 64], r13
+                        mov              qword ptr [rsp + 72], r14
+                        mov              qword ptr [rsp + 80], r15
                         mov              rdi, qword ptr [rsp + 1232]
                         mov              rsi, qword ptr [rsp + 1240]
-                        mov              rdx, r13
-                        mov              rcx, r14
-                        mov              r8, r15
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -379,7 +380,8 @@ n27_scan_α:             mov              r11, 28
                         mov              qword ptr [rsp + 96], rax
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 104], rax
-                        lea              rdi, [rsp + 64]
+                        mov              rdi, qword ptr [rsp + 64]
+                        mov              rsi, qword ptr [rsp + 72]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -912,7 +914,8 @@ n62_assign_var_α:       mov              r11, 63
 n62_assign_var_β:       mov              r11, 63;                             jmp   n63_scan_α
 #-----------------------------------------------------------------------------------------------------------------------
 n63_scan_α:             mov              r11, 64
-                        lea              rdi, [rsp + 64]
+                        mov              rdi, qword ptr [rsp + 64]
+                        mov              rsi, qword ptr [rsp + 72]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1052,6 +1055,7 @@ FN__format:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 format_α_body:
+format_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00018_var_α:             mov              r11, 70
                         mov              rax, qword ptr [rsp + 16]
@@ -1805,6 +1809,7 @@ format_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__item:
 item_α_body:
+item_α:
                         lea              rax, [rip + n00083_suspend_β]
                         mov              qword ptr [rsp + 768], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2077,11 +2082,11 @@ n00108_var_α:             mov              r11, 133
                         mov              qword ptr [rsp + 408], rax;          jmp   n00109_scan_enter_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00109_scan_enter_α:      mov              r11, 134
+                        mov              qword ptr [rsp + 80], r13
+                        mov              qword ptr [rsp + 88], r14
+                        mov              qword ptr [rsp + 96], r15
                         mov              rdi, qword ptr [rsp + 400]
                         mov              rsi, qword ptr [rsp + 408]
-                        mov              rdx, r13
-                        mov              rcx, r14
-                        mov              r8, r15
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2373,7 +2378,8 @@ n00083_suspend_β:         mov              r11, 149
                         pop              rax;                                 jmp   n00121_disjunction_β
 #-----------------------------------------------------------------------------------------------------------------------
 n00114_scan_α:            mov              r11, 150
-                        lea              rdi, [rsp + 80]
+                        mov              rdi, qword ptr [rsp + 80]
+                        mov              rsi, qword ptr [rsp + 88]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2416,6 +2422,7 @@ FN__options:
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
 options_α_body:
+options_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00134_var_ref_α:         mov              r11, 151
                         mov              rax, 4294967336
@@ -2596,11 +2603,11 @@ n00148_var_α:             mov              r11, 163
                         mov              qword ptr [rsp + 2440], rax;         jmp   n00149_scan_enter_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00149_scan_enter_α:      mov              r11, 164
+                        mov              qword ptr [rsp + 304], r13
+                        mov              qword ptr [rsp + 312], r14
+                        mov              qword ptr [rsp + 320], r15
                         mov              rdi, qword ptr [rsp + 2432]
                         mov              rsi, qword ptr [rsp + 2440]
-                        mov              rdx, r13
-                        mov              rcx, r14
-                        mov              r8, r15
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2645,7 +2652,8 @@ n00153_scan_α:            mov              r11, 166
                         mov              qword ptr [rsp + 336], rax
                         mov              rax, qword ptr [rsp + 376]
                         mov              qword ptr [rsp + 344], rax
-                        lea              rdi, [rsp + 304]
+                        mov              rdi, qword ptr [rsp + 304]
+                        mov              rsi, qword ptr [rsp + 312]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3891,7 +3899,8 @@ n00261_binop_test_α:      mov              r11, 243
 n00261_binop_test_β:      mov              r11, 243;                            jmp   n00210_disjunction_af
 #-----------------------------------------------------------------------------------------------------------------------
 n00155_scan_α:            mov              r11, 244
-                        lea              rdi, [rsp + 304]
+                        mov              rdi, qword ptr [rsp + 304]
+                        mov              rsi, qword ptr [rsp + 312]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4153,6 +4162,7 @@ FN__Init__:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 Init___α_body:
+Init___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00278_var_α:             mov              r11, 257
                         mov              rax, qword ptr [rsp + 16]
@@ -4496,6 +4506,7 @@ FN__Term__:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 Term___α_body:
+Term___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00310_disjunction_α:     mov              r11, 277
                         mov              qword ptr [rsp + 256], 0
@@ -4826,6 +4837,7 @@ FN__Collections__:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 Collections___α_body:
+Collections___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00337_disjunction_α:     mov              r11, 294
                         mov              qword ptr [rsp + 624], 0
@@ -5365,6 +5377,7 @@ FN__Regions__:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 Regions___α_body:
+Regions___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00386_disjunction_α:     mov              r11, 331
                         mov              qword ptr [rsp + 624], 0
@@ -5887,6 +5900,7 @@ FN__Signature__:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 Signature___α_body:
+Signature___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00433_keyword_icon_α:    mov              r11, 367
                         mov              rdi, qword ptr [rip + .Lx00434_0]
@@ -6079,6 +6093,7 @@ FN__Storage__:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 Storage___α_body:
+Storage___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00444_disjunction_α:     mov              r11, 374
                         mov              qword ptr [rsp + 624], 0
@@ -6601,6 +6616,7 @@ FN__Time__:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 Time___α_body:
+Time___α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00491_disjunction_α:    mov              r11, 410
                         mov              qword ptr [rsp + 112], 0
@@ -7630,7 +7646,7 @@ main_γ:
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         and              rsp, -16
-                        mov              edi, 1
+                        xor              edi, edi
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
