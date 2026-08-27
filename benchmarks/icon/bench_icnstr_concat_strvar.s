@@ -27,10 +27,10 @@ main_α_body:
 n0_lit_string_α:        mov              r11, 1
                         mov              qword ptr [rsp + 256], 2             # result
                         mov              dword ptr [rsp + 260], 8
-                        mov              rax, qword ptr [rip + .Lx15_0]
+                        mov              rax, qword ptr [rip + .Lmain_α_15_0]
                         mov              qword ptr [rsp + 264], rax;          jmp   n1_assign_α
-.Lx15_0:                .quad            .Lx15_0_s
-.Lx15_0_s:              .string          "ijklmnop"
+.Lmain_α_15_0:          .quad            .Lmain_α_15_0_s
+.Lmain_α_15_0_s:        .string          "ijklmnop"
 #-----------------------------------------------------------------------------------------------------------------------
 n1_assign_α:            mov              r11, 2
                         mov              rax, qword ptr [rsp + 256]
@@ -40,15 +40,15 @@ n1_assign_α:            mov              r11, 2
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:       mov              r11, 3
                         mov              qword ptr [rsp + 128], 3             # result
-                        mov              rax, qword ptr [rip + .Lx17_0]
+                        mov              rax, qword ptr [rip + .Lmain_α_17_0]
                         mov              qword ptr [rsp + 136], rax;          jmp   n3_lit_integer_α
-.Lx17_0:                .quad            1
+.Lmain_α_17_0:          .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_integer_α:       mov              r11, 4
                         mov              qword ptr [rsp + 144], 3             # result
-                        mov              rax, qword ptr [rip + .Lx18_0]
+                        mov              rax, qword ptr [rip + .Lmain_α_18_0]
                         mov              qword ptr [rsp + 152], rax;          jmp   n4_to_α
-.Lx18_0:                .quad            2000000
+.Lmain_α_18_0:          .quad            2000000
 #-----------------------------------------------------------------------------------------------------------------------
 n4_to_α:                mov              r11, 5
                         mov              rdi, qword ptr [rsp + 128]
@@ -77,13 +77,13 @@ n4_to_α:                mov              r11, 5
                         mov              qword ptr [rsp + 152], rax
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 112], rax
-.Lx20_0:                mov              rax, qword ptr [rsp + 112]
+.Lmain_α_20_0:          mov              rax, qword ptr [rsp + 112]
                         mov              rcx, qword ptr [rsp + 152]
                         cmp              rax, rcx;                            jg    n12_var_α
                         mov              qword ptr [rsp + 96], 3
                         mov              qword ptr [rsp + 104], rax;          jmp   n5_assign_α
 n4_to_β:                mov              r11, 5
-                        inc              qword ptr [rsp + 112];               jmp   .Lx20_0
+                        inc              qword ptr [rsp + 112];               jmp   .Lmain_α_20_0
 #-----------------------------------------------------------------------------------------------------------------------
 n5_assign_α:            mov              r11, 6
                         mov              rax, qword ptr [rsp + 96]
@@ -97,10 +97,10 @@ n6_bound_α:             mov              r11, 7
 n7_lit_string_α:        mov              r11, 8
                         mov              qword ptr [rsp + 224], 2             # result
                         mov              dword ptr [rsp + 228], 8
-                        mov              rax, qword ptr [rip + .Lx24_0]
+                        mov              rax, qword ptr [rip + .Lmain_α_24_0]
                         mov              qword ptr [rsp + 232], rax;          jmp   n8_var_α
-.Lx24_0:                .quad            .Lx24_0_s
-.Lx24_0_s:              .string          "abcdefgh"
+.Lmain_α_24_0:          .quad            .Lmain_α_24_0_s
+.Lmain_α_24_0_s:        .string          "abcdefgh"
 #-----------------------------------------------------------------------------------------------------------------------
 n8_var_α:               mov              r11, 9
                         mov              rax, qword ptr [rsp + 304]
@@ -151,10 +151,9 @@ n13_unop_α:             mov              r11, 14
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx;           jmp   n14_call_builtin_icon_α
+                        mov              qword ptr [rsp + 56], rdx;           jmp   n14_call_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
-n14_call_builtin_icon_α:
-                        mov              r11, 15
+n14_call_icon_α:        mov              r11, 15
                         mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
@@ -179,8 +178,7 @@ n14_call_builtin_icon_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   main_γ
-n14_call_builtin_icon_β:
-                        mov              r11, 15;                             jmp   main_ω
+n14_call_icon_β:        mov              r11, 15;                             jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω

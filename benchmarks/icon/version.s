@@ -19,8 +19,8 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_keyword_icon_α:      mov              r11, 1
-                        mov              rdi, qword ptr [rip + .Lx2_0]
+n0_kw_icon_α:           mov              r11, 1
+                        mov              rdi, qword ptr [rip + .Lmain_α_2_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -31,12 +31,12 @@ n0_keyword_icon_α:      mov              r11, 1
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    main_ω
                         mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx;           jmp   n1_call_builtin_icon_α
-n0_keyword_icon_β:      mov              r11, 1;                              jmp   main_ω
-.Lx2_0:                 .quad            .Lx2_0_s
-.Lx2_0_s:               .string          "&version"
+                        mov              qword ptr [rsp + 56], rdx;           jmp   n1_call_icon_α
+n0_kw_icon_β:           mov              r11, 1;                              jmp   main_ω
+.Lmain_α_2_0:           .quad            .Lmain_α_2_0_s
+.Lmain_α_2_0_s:         .string          "&version"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_call_builtin_icon_α: mov              r11, 2
+n1_call_icon_α:         mov              r11, 2
                         mov              rax, qword ptr [rsp + 48]
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [rsp + 56]
@@ -61,7 +61,7 @@ n1_call_builtin_icon_α: mov              r11, 2
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   main_γ
-n1_call_builtin_icon_β: mov              r11, 2;                              jmp   main_ω
+n1_call_icon_β:         mov              r11, 2;                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
