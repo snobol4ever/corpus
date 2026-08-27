@@ -1,5 +1,0 @@
-(STMT :subj (TT_FNC op
-  (TT_ILIT 700)
-  (TT_FNC xfx)
-  (TT_FNC ===)
-))

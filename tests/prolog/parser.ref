@@ -1,0 +1,306 @@
+%---------------------------------------------------------------- 1 anon_in_body
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #2) (TT_VAR #1) (TT_FNC bar (TT_VAR #3) (TT_VAR #1)))))
+%------------------------------------------------------------------ 2 anon_mixed
+(STMT :subj (TT_CHOICE foo/4 (TT_CLAUSE (TT_VAR #4) (TT_VAR #1) (TT_VAR #5) (TT_VAR #1))))
+%------------------------------------------------------------------ 3 anon_named
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #0))))
+%-------------------------------------------------------------- 4 anon_named_two
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1))))
+%----------------------------------------------------------------- 5 anon_single
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #1))))
+%-------------------------------------------------------------------- 6 anon_two
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #2) (TT_VAR #3))))
+%---------------------------------------------------------------- 7 arith_bitand
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC /\ (TT_VAR #0) (TT_VAR #1))))))
+%---------------------------------------------------------------- 8 arith_bitnot
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC is (TT_VAR #2) (TT_FNC \ (TT_VAR #0))))))
+%------------------------------------------------------------ 9 arith_bitnot_var
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC is (TT_VAR #0) (TT_FNC \ (TT_VAR #1))))))
+%---------------------------------------------------------------- 10 arith_bitor
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC \/ (TT_VAR #0) (TT_VAR #1))))))
+%---------------------------------------------------------------- 11 arith_caret
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_FNC ^ (TT_ILIT 2) (TT_ILIT 32))))))
+%------------------------------------------------------------ 12 arith_caret_rhs
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_FNC ^ (TT_ILIT 2) (TT_FNC ^ (TT_ILIT 3) (TT_ILIT 4)))))))
+%--------------------------------------------------------------- 13 arith_intdiv
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC // (TT_VAR #0) (TT_VAR #1))))))
+%--------------------------------------------------------------- 14 arith_is_add
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_FNC + (TT_ILIT 1) (TT_ILIT 2))))))
+%------------------------------------------------------------- 15 arith_is_chain
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_FNC + (TT_ILIT 1) (TT_FNC * (TT_ILIT 2) (TT_ILIT 3)))))))
+%--------------------------------------------------------------- 16 arith_is_int
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_ILIT 1)))))
+%------------------------------------------------------------- 17 arith_is_paren
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_FNC * (TT_FNC + (TT_ILIT 1) (TT_ILIT 2)) (TT_ILIT 3))))))
+%----------------------------------------------------------- 18 arith_is_subleft
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_FNC - (TT_FNC - (TT_ILIT 1) (TT_ILIT 2)) (TT_ILIT 3))))))
+%--------------------------------------------------------------- 19 arith_is_var
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC is (TT_VAR #1) (TT_FNC + (TT_VAR #0) (TT_ILIT 1))))))
+%------------------------------------------------------------------ 20 arith_mod
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC mod (TT_VAR #0) (TT_VAR #1))))))
+%-------------------------------------------------------------- 21 arith_neg_int
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC is (TT_VAR #0) (TT_ILIT -1)))))
+%------------------------------------------------------------------ 22 arith_pow
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC ** (TT_VAR #0) (TT_VAR #1))))))
+%------------------------------------------------------------------ 23 arith_rem
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC rem (TT_VAR #0) (TT_VAR #1))))))
+%------------------------------------------------------------------ 24 arith_shl
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC << (TT_VAR #0) (TT_ILIT 2))))))
+%------------------------------------------------------------------ 25 arith_shr
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC >> (TT_VAR #0) (TT_ILIT 2))))))
+%---------------------------------------------------------------- 26 arith_unify
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC = (TT_VAR #0) (TT_ILIT 5)))))
+%----------------------------------------------------------- 27 arith_unify_expr
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC = (TT_VAR #0) (TT_FNC + (TT_ILIT 1) (TT_ILIT 2))))))
+%------------------------------------------------------------------ 28 arith_xor
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC is (TT_VAR #2) (TT_FNC xor (TT_VAR #0) (TT_VAR #1))))))
+%----------------------------------------------------------------- 29 atom_lower
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE)))
+%------------------------------------------------------------------- 30 atom_str
+(STMT :subj (TT_CHOICE hi/0 (TT_CLAUSE)))
+%------------------------------------------------------------- 31 charcode_arith
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC is (TT_VAR #0) (TT_FNC + (TT_ILIT 97) (TT_ILIT 1))))))
+%------------------------------------------------------------- 32 charcode_digit
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 48))))
+%------------------------------------------------------------- 33 charcode_lower
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 97))))
+%------------------------------------------------------------- 34 charcode_space
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 32))))
+%------------------------------------------------------------- 35 charcode_upper
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 65))))
+%----------------------------------------------------------------- 36 clause_cut
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_CUT))))
+%------------------------------------------------------------ 37 clause_cut_conj
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_QLIT "a") (TT_CUT) (TT_QLIT "b"))))
+%------------------------------------------------------------------- 38 cmp_atge
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC @>= (TT_VAR #0) (TT_VAR #1)))))
+%------------------------------------------------------------------- 39 cmp_atgt
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC @> (TT_VAR #0) (TT_VAR #1)))))
+%------------------------------------------------------------------- 40 cmp_atle
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC @=< (TT_VAR #0) (TT_VAR #1)))))
+%------------------------------------------------------------------- 41 cmp_atlt
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC @< (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 42 cmp_eq
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC =:= (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 43 cmp_ge
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC >= (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 44 cmp_gt
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC > (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 45 cmp_id
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC == (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 46 cmp_le
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC =< (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 47 cmp_lt
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC < (TT_VAR #0) (TT_VAR #1)))))
+%--------------------------------------------------------------------- 48 cmp_ne
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC \= (TT_VAR #0) (TT_VAR #1)))))
+%-------------------------------------------------------------------- 49 cmp_neq
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC =\= (TT_VAR #0) (TT_VAR #1)))))
+%-------------------------------------------------------------------- 50 cmp_nid
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC \== (TT_VAR #0) (TT_VAR #1)))))
+%----------------------------------------------------------------- 51 colon_term
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC = (TT_VAR #0) (TT_FNC : (TT_QLIT "a") (TT_QLIT "b"))))))
+%-------------------------------------------------------------- 52 compound_1arg
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT "bar"))))
+%------------------------------------------------------------- 53 compound_2args
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_QLIT "a") (TT_QLIT "b"))))
+%------------------------------------------------------------- 54 compound_3args
+(STMT :subj (TT_CHOICE point/3 (TT_CLAUSE (TT_QLIT "a") (TT_QLIT "b") (TT_QLIT "c"))))
+%--------------------------------------------------------------- 55 compound_int
+(STMT :subj (TT_CHOICE age/1 (TT_CLAUSE (TT_ILIT 42))))
+%------------------------------------------------------------- 56 compound_mixed
+(STMT :subj (TT_CHOICE point/3 (TT_CLAUSE (TT_ILIT 3) (TT_VAR #1) (TT_QLIT "name"))))
+%------------------------------------------------------------- 57 compound_multi
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT "a"))))
+(STMT :subj (TT_CHOICE bar/2 (TT_CLAUSE (TT_QLIT "b") (TT_QLIT "c"))))
+(STMT :subj (TT_CHOICE baz/0 (TT_CLAUSE)))
+%------------------------------------------------------------ 58 compound_nested
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_FNC bar (TT_QLIT "a")))))
+%-------------------------------------------------------- 59 compound_nested_two
+(STMT :subj (TT_CHOICE foo/2 (TT_CLAUSE (TT_FNC bar (TT_QLIT "a")) (TT_FNC baz (TT_QLIT "b") (TT_QLIT "c")))))
+%--------------------------------------------------------------- 60 compound_var
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0))))
+%--------------------------------------------------------------- 61 conj_in_disj
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_FNC , (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c")))))
+%----------------------------------------------------------------- 62 conj_three
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_QLIT "a") (TT_QLIT "b") (TT_QLIT "c"))))
+%------------------------------------------------------------------- 63 conj_two
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_QLIT "a") (TT_QLIT "b"))))
+%------------------------------------------------------------------ 64 dcg_conj3
+(STMT :subj (TT_CHOICE a/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC b (TT_VAR #0) (TT_VAR #2)) (TT_FNC c (TT_VAR #2) (TT_VAR #3)) (TT_FNC d (TT_VAR #3) (TT_VAR #1)))))
+%-------------------------------------------------------------------- 65 dcg_cut
+(STMT :subj (TT_CHOICE a/2
+  (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC b (TT_VAR #0) (TT_VAR #2)) (TT_CUT) (TT_UNIFY (TT_VAR #2) (TT_VAR #3)) (TT_FNC c (TT_VAR #3) (TT_VAR #1)))
+))
+%------------------------------------------------------------------- 66 dcg_disj
+(STMT :subj (TT_CHOICE a/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC ; (TT_FNC b (TT_VAR #0) (TT_VAR #1)) (TT_FNC c (TT_VAR #0) (TT_VAR #1))))))
+%------------------------------------------------------------- 67 dcg_empty_list
+(STMT :subj (TT_CHOICE a/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_UNIFY (TT_VAR #0) (TT_VAR #1)))))
+%----------------------------------------------------------------- 68 dcg_inline
+(STMT :subj (TT_CHOICE a/2
+  (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC b (TT_VAR #0) (TT_VAR #2)) (TT_FNC c) (TT_UNIFY (TT_VAR #2) (TT_VAR #3)) (TT_FNC d (TT_VAR #3) (TT_VAR #1)))
+))
+%------------------------------------------------------------------ 69 dcg_mixed
+(STMT :subj (TT_CHOICE a/2
+  (TT_CLAUSE
+    (TT_VAR #0)
+    (TT_VAR #1)
+    (TT_UNIFY (TT_VAR #0) (TT_FNC . (TT_FNC x) (TT_VAR #2)))
+    (TT_FNC b (TT_VAR #2) (TT_VAR #3))
+    (TT_UNIFY (TT_VAR #3) (TT_FNC . (TT_FNC y) (TT_VAR #1)))
+  )
+))
+%---------------------------------------------------------------- 70 dcg_nt_args
+(STMT :subj (TT_CHOICE np/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_FNC det (TT_VAR #0) (TT_VAR #1) (TT_VAR #3)) (TT_FNC noun (TT_VAR #0) (TT_VAR #3) (TT_VAR #2)))))
+%-------------------------------------------------------------- 71 dcg_nt_simple
+(STMT :subj (TT_CHOICE sentence/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC noun_phrase (TT_VAR #0) (TT_VAR #2)) (TT_FNC verb_phrase (TT_VAR #2) (TT_VAR #1)))))
+%------------------------------------------------------------ 72 dcg_single_atom
+(STMT :subj (TT_CHOICE greeting/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_UNIFY (TT_VAR #0) (TT_FNC . (TT_FNC hello) (TT_VAR #1))))))
+%----------------------------------------------------------- 73 dcg_terminal_two
+(STMT :subj (TT_CHOICE a/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_UNIFY (TT_VAR #0) (TT_FNC . (TT_FNC x) (TT_FNC . (TT_FNC y) (TT_VAR #1)))))))
+%------------------------------------------------------------------ 74 dir_arith
+(STMT :subj (TT_FNC is (TT_VAR X) (TT_FNC + (TT_ILIT 1) (TT_ILIT 2))))
+%------------------------------------------------------------------- 75 dir_atom
+(STMT :subj (TT_QLIT "foo"))
+%--------------------------------------------------------------- 76 dir_compound
+(STMT :subj (TT_FNC foo (TT_QLIT "a")))
+%------------------------------------------------------------------- 77 dir_conj
+(STMT :subj (TT_QLIT "foo"))
+%------------------------------------------------------------------- 78 dir_disj
+(STMT :subj (TT_FNC ; (TT_QLIT "foo") (TT_QLIT "bar")))
+%---------------------------------------------------------- 79 dir_pfx_discontig
+(STMT :subj (TT_FNC initialization (TT_QLIT "pj_dir_0")))
+(STMT :subj (TT_CHOICE pj_dir_0/0 (TT_CLAUSE (TT_FNC discontiguous (TT_FNC / (TT_QLIT "bar") (TT_ILIT 2))))))
+%------------------------------------------------------------ 80 dir_pfx_dynamic
+(STMT :subj (TT_FNC initialization (TT_QLIT "pj_dir_0")))
+(STMT :subj (TT_CHOICE pj_dir_0/0 (TT_CLAUSE (TT_FNC dynamic (TT_FNC / (TT_QLIT "foo") (TT_ILIT 1))))))
+%---------------------------------------------------------- 81 dir_pfx_multifile
+(STMT :subj (TT_FNC multifile (TT_FNC / (TT_QLIT "foo") (TT_ILIT 1))))
+%------------------------------------------------------------ 82 dir_with_clause
+(STMT :subj (TT_QLIT "foo"))
+(STMT :subj (TT_CHOICE bar/0 (TT_CLAUSE (TT_QLIT "baz"))))
+%-------------------------------------------------------------- 83 disj_compound
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC ; (TT_FNC bar (TT_VAR #0)) (TT_FNC baz (TT_VAR #0))))))
+%----------------------------------------------------------------- 84 disj_three
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_QLIT "a") (TT_FNC ; (TT_QLIT "b") (TT_QLIT "c"))))))
+%------------------------------------------------------------------- 85 disj_two
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_QLIT "a") (TT_QLIT "b")))))
+%---------------------------------------------------------------- 86 float_arith
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC is (TT_VAR #0) (TT_FNC + (TT_FLIT 1.5) (TT_FLIT 2))))))
+%-------------------------------------------------------------- 87 float_int_val
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_FLIT 1))))
+%------------------------------------------------------------------ 88 float_neg
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_FLIT -3.14))))
+%--------------------------------------------------------------- 89 float_simple
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_FLIT 3.14))))
+%--------------------------------------------------------------- 90 ifthen_chain
+(STMT :subj (TT_CHOICE foo/2
+  (TT_CLAUSE
+    (TT_VAR #0)
+    (TT_VAR #1)
+    (TT_IF (TT_QLIT "a") (TT_IF (TT_FNC , (TT_QLIT "b") (TT_QLIT "c")) (TT_QLIT "d") (TT_QLIT "fail")) (TT_QLIT "fail"))
+  )
+))
+%----------------------------------------------------------- 91 ifthen_disj_left
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_IF (TT_QLIT "a") (TT_QLIT "b") (TT_QLIT "c")))))
+%---------------------------------------------------------- 92 ifthen_disj_right
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_QLIT "a") (TT_IF (TT_QLIT "b") (TT_QLIT "c") (TT_QLIT "fail"))))))
+%---------------------------------------------------------------- 93 ifthen_else
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_VAR #2) (TT_IF (TT_VAR #0) (TT_VAR #1) (TT_VAR #2)))))
+%-------------------------------------------------------------- 94 ifthen_simple
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_IF (TT_VAR #0) (TT_QLIT "a") (TT_QLIT "fail")))))
+%----------------------------------------------------------------- 95 list_empty
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST))))
+%---------------------------------------------------------------- 96 list_nested
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_MAKELIST (TT_QLIT "a") (TT_QLIT "b")) (TT_MAKELIST (TT_QLIT "c") (TT_QLIT "d"))))))
+%------------------------------------------------------------------- 97 list_one
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_QLIT "a")))))
+%------------------------------------------------------------------ 98 list_pipe
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_VAR #1) (TT_VAR #2)))))
+%-------------------------------------------------------------- 99 list_pipe_two
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_QLIT "a") (TT_QLIT "b") (TT_VAR #1)))))
+%---------------------------------------------------------------- 100 list_slash
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_FNC / (TT_QLIT "member") (TT_ILIT 2)) (TT_FNC / (TT_QLIT "append") (TT_ILIT 3))))))
+(STMT :subj (TT_CHOICE member/2
+  (TT_CLAUSE (TT_VAR #0) (TT_MAKELIST (TT_VAR #0) (TT_VAR #2)))
+  (TT_CLAUSE (TT_VAR #0) (TT_MAKELIST (TT_VAR #2) (TT_VAR #3)) (TT_FNC member (TT_VAR #0) (TT_VAR #3)))
+))
+(STMT :subj (TT_CHOICE append/3
+  (TT_CLAUSE (TT_MAKELIST) (TT_VAR #1) (TT_VAR #1))
+  (TT_CLAUSE (TT_MAKELIST (TT_VAR #3) (TT_VAR #4)) (TT_VAR #1) (TT_MAKELIST (TT_VAR #3) (TT_VAR #5)) (TT_FNC append (TT_VAR #4) (TT_VAR #1) (TT_VAR #5)))
+))
+%---------------------------------------------------------------- 101 list_three
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_QLIT "a") (TT_QLIT "b") (TT_QLIT "c")))))
+%------------------------------------------------------------------ 102 list_var
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_MAKELIST (TT_VAR #1) (TT_VAR #2)))))
+%----------------------------------------------------- 103 merge_dir_and_clauses
+(STMT :subj (TT_FNC write (TT_QLIT "starting")))
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT "a")) (TT_CLAUSE (TT_QLIT "b"))))
+%------------------------------------------------------- 104 merge_rule_and_fact
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC bar (TT_VAR #0))) (TT_CLAUSE (TT_QLIT "a"))))
+%--------------------------------------------------------------- 105 merge_rules
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC bar (TT_VAR #0))) (TT_CLAUSE (TT_VAR #0) (TT_FNC baz (TT_VAR #0)))))
+%--------------------------------------------------------- 106 merge_three_facts
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT "a")) (TT_CLAUSE (TT_QLIT "b")) (TT_CLAUSE (TT_QLIT "c"))))
+%----------------------------------------------------------- 107 merge_two_facts
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT "a")) (TT_CLAUSE (TT_QLIT "b"))))
+%---------------------------------------------------------- 108 merge_with_other
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT "a")) (TT_CLAUSE (TT_QLIT "c"))))
+(STMT :subj (TT_CHOICE bar/1 (TT_CLAUSE (TT_QLIT "b"))))
+%-------------------------------------------------------------- 109 module_colon
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC : (TT_QLIT "lists") (TT_FNC member (TT_VAR #0) (TT_MAKELIST (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3)))))))
+(STMT :subj (TT_CHOICE member/2
+  (TT_CLAUSE (TT_VAR #0) (TT_MAKELIST (TT_VAR #0) (TT_VAR #2)))
+  (TT_CLAUSE (TT_VAR #0) (TT_MAKELIST (TT_VAR #2) (TT_VAR #3)) (TT_FNC member (TT_VAR #0) (TT_VAR #3)))
+))
+%------------------------------------------------------------- 110 naf_backslash
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC \+ (TT_QLIT "bar")))))
+%---------------------------------------------------------- 111 naf_compound_arg
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC \+ (TT_FNC bar (TT_VAR #0))))))
+%------------------------------------------------------------------- 112 naf_not
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC not (TT_QLIT "bar")))))
+%---------------------------------------------------------------- 113 nested_arg
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC arg (TT_ILIT 1) (TT_FNC foo (TT_QLIT "a") (TT_QLIT "b")) (TT_VAR #0)))))
+%------------------------------------------------------------ 114 nested_functor
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC functor (TT_FNC foo (TT_QLIT "a")) (TT_VAR #0) (TT_VAR #1)))))
+%----------------------------------------------------------- 115 nested_head_arg
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_FNC bar (TT_QLIT "a") (TT_FNC baz (TT_QLIT "b"))))))
+%---------------------------------------------------------------- 116 op_graphic
+(STMT :subj (TT_FNC op (TT_ILIT 700) (TT_QLIT "xfx") (TT_QLIT "===")))
+%----------------------------------------------------------- 117 paren_both_conj
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_QLIT "a") (TT_QLIT "b") (TT_QLIT "c") (TT_QLIT "d"))))
+%----------------------------------------------------------- 118 paren_conj_disj
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c"))))
+%----------------------------------------------------------- 119 paren_disj_left
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_FNC , (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c")))))
+%---------------------------------------------------------- 120 paren_disj_right
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_QLIT "a") (TT_FNC , (TT_QLIT "b") (TT_QLIT "c"))))))
+%-------------------------------------------------------------- 121 paren_nested
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC ; (TT_QLIT "a") (TT_FNC , (TT_QLIT "b") (TT_QLIT "c"))) (TT_QLIT "d"))))
+%--------------------------------------------------------------- 122 qatom_empty
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_QLIT ""))))
+%----------------------------------------------------------------- 123 radix_bin
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 10))))
+%----------------------------------------------------------------- 124 radix_hex
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 255))))
+%----------------------------------------------------------------- 125 radix_oct
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_ILIT 15))))
+%------------------------------------------------------------ 126 rule_bare_bare
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_QLIT "bar"))))
+%-------------------------------------------------------- 127 rule_bare_compound
+(STMT :subj (TT_CHOICE greet/0 (TT_CLAUSE (TT_FNC write (TT_QLIT "hello")))))
+%------------------------------------------------------------- 128 rule_int_head
+(STMT :subj (TT_CHOICE even/1 (TT_CLAUSE (TT_ILIT 0) (TT_QLIT "true"))))
+%----------------------------------------------------------- 129 rule_mixed_head
+(STMT :subj (TT_CHOICE record/3 (TT_CLAUSE (TT_ILIT 3) (TT_VAR #1) (TT_QLIT "name") (TT_FNC log (TT_VAR #1)))))
+%------------------------------------------------------------- 130 rule_two_vars
+(STMT :subj (TT_CHOICE twice/2 (TT_CLAUSE (TT_VAR #0) (TT_VAR #1) (TT_FNC plus (TT_VAR #0) (TT_VAR #0)))))
+%----------------------------------------------------------- 131 rule_var_shared
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC bar (TT_VAR #0)))))
+%------------------------------------------------------------ 132 rule_with_fact
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE (TT_VAR #0) (TT_FNC bar (TT_VAR #0)))))
+(STMT :subj (TT_CHOICE bar/1 (TT_CLAUSE (TT_QLIT "a"))))
+%------------------------------------------------------------------ 133 univ_lhs
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC =.. (TT_FNC foo (TT_QLIT "a") (TT_QLIT "b")) (TT_VAR #0)))))
+%------------------------------------------------------------------ 134 univ_rhs
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE (TT_FNC =.. (TT_VAR #0) (TT_MAKELIST (TT_QLIT "f") (TT_ILIT 1) (TT_ILIT 2))))))

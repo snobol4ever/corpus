@@ -1,4 +1,0 @@
-(STMT :subj (TT_FNC dynamic (TT_DIV
-    (TT_FNC foo)
-    (TT_ILIT 1)
-  )))

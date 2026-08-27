@@ -1,1 +1,0 @@
-greet :- write(hello).
