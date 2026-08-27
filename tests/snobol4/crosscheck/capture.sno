@@ -1,0 +1,14 @@
+ X = 'hello world'; X LEN(5) . V :S(YES); OUTPUT = 'fail' :(END);YES OUTPUT = V;END;* 058_capture_dot_immediate
+ X = 'hello world'; X LEN(5) $ V :S(YES); OUTPUT = 'fail' :(END);YES OUTPUT = V;END;* 059_capture_dollar_deferred
+ X = 'John Smith'; X BREAK(' ') . FIRST LEN(1) REM . LAST :S(YES); OUTPUT = 'fail' :(END);YES OUTPUT = FIRST ' / ' LAST;END;* 060_capture_multiple
+ X = 'aaa'; N = 0;LOOP X POS(N) 'a' . V :F(DONE); OUTPUT = V; N = N + 1 :(LOOP);DONE;END;* 061_capture_in_arbno
+ X = 'hello world'; X 'world' = 'there'; OUTPUT = X;END;* 062_capture_replacement
+ X = 'hello world'; X ' world' =; OUTPUT = X;END;* 063_capture_null_replace
+ X = 'hello'; X 'hello' :F(END); OUTPUT = 'found';END;* 064_capture_conditional
+ t = 'ab'; t POS(0) LEN(1) . V ARBNO(LEN(1)) RPOS(0) :S(YES)F(NO);YES OUTPUT = 'capture-then-arbno ok V=' V :(END);NO OUTPUT = 'fail';END;* 065_capture_then_arbno
+*----------------------------------------------- 9 066_capture_then_fenced_arbno
+        s = '1+2+3'
+        s POS(0) SPAN('0123456789') . F1 ARBNO(FENCE('+') SPAN('0123456789') . L1) RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'first=' F1 ' last=' L1                      :(END)
+NO      OUTPUT = 'fail'
+END

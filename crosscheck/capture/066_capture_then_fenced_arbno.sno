@@ -1,7 +1,0 @@
-*  066 - capture left of ARBNO whose body is FENCE(det) det-capture:
-*  the 145 shape inline (stored-pattern variant tracked by 074/W07).
-        s = '1+2+3'
-        s POS(0) SPAN('0123456789') . F1 ARBNO(FENCE('+') SPAN('0123456789') . L1) RPOS(0)  :S(YES)F(NO)
-YES     OUTPUT = 'first=' F1 ' last=' L1                      :(END)
-NO      OUTPUT = 'fail'
-END
