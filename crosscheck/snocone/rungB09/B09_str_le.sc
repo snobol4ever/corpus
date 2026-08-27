@@ -1,21 +1,22 @@
-// B09_str_le: :<=: succeeds when left <= right lexicographically
+// B09_str_le: LLE() succeeds when left <= right lexicographically
+// (was ":<=:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "apple";
 b = "banana";
-if (a :<=: b) {
+if (LLE(a, b)) {
     OUTPUT = "le";
 } else {
     OUTPUT = "not le";
 }
 a = "cat";
 b = "cat";
-if (a :<=: b) {
+if (LLE(a, b)) {
     OUTPUT = "le";
 } else {
     OUTPUT = "not le";
 }
 a = "zebra";
 b = "apple";
-if (a :<=: b) {
+if (LLE(a, b)) {
     OUTPUT = "le";
 } else {
     OUTPUT = "not le";

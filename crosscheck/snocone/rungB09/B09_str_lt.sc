@@ -1,14 +1,15 @@
-// B09_str_lt: :<: succeeds when left < right lexicographically
+// B09_str_lt: LLT() succeeds when left < right lexicographically
+// (was ":<:" sugar; removed 2026-08-24 pending Lon's ruling, see snocone-relop-parse-regression)
 a = "apple";
 b = "banana";
-if (a :<: b) {
+if (LLT(a, b)) {
     OUTPUT = "less";
 } else {
     OUTPUT = "not less";
 }
 a = "banana";
 b = "apple";
-if (a :<: b) {
+if (LLT(a, b)) {
     OUTPUT = "less";
 } else {
     OUTPUT = "not less";
