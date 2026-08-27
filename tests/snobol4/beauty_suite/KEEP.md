@@ -48,4 +48,24 @@ directory's *content* needs other work (e.g. `m1_min.in` having no matching `.re
 `corpus-suites-consolidation` ledger for `crosscheck/beauty` — a different, already-flagged directory, not
 this one). Nothing on disk here was modified by this evaluation.
 
+## Exhaustive filename manifest (gate: `test_gate_suite_conversion_complete.sh` matches literal basenames)
+
+The prose above names subsystems, not filenames — `test_gate_suite_conversion_complete.sh` does a literal
+basename substring match against KEEP.md text, so the subsystem-name prose alone does not satisfy it. This
+section is the mechanical declaration; the prose above remains the reasoning.
+
+```
+assign_driver.sno   assign.sno          case_driver.sno    case.sno
+counter_driver.sno  counter.sno         fence_driver.sno   Gen_driver.sno
+Gen.sno              global_driver.sno   global.sno         io.sno
+match_driver.sno    match.sno            omega_driver.sno   omega.sno
+Qize_driver.sno      Qize.sno            ReadWrite_driver.sno ReadWrite.sno
+semantic_driver.sno  semantic.sno        ShiftReduce_driver.sno ShiftReduce.sno
+stack_driver.sno    stack.sno            TDump_driver.sno   TDump.sno
+trace_driver.sno    trace.sno            tree_driver.sno    tree.sno
+XDump_driver.sno    XDump.sno
+```
+
+34 files, matching the directory's on-disk `.sno` count exactly.
+
 — seat14, 2026-08-27, task `tests-consolidate-snobol4-loose`
