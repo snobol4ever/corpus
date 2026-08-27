@@ -1,0 +1,11 @@
+*  STEP 4 witness (kw-missing-4): &FILE standalone.
+*  &FILE names the CURRENT statement's file, so unlike &LASTFILE no leading statement is needed
+*  before the read -- it is readable from the program's very first statement.
+*  It answers the source path AS INVOKED, so this witness reports only the BASENAME TAIL: a bare
+*  path .ref would change with the caller's cwd and could not be pinned.
+        f = &FILE
+        f ('k32_file_keyword.sno' RPOS(0))                                     :S(ok)F(bad)
+ok      OUTPUT = 'file-tail=OK'                                                :(fin)
+bad     OUTPUT = 'file-tail=BAD'
+fin
+END
