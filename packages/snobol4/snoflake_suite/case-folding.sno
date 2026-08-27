@@ -1,0 +1,12 @@
+* @title Default case folding of variable and OUTPUT names
+* @attribution Griswold 1971, Chapter 1
+* @expect >>>
+* EGGSHELL
+* EGG17
+* <<<
+ ABC = 'EGG'
+ D = 'SHELL'
+ OUTPUT = abc d
+ D = 17
+ output = ABC D
+END

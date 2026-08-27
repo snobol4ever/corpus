@@ -1,0 +1,8 @@
+* @title &ALPHABET is initialized as a 256-character string keyword
+* @expect >>>
+* STRING
+* 256
+* <<<
+          OUTPUT = DATATYPE(&ALPHABET)
+          OUTPUT = SIZE(&ALPHABET)
+END

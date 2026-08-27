@@ -1,0 +1,12 @@
+* @title BREAK replacement cycle example
+* @attribution Griswold 1971, Chapter 4
+* @expect >>>
+* RED
+* ORANGE,YELLOW,GREEN,BLUE,INDIGO,VIOLET,RED,
+* <<<
+ RB = 'RED,ORANGE,YELLOW,GREEN,BLUE,INDIGO,VIOLET,'
+ CYCLE = BREAK(',') . ITEM LEN(1) REM . REST
+ RB CYCLE = REST ITEM ','
+ OUTPUT = ITEM
+ OUTPUT = RB
+END
