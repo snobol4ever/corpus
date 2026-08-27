@@ -4759,6 +4759,15 @@ n344_statement_end_α:   mov              r11, 345
                         add              rsp, 320;                            jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 RETURN:                 mov              r11, 346
+                        mov              edi, 1
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_kw_set_rtntype_role@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         pop              rcx
                         add              rsp, 8;                              jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
