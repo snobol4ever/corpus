@@ -1,0 +1,98 @@
+*------------------------------------------------------------ 1 210_indirect_ref
+        bal = 'the real bal'
+        DIFFER($'bal', bal)                   :f(e001)
+        OUTPUT = 'FAIL 210/001: $string lookup'        :(END)
+e001
+        DIFFER($.bal, bal)                   :f(e002)
+        OUTPUT = 'FAIL 210/002: $.var lookup'          :(END)
+e002
+        OUTPUT = 'PASS 210_indirect_ref (2/2)'
+END
+*--------------------------------------------------------- 2 211_indirect_assign
+        $'qq' = 'x'
+        DIFFER(qq, 'x')                   :f(e001)
+        OUTPUT = 'FAIL 211/001: indirect assign sets named var' :(END)
+e001
+        DIFFER($'_no_such_var_')                   :f(e002)
+        OUTPUT = 'FAIL 211/002: undefined indirect is null'     :(END)
+e002
+        OUTPUT = 'PASS 211_indirect_assign (2/2)'
+END
+ a = ARRAY(3); a<2> = 'x'; DIFFER($.a<2>, 'x') :f(e001); OUTPUT = 'FAIL 212/001: $.var<index> indirect array' :(END);e001; OUTPUT = 'PASS 212_indirect_array (1/1)';END;* 212_indirect_array
+*----------------------------------------------------------- 4 213_indirect_name
+        A = 42
+        X = 'A'
+        DIFFER($X, 42)                             :F(e001)
+        OUTPUT = 'FAIL 213/001: dollar-X indirect'    :(END)
+e001
+        NM = .A
+        DIFFER($NM, 42)                            :F(e002)
+        OUTPUT = 'FAIL 213/002: dollar-NM DT_N deref' :(END)
+e002
+        $X = 99
+        DIFFER(A, 99)                              :F(e003)
+        OUTPUT = 'FAIL 213/003: dollar-X lvalue assign' :(END)
+e003
+        A = 77
+        DIFFER($.A, 77)                            :F(e004)
+        OUTPUT = 'FAIL 213/004: dollar-dot literal'   :(END)
+e004
+        DEFINE('ref_b()')                          :(ref_b_end)
+ref_b   ref_b = .A                                 :(NRETURN)
+ref_b_end
+        DIFFER(ref_b(), 77)                        :F(e005)
+        OUTPUT = 'FAIL 213/005: NRETURN read value'   :(END)
+e005
+        OUTPUT = 'PASS 213_indirect_name (5/5)'
+END
+ &TRIM = 1; WHICH = 'ALPHA' :($WHICH);BETA OUTPUT = 'at BETA'; NEXT = 'GAMMA' :($NEXT);ALPHA OUTPUT = 'at ALPHA'; WHICH = 'BE' 'TA' :($WHICH);GAMMA OUTPUT = 'at GAMMA' :(END);END;* 214_indirect_goto
+ &TRIM = 1; T = 'WON'; F = 'LOST'; GT(7,3) :S($T)F($F);WON OUTPUT = 'took WON via :S($T)'; GT(0,3) :S($T)F($F);LOST OUTPUT = 'took LOST via :F($F)' :(END);END;* 215_indirect_goto_cond
+*-------------------------------------------------- 7 216_indirect_goto_computed
+        &TRIM = 1
+        DEFINE('dispatch(OP)')          :(dmain)
+dispatch                                :($('L' OP))
+LADD    OUTPUT = 'op=ADD'               :(RETURN)
+LMUL    OUTPUT = 'op=MUL'               :(RETURN)
+LSUB    OUTPUT = 'op=SUB'               :(RETURN)
+dmain   dispatch('ADD')
+        dispatch('MUL')
+        dispatch('SUB')
+        dispatch('MUL')                 :(END)
+END
+*------------------------------------------------------------- 8 217_direct_goto
+        C = CODE("  OUTPUT = 'first block' :(TWO)")
+        OUTPUT = 'main'                          :<C>
+BAD     OUTPUT = 'NOT REACHED'                   :(END)
+TWO     D = CODE("  OUTPUT = 'second block' :(THREE)") :< D >
+THREE   E = CODE("LBL OUTPUT = 'third block, labelled' :(DONE)") :<E>
+DONE    OUTPUT = 'back in main'
+END
+*-------------------------------------------------------- 9 218_direct_goto_cond
+        C = CODE("  OUTPUT = 'S taken' :(NEXT1)")
+        OUTPUT = 'stmt succeeds'                 :S<C>
+        OUTPUT = 'NOT REACHED'                   :(END)
+NEXT1   D = CODE("  OUTPUT = 'F taken' :(NEXT2)")
+        OUTPUT = IDENT('a','b')                  :F<D>
+        OUTPUT = 'NOT REACHED'                   :(END)
+NEXT2   E = CODE("  OUTPUT = 'lower s taken' :(NEXT3)")
+        OUTPUT = 'stmt succeeds'                 :s<E>
+        OUTPUT = 'NOT REACHED'                   :(END)
+NEXT3   F = CODE("  OUTPUT = 'lower f taken' :(NEXT4)")
+        OUTPUT = IDENT('a','b')                  :f<F>
+        OUTPUT = 'NOT REACHED'                   :(END)
+NEXT4   G = CODE("  OUTPUT = 'NOT REACHED' :(END)")
+        OUTPUT = IDENT('a','b')                  :S<G>
+        OUTPUT = 'S not taken on failure'
+END
+*------------------------------------------------------ 10 219_direct_goto_mixed
+        C = CODE("  OUTPUT = 'code entered on success' :(SECOND)")
+        OUTPUT = 'first'                         :S<C>F(NEVER)
+NEVER   OUTPUT = 'NOT REACHED'                   :(END)
+SECOND  D = CODE("  OUTPUT = 'NOT REACHED' :(END)")
+        OUTPUT = IDENT('a','b')                  :S<D>F(FELL)
+FELL    OUTPUT = 'failure branch took the label'
+        E = CODE("  OUTPUT = 'code entered on failure' :(THIRD)")
+        OUTPUT = IDENT('a','b')                  :F<E>S(NEVER2)
+NEVER2  OUTPUT = 'NOT REACHED'                   :(END)
+THIRD   OUTPUT = 'done'
+END

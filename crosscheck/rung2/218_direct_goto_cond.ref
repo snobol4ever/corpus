@@ -1,7 +1,0 @@
-stmt succeeds
-S taken
-F taken
-stmt succeeds
-lower s taken
-lower f taken
-S not taken on failure
