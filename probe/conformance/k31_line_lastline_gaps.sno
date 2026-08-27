@@ -1,0 +1,13 @@
+*  Regression witness (conform-line-lastline-crash): &LINE / &LASTLINE where the
+*  SOURCE LINE and the STATEMENT NUMBER DIVERGE. k14_stno_line cannot catch a
+*  line/stno mix-up because there every statement sits on its own matching line;
+*  here the comment runs and blank lines pull the two apart (stno 2 on line 4).
+
+        OUTPUT = 'stno=' &STNO
+        OUTPUT = 'line=' &LINE
+
+*  another comment
+        OUTPUT = 'stno2=' &STNO
+        OUTPUT = 'line2=' &LINE
+        OUTPUT = 'lastline=' &LASTLINE
+END

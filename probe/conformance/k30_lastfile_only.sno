@@ -1,0 +1,12 @@
+*  STEP 3 witness (conform-line-lastline-crash): &LASTFILE standalone.
+*  &LASTFILE names the PREVIOUS statement's file, so a leading statement is required
+*  before the read -- reading it first would answer null, not the source name.
+*  It answers the source path AS INVOKED, so this witness reports only the BASENAME
+*  TAIL: a bare path .ref would change with the caller's cwd and could not be pinned.
+        seed = 1
+        f = &LASTFILE
+        f ('k30_lastfile_only.sno' RPOS(0))                                     :S(ok)F(bad)
+ok      OUTPUT = 'lastfile-tail=OK'                                             :(fin)
+bad     OUTPUT = 'lastfile-tail=BAD'
+fin
+END
