@@ -339,3 +339,265 @@ END
         ST = SORT(T,1)
         OUTPUT = ST<1,1> ST<1,2> '-' ST<2,1> ST<2,2> '-' ST<3,1> ST<3,2>
 END
+ x = 42; OUTPUT = x;END;* b01_assign
+*------------------------------------------------------------------ 70 f01_array
+        YEARS = ARRAY('1901:2000')
+        YEARS[1989] = 'good-year'
+        OUTPUT = YEARS[1989]
+        CUBE = ARRAY('2,2',-1)
+        CUBE[1,1] = 5
+        OUTPUT = CUBE[1,1]
+        OUTPUT = CUBE[2,2]
+        VEC = ARRAY(3,4)
+        OUTPUT = VEC[2]
+        OUTPUT = DATATYPE(VEC[2])
+END
+ WORDS = TABLE(1000,,'No such word'); OUTPUT = WORDS['nonesuch']; WORDS['cat'] = 'dog'; OUTPUT = WORDS['cat']; T2 = TABLE(); OUTPUT = T2['missing']; OUTPUT = IDENT(T2['missing'],'');END;* f06_table
+*-------------------------------------------------------------------- 72 f10_arg
+        DEFINE('adder(a,b)')                        :(main)
+adder   adder = a + b                                :(RETURN)
+main    OUTPUT = ARG('adder', 1)
+        OUTPUT = ARG('adder', 2)
+        ARG('adder', 3)                              :S(bad)
+        OUTPUT = 'arg-out-of-range-ok'                :(fin)
+bad     OUTPUT = 'arg-out-of-range-bad'
+fin
+END
+*------------------------------------------------------------------ 73 f13_local
+        DEFINE('foo(x)y,z')                         :(main)
+foo     y = x
+        z = y * 2
+        foo = z                                      :(RETURN)
+main    OUTPUT = LOCAL('foo', 1)
+        OUTPUT = LOCAL('foo', 2)
+        LOCAL('foo', 3)                              :S(bad)
+        OUTPUT = 'local-out-of-range-ok'              :(fin)
+bad     OUTPUT = 'local-out-of-range-bad'
+fin
+END
+*------------------------------------------------------------------ 74 f14_opsyn
+        DEFINE('twice(x)')
+        DEFINE('sum2(a,b)')                          :(setup)
+twice   twice = x + x                                :(RETURN)
+sum2    sum2 = a + b                                  :(RETURN)
+setup   OPSYN('double', 'twice')
+        OPSYN('!', 'twice', 1)
+        OPSYN('@', 'sum2', 2)
+main    OUTPUT = double(21)
+        OUTPUT = !21
+        OUTPUT = 3 @ 4
+END
+*-------------------------------------------------------------- 75 f16_backspace
+        OUTPUT(.o, 1, '/tmp/f16_backspace_fixture.txt')
+        o = 'AAA'
+        o = 'BBB'
+        ENDFILE(1)
+        INPUT(.i, 2, '/tmp/f16_backspace_fixture.txt')
+        rec1 = i
+        rec2 = i
+        BACKSPACE(2)
+        rec3 = i
+        OUTPUT = 'rec1=' rec1
+        OUTPUT = 'rec2=' rec2
+        OUTPUT = 'rec3=' rec3
+        IDENT(rec2,rec3)                                     :S(yes)F(no)
+no      OUTPUT = 'backspace=no'                                :(fin)
+yes     OUTPUT = 'backspace=yes'
+fin
+END
+*----------------------------------------------------------------- 76 f17_detach
+        OUTPUT(.o, 1, '/tmp/f17_detach_fixture.txt')
+        o = 'first'
+        DETACH(.o)
+        o = 'second'
+        ENDFILE(1)
+        INPUT(.i, 2, '/tmp/f17_detach_fixture.txt')
+        rec1 = i
+        rec2 = i                                            :S(bad)
+        OUTPUT = 'rec1=' rec1
+        OUTPUT = 'detach=ok'                                  :(fin)
+bad     OUTPUT = 'rec1=' rec1
+        OUTPUT = 'rec2=' rec2
+        OUTPUT = 'detach=bad'
+fin
+END
+*------------------------------------------------------------------ 77 f18_eject
+        OUTPUT(.o, 1, '/tmp/f18_eject_fixture.txt')
+        EJECT(1)
+        o = 'AFTER'
+        ENDFILE(1)
+        INPUT(.i, 2, '/tmp/f18_eject_fixture.txt')
+        ffline = i
+        textline = i
+        OUTPUT = 'textline=' textline
+        IDENT(ffline,CHAR(12))                               :S(yes)F(no)
+no      OUTPUT = 'eject=no'                                    :(fin)
+yes     OUTPUT = 'eject=yes'
+fin
+END
+ OUTPUT(.o, 1, '/tmp/f19_endfile_fixture.txt'); o = 'hello'; ENDFILE(1); INPUT(.i, 1, '/tmp/f19_endfile_fixture.txt'); line = i; OUTPUT = 'line=' line; ENDFILE(1);END;* f19_endfile
+*------------------------------------------------------------------ 79 f20_input
+        INPUT(.m, 1, '/tmp/f20_input_does_not_exist.txt')       :F(noexist)
+        OUTPUT = 'input-should-have-failed'                     :(fin)
+noexist OUTPUT(.o, 2, '/tmp/f20_input_fixture.txt')
+        o = 'one'
+        o = 'two'
+        ENDFILE(2)
+        INPUT(.i, 3, '/tmp/f20_input_fixture.txt')
+        a = i
+        b = i
+        c = i                                                 :S(bad)
+        OUTPUT = 'a=' a
+        OUTPUT = 'b=' b
+        OUTPUT = 'input=ok'                                     :(fin)
+bad     OUTPUT = 'a=' a
+        OUTPUT = 'b=' b
+        OUTPUT = 'c=' c
+        OUTPUT = 'input=bad-extra-read-succeeded'
+fin
+END
+*----------------------------------------------------------------- 80 f22_rewind
+        OUTPUT(.o, 1, '/tmp/f22_rewind_fixture.txt')
+        o = 'ONE'
+        o = 'TWO'
+        ENDFILE(1)
+        INPUT(.i, 2, '/tmp/f22_rewind_fixture.txt')
+        a1 = i
+        a2 = i
+        REWIND(2)
+        a3 = i
+        OUTPUT = 'a1=' a1
+        OUTPUT = 'a2=' a2
+        OUTPUT = 'a3=' a3
+        IDENT(a1,a3)                                          :S(yes)F(no)
+no      OUTPUT = 'rewind=no'                                    :(fin)
+yes     OUTPUT = 'rewind=yes'
+fin
+END
+ A = 'one'; B = 'two'; C = 'three'; CLEAR('B'); OUTPUT = 'A=' A; OUTPUT = 'B=' B; OUTPUT = 'C=' C; D = 'four'; E = 'five'; CLEAR(); OUTPUT = 'D=' D; OUTPUT = 'E=' E;END;* f24_clear
+*------------------------------------------------------------------- 82 f30_date
+        d = DATE()
+        OUTPUT = 'datatype=' DATATYPE(d)
+        d ? LEN(2) . MTH LEN(1) LEN(2) . DAY LEN(1) LEN(2) . YEAR LEN(1) LEN(2) . HH LEN(1) LEN(2) . MM LEN(1) LEN(2) . SS :F(bad)
+        OUTPUT = 'date-format-ok' :(fin)
+bad     OUTPUT = 'date-format-bad'
+fin
+END
+*------------------------------------------------------------------- 83 f51_copy
+        A = ARRAY(3)
+        A<1> = 'x'
+        B = COPY(A)
+        B<1> = 'y'
+        OUTPUT = A<1>
+        OUTPUT = B<1>
+        IDENT(A,B)                                        :S(bad1)
+        OUTPUT = 'copy-array-distinct-ok'                   :(chk2)
+bad1    OUTPUT = 'copy-array-same-bad'
+chk2    T = TABLE()
+        T<'k'> = 'v1'
+        T2 = COPY(T)
+        T2<'k'> = 'v2'
+        OUTPUT = T<'k'>
+        OUTPUT = T2<'k'>
+END
+*------------------------------------------------ 84 f52_copy_table_independence
+        T = TABLE()
+        T<'a'> = 1
+        T<2> = 'int-key'
+        T<'c'> = 'three'
+        C = COPY(T)
+        T<'a'> = 'MUTATED-ORIG'
+        OUTPUT = 'copy-a=' C<'a'>
+        OUTPUT = 'copy-int=' C<2>
+        C<'c'> = 'MUTATED-COPY'
+        OUTPUT = 'orig-c=' T<'c'>
+        E = TABLE()
+        EC = COPY(E)
+        EC<'k'> = 'v'
+        OUTPUT = 'empty-orig-k=[' E<'k'> ']'
+        OUTPUT = 'empty-copy-k=' EC<'k'>
+        N = TABLE()
+        INNER = TABLE()
+        INNER<'i'> = 'inner-v'
+        N<'nest'> = INNER
+        NC = COPY(N)
+        X = NC<'nest'>
+        X<'i'> = 'SHALLOW'
+        OUTPUT = 'nested-shared=' INNER<'i'>
+        IDENT(T,C)                                                              :S(same)F(dist)
+same    OUTPUT = 'copy-is-alias-BAD'                                            :(fin)
+dist    OUTPUT = 'copy-distinct-ok'
+fin
+END
+*------------------------------------------------------------------ 85 f57_fence
+        ',abc' ? POS(0) (BREAK(',') | REM) $ STR *DIFFER(STR)           :F(bad1)
+        OUTPUT = 'unfenced-succeeds-via-rem:' STR                         :(next)
+bad1    OUTPUT = 'unfenced-should-have-succeeded-via-rem'
+next
+        ',abc' ? POS(0) FENCE(BREAK(',') | REM) $ STR *DIFFER(STR)      :S(bad2)
+        OUTPUT = 'fence-correctly-blocks-rem-retry'                        :(fin)
+bad2    OUTPUT = 'fence-wrongly-allowed-rem-retry:' STR
+fin
+END
+ SETEXIT(.ERRTRACE); &ERRLIMIT = 100; lbl = 'NOSUCHLABEL'; x = 1 :($lbl); OUTPUT = 'unreachable' :(fin);ERRTRACE OUTPUT = 'caught-error-type=' &ERRTYPE;fin;END;* f67_setexit
+*------------------------------------------------------------------ 87 f71_field
+        DATA('COMPLEX(REAL,IMAG)')
+        OUTPUT = FIELD('COMPLEX', 1)
+        OUTPUT = FIELD('COMPLEX', 2)
+        FIELD('COMPLEX', 3)                          :S(bad)
+        OUTPUT = 'field-out-of-range-ok'              :(fin)
+bad     OUTPUT = 'field-out-of-range-bad'
+fin
+END
+ 'A' ? ('X' | &ABORT | 'A') :S(sawthird); OUTPUT = 'amp-abort-shortcircuits-ok' :(fin);sawthird OUTPUT = 'amp-abort-wrongly-reached-third';fin;END;* k01_amp_abort
+ 'ABCDEF' ? 'A' (&ARB | 'D') 'E' :F(bad); OUTPUT = 'amp-arb-ok' :(fin);bad OUTPUT = 'amp-arb-bad';fin;END;* k02_amp_arb
+ '(A(B)C)D' ? &BAL . matched 'D' :F(bad); OUTPUT = 'amp-bal-matched=' matched :(fin);bad OUTPUT = 'amp-bal-bad';fin;END;* k03_amp_bal
+ 'X' ? ('A' | &FAIL) :S(bad); OUTPUT = 'amp-fail-ok' :(fin);bad OUTPUT = 'amp-fail-bad';fin;END;* k04_amp_fail
+ 'XABC' ? &FENCE 'ABC' :S(bad); OUTPUT = 'amp-fence-anchors-ok' :(fin);bad OUTPUT = 'amp-fence-bad';fin;END;* k05_amp_fence
+ 'ABCDE' ? 'AB' &REM . rest :F(bad); OUTPUT = 'amp-rem-rest=' rest :(fin);bad OUTPUT = 'amp-rem-bad';fin;END;* k06_amp_rem
+ '' ? &SUCCEED :F(bad); OUTPUT = 'amp-succeed-ok' :(fin);bad OUTPUT = 'amp-succeed-bad';fin;END;* k07_amp_succeed
+*---------------------------------------------------------------- 95 k12_rtntype
+        DEFINE('retter(v)')
+        DEFINE('fretter(v)')
+        DEFINE('nretter(v)')                         :(main)
+retter  retter = v                                    :(RETURN)
+fretter EQ(v,999)                                      :F(FRETURN)
+        fretter = v                                    :(RETURN)
+nretter nretter = v                                    :(NRETURN)
+main    retter(1)
+        OUTPUT = 'after-return=' &RTNTYPE
+        fretter(1)
+        OUTPUT = 'after-freturn=' &RTNTYPE
+        nretter(1)
+        OUTPUT = 'after-nreturn=' &RTNTYPE
+END
+ a1 = 1; first = &STCOUNT; a2 = 2; a3 = 3; second = &STCOUNT; OUTPUT = 'delta=' (second - first);END;* k13_stcount
+*-------------------------------------------------------------- 97 k14_stno_line
+        OUTPUT = 'stno=' &STNO
+        OUTPUT = 'stno-next=' &STNO
+        OUTPUT = 'line=' &LINE
+END
+ OUTPUT = 'should-be-skipped-if-end-label-honored';startpoint; OUTPUT = 'reached-via-end-label';END startpoint;* n01_end_label
+ DEFINE('namer()namedvar') :(main);namer namedvar = 'set-by-namer'; namer = .namedvar :(NRETURN);main result = namer(); OUTPUT = result;END;* n07_nreturn
+*----------------------------------------------------------------- 100 p01_abort
+        'A' ? ('X' | FAIL | 'A')                :S(sawthird1)
+        OUTPUT = 'fail-should-backtrack-not-here' :(midpoint)
+sawthird1 OUTPUT = 'fail-lets-third-alt-win-ok'
+midpoint
+        'A' ? ('X' | ABORT | 'A')                :S(sawthird2)
+        OUTPUT = 'abort-shortcircuits-ok'         :(fin)
+sawthird2 OUTPUT = 'abort-wrongly-reached-third'
+fin
+END
+*----------------------------------------------------------------- 101 p05_fence
+        'XABC' ? 'ABC'                            :F(bad1)
+        OUTPUT = 'unanchored-finds-abc'             :(next)
+bad1    OUTPUT = 'unanchored-should-have-matched'
+next
+        'XABC' ? FENCE 'ABC'                      :S(bad2)
+        OUTPUT = 'fence-anchors-and-fails'          :(fin)
+bad2    OUTPUT = 'fence-did-not-anchor'
+fin
+END
+ pat = TAB(*posn) . OUTPUT SPAN(*chset) . OUTPUT; subj = '123AABBCC'; posn = 4; chset = 'AB'; subj ? pat; posn = 3; subj ? pat;END;* u07_asterisk_defer
+ OUTPUT = 'case-initial=' &CASE;END;* w02_case

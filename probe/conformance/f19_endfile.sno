@@ -1,8 +1,0 @@
-        OUTPUT(.o, 1, '/tmp/f19_endfile_fixture.txt')
-        o = 'hello'
-        ENDFILE(1)
-        INPUT(.i, 1, '/tmp/f19_endfile_fixture.txt')
-        line = i
-        OUTPUT = 'line=' line
-        ENDFILE(1)
-END

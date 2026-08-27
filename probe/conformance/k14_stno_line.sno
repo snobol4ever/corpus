@@ -1,4 +1,0 @@
-        OUTPUT = 'stno=' &STNO
-        OUTPUT = 'stno-next=' &STNO
-        OUTPUT = 'line=' &LINE
-END

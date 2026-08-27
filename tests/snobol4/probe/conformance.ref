@@ -159,3 +159,96 @@ c3-b2-a1
 *------------------------------------------------------------------- 68 f05_sort
 1-1-3-4-5
 a1-b2-c3
+42
+*------------------------------------------------------------------ 70 f01_array
+good-year
+5
+-1
+4
+INTEGER
+No such word\ndog
+*-------------------------------------------------------------------- 72 f10_arg
+a
+b
+arg-out-of-range-ok
+*------------------------------------------------------------------ 73 f13_local
+y
+z
+local-out-of-range-ok
+*------------------------------------------------------------------ 74 f14_opsyn
+42
+42
+7
+*-------------------------------------------------------------- 75 f16_backspace
+rec1=AAA
+rec2=BBB
+rec3=BBB
+backspace=yes
+*----------------------------------------------------------------- 76 f17_detach
+rec1=first
+detach=ok
+*------------------------------------------------------------------ 77 f18_eject
+textline=AFTER
+eject=yes
+line=hello
+*------------------------------------------------------------------ 79 f20_input
+a=one
+b=two
+input=ok
+*----------------------------------------------------------------- 80 f22_rewind
+a1=ONE
+a2=TWO
+a3=ONE
+rewind=yes
+A=\nB=two\nC=\nD=\nE=
+*------------------------------------------------------------------- 82 f30_date
+datatype=STRING
+date-format-ok
+*------------------------------------------------------------------- 83 f51_copy
+x
+y
+copy-array-distinct-ok
+v1
+v2
+*------------------------------------------------ 84 f52_copy_table_independence
+copy-a=1
+copy-int=int-key
+orig-c=three
+empty-orig-k=[]
+empty-copy-k=v
+nested-shared=SHALLOW
+copy-distinct-ok
+*------------------------------------------------------------------ 85 f57_fence
+unfenced-succeeds-via-rem:,abc
+fence-correctly-blocks-rem-retry
+caught-error-type=38
+*------------------------------------------------------------------ 87 f71_field
+REAL
+IMAG
+field-out-of-range-ok
+amp-abort-shortcircuits-ok
+amp-arb-ok
+amp-bal-matched=(A(B)C)
+amp-fail-ok
+amp-fence-anchors-ok
+amp-rem-rest=CDE
+amp-succeed-ok
+*---------------------------------------------------------------- 95 k12_rtntype
+after-return=RETURN
+after-freturn=FRETURN
+after-nreturn=NRETURN
+delta=3
+*-------------------------------------------------------------- 97 k14_stno_line
+stno=1
+stno-next=2
+line=3
+reached-via-end-label
+
+*----------------------------------------------------------------- 100 p01_abort
+fail-lets-third-alt-win-ok
+abort-shortcircuits-ok
+*----------------------------------------------------------------- 101 p05_fence
+unanchored-finds-abc
+fence-anchors-and-fails
+123A\nABB\n123\nAABB
+case-initial=0

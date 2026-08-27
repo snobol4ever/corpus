@@ -1,5 +1,0 @@
-        'A' ? ('X' | &ABORT | 'A')                :S(sawthird)
-        OUTPUT = 'amp-abort-shortcircuits-ok'       :(fin)
-sawthird OUTPUT = 'amp-abort-wrongly-reached-third'
-fin
-END

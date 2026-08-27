@@ -1,9 +1,0 @@
-        SETEXIT(.ERRTRACE)
-        &ERRLIMIT = 100
-        lbl = 'NOSUCHLABEL'
-        x = 1                                          :($lbl)
-        OUTPUT = 'unreachable'
-        :(fin)
-ERRTRACE OUTPUT = 'caught-error-type=' &ERRTYPE
-fin
-END

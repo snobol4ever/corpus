@@ -1,9 +1,0 @@
-        DEFINE('adder(a,b)')                        :(main)
-adder   adder = a + b                                :(RETURN)
-main    OUTPUT = ARG('adder', 1)
-        OUTPUT = ARG('adder', 2)
-        ARG('adder', 3)                              :S(bad)
-        OUTPUT = 'arg-out-of-range-ok'                :(fin)
-bad     OUTPUT = 'arg-out-of-range-bad'
-fin
-END

@@ -1,8 +1,0 @@
-        DATA('COMPLEX(REAL,IMAG)')
-        OUTPUT = FIELD('COMPLEX', 1)
-        OUTPUT = FIELD('COMPLEX', 2)
-        FIELD('COMPLEX', 3)                          :S(bad)
-        OUTPUT = 'field-out-of-range-ok'              :(fin)
-bad     OUTPUT = 'field-out-of-range-bad'
-fin
-END

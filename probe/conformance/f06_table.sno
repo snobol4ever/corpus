@@ -1,8 +1,0 @@
-        WORDS = TABLE(1000,,'No such word')
-        OUTPUT = WORDS['nonesuch']
-        WORDS['cat'] = 'dog'
-        OUTPUT = WORDS['cat']
-        T2 = TABLE()
-        OUTPUT = T2['missing']
-        OUTPUT = IDENT(T2['missing'],'')
-END

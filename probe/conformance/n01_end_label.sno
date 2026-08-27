@@ -1,4 +1,0 @@
-        OUTPUT = 'should-be-skipped-if-end-label-honored'
-startpoint
-        OUTPUT = 'reached-via-end-label'
-END startpoint
