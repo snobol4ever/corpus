@@ -14,6 +14,71 @@ if anyone wants a second instrument. No hand-transcription — every verdict bel
 not carried over from the wave 1/2 findings (which are 4 days stale and already disagree with today's
 tree on several of these: e.g. `n01_end_label` and `k14_stno_line` were DIVERGE in wave 1/2, AGREE now).
 
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ **This section, not the two tables below, is what the row's own `DONE-WHEN` actually parses**
+(`sed -n 's/^- //p'` over this whole file, matched against `find probe/conformance -name '*.sno' ...`).
+The tables are for humans; grep does not read prose or `|` columns. Found the mismatch 2026-08-27:
+the check reported all loose files as violations regardless of how many were legitimately excepted,
+because no `- <path>` lines existed anywhere in this file for it to subtract. This list must stay
+byte-identical to the union of the Category A + Category B file columns below — add a line here in
+the SAME edit that adds a row to either table, and remove one here in the SAME edit that converts
+a file out of both tables (`git rm`).
+
+- probe/conformance/b01_assign.sno
+- probe/conformance/f01_array.sno
+- probe/conformance/f06_table.sno
+- probe/conformance/f09_apply.sno
+- probe/conformance/f10_arg.sno
+- probe/conformance/f12_load.sno
+- probe/conformance/f13_local.sno
+- probe/conformance/f14_opsyn.sno
+- probe/conformance/f15_unload.sno
+- probe/conformance/f16_backspace.sno
+- probe/conformance/f17_detach.sno
+- probe/conformance/f18_eject.sno
+- probe/conformance/f19_endfile.sno
+- probe/conformance/f20_input.sno
+- probe/conformance/f21_output.sno
+- probe/conformance/f22_rewind.sno
+- probe/conformance/f24_clear.sno
+- probe/conformance/f25_collect.sno
+- probe/conformance/f26_dump.sno
+- probe/conformance/f30_date.sno
+- probe/conformance/f51_copy.sno
+- probe/conformance/f52_copy_table_independence.sno
+- probe/conformance/f52_dupl.sno
+- probe/conformance/f57_fence.sno
+- probe/conformance/f65b_exit_savefile.sno
+- probe/conformance/f65_exit.sno
+- probe/conformance/f67_setexit.sno
+- probe/conformance/f68_stoptr.sno
+- probe/conformance/f69_trace.sno
+- probe/conformance/f71_field.sno
+- probe/conformance/f83_trim.sno
+- probe/conformance/k01_amp_abort.sno
+- probe/conformance/k02_amp_arb.sno
+- probe/conformance/k03_amp_bal.sno
+- probe/conformance/k04_amp_fail.sno
+- probe/conformance/k05_amp_fence.sno
+- probe/conformance/k06_amp_rem.sno
+- probe/conformance/k07_amp_succeed.sno
+- probe/conformance/k09_file.sno
+- probe/conformance/k10_fnclevel.sno
+- probe/conformance/k11_lastfile_lastline_lastno.sno
+- probe/conformance/k12_rtntype.sno
+- probe/conformance/k13_stcount.sno
+- probe/conformance/k14_stno_line.sno
+- probe/conformance/k30_lastfile_only.sno
+- probe/conformance/k31_line_lastline_gaps.sno
+- probe/conformance/n01_end_label.sno
+- probe/conformance/n07_nreturn.sno
+- probe/conformance/p01_abort.sno
+- probe/conformance/p05_fence.sno
+- probe/conformance/u03_question.sno
+- probe/conformance/u07_asterisk_defer.sno
+- probe/conformance/w02_case.sno
+
 ## Category A — still diverges from the live oracle (17)
 
 These are real, live conformance gaps. Converting a currently-wrong witness would either freeze
