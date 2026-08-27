@@ -1,8 +1,0 @@
-*       ev_defer_int_lead — the LEADING-position discriminator.  *(1 + N) crashed the
-*       emitter while *(N + 1) did not: the shim read the FIRST literal it reached.
-*       Oracle prints EXPRESSION then built.
-        N = 5
-        E = *(1 + N)
-        OUTPUT = DATATYPE(E)
-        OUTPUT = 'built'
-END

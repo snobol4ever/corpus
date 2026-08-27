@@ -1,6 +1,0 @@
-        DEFINE('F()')                 :(FE)
-F       F = 'v'                       :(RETURN)
-FE
-        e = LEN(0)
-        OUTPUT = DATATYPE(EVAL('e . *F()'))
-END

@@ -1,6 +1,0 @@
-*       ev_defer_str_lit — THE PASSING SIBLING.  Identical shape to ev_defer_int_lit
-*       except the literal is a STRING, so IR_LIT.sval was a real pointer and the
-*       unguarded strncmp survived.  Keep beside it: the pair IS the union-tag proof.
-        E = *('AB')
-        OUTPUT = DATATYPE(E)
-END

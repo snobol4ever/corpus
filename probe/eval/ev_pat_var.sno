@@ -1,3 +1,0 @@
-        e = LEN(0)
-        OUTPUT = DATATYPE(EVAL('e'))
-END

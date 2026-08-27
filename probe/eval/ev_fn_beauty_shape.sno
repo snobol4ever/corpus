@@ -1,9 +1,0 @@
-        DEFINE('R(t,n)')
-        DEFINE('Q(a,b)')
-        epsilon = ''
-        p = R('a','b')
-        OUTPUT = DATATYPE(p)
-        :(END)
-R       R = EVAL("epsilon . *Q(" t ", " n ")")          :(RETURN)
-Q       Q = 1                                          :(RETURN)
-END

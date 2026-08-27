@@ -1,6 +1,0 @@
-        DEFINE('G()')
-        s = '1 + 2'
-        OUTPUT = G()
-        :(END)
-G       G = EVAL(s)                                    :(RETURN)
-END

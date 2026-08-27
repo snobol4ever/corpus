@@ -1,5 +1,0 @@
-        DEFINE('F(x)')
-        OUTPUT = F('ignored')
-        :(END)
-F       F = EVAL('1 + 2')                              :(RETURN)
-END

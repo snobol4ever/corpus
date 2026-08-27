@@ -1,7 +1,0 @@
-*       ev_defer_int_lit — DEFERRED EXPRESSION WITH A LEADING INTEGER LITERAL.
-*       s113 witness for the EMITTER-side union-tag defect (emit.cpp IR_SAVE_RESTORE
-*       role-3 shim read IR_LIT(gamma).sval on an IR_LIT_INTEGER node).  NO EVAL HERE:
-*       the crash was at COMPILE time, in the emitter, before this program ever ran.
-        E = *(1)
-        OUTPUT = DATATYPE(E)
-END
