@@ -1,0 +1,11 @@
+*------------------------------------------------------------ 1 proto_excess_arg
+ctl_bare  = 3 / INTEGER
+ctl_range = 1:3 / STRING
+exc_bare  = 3 / INTEGER
+exc_range = 1:3 / STRING
+*----------------------------------------------------------------- 2 proto_table
+ctl_array = 3
+tbl_dflt  = 11
+tbl_5     = 5
+tbl_5_7   = 5
+tbl_dtype = INTEGER

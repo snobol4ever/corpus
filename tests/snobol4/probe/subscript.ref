@@ -1,0 +1,32 @@
+*---------------------------------------------------------- 1 sub_container_only
+null-string  235
+string       235
+integer      235
+real         235
+pattern      235
+name         235
+expression   235
+code         235
+data-object  235
+array        accepted=in-array
+table        accepted=in-table
+end
+*-------------------------------------------------------- 2 sub_positive_control
+arr_brk   = one
+arr_ang   = two
+mul_brk   = m12
+mul_ang   = m23
+tbl_str   = tv
+tbl_int   = ti
+arr_var   = one
+nested    = one
+tbl_miss  = <>
+*------------------------------------------------------------------ 3 sub_shapes
+rvalue       235
+multi        235
+nested       235
+lvalue       235
+ok-rvalue    one
+ok-multi     two-three
+ok-nested    one
+end

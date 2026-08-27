@@ -1,8 +1,0 @@
-	digits = '0123456789'
-	epsilon = ''
-	S = '1:1'
-	S POS(0) (('+' | '-' | epsilon) SPAN(digits)) . iMin ':'	:S(OK)F(NO)
-OK	OUTPUT = 'iMin=' iMin	:(D)
-NO	OUTPUT = 'NOMATCH'
-D
-END

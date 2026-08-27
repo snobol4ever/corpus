@@ -1,0 +1,5 @@
+ A = 0; X = GT(A, 0) LEN(A - 10) :S(M)F(NM);M OUTPUT = 'assigned' :(DONE);NM OUTPUT = 'nomatch';DONE OUTPUT = 'end';END;* pre_assign_ctx_ctl
+ A = 0; 'abcdef' LEN(2) GT(A, 0) :S(M)F(NM);M OUTPUT = 'matched' :(DONE);NM OUTPUT = 'nomatch';DONE OUTPUT = 'end';END;* pre_guard_right_ctl
+ A = 0; S = 'abcdef'; S GT(A, 0) LEN(A - 10) . ind :S(M)F(NM);M OUTPUT = 'matched' :(DONE);NM OUTPUT = 'nomatch';DONE OUTPUT = 'reached end';END;* pre_guard_then_unsafe
+ A = 0; 'abcdef' IDENT(A, 1) LEN(A - 10) . ind :S(M)F(NM);M OUTPUT = 'matched' :(DONE);NM OUTPUT = 'nomatch';DONE OUTPUT = 'end';END;* pre_ident_guard
+ A = 0; 'abcdef' GT(A, 0) LEN(2) . ind :S(M)F(NM);M OUTPUT = 'matched' :(DONE);NM OUTPUT = 'nomatch';DONE OUTPUT = 'end';END;* pre_safe_right_ctl

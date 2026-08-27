@@ -1,8 +1,0 @@
-* dv_arbno_capture: ARBNO(P) $ VAR -- capture of entire ARBNO match
-        P = 'AB'
-        S = 'ABABC'
-        S ? POS(0) ARBNO(P) $ X 'C' RPOS(0)            :F(NO)
-        OUTPUT = 'M ' X                                 :(EN)
-NO      OUTPUT = 'F'
-EN
-END

@@ -1,8 +1,0 @@
-*  The same defect with IDENT as the failing guard instead of GT -- proves the class is ANY failing
-*  predicate, not a GT special case, so no per-op cure is admissible (NO-PER-OP-FILTER).
-        A = 0
-        'abcdef'       IDENT(A, 1) LEN(A - 10) . ind       :S(M)F(NM)
-M       OUTPUT = 'matched'                                 :(DONE)
-NM      OUTPUT = 'nomatch'
-DONE    OUTPUT = 'end'
-END

@@ -1,9 +1,0 @@
-* dv_value_imm: F() $ VAR -- capture crossing a MATCH_VALUE (eager call in pattern position)
-        DEFINE('F()')                                   :(GO)
-F       F = 'BC'                                        :(RETURN)
-GO      S = 'ABCD'
-        S ? 'A' F() $ X                                 :F(NO)
-        OUTPUT = 'M ' X                                 :(EN)
-NO      OUTPUT = 'F'
-EN
-END

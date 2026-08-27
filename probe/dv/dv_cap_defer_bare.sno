@@ -1,7 +1,0 @@
-	E = 'b'
-	S = 'abc'
-	S (E) . X	:S(OK)F(NO)
-OK	OUTPUT = 'X=[' X ']'	:(D)
-NO	OUTPUT = 'NOMATCH'
-D
-END

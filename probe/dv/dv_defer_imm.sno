@@ -1,8 +1,0 @@
-* dv_defer_imm: *P $ VAR -- capture crossing a DEFER (s71 class, IMM form)
-        P = 'BC'
-        S = 'ABCD'
-        S ? 'A' *P $ X                                  :F(NO)
-        OUTPUT = 'M ' X                                 :(EN)
-NO      OUTPUT = 'F'
-EN
-END

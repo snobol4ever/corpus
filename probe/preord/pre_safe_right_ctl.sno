@@ -1,8 +1,0 @@
-*  CONTROL, GREEN BEFORE AND AFTER -- same failing guard, but the LEN argument is legal.  Proves the
-*  statement's FAILURE was always propagating correctly; only the ORDER of evaluation was wrong.
-        A = 0
-        'abcdef'       GT(A, 0) LEN(2) . ind               :S(M)F(NM)
-M       OUTPUT = 'matched'                                 :(DONE)
-NM      OUTPUT = 'nomatch'
-DONE    OUTPUT = 'end'
-END

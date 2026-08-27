@@ -1,7 +1,0 @@
-*  CONTROL, GREEN BEFORE AND AFTER -- guard on the RIGHT with a safe LEN on the left.
-        A = 0
-        'abcdef'       LEN(2) GT(A, 0)                     :S(M)F(NM)
-M       OUTPUT = 'matched'                                 :(DONE)
-NM      OUTPUT = 'nomatch'
-DONE    OUTPUT = 'end'
-END
