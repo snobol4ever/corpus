@@ -55,3 +55,21 @@ unilaterally -- flagged for whoever owns that boundary decision.
 | chain_read_d3.sno | 29 | benchmark-shaped; check: matches, only timing lines differ -- not a defect |
 | ident_guard_d1.sno | 28 | benchmark-shaped; check: matches, only timing lines differ -- not a defect |
 | value_type_tbl.sno | 29 | benchmark-shaped; check: matches, only timing lines differ -- not a defect |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/table_nested/chain_incr_d1.sno
+- probe/table_nested/chain_incr_d2.sno
+- probe/table_nested/chain_incr_d3.sno
+- probe/table_nested/chain_read_d1.sno
+- probe/table_nested/chain_read_d2.sno
+- probe/table_nested/chain_read_d3.sno
+- probe/table_nested/claws5_l1.sno
+- probe/table_nested/claws5_l2.sno
+- probe/table_nested/ident_guard_d1.sno
+- probe/table_nested/value_type_tbl.sno

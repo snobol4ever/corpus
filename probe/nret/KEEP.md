@@ -17,3 +17,12 @@ Live defect, out of scope for this consolidation row.
 | file | reason |
 |---|---|
 | nret_cond_nondeferred.sno | m3 output mismatch, m4 --compile fails |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/nret/nret_cond_nondeferred.sno

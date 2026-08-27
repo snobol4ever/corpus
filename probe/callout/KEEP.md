@@ -22,3 +22,13 @@ That rules out the "benchmark timing noise" explanation seen elsewhere in this b
 |---|---|---|
 | claws5_call.sno | 42 | exceeds the 40-line suite-entry ceiling |
 | claws5_cap.sno | 35 | REAL DEFECT: check: 0 vs expected check: 66757 (m3 and m4 both) -- not a size exclusion |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/callout/claws5_call.sno
+- probe/callout/claws5_cap.sno

@@ -16,3 +16,22 @@ Icon witnesses belong under `corpus/tests/icon/` instead of `probe/`) should sta
 | files | reason |
 |---|---|
 | all 27 (11 .icn/.ref pairs + z3_offspine_handpatch.py + assorted no-extension binaries) | Icon, not SNOBOL4 -- no LANG_CONFIGS support, wrong tool entirely |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/icn/witness_icn_argslot_collision_count.icn
+- probe/icn/witness_icn_argslot_collision_match.icn
+- probe/icn/witness_icn_argslot_collision_nonwrite.icn
+- probe/icn/witness_icn_argslot_collision_tab.icn
+- probe/icn/witness_icn_carve_leak_lucky.icn
+- probe/icn/witness_icn_carve_leak_subject.icn
+- probe/icn/witness_icn_carve_leak_var.icn
+- probe/icn/witness_icn_frameslot_shift_options.icn
+- probe/icn/witness_icn_frameslot_shift_param.icn
+- probe/icn/witness_icn_options_dash_branch.icn
+- probe/icn/witness_icn_pos0_stale_delta.icn

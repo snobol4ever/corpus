@@ -21,3 +21,12 @@ be refused by the harness or, if forced, would freeze today's FATAL as tomorrow'
 | file | lines | reason |
 |---|---|---|
 | dyn_define_1.sno | 5 | FAIL both modes against its own `.ref` — non-literal DEFINE prototype outside the landed subset (GOAL-SNOBOL4-BB.md); harness refused conversion, not a scope exclusion |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/define/dyn_define_1.sno

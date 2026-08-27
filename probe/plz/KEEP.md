@@ -19,3 +19,21 @@ that has settled before converting, the same caution Snocone's deferral was buil
 | files | reason |
 |---|---|
 | all 20 (9 .pl/.ref pairs + test_pl_1.c + test_pl_zeta_1.pl) | Prolog, not SNOBOL4 -- needs convert-blocks --lang prolog (AST mode), a dedicated pass; not a hard tool gap like Icon/Snocone |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/plz/plz_p1_single_clause.pl
+- probe/plz/plz_p2_two_clause_first.pl
+- probe/plz/plz_p3_faildriven.pl
+- probe/plz/plz_p4_recursion.pl
+- probe/plz/plz_p5_inline_disj.pl
+- probe/plz/plz_p6_member.pl
+- probe/plz/plz_p7_cut_commit.pl
+- probe/plz/plz_p8_cut_bars_retry.pl
+- probe/plz/plz_p9_guard_then_cut.pl
+- probe/plz/test_pl_zeta_1.pl

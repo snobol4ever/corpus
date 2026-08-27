@@ -22,3 +22,13 @@ currently-broken shape in as "expected". Left exactly as-is until both close.
 |---|---|
 | nested_while_in_function.sc | Snocone -- no LANG_CONFIGS support; also deferred pending active correctness churn |
 | nested_while_in_function_1deep_control.sc | Snocone -- no LANG_CONFIGS support; also deferred pending active correctness churn |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/snocone_nested_while/nested_while_in_function_1deep_control.sc
+- probe/snocone_nested_while/nested_while_in_function.sc

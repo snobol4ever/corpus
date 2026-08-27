@@ -31,3 +31,17 @@ Green (converted): se_notrap_failexit.sno, se_retval.sno, se_trap_undef.sno.
 | se_reset_null.sno | output mismatch both modes |
 | se_trap_fires.sno | m3 output mismatch, m4 link failure |
 | se_trap_lastno.sno | m3 output mismatch, m4 link failure |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/setexit/se_errlimit_survives.sno
+- probe/setexit/se_oneshot.sno
+- probe/setexit/se_rearm.sno
+- probe/setexit/se_reset_null.sno
+- probe/setexit/se_trap_fires.sno
+- probe/setexit/se_trap_lastno.sno

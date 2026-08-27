@@ -13,3 +13,12 @@ and Icon has no `LANG_CONFIGS` entry either (confirmed alongside the `probe/icn`
 | file | reason |
 |---|---|
 | icn_string_subscript.icn / .ref | Icon, not SNOBOL4 -- wrong tool for this pair, not a size/correctness exclusion |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/subscript/icn_string_subscript.icn

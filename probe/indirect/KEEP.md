@@ -31,3 +31,14 @@ not a stale `.ref` or a benchmark-format artifact -- out of scope to fix here.
 | indirect_name_datatypes.sno | 41 | exceeds the 40-line suite-entry ceiling |
 | indirect_name_boundary.sno | 46 | exceeds the 40-line suite-entry ceiling |
 | indirect_nul_prefix_name.sno | 22 | REAL DEFECT: T1/T2/T3 ERR where expected ok (m3) -- not a size exclusion |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/indirect/indirect_name_boundary.sno
+- probe/indirect/indirect_name_datatypes.sno
+- probe/indirect/indirect_nul_prefix_name.sno

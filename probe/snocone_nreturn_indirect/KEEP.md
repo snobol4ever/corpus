@@ -9,3 +9,12 @@ active correctness churn -- see that file for full receipts, not repeated here).
 | file | reason |
 |---|---|
 | nreturn_after_indirect_assign.sc | Snocone -- no LANG_CONFIGS support; also deferred pending active correctness churn |
+
+## Machine-readable exception list (DONE-WHEN mirror)
+
+⛔ Mirrors `probe/conformance/KEEP.md`'s fix (SCRIP `f3dc4672a`) -- this row's DONE-WHEN
+greps this section, not the prose above, for `- <path>` lines. Add a line here in the SAME
+edit that adds a file to this KEEP.md; remove one here in the SAME edit that converts a file
+out of it.
+
+- probe/snocone_nreturn_indirect/nreturn_after_indirect_assign.sc
