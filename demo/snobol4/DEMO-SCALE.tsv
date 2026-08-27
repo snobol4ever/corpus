@@ -1,0 +1,29 @@
+# DEMO-SCALE.tsv -- per-DEMO fixed input scale for the 3-angle demo triangulation.
+# Minted 2026-08-27 by hq_P on Lon's in-chat PIVOT ("Get numbers for 3-angle performance
+# numbers on all the demo programs. claws5, treebank, json, calculator, beauty").
+# Regenerate/re-tune with scripts/bench_triangulate_demos_snobol4.sh --calibrate; never hand-edit blind.
+#
+# WHY A SCALE COLUMN EXISTS AT ALL: a demo is NOT a kernel. It has no *BENCH entry point and no
+# internal iteration loop, so one "iteration" is ONE WHOLE PROGRAM RUN. Measured 2026-08-27: a
+# single unscaled run is STARTUP-DOMINATED -- claws5 at 62x more input data moved sbl only
+# 2.0ms -> 2.4ms. The input is replicated N times so execution dominates the process startup and
+# the compile. ⛔ THESE ARE TOTALS, NOT SLOPES -- they carry startup+compile and may never share a
+# column with a benchmarks/snobol4 kernel number (FACT RULE: a SLOPE is not a TOTAL).
+#
+# ⛔ EVERY SCALE IS CAPPED BY A MEASURED CEILING, NOT CHOSEN FOR ROUNDNESS. Each program sets its
+# own record limit in its INPUT() call and dies past it -- claws5/json/calculator declare
+# '[-f0 -r4194304]' = a 4 MiB record cap, so claws5 (66757 B/copy) fails at x64 = 4.27 MiB and is
+# held at x16. calculator was measured FAILING at x256 and passing at x64. Verified by OUTPUT, not
+# by exit code: sbl returns rc=0 while printing ERROR 246 and an EMPTY answer, so exit status is
+# not a correctness signal here and the harness gates on cross-engine output agreement instead.
+#
+# sbl_flags: ⛔ bare -bf OVERFLOWS on every scaled input (ERROR 246, silently, rc=0). The size
+# flags are taken from json.sno's own committed header line. -bf itself is mandatory and is added
+# by lib_oracle_flags.sh:sbl_lang_flags() -- never spell it here.
+#
+# family	program	input	scale	sbl_extra_flags	notes
+claws5	claws5/claws5.sno	claws5/CLAWS5inTASA.dat	16	-d512m -i64m -s256m	x16=1.07MB; x64 EXCEEDS the program's own 4MiB -r cap and prints 'Pattern match failed' on BOTH engines
+treebank	treebank/treebank.sno	treebank/treebank.input	1024	-d512m -i64m -s256m	source input is only 327 B; scales linearly and cleanly (verified x4/x16/x64/x256 all = n*327)
+json	json/json.sno	json/citm_catalog.json	1	-d512m -i64m -s256m	⛔ SCALE IS PINNED AT 1 BY SEMANTICS, NOT BY COST: a JSON document is not concatenable, so this row cannot be scaled at all. 1.7MB real input; the least startup-free row in the set -- label it.
+calculator	calculator/calculator-1.sno	calculator/calculator.input	4	-d512m -i64m -s256m	⛔ SCALE IS CAPPED BY **SCRIP**, NOT BY SPITBOL, AND THIS IS THE ONE ROW WHERE THAT IS TRUE. Measured: SCRIP answers at x4 and emits NOTHING (ERROR 246 stack overflow) from x8 up, while SPITBOL answers correctly all the way to x64 (141312 lines). x4 is the largest scale where all three engines AGREE. ⛔ Do NOT raise this to match SPITBOL's ceiling: the earlier x64 setting was calibrated on sbl ALONE and produced a VOID row plus a fictional 14.673x. See FINDING-2026-08-27-hq_P-demo-3angle.
+beauty	beauty/beauty.sno	beauty/beauty.sno	1	-d512m -i64m -s256m	⛔ NO ORACLE COLUMN, AND NOT FOR THE REASON FIRST RECORDED. Corrected by measurement: with these size flags SPITBOL does NOT fail silently -- it prints its VERSION BANNER ("macro spitbol version 4.0f / x86-64 <date>") in ~4.5 ms and stops, never beautifying anything. So sbl's 215 runs/s is the speed of printing a banner, and its answer digest is not even stable run-to-run because the banner carries a TIMESTAMP. (Bare -bf, no size flags, gives exit=1 and empty output -- what the s264 board saw as ORACLE_FAIL rc=139.) Self-host input: beauty.sno reads itself. m3 alone is ~2.4 s, so no scaling. Report m3/m4 only and NEVER a multiple.
