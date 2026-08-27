@@ -48,7 +48,35 @@ port converts `seed` to `long` "for 16 bit"). The peer `fpc` builds therefore
 prepend `{$mode objfpc}` (32-bit `integer`); both compilers then compute
 identical results. Verified byte-identical for all six runnable benchmarks.
 
-## Known frontier — `perm.pas`
+## ✅ RESOLVED (hq_C 2026-08-27) — `perm.pas` is CURED; `quick.pas` is the open defect
+
+Re-measured at SCRIP `da6c8099` (`make pristine`, `RT_OPT=-O0`) with real stdin
+(`echo 1 |`), against `fpc 3.2.2` peers built with `{$mode objfpc}`:
+
+**`perm` now returns 43300 ≡ fpc ≡ `perm.ref`, in BOTH mode-3 and mode-4.** The
+PAS-FOR-RECURSE frontier described below is HISTORY — kept for provenance, not as
+current state. Do not cite it as an open defect.
+
+⛔ **`quick.pas` is wrong instead:** SCRIP m3 prints `-50000 10414`; fpc and
+`quick.ref` both say `-50000 15505`. Deterministic, reps-independent. `quick.ref`
+being byte-identical to `bubble.ref` looks like a copy-paste but is not — fpc
+independently confirms 15505, so the ref is right and SCRIP is wrong. Row
+`pascal-quick-wrong-checksum-m3`.
+
+⛔ **Mode-4 is broken for 5 of the 9 kernels** (bubble, intmm, queens, quick,
+sieve — SIGSEGV rc=139): the Pascal `for` lowering leaks 64 bytes of ζ-SPINE per
+iteration. Non-deterministic under ASLR, so a single green run means nothing. Row
+`pascal-m4-for-spine-leak-64b-per-iter`. See
+`.github/FINDING-2026-08-27-hq_C-pascal-bench-devnull-trap-voids-the-7-of-7-grid-and-masks-a-64-byte-per-iteration-m4-spine-leak.md`.
+
+⛔⛔ **NEVER run these kernels with `</dev/null`.** Seven of the nine open with
+`readln(reps)`; with no stdin `reps=0`, every loop body is skipped, and the kernel
+prints its zero-initialized accumulator and exits **rc=0**. Both SCRIP and fpc then
+print `0` and "agree" — a vacuous agreement that has already put a false "7/7 m3 ≡
+fpc" and a false "the refs are stale" into the org record. The recipe under
+*Reproducing* below is correct; use it.
+
+## Known frontier (HISTORICAL, resolved — see above) — `perm.pas`
 
 `perm` exercises a recursive call **inside a `for` loop** whose control variable
 is read after the call returns. SCRIP currently returns 635 instead of 43300
