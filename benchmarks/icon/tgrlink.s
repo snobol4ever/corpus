@@ -13,7 +13,6 @@ FN__loadfile:
                         mov              edx, 6
                         call             rt_icn_zframe_args_install@PLT
 loadfile_α_body:
-loadfile_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_call_builtin_icon_α: mov              r11, 1
                         .section         .rodata
@@ -1134,7 +1133,6 @@ loadfile_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__kgen:
 kgen_α_body:
-kgen_α:
                         lea              rax, [rip + n00016_suspend_β]
                         mov              qword ptr [rsp + 656], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1525,7 +1523,6 @@ FN__dumpcode:
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
 dumpcode_α_body:
-dumpcode_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00052_var_ref_α:         mov              r11, 111
                         mov              rax, 4294967336
@@ -1632,7 +1629,8 @@ n00060_proc_gen_α:        mov              r11, 119
                         lea              rcx, [rip + .Lx00061_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00061_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00061_4];               jmp   rax
 .Lx00061_3:               add              rsp, 16
                         mov              qword ptr [rsp + 152], rsp
                         add              rsp, 8
@@ -2137,7 +2135,6 @@ dumpcode_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__aseq:
 aseq_α_body:
-aseq_α:
                         lea              rax, [rip + n00098_suspend_β]
                         mov              qword ptr [rsp + 672], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2870,7 +2867,6 @@ FN__putchain:
                         mov              edx, 12
                         call             rt_icn_zframe_args_install@PLT
 putchain_α_body:
-putchain_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00163_disjunction_α:     mov              r11, 189
                         mov              qword ptr [rsp + 3296], 0
@@ -5703,7 +5699,6 @@ FN__putdel:
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
 putdel_α_body:
-putdel_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00391_disjunction_α:     mov              r11, 358
                         mov              qword ptr [rsp + 1312], 0
@@ -6848,7 +6843,6 @@ FN__collapse:
                         mov              edx, 13
                         call             rt_icn_zframe_args_install@PLT
 collapse_α_body:
-collapse_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00484_disjunction_α:    mov              r11, 421
                         mov              qword ptr [rsp + 2864], 0
@@ -9741,7 +9735,6 @@ FN__successor:
                         mov              edx, 6
                         call             rt_icn_zframe_args_install@PLT
 successor_α_body:
-successor_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00729_var_ref_α:        mov              r11, 598
                         mov              rax, 4294967336
@@ -10763,7 +10756,6 @@ FN__crack:
                         mov              edx, 6
                         call             rt_icn_zframe_args_install@PLT
 crack_α_body:
-crack_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00825_disjunction_α:    mov              r11, 669
                         mov              qword ptr [rsp + 2576], 0
@@ -13250,7 +13242,6 @@ FN__options:
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
 options_α_body:
-options_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01033_var_ref_α:        mov              r11, 810
                         mov              rax, 4294967336
@@ -16288,7 +16279,8 @@ n01297_proc_gen_α:       mov              r11, 991
                         lea              rcx, [rip + .Lx01298_4]
                         push             rcx
                         lea              rcx, [rip + .Lx01298_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx01298_4];              jmp   rax
 .Lx01298_3:              add              rsp, 16
                         mov              qword ptr [rsp + 120], rsp
                         add              rsp, 8

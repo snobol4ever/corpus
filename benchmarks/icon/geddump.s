@@ -13,7 +13,6 @@ FN__event:
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
 event_α_body:
-event_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:        mov              r11, 1
                         mov              qword ptr [rsp + 752], 2             # result
@@ -170,7 +169,8 @@ n8_proc_gen_α:          mov              r11, 9
                         lea              rcx, [rip + .Lx43_4]
                         push             rcx
                         lea              rcx, [rip + .Lx43_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx43_4];                jmp   rax
 .Lx43_3:                add              rsp, 16
                         mov              qword ptr [rsp + 680], rsp
                         add              rsp, 8
@@ -593,7 +593,6 @@ FN__refto:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 refto_α_body:
-refto_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n77_lit_string_α:       mov              r11, 32
                         mov              qword ptr [rsp + 176], 2             # result
@@ -839,7 +838,6 @@ FN__sortkey:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 sortkey_α_body:
-sortkey_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00005_var_α:             mov              r11, 45
                         mov              rax, qword ptr [rsp + 16]
@@ -970,7 +968,6 @@ FN__gedload:
                         mov              edx, 8
                         call             rt_icn_zframe_args_install@PLT
 gedload_α_body:
-gedload_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00011_lit_integer_α:     mov              r11, 49
                         mov              qword ptr [rsp + 2480], 3            # result
@@ -2292,7 +2289,8 @@ n00136_proc_gen_α:        mov              r11, 146
                         lea              rcx, [rip + .Lx00137_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00137_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00137_4];               jmp   rax
 .Lx00137_3:               add              rsp, 16
                         mov              qword ptr [rsp + 248], rsp
                         add              rsp, 8
@@ -2596,7 +2594,6 @@ FN__gedscan:
                         mov              edx, 4
                         call             rt_icn_zframe_args_install@PLT
 gedscan_α_body:
-gedscan_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00158_disjunction_α:     mov              r11, 164
                         mov              qword ptr [rsp + 1056], 0
@@ -3638,7 +3635,6 @@ gedscan_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedwalk:
 gedwalk_α_body:
-gedwalk_α:
                         lea              rax, [rip + n00251_suspend_β]
                         mov              qword ptr [rsp + 208], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3760,7 +3756,8 @@ n00255_proc_gen_α:        mov              r11, 225
                         lea              rcx, [rip + .Lx00261_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00261_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00261_4];               jmp   rax
 .Lx00261_3:               add              rsp, 16
                         mov              qword ptr [rsp + 120], rsp
                         add              rsp, 8
@@ -3849,7 +3846,6 @@ gedwalk_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedsub:
 gedsub_α_body:
-gedsub_α:
                         lea              rax, [rip + n00262_suspend_β]
                         mov              qword ptr [rsp + 672], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4334,7 +4330,6 @@ gedsub_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedval:
 gedval_α_body:
-gedval_α:
                         lea              rax, [rip + n00300_suspend_β]
                         mov              qword ptr [rsp + 160], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4483,7 +4478,6 @@ gedval_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__gedref:
 gedref_α_body:
-gedref_α:
                         lea              rax, [rip + n00308_suspend_β]
                         mov              qword ptr [rsp + 176], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4651,7 +4645,6 @@ FN__gedfnf:
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
 gedfnf_α_body:
-gedfnf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00317_disjunction_α:     mov              r11, 266
                         mov              qword ptr [rsp + 1008], 0
@@ -5345,7 +5338,8 @@ n00382_proc_gen_α:        mov              r11, 307
                         lea              rcx, [rip + .Lx00383_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00383_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00383_4];               jmp   rax
 .Lx00383_3:               add              rsp, 16
                         mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
@@ -5529,7 +5523,8 @@ n00321_proc_gen_α:        mov              r11, 315
                         lea              rcx, [rip + .Lx00391_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00391_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00391_4];               jmp   rax
 .Lx00391_3:               add              rsp, 16
                         mov              qword ptr [rsp + 1096], rsp
                         add              rsp, 8
@@ -5665,7 +5660,6 @@ FN__gedlnf:
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
 gedlnf_α_body:
-gedlnf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00393_disjunction_α:     mov              r11, 317
                         mov              qword ptr [rsp + 864], 0
@@ -6234,7 +6228,8 @@ n00448_proc_gen_α:        mov              r11, 351
                         lea              rcx, [rip + .Lx00449_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00449_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00449_4];               jmp   rax
 .Lx00449_3:               add              rsp, 16
                         mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
@@ -6418,7 +6413,8 @@ n00397_proc_gen_α:        mov              r11, 359
                         lea              rcx, [rip + .Lx00457_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00457_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00457_4];               jmp   rax
 .Lx00457_3:               add              rsp, 16
                         mov              qword ptr [rsp + 952], rsp
                         add              rsp, 8
@@ -6554,7 +6550,6 @@ FN__geddate:
                         mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
 geddate_α_body:
-geddate_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00459_disjunction_α:     mov              r11, 361
                         mov              qword ptr [rsp + 1088], 0
@@ -8315,7 +8310,8 @@ n00592_proc_gen_α:       mov              r11, 502
                         lea              rcx, [rip + .Lx00658_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00658_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00658_4];              jmp   rax
 .Lx00658_3:              add              rsp, 16
                         mov              qword ptr [rsp + 1016], rsp
                         add              rsp, 8
@@ -9406,7 +9402,8 @@ n00749_proc_gen_α:       mov              r11, 564
                         lea              rcx, [rip + .Lx00750_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00750_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00750_4];              jmp   rax
 .Lx00750_3:              add              rsp, 16
                         mov              qword ptr [rsp + 3224], rsp
                         add              rsp, 8
@@ -9553,7 +9550,8 @@ n00757_proc_gen_α:       mov              r11, 569
                         lea              rcx, [rip + .Lx00758_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00758_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00758_4];              jmp   rax
 .Lx00758_3:              add              rsp, 16
                         mov              qword ptr [rsp + 3112], rsp
                         add              rsp, 8
@@ -9726,7 +9724,8 @@ n00744_proc_gen_α:       mov              r11, 574
                         lea              rcx, [rip + .Lx00766_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00766_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00766_4];              jmp   rax
 .Lx00766_3:              add              rsp, 16
                         mov              qword ptr [rsp + 2920], rsp
                         add              rsp, 8
@@ -9924,7 +9923,8 @@ n00777_proc_gen_α:       mov              r11, 581
                         lea              rcx, [rip + .Lx00778_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00778_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00778_4];              jmp   rax
 .Lx00778_3:              add              rsp, 16
                         mov              qword ptr [rsp + 2664], rsp
                         add              rsp, 8
@@ -10118,7 +10118,8 @@ n00788_proc_gen_α:       mov              r11, 588
                         lea              rcx, [rip + .Lx00789_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00789_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00789_4];              jmp   rax
 .Lx00789_3:              add              rsp, 16
                         mov              qword ptr [rsp + 424], rsp
                         add              rsp, 8
@@ -10268,7 +10269,8 @@ n00797_proc_gen_α:       mov              r11, 594
                         lea              rcx, [rip + .Lx00798_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00798_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00798_4];              jmp   rax
 .Lx00798_3:              add              rsp, 16
                         mov              qword ptr [rsp + 2440], rsp
                         add              rsp, 8
@@ -10471,7 +10473,8 @@ n00811_proc_gen_α:       mov              r11, 602
                         lea              rcx, [rip + .Lx00812_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00812_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00812_4];              jmp   rax
 .Lx00812_3:              add              rsp, 16
                         mov              qword ptr [rsp + 2248], rsp
                         add              rsp, 8
@@ -10694,7 +10697,8 @@ n00825_proc_gen_α:       mov              r11, 611
                         lea              rcx, [rip + .Lx00826_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00826_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00826_4];              jmp   rax
 .Lx00826_3:              add              rsp, 16
                         mov              qword ptr [rsp + 2008], rsp
                         add              rsp, 8
@@ -11005,7 +11009,8 @@ n00849_proc_gen_α:       mov              r11, 625
                         lea              rcx, [rip + .Lx00850_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00850_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00850_4];              jmp   rax
 .Lx00850_3:              add              rsp, 16
                         mov              qword ptr [rsp + 648], rsp
                         add              rsp, 8
@@ -11427,7 +11432,8 @@ n00857_proc_gen_α:       mov              r11, 650
                         lea              rcx, [rip + .Lx00887_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00887_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00887_4];              jmp   rax
 .Lx00887_3:              add              rsp, 16
                         mov              qword ptr [rsp + 856], rsp
                         add              rsp, 8
@@ -11564,7 +11570,8 @@ n00891_proc_gen_α:       mov              r11, 654
                         lea              rcx, [rip + .Lx00892_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00892_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00892_4];              jmp   rax
 .Lx00892_3:              add              rsp, 16
                         mov              qword ptr [rsp + 1640], rsp
                         add              rsp, 8
@@ -11727,7 +11734,8 @@ n00845_proc_gen_α:       mov              r11, 660
                         lea              rcx, [rip + .Lx00898_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00898_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00898_4];              jmp   rax
 .Lx00898_3:              add              rsp, 16
                         mov              qword ptr [rsp + 1512], rsp
                         add              rsp, 8
@@ -11907,7 +11915,8 @@ n00907_proc_gen_α:       mov              r11, 666
                         lea              rcx, [rip + .Lx00908_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00908_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00908_4];              jmp   rax
 .Lx00908_3:              add              rsp, 16
                         mov              qword ptr [rsp + 296], rsp
                         add              rsp, 8

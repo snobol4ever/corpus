@@ -13,7 +13,6 @@ FN__dofile:
                         mov              edx, 8
                         call             rt_icn_zframe_args_install@PLT
 dofile_α_body:
-dofile_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_make_list_α:         mov              r11, 1
                         lea              rdi, [rsp + 2960]

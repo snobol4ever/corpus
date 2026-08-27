@@ -13,7 +13,6 @@ FN__report:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 report_α_body:
-report_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:               mov              r11, 1
                         mov              rax, qword ptr [rsp + 16]
@@ -450,7 +449,6 @@ FN__measure:
                         mov              edx, 5
                         call             rt_icn_zframe_args_install@PLT
 measure_α_body:
-measure_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n49_var_α:              mov              r11, 20
                         mov              rax, qword ptr [rsp + 16]
@@ -2117,7 +2115,6 @@ FN__nothing:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 nothing_α_body:
-nothing_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00077_disjunction_α:     mov              r11, 106
                         mov              qword ptr [rsp + 144], 0
@@ -2267,7 +2264,6 @@ FN__uplus:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 uplus_α_body:
-uplus_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00092_disjunction_α:     mov              r11, 116
                         mov              qword ptr [rsp + 144], 0
@@ -2417,7 +2413,6 @@ FN__uplusr:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 uplusr_α_body:
-uplusr_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00107_disjunction_α:     mov              r11, 126
                         mov              qword ptr [rsp + 144], 0
@@ -2567,7 +2562,6 @@ FN__absf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 absf_α_body:
-absf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00122_disjunction_α:     mov              r11, 136
                         mov              qword ptr [rsp + 208], 0
@@ -2752,7 +2746,6 @@ FN__intadd:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 intadd_α_body:
-intadd_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00140_disjunction_α:     mov              r11, 148
                         mov              qword ptr [rsp + 144], 0
@@ -2902,7 +2895,6 @@ FN__intcmp:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 intcmp_α_body:
-intcmp_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00155_disjunction_α:     mov              r11, 158
                         mov              qword ptr [rsp + 192], 0
@@ -3116,7 +3108,6 @@ FN__intpow:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 intpow_α_body:
-intpow_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00176_disjunction_α:     mov              r11, 171
                         mov              qword ptr [rsp + 192], 0
@@ -3295,7 +3286,6 @@ FN__realcmp:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 realcmp_α_body:
-realcmp_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00196_disjunction_α:     mov              r11, 184
                         mov              qword ptr [rsp + 192], 0
@@ -3477,7 +3467,6 @@ FN__cosf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 cosf_α_body:
-cosf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00216_disjunction_α:     mov              r11, 197
                         mov              qword ptr [rsp + 208], 0
@@ -3662,7 +3651,6 @@ FN__sqrtf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 sqrtf_α_body:
-sqrtf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00234_disjunction_α:     mov              r11, 209
                         mov              qword ptr [rsp + 208], 0
@@ -3847,7 +3835,6 @@ FN__logf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 logf_α_body:
-logf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00252_disjunction_α:     mov              r11, 221
                         mov              qword ptr [rsp + 240], 0
@@ -4042,7 +4029,6 @@ FN__nullfunc:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 nullfunc_α_body:
-nullfunc_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00272_disjunction_α:     mov              r11, 234
                         mov              qword ptr [rsp + 176], 0
@@ -4222,7 +4208,6 @@ FN__nullf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 nullf_α_body:
-nullf_α:
                                                                               jmp   nullf_γ
 #-----------------------------------------------------------------------------------------------------------------------
 nullf_res:
@@ -4262,7 +4247,6 @@ FN__listcall:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 listcall_α_body:
-listcall_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00290_disjunction_α:     mov              r11, 245
                         mov              qword ptr [rsp + 336], 0
@@ -4602,7 +4586,6 @@ FN__addfunc:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 addfunc_α_body:
-addfunc_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00319_disjunction_α:     mov              r11, 265
                         mov              qword ptr [rsp + 240], 0
@@ -4796,7 +4779,6 @@ FN__add:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 add_α_body:
-add_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00340_var_α:             mov              r11, 278
                         mov              rax, qword ptr [rsp + 16]
@@ -4967,7 +4949,6 @@ FN__rfact0:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rfact0_α_body:
-rfact0_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00350_disjunction_α:     mov              r11, 284
                         mov              qword ptr [rsp + 208], 0
@@ -5154,7 +5135,6 @@ FN__rfact10:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rfact10_α_body:
-rfact10_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00369_disjunction_α:     mov              r11, 296
                         mov              qword ptr [rsp + 208], 0
@@ -5341,7 +5321,6 @@ FN__rfact:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rfact_α_body:
-rfact_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00388_disjunction_α:     mov              r11, 308
                         mov              qword ptr [rsp + 32], 0
@@ -5700,7 +5679,6 @@ FN__rfib5:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rfib5_α_body:
-rfib5_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00416_disjunction_α:     mov              r11, 324
                         mov              qword ptr [rsp + 208], 0
@@ -5887,7 +5865,6 @@ FN__rfib:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rfib_α_body:
-rfib_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00435_disjunction_α:     mov              r11, 336
                         mov              qword ptr [rsp + 32], 0
@@ -6352,7 +6329,6 @@ FN__prslow:
                         mov              edx, 2
                         call             rt_icn_zframe_args_install@PLT
 prslow_α_body:
-prslow_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00471_disjunction_α:     mov              r11, 356
                         mov              qword ptr [rsp + 624], 0
@@ -6924,7 +6900,6 @@ FN__if0:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 if0_α_body:
-if0_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00530_disjunction_α:    mov              r11, 393
                         mov              qword ptr [rsp + 208], 0
@@ -7111,7 +7086,6 @@ FN__case3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 case3_α_body:
-case3_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00551_disjunction_α:    mov              r11, 406
                         mov              qword ptr [rsp + 592], 0
@@ -7481,7 +7455,6 @@ FN__nulltest:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 nulltest_α_body:
-nulltest_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00596_disjunction_α:    mov              r11, 436
                         mov              qword ptr [rsp + 176], 0
@@ -7646,7 +7619,6 @@ FN__typef:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 typef_α_body:
-typef_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00614_disjunction_α:    mov              r11, 448
                         mov              qword ptr [rsp + 208], 0
@@ -7833,7 +7805,6 @@ FN__imagef:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 imagef_α_body:
-imagef_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00632_disjunction_α:    mov              r11, 460
                         mov              qword ptr [rsp + 208], 0
@@ -8020,7 +7991,6 @@ FN__marshal:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 marshal_α_body:
-marshal_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00650_disjunction_α:    mov              r11, 472
                         mov              qword ptr [rsp + 384], 0
@@ -8307,7 +8277,6 @@ FN__conj5:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 conj5_α_body:
-conj5_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00679_disjunction_α:    mov              r11, 489
                         mov              qword ptr [rsp + 176], 0
@@ -8470,7 +8439,6 @@ FN__everyalt:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 everyalt_α_body:
-everyalt_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00697_disjunction_α:    mov              r11, 501
                         mov              qword ptr [rsp + 256], 0
@@ -8703,7 +8671,6 @@ FN__everyto:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 everyto_α_body:
-everyto_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00724_disjunction_α:    mov              r11, 517
                         mov              qword ptr [rsp + 208], 0
@@ -8900,7 +8867,6 @@ FN__evsusp:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 evsusp_α_body:
-evsusp_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00745_disjunction_α:    mov              r11, 530
                         mov              qword ptr [rsp + 112], 0
@@ -8960,7 +8926,8 @@ n00749_proc_gen_α:       mov              r11, 532
                         lea              rcx, [rip + .Lx00750_4]
                         push             rcx
                         lea              rcx, [rip + .Lx00750_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx00750_4];              jmp   rax
 .Lx00750_3:              add              rsp, 16
                         mov              qword ptr [rsp + 72], rsp
                         add              rsp, 8
@@ -9098,7 +9065,6 @@ evsusp_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__susproc:
 susproc_α_body:
-susproc_α:
                         lea              rax, [rip + n00756_suspend_β]
                         mov              qword ptr [rsp + 96], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9182,7 +9148,6 @@ FN__intcoerce:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 intcoerce_α_body:
-intcoerce_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00762_disjunction_α:    mov              r11, 541
                         mov              qword ptr [rsp + 192], 0
@@ -9377,7 +9342,6 @@ FN__realcoerce:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 realcoerce_α_body:
-realcoerce_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00782_disjunction_α:    mov              r11, 554
                         mov              qword ptr [rsp + 192], 0
@@ -9572,7 +9536,6 @@ FN__strcoerce:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strcoerce_α_body:
-strcoerce_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00802_disjunction_α:    mov              r11, 567
                         mov              qword ptr [rsp + 176], 0
@@ -9742,7 +9705,6 @@ FN__strcoercer:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strcoercer_α_body:
-strcoercer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00820_disjunction_α:    mov              r11, 579
                         mov              qword ptr [rsp + 176], 0
@@ -9912,7 +9874,6 @@ FN__tointeger:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tointeger_α_body:
-tointeger_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00838_disjunction_α:    mov              r11, 591
                         mov              qword ptr [rsp + 208], 0
@@ -10099,7 +10060,6 @@ FN__toreal:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 toreal_α_body:
-toreal_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00856_disjunction_α:    mov              r11, 603
                         mov              qword ptr [rsp + 208], 0
@@ -10286,7 +10246,6 @@ FN__tostring:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tostring_α_body:
-tostring_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00874_disjunction_α:    mov              r11, 615
                         mov              qword ptr [rsp + 208], 0
@@ -10471,7 +10430,6 @@ FN__rtostring:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rtostring_α_body:
-rtostring_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00892_disjunction_α:    mov              r11, 627
                         mov              qword ptr [rsp + 208], 0
@@ -10656,7 +10614,6 @@ FN__tocset:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tocset_α_body:
-tocset_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00910_disjunction_α:    mov              r11, 639
                         mov              qword ptr [rsp + 208], 0
@@ -10843,7 +10800,6 @@ FN__charf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 charf_α_body:
-charf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00928_disjunction_α:    mov              r11, 651
                         mov              qword ptr [rsp + 208], 0
@@ -11028,7 +10984,6 @@ FN__ordf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 ordf_α_body:
-ordf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00946_disjunction_α:    mov              r11, 663
                         mov              qword ptr [rsp + 208], 0
@@ -11215,7 +11170,6 @@ FN__strsize:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strsize_α_body:
-strsize_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00964_disjunction_α:    mov              r11, 675
                         mov              qword ptr [rsp + 176], 0
@@ -11387,7 +11341,6 @@ FN__concat:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 concat_α_body:
-concat_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00982_disjunction_α:    mov              r11, 687
                         mov              qword ptr [rsp + 144], 0
@@ -11537,7 +11490,6 @@ FN__strpick:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strpick_α_body:
-strpick_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00997_disjunction_α:    mov              r11, 697
                         mov              qword ptr [rsp + 192], 0
@@ -11725,7 +11677,6 @@ FN__strbang:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strbang_α_body:
-strbang_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01016_disjunction_α:    mov              r11, 710
                         mov              qword ptr [rsp + 192], 0
@@ -11903,7 +11854,6 @@ FN__strsub:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strsub_α_body:
-strsub_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01035_disjunction_α:    mov              r11, 722
                         mov              qword ptr [rsp + 208], 0
@@ -12099,7 +12049,6 @@ FN__substr:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 substr_α_body:
-substr_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01056_disjunction_α:    mov              r11, 736
                         mov              qword ptr [rsp + 208], 0
@@ -12293,7 +12242,6 @@ FN__subsasg:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 subsasg_α_body:
-subsasg_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01078_disjunction_α:    mov              r11, 750
                         mov              qword ptr [rsp + 256], 0
@@ -12515,7 +12463,6 @@ FN__strcmp:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strcmp_α_body:
-strcmp_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01104_disjunction_α:    mov              r11, 767
                         mov              qword ptr [rsp + 192], 0
@@ -12709,7 +12656,6 @@ FN__strident:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 strident_α_body:
-strident_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01124_disjunction_α:    mov              r11, 780
                         mov              qword ptr [rsp + 192], 0
@@ -12895,7 +12841,6 @@ FN__replf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 replf_α_body:
-replf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01144_disjunction_α:    mov              r11, 793
                         mov              qword ptr [rsp + 240], 0
@@ -13092,7 +13037,6 @@ FN__reversef:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 reversef_α_body:
-reversef_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01164_disjunction_α:    mov              r11, 806
                         mov              qword ptr [rsp + 208], 0
@@ -13279,7 +13223,6 @@ FN__leftf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 leftf_α_body:
-leftf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01182_disjunction_α:    mov              r11, 818
                         mov              qword ptr [rsp + 240], 0
@@ -13476,7 +13419,6 @@ FN__centerf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 centerf_α_body:
-centerf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01202_disjunction_α:    mov              r11, 831
                         mov              qword ptr [rsp + 240], 0
@@ -13673,7 +13615,6 @@ FN__rightf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 rightf_α_body:
-rightf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01222_disjunction_α:    mov              r11, 844
                         mov              qword ptr [rsp + 240], 0
@@ -13870,7 +13811,6 @@ FN__trimf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 trimf_α_body:
-trimf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01242_disjunction_α:    mov              r11, 857
                         mov              qword ptr [rsp + 208], 0
@@ -14057,7 +13997,6 @@ FN__entabf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 entabf_α_body:
-entabf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01260_disjunction_α:    mov              r11, 869
                         mov              qword ptr [rsp + 208], 0
@@ -14244,7 +14183,6 @@ FN__detabf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 detabf_α_body:
-detabf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01278_disjunction_α:    mov              r11, 881
                         mov              qword ptr [rsp + 208], 0
@@ -14431,7 +14369,6 @@ FN__mapf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 mapf_α_body:
-mapf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01296_disjunction_α:    mov              r11, 893
                         mov              qword ptr [rsp + 272], 0
@@ -14642,7 +14579,6 @@ FN__map1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 map1_α_body:
-map1_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01318_disjunction_α:    mov              r11, 907
                         mov              qword ptr [rsp + 272], 0
@@ -14853,7 +14789,6 @@ FN__map2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 map2_α_body:
-map2_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01340_disjunction_α:    mov              r11, 921
                         mov              qword ptr [rsp + 416], 0
@@ -15132,7 +15067,6 @@ FN__tablemap:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tablemap_α_body:
-tablemap_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01370_disjunction_α:    mov              r11, 940
                         mov              qword ptr [rsp + 288], 0
@@ -15546,7 +15480,6 @@ FN__listmap:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 listmap_α_body:
-listmap_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01414_disjunction_α:    mov              r11, 972
                         mov              qword ptr [rsp + 336], 0
@@ -16057,7 +15990,6 @@ FN__nullscan:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 nullscan_α_body:
-nullscan_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01463_disjunction_α:    mov              r11, 1008
                         mov              qword ptr [rsp + 256], 0
@@ -16259,7 +16191,6 @@ FN__movef:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 movef_α_body:
-movef_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01484_disjunction_α:    mov              r11, 1022
                         mov              qword ptr [rsp + 272], 0
@@ -16486,7 +16417,6 @@ FN__mov11:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 mov11_α_body:
-mov11_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01506_disjunction_α:    mov              r11, 1037
                         mov              qword ptr [rsp + 336], 0
@@ -16755,7 +16685,6 @@ FN__pos11:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 pos11_α_body:
-pos11_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01532_disjunction_α:    mov              r11, 1055
                         mov              qword ptr [rsp + 432], 0
@@ -17142,7 +17071,6 @@ FN__tabf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tabf_α_body:
-tabf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01568_disjunction_α:    mov              r11, 1079
                         mov              qword ptr [rsp + 272], 0
@@ -17370,7 +17298,6 @@ FN__matchf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 matchf_α_body:
-matchf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01591_disjunction_α:    mov              r11, 1094
                         mov              qword ptr [rsp + 272], 0
@@ -17596,7 +17523,6 @@ FN__tabmat:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tabmat_α_body:
-tabmat_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01614_disjunction_α:    mov              r11, 1109
                         mov              qword ptr [rsp + 304], 0
@@ -17852,7 +17778,6 @@ FN__posf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 posf_α_body:
-posf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01639_disjunction_α:    mov              r11, 1125
                         mov              qword ptr [rsp + 256], 0
@@ -18065,7 +17990,6 @@ FN__anyf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 anyf_α_body:
-anyf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01662_disjunction_α:    mov              r11, 1140
                         mov              qword ptr [rsp + 256], 0
@@ -18289,7 +18213,6 @@ FN__manyf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 manyf_α_body:
-manyf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01685_disjunction_α:    mov              r11, 1155
                         mov              qword ptr [rsp + 256], 0
@@ -18518,7 +18441,6 @@ FN__uptof:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 uptof_α_body:
-uptof_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01708_disjunction_α:    mov              r11, 1170
                         mov              qword ptr [rsp + 272], 0
@@ -18747,7 +18669,6 @@ FN__findf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 findf_α_body:
-findf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01731_disjunction_α:    mov              r11, 1185
                         mov              qword ptr [rsp + 272], 0
@@ -18967,7 +18888,6 @@ FN__balf:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 balf_α_body:
-balf_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01754_disjunction_α:    mov              r11, 1200
                         mov              qword ptr [rsp + 272], 0
@@ -19196,7 +19116,6 @@ FN__cssize:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 cssize_α_body:
-cssize_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01777_disjunction_α:    mov              r11, 1215
                         mov              qword ptr [rsp + 176], 0
@@ -19368,7 +19287,6 @@ FN__cscompl:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 cscompl_α_body:
-cscompl_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01795_disjunction_α:    mov              r11, 1227
                         mov              qword ptr [rsp + 176], 0
@@ -19540,7 +19458,6 @@ FN__lcreate:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lcreate_α_body:
-lcreate_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01813_disjunction_α:    mov              r11, 1239
                         mov              qword ptr [rsp + 240], 0
@@ -19740,7 +19657,6 @@ FN__lconst:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 lconst_α_body:
-lconst_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01833_disjunction_α:    mov              r11, 1252
                         mov              qword ptr [rsp + 336], 0
@@ -19960,7 +19876,6 @@ FN__lcopy:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lcopy_α_body:
-lcopy_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01860_disjunction_α:    mov              r11, 1269
                         mov              qword ptr [rsp + 288], 0
@@ -20286,7 +20201,6 @@ FN__lsort:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lsort_α_body:
-lsort_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01896_disjunction_α:    mov              r11, 1293
                         mov              qword ptr [rsp + 288], 0
@@ -20612,7 +20526,6 @@ FN__lsize:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lsize_α_body:
-lsize_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01932_disjunction_α:    mov              r11, 1317
                         mov              qword ptr [rsp + 256], 0
@@ -20923,7 +20836,6 @@ FN__lpick:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lpick_α_body:
-lpick_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n01968_disjunction_α:    mov              r11, 1341
                         mov              qword ptr [rsp + 272], 0
@@ -21250,7 +21162,6 @@ FN__lsubscr:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lsubscr_α_body:
-lsubscr_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02005_disjunction_α:    mov              r11, 1366
                         mov              qword ptr [rsp + 288], 0
@@ -21585,7 +21496,6 @@ FN__lbang:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lbang_α_body:
-lbang_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02044_disjunction_α:    mov              r11, 1392
                         mov              qword ptr [rsp + 272], 0
@@ -21902,7 +21812,6 @@ FN__put1get1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 put1get1_α_body:
-put1get1_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02081_disjunction_α:    mov              r11, 1416
                         mov              qword ptr [rsp + 368], 0
@@ -22217,7 +22126,6 @@ FN__put2get2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 put2get2_α_body:
-put2get2_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02110_disjunction_α:    mov              r11, 1437
                         mov              qword ptr [rsp + 496], 0
@@ -22590,7 +22498,6 @@ FN__put3get3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 put3get3_α_body:
-put3get3_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02145_disjunction_α:    mov              r11, 1463
                         mov              qword ptr [rsp + 592], 0
@@ -23008,7 +22915,6 @@ FN__put4get4:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 put4get4_α_body:
-put4get4_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02184_disjunction_α:    mov              r11, 1492
                         mov              qword ptr [rsp + 688], 0
@@ -23471,7 +23377,6 @@ FN__pushpop:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 pushpop_α_body:
-pushpop_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02227_disjunction_α:    mov              r11, 1524
                         mov              qword ptr [rsp + 368], 0
@@ -23786,7 +23691,6 @@ FN__putget12:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 putget12_α_body:
-putget12_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02256_disjunction_α:    mov              r11, 1545
                         mov              qword ptr [rsp + 368], 0
@@ -24221,7 +24125,6 @@ FN__pushpop12:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 pushpop12_α_body:
-pushpop12_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02309_disjunction_α:    mov              r11, 1578
                         mov              qword ptr [rsp + 368], 0
@@ -24656,7 +24559,6 @@ FN__setcreate:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setcreate_α_body:
-setcreate_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02362_disjunction_α:    mov              r11, 1611
                         mov              qword ptr [rsp + 176], 0
@@ -24831,7 +24733,6 @@ FN__setcopy:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setcopy_α_body:
-setcopy_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02378_disjunction_α:    mov              r11, 1622
                         mov              qword ptr [rsp + 288], 0
@@ -25156,7 +25057,6 @@ FN__setinsert:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setinsert_α_body:
-setinsert_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02407_disjunction_α:    mov              r11, 1643
                         mov              qword ptr [rsp + 320], 0
@@ -25491,7 +25391,6 @@ FN__setmember:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setmember_α_body:
-setmember_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02438_disjunction_α:    mov              r11, 1665
                         mov              qword ptr [rsp + 320], 0
@@ -25826,7 +25725,6 @@ FN__setinsdel:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setinsdel_α_body:
-setinsdel_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02469_disjunction_α:    mov              r11, 1687
                         mov              qword ptr [rsp + 400], 0
@@ -26162,7 +26060,6 @@ FN__setpick:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setpick_α_body:
-setpick_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02500_disjunction_α:    mov              r11, 1709
                         mov              qword ptr [rsp + 272], 0
@@ -26488,7 +26385,6 @@ FN__setbang:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 setbang_α_body:
-setbang_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02530_disjunction_α:    mov              r11, 1731
                         mov              qword ptr [rsp + 272], 0
@@ -26842,7 +26738,6 @@ FN__tblcreate:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tblcreate_α_body:
-tblcreate_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02564_disjunction_α:    mov              r11, 1754
                         mov              qword ptr [rsp + 176], 0
@@ -27017,7 +26912,6 @@ FN__tblasgn:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tblasgn_α_body:
-tblasgn_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02580_disjunction_α:    mov              r11, 1765
                         mov              qword ptr [rsp + 304], 0
@@ -27367,7 +27261,6 @@ FN__tblsub:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 tblsub_α_body:
-tblsub_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02617_disjunction_α:    mov              r11, 1791
                         mov              qword ptr [rsp + 288], 0
@@ -27709,7 +27602,6 @@ FN__recconstr:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 recconstr_α_body:
-recconstr_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02652_disjunction_α:    mov              r11, 1816
                         mov              qword ptr [rsp + 240], 0
@@ -27902,7 +27794,6 @@ FN__reccopy:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 reccopy_α_body:
-reccopy_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02672_disjunction_α:    mov              r11, 1829
                         mov              qword ptr [rsp + 288], 0
@@ -28207,7 +28098,6 @@ FN__recfield:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 recfield_α_body:
-recfield_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02702_disjunction_α:    mov              r11, 1850
                         mov              qword ptr [rsp + 256], 0
@@ -28501,7 +28391,6 @@ FN__bigfield:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 bigfield_α_body:
-bigfield_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02733_disjunction_α:    mov              r11, 1871
                         mov              qword ptr [rsp + 256], 0
@@ -28775,7 +28664,6 @@ FN__globasgn:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 globasgn_α_body:
-globasgn_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02760_disjunction_α:    mov              r11, 1890
                         mov              qword ptr [rsp + 176], 0
@@ -28942,7 +28830,6 @@ FN__loclasgn:
                         mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 loclasgn_α_body:
-loclasgn_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02778_disjunction_α:    mov              r11, 1902
                         mov              qword ptr [rsp + 176], 0
@@ -29104,7 +28991,6 @@ FN__statasgn:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 statasgn_α_body:
-statasgn_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02796_disjunction_α:    mov              r11, 1914
                         mov              qword ptr [rsp + 176], 0
@@ -29266,7 +29152,6 @@ FN__readz:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 readz_α_body:
-readz_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02814_disjunction_α:    mov              r11, 1926
                         mov              qword ptr [rsp + 320], 0
@@ -29587,7 +29472,6 @@ FN__writecon:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 writecon_α_body:
-writecon_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02846_disjunction_α:    mov              r11, 1948
                         mov              qword ptr [rsp + 240], 0
@@ -29784,7 +29668,6 @@ FN__writestr:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 writestr_α_body:
-writestr_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02865_disjunction_α:    mov              r11, 1961
                         mov              qword ptr [rsp + 320], 0
@@ -30064,7 +29947,6 @@ FN__cxcreate:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 cxcreate_α_body:
-cxcreate_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02893_disjunction_α:    mov              r11, 1981
                         mov              qword ptr [rsp + 272], 0
@@ -30284,7 +30166,6 @@ FN__cxget:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 cxget_α_body:
-cxget_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n02914_disjunction_α:    mov              r11, 1996
                         mov              qword ptr [rsp + 256], 0
