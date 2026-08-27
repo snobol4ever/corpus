@@ -1,0 +1,15 @@
+sub is_selfdesc($n) {
+    my $s = $n.Str;
+    my $chars = $s.chars;
+    my @a = +«$s.comb;
+    my @b;
+    for @a -> $i {
+	return False if $i >= $chars;
+	++@b[$i];
+    }
+    @b[$_] //= 0 for ^$chars;
+    @a eqv @b;
+}
+
+# check all numbers from 0 to SCALE
+.say if is_selfdesc($_) for 0 .. 5000;

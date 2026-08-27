@@ -91,3 +91,25 @@ applies to original contributions in this repository; it does not
 retroactively affect the copyright status of the original Pascal-P5 sources,
 and redistribution of packages/pascal/p5/ should retain the author's
 copyright notice per the BSD-style terms above.
+
+---
+
+The files in benchmarks/raku/ are SCRIP-relevant kernels imported from:
+
+  raku-bench (github.com/japhb/raku-bench), HEAD
+  7cacc587106f16fd299bcbe7e47c90ca019fd8e5, 2021-03-22
+  Copyright 2012-2014, Geoffrey Broadwell
+
+raku-bench's own README states its content is licensed under the Artistic
+License 2.0, except benchmarks with a leading "rc-" prefix, which were
+modified from Rosetta Code (rosettacode.org) and carry Rosetta Code's GNU
+Free Documentation License 1.2 instead. Both license texts are reproduced
+verbatim in benchmarks/raku/LICENSE (Artistic 2.0) and
+benchmarks/raku/LICENSE-ROSETTACODE-GFDL-1.2; benchmarks/raku/README.md maps
+every imported file to which license covers it, records the (mechanical,
+non-semantic) modifications made to reach a self-contained deterministic
+form, and lists the upstream kernels excluded from this import and why. These
+files are included for reference, testing, and educational purposes. The CC0
+dedication in LICENSE applies to original contributions in this repository;
+it does not retroactively affect the copyright status of the original
+raku-bench or Rosetta Code sources.

@@ -1,0 +1,25 @@
+# pi_sequential_iteration.rb port
+
+use v6;
+
+my \SCALE = 1000000;
+
+if SCALE == 0 {
+    say "0";
+    exit 0;
+}
+
+my $delta = 1.0 / SCALE;
+my $sum = 0.0;
+my Int $i = 1;
+
+while ( $i <=  SCALE ) {
+  my $x = ( $i - 0.5 ) * $delta;
+  $sum += 1.0 / ( 1.0 + $x * $x );
+  $i++;
+}
+
+my $pi = 4.0 * $delta * $sum;
+say $pi;
+
+# vim: set ft=perl6
