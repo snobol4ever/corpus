@@ -69,3 +69,25 @@ front-end (see that directory's README.md). These files are included for
 reference, testing, and educational purposes. The CC0 dedication in LICENSE
 applies to original contributions in this repository; it does not retroactively
 affect the copyright status of the original JCON sources.
+
+---
+
+The files in packages/pascal/p5/ are the ISO 7185 acceptance/rejection test
+suite and sample programs from Pascal-P5, originally from:
+
+  Pascal-P5 (github.com/samiam95124/Pascal-P5), commit f730c1c03de861dfcf1a
+  88c7b320268c3a456bcc, 2022-12-20
+  Scott A. Franco (formerly published as S. A. Moore)
+
+The author states on standardpascaline.org/p5.html that the acceptance test
+and Pascal-P5 generally are donated to the public domain ("I also donate this
+to public domain" / "free of copyright and charges. Use as you see fit."),
+while the redistributed package's own doc/the_p5_compiler.docx carries a
+2-clause-BSD-style notice under "Copyright (c) 2020, Scott A. Franco" that
+asks for the copyright notice to be retained on redistribution. Both are
+recorded in packages/pascal/p5/README.md. These files are included for
+reference, testing, and educational purposes. The CC0 dedication in LICENSE
+applies to original contributions in this repository; it does not
+retroactively affect the copyright status of the original Pascal-P5 sources,
+and redistribution of packages/pascal/p5/ should retain the author's
+copyright notice per the BSD-style terms above.
