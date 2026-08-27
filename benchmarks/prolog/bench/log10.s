@@ -8148,7 +8148,8 @@ n777_call_proc_staged_α:
                         lea              rcx, [rip + .Lx789_4]
                         push             rcx
                         lea              rcx, [rip + .Lx789_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx789_4];               jmp   rax
 .Lx789_3:               add              rsp, 16
                         mov              qword ptr [rsp + 264], rsp
                         add              rsp, 8
@@ -8244,7 +8245,8 @@ n777_call_proc_staged_β:
                         lea              rcx, [rip + .Lx789_4]
                         push             rcx
                         lea              rcx, [rip + .Lx789_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx789_4];               jmp   rax
 .Lx789_7:               add              rsp, 8
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx

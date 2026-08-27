@@ -481,7 +481,8 @@ n10_call_proc_staged_α: mov              r11, 11
                         lea              rcx, [rip + .Lx30_4]
                         push             rcx
                         lea              rcx, [rip + .Lx30_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx30_4];                jmp   rax
 .Lx30_3:                add              rsp, 16
                         mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
@@ -609,7 +610,8 @@ n10_call_proc_staged_β: mov              r11, 11
                         lea              rcx, [rip + .Lx30_4]
                         push             rcx
                         lea              rcx, [rip + .Lx30_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx30_4];                jmp   rax
 .Lx30_7:                add              rsp, 8
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
@@ -2149,7 +2151,8 @@ n70_call_proc_staged_α: mov              r11, 50
                         lea              rcx, [rip + .Lx129_4]
                         push             rcx
                         lea              rcx, [rip + .Lx129_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx129_4];               jmp   rax
 .Lx129_3:               add              rsp, 16
                         mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
@@ -2277,7 +2280,8 @@ n70_call_proc_staged_β: mov              r11, 50
                         lea              rcx, [rip + .Lx129_4]
                         push             rcx
                         lea              rcx, [rip + .Lx129_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx129_4];               jmp   rax
 .Lx129_7:               add              rsp, 8
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
@@ -3918,7 +3922,8 @@ n167_call_proc_staged_α:
                         lea              rcx, [rip + .Lx224_4]
                         push             rcx
                         lea              rcx, [rip + .Lx224_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx224_4];               jmp   rax
 .Lx224_3:               add              rsp, 16
                         mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
@@ -4047,7 +4052,8 @@ n167_call_proc_staged_β:
                         lea              rcx, [rip + .Lx224_4]
                         push             rcx
                         lea              rcx, [rip + .Lx224_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx224_4];               jmp   rax
 .Lx224_7:               add              rsp, 8
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
@@ -5056,7 +5062,8 @@ n254_call_proc_staged_α:
                         lea              rcx, [rip + .Lx303_4]
                         push             rcx
                         lea              rcx, [rip + .Lx303_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx303_4];               jmp   rax
 .Lx303_3:               add              rsp, 16
                         mov              qword ptr [rsp + 424], rsp
                         add              rsp, 8
@@ -5174,7 +5181,8 @@ n254_call_proc_staged_β:
                         lea              rcx, [rip + .Lx303_4]
                         push             rcx
                         lea              rcx, [rip + .Lx303_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx303_4];               jmp   rax
 .Lx303_7:               add              rsp, 8
                         mov              qword ptr [rsp + 368], rax
                         mov              qword ptr [rsp + 376], rdx
@@ -5324,7 +5332,8 @@ n261_call_proc_staged_α:
                         lea              rcx, [rip + .Lx314_4]
                         push             rcx
                         lea              rcx, [rip + .Lx314_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx314_4];               jmp   rax
 .Lx314_3:               add              rsp, 16
                         mov              qword ptr [rsp + 184], rsp
                         add              rsp, 8
@@ -5453,7 +5462,8 @@ n261_call_proc_staged_β:
                         lea              rcx, [rip + .Lx314_4]
                         push             rcx
                         lea              rcx, [rip + .Lx314_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx314_4];               jmp   rax
 .Lx314_7:               add              rsp, 8
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
@@ -6571,7 +6581,8 @@ n352_call_proc_staged_α:
                         lea              rcx, [rip + .Lx404_4]
                         push             rcx
                         lea              rcx, [rip + .Lx404_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx404_4];               jmp   rax
 .Lx404_3:               add              rsp, 16
                         mov              qword ptr [rsp + 168], rsp
                         add              rsp, 8
@@ -6689,7 +6700,8 @@ n352_call_proc_staged_β:
                         lea              rcx, [rip + .Lx404_4]
                         push             rcx
                         lea              rcx, [rip + .Lx404_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx404_4];               jmp   rax
 .Lx404_7:               add              rsp, 8
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
@@ -7070,7 +7082,8 @@ n414_call_proc_staged_α:
                         lea              rcx, [rip + .Lx427_4]
                         push             rcx
                         lea              rcx, [rip + .Lx427_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx427_4];               jmp   rax
 .Lx427_3:               add              rsp, 16
                         mov              qword ptr [rsp + 152], rsp
                         add              rsp, 8
@@ -7188,7 +7201,8 @@ n414_call_proc_staged_β:
                         lea              rcx, [rip + .Lx427_4]
                         push             rcx
                         lea              rcx, [rip + .Lx427_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx427_4];               jmp   rax
 .Lx427_7:               add              rsp, 8
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
@@ -8829,7 +8843,8 @@ n465_call_proc_staged_α:
                         lea              rcx, [rip + .Lx522_4]
                         push             rcx
                         lea              rcx, [rip + .Lx522_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx522_4];               jmp   rax
 .Lx522_3:               add              rsp, 16
                         mov              qword ptr [rsp + 200], rsp
                         add              rsp, 8
@@ -8958,7 +8973,8 @@ n465_call_proc_staged_β:
                         lea              rcx, [rip + .Lx522_4]
                         push             rcx
                         lea              rcx, [rip + .Lx522_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx522_4];               jmp   rax
 .Lx522_7:               add              rsp, 8
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
@@ -9172,7 +9188,8 @@ n528_call_proc_staged_α:
                         lea              rcx, [rip + .Lx543_4]
                         push             rcx
                         lea              rcx, [rip + .Lx543_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx543_4];               jmp   rax
 .Lx543_3:               add              rsp, 16
                         mov              qword ptr [rsp + 344], rsp
                         add              rsp, 8
@@ -9279,7 +9296,8 @@ n528_call_proc_staged_β:
                         lea              rcx, [rip + .Lx543_4]
                         push             rcx
                         lea              rcx, [rip + .Lx543_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx543_4];               jmp   rax
 .Lx543_7:               add              rsp, 8
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx
@@ -9357,7 +9375,8 @@ n531_call_proc_staged_α:
                         lea              rcx, [rip + .Lx549_4]
                         push             rcx
                         lea              rcx, [rip + .Lx549_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx549_4];               jmp   rax
 .Lx549_3:               add              rsp, 16
                         mov              qword ptr [rsp + 248], rsp
                         add              rsp, 8
@@ -9475,7 +9494,8 @@ n531_call_proc_staged_β:
                         lea              rcx, [rip + .Lx549_4]
                         push             rcx
                         lea              rcx, [rip + .Lx549_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rdx, [rip + .Lx549_4];               jmp   rax
 .Lx549_7:               add              rsp, 8
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
