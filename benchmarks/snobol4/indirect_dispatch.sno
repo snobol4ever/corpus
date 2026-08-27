@@ -1,10 +1,12 @@
 * indirect_dispatch -- sums 1..N through APPLY(<name held in a variable>, arg).
 * bottleneck: BY-NAME dispatch to a SNOBOL-defined target; contrast with func_call
 * (direct) and eval_fixed (EVAL).
-* ⛔ m4 SEGVs here and it is the B1 class, not a benchmark defect: by-name dispatch
-* cannot reach SNOBOL-defined targets in m4 (probe/b1, FINDING s156).  The 3-line
-* witness is probe/b1/b1_apply_snodef_target.sno.  The historical $FN(X) form this
-* file used to carry is ORACLE-INVALID (sbl raises ERROR 022) and is gone.
+* m4 status CORRECTED 2026-08-27: compiles, links, and runs clean, oracle-diffed
+* ok in both modes on this tree.  The old "m4 SEGVs here, B1 class" claim (probe/b1,
+* FINDING s156) no longer reproduces; README.md already carries the same correction
+* (seat13, 2026-08-23) but this file's own header had not caught up.  The historical
+* $FN(X) form this file used to carry is still ORACLE-INVALID (sbl raises ERROR 022)
+* and is gone.
 * Standalone:  scrip indirect_dispatch.sno   |   sbl -bf indirect_dispatch.sno
         &TRIM = 1
         &ANCHOR = 0
