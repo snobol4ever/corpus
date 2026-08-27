@@ -1,0 +1,5 @@
+-INCLUDE "class5_sig11_seq_module.sno"
+        A  =  ARRAY(2)
+        A<1>  =  'a'
+        SEQ(' OUTPUT = A<K> ', .K)
+END
