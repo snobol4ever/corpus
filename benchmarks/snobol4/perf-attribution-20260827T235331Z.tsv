@@ -1,0 +1,8 @@
+# perf-attribution TSV -- 2026-08-28 ceo -- POST-CURE-SLICE-1 (SCRIP 34aea2db) vs the 20260827T233658Z baseline
+# instrument identical to baseline: perf stat totals + perf record cycles; RT_OPT=-O0; NOHUGE=1 HEAP_MB=4096; oracle=spitbol-bench-oracle/sbl -bf -s16m; N per SCALE.tsv
+# cure: DT_P site-cell fast path in rt_defer_probe_run + rt_dcap_nv_cell hash fix + hit-skips-protected-guard (pattern_match.c, one commit)
+kernel	engine	N	insn_total	insn_per_iter	wall_best_s	ipc	top_cost_centers
+pattern_bt	m4	2000000	7651824363	3811	0.731	3.27	n58_match_defer_a=25.7%,rt_defer_probe_run=15.1%,rt_defer_cell_read=10.5%,dtp_fn_of=5.1%,alt/begin~12%
+string_pattern	m4	8000000	14488476538	1807	1.305	3.56	rt_dcap_pump=24.2%,gc_collect_ex=9.8%,NV_SET_fn=6.1%,rt_defer_probe_run=3.6%,match_break=3.4%
+# multiples vs clean oracle (wall, same fixed work): pattern_bt 0.896/0.731 = 1.23x FASTER; string_pattern 0.970/1.305 = 0.74x (was 0.27x)
+# next levers, measured: (a) cache resolved pattern fn in the site slot pair (kills probe+cell_read+dtp ~30% of pattern_bt); (b) slice-captures instead of rt_str_alloc+memcpy per capture (kills gc_collect_ex + most pump body); (c) rt_dcap_pump as first rtx ASM rewrite
