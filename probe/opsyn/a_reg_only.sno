@@ -1,6 +1,0 @@
-        DEFINE('R(t,n)')
-        OPSYN('&', 'R', 2)
-        OUTPUT = R('a','b')
-        :(END)
-R       R = 'GOT-' t n                                 :(RETURN)
-END

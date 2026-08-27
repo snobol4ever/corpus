@@ -1,9 +1,0 @@
-*  OPSYN'd unused BINARY operator '@' -> program-defined cat().  Manual pp.115-116 + Ch.15 p.183:
-*  the unused binary operators are & @ # % ~ and carry NO static identity until OPSYN runs.
-        DEFINE('cat(a,b)')                                  :(cat_end)
-cat     cat            =   a b                              :(RETURN)
-cat_end
-        OPSYN('@', 'cat', 2)
-        OUTPUT         =   'abc' @ 'def'
-        OUTPUT         =   'x' @ 5
-END

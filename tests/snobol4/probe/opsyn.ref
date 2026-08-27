@@ -1,3 +1,18 @@
+GOT-ab
+CONST
+IN-BODY\nCONST
+GOT-ab
+UN-x
+CONST
+GOT-ab
+abcdef\nx5
+abcdef\nx5
+abcdef\nx5
+abcdef\nx5
+abcdef\nx5
+PATTERN
+3
+*-------------------------------------------------------- 15 opsyn_kind_selector
 fn-name i=1        156
 fn-name i=2        156
 used-op i=2        156
@@ -11,3 +26,8 @@ i = 2**24          accepted
 i = 2**24 + 1      153
 i numeral string   accepted
 i real 2.7         accepted
+GOT-ab
+PATTERN
+*--------------------------------------------------------- 18 opsyn_rebind_twice
+abcdef
+defabc

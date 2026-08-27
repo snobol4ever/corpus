@@ -1,5 +1,0 @@
-        DEFINE('R(t)')
-        OUTPUT = DATATYPE(R('x'))
-        :(END)
-R       R = EVAL("LEN(1)")                             :(RETURN)
-END
