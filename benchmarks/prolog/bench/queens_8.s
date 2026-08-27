@@ -15,6 +15,7 @@ FN__sel$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 sel$2F3_α_body:
+sel$2F3_α:
                         lea              rax, [rip + n11_suspend_β]
                         mov              qword ptr [rsp + 896], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1871,6 +1872,7 @@ FN__queens$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 queens$2F2_α_body:
+queens$2F2_α:
                         lea              rax, [rip + n92_suspend_β]
                         mov              qword ptr [rsp + 416], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2578,6 +2580,7 @@ FN__not_attack$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 not_attack$2F2_α_body:
+not_attack$2F2_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n115_call_builtin_prolog_α:
                         mov              r11, 44
@@ -3116,6 +3119,7 @@ FN__not_attack$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 not_attack$2F3_α_body:
+not_attack$2F3_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n153_call_builtin_prolog_α:
                         mov              r11, 58
@@ -4774,6 +4778,7 @@ FN__queens_2$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 queens_2$2F3_α_body:
+queens_2$2F3_α:
                         lea              rax, [rip + n303_suspend_β]
                         mov              qword ptr [rsp + 1520], rax
 #-----------------------------------------------------------------------------------------------------------------------

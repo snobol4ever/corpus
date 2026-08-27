@@ -15,6 +15,7 @@ FN__nreverse$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 nreverse$2F2_α_body:
+nreverse$2F2_α:
                         lea              rax, [rip + n22_suspend_β]
                         mov              qword ptr [rsp + 1104], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1413,6 +1414,7 @@ FN__reverse$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 reverse$2F2_α_body:
+reverse$2F2_α:
                         lea              rax, [rip + n101_suspend_β]
                         mov              qword ptr [rsp + 416], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2115,6 +2117,7 @@ FN__$reverse_$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 $reverse_$2F3_α_body:
+$reverse_$2F3_α:
                         lea              rax, [rip + n138_suspend_β]
                         mov              qword ptr [rsp + 1168], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3783,6 +3786,7 @@ FN__concatenate$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 concatenate$2F3_α_body:
+concatenate$2F3_α:
                         lea              rax, [rip + n243_suspend_β]
                         mov              qword ptr [rsp + 1088], rax
 #-----------------------------------------------------------------------------------------------------------------------

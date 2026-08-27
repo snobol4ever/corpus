@@ -15,6 +15,7 @@ FN__zebra$2F1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 zebra$2F1_α_body:
+zebra$2F1_α:
                         lea              rax, [rip + n194_suspend_β]
                         mov              qword ptr [rsp + 6848], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5461,6 +5462,7 @@ FN__right_of$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 right_of$2F3_α_body:
+right_of$2F3_α:
                         lea              rax, [rip + n520_suspend_β]
                         mov              qword ptr [rsp + 1056], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7119,6 +7121,7 @@ FN__next_to$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 next_to$2F3_α_body:
+next_to$2F3_α:
                         lea              rax, [rip + n609_suspend_β]
                         mov              qword ptr [rsp + 1568], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9423,6 +9426,7 @@ FN__my_member$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 my_member$2F2_α_body:
+my_member$2F2_α:
                         lea              rax, [rip + n733_suspend_β]
                         mov              qword ptr [rsp + 656], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10773,6 +10777,7 @@ FN__houses$2F1:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 houses$2F1_α_body:
+houses$2F1_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n784_call_builtin_prolog_α:
                         mov              r11, 304

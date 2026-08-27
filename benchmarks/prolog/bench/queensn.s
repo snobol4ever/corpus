@@ -15,6 +15,7 @@ FN__sel$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 sel$2F3_α_body:
+sel$2F3_α:
                         lea              rax, [rip + n11_suspend_β]
                         mov              qword ptr [rsp + 896], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1871,6 +1872,7 @@ FN__q10$2F1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 q10$2F1_α_body:
+q10$2F1_α:
                         lea              rax, [rip + n118_suspend_β]
                         mov              qword ptr [rsp + 1408], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2820,6 +2822,7 @@ FN__test$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 test$2F2_α_body:
+test$2F2_α:
                         lea              rax, [rip + n175_suspend_β]
                         mov              qword ptr [rsp + 944], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4124,6 +4127,7 @@ FN__nd$2F2:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 nd$2F2_α_body:
+nd$2F2_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n246_call_builtin_prolog_α:
                         mov              r11, 102
@@ -4988,6 +4992,7 @@ FN__safe$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 safe$2F2_α_body:
+safe$2F2_α:
                         lea              rax, [rip + n349_suspend_β]
                         mov              qword ptr [rsp + 848], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6297,6 +6302,7 @@ FN__perm$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 perm$2F2_α_body:
+perm$2F2_α:
                         lea              rax, [rip + n424_suspend_β]
                         mov              qword ptr [rsp + 880], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7557,6 +7563,7 @@ FN__pair$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 pair$2F3_α_body:
+pair$2F3_α:
                         lea              rax, [rip + n502_suspend_β]
                         mov              qword ptr [rsp + 1232], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9259,6 +9266,7 @@ FN__q$2F2:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 q$2F2_α_body:
+q$2F2_α:
                         lea              rax, [rip + n608_suspend_β]
                         mov              qword ptr [rsp + 640], rax
 #-----------------------------------------------------------------------------------------------------------------------
