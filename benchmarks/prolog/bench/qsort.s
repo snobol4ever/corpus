@@ -15,7 +15,6 @@ FN__partition$2F4:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 partition$2F4_α_body:
-partition$2F4_α:
                         lea              rax, [rip + n28_suspend_β]
                         mov              qword ptr [rsp + 2080], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3309,7 +3308,6 @@ FN__qsort$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 qsort$2F3_α_body:
-qsort$2F3_α:
                         lea              rax, [rip + n220_suspend_β]
                         mov              qword ptr [rsp + 1488], rax
 #-----------------------------------------------------------------------------------------------------------------------

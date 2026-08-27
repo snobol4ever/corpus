@@ -15,7 +15,6 @@ FN__mult$2F3:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 mult$2F3_α_body:
-mult$2F3_α:
                         lea              rax, [rip + n15_suspend_β]
                         mov              qword ptr [rsp + 544], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -917,7 +916,6 @@ FN__mult$2F4:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 mult$2F4_α_body:
-mult$2F4_α:
                         lea              rax, [rip + n86_suspend_β]
                         mov              qword ptr [rsp + 2400], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3539,7 +3537,6 @@ FN__odd$2F1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 odd$2F1_α_body:
-odd$2F1_α:
                         lea              rax, [rip + n246_suspend_β]
                         mov              qword ptr [rsp + 1264], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4508,7 +4505,6 @@ FN__sum$2F3:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 sum$2F3_α_body:
-sum$2F3_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n345_call_builtin_prolog_α:
                         mov              r11, 141
@@ -5235,7 +5231,6 @@ FN__sum$2F4:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 sum$2F4_α_body:
-sum$2F4_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n394_call_builtin_prolog_α:
                         mov              r11, 159
@@ -8014,7 +8009,6 @@ FN__even$2F1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 even$2F1_α_body:
-even$2F1_α:
                         lea              rax, [rip + n618_suspend_β]
                         mov              qword ptr [rsp + 1264], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8976,7 +8970,6 @@ FN__top$2F16:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 top$2F16_α_body:
-top$2F16_α:
                         lea              rax, [rip + n891_suspend_β]
                         mov              qword ptr [rsp + 6352], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16431,7 +16424,6 @@ FN__lefteven$2F1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 lefteven$2F1_α_body:
-lefteven$2F1_α:
                         lea              rax, [rip + n1180_suspend_β]
                         mov              qword ptr [rsp + 1024], rax
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17217,7 +17209,6 @@ FN__zero$2F1:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 zero$2F1_α_body:
-zero$2F1_α:
                         lea              rax, [rip + n1266_suspend_β]
                         mov              qword ptr [rsp + 640], rax
 #-----------------------------------------------------------------------------------------------------------------------
