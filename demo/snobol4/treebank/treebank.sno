@@ -14,7 +14,7 @@ ListValue       place           =   LT(place, 0) n(x) + place
 ListName        place           =   LT(place, 0) n(x) + place
                 ListName        =   .a(x)[place]                        :S(RETURN)F(FRETURN)
 *------------------------------------------------------------------------------
-ListAppend      ListAppend      =   ListInsert(x, item, n(x))     :(RETURN)
+ListAppend      ListAppend      =   ListInsert(x, item, n(x))           :(RETURN)
 *------------------------------------------------------------------------------
 ListPrepend     ListPrepend     =   ListInsert(x, item, 0)              :(RETURN)
 *------------------------------------------------------------------------------
