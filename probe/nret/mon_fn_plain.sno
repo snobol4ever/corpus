@@ -1,6 +1,0 @@
-        DEFINE('G(x)')
-        OUTPUT = G('ignored')
-        :(DONE)
-G       G = 7                                   :(RETURN)
-DONE
-END

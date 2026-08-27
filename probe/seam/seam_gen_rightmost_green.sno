@@ -1,8 +1,0 @@
-*  seam_gen_rightmost_green — generator IS the rightmost element: the s121 carrier arm fires. CONTROL.
-        Command = 'a'
-        Parse   = LEN(0) ARBNO(*Command)
-        Src     = 'aaa'
-        Src POS(0) *Parse RPOS(0)                             :S(OK)F(NO)
-OK      OUTPUT = 'MATCH'                                      :(END)
-NO      OUTPUT = 'NOMATCH'
-END

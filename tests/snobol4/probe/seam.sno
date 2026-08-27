@@ -1,0 +1,17 @@
+*---------------------------------------------------- 1 seam_defer_rightmost_red
+        DEFINE('nPush()')                                     :(NPUSH_END)
+nPush   nPush = ''                                            :(RETURN)
+NPUSH_END
+        DEFINE('nPop()')                                      :(NPOP_END)
+nPop    nPop = ''                                             :(RETURN)
+NPOP_END
+        Command = 'a'
+        Parse   = nPush() ARBNO(*Command) nPop()
+        Src     = 'aaa'
+        Src POS(0) *Parse RPOS(0)                             :S(OK)F(NO)
+OK      OUTPUT = 'MATCH'                                      :(END)
+NO      OUTPUT = 'NOMATCH'
+END
+ Command = 'a'; Parse = LEN(0) ARBNO(*Command) LEN(0); Src = 'aaa'; Src POS(0) *Parse RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH';END;* seam_det_both_sides_red
+ Command = 'a'; Parse = ARBNO(*Command) LEN(0); Src = 'aaa'; Src POS(0) *Parse RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH';END;* seam_det_rightmost_red
+ Command = 'a'; Parse = LEN(0) ARBNO(*Command); Src = 'aaa'; Src POS(0) *Parse RPOS(0) :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH';END;* seam_gen_rightmost_green

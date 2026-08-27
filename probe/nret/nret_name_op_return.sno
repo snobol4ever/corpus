@@ -1,8 +1,0 @@
-        DEFINE('G()')                    :(GEND)
-G       G = .DUMMY                       :(RETURN)
-GEND
-        DUMMY = 'VAL'
-        RV = G()
-        OUTPUT = 'G_ret=[' RV ']'
-        OUTPUT = 'dt=' DATATYPE(RV)
-END

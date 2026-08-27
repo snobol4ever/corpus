@@ -1,6 +1,0 @@
-                  D              =  'a'
-                  C              =  *D 'b'
-                  'ab'           C                                                  :S(OK)F(NO)
-OK                OUTPUT         =  'MATCH'                                         :(END)
-NO                OUTPUT         =  'NOMATCH'                                       :(END)
-END

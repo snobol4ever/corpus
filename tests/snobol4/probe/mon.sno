@@ -1,0 +1,14 @@
+ DEFINE('F(A)') :(FEND);F F = A + 1 :(RETURN);FEND; OUTPUT = 'R=' F(4);END;* mon_define_call_min
+*--------------------------------------------------------- 2 mon_return_contract
+        DEFINE('F(A)L')                          :(FEND)
+F       L = A + 100
+        F = A + 1                                :(RETURN)
+FEND
+        A = 'OUTER-A'
+        L = 'OUTER-L'
+        OUTPUT = 'R1=' F(4)
+        OUTPUT = 'A=' A
+        OUTPUT = 'L=' L
+        OUTPUT = 'R2=' F(10)
+        OUTPUT = 'A=' A
+END

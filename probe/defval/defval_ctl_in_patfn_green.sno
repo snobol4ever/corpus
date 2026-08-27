@@ -1,6 +1,0 @@
-                  N              =  2
-                  C              =  LEN(*N)
-                  'abc'          C . x                                              :S(OK)F(NO)
-OK                OUTPUT         =  'MATCH x=' x                                    :(END)
-NO                OUTPUT         =  'NOMATCH'                                       :(END)
-END

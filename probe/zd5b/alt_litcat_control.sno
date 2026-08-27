@@ -1,7 +1,0 @@
-        digits = '0123456789'
-        E =
-        S = 'Name'
-        S ANY('NX') (SPAN('0123456789' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' '_' 'abcdefghijklmnopqrstuvwxyz') | E) RPOS(0)   :S(OK)F(NO)
-OK      OUTPUT = 'MATCHED'   :(END)
-NO      OUTPUT = 'NOMATCH'
-END

@@ -1,4 +1,0 @@
-    S = "abc"
-    S ? "a"
-    OUTPUT = S
-END

@@ -1,0 +1,1 @@
+ DEFINE('F(x)') :(FEnd);F F = 'got:' x :(RETURN);FEnd; DEFINE('F(x)'); OUTPUT = F('one'); OUTPUT = F('two');END;* redef_twice

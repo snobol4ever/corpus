@@ -1,8 +1,0 @@
-        digits = '0123456789'
-        lets = 'abcdemn'
-        E =
-        S = 'Name'
-        S ANY('NX') (SPAN(lets) | E) RPOS(0)   :S(OK)F(NO)
-OK      OUTPUT = 'MATCHED'   :(END)
-NO      OUTPUT = 'NOMATCH'
-END

@@ -1,0 +1,59 @@
+*-------------------------------------------------- 1 mwseg_flatfn_capture_table
+        &TRIM = 1
+        &ANCHOR = 0
+        DEFINE('F(N)')  :(E)
+F       F = EQ(N, 0) 0  :S(RETURN)
+        F = N + 1  :(RETURN)
+E       P = BREAK(',') . W ','
+        D = '10,20,'
+        T = TABLE(16)
+        I = 0
+L       D ? P =  :F(Z)
+        I = I + 1
+        T[I] = W + 0  :(L)
+Z       OUTPUT = "tot: " (T[1] + T[2])
+END
+*--------------------------------------------------- 2 mwseg_recfn_capture_novar
+        &TRIM = 1
+        &ANCHOR = 0
+        DEFINE('F(N)')  :(E)
+F       F = EQ(N, 0) 0  :S(RETURN)
+        F = N + F(N - 1)  :(RETURN)
+E       P = BREAK(',') . W ','
+        D = '10,20,'
+        I = 0
+L       D ? P =  :F(Z)
+        I = I + 1
+        S = S + W  :(L)
+Z       OUTPUT = "tot: " S
+END
+*--------------------------------------------------- 3 mwseg_recfn_capture_table
+        &TRIM = 1
+        &ANCHOR = 0
+        DEFINE('F(N)')  :(E)
+F       F = EQ(N, 0) 0  :S(RETURN)
+        F = N + F(N - 1)  :(RETURN)
+E       P = BREAK(',') . W ','
+        D = '10,20,'
+        T = TABLE(16)
+        I = 0
+L       D ? P =  :F(Z)
+        I = I + 1
+        T[I] = W + 0  :(L)
+Z       OUTPUT = "tot: " (T[1] + T[2])
+END
+*----------------------------------------------------- 4 mwseg_recfn_table_nopat
+        &TRIM = 1
+        &ANCHOR = 0
+        DEFINE('F(N)')  :(E)
+F       F = EQ(N, 0) 0  :S(RETURN)
+        F = N + F(N - 1)  :(RETURN)
+E       P = BREAK(',') . W ','
+        D = '10,20,'
+        T = TABLE(16)
+        I = 0
+L       LT(I, 2)  :F(Z)
+        I = I + 1
+        T[I] = I  :(L)
+Z       OUTPUT = "tot: " (T[1] + T[2])
+END

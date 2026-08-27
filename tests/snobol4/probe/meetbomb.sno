@@ -1,0 +1,2 @@
+ S = "abc"; S ? "a"; OUTPUT = S;END;* meetbomb_barematch_red
+ A = 1; B = 2; OUTPUT = A + B;END;* meetbomb_nomatch_grn

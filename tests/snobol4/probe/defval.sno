@@ -1,0 +1,7 @@
+ X = 'q'; C = *DIFFER(X); 'a' C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_bare_predicate_red
+ D = 'a'; C = *D; 'a' C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_bare_red
+ D = 'a'; C = *D; 'a' *C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_bare_starred_red
+ D = 'a'; C = *D; E = *C; 'a' *E :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_chain3_red
+ D = 'a'; C = *D 'b'; 'ab' C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_ctl_in_concat_green
+ N = 2; C = LEN(*N); 'abc' C . x :S(OK)F(NO);OK OUTPUT = 'MATCH x=' x :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_ctl_in_patfn_green
+ C = 'a'; 'a' *C :S(OK)F(NO);OK OUTPUT = 'MATCH' :(END);NO OUTPUT = 'NOMATCH' :(END);END;* defval_ctl_plain_green
