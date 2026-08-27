@@ -1,8 +1,9 @@
 # KEEP.md — probe/conformance
 
-Per `probe-consolidate-conformance` (parent: `corpus-suites-consolidation`). 92 of the original 147
+Per `probe-consolidate-conformance` (parent: `corpus-suites-consolidation`). 94 of the original 147
 witnesses converted into `corpus/tests/snobol4/probe/conformance.{sno,ref}` (2026-08-27/28, see that
-task's LEDGER for full receipts). The 55 below stay loose, deliberately, for one of two reasons.
+task's LEDGER for full receipts — seat04 landed 92, seat13 folded in 2 more on 2026-08-27 once
+`conform-rsort-sort-array-noop` closed). The 53 below stay loose, deliberately, for one of two reasons.
 
 Ground truth for both categories was measured fresh this session: every `.sno` here was run through
 `scrip` (m3 **and** m4) and compared — both stdout text and exit code — against a live run of the
@@ -42,7 +43,7 @@ un-renamed, so `test_one_witness.sh <file>` and any task file naming this path k
 | u03_question.sno | conform-unary-interrog-gz5-gap |
 
 ## Category B — agrees with the oracle today, but a currently-existing task file cites this exact
-## filename by name (38)
+## filename by name (36)
 
 Reclassifying "is this bug still open" is a correctness verdict, not a file-consolidation decision —
 RULES.md's MEASURE AND CURE section reserves a wrong-ANSWER verdict to hq_C. So these stay loose even
@@ -55,8 +56,6 @@ this row decided unilaterally by moving the file out from under an open citation
 |---|---|
 | b01_assign.sno | conform-unload-noop (control witness, not the bug itself) |
 | f01_array.sno | conformance-sweep-spitbol-manual |
-| f04_rsort.sno | conform-rsort-sort-array-noop |
-| f05_sort.sno | conform-rsort-sort-array-noop |
 | f06_table.sno | conform-table-default-arg-ignored |
 | f10_arg.sno | conform-local-opsyn-m4-empty |
 | f13_local.sno | conform-local-opsyn-m4-empty |
