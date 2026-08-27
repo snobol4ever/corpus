@@ -3,6 +3,10 @@
 Canonical Pascal benchmark programs imported for cross-engine speed comparison
 (SCRIP vs. a reference x86-64 Pascal system, Free Pascal / `fpc`).
 
+See `PROVENANCE.md` for the full three-bucket accounting (every file present, every
+candidate skipped and why, and the fbench/Whetstone/Dhrystone dispositions) — this
+file stays the narrative; PROVENANCE.md is the closable checklist.
+
 Each `.pas` carries a tunable repeat count read from stdin (`readln(reps)`) so a
 single compiled artifact can be run at any iteration count; the timing harness
 uses a two-point slope to cancel process-startup / JIT-compile cost. Each
@@ -21,6 +25,8 @@ against `fpc`).
 | `queens.pas` | Hennessy "Queens" (Wirth 8-queens), Stanford suite | John L. Hennessy / N. Wirth | public domain |
 | `intmm.pas`  | Hennessy "Intmm" (40x40 integer matrix multiply), Stanford suite | John L. Hennessy | public domain |
 | `perm.pas`   | Hennessy "Perm" (recursive permutation), Stanford suite | John L. Hennessy | public domain — **FRONTIER (see below)** |
+| `fbench.pas` | John Walker's optical raytracing FP benchmark (fourmilab.ch/fbench/), via `Pascal-P5/sample_programs/` | John Walker | permissive, origin-preserved |
+| `whet.pas`   | Classic portable Whetstone (Curnow & Wichmann, NPL, 1972), via `FPCSource/tests/bench/` | Curnow & Wichmann | permissive by long-standing redistribution custom — **no `.ref` (see below)** |
 
 Algorithm and constants for the Hennessy/Stanford programs were taken from the
 faithful C descendant in the LLVM test-suite
@@ -33,11 +39,18 @@ non-negative indices).
 The canonical Hennessy pseudo-random generator is used where the original does:
 `seed := (seed * 1309 + 13849) mod 65536`, seed0 = 74755.
 
-Dhrystone (Reinhold P. Weicker, Siemens, 1984; v2.1 1988; from
-`github.com/Keith-S-Thompson/dhrystone`, `v2.1/dhry.p`) is **not yet imported as
-runnable** — it requires variant records (`case Discr: Enumeration of`), forward
-declarations, and a `clock` primitive, all currently beyond the SCRIP Pascal
-frontend. See the report's frontier list.
+Dhrystone (Reinhold P. Weicker, Siemens, 1984; v2.1 1988; canonical source
+`github.com/Keith-S-Thompson/dhrystone`, `original-sources/dhry-pascal`, 1453
+lines) is **not yet imported as runnable** — it requires variant records
+(`case Discr: Enumeration of`), forward declarations, and a `clock` primitive,
+all currently beyond the SCRIP Pascal frontend. See the report's frontier list.
+
+Two OTHER `drystone.pas` files are resident on this machine (`Pascal-P5/sample_programs/`
+and `FPCSource/tests/bench/`) but are **not** this canonical source and were deliberately
+**not** imported here — they're shorter, independently-adapted ports that don't match the
+pinned target above (one stubs `clock` with a fake counter, the other depends on a local
+`timer` unit neither the canonical source nor this corpus's convention expects). Full
+detail and citations in `PROVENANCE.md` Bucket 3.
 
 ## Integer-width discipline (IMPORTANT for fair comparison)
 
@@ -87,6 +100,15 @@ loop terminates early. Minimal repro: a recursive procedure with
 on SCRIP, 12 on `fpc`. Tracked as **PAS-FOR-RECURSE**. The other five recursive
 benchmarks are unaffected (none nests a recursive call inside a live `for` loop;
 `queens` uses `repeat`, whose variable survives).
+
+## Known exception — `whet.pas` (no `.ref`)
+
+Every other benchmark here reduces to a deterministic integer/checksum result stored in
+a matching `.ref`. `whet.pas` is a deliberate exception: its output (`Double Whetstone
+KIPS`, `Whetstone MIPS`) is a wall-clock/CPU-speed-derived score by design, so it varies
+run-to-run and machine-to-machine. It's imported (license and content verified against
+`fpc`) but intentionally ships with no `.ref` — a consumer harness needs a different
+success signal (clean exit + well-formed output shape) for this one file.
 
 ## Reproducing
 
