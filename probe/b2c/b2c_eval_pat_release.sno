@@ -1,7 +1,0 @@
-	DEFINE('F()')	:(Fe)
-F	F = 'x'	:(RETURN)
-Fe	P = EVAL("*F()")
-	'x' P	:S(Y)F(N)
-Y	OUTPUT = 'match'	:(END)
-N	OUTPUT = 'nomatch'
-END

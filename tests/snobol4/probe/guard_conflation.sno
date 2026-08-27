@@ -1,11 +1,10 @@
+*------------------------------------------------------------ 1 guard_conflation
         DEFINE('g(n)')                          :(g_end)
 g                                               :(FRETURN)
 g_end
-*  A: predicate CORRECTLY fails (1 == 1, so NE fails)
         NE(1, 1)                                :f(a_f)
         OUTPUT = 'A fellthrough'                :(b)
 a_f     OUTPUT = 'A took :f'
-*  B: the CALL fails (g always FRETURNs) -- value never compared
 b       NE(g(1), 1)                             :f(b_f)
         OUTPUT = 'B fellthrough'                :(END)
 b_f     OUTPUT = 'B took :f'
