@@ -37,8 +37,8 @@ un-renamed, so `test_one_witness.sh <file>` and any task file naming this path k
 | f83_trim.sno | conform-trim-tabs-not-stripped |
 | k09_file.sno | conform-file-keyword-empty |
 | k10_fnclevel.sno | conform-fnclevel-not-tracked |
-| k11_lastfile_lastline_lastno.sno | conform-line-lastline-crash |
-| k30_lastfile_only.sno | conform-line-lastline-crash |
+| k11_lastfile_lastline_lastno.sno | kw-missing-4 (RE-CITED hq_C 2026-08-27 — was conform-line-lastline-crash; red because &LASTFILE is unimplemented, not a line/lastline crash) |
+| k30_lastfile_only.sno | kw-missing-4 (RE-CITED hq_C 2026-08-27 — was conform-line-lastline-crash; red because &LASTFILE is unimplemented) |
 | u03_question.sno | conform-unary-interrog-gz5-gap |
 
 ## Category B — agrees with the oracle today, but a currently-existing task file cites this exact
@@ -107,7 +107,13 @@ per this whole project's standing rule that fast-moving trees make yesterday's b
 
 seat04 correctly held all 38 Category-B witnesses back rather than converting them on their own green measurement. That was the right call and this ruling is the answer they asked for.
 
-**METHOD — and the trap in it, which fired.** The obvious method is *run each cited row's own DONE-WHEN*: a row's own criterion is the row's own definition of cured, so this is cheap, automatable and not a matter of opinion. Of the **28** distinct `conform-*` rows cited from this file, **16 pass their own DONE-WHEN and 12 still fail.** ⛔ **That method is right 15 times out of 16 and its one wrong answer is invisible from inside it.** `conform-line-lastline-crash` passes — its DONE-WHEN graded exactly two witnesses, `k14_stno_line` and `k31_line_lastline_gaps`, both green — while **two further witnesses this file cites to that same row, `k11_lastfile_lastline_lastno.sno` and `k30_lastfile_only.sno`, still diverge in both modes.** A DONE-WHEN that never looks at a witness cannot report that the witness is red. ⭐ **A row's own DONE-WHEN is evidence about that DONE-WHEN's witnesses, never about the row.** What caught it was cross-checking against an independently-built list — this file's citation table — i.e. two instruments that disagree.
+**METHOD — and the trap in it, which fired, TWICE, in opposite directions.** The obvious method is *run each cited row's own DONE-WHEN*: a row's own criterion is the row's own definition of cured, so this is cheap, automatable and not a matter of opinion. Of the **28** distinct `conform-*` rows cited from this file, **16 pass their own DONE-WHEN and 12 still fail.**
+
+⛔ **That method is not sufficient on its own, and cross-checking it against this file's citation table is what showed why.** `conform-line-lastline-crash` passes its DONE-WHEN (two witnesses, `k14_stno_line` and `k31_line_lastline_gaps`, both green) while two further witnesses this file cited to it, `k11_lastfile_lastline_lastno.sno` and `k30_lastfile_only.sno`, still diverge in both modes. ⭐ **A row's own DONE-WHEN is evidence about that DONE-WHEN's witnesses, never about the row** — a criterion that never executes a witness cannot report that the witness is red.
+
+⛔⛔ **BUT THE FIRST CONCLUSION DRAWN FROM THAT — "therefore the row is OPEN" — WAS WRONG, AND IS CORRECTED HERE RATHER THAN QUIETLY DELETED.** Reading the failure TEXT instead of stopping at the red: k30 dies with `** Error 342 ... &constant read before its one-time assignment: &LASTFILE`. **k11 and k30 are `&LASTFILE` witnesses.** They are red because `&FILE`/`&LASTFILE` are UNIMPLEMENTED — the scope of **`kw-missing-4`**, whose own DONE-WHEN already names k30 and k11 explicitly, and for which Lon's global grant landed in-chat on 2026-08-27. They were never `conform-line-lastline-crash`'s to fix. **The defect was in THIS FILE'S CITATION, not in that row's criterion.** Both entries are re-cited above; that row's DONE-WHEN is restored to k14+k31 and it is closable.
+
+⭐ **The sharpened lesson, which is the durable one:** a disagreement between a criterion and an independently-built citation table is real information, and finding it is what the cross-check is for. **But it has THREE possible causes, not one** — the criterion is too narrow, the witness is genuinely red for that row, or **the citation is misattributed.** Collapsing three into one and taking the pessimistic branch is how a correct measurement produces a wrong verdict. ⛔ **A red witness is not evidence until you have read WHY it is red.** "It diverges" names a symptom; attributing a symptom to a row is precisely the transcription step where provenance dies (`RULES.md:105`).
 
 **THE RULING — release requires BOTH halves, never either alone:**
 1. the witness itself is green today against the oracle, in **both** modes, text and rc; **and**
@@ -116,12 +122,12 @@ seat04 correctly held all 38 Category-B witnesses back rather than converting th
 | disposition | count | action |
 |---|---|---|
 | **RELEASED for conversion** | **38** | both halves hold — convert these in the next `probe-consolidate-conformance` batch |
-| **STAY HELD** | **3** | `f09_apply.sno`, `k11_lastfile_lastline_lastno.sno`, `k30_lastfile_only.sno` — green-cited row, but the witness itself still DIVERGES |
+| **STAY HELD** | **3** | `k11_lastfile_lastline_lastno.sno`, `k30_lastfile_only.sno` — RE-CITED to `kw-missing-4`; red because `&LASTFILE` is unimplemented, and they convert when that row lands. `f09_apply.sno` — a GENUINE uncovered wrong answer (prints `7/3/8`, oracle `7/3/7`, no error) whose citing row `conform-local-opsyn-m4-empty` passes its own DONE-WHEN; that row needs its criterion widened or the witness re-cited, and it is the one case where the too-narrow-criterion reading does hold |
 | Category A, still diverging | 17 | unchanged — open-bug evidence, stay standalone |
 
-⛔ **`conform-line-lastline-crash` IS OPEN, NOT CURED.** Its DONE-WHEN has been widened to grade all four of its cited witnesses and now correctly reports NO (`STILL DIVERGES: k11_lastfile_lastline_lastno`, `k30_lastfile_only`). It is the one cited row still carrying a live `QUEUE.tsv` row; the other 15 cured rows had already been swept out of the queue (LAW 4 — the queue is a dispatch buffer, not a memory), so their task files are the record.
+✅ **`conform-line-lastline-crash` IS CLOSABLE** — DONE-WHEN restored to k14+k31 (ceo's narrowing was substantively right), verified rc=0. It was the one cited row still carrying a live `QUEUE.tsv` row; the other 15 cured rows had already been swept out (LAW 4 — the queue is a dispatch buffer, not a memory), so their task files are the record.
 
-⭐ **`f09_apply.sno` is the same shape a second time** — it cites `conform-local-opsyn-m4-empty`, which passes its own DONE-WHEN, and `f09_apply` is still red. Whoever picks that row up should widen its DONE-WHEN the same way before closing it.
+⛔ **`f09_apply.sno` is the one genuine instance of the too-narrow-criterion shape.** It cites `conform-local-opsyn-m4-empty`, that row passes its own DONE-WHEN, and `f09_apply` prints `7/3/8` against the oracle's `7/3/7` — a silent wrong answer, no error text, nothing else claiming it. Widen that row's DONE-WHEN or re-cite the witness before closing it.
 
 **Re-run this ruling** (it is falsifiable, not asserted):
 ```bash
