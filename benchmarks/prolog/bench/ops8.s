@@ -8210,8 +8210,10 @@ n779_call_proc_staged_β:
                         test             rax, rax;                            je    n782_lit_string_α
                         lea              r8, [rip + .Lx791_7]
                         push             r8
+                        lea              rcx, [rip + .Lx791_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx791_3]
-                        lea              rdx, [rip + .Lx791_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx791_7:               add              rsp, 8
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx

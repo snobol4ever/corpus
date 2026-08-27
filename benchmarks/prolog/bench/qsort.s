@@ -1400,8 +1400,10 @@ n27_call_proc_staged_β: mov              r11, 28
                         test             rax, rax;                            je    n72_call_builtin_prolog_α
                         lea              r8, [rip + .Lx118_7]
                         push             r8
+                        lea              rcx, [rip + .Lx118_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx118_3]
-                        lea              rdx, [rip + .Lx118_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx118_7:               add              rsp, 8
                         mov              qword ptr [rsp + 1328], rax
                         mov              qword ptr [rsp + 1336], rdx
@@ -2772,8 +2774,10 @@ n52_call_proc_staged_β: mov              r11, 53
                         test             rax, rax;                            je    n54_call_builtin_prolog_α
                         lea              r8, [rip + .Lx160_7]
                         push             r8
+                        lea              rcx, [rip + .Lx160_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx160_3]
-                        lea              rdx, [rip + .Lx160_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx160_7:               add              rsp, 8
                         mov              qword ptr [rsp + 624], rax
                         mov              qword ptr [rsp + 632], rdx
@@ -4342,8 +4346,10 @@ n208_call_proc_staged_β:
                         test             rax, rax;                            je    n221_call_builtin_prolog_α
                         lea              r8, [rip + .Lx269_7]
                         push             r8
+                        lea              rcx, [rip + .Lx269_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx269_3]
-                        lea              rdx, [rip + .Lx269_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx269_7:               add              rsp, 8
                         mov              qword ptr [rsp + 928], rax
                         mov              qword ptr [rsp + 936], rdx
@@ -4572,8 +4578,10 @@ n212_call_proc_staged_β:
                         test             rax, rax;                            je    n208_call_proc_staged_β
                         lea              r8, [rip + .Lx277_7]
                         push             r8
+                        lea              rcx, [rip + .Lx277_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx277_3]
-                        lea              rdx, [rip + .Lx277_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx277_7:               add              rsp, 8
                         mov              qword ptr [rsp + 784], rax
                         mov              qword ptr [rsp + 792], rdx
@@ -4847,8 +4855,10 @@ n219_call_proc_staged_β:
                         test             rax, rax;                            je    n212_call_proc_staged_β
                         lea              r8, [rip + .Lx289_7]
                         push             r8
+                        lea              rcx, [rip + .Lx289_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx289_3]
-                        lea              rdx, [rip + .Lx289_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx289_7:               add              rsp, 8
                         mov              qword ptr [rsp + 528], rax
                         mov              qword ptr [rsp + 536], rdx
@@ -8008,8 +8018,10 @@ n469_call_proc_staged_β:
                         test             rax, rax;                            je    n476_call_builtin_prolog_α
                         lea              r8, [rip + .Lx633_7]
                         push             r8
+                        lea              rcx, [rip + .Lx633_4]
+                        push             rcx
                         lea              rcx, [rip + .Lx633_3]
-                        lea              rdx, [rip + .Lx633_4];               jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lx633_7:               add              rsp, 8
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
