@@ -1,4 +1,0 @@
-	&W = "hi"
-	W = "bare"
-	OUTPUT = "amp=" &W " bare=" W
-END

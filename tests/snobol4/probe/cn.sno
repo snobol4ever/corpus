@@ -1,0 +1,77 @@
+*----------------------------------------------------------- 1 cn_alt_eval_order
+        DEFINE('f(x)')
+        DEFINE('g(x)')                        :(E)
+f         OUTPUT = 'call-f'
+        f = 'F'                               :(RETURN)
+g         OUTPUT = 'call-g'
+        g = 'G'                               :(RETURN)
+E         P = (f('a') | g('a'))
+        OUTPUT = 'built'
+        Q = f('a') g('a')
+        OUTPUT = 'concat-built'
+END
+ V1 = "pad1"; V2 = "pad2"; V3 = "pad3"; V4 = "pad4"; V5 = "pad5"; "ab" POS(0) (SPAN("ab") | SPAN("09")) RPOS(0) :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_alt_leaf_flat_grn
+*-------------------------------------------------------- 3 cn_alt_leaf_flat_red
+        V1 = "pad1"
+        V2 = "pad2"
+        V3 = "pad3"
+        V4 = "pad4"
+        V5 = "pad5"
+        V6 = "pad6"
+        V7 = "pad7"
+        V8 = "pad8"
+        V9 = "pad9"
+        V10 = "pad10"
+        V11 = "pad11"
+        V12 = "pad12"
+        V13 = "pad13"
+        V14 = "pad14"
+        V15 = "pad15"
+        V16 = "pad16"
+        V17 = "pad17"
+        V18 = "pad18"
+        V19 = "pad19"
+        V20 = "pad20"
+        "ab" POS(0) (SPAN("ab") | SPAN("09")) RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
+ &USER_DECLARED_CONSTANTS = 1; &P = SPAN("ab") | SPAN("09"); "ab" POS(0) *&P RPOS(0) :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_alt_leaf_lit_red
+*------------------------------------------------------------- 5 cn_arbno_static
+        Word = SPAN("abcdefghijklmnopqrstuvwxyz")
+        &Command = Word
+        Line = ARBNO(*&Command " ")
+        "go run stop " POS(0) Line RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
+ &USER_DECLARED_CONSTANTS = 1; &Cmd = "go" | "run"; "run x" POS(0) &Cmd :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_bare_const_pos
+ X = "gone"; CLEAR(); OUTPUT = "direct=[" X "]"; OUTPUT = "indirect=[" $("X") "]";END;* cn_clear_user_var
+*-------------------------------------------------------------- 8 cn_const_chain
+        &Word = SPAN("abcdefghijklmnopqrstuvwxyz")
+        &Num = SPAN("0123456789")
+        &Item = &Word | &Num
+        Line = ARBNO(*&Item " ")
+        "go 42 stop " POS(0) Line RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
+ &A = ARBNO('a'); &B = ''; &P2 = &A &B; 'aa' POS(0) *&P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* cn_const_compose_all
+ A = ARBNO('a'); B = ''; P2 = A B; 'aa' POS(0) *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* cn_const_compose_ctl
+ &A = ARBNO('a'); &B = ''; P2 = &A &B; 'aa' POS(0) *P2 RPOS(0) :S(OK)F(NO);OK OUTPUT = 'match' :(END);NO OUTPUT = 'nomatch';END;* cn_const_compose_leaf
+ &USER_DECLARED_CONSTANTS = 1; &T = "b"; &W = SPAN("a" &T); "abba x" POS(0) *&W :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_cset_const
+ &P = "a" | "b"; "xay" POS(1) *&P :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_defer_const
+ &W = "hi"; W = "bare"; OUTPUT = "amp=" &W " bare=" W;END;* cn_namespace_split
+ &USER_DECLARED_CONSTANTS = 1; &W2 = SPAN("ab"); &N2 = SPAN("09"); &P = &W2 | &N2; "ab" POS(0) *&P RPOS(0) :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_nest_alt_defer
+*--------------------------------------------------- 16 cn_t2_inline_and_recurse
+        &L = 'a' | 'b'
+        P = 'x' *&L 'y'
+        'xay' POS(0) P RPOS(0)	:S(A)F(B)
+A	OUTPUT = 'leaf-inline match'	:(T2)
+B	OUTPUT = 'FAIL'
+T2	&R = 'q' *&R | 'z'
+        'z' POS(0) *&R RPOS(0)	:S(C)F(D)
+C	OUTPUT = 'recursive-defer match'	:(END)
+D	OUTPUT = 'FAIL2'
+END
+ &USER_DECLARED_CONSTANTS = 1; t = "b"; &W = SPAN("a" t); "abba x" POS(0) *&W :S(Y)F(N);Y OUTPUT = "match" :(END);N OUTPUT = "nomatch";END;* cn_var_cset_fold
