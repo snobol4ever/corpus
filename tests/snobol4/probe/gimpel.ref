@@ -1,0 +1,12 @@
+*------------------------------------------------ 1 gim_break_value_drops_prefix
+SIZE(HIGHS)=158
+[abb]
+[abb]
+[x]
+[x]
+31 2
+FAILED AS IT SHOULD
+1.4142135623731\n0.333333333333333\n0.666666666666667\n2.\n2
+ACDEF
+ACDEF
+D

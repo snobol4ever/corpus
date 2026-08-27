@@ -1,0 +1,19 @@
+*------------------------------------------------ 1 gim_break_value_drops_prefix
+        X  =  'ab'
+        &ALPHABET  BREAK('b')  REM . HIGHS
+        OUTPUT  =  'SIZE(HIGHS)=' SIZE(HIGHS)
+        X  (BREAK(HIGHS) | REM) . S1  =  S1 'b'
+        OUTPUT  =  '[' X ']'
+        Y  =  'ab'
+        H2  =  'bcdefghijklmnopqrstuvwxyz'
+        Y  (BREAK(H2) | REM) . S2  =  S2 'b'
+        OUTPUT  =  '[' Y ']'
+END
+ N = 'V'; S = 'xyz'; S LEN(1) . *$N =; OUTPUT = '[' V ']';END;* gim_defer_cassign_indirect
+ PAT = LEN(1) . *V; S = 'xyz'; S PAT =; OUTPUT = '[' V ']';END;* gim_defer_cassign_simple_control
+ I = SPAN('0123456789'); DY = 83; P = '(' I $ X *GT(DY,X) ',' I $ M; T = '(334,12)(31,2)(0,1)'; T P :F(GDP_F); OUTPUT = X ' ' M :(END);GDP_F OUTPUT = 'NO MATCH';END;* gim_defer_pred_in_pattern_segv
+ E = CONVERT('GE(1,2)', 'EXPRESSION'); EVAL(E) :S(Y); OUTPUT = 'FAILED AS IT SHOULD' :(Z);Y OUTPUT = 'SUCCEEDED (WRONG)';Z;END;* gim_eval_silent_success
+ OUTPUT = 2 ** 0.5; OUTPUT = 1.0 / 3.0; OUTPUT = 2.0 / 3.0; OUTPUT = 4.0 ** 0.5; OUTPUT = 1 + 1;END;* gim_real_print_precision
+ DEFINE('STRIP(S1,S2)P') :(STRIP_END);STRIP STRIP = S1; P = SPAN(S2); STRIP P = :(RETURN);STRIP_END; OUTPUT = STRIP('ABCDEF', 'BDF');END;* gim_span_param_pattern_wrong
+ S = 'ABCDEF'; X = 'BDF'; P = SPAN(X); S P =; OUTPUT = S;END;* gim_span_self_rebind_control
+ R = 3; 'ABCDEF' TAB(*R) LEN(1) . C; OUTPUT = C;END;* gim_tab_defer_no_template

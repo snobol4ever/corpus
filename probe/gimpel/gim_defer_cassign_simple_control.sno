@@ -1,9 +1,0 @@
-*  gim_defer_cassign_simple_control - the GREEN CONTROL.  The identical
-*  deferred conditional-assignment idiom aimed at a SIMPLE VARIABLE is
-*  correct in SCRIP, which is what proves the ingredient is the NON-SIMPLE
-*  target and not the deferral.
-        PAT  =  LEN(1) . *V
-        S  =  'xyz'
-        S  PAT  =
-        OUTPUT  =  '[' V ']'
-END
