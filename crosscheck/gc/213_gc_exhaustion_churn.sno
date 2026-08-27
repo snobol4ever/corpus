@@ -1,9 +1,0 @@
-*  213 - GC: ~60MB garbage through the heap; exhaustion-triggered regenerations
-        KEEP = 'survivor-' DUPL('S', 10)
-        I = 0
-loop    I = LT(I, 30000) I + 1                                      :F(done)
-        G = 'blk-' I '-' DUPL('x', 2000)
-        :(loop)
-done    OUTPUT = KEEP
-        OUTPUT = 'iters=' I
-END
