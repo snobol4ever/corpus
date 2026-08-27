@@ -1,0 +1,14 @@
+# triangulation TSV -- 20260827T232442Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_prolog.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+deriv	gnu	297108	308663	1.0389	AGREE	0	0
+deriv	swi	139250	139959	1.0051	AGREE	0	0
+deriv	m3	NA	NA		UNPROVEN	0	0
+deriv	m4	NA	NA		UNPROVEN	0	0
+fib	gnu	389.067	363.17	0.9334	AGREE	0	0
+fib	swi	316.156	307.845	0.9737	AGREE	0	0
+fib	m3	NA	NA		UNPROVEN	0	0
+fib	m4	NA	NA		UNPROVEN	0	0
+tak	gnu	98.6949	85.8535	0.8699	DISAGREE	0	0
+tak	swi	82.0085	64.9456	0.7919	DISAGREE	0	0
+tak	m3	NA	NA		UNPROVEN	0	0
+tak	m4	NA	NA		UNPROVEN	0	0
