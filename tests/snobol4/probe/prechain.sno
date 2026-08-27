@@ -1,0 +1,7 @@
+ $'#L' = 20; $'$X' = 'AB'; S = DUPL(' ', 30); S GT($'#L', 0) LEN($'#L' - SIZE($'$X')) . ind; OUTPUT = '[' ind ']';END;* pc_dind
+ L = 20; X2 = 'AB'; S = DUPL(' ', 30); S GT(L, 0) LEN(L - SIZE(X2)) . ind; OUTPUT = '[' ind ']';END;* pc_v1_plain
+ $'#L' = 20; $'$X' = 'AB'; S = DUPL(' ', 30); S LEN($'#L' - SIZE($'$X')) . ind; OUTPUT = '[' ind ']';END;* pc_v3_noguard
+ L = 18; S = DUPL(' ', 30); S GT(L, 0) LEN(L) . ind; OUTPUT = '[' ind ']';END;* pc_v6_guard_len_plain
+ S = DUPL(' ', 30); S GT(1, 0) LEN(18) . ind; OUTPUT = '[' ind ']';END;* pc_v7_all_lit
+ L = 20; S = DUPL(' ', 30); S LT(L, 99) LEN(L - 2) . ind; OUTPUT = '[' ind ']';END;* pc_v8_two_arith
+ L = 20; S = DUPL(' ', 30); S GT(L, 0) 'x' LEN(L - 2) . ind; OUTPUT = '[' ind ']';END;* pc_v9_guard_first_lit

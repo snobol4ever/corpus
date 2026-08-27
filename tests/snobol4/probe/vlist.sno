@@ -1,0 +1,1 @@
+ x = ARRAY('0:3'); z = (IDENT(x) 0, 7); OUTPUT = 'second [' z ']'; OUTPUT = 'end';END;* vl_alt_second

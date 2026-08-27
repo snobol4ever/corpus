@@ -1,0 +1,2 @@
+ DEFINE('ADD(A,B)') :(START);ADD ADD = A + B :(RETURN);START GV = 10; OUTPUT = ADD(GV,5); OUTPUT = GV;END;* rtcc_define_r9_selfheal
+ CS = 'a'; GV = 'b'; S = 'aab'; S SPAN(CS) *GV :S(OK)F(BAD);OK OUTPUT = 'MATCHED' :(DONE);BAD OUTPUT = 'FAILED';DONE;END;* rtcc_span_gva_defer

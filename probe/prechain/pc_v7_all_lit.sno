@@ -1,4 +1,0 @@
- S = DUPL(' ', 30)
- S GT(1, 0) LEN(18) . ind
- OUTPUT = '[' ind ']'
-END

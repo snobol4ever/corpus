@@ -1,6 +1,0 @@
-        $'W' = FENCE(SPAN(' ') | '')
-        S = '1,2,3'
-        S POS(0) ANY('123') ARBNO($'W' ',' ANY('123')) RPOS(0)  :S(OK)F(BAD)
-OK      OUTPUT = 'MATCH'  :(END)
-BAD     OUTPUT = 'FAIL'
-END

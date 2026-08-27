@@ -1,6 +1,0 @@
-	S = 'ABCDEFGHIJ'
-	S POS(4) LEN(1) = '*'	:S(Y)F(N)
-Y	OUTPUT = 'S=[' S ']'	:(D)
-N	OUTPUT = 'NOMATCH'
-D	OUTPUT = 'DONE'
-END

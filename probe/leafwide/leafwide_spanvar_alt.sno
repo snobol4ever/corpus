@@ -1,7 +1,0 @@
-          CS = 'ab'
-          S = 'aabbz'
-          P = ('q' . V) | (SPAN(*CS) . V)
-          S POS(0) P                            :S(OK)F(NO)
-OK        OUTPUT = 'match:' V                   :(END)
-NO        OUTPUT = 'nomatch'
-END

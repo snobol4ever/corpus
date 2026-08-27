@@ -1,9 +1,0 @@
-*  RED, CHECKED IN RED (law 0d).  Same defect with a preceding statement -- shows the crash is
-*  not an entry-sequence artefact.  Falls with igt_computed_goto.
-        DEFINE('f(OP)')                 :(fmain)
-f                                       :($('L' OP))
-LADD    OUTPUT = 'op=ADD'               :(RETURN)
-fmain   OUTPUT = 'pre'
-        f('ADD')
-        OUTPUT = 'back'                 :(END)
-END

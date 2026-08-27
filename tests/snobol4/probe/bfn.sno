@@ -1,0 +1,90 @@
+*----------------------------------------------------------- 1 bfn_break_lit_ctl
+        $('Z' 'Z') = 1
+        DEFINE('PC()')
+        DEFINE('nPush()')                               :(SEND)
+PC        OUTPUT = 'PC()'
+        PC = .dummy                                     :(NRETURN)
+nPush     nPush = epsilon . *PC()                         :(RETURN)
+SEND
+        Parse = nPush() BREAK('x') 'x'
+        Src = 'STARTx'
+        Src *Parse                                      :F(NOMATCH)
+        OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END
+*------------------------------------------------------------ 2 bfn_break_var_nl
+        $('Z' 'Z') = 1
+        nl = CHAR(10)
+        DEFINE('PC()')
+        DEFINE('nPush()')                               :(SEND)
+PC        OUTPUT = 'PC()'
+        PC = .dummy                                     :(NRETURN)
+nPush     nPush = epsilon . *PC()                         :(RETURN)
+SEND
+        Parse = nPush() BREAK(nl) nl
+        Src = 'START' nl
+        Src *Parse                                      :F(NOMATCH)
+        OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END
+*------------------------------------------------------------- 3 bfn_break_var_q
+        $('Z' 'Z') = 1
+        q = CHAR(10)
+        DEFINE('PC()')
+        DEFINE('nPush()')                               :(SEND)
+PC        OUTPUT = 'PC()'
+        PC = .dummy                                     :(NRETURN)
+nPush     nPush = epsilon . *PC()                         :(RETURN)
+SEND
+        Parse = nPush() BREAK(q) q
+        Src = 'START' q
+        Src *Parse                                      :F(NOMATCH)
+        OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END
+*-------------------------------------------------------------- 4 bfn_inline_ctl
+        $('Z' 'Z') = 1
+        nl = CHAR(10)
+        DEFINE('PC()')                                  :(SEND)
+PC        OUTPUT = 'PC()'
+        PC = .dummy                                     :(NRETURN)
+SEND
+        Parse = (epsilon . *PC()) BREAK(nl) nl
+        Src = 'START' nl
+        Src *Parse                                      :F(NOMATCH)
+        OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END
+*-------------------------------------------------------- 5 bfn_transplant_parse
+        $('Z' 'Z') = 1
+        &FULLSCAN = 1
+        nl = CHAR(10)
+        DEFINE('PushCounter()')
+        DEFINE('PopCounter()')
+        DATA('link_counter(next,value)')                :(CEND)
+PushCounter OUTPUT = 'PushCounter()'
+        $'#N' = link_counter($'#N', 0)
+        PushCounter = .dummy                            :(NRETURN)
+PopCounter OUTPUT = 'PopCounter()'
+        $'#N' = DIFFER($'#N') next($'#N')               :F(FRETURN)
+        PopCounter = .dummy                             :(NRETURN)
+CEND
+        DEFINE('nPush()')
+        DEFINE('nPop()')                                :(SEND)
+nPush     nPush = epsilon . *PushCounter()                :(RETURN)
+nPop      nPop = epsilon . *PopCounter()                  :(RETURN)
+SEND
+        Space = SPAN(' ' CHAR(9)) | epsilon
+        Parse = nPush() BREAK(nl) nl nPop()
+        Src = 'START' nl
+        Src POS(0) *Parse *Space RPOS(0)                :F(NOMATCH)
+        OUTPUT = 'match'                                :(DONE)
+NOMATCH   OUTPUT = 'nomatch'
+DONE
+END
+ $('Z' 'Z') = 1; DEFINE('PC()') :(SEND);PC OUTPUT = 'PC()'; PC = .dummy :(NRETURN);SEND; 'ab' LEN(1) . *PC() :F(NO); OUTPUT = 'match d=' dummy :(DONE);NO OUTPUT = 'nomatch';DONE;END;* cap_min_call
+ $('Z' 'Z') = 1; 'ab' LEN(1) . *V :F(NO); OUTPUT = 'match V=' V :(DONE);NO OUTPUT = 'nomatch';DONE;END;* cap_min_name

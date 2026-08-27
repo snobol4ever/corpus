@@ -1,9 +1,0 @@
-*  math_chop - CHOP truncates TOWARD ZERO and always yields REAL (CHOP(7) is 7., not 7).
-*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
-*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
-	OUTPUT = CHOP(3.9)
-	OUTPUT = CHOP(-3.9)
-	OUTPUT = CHOP(-0.5)
-	OUTPUT = CHOP(7)
-	OUTPUT = DATATYPE(CHOP(7))
-END

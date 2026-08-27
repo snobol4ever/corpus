@@ -1,9 +1,0 @@
-*  math_exp - EXP; EXP(0.0) is 1. (trailing point, integral value).
-*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
-*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
-	OUTPUT = EXP(1.0)
-	OUTPUT = EXP(0.0)
-	OUTPUT = EXP(1)
-	OUTPUT = EXP(-1.0)
-	OUTPUT = DATATYPE(EXP(0))
-END

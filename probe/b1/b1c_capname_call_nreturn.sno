@@ -1,9 +1,0 @@
-	DEFINE('F()')	:(Fe)
-F	F = 'ZZ'
-	OUTPUT = 'F called'	:(NRETURN)
-Fe	P = 'A' . *F()
-	S = 'A'
-	S POS(0) P	:S(Y)F(N)
-Y	OUTPUT = 'match ZZ=[' ZZ ']'	:(END)
-N	OUTPUT = 'nomatch ZZ=[' ZZ ']'
-END

@@ -1,0 +1,9 @@
+match:a(b(c))d
+*-------------------------------------------------------- 2 ctl_span_constcs_alt
+bare
+match:aabb
+match:aabb
+match:a(b(c))d
+*----------------------------------------------------- 6 leafwide_span_dyncs_alt
+bare
+match:aabb

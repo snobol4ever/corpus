@@ -1,9 +1,0 @@
-*  math_sin - SIN over the arg forms.
-*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
-*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
-	OUTPUT = SIN(1.0)
-	OUTPUT = SIN(0.0)
-	OUTPUT = SIN(1)
-	OUTPUT = SIN(-1.0)
-	OUTPUT = DATATYPE(SIN(0))
-END

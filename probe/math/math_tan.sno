@@ -1,8 +1,0 @@
-*  math_tan - TAN over the arg forms.
-*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
-*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
-	OUTPUT = TAN(1.0)
-	OUTPUT = TAN(0.0)
-	OUTPUT = TAN(1)
-	OUTPUT = DATATYPE(TAN(0))
-END

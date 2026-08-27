@@ -1,0 +1,76 @@
+ OUTPUT = APPLY('SIZE', 'abcd');END;* b1_apply_builtin_target
+ DEFINE('ADD1(V)') :(E);ADD1 ADD1 = V + 1 :(RETURN);E OUTPUT = APPLY('ADD1', 5);END;* b1_apply_snodef_target
+ DEFINE('ADD1(V)') :(E);ADD1 ADD1 = V + 1 :(RETURN);E FN = 'ADD1'; OUTPUT = APPLY(FN, 5);END;* b1_apply_snodef_varname
+ DEFINE('ZERO()') :(E);ZERO ZERO = 7 :(RETURN);E OUTPUT = APPLY('ZERO');END;* b1_apply_snodef_zeroarg
+ DEFINE('ADD1(V)') :(E);ADD1 ADD1 = V + 1 :(RETURN);E OUTPUT = ADD1(5);END;* b1_direct_snodef_call
+*-------------------------------------------------- 6 b1_eval_pattern_defer_call
+        DEFINE('F(a,b)')	:(Fe)
+F	OUTPUT = 'F called: ' a ' cap=' b	:(RETURN)
+Fe	P = EVAL("'A' . TH . *F('t', TH)")	:F(EF)
+        OUTPUT = 'dt: ' DATATYPE(P)
+        S = 'A'
+        S POS(0) P RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = 'match'	:(END)
+N	OUTPUT = 'nomatch'	:(END)
+EF	OUTPUT = 'EVAL failed'
+END
+ DEFINE('RED(A,B)') :(RED_end);RED RED = A '+' B :(RETURN);RED_end; OPSYN('&', 'RED', 2); X = 'l' & 'r'; OUTPUT = X;END;* b1_opsyn_binary_snodef
+ DEFINE('F()') :(Fe);F OUTPUT = 'F called' :(RETURN);Fe P = EVAL('LEN(0) . *F()'); 'abc' ? P; OUTPUT = 'OK';END;* b1c_capname_abandon_once
+*---------------------------------------------------- 9 b1c_capname_call_nreturn
+        DEFINE('F()')	:(Fe)
+F	F = 'ZZ'
+        OUTPUT = 'F called'	:(NRETURN)
+Fe	P = 'A' . *F()
+        S = 'A'
+        S POS(0) P	:S(Y)F(N)
+Y	OUTPUT = 'match ZZ=[' ZZ ']'	:(END)
+N	OUTPUT = 'nomatch ZZ=[' ZZ ']'
+END
+*---------------------------------------------------- 10 b1c_capname_call_return
+        DEFINE('F()')	:(Fe)
+F	F = 'ZZ'
+        OUTPUT = 'F called'	:(RETURN)
+Fe	P = 'A' . *F()
+        S = 'A'
+        S POS(0) P	:S(Y)F(N)
+Y	OUTPUT = 'match ZZ=[' ZZ ']'	:(END)
+N	OUTPUT = 'nomatch ZZ=[' ZZ ']'
+END
+ Q = 'q0'; P = 'A' . *Q; S = 'A'; S POS(0) P :S(Y)F(N);Y OUTPUT = 'match Q=[' Q '] q0=[' q0 ']' :(END);N OUTPUT = 'nomatch';END;* b1c_capname_var_target
+*----------------------------------------------- 12 b1c_cross_medium_concat_seam
+        DEFINE('PC()')	:(PCe)
+PC	OUTPUT = "PC ran"	:(RETURN)
+PCe	F = EVAL("'x' . D2 *PC()")
+        R = ("" . D1 *PC()) F
+        S = "x"
+        S POS(0) R	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END
+ DEFINE('PC()') :(PCe);PC OUTPUT = 'PC ran' :(RETURN);PCe P = EVAL("'x' *PC()"); S = 'x'; S POS(0) P :S(Y)F(N);Y OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* b1c_e_plain
+*------------------------------------------------ 14 b1c_eval_fn_pattern_retreat
+        DEFINE('SH(p,t)')	:(SHe)
+SH	SH = EVAL("p . thx . *CB('" t "', thx)")	:(RETURN)
+SHe	DEFINE('CB(a,b)')	:(CBe)
+CB	OUTPUT = 'CB: ' a ' cap=' b	:(RETURN)
+CBe	R = SH('AB', 'ty')
+        OUTPUT = 'dt: ' DATATYPE(R)
+        S = 'AB'
+        S POS(0) R	:S(Y)F(N)
+Y	OUTPUT = 'match'	:(END)
+N	OUTPUT = 'nomatch'
+END
+ DEFINE('PC()') :(PCe);PC OUTPUT = 'PC ran' :(RETURN);PCe S = 'x'; S POS(0) 'x' *PC() :S(Y)F(N);Y OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* b1c_m_plain
+*----------------------------------------------- 16 b1c_patvalued_formal_retreat
+        DEFINE('CB(a,b)')	:(CBe)
+CB	OUTPUT = "CB: " a " cap=" b	:(RETURN)
+CBe	DEFINE('SH(p,t)')	:(SHe)
+SH	SH = EVAL("p . thx . *CB('" t "', thx)")	:(RETURN)
+SHe	BASE = 'A' | 'B'
+        R = SH(BASE, "ty")
+        OUTPUT = "dt: " DATATYPE(R)
+        S = 'B'
+        S POS(0) R	:S(Y)F(N)
+Y	OUTPUT = "match"	:(END)
+N	OUTPUT = "nomatch"
+END

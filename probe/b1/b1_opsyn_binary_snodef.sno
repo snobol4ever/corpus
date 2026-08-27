@@ -1,7 +1,0 @@
-	DEFINE('RED(A,B)')	:(RED_end)
-RED	RED = A '+' B	:(RETURN)
-RED_end
-	OPSYN('&', 'RED', 2)
-	X = 'l' & 'r'
-	OUTPUT = X
-END

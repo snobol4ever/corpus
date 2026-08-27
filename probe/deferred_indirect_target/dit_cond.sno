@@ -1,9 +1,0 @@
-* dit_cond -- deferred INDIRECT-REFERENCE as a conditional-assignment capture target.
-* ORACLE (sbl -bf): "ok dummy=HELLO" -- the match SUCCEEDS and the capture lands in dummy.
-* SCRIP: "failed" -- the match FAILS.  Row deferred-indirect-capture-target.
-	subject = "HELLO WORLD"
-	p = "HELLO" . *$("dummy")
-	subject p	:S(ok)F(no)
-ok	OUTPUT = "ok dummy=" dummy	:(END)
-no	OUTPUT = "failed"
-END

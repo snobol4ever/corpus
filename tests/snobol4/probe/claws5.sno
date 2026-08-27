@@ -1,0 +1,55 @@
+*------------------------------------------------------ 1 claws5_dcap_call_green
+        DEFINE('token()')  :(token_end)
+token   n       =   n + 1
+        token   =   .dummy  :(NRETURN)
+token_end
+        &TRIM   =   0
+        n       =   0
+        src     =   'ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 '
+        p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0')) SPAN(' ')) RPOS(0)
+        src     ?   p  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src) ' n=' n  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
+*----------------------------------------------- 2 claws5_dcap_call_noncap_green
+        DEFINE('token()')  :(token_end)
+token   n       =   n + 1
+        token   =   .dummy  :(NRETURN)
+token_end
+        &TRIM   =   0
+        n       =   0
+        src     =   'ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 '
+        p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0') *token()) SPAN(' ')) RPOS(0)
+        src     ?   p  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src) ' n=' n  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
+*-------------------------------------------------------- 3 claws5_dcap_call_red
+        DEFINE('token()')  :(token_end)
+token   n       =   n + 1
+        token   =   .dummy  :(NRETURN)
+token_end
+        &TRIM   =   0
+        n       =   0
+        src     =   'ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 '
+        p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0') . *token()) SPAN(' ')) RPOS(0)
+        src     ?   p  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src) ' n=' n  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
+*------------------------------------------------- 4 claws5_spine_drift_k4_green
+        &TRIM   =   0
+        src     =   'ab_A0 ab_A0 ab_A0 ab_A0 '
+        p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0')) SPAN(' ')) RPOS(0)
+        src     ?   p  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END
+*--------------------------------------------------- 5 claws5_spine_drift_k5_red
+        &TRIM   =   0
+        src     =   'ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 '
+        p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0')) SPAN(' ')) RPOS(0)
+        src     ?   p  :F(error)
+        OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
+error   OUTPUT  =   'Pattern match failed'
+END

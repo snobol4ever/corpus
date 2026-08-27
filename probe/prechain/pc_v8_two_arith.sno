@@ -1,5 +1,0 @@
- L = 20
- S = DUPL(' ', 30)
- S LT(L, 99) LEN(L - 2) . ind
- OUTPUT = '[' ind ']'
-END

@@ -1,5 +1,0 @@
-        s = 'ab'
-        s POS(0) ARBNO(FENCE('a' | 'ab') | 'c') RPOS(0)      :S(M)F(N)
-M       OUTPUT = 'match'                                      :(END)
-N       OUTPUT = 'nomatch'
-END

@@ -1,0 +1,26 @@
+MATCHED e7
+*----------------------------------------------------- 2 mv_alt_call_build_order
+CALLED up
+BUILT
+MATCHED
+inner-ok
+MATCHED nocapture
+MATCHED X=[AB]
+MATCHED compound
+MATCHED qmark
+built-ok
+*------------------------------------------------ 9 mv_ctl_alt_call_toplevel_var
+MATCHED e1
+MATCHED e4
+*--------------------------------------------------- 11 mv_ctl_call_hoisted_infn
+MATCHED e6
+*--------------------------------------------- 12 mv_ctl_eager_call_alt_toplevel
+MATCHED alt-call-top
+*-------------------------------------------- 13 mv_ctl_eager_call_concat_fnloop
+MATCHED call-concat
+*---------------------------------------------- 14 mv_ctl_fnloop_call_as_pattern
+MATCHED fnloop-call
+*------------------------------------------------ 15 mv_eager_call_in_alt_fnloop
+MATCHED nested-call
+*----------------------------------------------------------- 16 mv_icase_reduced
+PASS: icase matches

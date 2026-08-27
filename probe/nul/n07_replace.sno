@@ -1,5 +1,0 @@
-* NUL-in-counted-strings rung n07_replace. oracle: sbl -bf. CHAR(0) is a legal SNOBOL4 character.
-	z = CHAR(0)
-	w = 'a' z 'b'
-	OUTPUT = SIZE(REPLACE(w, 'ab', 'xy'))
-END

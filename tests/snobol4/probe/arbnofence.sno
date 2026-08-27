@@ -1,0 +1,4 @@
+ s = 'ab'; s POS(0) ARBNO('a' | FENCE('ab')) RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* nf1
+ s = 'ab'; s POS(0) ARBNO(FENCE('a') | 'ab') RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* nf2
+ s = 'ab'; s POS(0) ARBNO(FENCE('a' | 'ab') | 'c') RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* nf3
+ s = 'ab'; s POS(0) ARBNO(('a' | 'ab') | 'c') RPOS(0) :S(M)F(N);M OUTPUT = 'match' :(END);N OUTPUT = 'nomatch';END;* nf4

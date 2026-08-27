@@ -1,0 +1,27 @@
+ OUTPUT = ATAN(1.0); OUTPUT = ATAN(0.0); OUTPUT = ATAN(1); OUTPUT = ATAN(-1.0); OUTPUT = DATATYPE(ATAN(1));END;* math_atan
+ OUTPUT = CHOP(3.9); OUTPUT = CHOP(-3.9); OUTPUT = CHOP(-0.5); OUTPUT = CHOP(7); OUTPUT = DATATYPE(CHOP(7));END;* math_chop
+ OUTPUT = COS(1.0); OUTPUT = COS(0.0); OUTPUT = COS(1); OUTPUT = DATATYPE(COS(0));END;* math_cos
+ OUTPUT = EXP(1.0); OUTPUT = EXP(0.0); OUTPUT = EXP(1); OUTPUT = EXP(-1.0); OUTPUT = DATATYPE(EXP(0));END;* math_exp
+ OUTPUT = LN(1.0); OUTPUT = LN(2.0); OUTPUT = LN(1); OUTPUT = DATATYPE(LN(1));END;* math_ln
+*--------------------------------------------------------- 6 math_real_precision
+        OUTPUT = 1.0 / 3.0
+        OUTPUT = 2.0 / 3.0
+        OUTPUT = 1.0 / 7.0
+        OUTPUT = SQRT(2.0)
+        OUTPUT = 3.14159265358979323846
+        OUTPUT = 123456789012345678.0
+        OUTPUT = 1.0E20
+        OUTPUT = 1.0E-20
+        OUTPUT = 1 + 1
+END
+*------------------------------------------------------------- 7 math_remdr_real
+        OUTPUT = REMDR(7,3) " " DATATYPE(REMDR(7,3))
+        OUTPUT = REMDR(7.5,2.0) " " DATATYPE(REMDR(7.5,2.0))
+        OUTPUT = REMDR(7,2.0)
+        OUTPUT = REMDR(7.5,2)
+        OUTPUT = REMDR(-7.5,2.0)
+        OUTPUT = REMDR("7.5","2.0")
+END
+ OUTPUT = SIN(1.0); OUTPUT = SIN(0.0); OUTPUT = SIN(1); OUTPUT = SIN(-1.0); OUTPUT = DATATYPE(SIN(0));END;* math_sin
+ OUTPUT = SQRT(1.0); OUTPUT = SQRT(2.0); OUTPUT = SQRT(4); OUTPUT = SQRT(4.0); OUTPUT = DATATYPE(SQRT(4));END;* math_sqrt
+ OUTPUT = TAN(1.0); OUTPUT = TAN(0.0); OUTPUT = TAN(1); OUTPUT = DATATYPE(TAN(0));END;* math_tan

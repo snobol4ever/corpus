@@ -1,0 +1,18 @@
+*--------------------------------------------------------- 1 dcap_freturn_target
+        DEFINE('chk(s)')                                   :(m)
+chk     chk            =  .dummy
+        s              'YES'                               :S(NRETURN)F(FRETURN)
+m       'ABC'          POS(0) SPAN('ABC') $ tx $ *chk('NO') RPOS(0)   :S(Y)F(N)
+Y       OUTPUT = 'matched'                                 :(E)
+N       OUTPUT = 'nomatch'
+E       OUTPUT = 'end'
+END
+*-------------------------------------------------- 2 dcap_freturn_target_ok_ctl
+        DEFINE('chk(s)')                                   :(m)
+chk     chk            =  .dummy
+        s              'YES'                               :S(NRETURN)F(FRETURN)
+m       'ABC'          POS(0) SPAN('ABC') $ tx $ *chk('YESSIR') RPOS(0)  :S(Y)F(N)
+Y       OUTPUT = 'matched'                                 :(E)
+N       OUTPUT = 'nomatch'
+E       OUTPUT = 'end'
+END

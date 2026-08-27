@@ -1,0 +1,20 @@
+*------------------------------------------------------- 1 m4a_defer_call_no_dot
+before
+after n=1 dummy=[]
+*--------------------------------------------------- 2 m4a_dot_defer_call_arity0
+before
+after n=1 dummy=[A]
+*--------------------------------------------------- 3 m4a_dot_defer_call_arity1
+before
+after n=1 dummy=[A]
+*--------------------------------------------------- 4 m4a_dot_defer_call_arity2
+before
+after n=3 dummy=[A]
+*---------------------------------------------------------- 5 m4a_dot_defer_expr
+before
+nomatch n=1
+*----------------------------------------------------------- 6 m4a_dot_defer_var
+before
+after n=A dummy=[]
+*------------------------------------------------ 7 m4a_manual_p136_nreturn_push
+n=2 [1]=BC [2]=E

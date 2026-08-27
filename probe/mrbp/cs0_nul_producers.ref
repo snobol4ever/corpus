@@ -1,8 +1,0 @@
-concat  SIZE=5
-concat  LEN5 MATCH
-substr  SIZE=5
-substr  LEN5 MATCH
-reverse SIZE=5
-reverse LEN5 MATCH
-copy    SIZE=5
-copy    LEN5 MATCH

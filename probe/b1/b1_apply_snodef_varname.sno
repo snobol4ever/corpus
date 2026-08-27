@@ -1,5 +1,0 @@
-	DEFINE('ADD1(V)')	:(E)
-ADD1	ADD1 = V + 1	:(RETURN)
-E	FN = 'ADD1'
-	OUTPUT = APPLY(FN, 5)
-END

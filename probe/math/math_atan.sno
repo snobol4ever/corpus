@@ -1,9 +1,0 @@
-*  math_atan - ATAN over the four arg forms and the printed-format contract.
-*  SPITBOL extended math (.cmth, sbl.min:1658).  Returns REAL always; INT/REAL/STRING args all coerce.
-*  .ref is LIVE ORACLE output (x64 sbl -bf), not SCRIP output.
-	OUTPUT = ATAN(1.0)
-	OUTPUT = ATAN(0.0)
-	OUTPUT = ATAN(1)
-	OUTPUT = ATAN(-1.0)
-	OUTPUT = DATATYPE(ATAN(1))
-END

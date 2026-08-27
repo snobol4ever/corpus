@@ -1,7 +1,0 @@
-* NUL-in-counted-strings rung n10_pat_lit. oracle: sbl -bf. CHAR(0) is a legal SNOBOL4 character.
-	z = CHAR(0)
-	w = 'a' z 'b'
-	w ('a' z 'b')	:F(NO)
-	OUTPUT = 'matched'	:(END)
-NO	OUTPUT = 'nomatch'
-END

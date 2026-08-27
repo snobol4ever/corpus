@@ -1,5 +1,0 @@
-          S = 'a(b(c))d'
-          S POS(0) BAL . V RPOS(0)              :S(OK)F(NO)
-OK        OUTPUT = 'match:' V                   :(END)
-NO        OUTPUT = 'nomatch'
-END

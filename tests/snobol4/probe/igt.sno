@@ -1,0 +1,6 @@
+ DEFINE('f(OP)') :(fmain);f :($('L' OP));LADD OUTPUT = 'op=ADD' :(RETURN);fmain f('ADD'); OUTPUT = 'back' :(END);END;* igt_computed_goto
+ X = 'END'; OUTPUT = 'before' :($X); OUTPUT = 'after';END;* igt_computed_goto_end
+ DEFINE('f(OP)') :(fmain);fmain f('ADD'); OUTPUT = 'back' :(END);f :($('L' OP));LADD OUTPUT = 'op=ADD'; OUTPUT = 'fell through mid-program';END;* igt_computed_goto_falloff
+ DEFINE('f(OP)') :(fmain);f :($('L' OP));LADD OUTPUT = 'op=ADD' :(RETURN);fmain OUTPUT = 'pre'; f('ADD'); OUTPUT = 'back' :(END);END;* igt_computed_goto_pre
+ DEFINE('f(OP)') :(fmain);f :(LADD);LADD OUTPUT = 'op=ADD' :(RETURN);fmain f('ADD'); OUTPUT = 'back' :(END);END;* igt_direct_goto_ctl
+ DEFINE('f()') :(fmain);f OUTPUT = 'in f' :(RETURN);fmain f(); OUTPUT = 'back' :(END);END;* igt_inline_ctl

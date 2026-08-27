@@ -1,4 +1,0 @@
-	DEFINE('ADD1(V)')	:(E)
-ADD1	ADD1 = V + 1	:(RETURN)
-E	OUTPUT = ADD1(5)
-END

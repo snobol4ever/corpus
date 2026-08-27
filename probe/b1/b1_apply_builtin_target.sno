@@ -1,2 +1,0 @@
-	OUTPUT = APPLY('SIZE', 'abcd')
-END
