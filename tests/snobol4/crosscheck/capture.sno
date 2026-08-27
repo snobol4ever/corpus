@@ -12,3 +12,4 @@
 YES     OUTPUT = 'first=' F1 ' last=' L1                      :(END)
 NO      OUTPUT = 'fail'
 END
+ V = 'ab'; X = '22World'; X ARBNO(*SIZE(V)) 'World' . C :S(YES)F(NO); OUTPUT = 'fail' :(END);YES OUTPUT = C;END;* 067_capture_deferred_builtin_arbno_backtrack
