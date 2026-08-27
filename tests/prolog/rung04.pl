@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung04_arith_arith
 % rung04_arith — is/2, arithmetic, comparisons
 % Expected output: 6  true  false
 :- initialization(main).
