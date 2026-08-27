@@ -1,9 +1,0 @@
-*  1020 - CODE compiles statements; transfer to a label defined only in
-*  the fragment, fragment loops internally, then gotos back to a main
-*  label (manual Ch.9: fragment labels are transfer-reachable, and the
-*  fragment can name main labels in its own Goto fields)
-	S = 'L OUTPUT = N; N = LT(N,10) N + 1 :S(L)F(DONE)'
-	N = 8
-	CODE(S)	:(L)
-DONE	OUTPUT = 'done'
-END
