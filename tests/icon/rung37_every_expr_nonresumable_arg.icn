@@ -1,0 +1,7 @@
+# rung37: `every EXPR` in EXPRESSION context must FAIL, so the alternation falls through.
+# Distinct from rung37_every_in_arg.icn: there the argument (1|2|3) is RESUMABLE, which takes
+# lower_call's la_res path. Here write("y") is NON-resumable, which takes the degenerate
+# cx->beta == ω fallback -- the shape that is actually broken.
+procedure main();
+   write(image(every write("y")) | "none");
+end
