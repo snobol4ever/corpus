@@ -31,13 +31,16 @@ regression-guard file instead of surfacing it.
 ## 3. Pre-existing failures — `pascal-restore-prezeta` territory (52 files)
 
 Not green today on m3 and/or m4 (measured fresh, `tests-consolidate-pascal` session,
-2026-08-27): `aa6`, `aggloc2`, `alias`, `arr2dtype`, `arr2dtype3`, `arrparam`, `boolarg`,
-`boolassign`, `boolchain`, `boolidx`, `boolmix`, `boolnot`, `boolptr`, `char3`, `deep5`,
-`downto1`, `downto2`, `enum2`, `flatnoarg`, `forward1`, `goto2`, `matmul`, `nest2`, `nestcount`,
-`nested`, `nested_vp_writeback`, `nestfunc`, `nestrec`, `nestshadow`, `nestvar`, `nestvar2`,
-`nestvar3`, `patchtable`, `pb31`, `pb32`, `pb33`, `pb34`, `pb35`, `pb37`, `pb40`,
-`rec_local_collision`, `recursion`, `swap`, `varframe`, `varmix`, `varparam`, `vartrans`,
-`vparam_field_then_whole`, `vparam_field_write`, `vparr`, `vpfld`, `withfwd1`.
+2026-08-27): `aa6.pas`, `aggloc2.pas`, `alias.pas`, `arr2dtype.pas`, `arr2dtype3.pas`,
+`arrparam.pas`, `boolarg.pas`, `boolassign.pas`, `boolchain.pas`, `boolidx.pas`, `boolmix.pas`,
+`boolnot.pas`, `boolptr.pas`, `char3.pas`, `deep5.pas`, `downto1.pas`, `downto2.pas`,
+`enum2.pas`, `flatnoarg.pas`, `forward1.pas`, `goto2.pas`, `matmul.pas`, `nest2.pas`,
+`nestcount.pas`, `nested.pas`, `nested_vp_writeback.pas`, `nestfunc.pas`, `nestrec.pas`,
+`nestshadow.pas`, `nestvar.pas`, `nestvar2.pas`, `nestvar3.pas`, `patchtable.pas`, `pb31.pas`,
+`pb32.pas`, `pb33.pas`, `pb34.pas`, `pb35.pas`, `pb37.pas`, `pb40.pas`,
+`rec_local_collision.pas`, `recursion.pas`, `swap.pas`, `varframe.pas`, `varmix.pas`,
+`varparam.pas`, `vartrans.pas`, `vparam_field_then_whole.pas`, `vparam_field_write.pas`,
+`vparr.pas`, `vpfld.pas`, `withfwd1.pas`.
 
 These are exactly `pascal-restore-prezeta`'s territory (the ζ-window regression-restoration row),
 not this row's to fix. Consolidating them into a suite before that row's bisect starts would
