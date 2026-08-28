@@ -1,0 +1,3 @@
+# perf-attribution TSV -- 2026-08-28 ceo -- json-match post proc-find validation fix + hq_P landings (SCRIP HEAD)
+kernel	engine	N	insn_total	wall_best_s	note
+json-match	m4-newarm	500	23387012842	(wall refused: box under fleet load, run1/noise row open)	baseline-26.28G_-11pct; first-cut regression owned+corrected in commit
