@@ -1,5 +1,0 @@
-        SUBJ = 'aaaX'
-        SUBJ ? POS(0) ARBNO(LEN(1)) $ OUTPUT FENCE 'X' RPOS(0)          :F(NO6)
-        OUTPUT = 'ok'
-NO6    OUTPUT = 'failed'
-END

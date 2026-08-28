@@ -1,5 +1,0 @@
- S1 = 'BCD'
- S1 FENCE 'C' :S(A)F(B)
-A OUTPUT = 'MATCH' :(END)
-B OUTPUT = 'FAIL'
-END

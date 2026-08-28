@@ -1,5 +1,0 @@
-        SUBJ = 'BlueGold'
-        SUBJ ? POS(0) ARBNO(('Bird' | 'Blue' | LEN(1)) . W) RPOS(0)     :F(NO4)
-        OUTPUT = 'ok W=' W
-NO4
-END

@@ -1,5 +1,0 @@
-     SUBJ = 'ABCBB'
-     SUBJ ? (POS(0) ARBNO('ABC' | 'AB' | 'A') 'CBB' RPOS(0))  :F(FAILED)
-     OUTPUT = 'Success!'                                      :(END)
-FAILED OUTPUT = 'Failure.'
-END

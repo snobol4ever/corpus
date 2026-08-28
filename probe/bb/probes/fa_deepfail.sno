@@ -1,7 +1,0 @@
-        I = 0
-LOOP    I = LT(I,500000) I + 1     :F(DONE)
-        X = GT(I,900000) 'never'   :S(BAD)
-        :(LOOP)
-BAD     OUTPUT = 'bad'             :(END)
-DONE    OUTPUT = 'done ' I
-END

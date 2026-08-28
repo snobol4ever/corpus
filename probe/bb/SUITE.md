@@ -1,27 +1,29 @@
-# BB PROBE SUITE — 161 SNOBOL4 probes with pinned SPITBOL goldens
+# BB PROBE SUITE — 166 SNOBOL4 probes with pinned SPITBOL goldens
+
+⭐ **CONVERTED TO SUITE FORMAT 2026-08-28** (probe-consolidate-bb, LON-20260828 total conversion): the
+166 probes described below now live as one suite pair, `corpus/tests/snobol4/probe/bb_probes.sno`/`.ref`
+(harness `SCRIP/scripts/corpus_suite_harness.py`), byte-equal-or-no-delete proven both directions, both
+modes, against every one of the 166 loose files this doc used to describe. `gen_probes.py`,
+`gen_probes_fence.py`, `run_suite.sh`, `mkrefs.sh`, `XFAIL.run`, `XFAIL.compile` retired with their
+subject (the loose `probes/` directory); grade the suite with the harness directly:
+`python3 SCRIP/scripts/corpus_suite_harness.py run corpus/tests/snobol4/probe/bb_probes.sno corpus/tests/snobol4/probe/bb_probes.ref`.
+`bb_witness_ladder.sh` is unaffected (self-contained, no probes/ dependency) and still lives beside this
+file. The rest of this document (contrast pairs, hardening rules, per-probe analysis) describes what each
+probe TESTS and is unchanged by the move — only the "Run it" / "Baseline" sections below are retired.
+
+⭐ **BASELINE RE-VERIFIED LIVE 2026-08-28, NOT the historical "46 xfail" below**: on a pristine build at
+today's HEAD, all 166 entries **PASS** in both m3 and m4 — 0 xfail, 0 regression. The FENCE1/ARBNO-crash
+defects this document was written around (H01, the 31 correct-output-then-crash class, etc.) have since
+been fixed; `XFAIL.run`/`XFAIL.compile` were already empty on disk before this conversion, which is what
+prompted the re-check (`.github/FINDING-2026-08-27-seat05-probe-bb-is-not-consolidation-material-...md`
+flagged the "46 xfail" prose as stale-and-unconfirmed; this conversion is the confirmation). The rest of
+this document's per-probe analysis (H01's FENCE1-as-FENCE0 routing, the three failure classes, etc.) is
+kept as historical record of what was found and fixed, not as a current-defect list.
 
 ```
-probes/<ID>.sno      the probe                      161
-probes/<ID>.ref      SPITBOL golden (sbl -b)        161
-gen_probes.py        regenerates families L A N X D F
-gen_probes_fence.py  regenerates families G H
-mkrefs.sh            regenerate / --verify the goldens
-run_suite.sh         THE GATE — SCRIP vs .ref, XFAIL baseline
-XFAIL.run            known-failing baseline, mode-3
-XFAIL.compile        known-failing baseline, mode-4 (create with BASELINE=1 MODE=compile)
-BB-PROBE-MATRIX.md   every probe with its pattern and oracle output
-```
-
-## Run it
-
-```bash
-bash mkrefs.sh --verify        # goldens still match live sbl?      exit 1 on drift
-bash run_suite.sh              # the gate                           exit 1 on regression
-bash run_suite.sh H            # one family
-bash run_suite.sh H01          # one probe
-MODE=compile bash run_suite.sh # mode-4 instead of mode-3
-XFAIL=/dev/null bash run_suite.sh   # raw state, baseline ignored
-BASELINE=1 bash run_suite.sh   # re-cut the baseline (do this deliberately, never casually)
+tests/snobol4/probe/bb_probes.sno   the 166 probes, suite format   (formerly probes/<ID>.sno)
+tests/snobol4/probe/bb_probes.ref   SPITBOL goldens (sbl -b)       (formerly probes/<ID>.ref)
+BB-PROBE-MATRIX.md   every probe with its pattern and oracle output (this directory, unmoved)
 ```
 
 ## Why a pinned golden is legitimate here, unlike the `.s` artifacts
@@ -63,16 +65,13 @@ print — and this is not hypothetical: the nine-row `bb_witness_ladder.sh` repo
 corrupted stack is never used. The same pattern with one trailing statement (`N07`) aborts with
 `*** stack smashing detected ***`, 5/5.
 
-## Self-tests (re-run after editing either script)
+## Self-tests (retired 2026-08-28 with run_suite.sh/mkrefs.sh, see header note)
 
-```bash
-XFAIL=/dev/null bash run_suite.sh H0 ; echo $?   # -> 1   baseline ignored, regressions reported
-printf 'BOGUS\n' > probes/A01.ref
-bash run_suite.sh A01              ; echo $?     # -> 1   corrupted golden caught
-bash mkrefs.sh --verify            ; echo $?     # -> 1   drift caught
-bash mkrefs.sh                                   # restores A01.ref from the oracle
-bash mkrefs.sh --verify            ; echo $?     # -> 0
-```
+The self-test sequence this section described (deliberately corrupt `probes/A01.ref`, confirm
+`run_suite.sh`/`mkrefs.sh --verify` both catch it, restore) exercised the two retired scripts directly and
+has no suite-format equivalent — `corpus_suite_harness.py run` grades a static, already-trusted `.ref`; it
+does not independently re-derive one from the oracle the way `mkrefs.sh --verify` did. If that
+drift-detection capability is needed again, it belongs in the harness as a new command, not reinvented here.
 
 ## Baseline at the time of writing
 

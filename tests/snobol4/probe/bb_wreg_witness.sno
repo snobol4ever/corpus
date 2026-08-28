@@ -1,0 +1,1 @@
+ N = 2; P = LEN(*N) . X; S = 'ab'; S ? P :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* W01_stored_pattern_defer_len_capture

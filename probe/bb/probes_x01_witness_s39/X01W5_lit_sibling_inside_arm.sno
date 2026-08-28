@@ -1,6 +1,0 @@
-        SUBJ = 'ax'
-        SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) 'x') RPOS(0)                                :F(NO)
-        OUTPUT = '=S'                                   :(EN)
-NO      OUTPUT = '=F'
-EN
-END

@@ -1,0 +1,34 @@
+ SUBJ = 'BlueGold'; SUBJ ? POS(0) ARBNO(('Bird' | 'Blue' | LEN(1)) . W) RPOS(0) :F(NO4); OUTPUT = 'ok W=' W;NO4;END;* c4
+ SUBJ = 'BirdX'; SUBJ ? POS(0) ARBNO(('Bird' | 'Blue' | LEN(1)) . W) RPOS(0) :F(N); OUTPUT = 'ok W=' W;N;END;* c4b
+ SUBJ = '12ab34'; SUBJ ? POS(0) ARBNO(SPAN('0123456789') | LEN(1)) $ OUTPUT RPOS(0);END;* c5
+ SUBJ = 'aaaX'; SUBJ ? POS(0) ARBNO(LEN(1)) $ OUTPUT FENCE 'X' RPOS(0) :F(NO6); OUTPUT = 'ok';NO6 OUTPUT = 'failed';END;* c6
+ P = LEN(1); SUBJ = 'abc'; SUBJ ? POS(0) ARBNO(*P) $ OUTPUT RPOS(0) :F(NO7); OUTPUT = 'ok';NO7;END;* c7
+*-------------------------------------------------------------------------- 6 f1
+        X = '<unset>'
+        'ab' ? ('a' . X) FENCE 'z'                      :S(S1)
+        OUTPUT = 'match FAILED, X=' X :(N1)
+S1     OUTPUT = 'match ok, X=' X
+N1
+        Y = '<unset>'
+        'ab' ? ('a' . Y) FENCE 'b'                      :S(S2)F(N2)
+S2     OUTPUT = 'match ok, Y=' Y
+N2
+END
+ SUBJ = 'BlueGoldBirdFish'; SUBJ ? (POS(0) ARBNO('Bird' | 'Blue' | LEN(1)) $ OUTPUT RPOS(0)) $ OUTPUT;END;* t1
+ SUBJ = 'ABB'; SUBJ ? (POS(0) ARBNO('ABC' | 'AB' | 'A') 'BB' RPOS(0)) :F(FAILED); OUTPUT = 'Success!' :(END);FAILED OUTPUT = 'Failure.';END;* test_sno_alt_d0
+ SUBJ = 'ABCBB'; SUBJ ? (POS(0) ARBNO('ABC' | 'AB' | 'A') 'CBB' RPOS(0)) :F(FAILED); OUTPUT = 'Success!' :(END);FAILED OUTPUT = 'Failure.';END;* test_sno_alt_d5
+ DEFINE('DOUBLE(X)') :(D.END);DOUBLE DOUBLE = X + X :(RETURN);D.END; OUTPUT = DOUBLE(2) + DOUBLE(3); OUTPUT = DOUBLE(21);END;* test_sno_call2bb_1
+ DEFINE('FIB(N)') :(FIB.END);FIB FIB = LT(N,2) N :S(RETURN); FIB = FIB(N - 1) + FIB(N - 2) :(RETURN);FIB.END; OUTPUT = FIB(10); OUTPUT = FIB(1);END;* test_sno_call2bb_2
+ DEFINE('ADD3(N)') :(MAIN);ADD3 ADD3 = N + 3 :(RETURN);MAIN OUTPUT = ADD3(4 * 2) + 1;END;* test_sno_stmt_frame_1
+*------------------------------------------------------ 13 test_sno_stmt_frame_2
+        DEFINE('FACT(N)')             :(MAIN1)
+FACT    LE(N,1)                       :F(RECURSE)
+        FACT = 1                      :(RETURN)
+RECURSE FACT = N * FACT(N - 1)        :(RETURN)
+MAIN1   DEFINE('NOPE()')              :(MAIN)
+NOPE                                  :(FRETURN)
+MAIN    OUTPUT = FACT(5)
+        OUTPUT = NOPE()
+        OUTPUT = 7
+END
+ X = 1 + 2; Y = X * 4; OUTPUT = Y - 2;END;* test_sno_stmt_frame_3

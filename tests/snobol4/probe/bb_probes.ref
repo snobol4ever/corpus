@@ -1,0 +1,185 @@
+=S
+ab\n=S
+ab\n=S
+xy\n=S
+=S\nW=xy
+=S\nW=xy
+AB\nA\n=S
+A\nAX\n=S
+A\nAX\nAXY\n=S
+=F
+pq\n=S
+abcd\n=S
+a\nab\n=S
+=S\nP=ab
+=S\nP=ab\nQ=cd
+=S
+a\n=S
+a\n=S
+xy\n=S
+abcd\n=S
+a\n=S\nabc
+abc\n=S
+=S\nN=12\nFIELD=ABCDEFGHIJKL
+\na\nab\nabc\n=S
+=S\nW=c
+\nBlue\nBlueBird\n=S
+=S
+=F
+=F
+\n=F
+=F\nX=<unset>
+=S\nY=a
+a\n=F
+=S
+=S
+=F
+=F
+=S
+=S
+=S
+=F
+=S
+=S
+=S
+=S
+=S
+=S
+=F
+=S
+\n=F
+a\n=F
+abcd\n=S
+abcd\n=S
+=S
+=S
+=S
+=F\nW=<unset>
+ab\n=F
+=S
+=S
+=S
+UNT
+=S
+=S
+=S
+=S
+=S
+=F
+=S
+=F
+=S
+\n=F
+=S
+\nBlue\nBlueBird\n=S
+\nBlue\nBlueBird\n=S
+=S\nW=ab
+ab\n=S
+=S\nW=ab
+ab\n=S
+=S
+=S
+=S
+\nBlue\nBlueBird\n=S
+abcd\n=S
+=S\nW=abcd
+=S
+=S
+ab\n=F
+=F\nW=<unset>
+=S
+ab\n=S
+=S
+*------------------------------------------------------------------------ 93 H31
+k=age s= n=42 b=
+=S
+ab\n=S
+ab\n=S
+=S
+ab\n=S
+ab\n=S
+cd\n=S
+ab\ncd\n=S
+=S
+abcd\n=S
+abcd\n=S
+abcd\n=S
+=S\nA=ab\nB=abcd
+=S\nA=ab\nB=abcd
+=S\nP=0,2,4
+ab\nbc\ncd\n=F
+=F\nW=<unset>
+ab\n=S
+aabb\n=S
+abc\n=S
+=S
+=S
+a\nb\nc\nd\n=S
+=S\nW=d
+\na\nab\nabc\nabcd\n=S
+=S\nW=abcd
+\n=S
+abcd\n=S
+=S\nW=abcd
+=S
+=S
+\n12\n12a\n12ab\n12ab34\n=S
+a\nb\nc\nd\n=F
+=F\nW=<unset>
+\nBlue\nBlueG\nBlueGo\nBlueGol\nBlueGold\nBlueGoldBird\nBlueGoldBirdF\nBlueGoldBirdFi\nBlueGoldBirdFis\nBlueGoldBirdFish\n=S
+\nBlue\nBlueG\nBlueGo\nBlueGol\nBlueGold\nBlueGoldBird\nBlueGoldBirdF\nBlueGoldBirdFi\nBlueGoldBirdFis\nBlueGoldBirdFish\nBlueGoldBirdFish\n=S
+=S\nW=d
+=S\nC=2
+\nab\nabab\nababab\n=S
+=S\nW=ab
+\n\na\n\naa\n\nb\nbb\n=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+=S
+a\nb\nc\n=S
+(ab)\n(c)\n=S
+*----------------------------------------------------------------------- 151 X05
+=S
+I=c
+O=(c)
+=F
+=S
+=F
+=S
+=F
+=S\nG=c
+OK\nAFTER
+d: FAIL
+done 500000
+step 2\nstep 3\nstep 4\nstep 5\nfinal 5
+*--------------------------------------------------------------- 162 fence_probe
+T1-plain: MATCH
+T1-fence: FAIL
+T2-plain: MATCH
+T2-fence: FAIL
+T3-plain: MATCH
+T3-fence: FAIL
+T4-plain: MATCH
+T4-fence: MATCH
+T5-plain: MATCH
+T5-fence: MATCH
+T6-plain: MATCH
+T6-fence: FAIL
+T7-fence: MATCH C1=a C2=bc
+T8-fence: MATCH
+FAIL
+f1\nf2
+t6m FAIL
+*----------------------------------------------------- 166 zleak_matchbegin_stfh
+r: 3000000

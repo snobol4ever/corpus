@@ -1,8 +1,0 @@
- S1 = 'BCD'
- S1 FENCE 'C' :S(A1)F(B1)
-A1 OUTPUT = 'm1' :(N2)
-B1 OUTPUT = 'f1'
-N2 S1 FENCE 'C' :S(A2)F(B2)
-A2 OUTPUT = 'm2' :(END)
-B2 OUTPUT = 'f2'
-END

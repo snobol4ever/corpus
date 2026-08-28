@@ -1,5 +1,0 @@
- S = ','
- S FENCE(BREAK(',')) *DIFFER(X)  :S(A)F(B)
-A OUTPUT = 'd: MATCH' :(END)
-B OUTPUT = 'd: FAIL'
-END

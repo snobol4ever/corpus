@@ -1,0 +1,7 @@
+ SUBJ = 'a'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W1_bare_nested
+ SUBJ = 'ab'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W2_bare_nested_2char
+ SUBJ = 'xa'; SUBJ ? POS(0) 'x' ARBNO(ARBNO(LEN(1))) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W3_lit_prefix_outside
+ SUBJ = 'ax'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1))) 'x' RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W4_lit_suffix_outside
+ SUBJ = 'ax'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) 'x') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W5_lit_sibling_inside_arm
+ SUBJ = 'aa'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) '') RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W6_null_lit_sibling_inside
+ SUBJ = 'aa'; SUBJ ? POS(0) ARBNO(ARBNO(LEN(1)) LEN(0)) RPOS(0) :F(NO); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* X01W7_len0_sibling_inside
