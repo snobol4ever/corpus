@@ -1122,7 +1122,19 @@ n82_match_defer_α:      mov              r11, 75
                         mov              edx, r14d
                         add              edx, 1;                              jmp   .Lmain_α_287_0
 .Lmain_α_287_31:        mov              edx, -1;                             jmp   .Lmain_α_287_0
-.Lmain_α_287_30:        push             r14
+.Lmain_α_287_30:        lea              rsi, [rip + g_sno_defer_cells+16384]
+                        lea              rdi, [rip + .S1]
+                        mov              rcx, qword ptr [rsi + 0]
+                        cmp              rcx, rdi;                            jne   .Lmain_α_287_22
+                        mov              rcx, qword ptr [rsi + 8]
+                        test             rcx, rcx;                            je    .Lmain_α_287_22
+                        mov              rax, qword ptr [rcx + 0]
+                        cmp              al, 8;                               jne   .Lmain_α_287_22
+                        mov              rdx, qword ptr [rcx + 8]
+                        test             rdx, rdx;                            je    .Lmain_α_287_22
+                        mov              rax, qword ptr [rdx + 0]
+                        test             rax, rax;                            jne   .Lmain_α_287_23
+.Lmain_α_287_22:        push             r14
                         push             r15
                         push             r13
                         sub              rsp, 8
@@ -1141,7 +1153,7 @@ n82_match_defer_α:      mov              r11, 75
                         pop              r13
                         pop              r15
                         pop              r14
-                        test             rax, rax;                            jz    .Lmain_α_287_0
+.Lmain_α_287_23:        test             rax, rax;                            jz    .Lmain_α_287_0
                         mov              r8d, 1
                         lea              rcx, [rip + .Lmain_α_287_5]
                         push             rcx
