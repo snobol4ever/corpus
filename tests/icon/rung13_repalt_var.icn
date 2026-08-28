@@ -1,4 +1,0 @@
-procedure main();
-  x := 5;
-  every write(|x \ 3);
-end
