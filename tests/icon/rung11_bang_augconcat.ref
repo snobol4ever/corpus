@@ -1,0 +1,12 @@
+#--------------------------------------------- 1 rung11_bang_augconcat_augconcat
+hello world
+#--------------------------------------- 2 rung11_bang_augconcat_augconcat_chain
+foo-bar
+#---------------------------------------- 3 rung11_bang_augconcat_augconcat_loop
+hello
+#------------------------------------------- 4 rung11_bang_augconcat_bang_concat
+xy
+#---------------------------------------------- 5 rung11_bang_augconcat_bang_str
+a
+b
+c

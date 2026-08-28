@@ -1,0 +1,33 @@
+#--------------------------------------------- 1 rung11_bang_augconcat_augconcat
+procedure main();
+  s := "hello";
+  s ||:= " world";
+  write(s);
+end
+#--------------------------------------- 2 rung11_bang_augconcat_augconcat_chain
+procedure main();
+  a := "foo";
+  b := "bar";
+  a ||:= "-";
+  a ||:= b;
+  write(a);
+end
+#---------------------------------------- 3 rung11_bang_augconcat_augconcat_loop
+procedure main();
+  s := "he";
+  s ||:= "ll";
+  s ||:= "o";
+  write(s);
+end
+#------------------------------------------- 4 rung11_bang_augconcat_bang_concat
+procedure main();
+  s := "xy";
+  result := "";
+  every result ||:= !s;
+  write(result);
+end
+#---------------------------------------------- 5 rung11_bang_augconcat_bang_str
+procedure main();
+  s := "abc";
+  every write(!s);
+end
