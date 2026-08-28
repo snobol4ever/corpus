@@ -1,1 +1,1 @@
-(STMT :subj (TT_VAR x) :pat (TT_SEQ (TT_QLIT "a") (TT_QLIT "b") (TT_QLIT "c")))
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_SEQ (TT_SEQ (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c"))))

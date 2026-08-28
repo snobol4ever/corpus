@@ -1,4 +1,1 @@
-(STMT :eq :subj (TT_VAR x) :repl (TT_ADD
-  (TT_VAR x)
-  (TT_ILIT 1)
-))
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 1)))

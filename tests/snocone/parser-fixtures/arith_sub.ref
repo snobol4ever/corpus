@@ -1,1 +1,1 @@
-(STMT :eq :subj (TT_VAR x) :repl (TT_SUB (TT_VAR a) (TT_ILIT 3)))
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_VAR a) (TT_ILIT 3))))

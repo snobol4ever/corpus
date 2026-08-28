@@ -1,4 +1,4 @@
-(STMT :eq :subj (TT_VAR x) :repl (TT_ILIT 42))
-(STMT :eq :subj (TT_VAR y) :repl (TT_QLIT "hello"))
-(STMT :eq :subj (TT_VAR z) :repl (TT_VAR x))
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 42)))
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_QLIT "hello")))
+(STMT :subj (TT_ASSIGN (TT_VAR z) (TT_VAR x)))
 (STMT :subj (TT_VAR w))

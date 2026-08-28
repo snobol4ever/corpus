@@ -1,1 +1,1 @@
-(STMT :eq :subj (TT_VAR y) :repl (TT_SCAN (TT_VAR x) (TT_QLIT "foo")))
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_SCAN (TT_VAR x) (TT_QLIT "foo"))))
