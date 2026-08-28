@@ -1,5 +1,5 @@
-while (x == 1) {
-    while (y == 2) {
+while (EQ(x, 1)) {
+    while (EQ(y, 2)) {
         break;
     }
 }

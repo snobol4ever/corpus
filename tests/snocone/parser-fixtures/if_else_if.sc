@@ -1,1 +1,1 @@
-if (x == 1) { y = 2; } else if (x == 3) { y = 4; }
+if (EQ(x, 1)) { y = 2; } else if (EQ(x, 3)) { y = 4; }

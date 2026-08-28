@@ -1,3 +1,3 @@
-while (x == 1) {
+while (EQ(x, 1)) {
     break;
 }
