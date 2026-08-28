@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung64_char_io
 :- initialization(main).
 main :-
     put_code(0'A), put_code(user_output, 0'B), put_char(c), nl,
