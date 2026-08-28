@@ -1,0 +1,10 @@
+# perf-attribution TSV -- 2026-08-28 seat01 -- calculator-1/2-match remainder attributed + rt_dfx_push inline cure + PLT lever refuted (SCRIP HEAD, task perf-calc-match-remainder-dig)
+kernel	engine	N	insn_total	wall_best_s	note
+calculator-1-match	m4-before	64	47641135618	(wall refused: shared box, concurrent fleet load measured this session)	baseline; rt_dfx_push not yet inlined; fixture corpus/demo/snobol4/calculator/calculator-1-match.sno
+calculator-1-match	m4-static-noplt	64	47640119930	(wall refused: shared box, concurrent fleet load measured this session)	PLT-elimination experiment, private static link vs out/rt_pic-*/*.o, no shared-file change; Delta -0.0021% insn vs m4-before -- REFUTES ARCH-PERF-TOOLING.md lever 4 for this workload
+calculator-1-match	m4-after	64	47634166331	(wall refused: shared box, concurrent fleet load measured this session)	after rt_dfx_push always_inline cure; Delta -0.0146% insn vs m4-before; answer matched bytes=32512 unchanged
+calculator-1-match	sbl-clean	64	20464578734	2.29	spitbol-bench-oracle/sbl -bf -d512m -i64m -s256m, clean oracle reference; same fixture; Ir multiple vs m4-after = 0.4296x
+calculator-2-match	m4-before	1024	8017228822	(wall refused: shared box, concurrent fleet load measured this session)	baseline; rt_dfx_push not yet inlined; fixture corpus/demo/snobol4/calculator/calculator-2-match.sno
+calculator-2-match	m4-static-noplt	1024	7986234040	(wall refused: shared box, concurrent fleet load measured this session)	PLT-elimination experiment, private static link vs out/rt_pic-*/*.o, no shared-file change; Delta -0.3866% insn vs m4-before -- REFUTES ARCH-PERF-TOOLING.md lever 4 for this workload
+calculator-2-match	m4-after	1024	7941528724	(wall refused: shared box, concurrent fleet load measured this session)	after rt_dfx_push always_inline cure; Delta -0.9440% insn vs m4-before; answer matched bytes=32512 unchanged
+calculator-2-match	sbl-clean	1024	2833235505	0.46	spitbol-bench-oracle/sbl -bf -d512m -i64m -s256m, clean oracle reference; same fixture; Ir multiple vs m4-after = 0.3567x
