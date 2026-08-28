@@ -1,0 +1,48 @@
+# perf-attribution TSV -- 2026-08-28 seat02 -- row m4-static-link-arm: STATIC vs shared m4 link, all 21 sanctioned demos
+# instrument: tools/bench_rusage (external wait4 rusage, single sample, best-of-1 -- this is a correctness+footprint sweep, not a timing watermark); RT_OPT=-O0
+# static arm = gcc -no-pie -static + out/libscrip_rt.a (row m4-static-link-arm, opt-in); shared arm = gcc -no-pie -lscrip_rt against out/libscrip_rt.so (canonical, UNCHANGED by this row)
+# check column: byte-diff of the binary's stdout against the demo's committed .ref (BENCHMARK=TEST law) -- MATCH or MISMATCH, never assumed. static rows also verified genuinely static via ldd (control-arm-trap check, FINDING f4f6292c)
+# SCRIP tree ddb86a93 -- never re-run wholesale, append a new dated file when the tree moves
+demo	arm	size_bytes	maxrss_kb	minflt	majflt	cpu_ms	check
+roman	shared	31312	12592	855	0	6.76	MATCH
+roman	static	29790520	3872	452	0	3.64	MATCH
+wordcount	shared	24904	10216	849	0	6.92	MATCH
+wordcount	static	29784072	3552	405	0	3.03	MATCH
+claws5	shared	41768	14964	891	0	7.12	MATCH
+claws5	static	29800680	5992	438	0	3.19	MATCH
+treebank	shared	131744	16440	1215	0	12.91	MATCH
+treebank	static	29894224	9548	778	0	8.60	MATCH
+arithmetic	shared	18112	9172	639	0	5.43	MATCH
+arithmetic	static	29782104	2400	212	0	2.83	MATCH
+counter	shared	17552	9160	639	0	4.33	MATCH
+counter	static	29781568	2400	215	0	2.38	MATCH
+hello	shared	16328	9032	634	0	5.19	MATCH
+hello	static	29776472	2328	207	0	2.02	MATCH
+pattern_test	shared	17640	9768	801	0	5.76	MATCH
+pattern_test	static	29781552	3168	379	0	2.42	MATCH
+calculator-1	shared	85320	34148	4169	0	33.67	MATCH
+calculator-1	static	29847952	23364	3734	0	31.57	MATCH
+calculator-1-match	shared	41216	24192	3227	0	222.69	MATCH
+calculator-1-match	static	29804592	15080	2788	0	228.52	MATCH
+calculator-1-match-fence	shared	41224	16376	1305	0	55.89	MATCH
+calculator-1-match-fence	static	29804600	7520	855	0	40.03	MATCH
+calculator-2	shared	87608	33012	3322	0	29.46	MATCH
+calculator-2	static	29850144	24052	2887	0	31.74	MATCH
+calculator-2-match	shared	35776	22196	2730	0	15.71	MATCH
+calculator-2-match	static	29799152	13236	2286	0	11.32	MATCH
+calculator-2-match-fence	shared	35784	20604	2335	0	13.06	MATCH
+calculator-2-match-fence	static	29799160	11652	1891	0	10.83	MATCH
+claws5-match	shared	26600	12516	855	0	6.39	MATCH
+claws5-match	static	29786224	5904	423	0	2.90	MATCH
+claws5-match-fence	shared	25008	12572	874	0	6.37	MATCH
+claws5-match-fence	static	29784544	5908	425	0	2.65	MATCH
+json	shared	256448	24060	3125	0	14.58	MATCH
+json	static	30010416	15092	2675	0	10.70	MATCH
+json-match	shared	57896	14652	1030	0	11.52	MATCH
+json-match	static	29821328	8160	587	0	8.69	MATCH
+json-match-fence	shared	59128	14764	1034	0	12.98	MATCH
+json-match-fence	static	29822552	8156	585	0	10.13	MATCH
+treebank-match	shared	27904	12732	879	0	6.36	MATCH
+treebank-match	static	29791280	5928	433	0	2.54	MATCH
+treebank-match-fence	shared	28232	12692	876	0	5.70	MATCH
+treebank-match-fence	static	29791608	5920	427	0	3.20	MATCH
