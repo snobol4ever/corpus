@@ -1,0 +1,12 @@
+#---------------------------------------------- 1 rung34_null_test_nonnull_fails
+no
+#------------------------------------------- 2 rung34_null_test_nonnull_in_every
+1
+2
+3
+#------------------------------------------- 3 rung34_null_test_nonnull_succeeds
+3
+#------------------------------------------------- 4 rung34_null_test_null_fails
+no
+#---------------------------------------------- 5 rung34_null_test_null_succeeds
+ok
