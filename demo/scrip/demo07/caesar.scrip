@@ -16,11 +16,11 @@ END
 # SCRIP DEMO7 -- ROT13 cipher (Icon section)
 # Idiom: map() with two parallel alphabet strings
 procedure main()
-    plain := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    rot13 := "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
-    s := "Hello, World!"
-    write(map(s, plain, rot13))
-    write(map(map(s, plain, rot13), plain, rot13))
+    plain := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    rot13 := "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+    s := "Hello, World!";
+    write(map(s, plain, rot13));
+    write(map(map(s, plain, rot13), plain, rot13));
 end
 ```
 

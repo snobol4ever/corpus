@@ -35,26 +35,26 @@ END
 # Idiom: insertion sort via list subscript shifts
 procedure isort(a)
     every i := 2 to *a do {
-        v := a[i]
-        j := i - 1
+        v := a[i];
+        j := i - 1;
         while j >= 1 & a[j] > v do {
-            a[j + 1] := a[j]
-            j -:= 1
-        }
-        a[j + 1] := v
-    }
-    return a
+            a[j + 1] := a[j];
+            j -:= 1;
+        };
+        a[j + 1] := v;
+    };
+    return a;
 end
 
 procedure main()
-    a := [5, 3, 8, 1, 9, 2, 7, 4]
-    isort(a)
-    out := ""
+    a := [5, 3, 8, 1, 9, 2, 7, 4];
+    isort(a);
+    out := "";
     every x := !a do {
-        if *out > 0 then out ||:= " "
-        out ||:= x
-    }
-    write(out)
+        if *out > 0 then out ||:= " ";
+        out ||:= x;
+    };
+    write(out);
 end
 ```
 

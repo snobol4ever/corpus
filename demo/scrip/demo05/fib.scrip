@@ -19,17 +19,17 @@ END
 # SCRIP DEMO5 -- Fibonacci first 10 (Icon section)
 # Idiom: suspend generator produces the sequence lazily
 procedure fibs()
-    a := 0
-    b := 1
+    a := 0;
+    b := 1;
     repeat {
-        suspend a
-        a :=: b
-        b +:= a
-    }
+        suspend a;
+        a :=: b;
+        b +:= a;
+    };
 end
 
 procedure main()
-    every write(fibs() \ 10)
+    every write(fibs() \ 10);
 end
 ```
 

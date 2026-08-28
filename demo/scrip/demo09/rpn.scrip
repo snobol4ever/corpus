@@ -43,28 +43,28 @@ END
 # SCRIP DEMO9 -- RPN calculator (Icon section)
 # Idiom: list as stack; push/pop via put()/pull(); scanning with tab()
 procedure main()
-    expr := "5 1 2 + 4 * + 3 -"
-    tokens := []
+    expr := "5 1 2 + 4 * + 3 -";
+    tokens := [];
     expr ? while not pos(0) do {
-        tab(many(' ') | &pos)
-        tok := tab(many(&digits)) | move(1)
-        put(tokens, tok)
-    }
-    stack := []
+        tab(many(' ') | &pos);
+        tok := tab(many(&digits)) | move(1);
+        put(tokens, tok);
+    };
+    stack := [];
     every tok := !tokens do {
         if tok == ("+" | "-" | "*" | "/") then {
-            b := pull(stack)
-            a := pull(stack)
+            b := pull(stack);
+            a := pull(stack);
             put(stack, case tok of {
                 "+": a + b
                 "-": a - b
                 "*": a * b
                 "/": a / b
-            })
+            });
         } else
-            put(stack, integer(tok))
-    }
-    write(pull(stack))
+            put(stack, integer(tok));
+    };
+    write(pull(stack));
 end
 ```
 

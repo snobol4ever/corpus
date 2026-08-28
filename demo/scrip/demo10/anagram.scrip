@@ -58,32 +58,32 @@ END
 # SCRIP DEMO10 -- Detect anagrams (Icon section)
 # Idiom: sort string chars as list -> canonical key; table groups by key
 procedure sort_chars(w)
-    chars := []
-    every put(chars, !w)
-    chars := sort(chars)
-    key := ""
-    every key ||:= !chars
-    return key
+    chars := [];
+    every put(chars, !w);
+    chars := sort(chars);
+    key := "";
+    every key ||:= !chars;
+    return key;
 end
 
 procedure main()
-    words := ["eat", "tea", "tan", "ate", "nat", "bat"]
-    t := table()
+    words := ["eat", "tea", "tan", "ate", "nat", "bat"];
+    t := table();
     every w := !words do {
-        key := sort_chars(w)
-        /t[key] := []
-        put(t[key], w)
-    }
+        key := sort_chars(w);
+        /t[key] := [];
+        put(t[key], w);
+    };
     every pair := !sort(t) do {
         if *pair[2] > 1 then {
-            out := ""
+            out := "";
             every w2 := !pair[2] do {
-                if *out > 0 then out ||:= " "
-                out ||:= w2
-            }
-            write(out)
-        }
-    }
+                if *out > 0 then out ||:= " ";
+                out ||:= w2;
+            };
+            write(out);
+        };
+    };
 end
 ```
 
