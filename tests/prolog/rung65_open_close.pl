@@ -1,3 +1,4 @@
+%----------------------------------------------------------- 1 rung65_open_close
 :- initialization(main).
 main :-
     open('/tmp/rung65_scrip.txt', write, S), write(S, hello), nl(S), write(S, world), nl(S), close(S),

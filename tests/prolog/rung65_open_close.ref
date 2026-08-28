@@ -1,3 +1,4 @@
+%----------------------------------------------------------- 1 rung65_open_close
 readback(h,e,108)
 firstchar(h)
 existence_ok
