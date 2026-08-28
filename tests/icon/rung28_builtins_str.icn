@@ -1,0 +1,29 @@
+#------------------------------------------------ 1 rung28_builtins_str_char_ord
+procedure main();
+  write(char(65));
+  write(ord("A"));
+  write(char(ord("z")));
+end
+#----------------------------------------------------- 2 rung28_builtins_str_pad
+procedure main();
+  write(left("hi", 5));
+  write(right("hi", 5));
+  write(center("hi", 6));
+end
+#---------------------------------------------------- 3 rung28_builtins_str_repl
+procedure main();
+  write(repl("ab", 3));
+  write(repl("x", 0));
+  write(repl("-", 4));
+end
+#------------------------------------------------- 4 rung28_builtins_str_reverse
+procedure main();
+  write(reverse("hello"));
+  write(reverse(""));
+  write(reverse("a"));
+end
+#------------------------------------------------ 5 rung28_builtins_str_trim_map
+procedure main();
+  write(trim("  hello  "));
+  write(map("Hello World", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"));
+end
