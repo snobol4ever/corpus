@@ -1,0 +1,6 @@
+%--------------------------------------------------------- 1 rung59_prolog_flags
+true
+has_dq
+codes
+ro_protected
+dom_checked

@@ -1,3 +1,4 @@
+%--------------------------------------------------------- 1 rung59_prolog_flags
 :- initialization(main).
 main :-
     current_prolog_flag(bounded, B), write(B), nl,
