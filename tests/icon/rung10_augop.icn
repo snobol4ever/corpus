@@ -1,0 +1,37 @@
+#-------------------------------------------------------- 1 rung10_augop_augplus
+procedure main();
+  x := 0;
+  x +:= 5;
+  x +:= 3;
+  write(x);
+end
+#-------------------------------------------------------- 2 rung10_augop_augstar
+procedure main();
+  x := 3;
+  x *:= 4;
+  write(x);
+end
+#----------------------------------------------------- 3 rung10_augop_augsub_mod
+procedure main();
+  x := 20;
+  x -:= 5;
+  write(x);
+  x %:= 7;
+  write(x);
+end
+#--------------------------------------------------- 4 rung10_augop_break_repeat
+# rung10 t03: augmented add accumulator via every
+procedure main();
+  local sum;
+  sum := 0;
+  every sum +:= (1 to 5);
+  write(sum);
+end
+#---------------------------------------------------- 5 rung10_augop_break_while
+# rung10 t04: augmented divide
+procedure main();
+  local x;
+  x := 100;
+  x /:= 4;
+  write(x);
+end
