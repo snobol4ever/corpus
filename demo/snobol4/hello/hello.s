@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "/home/claude_P/corpus/demo/snobol4/hello/hello.sno"
+                        .file            2 "<included>"
                         .globl           main
 main:
                         sub              rsp, 8
@@ -18,6 +20,7 @@ n0_statement_begin_bx:
 #=======================================================================================================================
 #         OUTPUT = 'hello'
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 2 0
 n0_statement_begin_α:   mov              r11, 1
                         mov              r10, 1;                              jmp   n1_lit_string_α
 n0_statement_begin_β:   mov              r11, 1;                              jmp   main_γ
