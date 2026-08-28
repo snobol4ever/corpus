@@ -1,3 +1,4 @@
+%------------------------------------------------------------ 1 rung81_neq_unify
 main :-
     ( a \= b -> write(t1_differ) ; write(t1_eq) ), nl,
     ( a \= a -> write(t2_differ) ; write(t2_eq) ), nl,
