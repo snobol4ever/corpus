@@ -1,0 +1,27 @@
+#----------------------------------------------------- 1 rung08_strbuiltins_find
+# rung08 t01: find(s1,s2) — one-shot first match
+procedure main();
+  write(find("b","abc"));
+  write(find("lo","hello"));
+end
+#------------------------------------------------- 2 rung08_strbuiltins_find_gen
+# rung08 t02: find() as generator — every occurrence
+procedure main();
+  every write(find("a","banana"));
+end
+#---------------------------------------------------- 3 rung08_strbuiltins_match
+# rung08 t03: match(s) — match at current scan pos
+procedure main();
+  "hello" ? write(match("hel"));
+  "world" ? write(match("xyz") | 0);
+end
+#----------------------------------------------------- 4 rung08_strbuiltins_move
+# rung08 t05: move(n) — advance by n
+procedure main();
+  "abcdef" ? write(move(3));
+end
+#------------------------------------------------------ 5 rung08_strbuiltins_tab
+# rung08 t04: tab(n) — scanned substring
+procedure main();
+  "abcdef" ? write(tab(4));
+end
