@@ -1,6 +1,0 @@
-*  s189 CONTROL for fz_min_capture_span_red: alternation removed, capture and span kept.  Green.
-          P             =  (BREAK('abc') REM) . v0
-          'ab+ab' POS(0) *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

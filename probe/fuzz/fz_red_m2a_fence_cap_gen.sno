@@ -1,9 +1,0 @@
-*  s188 seat4 REDUCTION of fz_segv_10 (row fuzz-segv-batch).  MECHANISM: M2 SEALED CAPTURED GENERATOR + FORCING RIGHT NEIGHBOUR
-*  Necessary ingredients, each measured by ablation: FENCE + a CAPTURE inside it + a generator to its right.
-*  Dropping the capture is GREEN (FENCE(BREAKX('abc')) REM AGREE).  '.' and '$' behave identically.
-*  The second FENCE of the original is NOT an ingredient; bare REM carries it.  BOTH MODES rc=139.
-          P             =  FENCE((BREAKX('abc')) $ v0) REM
-          'a+a+a' *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

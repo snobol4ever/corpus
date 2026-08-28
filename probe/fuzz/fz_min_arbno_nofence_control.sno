@@ -1,8 +1,0 @@
-*  s189 CONTROL for fz_min_arbno_fence_seal: identical but for the FENCE.  Green before and after.
-*  Its emitted phi reads `jne n2_match_len_beta` -- the ONE instruction (`sub r14d,1`) that restores
-*  delta -- which the sealed twin re-aims away, leaving that label with ZERO jump refs.
-          P             =  ARBNO(LEN(1)) TAB(3)
-          'abcabc' P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

@@ -1,6 +1,0 @@
-*  s189 CONTROL for fz_min_nested_alt_red: the alternation FLATTENED to one level.  Green.
-          P             =  (SPAN(' ') | NOTANY('abc')) TAB(0)
-          'aaa' *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

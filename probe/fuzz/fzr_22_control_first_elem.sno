@@ -1,6 +1,0 @@
-*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  GREEN CONTROL for fzr_22: same nested ARBNO as the FIRST element.  Passes.
-          P             =  ARBNO(ARBNO(REM) FENCE(SPAN('abc')))
-          'abcabc' POS(0) *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

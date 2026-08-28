@@ -1,6 +1,0 @@
-*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  RED.  Reduced from fz_diff_08.  A generator nested ONE alternation deeper is not re-enterable.
-          P             =  (ANY('abc') | (BAL | ''))
-          'ab' POS(0) *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

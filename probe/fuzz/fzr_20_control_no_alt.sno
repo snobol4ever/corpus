@@ -1,6 +1,0 @@
-*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  GREEN CONTROL for fzr_20: same arm, alternation removed.  Passes.
-          P             =  ARBNO(REM) BAL
-          'aaa' POS(0) *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

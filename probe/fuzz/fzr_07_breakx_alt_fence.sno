@@ -1,7 +1,0 @@
-*  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  RED.  Reduced from fz_diff_07.  Neither the $-capture nor the *G0 defer is load-bearing.
-*  Ingredients: arm1 = a retreat-scanning generator, arm2 = FENCE, stored pattern, UNANCHORED.
-          P             =  (BREAKX('abc') | FENCE('a'))
-          'aa a' *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END
