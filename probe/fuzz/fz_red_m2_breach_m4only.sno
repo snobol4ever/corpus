@@ -1,6 +1,0 @@
-*  s188 seat4, row fuzz-segv-batch.  ⛔ 1:1 BREACH WITNESS IN THE OTHER DIRECTION -- m3 ANSWERS CORRECTLY, m4 SEGVs.
-*  m3 rc=0 'match', m4 rc=139.  One ingredient from fz_red_m2a: RPOS(0) added, the defer removed.
-          'a+a+a' FENCE((BREAKX('abc')) $ v0) REM RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

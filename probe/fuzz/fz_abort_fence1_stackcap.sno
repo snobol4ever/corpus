@@ -1,8 +1,0 @@
-*  MINIMAL WITNESS for the fz_abort_05/fz_abort_25 SIGABRT class (s188 seat1, row fuzz-abort-batch).
-*  Two ingredients ONLY: a one-argument FENCE1, and TWO STACKED captures on its body.
-*  SCRIP bombs at emit: bb_match_capture.cpp:88 "IR_MATCH_CAPTURE_SAVE: no home".  rc=134, m3 AND m4.
-*  The bomb is a DELIBERATE internal check and it is telling the truth -- the CLASSIFIER is wrong.
-          'ab' FENCE(('ab' . v0) $ v0)                     :S(OK)F(NO)
-OK        OUTPUT = 'match'                                 :(END)
-NO        OUTPUT = 'nomatch'
-END

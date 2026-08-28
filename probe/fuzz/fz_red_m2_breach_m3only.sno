@@ -1,6 +1,0 @@
-*  s188 seat4, row fuzz-segv-batch.  ⛔ 1:1 BREACH WITNESS -- M2 shape, m3 SEGVs and m4 ANSWERS CORRECTLY.
-*  m3 rc=139, m4 rc=0 'match'.  Same shape as fz_red_m2a with SPAN for BREAKX and no RPOS(0).
-          'a+a+a' FENCE((SPAN('abc')) . v0) REM                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

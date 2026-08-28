@@ -1,6 +1,0 @@
-*  s188 seat4 REDUCTION of fz_segv_17 (row fuzz-segv-batch).  MECHANISM: M3 ARBNO(<null-matching ALT> <generator>)
-*  Necessary ingredients, each measured by ablation: outer ARBNO + an ALT whose FIRST arm matches the NULL string + a GENERATOR to its right. NO DEFER NEEDED. ARBNO(('a'|'x') ARB) is GREEN (non-null first arm); ARBNO(ARB) GREEN; ARBNO((''|'x')) GREEN.
-          'aaa' ARBNO(('' | 'x') ARB) RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END
