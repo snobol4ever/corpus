@@ -1,0 +1,42 @@
+*----------------------------------------------------------------------- 1 cross
+
+SNOBOL
+  B
+  J
+  E
+  C
+  T
+
+   O
+SNOBOL
+   J
+   E
+   C
+   T
+
+SNOBOL
+    B
+    J
+    E
+    C
+    T
+*----------------------------------------------------------------------- 2 word1
+cat
+house
+*----------------------------------------------------------------------- 3 word2
+Watt             invented the  Steam Engine in 1769
+Bell             invented the  Telephone in 1876
+Wright           invented the  Airplane in 1903
+Fleming          invented the  Penicillin in 1928
+*----------------------------------------------------------------------- 4 word3
+Watt invented the Steam Engine in 1769
+Bell invented the Telephone in 1876
+Wright invented the Airplane in 1903
+Fleming invented the Penicillin in 1928
+*----------------------------------------------------------------------- 5 word4
+Watt invented the Steam Engine in 1769
+Bell invented the Telephone in 1876
+Wright invented the Airplane in 1903
+Fleming invented the Penicillin in 1928
+*------------------------------------------------------------------- 6 wordcount
+14 words
