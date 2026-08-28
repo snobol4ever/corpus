@@ -1,3 +1,4 @@
+%------------------------------------------------------- 1 rung62_stream_writers
 :- initialization(main).
 main :-
     writeq(user_output, 'quoted atom'), nl,

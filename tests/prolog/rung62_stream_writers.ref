@@ -1,0 +1,5 @@
+%------------------------------------------------------- 1 rung62_stream_writers
+'quoted atom'
+x=42
+foo(bar)
+done

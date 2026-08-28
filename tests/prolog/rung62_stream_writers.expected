@@ -1,4 +1,0 @@
-'quoted atom'
-x=42
-foo(bar)
-done
