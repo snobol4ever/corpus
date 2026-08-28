@@ -1,3 +1,4 @@
+%------------------------------------------------------- 1 rung69_read_term_from
 :- initialization(main).
 main :-
     read_term_from_atom('foo(x,y,z).', T1, []),
