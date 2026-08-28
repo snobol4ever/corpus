@@ -1,5 +1,15 @@
 # KEEP.md — probe/fuzz
 
+⛔⭐ **This is NOT a permanent-exception claim — that class is voided fleet-wide by Lon's 2026-08-28
+total-conversion ruling (`corpus-crosscheck-probe-total-conversion.task.md`).** These 25 are blocked on
+the SAME named, already-tracked gap hq_C identified blocking `crosscheck/snocone`'s 4 `.xfail` files and
+`coverage_sno_nodes.sno` on that same parent row: **clause (D), xfail/xpass representation** — the suite
+format has no way to record "this entry is expected to CRASH/HANG/FAIL", so `corpus_suite_harness.py
+convert` (`convert_one`) refuses any non-green original by construction (verified by reading the code,
+not assumed). Once (D) lands, re-run this row against the fresh classification below — some of these 25
+may also have healed in the meantime (5 of the original 59 already had, see the fresh-vs-stale note
+below) so re-measure, don't just re-apply this table.
+
 Per `probe-consolidate-fuzz` (parent: `corpus-crosscheck-probe-total-conversion`, methodology inherited
 from `corpus-suites-consolidation`). 34 of the original 59 witnesses are converted into
 `corpus/tests/snobol4/probe/fuzz.{sno,ref}` (all 34 as one-line entries; 0 fell back to the multi-line
