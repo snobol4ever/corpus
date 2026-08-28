@@ -1,6 +1,0 @@
-# paper §2: "lo to hi by step" step variants
-procedure main();
-  every write(1 to 10 by 3);
-  every write(10 to 1 by -3);
-  every write(2 to 2 by 1);
-end
