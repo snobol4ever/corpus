@@ -1,5 +1,0 @@
-procedure main();
-  t := table();
-  insert(t, "only", 99);
-  every v := !t do write(v);
-end

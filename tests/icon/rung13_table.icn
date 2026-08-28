@@ -1,0 +1,42 @@
+#---------------------------------------------------------- 1 rung13_table_basic
+procedure main();
+  t := table();
+  insert(t, "x", 10);
+  insert(t, "y", 20);
+  write(t["x"]);
+  write(t["y"]);
+  write(*t);
+end
+#--------------------------------------------------------- 2 rung13_table_delete
+procedure main()
+  t := table();
+  insert(t, "k1", 1);
+  insert(t, "k2", 2);
+  delete(t, "k1");
+  write(*t);
+  if member(t, "k1") then write("bad"); else write("deleted");
+  write(t["k2"]);
+end
+#-------------------------------------------------------- 3 rung13_table_iterate
+procedure main();
+  t := table();
+  insert(t, "only", 99);
+  every v := !t do write(v);
+end
+#--------------------------------------------------------- 4 rung13_table_member
+procedure main()
+  t := table();
+  insert(t, "a", 42);
+  if member(t, "a") then write("found");
+  if member(t, "b") then write("bad"); else write("absent");
+  write(member(t, "a"));
+end
+#----------------------------------------------- 5 rung13_table_subscript_assign
+procedure main();
+  t := table();
+  t["p"] := 7;
+  t["q"] := 8;
+  write(t["p"]);
+  write(t["q"]);
+  write(*t);
+end
