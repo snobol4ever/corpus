@@ -1,3 +1,4 @@
+%-------------------------------------------------------- 1 rung61_writer_stream
 :- initialization(main).
 main :-
     writeq('hello world'), nl,
