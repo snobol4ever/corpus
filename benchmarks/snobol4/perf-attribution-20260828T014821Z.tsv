@@ -1,0 +1,3 @@
+# perf-attribution TSV -- 2026-08-28 ceo -- json-match on the slice-b tree (SCRIP 69178c73)
+kernel	engine	N	insn_total	note
+json-match	m4	500	23369952455	flat vs pre-slice-b (capture cure does not reach json at this input); residual ~30% = proc-call ceremony (name_save 7.7 + proc_find 6.8 + prologue 4.5 + call_descr 3.6 + memmove 5.7 + alpha 5.2) -- the revived callout row_s number; lambda primitives bypass the mechanism entirely for grammar actions
