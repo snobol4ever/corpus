@@ -72,3 +72,15 @@ width move — neither prints a plain unspecified-width integer that a width bum
   way SCRIP's implementation is not; SCRIP's own answer (15, the correct sum) stays the ref.
   Reproduced directly (`fpc -Miso read3.pas && printf '1 2 3 4 5\n' | ./read3` → `Runtime error
   106`), not a dry-run artifact.
+
+## 5. Suite-entry ref provenance — see `crosscheck/PROVENANCE.md`
+
+The 96 blocks in `crosscheck/` are not all oracle-derived: **91 are, 4 are `ISO-DELEGATED-SCRIP-DEFAULT`
+(real-number formatting, ruled by Lon via CEO-72/CEO-74 2026-08-28), and 1 (`pb:1 pb36`) has no oracle at all.**
+Full provenance, sources and the measured audit: `crosscheck/PROVENANCE.md`.
+
+⛔ **§4 above says the `pb37`/`pb36` enum-write failure is "a real gap in this fpc build's `-Miso` RTL, not a
+SCRIP or ref defect". That characterization is ASSERTED, NOT SOURCED**, and the ISO conformance question is
+open in both directions — see `crosscheck/PROVENANCE.md` and row
+`pascal-writeln-enum-iso-conformance-unresolved`. Do not cite §4 as settled.
+
