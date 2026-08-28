@@ -1,3 +1,4 @@
+%------------------------------------------------------- 1 rung41_ite_nested_ite
 % rung41_ite_nested — if-then-else nested in conjunction/disjunction + bare arrow
 :- initialization(main).
 a(1). a(2). a(3).
