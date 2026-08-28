@@ -50,14 +50,33 @@ general "stack-adjacent memory corruption" shape** — mixed result, not a fix f
 | `fz_red_m4b_blob_defer_fence` | 6× PASS, 2× signal 11 (8 runs) | still non-deterministic (flips PASS↔CRASH) |
 | `fz_segv_24` | 8/8 signal 11 | looks stable at N=8 — **not proven**, see below |
 
-⛔ Two of five now read constant at N=8, but this project's own bar (this ruling's text, verbatim) is
-**N≫12 before concluding either arm is deterministic** — three of the five (`fz_segv_09` at N=18,
-`fz_red_m4a...`, `fz_red_m4b...`) are ALREADY proven non-deterministic at small N, and a fuzz probe
-whose whole purpose is finding a wild memory access is exactly the shape where "8/8 so far" is weak
-evidence, not a green light. **Not chased to a real N here** — this row's job is conversion, not
-individually root-causing five separate memory-safety bugs (a different, larger undertaking, one this
-row has already correctly declined per its own LEDGER's "not this row's call" restraint, now doubly
-true since it would mean debugging live SCRIP defects, not measuring a link-flag question).
+⛔ Two of five read constant at N=8 as of the last update, below this project's own N≫12 bar; three of
+the five (`fz_segv_09` at N=18, `fz_red_m4a...`, `fz_red_m4b...`) were ALREADY proven non-deterministic
+at small N, and a fuzz probe whose whole purpose is finding a wild memory access is exactly the shape
+where "8/8 so far" is weak evidence, not a green light on its own.
+
+⛔⭐ **UPDATE (seat03, 2026-08-28, third pass) — the N≫12 bar is now MET for both, while resending
+seat06's blocked ask to hq_P.** Freshly rebuilt both from scratch (fresh `scrip --compile` → `gcc -c` →
+`gcc` link, current HEAD `e7bdff53`, mirroring `compile_m4()`'s exact steps — see "Re-running this
+classification" below) and ran each **20 more times** (`timeout 5s`, same binary across all 20 runs
+per witness, each run getting its own independent kernel ASLR base exactly like the earlier N=8 pass):
+
+| witness | this pass (N=20) | combined with seat06's N=8 | verdict |
+|---|---|---|---|
+| `fz_red_m1b_arbno_defer_blob` | 20/20 signal 11 | 28/28 signal 11 | **stable at N=28, clears N≫12** |
+| `fz_segv_24` | 20/20 signal 11 | 28/28 signal 11 | **stable at N=28, clears N≫12** |
+
+Unlike `fz_segv_09` (whose flakiness was visible in its very first 5-run sample), 28 consecutive
+identical results across two independently-built binaries is meaningful evidence, not proof — finite
+sampling can never rule out a rare flip. But these two no longer belong in the same "not proven" bucket
+as the other three: they now read as **stable, deterministic SIGSEGV**, separable from the 3 confirmed-
+flaky witnesses. This does not resolve the row (still not this row's call to root-cause or grant a
+standing exception) but it sharpens the fork hq_P is being asked to rule on: any per-witness path
+(individual root-cause child rows) now has 2 likely-tractable single-cause targets and 3 genuinely
+nondeterministic ones, rather than 5 undifferentiated unknowns. **Not chased further here** — this
+row's job is conversion, not individually root-causing five separate memory-safety bugs (a different,
+larger undertaking this row has already correctly declined per its own LEDGER's "not this row's call"
+restraint).
 
 **Where this leaves the row: genuinely stuck, not merely blocked-pending-infrastructure.** The `-no-pie`
 escape hatch is closed for good; the stack-headroom fix helps the DIFFERENT bug class it targeted but
