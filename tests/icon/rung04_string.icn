@@ -1,0 +1,33 @@
+#-------------------------------------------------------- 1 rung04_string_concat
+# rung04 t02: string concatenation of two literals
+procedure main();
+  write("foo" || "bar");
+end
+#-------------------------------------------------- 2 rung04_string_concat_chain
+# rung04 t05: concat chain
+procedure main();
+  local a;
+  local b;
+  a := "hel";
+  b := "lo";
+  write(a || b || "!");
+end
+#----------------------------------------------------- 3 rung04_string_multi_str
+# rung04 t04: multiple string writes
+procedure main();
+  write("one");
+  write("two");
+  write("three");
+end
+#------------------------------------------------------- 4 rung04_string_str_lit
+# rung04 t01: string literal write
+procedure main();
+  write("hello");
+end
+#------------------------------------------------------- 5 rung04_string_str_var
+# rung04 t03: string variable and concat
+procedure main();
+  local s;
+  s := "hello";
+  write(s || " world");
+end
