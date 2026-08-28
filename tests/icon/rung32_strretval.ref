@@ -1,0 +1,14 @@
+#----------------------------------------------- 1 rung32_strretval_basic_strret
+hello world
+#------------------------------------------------------ 2 rung32_strretval_chain
+pre:mid:suf
+#---------------------------------------------- 3 rung32_strretval_strret_assign
+hi!
+bye!
+#----------------------------------------------- 4 rung32_strretval_strret_every
+[a]
+[b]
+[c]
+#--------------------------------------------- 5 rung32_strretval_two_str_params
+foo-bar
+hello-world
