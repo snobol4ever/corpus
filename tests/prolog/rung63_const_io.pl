@@ -1,3 +1,4 @@
+%------------------------------------------------------------- 1 rung63_const_io
 :- initialization(main).
 main :-
     write_to_atom(A1, foo(x,y)), writeq(A1), nl,
