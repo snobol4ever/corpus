@@ -1,3 +1,4 @@
+%--------------------------------------------------------------- 1 rung49_format
 :- initialization(main).
 main :-
     format("~q~n", ['hello world']),
