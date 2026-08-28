@@ -1,0 +1,33 @@
+# perf-attribution TSV -- 2026-08-28 hq_P -- THE TIER-1 DEMO INSTRUMENT WAS BLIND, AND HERE IS BY HOW MUCH
+# SHARED AXES: perf instructions at fixed input; m4; RT_OPT=-O0; SCRIP_NOHUGE=1 SCRIP_HEAP_MB=4096.
+# The A/B arm is the SAME BINARY PAIR in both columns (SCRIP_PATV_FAST=0 vs 1, the s168 PT-3 collapse).
+# ONLY THE INPUT SCALE DIFFERS BETWEEN THE TWO COLUMNS. The instrument was the variable, not the cure.
+#
+# MATCH-PHASE SHARE of total instructions at each demo's COMMITTED (x1) input, from solving
+# I(s) = fixed + s*marginal on two measured points:
+demo	fixed_insn_M	per_copy_insn_M	match_share_at_x1	scale_needed_for_80pct
+calculator-1-match	9.6	750.035	98.7%	1
+calculator-2-match	9.4	21.743	69.8%	2
+treebank-match	9.2	0.066	0.7%	556
+claws5-match_on_claws5.input	9.0	0.026	0.3%	1396
+claws5-match_on_CLAWS5inTASA.dat	8.9	1.715	16.1%	21
+json-match_on_json.input_84B	34.3	0.003	0.0%	41418
+json-match_on_citm_catalog.json	-	-	86%	1 (not replicable -- see below)
+#
+# THE SAME CURE, READ AT THE OLD SCALE AND AT THE NEWLY COMMITTED ONE
+demo	delta_at_committed_x1	delta_at_measured_scale	scale	verdict_change
+treebank-match	-0.75%	-7.75%	1024	noise -> real
+treebank-match-fence	-2.13%	-15.87%	1024	noise -> LARGE
+json-match	+0.51%	-2.64%	1 (citm)	wrong SIGN -> real
+json-match-fence	+0.23%	-2.40%	1 (citm)	wrong SIGN -> real
+claws5-match	-0.29%	-0.85%	32	flat -> flat (now a TRUSTWORTHY true negative)
+claws5-match-fence	-0.54%	+0.00%	32	flat -> flat (now a TRUSTWORTHY true negative)
+calculator-1-match	-30.60%	-30.60%	1	already match-dominated, unchanged
+calculator-1-match-fence	-32.74%	-32.74%	1	already match-dominated, unchanged
+#
+# ⛔ READ THE claws5 ROWS CORRECTLY: they did NOT change, and that is the POINT. Before, "flat" was
+# indistinguishable from "the instrument cannot see anything here"; now it is a measured statement that
+# claws5's match path does not lean on the PATV deferred-group mechanism. A true negative you can trust
+# is a different object from a blind spot that happens to print zero.
+# ⭐ AND THE TWO json ROWS CHANGED SIGN. At the committed 84-byte stub the cure read +0.5%, i.e. a
+# REGRESSION, from a run that was 100.0% pattern compilation and 0.0% matching.

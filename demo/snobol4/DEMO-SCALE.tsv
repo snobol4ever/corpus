@@ -27,3 +27,39 @@ treebank	treebank/treebank.sno	treebank/treebank.input	1024	-d512m -i64m -s256m	
 json	json/json.sno	json/citm_catalog.json	1	-d512m -i64m -s256m	⛔ SCALE IS PINNED AT 1 BY SEMANTICS, NOT BY COST: a JSON document is not concatenable, so this row cannot be scaled at all. 1.7MB real input; the least startup-free row in the set -- label it.
 calculator	calculator/calculator-1.sno	calculator/calculator.input	4	-d512m -i64m -s256m	⛔ CORRECTED 2026-08-27 (hq_P, on hq_C's correction): THE PREVIOUS NOTE HERE WAS FALSE AND IS RETRACTED. It read 'SCALE IS CAPPED BY SCRIP, NOT BY SPITBOL ... SCRIP answers at x4 and emits NOTHING from x8 up, while SPITBOL answers correctly to x64'. That compared a TUNED engine against a DEFAULT one: the harness hands sbl these size flags and hands m3/m4 NONE (run1(), bench_triangulate_demos_snobol4.sh:81-87). MEASURED at matched -s256m: sbl x64, scrip x16 -- a 4x stack-per-frame gap, not a capacity ceiling. scrip --run -s1024m answers x64 with a digest byte-identical to sbl (bd5972b6c876). The -s flag is NOT inert (it raises RLIMIT_STACK, scrip.c:434); the earlier 'inert' reading was a FLAG-ORDER artifact -- -s BEFORE the mode flag dies at the argument parser with "cannot open '--run'". x4 REMAINS THE PUBLISHED SCALE and the x4 row's numbers are unaffected, but the reason is now 'the harness is flag-asymmetric', NOT 'SCRIP cannot go higher'. ⛔ Raising it requires curing that asymmetry first (and m4 is a COMPILED BINARY that -s can never reach -- it needs ulimit -s), then re-pinning all three engines' totals. See FINDING-2026-08-27-hq_P-demo-3angle... § AMENDED IN PLACE.
 beauty	beauty/beauty.sno	beauty/beauty.sno	1	-d512m -i64m -s256m	⛔ NO ORACLE COLUMN, AND NOT FOR THE REASON FIRST RECORDED. Corrected by measurement: with these size flags SPITBOL does NOT fail silently -- it prints its VERSION BANNER ("macro spitbol version 4.0f / x86-64 <date>") in ~4.5 ms and stops, never beautifying anything. So sbl's 215 runs/s is the speed of printing a banner, and its answer digest is not even stable run-to-run because the banner carries a TIMESTAMP. (Bare -bf, no size flags, gives exit=1 and empty output -- what the s264 board saw as ORACLE_FAIL rc=139.) Self-host input: beauty.sno reads itself. m3 alone is ~2.4 s, so no scaling. Report m3/m4 only and NEVER a multiple.
+#
+# ⛔⭐⭐ THE TIER-1 -match / -match-fence TWINS, ADDED 2026-08-28 (hq_P, Lon's demo+pattern campaign).
+# ⛔ UNTIL NOW THIS TABLE HELD FIVE ROWS AND NOT ONE OF THEM WAS A MATCH TWIN -- so the demos Lon
+# named PRIORITY 1 were absent from the sanctioned demo instrument entirely, and every measurement of
+# them was taken by hand, off-board. That is not a coverage gap, it is the reason a MEASURED 1.41x
+# cure (s168 PT-3, treebank-match) could sit shipped-but-disabled for eight days with every board green.
+#
+# ⛔⛔ AND THE SCALE COLUMN IS LOAD-BEARING HERE IN A WAY IT WAS NOT FOR THE BASE FIVE. MEASURED
+# match-phase share of total instructions AT EACH DEMO'S COMMITTED (x1) INPUT, m4 -O0, by solving
+# I(s) = fixed + s*marginal from two measured points:
+#     calculator-1-match  98.7%      <- already match-dominated at x1
+#     calculator-2-match  69.8%
+#     treebank-match       0.7%      <- 99.3% of the work is PATTERN COMPILATION
+#     claws5-match         0.3%  (on claws5.input)      16.1% on CLAWS5inTASA.dat
+#     json-match           0.0%  (on the 84-byte json.input stub)
+# A match-path cure measured on those three at x1 therefore reads as NOISE no matter how large it is.
+# Verified on the arm this file was written beside: the PT-3 collapse moves treebank-match -0.7% at x1
+# and -7.95% at x1000. Same arm, same binary, same program -- the INSTRUMENT was the variable.
+# ⭐ SCALES BELOW ARE CHOSEN FOR >=80% MATCH SHARE, then capped by the 4 MiB record limit every one of
+# these programs declares in its own INPUT() call. claws5 at x32 = 2.14 MB is VERIFIED to run (x64 =
+# 4.27 MB exceeds the cap and dies, exactly as the base claws5 row's note says).
+# ⛔ TWO ROWS DELIBERATELY DO NOT REPLICATE THEIR INPUT: json's twins take citm_catalog.json at x1,
+# because concatenating N JSON documents is not a JSON document -- the FILE CHOICE is the scale axis
+# there, and citm_catalog.json at x1 is already 86% match-dominated (the 84-byte json.input stub is 0%).
+# ⭐ ALL TEN ROWS VERIFIED BEFORE LANDING, by the harness's own correctness signal and not by exit code:
+# scrip m4 and the clean oracle both produce a NON-EMPTY answer and the two AGREE, at the listed scale.
+calculator-1-match	calculator/calculator-1-match.sno	calculator/calculator.input	1	-d512m -i64m -s256m	tier-1; 98.7% match at x1, no scaling needed
+calculator-1-match-fence	calculator/calculator-1-match-fence.sno	calculator/calculator.input	1	-d512m -i64m -s256m	tier-1 fence twin
+calculator-2-match	calculator/calculator-2-match.sno	calculator/calculator.input	4	-d512m -i64m -s256m	tier-1; 69.8% match at x1 -> 90.2% at x4
+calculator-2-match-fence	calculator/calculator-2-match-fence.sno	calculator/calculator.input	4	-d512m -i64m -s256m	tier-1 fence twin
+treebank-match	treebank/treebank-match.sno	treebank/treebank.input	1024	-d512m -i64m -s256m	tier-1; 0.7% match at x1 -- needs x556 for 80%, x1024 matches the base treebank row
+treebank-match-fence	treebank/treebank-match-fence.sno	treebank/treebank.input	1024	-d512m -i64m -s256m	tier-1 fence twin
+claws5-match	claws5/claws5-match.sno	claws5/CLAWS5inTASA.dat	32	-d512m -i64m -s256m	tier-1; 16.1% match at x1 on the .dat -- needs x21 for 80%; x32 = 2.14 MB, verified under the 4 MiB cap
+claws5-match-fence	claws5/claws5-match-fence.sno	claws5/CLAWS5inTASA.dat	32	-d512m -i64m -s256m	tier-1 fence twin
+json-match	json/json-match.sno	json/citm_catalog.json	1	-d512m -i64m -s256m	tier-1; NOT replicated (see header) -- citm at x1 is 86% match, the json.input stub is 0%
+json-match-fence	json/json-match-fence.sno	json/citm_catalog.json	1	-d512m -i64m -s256m	tier-1 fence twin
