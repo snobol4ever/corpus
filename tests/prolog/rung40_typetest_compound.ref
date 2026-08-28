@@ -1,0 +1,12 @@
+%------------------------------------------- 1 rung40_typetest_compound_callable
+yes
+no
+%------------------------------------------- 2 rung40_typetest_compound_compound
+yes
+no
+%--------------------------------------------- 3 rung40_typetest_compound_ground
+yes
+no
+%-------------------------------------------- 4 rung40_typetest_compound_is_list
+yes
+no
