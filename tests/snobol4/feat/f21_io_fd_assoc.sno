@@ -1,0 +1,8 @@
+*  f21: OUTPUT() association to a FILE-DESCRIPTOR spec, '[-fn]' with no filename.
+*  Routed by hq_P 2026-08-28: every write to the associated variable was silently discarded --
+*  rc=0, ordinary output correct, the associated write simply gone. -f1 (not -f2) is the witness
+*  here because the board compares stdout; the defect was never fd2-specific, -f1 was dropped too.
+        OUTPUT(.E1, 3, '[-f1]')
+        E1 = 'via-fd1'
+        OUTPUT = 'done'
+END
