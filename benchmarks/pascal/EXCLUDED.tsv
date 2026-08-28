@@ -1,0 +1,8 @@
+# EXCLUDED.tsv -- kernels test_gate_bench_rivals_coverage.sh accepts as DECLARED rather than MEASURED.
+# Format: kernel<TAB>reason. Each line names a real, current, checked reason -- never a placeholder for
+# "haven't gotten to it yet" dressed up as a design decision. Update or remove a line the moment its
+# reason stops being true (a landed fix, a new .ref, a built process-repeat mechanism).
+fbench	SIGSEGV at compile time (LOWER stage), not a timing-angle limitation -- row pascal-fbench-nested-function-self-assign-null-name
+whet	no committed .ref yet -- BENCHMARK = TEST law (ARCH-BENCH-CAMPAIGN-README-TABLES.md) means an ungraded kernel is unpublishable; needs a .ref before any angle can even correctness-check it, not just time it
+uplevel2	fixed 30000x8000 workload baked into the source, no reps/stdin scaling knob -- needs a PROCESS-LEVEL repeat mechanism (repeat the whole binary invocation N times) that test_bench_pascal_timed.sh/bench_pascal_fixed_iter.sh do not implement yet (both are built around the reps-via-stdin convention the other 7 kernels share)
+uplevel3	same as uplevel2 -- fixed 30000x8000 workload, no reps knob, needs the same not-yet-built process-repeat mechanism

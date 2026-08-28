@@ -1,0 +1,21 @@
+# SCALE.tsv -- committed per-kernel, PER-ENGINE reps for angle 2 (bench_pascal_fixed_iter.sh), row
+# bench-rivals-raku-pascal. Two reps columns, not one: fpc (-O2, released default) is 100-3000x faster
+# than SCRIP's -O0 arms on several of these kernels (queens: fpc 567374/s vs m3 183/s in the angle-1
+# calibration run) -- a single shared N cannot simultaneously amortize a fast engine's fixed per-process
+# overhead and stay a reasonable wall-clock cost for the slow one. Measured live (seat03, 2026-08-28):
+# a shared N=5 (bubble) gave fpc a DISAGREE at 0.30x between angle 1 (live-searched, large N, overhead
+# amortized) and angle 2 (fixed small N, overhead-dominated) -- not a script bug, a real measurement
+# artifact of forcing one N across a 3000x speed gap. Splitting the column cured it (see LEDGER-equivalent
+# note in bench-rivals-raku-pascal's own task LEDGER for the before/after numbers).
+# Each column independently calibrated once from angle 1's own converged rates, targeting ~1-3s of that
+# engine's own wall time -- re-calibrate by hand if a future engine/hardware change badly over/undershoots.
+# ⛔ scrip_reps (shared m3+m4) for quick is capped at 12, never higher -- row
+# pascal-quick-m3-recursive-reps-cliff-13 (m3 SIGSEGVs at reps>=13). fpc has no such defect and is not capped.
+# kernel	fpc_reps	scrip_reps
+bubble	12000	5
+intmm	12000	20
+perm	12000	15
+queens	500000	500
+quick	15000	12
+sieve	80000	60
+towers	6000	150
