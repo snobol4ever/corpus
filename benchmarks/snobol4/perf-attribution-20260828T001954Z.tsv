@@ -1,0 +1,12 @@
+# perf-attribution TSV -- 2026-08-28 ceo -- json-match at fixed work (SCRIP 34aea2db); + full tier-1 quick ranking
+kernel	engine	N	insn_total	insn_per_iter	wall_best_s	ipc	top_cost_centers
+json-match	sbl	500	7715673176	15431346	0.553	-	-
+json-match	m4	500	26281561945	52563124	3.719	-	CALLOUT ENTRY CEREMONY ~19%+: rt_name_save_push=6.7%,rt_proc_find=5.1%,rt_proc_call_prologue=4.1%,rt_call_proc_descr=3.4%; memmove=5.4%; defer family ~6%; long tail across boxes
+# json-match multiple: 0.15x -- WORST tier-1 witness. Mechanism #3 of the campaign: per-callout procedure-entry
+# ceremony -- proc found BY NAME per invocation (rt_proc_find's cache validates every HIT with a strcmp; a
+# count-packed slot validation would kill it, no new globals -- cheap follow-up), locals saved/restored by NAME
+# (rt_name_save_push), args memmoved. This is s199's callout-fragment-entry-cost lever measured live in tier 1.
+# Quick tier-1 ranking at small N (single runs, startup-inflated for m3 -- ranking only, not quotable multiples):
+# calculator-2-match 0.38x · treebank-match 0.50x · claws5-match-fence ~1.0x · treebank-match-fence ~1.0x
+# THE CAMPAIGN MAP, three mechanisms, all measured: (1) defer-box resolve ceremony (calculator-1-match 0.28x -> hq_P inline slice);
+# (2) capture/NV layer (string_pattern 0.74x after slice 1 -> hq_C slice-captures); (3) callout entry ceremony (json-match 0.15x -> revived s199 row).
