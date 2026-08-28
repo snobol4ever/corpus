@@ -1,0 +1,34 @@
+* k40 -- lambda/LAMBDA pattern primitives (Lon 2026-08-28; row lang-lambda-pattern-primitives).
+* ⛔ RED ON PURPOSE until the feature lands (the k30 precedent): this witness is the instrument,
+* authored BEFORE the cure per RULES.md THE INSTRUMENT LAWS clause 3.
+* ⛔ GRADING IS SELF-PINNED VS THIS FILE'S .ref -- SPITBOL cannot run lambda (cross-twin law,
+* feature row §7). Never grade this against sbl.
+* Arms: (1) conditional lambda queues IN ORDER, runs at overall success; (2) backtracking
+* DISCARDS queued lambdas of abandoned arms; (3) IMMEDIATE runs at cursor-pass and is NOT
+* undone by backtracking; (4) LAMBDA expression FAILURE fails the match at that point;
+* (5) Greek spellings λ/Λ + a STORED pattern (the dtp_rcp round trip, recon point 5).
+        &TRIM = 1
+        SUB = 'ab'
+* arm 1 -- order of queued conditionals
+        S = ''
+        SUB ? 'a' lambda(S = S 'x') 'b' lambda(S = S 'y')
+        OUTPUT = 'arm1 S=' S
+* arm 2 -- abandoned arm's conditional is unqueued
+        N = 0
+        SUB ? ('a' lambda(N = N + 100) 'x' | 'a' lambda(N = N + 1)) 'b'
+        OUTPUT = 'arm2 N=' N
+* arm 3 -- immediates from abandoned arms persist
+        M = 0
+        SUB ? ('a' LAMBDA(M = M + 100) 'x' | 'a' LAMBDA(M = M + 1)) 'b'
+        OUTPUT = 'arm3 M=' M
+* arm 4 -- failing expression inside LAMBDA fails the match there
+        SUB ? 'a' LAMBDA(LT(1, 0)) 'b'          :S(A4Y)F(A4N)
+A4Y     OUTPUT = 'arm4 matched (WRONG)'         :(A5)
+A4N     OUTPUT = 'arm4 failed ok'
+* arm 5 -- Greek spellings inside a STORED pattern, both primitives
+A5      G = ''
+        H = ''
+        P = 'a' λ(G = G 'g') Λ(H = H 'h') 'b'
+        SUB ? P
+        OUTPUT = 'arm5 G=' G ' H=' H
+END
