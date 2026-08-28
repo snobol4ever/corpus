@@ -26,6 +26,48 @@ blast radius (same restraint seat07 already showed on `test_corpus_snobol4.sh`'s
 hq_C, not fixed here. Likely (not verified for the other four) that adding `-no-pie` there would let
 some or all of the remaining 4 convert cleanly too.
 
+⛔⭐ **UPDATE (seat06, 2026-08-28) — the `-no-pie` question above is now RULED, PERMANENTLY, AGAINST.**
+`m4-pie-vs-no-pie-changes-behaviour-not-just-signal` closed (seat10, full analysis
+`.github/ARCH-ENGINE.md` § "Mode-4 Link Mode"): **PIE stays; `-no-pie` must NOT be added to
+`compile_m4()`**, because doing so was measured to SIGSEGV two other, non-crash-expected witnesses
+20/20 while "fixing" nothing — a flag that lowers a crash rate without curing the crash makes a flaky
+gate *look* stable, which the ruling calls strictly worse than visible flakiness. `corpus-suite-
+harness-compile-m4-missing-no-pie` (the row this file's original text pointed at) is CLOSED on that
+ruling, not implemented. **This is not "still pending" any more — there is no `-no-pie` fix coming.**
+
+**Separately: a real stack-frame-reservation bug in `main`'s mode-4 prologue was found and fixed this
+same day** (`pascal-m4-intermittent-segv-layout-sensitive`, `SCRIP 3800a986`) — under `ZC_FRAME_RSP`,
+`main`'s prologue reserved a hardcoded 8 bytes while the body addresses working-storage slots at fixed
+offsets hundreds of bytes above that, colliding with the kernel-placed `envp`/`argv` block a few hundred
+bytes above entry `rsp`. **Tested against all 5 of this file's witnesses post-fix, since it is the same
+general "stack-adjacent memory corruption" shape** — mixed result, not a fix for this row:
+
+| witness | post-fix sample | verdict |
+|---|---|---|
+| `fz_segv_09` | 17× signal 11, 1× signal 4 (18 runs, 1 hung) | still non-deterministic |
+| `fz_red_m1b_arbno_defer_blob` | 8/8 signal 11 | looks stable at N=8 — **not proven**, see below |
+| `fz_red_m4a_blob_alt_fence_defer` | 4× signal 4, 4× signal 11 (8 runs) | still non-deterministic |
+| `fz_red_m4b_blob_defer_fence` | 6× PASS, 2× signal 11 (8 runs) | still non-deterministic (flips PASS↔CRASH) |
+| `fz_segv_24` | 8/8 signal 11 | looks stable at N=8 — **not proven**, see below |
+
+⛔ Two of five now read constant at N=8, but this project's own bar (this ruling's text, verbatim) is
+**N≫12 before concluding either arm is deterministic** — three of the five (`fz_segv_09` at N=18,
+`fz_red_m4a...`, `fz_red_m4b...`) are ALREADY proven non-deterministic at small N, and a fuzz probe
+whose whole purpose is finding a wild memory access is exactly the shape where "8/8 so far" is weak
+evidence, not a green light. **Not chased to a real N here** — this row's job is conversion, not
+individually root-causing five separate memory-safety bugs (a different, larger undertaking, one this
+row has already correctly declined per its own LEDGER's "not this row's call" restraint, now doubly
+true since it would mean debugging live SCRIP defects, not measuring a link-flag question).
+
+**Where this leaves the row: genuinely stuck, not merely blocked-pending-infrastructure.** The `-no-pie`
+escape hatch is closed for good; the stack-headroom fix helps the DIFFERENT bug class it targeted but
+does not resolve these 5 (confirmed, not assumed, per the table above). Converting them requires either
+individually fixing whatever real memory defect each one demonstrates (5 separate investigations,
+likely 5 separate rows) or a policy ruling that a genuinely-unstable-against-itself fuzz witness is a
+standing, permanent KEEP.md exception (like `bb`/`passthru`'s own precedent) rather than something the
+"crosscheck and probe convert TOTALLY" ruling was ever meant to reach. **Routed to HQ as a policy
+question, not decided here** — see the task's own LEDGER for the ask.
+
 ⚠️ **Scope of what was actually verified:** the PIE/`-no-pie` mechanism above was reproduced directly
 only for `fz_segv_09` (both of whose original verdicts were plain CRASH, making it the cleanest isolate
 case). The other four below show the identical SYMPTOM — `convert_one` reports its two internal
