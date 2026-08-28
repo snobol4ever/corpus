@@ -1,7 +1,0 @@
-procedure main();
-   local s, str;
-   s := ".coord";
-   s ? {
-      if (str <- ="." & str ||:= tab(many(&digits))) then write("NUM") else write("pos=", &pos);
-      };
-end

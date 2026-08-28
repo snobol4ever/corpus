@@ -1,6 +1,0 @@
-procedure main();
-   local s;
-   s := ".abc";
-   s ? { if ="." & ="9" then write("Y") else write("N") };
-   write("done");
-end

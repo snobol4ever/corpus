@@ -1,5 +1,0 @@
-procedure main();
-   local s;
-   s := ".coord";
-   s ? { if (="." & many(&digits)) then write("Y") else write("N") };
-end
