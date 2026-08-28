@@ -8046,7 +8046,7 @@ d$2F3_dcα:
                         xor              edx, edx;                            jmp   r12
                         .globl           main
 main:
-                        sub              rsp, 8
+                        sub              rsp, 65544
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT

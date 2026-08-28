@@ -491,7 +491,8 @@ n10_call_proc_staged_α: mov              r11, 11
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lreverse$2F2_α_30_205: lea              rax, [rip + .Lreverse$2F2_α_30_7]
+.Lreverse$2F2_α_30_205: sub              rsp, 8
+                        lea              rax, [rip + .Lreverse$2F2_α_30_7]    # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 1
                         mov              esi, 3
@@ -511,7 +512,7 @@ n10_call_proc_staged_α: mov              r11, 11
                         lea              rdx, [rip + .Lreverse$2F2_α_30_4];   jmp   rax
 .Lreverse$2F2_α_30_3:   add              rsp, 16
                         mov              qword ptr [rsp + 184], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lreverse$2F2_α_30_5
                         mov              qword ptr [rsp + 176], 1
@@ -525,6 +526,7 @@ n10_call_proc_staged_α: mov              r11, 11
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lreverse$2F2_α_30_2
 .Lreverse$2F2_α_30_5:   call             rt_gen_spine_pass_γ@PLT;             jmp   .Lreverse$2F2_α_30_2
 .Lreverse$2F2_α_30_4:   add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lreverse$2F2_α_30_6
                         mov              qword ptr [rsp + 176], 1
@@ -638,14 +640,15 @@ n10_call_proc_staged_β: mov              r11, 11
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n12_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Lreverse$2F2_α_30_7]
                         push             r8
-                        lea              rcx, [rip + .Lreverse$2F2_α_30_4]
+                        lea              rcx, [rip + .Lreverse$2F2_α_30_4]    # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lreverse$2F2_α_30_3]
                         push             rcx
                         lea              rdx, [rip + .Lreverse$2F2_α_30_4];   jmp   rax
-.Lreverse$2F2_α_30_7:   add              rsp, 8
+.Lreverse$2F2_α_30_7:   add              rsp, 16
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
                         cmp              al, 104;                             je    n12_call_prolog_α
@@ -2406,7 +2409,8 @@ n70_call_proc_staged_α: mov              r11, 50
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
 .L$reverse_$2F3_α_129_205:
-                        lea              rax, [rip + .L$reverse_$2F3_α_129_7]
+                        sub              rsp, 8
+                        lea              rax, [rip + .L$reverse_$2F3_α_129_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 1
                         mov              esi, 3
@@ -2428,7 +2432,7 @@ n70_call_proc_staged_α: mov              r11, 50
 .L$reverse_$2F3_α_129_3:
                         add              rsp, 16
                         mov              qword ptr [rsp + 200], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .L$reverse_$2F3_α_129_5
                         mov              qword ptr [rsp + 192], 1
@@ -2443,6 +2447,7 @@ n70_call_proc_staged_α: mov              r11, 50
 .L$reverse_$2F3_α_129_5:
                         call             rt_gen_spine_pass_γ@PLT;             jmp   .L$reverse_$2F3_α_129_2
 .L$reverse_$2F3_α_129_4:
+                        add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .L$reverse_$2F3_α_129_6
@@ -2561,16 +2566,17 @@ n70_call_proc_staged_β: mov              r11, 50
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n72_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .L$reverse_$2F3_α_129_7]
                         push             r8
-                        lea              rcx, [rip + .L$reverse_$2F3_α_129_4]
+                        lea              rcx, [rip + .L$reverse_$2F3_α_129_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .L$reverse_$2F3_α_129_3]
                         push             rcx
                         lea              rdx, [rip + .L$reverse_$2F3_α_129_4]
                                                                               jmp   rax
 .L$reverse_$2F3_α_129_7:
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
                         cmp              al, 104;                             je    n72_call_prolog_α
@@ -4288,7 +4294,8 @@ n167_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lappend$2F3_α_224_205: lea              rax, [rip + .Lappend$2F3_α_224_7]
+.Lappend$2F3_α_224_205: sub              rsp, 8
+                        lea              rax, [rip + .Lappend$2F3_α_224_7]    # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 2
                         mov              esi, 3
@@ -4308,7 +4315,7 @@ n167_call_proc_staged_α:
                         lea              rdx, [rip + .Lappend$2F3_α_224_4];   jmp   rax
 .Lappend$2F3_α_224_3:   add              rsp, 16
                         mov              qword ptr [rsp + 200], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lappend$2F3_α_224_5
                         mov              qword ptr [rsp + 192], 1
@@ -4322,6 +4329,7 @@ n167_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lappend$2F3_α_224_2
 .Lappend$2F3_α_224_5:   call             rt_gen_spine_pass_γ@PLT;             jmp   .Lappend$2F3_α_224_2
 .Lappend$2F3_α_224_4:   add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lappend$2F3_α_224_6
                         mov              qword ptr [rsp + 192], 1
@@ -4436,14 +4444,15 @@ n167_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n169_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Lappend$2F3_α_224_7]
                         push             r8
-                        lea              rcx, [rip + .Lappend$2F3_α_224_4]
+                        lea              rcx, [rip + .Lappend$2F3_α_224_4]    # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lappend$2F3_α_224_3]
                         push             rcx
                         lea              rdx, [rip + .Lappend$2F3_α_224_4];   jmp   rax
-.Lappend$2F3_α_224_7:   add              rsp, 8
+.Lappend$2F3_α_224_7:   add              rsp, 16
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
                         cmp              al, 104;                             je    n169_call_prolog_α
@@ -5506,7 +5515,8 @@ n254_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lnrev$2F2_α_303_203:   lea              rax, [rip + .Lnrev$2F2_α_303_7]
+.Lnrev$2F2_α_303_203:   sub              rsp, 8
+                        lea              rax, [rip + .Lnrev$2F2_α_303_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 3
                         mov              esi, 2
@@ -5526,7 +5536,7 @@ n254_call_proc_staged_α:
                         lea              rdx, [rip + .Lnrev$2F2_α_303_4];     jmp   rax
 .Lnrev$2F2_α_303_3:     add              rsp, 16
                         mov              qword ptr [rsp + 424], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 416]
                         test             rax, rax;                            jne   .Lnrev$2F2_α_303_5
                         mov              qword ptr [rsp + 416], 1
@@ -5540,6 +5550,7 @@ n254_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lnrev$2F2_α_303_2
 .Lnrev$2F2_α_303_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Lnrev$2F2_α_303_2
 .Lnrev$2F2_α_303_4:     add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 416]
                         test             rax, rax;                            jne   .Lnrev$2F2_α_303_6
                         mov              qword ptr [rsp + 416], 1
@@ -5643,14 +5654,15 @@ n254_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n263_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Lnrev$2F2_α_303_7]
                         push             r8
-                        lea              rcx, [rip + .Lnrev$2F2_α_303_4]
+                        lea              rcx, [rip + .Lnrev$2F2_α_303_4]      # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lnrev$2F2_α_303_3]
                         push             rcx
                         lea              rdx, [rip + .Lnrev$2F2_α_303_4];     jmp   rax
-.Lnrev$2F2_α_303_7:     add              rsp, 8
+.Lnrev$2F2_α_303_7:     add              rsp, 16
                         mov              qword ptr [rsp + 368], rax
                         mov              qword ptr [rsp + 376], rdx
                         cmp              al, 104;                             je    n263_call_prolog_α
@@ -5802,7 +5814,8 @@ n261_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lnrev$2F2_α_314_205:   lea              rax, [rip + .Lnrev$2F2_α_314_7]
+.Lnrev$2F2_α_314_205:   sub              rsp, 8
+                        lea              rax, [rip + .Lnrev$2F2_α_314_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 6
                         mov              esi, 3
@@ -5822,7 +5835,7 @@ n261_call_proc_staged_α:
                         lea              rdx, [rip + .Lnrev$2F2_α_314_4];     jmp   rax
 .Lnrev$2F2_α_314_3:     add              rsp, 16
                         mov              qword ptr [rsp + 184], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lnrev$2F2_α_314_5
                         mov              qword ptr [rsp + 176], 1
@@ -5836,6 +5849,7 @@ n261_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lnrev$2F2_α_314_2
 .Lnrev$2F2_α_314_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Lnrev$2F2_α_314_2
 .Lnrev$2F2_α_314_4:     add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 176]
                         test             rax, rax;                            jne   .Lnrev$2F2_α_314_6
                         mov              qword ptr [rsp + 176], 1
@@ -5950,14 +5964,15 @@ n261_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n254_call_proc_staged_β
+                        sub              rsp, 8
                         lea              r8, [rip + .Lnrev$2F2_α_314_7]
                         push             r8
-                        lea              rcx, [rip + .Lnrev$2F2_α_314_4]
+                        lea              rcx, [rip + .Lnrev$2F2_α_314_4]      # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lnrev$2F2_α_314_3]
                         push             rcx
                         lea              rdx, [rip + .Lnrev$2F2_α_314_4];     jmp   rax
-.Lnrev$2F2_α_314_7:     add              rsp, 8
+.Lnrev$2F2_α_314_7:     add              rsp, 16
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
                         cmp              al, 104;                             je    n254_call_proc_staged_β
@@ -7146,7 +7161,8 @@ n352_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Ldata$2F2_α_404_203:   lea              rax, [rip + .Ldata$2F2_α_404_7]
+.Ldata$2F2_α_404_203:   sub              rsp, 8
+                        lea              rax, [rip + .Ldata$2F2_α_404_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 4
                         mov              esi, 2
@@ -7166,7 +7182,7 @@ n352_call_proc_staged_α:
                         lea              rdx, [rip + .Ldata$2F2_α_404_4];     jmp   rax
 .Ldata$2F2_α_404_3:     add              rsp, 16
                         mov              qword ptr [rsp + 168], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Ldata$2F2_α_404_5
                         mov              qword ptr [rsp + 160], 1
@@ -7180,6 +7196,7 @@ n352_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldata$2F2_α_404_2
 .Ldata$2F2_α_404_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Ldata$2F2_α_404_2
 .Ldata$2F2_α_404_4:     add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 160]
                         test             rax, rax;                            jne   .Ldata$2F2_α_404_6
                         mov              qword ptr [rsp + 160], 1
@@ -7283,14 +7300,15 @@ n352_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n354_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Ldata$2F2_α_404_7]
                         push             r8
-                        lea              rcx, [rip + .Ldata$2F2_α_404_4]
+                        lea              rcx, [rip + .Ldata$2F2_α_404_4]      # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Ldata$2F2_α_404_3]
                         push             rcx
                         lea              rdx, [rip + .Ldata$2F2_α_404_4];     jmp   rax
-.Ldata$2F2_α_404_7:     add              rsp, 8
+.Ldata$2F2_α_404_7:     add              rsp, 16
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
                         cmp              al, 104;                             je    n354_call_prolog_α
@@ -7675,7 +7693,8 @@ n414_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Ldata$2F1_α_427_203:   lea              rax, [rip + .Ldata$2F1_α_427_7]
+.Ldata$2F1_α_427_203:   sub              rsp, 8
+                        lea              rax, [rip + .Ldata$2F1_α_427_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 4
                         mov              esi, 2
@@ -7695,7 +7714,7 @@ n414_call_proc_staged_α:
                         lea              rdx, [rip + .Ldata$2F1_α_427_4];     jmp   rax
 .Ldata$2F1_α_427_3:     add              rsp, 16
                         mov              qword ptr [rsp + 152], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 144]
                         test             rax, rax;                            jne   .Ldata$2F1_α_427_5
                         mov              qword ptr [rsp + 144], 1
@@ -7709,6 +7728,7 @@ n414_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldata$2F1_α_427_2
 .Ldata$2F1_α_427_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Ldata$2F1_α_427_2
 .Ldata$2F1_α_427_4:     add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 144]
                         test             rax, rax;                            jne   .Ldata$2F1_α_427_6
                         mov              qword ptr [rsp + 144], 1
@@ -7812,14 +7832,15 @@ n414_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n416_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Ldata$2F1_α_427_7]
                         push             r8
-                        lea              rcx, [rip + .Ldata$2F1_α_427_4]
+                        lea              rcx, [rip + .Ldata$2F1_α_427_4]      # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Ldata$2F1_α_427_3]
                         push             rcx
                         lea              rdx, [rip + .Ldata$2F1_α_427_4];     jmp   rax
-.Ldata$2F1_α_427_7:     add              rsp, 8
+.Ldata$2F1_α_427_7:     add              rsp, 16
                         mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 104], rdx
                         cmp              al, 104;                             je    n416_call_prolog_α
@@ -9533,7 +9554,8 @@ n465_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lapp$2F3_α_522_205:    lea              rax, [rip + .Lapp$2F3_α_522_7]
+.Lapp$2F3_α_522_205:    sub              rsp, 8
+                        lea              rax, [rip + .Lapp$2F3_α_522_7]       # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 6
                         mov              esi, 3
@@ -9553,7 +9575,7 @@ n465_call_proc_staged_α:
                         lea              rdx, [rip + .Lapp$2F3_α_522_4];      jmp   rax
 .Lapp$2F3_α_522_3:      add              rsp, 16
                         mov              qword ptr [rsp + 200], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lapp$2F3_α_522_5
                         mov              qword ptr [rsp + 192], 1
@@ -9567,6 +9589,7 @@ n465_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lapp$2F3_α_522_2
 .Lapp$2F3_α_522_5:      call             rt_gen_spine_pass_γ@PLT;             jmp   .Lapp$2F3_α_522_2
 .Lapp$2F3_α_522_4:      add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 192]
                         test             rax, rax;                            jne   .Lapp$2F3_α_522_6
                         mov              qword ptr [rsp + 192], 1
@@ -9681,14 +9704,15 @@ n465_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n467_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Lapp$2F3_α_522_7]
                         push             r8
-                        lea              rcx, [rip + .Lapp$2F3_α_522_4]
+                        lea              rcx, [rip + .Lapp$2F3_α_522_4]       # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lapp$2F3_α_522_3]
                         push             rcx
                         lea              rdx, [rip + .Lapp$2F3_α_522_4];      jmp   rax
-.Lapp$2F3_α_522_7:      add              rsp, 8
+.Lapp$2F3_α_522_7:      add              rsp, 16
                         mov              qword ptr [rsp + 128], rax
                         mov              qword ptr [rsp + 136], rdx
                         cmp              al, 104;                             je    n467_call_prolog_α
@@ -9787,7 +9811,7 @@ app$2F3_ω:
                         add              rsp, 1216;                           jmp   rcx
                         .globl           main
 main:
-                        sub              rsp, 8
+                        sub              rsp, 65544
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
@@ -9896,7 +9920,8 @@ n528_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_543_201:       lea              rax, [rip + .Lmain_α_543_7]
+.Lmain_α_543_201:       sub              rsp, 8
+                        lea              rax, [rip + .Lmain_α_543_7]          # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 5
                         mov              esi, 1
@@ -9916,7 +9941,7 @@ n528_call_proc_staged_α:
                         lea              rdx, [rip + .Lmain_α_543_4];         jmp   rax
 .Lmain_α_543_3:         add              rsp, 16
                         mov              qword ptr [rsp + 344], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 336]
                         test             rax, rax;                            jne   .Lmain_α_543_5
                         mov              qword ptr [rsp + 336], 1
@@ -9930,6 +9955,7 @@ n528_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmain_α_543_2
 .Lmain_α_543_5:         call             rt_gen_spine_pass_γ@PLT;             jmp   .Lmain_α_543_2
 .Lmain_α_543_4:         add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 336]
                         test             rax, rax;                            jne   .Lmain_α_543_6
                         mov              qword ptr [rsp + 336], 1
@@ -10022,14 +10048,15 @@ n528_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n538_call_prolog_α
+                        sub              rsp, 8
                         lea              r8, [rip + .Lmain_α_543_7]
                         push             r8
-                        lea              rcx, [rip + .Lmain_α_543_4]
+                        lea              rcx, [rip + .Lmain_α_543_4]          # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lmain_α_543_3]
                         push             rcx
                         lea              rdx, [rip + .Lmain_α_543_4];         jmp   rax
-.Lmain_α_543_7:         add              rsp, 8
+.Lmain_α_543_7:         add              rsp, 16
                         mov              qword ptr [rsp + 304], rax
                         mov              qword ptr [rsp + 312], rdx
                         cmp              al, 104;                             je    n538_call_prolog_α
@@ -10099,7 +10126,8 @@ n531_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_549_203:       lea              rax, [rip + .Lmain_α_549_7]
+.Lmain_α_549_203:       sub              rsp, 8
+                        lea              rax, [rip + .Lmain_α_549_7]          # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 3
                         mov              esi, 2
@@ -10119,7 +10147,7 @@ n531_call_proc_staged_α:
                         lea              rdx, [rip + .Lmain_α_549_4];         jmp   rax
 .Lmain_α_549_3:         add              rsp, 16
                         mov              qword ptr [rsp + 248], rsp
-                        add              rsp, 8
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 240]
                         test             rax, rax;                            jne   .Lmain_α_549_5
                         mov              qword ptr [rsp + 240], 1
@@ -10133,6 +10161,7 @@ n531_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmain_α_549_2
 .Lmain_α_549_5:         call             rt_gen_spine_pass_γ@PLT;             jmp   .Lmain_α_549_2
 .Lmain_α_549_4:         add              rsp, 16
+                        add              rsp, 16
                         mov              rax, qword ptr [rsp + 240]
                         test             rax, rax;                            jne   .Lmain_α_549_6
                         mov              qword ptr [rsp + 240], 1
@@ -10236,14 +10265,15 @@ n531_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n528_call_proc_staged_β
+                        sub              rsp, 8
                         lea              r8, [rip + .Lmain_α_549_7]
                         push             r8
-                        lea              rcx, [rip + .Lmain_α_549_4]
+                        lea              rcx, [rip + .Lmain_α_549_4]          # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
                         lea              rcx, [rip + .Lmain_α_549_3]
                         push             rcx
                         lea              rdx, [rip + .Lmain_α_549_4];         jmp   rax
-.Lmain_α_549_7:         add              rsp, 8
+.Lmain_α_549_7:         add              rsp, 16
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
                         cmp              al, 104;                             je    n528_call_proc_staged_β
