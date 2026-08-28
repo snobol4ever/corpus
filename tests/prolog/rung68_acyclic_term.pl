@@ -1,3 +1,4 @@
+%--------------------------------------------------------- 1 rung68_acyclic_term
 main :-
     ( acyclic_term(foo(a,b,c)) -> write(compound_yes) ; write(compound_no) ), nl,
     ( acyclic_term(_) -> write(var_yes) ; write(var_no) ), nl,
