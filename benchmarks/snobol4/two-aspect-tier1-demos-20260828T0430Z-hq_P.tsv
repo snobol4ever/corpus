@@ -1,0 +1,49 @@
+# TWO-ASPECT tier-1 demo board -- 2026-08-28 hq_P -- row bench-rep-loop-demo-harness
+# Produced by SCRIP/scripts/bench_rep_loop_demos_snobol4.sh (SCRIP f93ba644). Re-run it; never hand-edit.
+# ⛔ ASPECT 1 is a TOTAL (carries startup+compile); ASPECT 2 is a SLOPE (match only). Per the FACT RULE
+# they may NEVER share a column, and they DISAGREE IN DIRECTION here -- that disagreement is the result.
+demo	eng	A1_total_ms	A2_match_ns	reps	A2_mult
+calculator-1-match	sbl	42.12	38400962.9	64	1.000x
+calculator-1-match	m3	135.92	118934520.9	64	0.323x
+calculator-1-match	m4	121.90	109643800.2	64	0.350x
+calculator-1-match-fence	sbl	19.10	16326297.8	64	1.000x
+calculator-1-match-fence	m3	29.51	17915201.9	64	0.911x
+calculator-1-match-fence	m4	22.49	16534164.8	64	0.987x
+calculator-2-match	sbl	3.18	404637.8	4096	1.000x
+calculator-2-match	m3	16.94	1113971.2	16384	0.363x
+calculator-2-match	m4	11.17	1076368.5	4096	0.376x
+calculator-2-match-fence	sbl	4.15	583679.5	1024	1.000x
+calculator-2-match-fence	m3	15.62	1027235.5	1024	0.568x
+calculator-2-match-fence	m4	10.67	960032.5	1024	0.608x
+treebank-match	sbl	1.45	-	-	-	⛔	REFUSE	did-not-converge-by-reps=4000000
+treebank-match	m3	8.84	1358.9	1048576	-
+treebank-match	m4	5.50	1328.4	1048576	-
+treebank-match-fence	sbl	1.87	1429.8	1048576	1.000x
+treebank-match-fence	m3	9.00	1379.4	1048576	1.037x
+treebank-match-fence	m4	4.31	1198.0	1048576	1.194x
+claws5-match	sbl	1.32	1894.1	262144	1.000x
+claws5-match	m3	7.54	1203.0	1048576	1.574x
+claws5-match	m4	3.96	1123.6	1048576	1.686x
+claws5-match-fence	sbl	1.49	2126.7	262144	1.000x
+claws5-match-fence	m3	7.86	1435.4	1048576	1.482x
+claws5-match-fence	m4	4.02	-	-	-	⛔	REFUSE	did-not-converge-by-reps=4000000
+json-match	sbl	1.94	416.3	1048576	1.000x
+json-match	m3	15.08	5330.2	262144	0.078x
+json-match	m4	9.08	4830.4	262144	0.086x
+json-match-fence	sbl	1.63	506.7	1048576	1.000x
+#
+# ⭐ WHAT THE TWO ASPECTS SAY, AND THEY SAY OPPOSITE THINGS -- m4 vs the clean oracle:
+#   ASPECT 1 (whole process): we lose EVERY row. 3-6x behind on the small demos.
+#   ASPECT 2 (match only):    claws5-match 1.686x AHEAD, treebank-match-fence 1.194x AHEAD,
+#                             calculator-1-match-fence 0.987x (par), calculator-1-match 0.350x,
+#                             calculator-2-match 0.376x, json-match 0.086x (11.6x BEHIND).
+# ⛔ THE READING: on the small demos our loss is dominated by STARTUP+COMPILE, not by matching -- and our
+# match engine is already AHEAD on claws5 and treebank-fence. json is the outlier and it is not close:
+# its MATCH phase alone is 11.6x behind, which no whole-process number could have told us (aspect 1 has
+# json-match at 9.08 vs 1.94 ms = 0.21x, a fifth of the real match-phase gap).
+# ⭐ json-match's match phase is the single worst number in the tier-1 set and was INVISIBLE before tonight.
+#
+# ⚠️ TWO ROWS REFUSED AND ARE PRINTED AS REFUSALS, NOT DROPPED: treebank-match/sbl and
+# claws5-match-fence/m4 did not converge by reps=4,000,000. Their neighbours converged, so this is a
+# per-arm instability to chase, not a harness-wide fault. A refusal is the honest output; a number taken
+# from an unconverged ramp would have been wrong by up to 13x (see the harness header's own measurement).
