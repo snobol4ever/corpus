@@ -1,0 +1,44 @@
+# perf-attribution TSV -- 2026-08-28 hq_P -- DUO slice (a) ladder + PT-3 promotion
+# SHARED AXES (one line, per the FACT RULE): instrument = perf instructions at FIXED WORK (the noise-immune
+# axis -- the 25-70% wall-clock contention swing is an OPEN row in this lane and a cure loop must not be
+# graded on the instrument it is trying to fix); mode m4; RT_OPT=-O0; SCRIP_NOHUGE=1 SCRIP_HEAP_MB=4096.
+# Measured instrument spread over repeated runs: pattern_bt 0.01%, string_pattern 0.17%.
+# ⛔ WALL-CLOCK IS DELIBERATELY ABSENT FROM THIS GRID. Taken the same night on the same box, the CLEAN
+# ORACLE arm alone read 0.510s where ceo's TSV six hours earlier read 0.896s for the identical binary and
+# identical N -- a 1.76x swing with no code between the two readings. Any multiple cut from that axis
+# tonight would be noise wearing a verdict, so this grid does not carry one. That IS the open run1/noise row.
+#
+# LADDER -- pattern_bt, N=200,000, each rung measured ALONE so the attribution is bisectable
+rung	what	insn	per_iter	delta_vs_prev	cumulative
+base_34aea2db	post-ceo-slice-1 baseline	780370000	3902	-	-
+A1	dtp_fn_of called only when fn is NULL (ordering, not a cache)	727490000	3637	-6.78%	-6.78%
+A2	rt_defer_cell_ptr always_inline + returns cell, not a copy	690010000	3450	-5.15%	-11.58%
+A3	resolved-fn inline cache in the emitted defer box	463210000	2316	-32.87%	-40.64%
+control_SCRIP_DEFER_IC_0	A3 killswitch: emitter drops the arm	689990000	3449	-	reproduces A2 to 0.003%
+control_SCRIP_DEFER_MERGE_0	runtime never arms the pair	952160000	4760	-	arm correctly disarmed
+#
+# string_pattern, N=800,000
+rung	what	insn	per_iter	delta_vs_prev	cumulative
+base_34aea2db	post-ceo-slice-1 baseline	1297200000	1621	-	-
+A1+A2+A3	slice (a), same three rungs	1181800000	1477	-8.90%	-8.90%
+C0	comm_var_active read once per pump, not once per capture	1160100000	1450	-1.84%	-10.57%
+#
+# PT-3 DEFER-COLLAPSE PROMOTION (arm unchanged; it was default-OFF since 2026-08-19 and is now default-ON)
+# A/B by EMIT arm at each demo's committed input; BOTH arms byte-checked against the committed .ref.
+demo	insn_OFF	insn_ON	delta	ref_match
+calculator-1-match	1095300000	760100000	-30.60%	both arms == ref
+calculator-1-match-fence	289900000	195000000	-32.74%	both arms == ref
+calculator-2-match	34000000	30900000	-9.12%	both arms == ref
+calculator-2-match-fence	31300000	28100000	-10.22%	both arms == ref
+treebank-match	9300000	9200000	-0.75%	both arms == ref
+treebank-match-fence	9400000	9200000	-2.13%	both arms == ref
+json-match	34200000	34400000	+0.51%	both arms == ref
+json-match-fence	40600000	40700000	+0.23%	both arms == ref
+claws5-match	9100000	9100000	-0.29%	both arms == ref
+claws5-match-fence	9200000	9200000	-0.54%	both arms == ref
+# ⚠️ THE FLAT ROWS ARE AN INSTRUMENT LIMIT, NOT A VERDICT ON THE ARM, and this matters because 72f9c772
+# measured treebank-match at 1.41x. Those demos' committed inputs are startup/pattern-COMPILE dominated:
+# the whole treebank-match run is 9.3M instructions and scaling its input 60x reaches only 13.4M. The
+# original 1.41x came from a rep-loop harness (reps=200) that re-runs the MATCH, which is the axis this
+# arm moves. These rows therefore read "not measurable at the committed input", never "no effect" -- and
+# they do establish no regression anywhere. A rep-loop demo harness is the missing instrument.
