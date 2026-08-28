@@ -1343,7 +1343,7 @@ PAT$6_ω:
                         ret
                         .globl           main
 main:
-                        sub              rsp, 8
+                        sub              rsp, 65544
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
