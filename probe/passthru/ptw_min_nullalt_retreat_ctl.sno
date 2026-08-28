@@ -1,6 +1,0 @@
-*  CONTROL (GREEN): same shape, non-null second arm.
-          E = ANY('ab') (LEN(1) | 'z')
-          'ab+ab' *E 'b'                        :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

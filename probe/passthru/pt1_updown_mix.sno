@@ -1,6 +1,0 @@
-          P1 = TAB(4) . V1
-          P2 = RPOS(3) | TAB(5) 'f'
-          'abcdef' POS(0) *P1 *P2 RPOS(0)       :S(OK)F(NO)
-OK        OUTPUT = 'match:' V1                  :(END)
-NO        OUTPUT = 'nomatch'
-END

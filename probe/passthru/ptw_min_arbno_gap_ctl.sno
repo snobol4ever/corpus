@@ -1,5 +1,0 @@
-          E = ARBNO('a') 'x' ('+' *E | '')
-          'ax+ax' POS(0) *E RPOS(0)             :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

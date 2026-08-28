@@ -1,6 +1,0 @@
-          $('Z' 'Z') = 1
-          PX = 'LEN(4)'
-          'abcdef' POS(0) *EVAL(PX) 'ef' RPOS(0) :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

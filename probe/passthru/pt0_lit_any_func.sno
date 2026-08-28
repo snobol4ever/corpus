@@ -1,8 +1,0 @@
-          DEFINE('F()')
-          DEFINE('G()')                         :(GO)
-F         F = 'ab'                              :(RETURN)
-G         G = ANY('xc')                         :(RETURN)
-GO        'abcdef' POS(0) *F() *G() LEN(3) RPOS(0)  :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

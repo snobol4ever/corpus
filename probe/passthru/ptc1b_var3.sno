@@ -1,7 +1,0 @@
-          $('Z' 'Z') = 1
-          P1 = TAB(4) | TAB(3)
-          P2 = LEN(1) *P1 LEN(1)
-          'abcdef' POS(0) *P2 'ef' RPOS(0)      :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

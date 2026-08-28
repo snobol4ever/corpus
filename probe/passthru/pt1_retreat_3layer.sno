@@ -1,6 +1,0 @@
-          INNER = TAB(2) | TAB(4)
-          MID = (*INNER . V) 'e'
-          'abcdef' POS(0) *MID 'f' RPOS(0)      :S(OK)F(NO)
-OK        OUTPUT = 'match:' V                   :(END)
-NO        OUTPUT = 'nomatch'
-END

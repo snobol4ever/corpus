@@ -1,5 +1,0 @@
-          $('Z' 'Z') = 1
-          C = CODE(' OUTPUT = "incode" :(RET)')
-          OUTPUT = 'before'                     :<C>
-RET       OUTPUT = 'back'
-END

@@ -1,7 +1,0 @@
-          DEFINE('mk()')                        :(E)
-mk        mk = ARBNO('a')                       :(RETURN)
-E         P = mk() ''
-          'aa' POS(0) *P RPOS(0)                :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

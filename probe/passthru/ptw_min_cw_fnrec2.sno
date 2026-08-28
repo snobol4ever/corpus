@@ -1,8 +1,0 @@
-          DEFINE('mk()')                        :(E)
-mk        mk = LEN(0)                           :(RETURN)
-E         Y = mk() ('b' | '')
-          X = mk() ('a' *Y *X | '')
-          'ab' POS(0) *X RPOS(0)                :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

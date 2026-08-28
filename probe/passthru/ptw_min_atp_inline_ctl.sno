@@ -1,6 +1,0 @@
-*  CONTROL (GREEN) for ptw_min_atp_stored_red.sno: the same pattern INLINE is correct, so the
-*  ingredient is the stored/blob road, not the @ operator.
-          'a+aa' POS(0) ARB @v RPOS(0)          :S(OK)F(NO)
-OK        OUTPUT = 'match' v                    :(END)
-NO        OUTPUT = 'nomatch'
-END

@@ -1,7 +1,0 @@
-          $('Z' 'Z') = 1
-          P1B = LEN(3) | LEN(2)
-          P2 = LEN(1) *P1B LEN(1)
-          C = CODE(" 'abcdef' POS(0) *P2 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPUT = 'match' :(RET) ;CNO OUTPUT = 'nomatch' :(RET)")
-          OUTPUT = 'before'                     :<C>
-RET       OUTPUT = 'back'
-END

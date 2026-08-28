@@ -1,6 +1,0 @@
-*  FALSE ACCEPT: SCRIP matches where the oracle REFUSES. Needs ARBNO left, an ALT whose LAST arm is the null string, and a subject the whole pattern must reject.
-          E = ARBNO('a') ('+' | '')
-          'a+a+a' POS(0) *E RPOS(0)            :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

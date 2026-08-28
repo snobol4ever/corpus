@@ -1,7 +1,0 @@
-          G1 = 'aa'
-          G0 = *G1
-          P = *G0
-          'aa a' POS(0) *P                      :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

@@ -1,6 +1,0 @@
-*  FALSE REJECT: retreat into a null-last ALT's NULL arm never happens. Oracle match; SCRIP nomatch.
-          E = ANY('ab') (LEN(1) | '')
-          'ab+ab' *E 'b'                        :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

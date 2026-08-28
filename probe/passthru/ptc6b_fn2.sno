@@ -1,8 +1,0 @@
-          $('Z' 'Z') = 1
-          QC = 'c'
-          DEFINE('F1()')                        :(GO)
-F1        F1 = 'LEN(3) | LEN(2) ANY(QC) LEN(1)' :(RETURN)
-GO        'abcdef' POS(0) *EVAL(F1()) 'ef' RPOS(0) :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

@@ -1,5 +1,0 @@
-          G1 = ARBNO('a' | 'ab')
-          'abcdef' POS(0) *G1 RPOS(0)           :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

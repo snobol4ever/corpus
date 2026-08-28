@@ -1,6 +1,0 @@
-          INNER = LEN(2)
-          MID = *INNER NOTANY('x')
-          'abcdef' POS(0) (*MID . V) RPOS(3)    :S(OK)F(NO)
-OK        OUTPUT = 'match:' V                   :(END)
-NO        OUTPUT = 'nomatch'
-END

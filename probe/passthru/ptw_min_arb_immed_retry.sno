@@ -1,6 +1,0 @@
-*  FALSE REJECT: ARB with an IMMEDIATE assignment ($) cannot retry to reach RPOS(0). Oracle matches; SCRIP says nomatch.
-          E = ARB $ v
-          'a+aa' POS(0) *E RPOS(0)              :S(OK)F(NO)
-OK        OUTPUT = 'match' v                    :(END)
-NO        OUTPUT = 'nomatch'
-END

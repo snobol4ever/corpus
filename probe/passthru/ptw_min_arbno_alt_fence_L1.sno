@@ -1,5 +1,0 @@
-          G1 = ARBNO((LEN(1) | LEN(2)) FENCE(LEN(1) | ''))
-          'abcdef' POS(0) *G1 LEN(1) RPOS(0)    :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

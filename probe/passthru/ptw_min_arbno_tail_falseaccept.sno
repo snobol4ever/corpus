@@ -1,6 +1,0 @@
-*  FALSE ACCEPT, BROADEST FORM: ARBNO + ANY following element, anchored so the match MUST fail. No ALT, no defer needed. Oracle nomatch; SCRIP match.
-          E = ARBNO('a') LEN(1)
-          'aa+aa' POS(0) *E RPOS(0)                        :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

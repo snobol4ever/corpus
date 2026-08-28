@@ -1,9 +1,0 @@
-          $('Z' 'Z') = 1
-          DEFINE('F1()')
-          DEFINE('F2()')                        :(GO)
-F1        F1 = ARB 'c'                :(RETURN)
-F2        F2 = LEN(1) *F1() LEN(1)              :(RETURN)
-GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

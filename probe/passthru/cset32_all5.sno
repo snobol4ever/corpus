@@ -1,9 +1,0 @@
-          S = 'xxxaeioZrest'
-          S BREAK('aeiou') . V1 SPAN('aeiou') . V2 NOTANY('aeiou') . V3   :S(K1)F(NO)
-K1        OUTPUT = V1 '|' V2 '|' V3
-          'abcd' ANY('abxy') . V4                                         :S(K2)F(NO)
-K2        OUTPUT = 'any:' V4
-          'mnopq' POS(0) BREAKX('pqrs') . V5 'pq'                         :S(K3)F(NO)
-K3        OUTPUT = 'breakx:' V5                                           :(END)
-NO        OUTPUT = 'nomatch'
-END

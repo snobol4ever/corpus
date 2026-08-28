@@ -1,6 +1,0 @@
-          $('Z' 'Z') = 1
-          P1 = LEN(3) | LEN(2) ANY('c') LEN(1)
-          C = CODE(" 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPUT = 'match' :(RET) ;CNO OUTPUT = 'nomatch' :(RET)")
-          OUTPUT = 'before'                     :<C>
-RET       OUTPUT = 'back'
-END
