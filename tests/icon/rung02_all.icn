@@ -1,0 +1,71 @@
+#------------------------------------------------- 1 rung02_arith_gen_nested_add
+# rung02 t03: nested generators — (1 to 3) + (1 to 3)
+procedure main();
+  every write((1 to 3) + (1 to 3));
+end
+#---------------------------------------------- 2 rung02_arith_gen_nested_filter
+# rung02 t04: nested generators + relational filter
+# (1 to 3) + (1 to 3) > 4 yields 4 for each sum > 4
+procedure main();
+  every write((1 to 3) + (1 to 3) > 4);
+end
+#-------------------------------------------------- 3 rung02_arith_gen_paper_mul
+# rung02 t05: Proebsting paper example — 5 > ((1 to 2) * (3 to 4))
+procedure main();
+  every write(5 > ((1 to 2) * (3 to 4)));
+end
+#------------------------------------------------------ 4 rung02_arith_gen_range
+# rung02 t01: basic range generator
+procedure main();
+  every write(1 to 5);
+end
+#-------------------------------------------------- 5 rung02_arith_gen_relfilter
+# rung02 t02: relational filter — (1 to 6) > 3 yields 3 for each i > 3
+procedure main();
+  every write((1 to 6) > 3);
+end
+#-------------------------------------------------------- 6 rung02_if_return_arm
+procedure fs(n);
+  if n = 0 then return 1;
+  return n * fs(n - 1);
+end
+procedure sign(n);
+  (n > 0 & return "pos") | return "npos";
+end
+procedure main();
+  write(fs(5));
+  write(if 2 > 1 then "t" else "e");
+  write(sign(4));
+  write(sign(-4));
+end
+#-------------------------------------------------------- 7 rung02_proc_add_proc
+# rung02 t01: procedure add(x,y) — tests param passing
+procedure add(x, y);
+  return x + y;
+end
+
+procedure main();
+  every write(add(3, 4));
+end
+#------------------------------------------------------------ 8 rung02_proc_fact
+# rung02 t02: factorial — tests recursion + return
+procedure fact(n);
+  if n = 0 then return 1;
+  return n * fact(n - 1);
+end
+
+procedure main();
+  every write(fact(5));
+end
+#---------------------------------------------------------- 9 rung02_proc_locals
+# rung02 t03: local vars — tests local frame slots
+procedure sum_to(n);
+  local total;
+  total := 0;
+  every total := total + (1 to n);
+  return total;
+end
+
+procedure main();
+  every write(sum_to(5));
+end
