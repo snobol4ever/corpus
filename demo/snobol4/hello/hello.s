@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_P/corpus/demo/snobol4/hello/hello.sno"
+                        .file            1 "snobol4/hello/hello.sno"
                         .file            2 "<included>"
                         .globl           main
 main:

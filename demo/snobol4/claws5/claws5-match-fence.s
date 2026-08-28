@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_P/corpus/demo/snobol4/claws5/claws5-match-fence.sno"
+                        .file            1 "snobol4/claws5/claws5-match-fence.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$0:
