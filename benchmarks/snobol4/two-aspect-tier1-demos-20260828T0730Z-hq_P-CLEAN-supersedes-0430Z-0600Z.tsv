@@ -1,0 +1,60 @@
+# TWO-ASPECT tier-1 demo board -- 2026-08-28T0730Z hq_P -- CLEAN INSTRUMENT
+# ⛔⛔ SUPERSEDES two-aspect-tier1-demos-20260828T0430Z and -0600Z. Both were taken with a bracket that
+# opened its OUTPUT association BEFORE the timed region, which made every variable assignment inside the
+# match pay an I/O channel lookup (SNOBOL4: assigning to an associated variable writes to its file, so
+# NV_SET_fn consults the channel table on every store). Cure: SCRIP 8c5514f5, association opened AFTER.
+# ⛔ THE CONTAMINATION WAS NON-UNIFORM AND SO DID NOT CANCEL IN THE MULTIPLE -- it taxes in proportion to
+# how much a program ASSIGNS inside its match: json-match m4 4239.2 -> 2341.1 ns (0.086x -> 0.168x),
+# claws5-match m4 1104.3 -> 1114.2 ns (1.736x -> 1.742x). json was wrong by ~2x; claws5 by 0.3%.
+# SCRIP 8c5514f5 | corpus 97f17bac6 | oracle spitbol-bench-oracle/sbl -bf -d512m -i64m -s256m | -O0
+# ⛔ ASPECT 1 is a TOTAL (startup+compile); ASPECT 2 is a SLOPE (match only). Never one column.
+demo	eng	A1_total_ms	A2_TIME_ns	reps	A2_mult
+calculator-1-match	sbl	36.06	33379230.7	256	1.000x
+calculator-1-match	m3	119.56	105933579.5	64	0.315x
+calculator-1-match	m4	108.90	89093563.4	256	0.375x
+calculator-1-match-fence	sbl	16.13	12916844.4	256	1.000x
+calculator-1-match-fence	m3	23.50	14262181.2	64	0.906x
+calculator-1-match-fence	m4	19.14	13099917.7	64	0.986x
+calculator-2-match	sbl	3.13	318696.6	4096	1.000x
+calculator-2-match	m3	14.32	882652.9	4096	0.361x
+calculator-2-match	m4	9.78	849036.1	1024	0.375x
+calculator-2-match-fence	sbl	4.06	442554.5	1024	1.000x
+calculator-2-match-fence	m3	12.77	796185.7	1024	0.556x
+calculator-2-match-fence	m4	9.86	916095.9	16384	0.483x
+treebank-match	sbl	1.69	1200.1	1048576	1.000x
+treebank-match	m3	8.91	1007.8	1048576	1.191x
+treebank-match	m4	4.20	960.7	1048576	1.249x
+treebank-match-fence	sbl	1.66	1168.9	1048576	1.000x
+treebank-match-fence	m3	7.57	1044.2	1048576	1.119x
+treebank-match-fence	m4	4.29	1007.7	1048576	1.160x
+claws5-match	sbl	1.53	1714.4	262144	1.000x
+claws5-match	m3	7.68	1106.7	1048576	1.549x
+claws5-match	m4	3.57	1020.2	1048576	1.681x
+claws5-match-fence	sbl	1.54	1909.9	262144	1.000x
+claws5-match-fence	m3	7.43	1235.8	1048576	1.546x
+claws5-match-fence	m4	4.59	1070.9	1048576	1.784x
+json-match	sbl	1.53	-	-	-	⛔	REFUSE	did-not-converge-by-reps=4000000
+json-match	m3	12.36	2289.9	262144	-
+json-match	m4	7.33	2116.5	262144	-
+json-match-fence	sbl	1.66	408.5	1048576	1.000x
+json-match-fence	m3	13.73	2344.7	262144	0.174x
+json-match-fence	m4	7.75	2109.9	262144	0.194x
+#
+# ⭐⭐ FOUR TIER-1 DEMOS BEAT SPITBOL ON THE MATCH PHASE, clean instrument, m4 vs clean oracle:
+#     claws5-match-fence 1.784x · claws5-match 1.681x · treebank-match 1.249x · treebank-match-fence 1.160x
+#
+# ⛔ json IS THE OUTLIER AND ITS CORRECTED NUMBER IS 0.194x (fence twin), NOT the 0.110x published at
+#   0600Z -- still the worst tier-1 row, ~5x behind, but half as bad as reported. json-match's own sbl arm
+#   refused to converge again, so its fence twin remains the readable row.
+#
+# ⭐ ATTRIBUTION FOR json's MATCH PHASE, from a clean differential profile (60,000 reps, m4 -O0), and it
+#   CORROBORATES ceo's earlier whole-process dig from an INDEPENDENT instrument -- two instruments, as the
+#   rule requires. json's match phase is PROCEDURE-ENTRY CEREMONY PER PATTERN CALLOUT, not matching:
+#     rt_name_save_push 5.78% · rt_proc_call_prologue 5.52% · rt_proc_find 4.90% · memmove 3.85%
+#     · rt_call_proc_descr 2.93% · rt_defer_probe_run 2.86%   => ~23% in callout entry
+#   ceo's whole-process figures the same night: rt_name_save_push 6.7, rt_proc_find 5.1,
+#   rt_proc_call_prologue 4.1, rt_call_proc_descr 3.4, arg memmove 5.4. The two agree closely.
+#   ⛔ BY CONTRAST claws5-match (which we WIN) profiles as 100% EMITTED MATCH BOXES -- n81_match_break_a
+#   19.9%, n79_match_span_a 16.2%, n84_match_span_a 14.5%, ... with ZERO runtime ceremony in its top ten.
+#   ⭐ THAT DIFFERENTIAL IS THE WHOLE DIAGNOSIS: where we spend time in the pattern engine we WIN; where a
+#   demo drives the engine through procedure callouts we lose, and the loss is the callout, not the match.
