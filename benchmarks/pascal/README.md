@@ -11,8 +11,9 @@ Each `.pas` carries a tunable repeat count read from stdin (`readln(reps)`) so a
 single compiled artifact can be run at any iteration count; the timing harness
 uses a two-point slope to cancel process-startup / JIT-compile cost. Each
 benchmark reduces its result to one (or two) deterministic integers, stored in
-the matching `.ref` (SCRIP M3 width-10 formatting, numeric value cross-checked
-against `fpc`).
+the matching `.ref` (SCRIP M3 width-11 formatting — moved from width-10 to match
+the `fpc -Miso` oracle, row `pascal-refs-regen-from-fpc-oracle` — numeric value
+cross-checked against `fpc`).
 
 ## Provenance
 

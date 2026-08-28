@@ -50,3 +50,25 @@ load-bearing tooling, out of scope for a consolidation pass). **Convert these on
 `pascal-restore-prezeta` lands** — per this project's own sequencing interlock ("Pascal converts
 either before this bisect starts or after it lands, never during"), converting them now, mid a
 not-yet-started bisect, would also be the wrong order for that row's own STEP 2 denominator.
+
+## 4. FPC-oracle regen exceptions (2 files: pb37, read3) — row `pascal-refs-regen-from-fpc-oracle`
+
+hq_C ruled (2026-08-28) `fpc -Miso` as the correctness oracle and default integer field width
+moves 10→11 to match it (one constant, `src/runtime/by_name_dispatch.c`'s `__pas_write`/
+`__pas_writeln` handler). All 56 other loose pairs regenerated clean against `fpc -Miso` output
+(measured this session: 51 whitespace-only + 5 already-identical, zero value disagreements —
+refuting the ruling's own estimate of "4 substantive diffs", which traces to its dry run not
+feeding the four stdin-bearing tests their `.in` files). These two `fpc -Miso` cannot produce a
+ground truth for, so their `.ref` stays the pre-existing, SCRIP-computed value (unaffected by the
+width move — neither prints a plain unspecified-width integer that a width bump would touch):
+
+- **`pb37.pas`** — `fpc -Miso pb37.pas` fails to compile: `Fatal: Unknown compilerproc
+  "fpc_write_text_enum_iso"`. FPC's ISO-mode runtime library is missing the support routine for
+  `writeln` on an enum value directly (`writeln(chartp[ch])` where `chartp: array[char] of chtp`).
+  A real gap in this fpc build's `-Miso` RTL, not a SCRIP or ref defect.
+- **`read3.pas`** — compiles, but crashes at runtime: `Runtime error 106` (invalid numeric
+  format) inside the `while not eof do read(i)` loop reading `read3.in` ("1 2 3 4 5\n"). FPC's
+  ISO-mode `eof`/numeric-`read` is strict about the trailing newline after the last token in a
+  way SCRIP's implementation is not; SCRIP's own answer (15, the correct sum) stays the ref.
+  Reproduced directly (`fpc -Miso read3.pas && printf '1 2 3 4 5\n' | ./read3` → `Runtime error
+  106`), not a dry-run artifact.
