@@ -1,0 +1,38 @@
+#-------------------------------------------------------- 1 rung24_records_basic
+record point(x, y)
+procedure main();
+  p := point(3, 4);
+  write(p.x);
+  write(p.y);
+end
+#------------------------------------------------- 2 rung24_records_field_assign
+record box(w, h)
+procedure main();
+  b := box(10, 20);
+  b.w := 99;
+  write(b.w);
+  write(b.h);
+end
+#----------------------------------------------------- 3 rung24_records_proc_arg
+record pair(a, b)
+procedure sum(p);
+  return p.a + p.b;
+end
+procedure main();
+  q := pair(7, 8);
+  write(sum(q));
+end
+#-------------------------------------------------- 4 rung24_records_record_loop
+record counter(n)
+procedure main();
+  c := counter(0);
+  every c.n := 1 to 3 do
+    write(c.n);
+end
+#---------------------------------------------------- 5 rung24_records_two_types
+record person(name, age)
+record coord(x, y)
+procedure main();
+  c := coord(5, 6);
+  write(c.x + c.y);
+end
