@@ -1,0 +1,30 @@
+#--------------------------------------------- 1 rung31_sort_sort_already_sorted
+procedure main();
+  L := [1, 2, 3, 4, 5];
+  every write(!sort(L));
+end
+#------------------------------------------------------ 2 rung31_sort_sort_basic
+procedure main();
+  L := [3, 1, 2];
+  S := sort(L);
+  every write(!S);
+end
+#------------------------------------------------------ 3 rung31_sort_sort_every
+procedure main();
+  L := [5, 3, 1, 4, 2];
+  every write(!sort(L));
+end
+#---------------------------------------------------- 4 rung31_sort_sortf_field1
+record point(x, y);
+procedure main()
+  L := [point(3, 10), point(1, 20), point(2, 30)];
+  S := sortf(L, 1);
+  every p := !S do write(p.x);
+end
+#---------------------------------------------------- 5 rung31_sort_sortf_field2
+record point(x, y);
+procedure main()
+  L := [point(3, 10), point(1, 30), point(2, 20)];
+  S := sortf(L, 2);
+  every p := !S do write(p.x);
+end
