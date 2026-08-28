@@ -1,0 +1,6 @@
+# perf-attribution TSV -- 2026-08-28 ceo -- ASPECT-1 STARTUP+COMPILE DIG (treebank-match, committed input, 100-run aggregate, SCRIP 69178c73)
+kernel	engine	runs	wall_per_run_ms	note
+treebank-match-whole	sbl	100	2.3	static 278KB binary
+treebank-match-whole	m3	100	13.3	0.17x; HEAP-size A/B 64/256/4096MB = NO effect (arena lazily mapped)
+# ATTRIBUTION: ~80% kernel-side = PAGE FAULTS, not syscalls (strace total ~1.3ms; maxrss 23.6MB on a 5ms program -- first-touch of the -O0 libscrip_rt + compiler heap ~5700 faults). User-side compile: the x86() encoder STRING path tops the profile (x86_parse + x86_core<cxx11> + bb_emit_x86(std::string) + rnum/is_reg ~3.7% of whole = ~25% of user) -- every instruction composed AND parsed as std::string at compile time, both media.
+# LEVERS: (1) m3-divergence cash-in = string-free binary emission path (hq_P predicted compile-side; now attributed); (2) RT footprint shrink rides the RT->ASM program; (3) heap-size is NOT a lever (measured).
