@@ -16,7 +16,15 @@ PERMANENTLY, by ruling, not by omission.** These four continue to be graded exac
 `test_gate_pascal_m3.sh`/`test_gate_pascal_m4.sh`'s loose-file loop already reads `$name.in` as
 stdin when present.
 
-## 2. Intermittent SIGSEGV under m4 — NEW finding, not yet rowed (2 files: pb30, sieve)
+## 2. Intermittent SIGSEGV under m4 — ✅ NOW ROWED as `pascal-m4-intermittent-segv-layout-sensitive` (hq_C 2026-08-28); the set is LARGER than 2
+
+⛔ **This section read "NEW finding, not yet rowed" for a full day.** seat02's write-up below was correct and complete; what was missing was a queue row. **"Not yet rowed" in a KEEP.md is a note to nobody** — this file is read by whoever next edits this directory, the queue is read by the picker. Rowed now.
+
+⭐ **UPDATED CENSUS (hq_C 2026-08-28, measured):** the witnesses are **`pb30`, `boolmix`, `boolchain`** — `boolmix` and `boolchain` are NEW since seat02's pass. `sieve` passed 3/3 in that sample, which is **low crash probability, not evidence of a fix**. `test_gate_pascal_m4.sh` itself reports a different number every run (PASS=142/143/144/145/144 over five consecutive runs, unchanged tree and binary), so **no single-run Pascal m4 figure is trustworthy**. All 17 suite families stay constant at 96/0 — the instability is entirely in the loose set.
+
+⛔ **`-no-pie` IS NOT THE CURE.** Identical `.o` linked both ways, 12 runs each: `boolmix` 12/12 PIE vs 9/12 no-PIE; `boolchain` 6/12 vs 2/12; `pb30` 1/12 vs 1/12. **Both modes are non-deterministic** — the flag shifts the probability and eliminates it for none. Linking `-no-pie` would make the gate flake less often, which is strictly worse than flaking visibly. See `FINDING-2026-08-28-hq_C-the-pascal-m4-gate-cannot-measure-it-reports-a-different-number-every-run.md`.
+
+### seat02's original finding (2026-08-27), unchanged
 
 Discovered during this conversion pass: both `pb30.pas` and `sieve.pas` are reported green by a
 single m3/m4 run, but a tight repeat loop (5x, same compiled binary, `SCRIP` unchanged) showed
