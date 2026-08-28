@@ -1,6 +1,0 @@
-# rung37: every-do body hello — simplest every i := 1 to 3 do write(i)
-procedure main();
-   local i;
-   every i := 1 to 3 do write(i);
-   write("done");
-end

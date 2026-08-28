@@ -1,8 +1,0 @@
-kw_lhs swap: &pos=4 x=3
-kw_lhs oob: blocked
-kw_lhs oob state: &pos=3 x=9
-kw_rhs swap: &pos=4 x=3
-kw_rhs oob: &pos=3 x=3
-after rev &pos<->x: &pos=3 x=9
-subj_mut &pos<->x: &pos=1 x=3
-subj_mut x<->&pos: &pos=1 x=2

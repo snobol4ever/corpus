@@ -1,0 +1,367 @@
+#------------------------------------------------------------ 1 rung37_augop_pow
+# rung37: augop power hello — IJ-3b
+procedure main();
+   local i;
+   i := 2;
+   i ^:= 3;
+   write(i);
+   i := 10;
+   i ^:= 9;
+   write(i);
+end
+#--------------------------------------------------------------- 2 rung37_coerce
+#SRC: IJ-7 operator string invocation
+procedure main();
+   call1("+", "3");
+   call1("-", "3");
+   call1("*", "hello");
+   call2("[]", "hello", 2);
+   call2("++", 'abc', 'bcd');
+end
+procedure call1(o, x);
+   write(o(x) | "fail");
+end
+procedure call2(o, x, y);
+   write(o(x, y) | "fail");
+end
+#------------------------------------------------------------- 3 rung37_cset_ops
+# rung37_cset_ops.icn -- IJ-15: cset literal, cset() builtin, cset ops, augmented ops
+procedure main();
+   local cs, cs2, cs3;
+   # cset literal type
+   cs := 'abc';
+   write(type(cs));
+   # cset() conversion
+   cs2 := cset("xyz");
+   write(type(cs2));
+   # cset union
+   cs3 := cs ++ cs2;
+   write(type(cs3));
+   write(image(cs3));
+   # cset diff
+   cs3 := cs3 -- cset("bx");
+   write(image(cs3));
+   # cset inter
+   cs3 := cs3 ** cset("acyz");
+   write(image(cs3));
+   # cset augmented assignment
+   cs := cset("abc");
+   cs ++:= cset("d");
+   write(image(cs));
+   cs --:= cset("b");
+   write(image(cs));
+   cs **:= cset("cd");
+   write(image(cs));
+   # cset iteration
+   cs := cset("ba");
+   every write(!cs);
+   # cset() from read string
+   write(*cset("hello"));
+end
+#------------------------------------------------------- 4 rung37_every_do_hello
+# rung37: every-do body hello — simplest every i := 1 to 3 do write(i)
+procedure main();
+   local i;
+   every i := 1 to 3 do write(i);
+   write("done");
+end
+#--------------------------------------- 5 rung37_every_expr_do_nonresumable_arg
+# rung37: every EXPR do BODY in EXPRESSION context, non-resumable inner generator (companion to
+# rung37_every_expr_nonresumable_arg.icn -- same defect shape, WITH a do-clause). every still
+# produces no value in expression context: the do-body's side effects run once, then image(...)
+# must never be invoked with a value, so the alternation falls through to "none".
+procedure main();
+   write(image(every write("y") do write("z")) | "none");
+end
+#------------------------------------------ 6 rung37_every_expr_nonresumable_arg
+# rung37: `every EXPR` in EXPRESSION context must FAIL, so the alternation falls through.
+# Distinct from rung37_every_in_arg.icn: there the argument (1|2|3) is RESUMABLE, which takes
+# lower_call's la_res path. Here write("y") is NON-resumable, which takes the degenerate
+# cx->beta == ω fallback -- the shape that is actually broken.
+procedure main();
+   write(image(every write("y")) | "none");
+end
+#--------------------------------------------------------- 7 rung37_every_in_arg
+# rung37: every inside builtin arg — image(every i := 1 to 3)
+procedure main();
+   write(image(every 1 | 2 | 3));
+   write("done");
+end
+#-------------------------------------------------------------- 8 rung37_file_io
+# rung37_file_io.icn — DT_FH typed file handle tests (IJ-13c)
+# Tests write/writes/read/reads/open/close routing via DT_FH descriptors.
+# scrip Icon requires explicit semicolons after every statement.
+
+procedure main();
+  local f;
+  local outf;
+  local s;
+
+  # write(fh, s) routes to the FILE* for that handle
+  outf := &output;
+  write(outf, "fh-write-ok");
+
+  # writes(fh, s) — no newline, then flush with write(fh,"")
+  writes(outf, "fh-writes-");
+  write(outf, "ok");
+
+  # open/write/close round-trip via file
+  f := open("/tmp/rung37_fh_test.txt", "w");
+  write(f, "file-content");
+  close(f);
+
+  # open/read round-trip
+  f := open("/tmp/rung37_fh_test.txt");
+  s := read(f);
+  write(s);
+  close(f);
+
+  # write(fh, integer) — integer printed, not fh slot number
+  write(outf, 42);
+
+  write("done");
+end
+#------------------------------------------------------------- 9 rung37_keywords
+#SRC: IJ-11
+# rung37_keywords.icn -- verify icn_kw_read: type/image/size for cset keywords,
+# math constants, &error r/w, &fail, &null.
+procedure main();
+   # type() detects cset keywords
+   write(type(&lcase));
+   write(type(&ucase));
+   write(type(&digits));
+   write(type(&letters));
+   write(type(&ascii));
+   write(type(&cset));
+   # image() returns "&name" form for built-in cset keywords
+   write(image(&lcase));
+   write(image(&ucase));
+   write(image(&digits));
+   write(image(&letters));
+   write(image(&ascii));
+   write(image(&cset));
+   # * size correct
+   write(*&lcase);
+   write(*&ucase);
+   write(*&digits);
+   write(*&letters);
+   write(*&ascii);
+   write(*&cset);
+   # math constants in correct range
+   write(if_ok(&e > 2.7 & &e < 2.8));
+   write(if_ok(&pi > 3.14 & &pi < 3.15));
+   write(if_ok(&phi > 1.61 & &phi < 1.62));
+   # &null and &fail
+   write(type(&null));
+   write(\&null | "null-is-null");
+   write(&fail | "fail-failed");
+   # &error read/write
+   &error := 42;
+   write(&error);
+   &error := 0;
+   write(&error);
+   # other writable keywords are integers
+   write(type(&dump));
+   write(type(&trace));
+   write(type(&random));
+   # fixed integer keywords
+   write(&col);
+   write(&row);
+   write(&x);
+   write(&y);
+   write(&level);
+end
+procedure if_ok(x);
+   return (x & "yes") | "no";
+end
+#---------------------------------------------------------- 10 rung37_math_hello
+# rung37: math builtins hello — IJ-4
+# simplest possible check: each builtin produces correct output
+procedure main();
+   write(sqrt(4.0));
+   write(sin(0.0));
+   write(cos(0.0));
+   write(exp(0.0));
+   write(log(1.0));
+   write(iand(12, 10));
+   write(ior(12, 10));
+   write(ixor(12, 10));
+   write(ishift(1, 3));
+   write(icom(0));
+end
+#-------------------------------------------------------------- 11 rung37_mutual
+# rung37_mutual.icn — test TT_MUTUAL (every A & B) cross-product conjunction  IJ-12
+global n_test, qn, qsol
+
+procedure main(args)
+   test_simple_mutual(); test_static_mutual(); test_queens_pattern()
+end
+
+procedure test_simple_mutual()
+   local x, y
+   write("simple_mutual:"); every x := (1|2|3) & y := (4|5) do write(x, ",", y)
+end
+
+procedure test_static_mutual()
+   n_test := 4; write("static_mutual:"); sm_foo(1)
+end
+
+procedure sm_foo(c)
+   local r
+   static arr, visited
+   initial { arr := list(n_test, 0); visited := list(n_test, 0) }
+   every 0 = arr[r := 1 to n_test] & arr[r] <- 1 do { visited[c] := r; if c < 3 then sm_foo(c + 1); else write(visited[1], ",", visited[2], ",", r) }
+end
+
+procedure test_queens_pattern()
+   write("queens_4:"); qmain(4)
+end
+
+procedure qmain(size)
+   qn := size; qsol := list(qn); every q(1)
+end
+
+procedure q(c)
+   local r
+   static up, down, rows
+   initial { up := list(2*qn-1, 0); down := list(2*qn-1, 0); rows := list(qn, 0) }
+   every 0 = rows[r := 1 to qn] = up[qn+r-c] = down[r+c-1] & rows[r] <- up[qn+r-c] <- down[r+c-1] <- 1 do { qsol[c] := r; if c = qn then write("sol:", qsol[1], qsol[2], qsol[3], qsol[4]); else q(c + 1) }
+end
+#------------------------------------------------------------- 12 rung37_neg_pos
+#SRC: IJ-10 &pos / &subject keyword swap (:=: and <->)
+procedure main();
+   local x;
+
+   # kw_is_lhs: &pos :=: var, both values in range -> full swap
+   "123456" ? {
+      &pos := 3; x := 4;
+      &pos :=: x;
+      write("kw_lhs swap: &pos=", &pos, " x=", x);
+   };
+
+   # kw_is_lhs: &pos :=: var, var value OOB -> nothing written (probe blocks)
+   "123456" ? {
+      &pos := 3; x := 9;
+      if &pos :=: x then write("kw_lhs oob: wrote") else write("kw_lhs oob: blocked");
+      write("kw_lhs oob state: &pos=", &pos, " x=", x);
+   };
+
+   # kw_is_rhs: var :=: &pos, both values in range -> full swap
+   "123456" ? {
+      &pos := 3; x := 4;
+      x :=: &pos;
+      write("kw_rhs swap: &pos=", &pos, " x=", x);
+   };
+
+   # kw_is_rhs: var :=: &pos, var value OOB for keyword -> var committed, keyword unchanged
+   "123456" ? {
+      &pos := 3; x := 9;
+      x :=: &pos;
+      write("kw_rhs oob: &pos=", &pos, " x=", x);
+   };
+
+   # Reversible swap <-> inside every with write body (no subject mutation)
+   "123456" ? {
+      &pos := 3; x := 9;
+      every &pos <-> x do write("rev tick: &pos=", &pos, " x=", x);
+      write("after rev &pos<->x: &pos=", &pos, " x=", x);
+   };
+
+   # Reversible swap -- body mutates &subject; lhs revert OOBs -> neither reverts
+   "123456" ? {
+      &pos := 3; x := 2;
+      every &pos <-> x do &subject := "A";
+      write("subj_mut &pos<->x: &pos=", &pos, " x=", x);
+   };
+
+   # Reversible swap -- body mutates &subject; lhs (x) reverts OK, rhs (&pos) OOBs -> only x reverts
+   "123456" ? {
+      &pos := 3; x := 2;
+      every x <-> &pos do &subject := "A";
+      write("subj_mut x<->&pos: &pos=", &pos, " x=", x);
+   };
+end
+#------------------------------------------------------------ 13 rung37_scan_alt
+#SRC: SCRIP-IJ9
+# rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
+# Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
+# External beta advances to next subject, never resumes body generator.
+procedure main();
+   local n;
+
+   # Non-generative body: move(1) grabs first char; one result per subject
+   every write(("ab"|"cd"|"ef") ? move(1));
+   write();
+
+   # tab(2) — substring from pos 1 to 2 of each subject
+   every write(("hello"|"world"|"icon") ? tab(2));
+   write();
+
+   # All three subjects driven; count = 3
+   n := 0;
+   every ("x"|"y"|"z") ? (n +:= 1);
+   write(n);
+   write();
+
+   # Scan failure on first subject ("abc" too short), second succeeds
+   every write(("abc"|"abcdef") ? move(5));
+   write();
+end
+#----------------------------------------------------------- 14 rung37_str_relop
+#SRC: IJ-8 string relop coercion tests
+# Verify bb_strrel coerces int/real to image string, cset to member string.
+# Uses semicolon separators (no auto-semicolon in this frontend).
+
+procedure main();
+   local s; local t;
+   # basic string ordering
+   s := "a"; t := "b";
+   if s << t then write("a<<b");
+   if t >> s then write("b>>a");
+   if s <<= s then write("a<<=a");
+   if t >>= t then write("b>>=b");
+   if s == s then write("a==a");
+   if s ~== t then write("a~==b");
+   # integer coercion: int compared as decimal image string
+   s := "2"; t := "3";
+   if s << t then write("2<<3");
+   if t >> s then write("3>>2");
+   if s == "2" then write("2==2");
+   # cset: 'ca' canonical = "ac"
+   s := "ac"; t := 'ca';
+   if s == t then write("ac=='ca'");
+   if s <<= t then write("ac<<='ca'");
+   # empty string edges
+   s := ""; t := "a";
+   if s <<= s then write("empty<<=empty");
+   if s << t then write("empty<<a");
+   if t >> s then write("a>>empty");
+end
+#-------------------------------------------------------- 15 rung37_strfmt_hello
+# rung37: detab/entab hello — IJ-5
+procedure main();
+   write(detab("\tabc"));
+   write(entab("        x"));
+   write(center("hi", 6));
+   write(left("hi", 6, "."));
+   write(right("hi", 6, "."));
+end
+#------------------------------------------------------- 16 rung37_string_format
+# IJ-5: test center/left/right/detab/entab string formatting builtins
+procedure main();
+  write(center("hi",6));
+  write(left("hi",6,"."));
+  write(right("hi",6,"."));
+  write(detab("\tabc"));
+  write(entab("        x"));
+end
+#------------------------------------------------------ 17 rung37_strrelop_hello
+# rung37: string relop hello — IJ-8
+procedure main();
+   if ("a" << "b") then write("a<<b");
+   if ("b" >> "a") then write("b>>a");
+   if ("a" == "a") then write("a==a");
+   if ("a" ~== "b") then write("a~==b");
+   if ("a" <<= "a") then write("a<<=a");
+   if ("b" >>= "b") then write("b>>=b");
+end

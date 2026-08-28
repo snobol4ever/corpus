@@ -1,5 +1,0 @@
-# rung37: every inside builtin arg — image(every i := 1 to 3)
-procedure main();
-   write(image(every 1 | 2 | 3));
-   write("done");
-end
