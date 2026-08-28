@@ -13,12 +13,17 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:
+                        .type            n0_statement_begin_bx, @function
+n0_statement_begin_bx:
 #=======================================================================================================================
 #         OUTPUT = 'hello'
 #-----------------------------------------------------------------------------------------------------------------------
 n0_statement_begin_α:   mov              r11, 1
                         mov              r10, 1;                              jmp   n1_lit_string_α
 n0_statement_begin_β:   mov              r11, 1;                              jmp   main_γ
+                        .size            n0_statement_begin_bx, .-n0_statement_begin_bx
+                        .type            n1_lit_string_bx, @function
+n1_lit_string_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_string_α:        sub              rsp, 16
                         mov              r11, 2
@@ -28,6 +33,9 @@ n1_lit_string_α:        sub              rsp, 16
                         mov              qword ptr [rsp + 8], rax;            jmp   n2_assign_α
 .Lmain_α_6_0:           .quad            .Lmain_α_6_0_s
 .Lmain_α_6_0_s:         .string          "hello"
+                        .size            n1_lit_string_bx, .-n1_lit_string_bx
+                        .type            n2_assign_bx, @function
+n2_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2_assign_α:            mov              r11, 3
                         mov              rsi, qword ptr [rsp + 0]             # lit_string
@@ -43,10 +51,14 @@ n2_assign_α:            mov              r11, 3
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_statement_end_α
 .Lmain_α_7_0:           .quad            .Lmain_α_7_0_s
 .Lmain_α_7_0_s:         .string          "OUTPUT"
+                        .size            n2_assign_bx, .-n2_assign_bx
+                        .type            n3_statement_end_bx, @function
+n3_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3_statement_end_α:     mov              r11, 4
                         mov              r10, 1
                         add              rsp, 16;                             jmp   main_γ
+                        .size            n3_statement_end_bx, .-n3_statement_end_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
