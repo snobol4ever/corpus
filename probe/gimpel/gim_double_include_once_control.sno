@@ -1,5 +1,5 @@
 *  gim_double_include_once_control - the GREEN CONTROL for
 *  gim_double_include_hang: the identical program with ONE include.
--INCLUDE "gim_double_include_hang_A.sno"
+-INCLUDE "gim_double_include_hang_A.inc"
         OUTPUT  =  DI_COUNT('aaa','a')
 END

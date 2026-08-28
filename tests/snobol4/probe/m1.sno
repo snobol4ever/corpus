@@ -197,3 +197,13 @@ END
  S = 'abc'; S LEN(1) . C =; OUTPUT = C ' ' S;END;* m1_repl_r3
  S = 'abc'; S POS(0) LEN(1) =; OUTPUT = S;END;* m1_repl_r4
  S = 'abc'; S POS(0) LEN(1) . C =; OUTPUT = 'c=' C ' s=' S;END;* m1_replace_pos_capture
+*---------------------------------------------------------- 38 m1_nret_cap XFAIL
+        DEFINE('S()')          :(A)
+S       S = .G                 :(NRETURN)
+A       'AB' ? LEN(1) . S()
+        OUTPUT = 'g=' G
+END
+*------------------------------------------------------- 39 m1_trailing_ws XFAIL
+                  X              =  1   
+                  OUTPUT         =  X
+END

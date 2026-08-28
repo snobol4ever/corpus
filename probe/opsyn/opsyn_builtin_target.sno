@@ -1,8 +1,0 @@
-*  OPSYN'd operator whose target is a BUILT-IN (manual p.116 worked example: OPSYN('#','DIFFER',2)).
-        OPSYN('#', 'DIFFER', 2)
-        OUTPUT         =   IDENT(1 # 2, '') 'DIFFER-SUCCEEDS'
-        1 # 1                                               :S(BAD)F(OK)
-BAD     OUTPUT         =   'BAD: 1 # 1 succeeded'           :(FIN)
-OK      OUTPUT         =   'OK: 1 # 1 failed'
-FIN
-END

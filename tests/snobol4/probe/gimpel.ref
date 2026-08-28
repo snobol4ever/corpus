@@ -10,3 +10,52 @@ FAILED AS IT SHOULD
 ACDEF
 ACDEF
 D
+*------------------------------------------------- 10 gim_blanks_min_wrong XFAIL
+X=A
+*------------------------------------------ 11 gim_defer_cassign_array_elt XFAIL
+[x][y][z]
+*--------------------------------------------- 12 gim_fortput_m4_only_segv XFAIL
+hi                                                                             1
+*----------------------------------------- 13 gim_goto_function_call_parse XFAIL
+sib1 go
+sib1 landed
+sib2 go
+sib2 landed
+witness go
+witness landed
+*-------------------------------------- 14 gim_indirect_read_third_operand XFAIL
+V1=stored
+stored
+V1stored
+V1xystored
+V1xstoredy
+V1xstored
+V1=again
+*---------------------------------------------- 15 gim_name_of_field_store XFAIL
+CHANGED
+CHANGED2
+*----------------------------------------------- 16 gim_not_op_no_template XFAIL
+A
+B
+*------------------------------------------------ 17 gim_omitted_arg_shift XFAIL
+[x][y]
+[][y]
+[x][]
+*-------------------------------------- 18 gim_or_single_alternative_crash XFAIL
+built
+*----------------------------------------------- 19 gim_real_literal_parse XFAIL
+74.
+*---------------------------------------- 20 gim_seq_code_loop_in_function XFAIL
+a
+b
+c
+sibling CODE loop exited with J = 4
+sibling function freturned, M = 1
+a
+b
+c
+witness returned, K = 4
+*------------------------------------------- 21 gim_span_self_rebind_wrong XFAIL
+ACDEF
+*---------------------------------------------- 22 gim_double_include_hang XFAIL
+3

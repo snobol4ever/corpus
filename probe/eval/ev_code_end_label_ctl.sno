@@ -1,7 +1,0 @@
-*  Control for ev_code_end_terminates: SAME fragment, SAME :(END) exit,
-*  entered by an ORDINARY label goto instead of the direct form — so the
-*  direct-goto grammar is not in the picture at all.  Crashes identically
-*  in mode-4, which is what proves the defect is the fragment's exit.
-        C = CODE("INSIDE OUTPUT = 'in fragment' :(END)")
-        OUTPUT = 'before'                       :(INSIDE)
-END

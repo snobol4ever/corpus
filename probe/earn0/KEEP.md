@@ -29,6 +29,16 @@ repeat-for-flakiness check in the harness before this can convert at all** —
 this is a harness capability gap, not a disposition choice; converting it as-is
 would be actively wrong, not merely against a since-voided rule.
 
+**Data point, not a resolution (2026-08-28, same session as the xfail conversions above)**: 6
+fresh, direct `run_all_modes()` calls (m3+m4 each) all came back clean PASS/PASS — 0 of 6 reproduced
+the historical ABORT shape. This does NOT mean the flakiness is gone: 6 quick calls are far short of
+`board_earn0_set.sh`'s own purpose-built repeat-detector, and a low-probability race can easily hide
+in 6 tries. Left loose, not converted on the strength of a clean 6-run streak — that would repeat
+exactly the "one lucky green run" mistake this section warns against, just with a slightly bigger N.
+Whoever eventually builds the harness's repeat-for-flakiness capability should re-measure with
+`board_earn0_set.sh` itself (the authoritative instrument for this specific question) rather than
+trust either citation.
+
 ## Soft dependents (informational, not a reason to hold files back)
 
 `board_denominators.sh`'s `d_earn0()` and `test_census_rbp_frames.sh`'s

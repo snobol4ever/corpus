@@ -19,3 +19,9 @@ PATTERN
 PATTERN
 PATTERN
 PATTERN
+*------------------------------------------------ 20 ev_code_end_label_ctl XFAIL
+before
+in fragment
+*----------------------------------------------- 21 ev_code_end_terminates XFAIL
+before
+in fragment

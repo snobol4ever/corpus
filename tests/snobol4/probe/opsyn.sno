@@ -1,18 +1,29 @@
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = R('a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* a_reg_only
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R R = 'CONST' :(RETURN);END;* b_noargs
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R OUTPUT = 'IN-BODY'; R = 'CONST' :(RETURN);END;* c_trace
- DEFINE('R(t,n)'); OUTPUT = R('a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* ctl_call2
- DEFINE('U(s)'); OPSYN('!', 'U', 1); OUTPUT = !'x' :(END);U U = 'UN-' s :(RETURN);END;* d_unary
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); X = 'a' & 'b'; OUTPUT = X :(END);R R = 'CONST' :(RETURN);END;* e_bare
- DEFINE('R(t,n)'); OUTPUT = APPLY('R','a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* f_apply
- DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('&', 'cat', 2); OUTPUT = 'abc' & 'def'; OUTPUT = 'x' & 5;END;* opsyn_bin_amp
- DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('@', 'cat', 2); OUTPUT = 'abc' @ 'def'; OUTPUT = 'x' @ 5;END;* opsyn_bin_at
- DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('%', 'cat', 2); OUTPUT = 'abc' % 'def'; OUTPUT = 'x' % 5;END;* opsyn_bin_pct
- DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('#', 'cat', 2); OUTPUT = 'abc' # 'def'; OUTPUT = 'x' # 5;END;* opsyn_bin_pound
- DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('~', 'cat', 2); OUTPUT = 'abc' ~ 'def'; OUTPUT = 'x' ~ 5;END;* opsyn_bin_tilde
- DEFINE('R(t)'); OUTPUT = DATATYPE(R('x')) :(END);R R = EVAL("LEN(1)") :(RETURN);END;* opsyn_control_nopsyn
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 1 & 2 :(END);R R = EVAL("1 + 2") :(RETURN);END;* opsyn_int
-*-------------------------------------------------------- 15 opsyn_kind_selector
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = R('a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* a_reg_only;* a_reg_only
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R R = 'CONST' :(RETURN);END;* b_noargs;* b_noargs
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R OUTPUT = 'IN-BODY'; R = 'CONST' :(RETURN);END;* c_trace;* c_trace
+ DEFINE('R(t,n)'); OUTPUT = R('a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* ctl_call2;* ctl_call2
+ DEFINE('U(s)'); OPSYN('!', 'U', 1); OUTPUT = !'x' :(END);U U = 'UN-' s :(RETURN);END;* d_unary;* d_unary
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); X = 'a' & 'b'; OUTPUT = X :(END);R R = 'CONST' :(RETURN);END;* e_bare;* e_bare
+ DEFINE('R(t,n)'); OUTPUT = APPLY('R','a','b') :(END);R R = 'GOT-' t n :(RETURN);END;* f_apply;* f_apply
+ DEFINE('cat(a,b)') :(ce);cat cat = a b :(RETURN);ce; OPSYN('foo', 'cat', 0); OUTPUT = foo('abc','def');END;* opsyn_alias_plain_function;* opsyn_alias_plain_function
+ DEFINE('twice(x)') :(setup);twice twice = x + x :(RETURN);setup OPSYN('double', 'twice');main OUTPUT = APPLY('double', 21);END;* opsyn_apply_alias_sigsegv;* opsyn_apply_alias_sigsegv
+ DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('&', 'cat', 2); OUTPUT = 'abc' & 'def'; OUTPUT = 'x' & 5;END;* opsyn_bin_amp;* opsyn_bin_amp
+ DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('@', 'cat', 2); OUTPUT = 'abc' @ 'def'; OUTPUT = 'x' @ 5;END;* opsyn_bin_at;* opsyn_bin_at
+ DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('%', 'cat', 2); OUTPUT = 'abc' % 'def'; OUTPUT = 'x' % 5;END;* opsyn_bin_pct;* opsyn_bin_pct
+ DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('#', 'cat', 2); OUTPUT = 'abc' # 'def'; OUTPUT = 'x' # 5;END;* opsyn_bin_pound;* opsyn_bin_pound
+ DEFINE('cat(a,b)') :(cat_end);cat cat = a b :(RETURN);cat_end; OPSYN('~', 'cat', 2); OUTPUT = 'abc' ~ 'def'; OUTPUT = 'x' ~ 5;END;* opsyn_bin_tilde;* opsyn_bin_tilde
+*------------------------------------------------- 15 opsyn_builtin_target XFAIL
+*  OPSYN'd operator whose target is a BUILT-IN (manual p.116 worked example: OPSYN('#','DIFFER',2)).
+        OPSYN('#', 'DIFFER', 2)
+        OUTPUT         =   IDENT(1 # 2, '') 'DIFFER-SUCCEEDS'
+        1 # 1                                               :S(BAD)F(OK)
+BAD     OUTPUT         =   'BAD: 1 # 1 succeeded'           :(FIN)
+OK      OUTPUT         =   'OK: 1 # 1 failed'
+FIN
+END
+ DEFINE('R(t)'); OUTPUT = DATATYPE(R('x')) :(END);R R = EVAL("LEN(1)") :(RETURN);END;* opsyn_control_nopsyn;* opsyn_control_nopsyn
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 1 & 2 :(END);R R = EVAL("1 + 2") :(RETURN);END;* opsyn_int;* opsyn_int
+*-------------------------------------------------------- 18 opsyn_kind_selector
         &ERRLIMIT = 20
         OPSYN('STRLEN', 'SIZE', 1)              :F(B1)
         OUTPUT = 'fn-name i=1        accepted'  :(N1)
@@ -54,9 +65,9 @@ N12     OPSYN('#', 'SIZE', 2.7)                 :F(B13)
         OUTPUT = 'i real 2.7         accepted'  :(END)
 B13     OUTPUT = 'i real 2.7         ' &ERRTYPE
 END
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R R = 'GOT-' t n :(RETURN);END;* opsyn_noeval
- DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = DATATYPE('a' & 'b') :(END);R R = EVAL("LEN(1)") :(RETURN);END;* opsyn_pat
-*--------------------------------------------------------- 18 opsyn_rebind_twice
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = 'a' & 'b' :(END);R R = 'GOT-' t n :(RETURN);END;* opsyn_noeval;* opsyn_noeval
+ DEFINE('R(t,n)'); OPSYN('&', 'R', 2); OUTPUT = DATATYPE('a' & 'b') :(END);R R = EVAL("LEN(1)") :(RETURN);END;* opsyn_pat;* opsyn_pat
+*--------------------------------------------------------- 21 opsyn_rebind_twice
         DEFINE('cat(a,b)')                                  :(cat_end)
 cat     cat            =   a b                              :(RETURN)
 cat_end
@@ -68,5 +79,8 @@ rev_end
         OPSYN('&', 'rev', 2)
         OUTPUT         =   'abc' & 'def'
 END
- DEFINE('cat(a,b)') :(ce);cat cat = a b :(RETURN);ce; OPSYN('foo', 'cat', 0); OUTPUT = foo('abc','def');END;* opsyn_alias_plain_function
- DEFINE('twice(x)') :(setup);twice twice = x + x :(RETURN);setup OPSYN('double', 'twice');main OUTPUT = APPLY('double', 21);END;* opsyn_apply_alias_sigsegv
+*--------------------------------------------------- 22 opsyn_unary_target XFAIL
+*  OPSYN'd unused UNARY operator (manual p.116: OPSYN('!','ANY',1); unused unary set = ! % / # = |).
+        OPSYN('!', 'ANY', 1)
+        'ABC321'       ?   !'3C' . OUTPUT
+END
