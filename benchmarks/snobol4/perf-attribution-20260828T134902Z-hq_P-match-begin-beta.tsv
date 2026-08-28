@@ -1,0 +1,27 @@
+# perf-attribution TSV -- 2026-08-28 hq_P -- row perf-match-begin-beta-cure, FIRST STEP: attribution INSIDE the β RECEDE port
+# SHARED AXES: perf cycles:u @999Hz | PERF_BIN=/usr/lib/linux-tools-6.8.0-138/perf | mode 4 (--compile) | RT_OPT=-O0 | SCRIP 71175348 | corpus 3a01209c7
+# BASIS: porter FIXED-WORK bench, bench_wrap.sh --mode=iter --n=30 (kernel=PORTER, check=139812), stdin corpus/benchmarks/snobol4/demo/porter.dat (190138 B)
+# ⛔ NOT COMPARABLE with the slice-1 read: that was the STANDALONE program, single pass, 0.14 s, 144 samples total. This is 4.63 s, ~4700 samples/run, 5 runs.
+# ⛔ UNIT: percent OF CYCLES SAMPLED. No speed multiple is claimed anywhere in this file.
+metric	value	n_runs	spread	note
+match_begin_TOTAL_pct	9.33	5	8.95-9.55	STABLE. slice-1 reported 24.84 from 144 samples -- 2.66x overstated
+match_begin_beta_pct	7.15	5	6.94-7.29	STABLE. slice-1 reported 18.18 -- 2.54x overstated
+match_begin_alpha_pct	1.52	5	1.40-1.72	
+match_begin_af_pct	0.54	1	-	alternate-fail sibling
+match_defer_TOTAL_pct	4.23	1	-	2nd BB family
+BB_coverage_pct	25.49	1	-	all BB boxes as share of profile; 74.10 pct is NON-BB
+gc_collect_ex_pct	7.95	1	-	NON-BB
+rt_gcheap_carve_pct	5.93	1	-	NON-BB
+c_rt_gcheap_alloc_pct	4.88	1	-	NON-BB
+GC_PLUS_ALLOC_pct	18.76	1	-	⭐ sum of the three above: ~2x match_begin TOTAL, invisible at 1 iteration
+NV_SET_fn_pct	10.49	1	-	NON-BB, single hottest symbol
+rt_cap_open_pct	7.95	1	-	NON-BB (hq_C Bucket A lane)
+branch_miss_rate_pct	0.78	1	-	51525694 of 6642860683 branches, whole program
+beta_body_call_insns	0	-	STATIC	⭐ 13 β bodies, ZERO calls, ZERO push/pop, median 9 insns
+alpha_body_call_insns	13	-	STATIC	13 α bodies, 13 calls, 65 push/pop, median 27 insns
+af_body_call_insns	13	-	STATIC	13 af bodies, 13 calls, 13 push/pop, median 15 insns -- rt_match_ctx_restore lives HERE
+beta_opcode_mov_pct	55.8	1	-	share of β samples by opcode
+beta_opcode_cmp_pct	26.1	1	-	
+beta_opcode_lea_pct	17.5	1	-	
+beta_opcode_branch_pct	0.5	1	-	jg+jne+jmp combined
+single_pass_sample_count	144	1	-	⛔ the whole evidentiary basis of the slice-1 ranking
