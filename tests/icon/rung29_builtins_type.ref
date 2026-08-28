@@ -1,0 +1,19 @@
+#--------------------------------------------------- 1 rung29_builtins_type_copy
+hello
+string
+#-------------------------------------------------- 2 rung29_builtins_type_image
+42
+"hello"
+3.14
+#-------------------------------------------------- 3 rung29_builtins_type_mixed
+integer
+100
+8
+#------------------------------------------------ 4 rung29_builtins_type_numeric
+42
+100
+no
+#--------------------------------------------------- 5 rung29_builtins_type_type
+integer
+string
+real

@@ -1,0 +1,31 @@
+#--------------------------------------------------- 1 rung29_builtins_type_copy
+procedure main();
+  s := copy("hello");
+  write(s);
+  write(type(s));
+end
+#-------------------------------------------------- 2 rung29_builtins_type_image
+procedure main();
+  write(image(42));
+  write(image("hello"));
+  write(image(3.14));
+end
+#-------------------------------------------------- 3 rung29_builtins_type_mixed
+procedure main();
+  x := 100;
+  write(type(x));
+  write(image(x));
+  write(numeric("7") + 1);
+end
+#------------------------------------------------ 4 rung29_builtins_type_numeric
+procedure main();
+  write(numeric("42"));
+  write(numeric("100"));
+  if numeric("abc") then write("yes") else write("no");
+end
+#--------------------------------------------------- 5 rung29_builtins_type_type
+procedure main();
+  write(type(42));
+  write(type("hello"));
+  write(type(3.14));
+end
