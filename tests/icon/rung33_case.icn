@@ -1,0 +1,33 @@
+#------------------------------------------------------ 1 rung33_case_case_arith
+procedure main()
+  write(case 1 of { 1: 1*10; 2: 2*20; default: 99*100; });
+  write(case 2 of { 1: 1*10; 2: 2*20; default: 99*100; });
+  write(case 7 of { 1: 1*10; 2: 2*20; default: 7*100; });
+end
+#---------------------------------------------------- 2 rung33_case_case_in_proc
+procedure classify(n)
+  return case n of {
+    1: "one";
+    2: "two";
+    default: "many";
+  };
+end
+procedure main()
+  write(classify(1));
+  write(classify(2));
+  write(classify(9));
+end
+#-------------------------------------------------------- 3 rung33_case_case_int
+procedure main()
+  write(case 2 of { 1: "one"; 2: "two"; 3: "three"; default: "other"; });
+  write(case 5 of { 1: "one"; 2: "two"; 3: "three"; default: "other"; });
+end
+#------------------------------------------------- 4 rung33_case_case_no_default
+procedure main()
+  x := case 3 of { 1: 10; 2: 20; 3: 30; };
+  write(x);
+end
+#-------------------------------------------------------- 5 rung33_case_case_str
+procedure main()
+  write(case "b" of { "a": 1; "b": 2; "c": 3; default: 0; });
+end
