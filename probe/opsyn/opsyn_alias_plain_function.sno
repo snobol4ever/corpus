@@ -1,6 +1,0 @@
-	DEFINE('cat(a,b)')	:(ce)
-cat	cat = a b	:(RETURN)
-ce
-	OPSYN('foo', 'cat', 0)
-	OUTPUT = foo('abc','def')
-END

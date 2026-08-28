@@ -1,36 +1,33 @@
-# KEEP — files that stay loose, deliberately
+# earn0 — probe consolidation status
 
-Per this family's consolidation task (`probe-consolidate-m1-and-small`, GOAL text:
-"Data inlines in the suite entries; ONLY genuinely stdin/file-driven tests stay
-standalone, marked in a KEEP.md beside them").
+⛔ **`KEEP.md`-as-permanent-disposition is VOID for crosscheck/probe (Lon ruling 2026-08-28,
+`corpus-crosscheck-probe-total-conversion.task.md`): "it matters not the number of lines... make
+them all use the multi-liner or one-liner Python harness as appropriate."** What follows is a
+STATUS record, not a policy keep — every file named here is either already converted, or blocked
+on a specific, named, still-open mechanism, never held back by choice.
 
-## Known FLAKY — never offered to the one-shot converter
+## Converted 2026-08-28 (probe-consolidate-m1-and-small, seat02)
+
+`earn0_disc_arbno_star_fence_positive`/`_poisoned` and `s68_goto_control` are now entries 32-34 of
+`tests/snobol4/probe/earn0.sno`/`.ref` (`s68_goto_control.ref` minted via
+`corpus_suite_harness.py capture-oracle-refs`, m3+m4 oracle-agreeing). The two arbno-fence witnesses
+were needed standalone by `scripts/test_arbno_witnesses.sh` (feeds a live `sbl` oracle comparison by
+exact path) — re-pointed in the SAME commit to `corpus_suite_harness.py extract` the entry into its
+own `$W` tempdir before use (verified: `bash scripts/test_arbno_witnesses.sh` all-PASS, including a
+THIRD, pre-existing-broken reference to `crosscheck/patterns/181_pat_arbno_defer_tail_stressors.sno`
+fixed the same way while in the file for the same reason).
+
+## Known FLAKY — blocked on a harness gap, not a policy keep
 
 `earn0_stored_capture.sno`/`.ref` — `scripts/board_earn0_set.sh`'s own header
 comment documents it as the reason that script has a `REPEAT`/flaky-detector at
 all: measured **3xPASS-shape/5xABORT** at a past HEAD. The suite harness's
-`convert_one` runs each mode exactly once; a single lucky green run would have
-silently baked a coin-flip result into a "stable" suite entry and permanently
-destroyed the flakiness signal `board_earn0_set.sh` exists to catch. Deliberately
-excluded from the convert input rather than left to chance — this is a
-methodology gap in the harness (no repeat-for-flakiness check), not something
-`--skip`'s single-run "not green" reasoning captures.
-
-## Needed standalone by a live-oracle comparison tool
-
-`earn0_disc_arbno_star_fence_positive.sno`/`.ref`,
-`earn0_disc_arbno_star_fence_poisoned.sno`/`.ref` — `scripts/test_arbno_witnesses.sh`
-feeds each file directly to the live `sbl` oracle by exact path (`$CORPUS/probe/earn0/<name>.sno`),
-side by side with `scrip`. It degrades gracefully if the files are gone (prints
-`MISSING` rather than erroring), but that would silently drop these two witnesses
-from a tool built specifically to compare them against the real oracle inline —
-same shape as `probe/cn`'s gate lock, lower stakes. Left loose rather than
-degrading that tool.
-
-## Ref-less, pre-existing, not minted here
-
-`s68_goto_control.sno` — no matching `.ref` exists (predates this task). Not
-fabricating one; out of scope for this row.
+`convert_one` runs each mode exactly once; a single lucky green run would
+silently bake a coin-flip result into a "stable" suite entry and permanently
+destroy the flakiness signal `board_earn0_set.sh` exists to catch. **Needed: a
+repeat-for-flakiness check in the harness before this can convert at all** —
+this is a harness capability gap, not a disposition choice; converting it as-is
+would be actively wrong, not merely against a since-voided rule.
 
 ## Soft dependents (informational, not a reason to hold files back)
 

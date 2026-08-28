@@ -1,6 +1,0 @@
-*  m1_include_sort_loop -- R-3(f) rtx_func_11_include ROOT CAUSE witness (s97): an INCLUDEd file whose statements
-*  got no :src note was ONE planner run (statement_end released nothing; beta cascades accumulated) -> per-iteration
-*  RSP leak -> SIGSEGV. Inline twin (m1_include_sort_loop_inline.sno) was always clean. Oracle: main k1 k20
--INCLUDE 'm1_include_sort_loop.inc'
-        OUTPUT = 'main ' NAME_1 ' ' NAME_20
-END

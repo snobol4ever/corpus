@@ -31,3 +31,5 @@ PATTERN
 *--------------------------------------------------------- 18 opsyn_rebind_twice
 abcdef
 defabc
+abcdef
+42

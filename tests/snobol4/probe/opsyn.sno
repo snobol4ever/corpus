@@ -68,3 +68,5 @@ rev_end
         OPSYN('&', 'rev', 2)
         OUTPUT         =   'abc' & 'def'
 END
+ DEFINE('cat(a,b)') :(ce);cat cat = a b :(RETURN);ce; OPSYN('foo', 'cat', 0); OUTPUT = foo('abc','def');END;* opsyn_alias_plain_function
+ DEFINE('twice(x)') :(setup);twice twice = x + x :(RETURN);setup OPSYN('double', 'twice');main OUTPUT = APPLY('double', 21);END;* opsyn_apply_alias_sigsegv

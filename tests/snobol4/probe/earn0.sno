@@ -29,3 +29,20 @@
  S = 'q+aabbz'; S ANY('+') SPAN('ab') . R 'z' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_span_clean
  S = 'q+abcdz'; S ANY('+') TAB(6) . R :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l3_tab_clean
  V = 'ab'; S = 'q+aabbz'; S ANY('+') SPAN(V) . R 'z' :S(Y)F(N);Y OUTPUT = 'R=[' R ']' :(D);N OUTPUT = 'NOMATCH';D OUTPUT = 'DONE';END;* l4_span_varg_hang
+*--------------------------------------- 32 earn0_disc_arbno_star_fence_poisoned
+        cmd   = FENCE('zz')
+        outer = ARBNO(*cmd)
+        s     = 'aa'
+        s POS(0) *outer RPOS(0)                               :S(GOOD)F(BAD)
+GOOD    OUTPUT = 'arbno-star-cmd spanned aa'                  :(END)
+BAD     OUTPUT = 'FAILED: pattern did not span aa'
+END
+*--------------------------------------- 33 earn0_disc_arbno_star_fence_positive
+        cmd   = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s     = 'aa'
+        s POS(0) *outer RPOS(0)                               :S(GOOD)F(BAD)
+GOOD    OUTPUT = 'arbno-star-cmd spanned aa'                  :(END)
+BAD     OUTPUT = 'FAILED: pattern did not span aa'
+END
+ N = 0;LOOP N = N + 1; LT(N, 200000) :S(LOOP); OUTPUT = 'done ' N;END;* s68_goto_control
