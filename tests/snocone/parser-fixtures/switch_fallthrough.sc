@@ -1,3 +1,0 @@
-switch (x) {
-default: y = 0;
-}

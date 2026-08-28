@@ -1,1 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_SEQ (TT_VAR x) (TT_QLIT "foo")) (TT_QLIT "bar")))

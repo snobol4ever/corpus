@@ -1,0 +1,673 @@
+/*--------------------------------------------------------------- 1 arith_add */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_ILIT 1) (TT_ILIT 2))))
+/*--------------------------------------------------------------- 2 arith_div */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_DIV (TT_ILIT 10) (TT_VAR b))))
+/*--------------------------------------------------------------- 3 arith_mul */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_MUL (TT_VAR a) (TT_VAR b))))
+/*--------------------------------------------------------------- 4 arith_sub */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_VAR a) (TT_ILIT 3))))
+/*---------------------------------------------------------- 5 arith_sub_nary */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_SUB (TT_VAR a) (TT_VAR b)) (TT_VAR c))))
+/*-------------------------------------------------------------- 6 assign_int */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
+/*------------------------------------------------------------ 7 assign_mixed */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 42)))
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_QLIT "hello")))
+(STMT :subj (TT_ASSIGN (TT_VAR z) (TT_VAR x)))
+(STMT :subj (TT_VAR w))
+/*-------------------------------------------------------------- 8 assign_seq */
+(STMT :subj (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)))
+(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_ILIT 2)))
+/*-------------------------------------------------------------- 9 assign_str */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_QLIT "hi")))
+/*------------------------------------------------------------- 10 assign_var */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_VAR y)))
+/*---------------------------------------------------------------- 11 atom_id */
+(STMT :subj (TT_VAR x))
+/*--------------------------------------------------------------- 12 atom_int */
+(STMT :subj (TT_ILIT 42))
+/*--------------------------------------------------------------- 13 atom_str */
+(STMT :subj (TT_QLIT "hello"))
+/*---------------------------------------------------------- 14 augmented_add */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 1)))
+/*---------------------------------------------------------- 15 augmented_div */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 4)))
+/*---------------------------------------------------------- 16 augmented_mul */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 3)))
+/*---------------------------------------------------------- 17 augmented_pow */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 2)))
+/*---------------------------------------------------------- 18 augmented_sub */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 2)))
+/*-------------------------------------------------------------- 19 break_for */
+(STMT :subj (TT_FOR
+  (TT_ASSIGN (TT_VAR i) (TT_ILIT 0))
+  (TT_FNC LT (TT_VAR i) (TT_ILIT 10))
+  (TT_AUGOP (TT_VAR i) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_LOOP_BREAK))
+    )
+  )
+))
+/*----------------------------------------------------------- 20 break_nested */
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "4"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 4: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj
+        (TT_WHILE
+          (TT_FNC EQ (TT_VAR y) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "3"))
+              (TT_ATTR :stno (TT_QLIT "1"))
+              (TT_ATTR :incl (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 1, line 3: source not in main file (INCLUDE)>"))
+              (TT_ATTR :subj (TT_LOOP_BREAK))
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*------------------------------------------------------------ 21 break_while */
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_LOOP_BREAK))
+    )
+  )
+))
+/*------------------------------------------------------------- 22 call_noarg */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC f)))
+/*----------------------------------------------------------- 23 call_one_arg */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC g (TT_ILIT 42))))
+/*------------------------------------------------------------ 24 call_simple */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC f (TT_ILIT 1) (TT_ILIT 2))))
+/*-------------------------------------------------------------- 25 call_stmt */
+(STMT :subj (TT_FNC print (TT_VAR x)))
+/*------------------------------------------------------------- 26 call_three */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC h (TT_VAR a) (TT_VAR b) (TT_VAR c))))
+/*------------------------------------------------------------- 27 concat_seq */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SEQ (TT_QLIT "hello") (TT_VAR name))))
+/*----------------------------------------------------------- 28 continue_for */
+(STMT :subj (TT_FOR
+  (TT_ASSIGN (TT_VAR i) (TT_ILIT 0))
+  (TT_FNC LT (TT_VAR i) (TT_ILIT 10))
+  (TT_AUGOP (TT_VAR i) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_LOOP_NEXT))
+    )
+  )
+))
+/*--------------------------------------------------------- 29 continue_while */
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_LOOP_NEXT))
+    )
+  )
+))
+/*-------------------------------------------------------------- 30 do_simple */
+(STMT :subj (TT_DO_WHILE
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+  (TT_VAR x)
+))
+/*----------------------------------------------------------- 31 do_with_stmt */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
+(STMT :subj (TT_DO_WHILE
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_VAR x) (TT_ILIT 1))))
+    )
+  )
+  (TT_VAR x)
+))
+/*-------------------------------------------------------------- 32 func_args */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR a)))
+    )
+  )
+))
+/*-------------------------------------------------------------- 33 func_body */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR c) (TT_ADD (TT_VAR a) (TT_VAR b))))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR c)))
+    )
+  )
+))
+/*---------------------------------------------------------- 34 func_def_call */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN (TT_ADD (TT_VAR a) (TT_VAR b))))
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC f (TT_ILIT 1) (TT_ILIT 2))))
+/*------------------------------------------------------------- 35 func_empty */
+(STMT :subj (TT_DEFINE (TT_QLIT "f") (TT_QLIT "f()") (TT_PROGRAM)))
+/*----------------------------------------------------------- 36 func_freturn */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "p")
+  (TT_QLIT "p()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_PROC_FAIL))
+    )
+  )
+))
+/*----------------------------------------------------------- 37 func_nreturn */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "q")
+  (TT_QLIT "q()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_NRETURN))
+    )
+  )
+))
+/*-------------------------------------------------------- 38 func_one_assign */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+    )
+  )
+))
+/*------------------------------------------------------------ 39 func_simple */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN))
+    )
+  )
+))
+/*-------------------------------------------------------- 40 func_three_args */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "g")
+  (TT_QLIT "g(a,b,c)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR c)))
+    )
+  )
+))
+/*--------------------------------------------------------- 41 func_two_funcs */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "p")
+  (TT_QLIT "p()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN))
+    )
+  )
+))
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "q")
+  (TT_QLIT "q(x)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR x)))
+    )
+  )
+))
+/*---------------------------------------------------------------- 42 if_else */
+(STMT :subj (TT_IF
+  (TT_VAR a)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)))
+    )
+  )
+))
+/*------------------------------------------------------------- 43 if_else_if */
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 3))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :incl (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not in main file (INCLUDE)>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 4)))
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*-------------------------------------------------------- 44 if_else_if_else */
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "4"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 4, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :incl (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not in main file (INCLUDE)>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+            )
+          )
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "3"))
+              (TT_ATTR :incl (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 3, line 1: source not in main file (INCLUDE)>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 3)))
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*----------------------------------------------------- 45 if_else_if_else_if */
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "5"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 5, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :incl (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not in main file (INCLUDE)>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+            )
+          )
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "2"))
+              (TT_ATTR :stno (TT_QLIT "4"))
+              (TT_ATTR :incl (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 4, line 2: source not in main file (INCLUDE)>"))
+              (TT_ATTR :subj
+                (TT_IF
+                  (TT_FNC EQ (TT_VAR x) (TT_ILIT 3))
+                  (TT_PROGRAM
+                    (TT_STMT
+                      (TT_ATTR :line (TT_QLIT "1"))
+                      (TT_ATTR :stno (TT_QLIT "3"))
+                      (TT_ATTR :incl (TT_QLIT "1"))
+                      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 1: source not in main file (INCLUDE)>"))
+                      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 3)))
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*---------------------------------------------------------- 46 if_multi_body */
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR b) (TT_ILIT 2)))
+    )
+  )
+))
+/*----------------------------------------------------------------- 47 if_seq */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR z) (TT_ILIT 2)))
+/*-------------------------------------------------------------- 48 if_simple */
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+))
+/*--------------------------------------------------------------- 49 scan_alt */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_ALT (TT_QLIT "foo") (TT_QLIT "bar"))))
+/*------------------------------------------------------- 50 scan_alt_replace */
+(STMT :subj (TT_ASSIGN (TT_SCAN (TT_VAR x) (TT_ALT (TT_QLIT "a") (TT_QLIT "b"))) (TT_QLIT "z")))
+/*----------------------------------------------------------- 51 scan_in_expr */
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_SCAN (TT_VAR x) (TT_QLIT "foo"))))
+/*------------------------------------------------------------- 52 scan_juxta */
+(STMT :subj (TT_SEQ (TT_VAR x) (TT_QLIT "foo")))
+/*----------------------------------------------------- 53 scan_juxta_replace */
+(STMT :subj (TT_ASSIGN (TT_SEQ (TT_VAR x) (TT_QLIT "foo")) (TT_QLIT "bar")))
+/*------------------------------------------------------- 54 scan_juxta_three */
+(STMT :subj (TT_SEQ (TT_SEQ (TT_VAR x) (TT_QLIT "a")) (TT_QLIT "b")))
+/*--------------------------------------------------------- 55 scan_multi_pat */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_SEQ (TT_SEQ (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c"))))
+/*----------------------------------------------------------- 56 scan_pat_var */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_SEQ (TT_VAR p) (TT_QLIT "foo"))))
+/*----------------------------------------------------------- 57 scan_replace */
+(STMT :subj (TT_ASSIGN (TT_SCAN (TT_VAR x) (TT_QLIT "foo")) (TT_QLIT "bar")))
+/*------------------------------------------------------------ 58 scan_simple */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_QLIT "foo")))
+/*----------------------------------------------------------- 59 struct_empty */
+(STMT :subj (TT_FNC DATA (TT_QLIT "Empty()")))
+/*---------------------------------------------------------- 60 struct_fields */
+(STMT :subj (TT_FNC DATA (TT_QLIT "Person(name,age,email)")))
+/*---------------------------------------------------------- 61 struct_simple */
+(STMT :subj (TT_FNC DATA (TT_QLIT "Point(x,y)")))
+/*----------------------------------------------------------- 62 switch_break */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 10)))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_LOOP_BREAK))
+    )
+  )
+  (TT_ILIT 2)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 3: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 20)))
+    )
+  )
+))
+/*--------------------------------------------------------- 63 switch_default */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 10)))
+    )
+  )
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 3: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 99)))
+    )
+  )
+))
+/*----------------------------------------------------- 64 switch_fallthrough */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 0)))
+    )
+  )
+))
+/*---------------------------------------------------------- 65 switch_simple */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 10)))
+    )
+  )
+  (TT_ILIT 2)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 3: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 20)))
+    )
+  )
+))
+/*-------------------------------------------------------------- 66 while_seq */
+(STMT :subj (TT_WHILE
+  (TT_VAR a)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+    )
+  )
+))
+(STMT :subj (TT_WHILE
+  (TT_VAR b)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 2: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+    )
+  )
+))
+/*----------------------------------------------------------- 67 while_simple */
+(STMT :subj (TT_WHILE
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :incl (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not in main file (INCLUDE)>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+))

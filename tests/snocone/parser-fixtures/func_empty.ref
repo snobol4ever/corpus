@@ -1,1 +1,0 @@
-(STMT :subj (TT_DEFINE (TT_QLIT "f") (TT_QLIT "f()") (TT_PROGRAM)))

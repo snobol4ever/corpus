@@ -1,1 +1,0 @@
-(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_ILIT 1) (TT_ILIT 2))))
