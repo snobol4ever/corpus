@@ -1,0 +1,11 @@
+# perf-attribution TSV -- 2026-08-28 ceo -- TIER-1 MATCH DEMOS at fixed work N=200 (SCRIP 34aea2db post-slice-1); instrument as baseline files; stdin=calculator-1.dat
+kernel	engine	N	insn_total	insn_per_iter	wall_best_s	ipc	top_cost_centers
+calculator-1-match	sbl	200	62983648052	314918240	8.085	-	(not attributed this pass)
+calculator-1-match	m3	200	216786094434	1083930472	28.466	-	m4-attributed at N=20: EMITTED 82.6% (match_defer alpha bodies n10/n11/n22 ~29%, alternate ~7%), rt 16.1% (rt_patv_defer_get_pat_dtp 16.0%)
+calculator-1-match-fence	sbl	200	24457455399	122287277	3.141	-	-
+calculator-1-match-fence	m3	200	56451971124	282259856	4.880	-	-
+# multiples (wall): calculator-1-match 0.28x · calculator-1-match-fence 0.64x vs clean oracle
+# named lever: every deferred grammar-node visit pays an RTCC-wrapped PLT call (3 spills + call + 4 reloads + -O0 prologue)
+# to rt_patv_defer_get_pat_dtp for a CONSTANT answer (snapshot slot fixed once compiled -- the fn-non-null check is the
+# resolver's own no-op condition). Cure: inline the snapshot fast path into bb match_defer emission (~6 insn guard vs ~35+call);
+# RT stays the slow arm. This is cure-row slice (b), now demo-proven top priority.
