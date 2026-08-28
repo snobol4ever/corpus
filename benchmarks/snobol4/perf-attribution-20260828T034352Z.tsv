@@ -1,0 +1,34 @@
+# perf-attribution TSV -- 2026-08-28 seat03 -- rt_ws_alloc (RTX ALLOC family) landed; gate ON/OFF fault+RSS delta, honestly null
+# SHARED AXES: /usr/bin/time -v (minflt, maxrss), RT_OPT=-O0, SCRIP HEAD at landing (this rung), mode 3 (--run), stdin /dev/null (tiny) or committed .input (treebank-match).
+# ARM: gate ON = SCRIP_RTX_ALLOC default (asm rt_ws_alloc fast path live) vs OFF = SCRIP_RTX_ALLOC=0 (pure C c_rt_ws_alloc, byte-identical to pre-rung code).
+# tree: FINDING-2026-08-28-seat03-rtx-startup-touch-target-list-and-rt-ws-alloc.md carries the full derivation, the target list, and why this null is expected (gate toggles CODE PATH, not what's MAPPED).
+workload	arm	run	minflt	maxrss_kb
+tiny.sno	ON	1	1039	13336
+tiny.sno	ON	2	1041	13320
+tiny.sno	ON	3	1042	13252
+tiny.sno	ON	4	1040	13320
+tiny.sno	ON	5	1041	13292
+tiny.sno	OFF	1	1040	13328
+tiny.sno	OFF	2	1040	13292
+tiny.sno	OFF	3	1040	13292
+tiny.sno	OFF	4	1039	13336
+tiny.sno	OFF	5	1040	13216
+treebank-match	ON	1	1328	18032
+treebank-match	ON	2	1329	18024
+treebank-match	ON	3	1326	18104
+treebank-match	ON	4	1325	18100
+treebank-match	ON	5	1326	18024
+treebank-match	OFF	1	1327	17988
+treebank-match	OFF	2	1329	17956
+treebank-match	OFF	3	1327	17928
+treebank-match	OFF	4	1325	17852
+treebank-match	OFF	5	1328	18028
+#
+# READING: no delta outside run-to-run noise (+/-2 minflt, +/-150KB maxrss) on either workload or arm --
+# expected and structural, not a null instrument: the gate is a runtime byte test, both the 157B asm
+# entry and the 532B C fallback are linked into the SAME .so and resident regardless of its value, so
+# flipping it moves per-call TIME (fewer instructions on the fast arm), never MAPPED FOOTPRINT. The
+# floor (hq_P's 430-fault library-load cost) is paid by relocation + ELF constructors before the gate
+# is ever read. Structural fact instead (nm -S, unaffected by run noise): rt_ws_alloc(asm)=157B vs
+# c_rt_ws_alloc(C,unchanged)=532B -- 3.4x smaller per call, but net +157B .text THIS rung since the C
+# body stays linked; the floor only shrinks once the twin is deleted (deferred, see FINDING NEXT).

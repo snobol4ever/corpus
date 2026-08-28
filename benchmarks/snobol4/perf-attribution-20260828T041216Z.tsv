@@ -1,0 +1,35 @@
+# perf-attribution TSV -- 2026-08-28 seat03 -- x86_argroles collapsed 150 copies -> 1: real fault/RSS win, matched-instrument pristine A/B
+# SHARED AXES: /usr/bin/time -v (minflt, maxrss), RT_OPT=-O0, mode 3 (--run), stdin /dev/null (tiny) or committed .input (treebank-match), 5 runs/arm.
+# ARM: PRISTINE = git-stashed tree (x86_argroles static const, 150 TU-local copies, matches origin before this rung) vs FIXED = this rung (x86_argroles extern, ONE definition in x86_arg_roles.cpp).
+# tree: FINDING-2026-08-28-seat03-rtx-startup-touch-target-list-and-rt-ws-alloc.md carries the full derivation; direction/prediction from hq_P's FINDING-2026-08-28-hq_P-one-static-table-in-a-header-is-96-percent-of-the-runtime-relocations.md.
+workload	arm	run	minflt	maxrss_kb
+tiny.sno	PRISTINE	1	1041	13320
+tiny.sno	PRISTINE	2	1040	13288
+tiny.sno	PRISTINE	3	1041	13292
+tiny.sno	PRISTINE	4	1044	13128
+tiny.sno	PRISTINE	5	1040	13292
+tiny.sno	FIXED	1	743	9108
+tiny.sno	FIXED	2	745	9148
+tiny.sno	FIXED	3	744	9168
+tiny.sno	FIXED	4	745	9124
+tiny.sno	FIXED	5	744	9168
+treebank-match	PRISTINE	1	1326	17836
+treebank-match	PRISTINE	2	1329	18000
+treebank-match	PRISTINE	3	1329	18152
+treebank-match	PRISTINE	4	1328	18004
+treebank-match	PRISTINE	5	1328	18028
+treebank-match	FIXED	1	1031	13660
+treebank-match	FIXED	2	1028	13856
+treebank-match	FIXED	3	1029	13880
+treebank-match	FIXED	4	1029	13764
+treebank-match	FIXED	5	1027	13696
+#
+# READING (avg of 5, all figures re-measured here, none copied from an earlier column):
+#   tiny.sno:        minflt 1041.2 -> 744.2  (-297.0, -28.5%)   maxrss 13264.0 -> 9143.2 kB (-4120.8 kB, -31.1%)
+#   treebank-match:  minflt 1328.0 -> 1028.8 (-299.2, -22.5%)   maxrss 18004.0 -> 13771.2 kB (-4232.8 kB, -23.5%)
+# Structural facts (nm/size/readelf, deterministic, not run-to-run noise):
+#   x86_argroles definitions: 150 -> 1.  .data.rel.ro: 1,122,432 B -> 102,080 B (-1,020,352 B, matches hq_P's predicted -1000.8 KB to within 0.3%).
+#   R_X86_64_RELATIVE relocations: 133,257 -> 6,011 (-127,246, -95.5%, matches hq_P's predicted -128,100/-96%).  Whole .so: 91,140,479 B -> 86,675,119 B.
+# This IS a real, large, above-noise page/RSS win (contrast the ~noise-level rt_ws_alloc gate ON/OFF
+# result in the prior TSV in this file, which never moves what is MAPPED, only which code path runs).
+# No wall-clock claimed (standing FLEET-6 constraint until seat05's noise-protocol row lands).
