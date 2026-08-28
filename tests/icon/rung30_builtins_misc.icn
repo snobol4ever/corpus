@@ -1,0 +1,28 @@
+#---------------------------------------------------- 1 rung30_builtins_misc_abs
+procedure main();
+  write(abs(-5));
+  write(abs(3));
+  write(abs(0));
+end
+#------------------------------------------------- 2 rung30_builtins_misc_maxmin
+procedure main();
+  write(max(3, 7));
+  write(min(3, 7));
+  write(max(5, 5));
+end
+#-------------------------------------------------- 3 rung30_builtins_misc_mixed
+procedure main();
+  write(abs(-3.5));
+  write(max(1, 5, 3));
+  write(min(4, 2, 6));
+end
+#---------------------------------------------------- 4 rung30_builtins_misc_seq
+procedure main();
+  every write(seq(1) \ 3);
+end
+#--------------------------------------------------- 5 rung30_builtins_misc_sqrt
+procedure main();
+  write(sqrt(4.0));
+  write(sqrt(9.0));
+  write(sqrt(2.0));
+end
