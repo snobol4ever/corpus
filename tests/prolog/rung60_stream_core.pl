@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung60_stream_core
 :- initialization(main).
 main :-
     current_output(CO), write(CO), nl,
