@@ -1,0 +1,64 @@
+#------------------------------------------ 1 rung21_global_initial_global_basic
+global counter;
+
+procedure inc()
+  counter := counter + 1;
+end
+
+procedure main()
+  counter := 0;
+  inc();
+  inc();
+  inc();
+  write(counter);
+end
+#---------------------------------------- 2 rung21_global_initial_global_initial
+global total;
+
+procedure add(n)
+  initial total := 0;
+  total := total + n;
+end
+
+procedure main()
+  add(5);
+  add(3);
+  add(2);
+  write(total);
+end
+#-------------------------------------------- 3 rung21_global_initial_global_str
+global greeting;
+
+procedure setup()
+  greeting := "hello";
+end
+
+procedure main()
+  setup();
+  write(greeting);
+end
+#------------------------------------------ 4 rung21_global_initial_initial_once
+procedure count();
+  static x;
+  initial x := 10;
+  x := x + 1;
+  write(x);
+end
+
+procedure main();
+  count();
+  count();
+  count();
+end
+#------------------------------------------ 5 rung21_global_initial_multi_global
+global x, y;
+
+procedure setvals()
+  x := 7;
+  y := 3;
+end
+
+procedure main()
+  setvals();
+  write(x + y);
+end
