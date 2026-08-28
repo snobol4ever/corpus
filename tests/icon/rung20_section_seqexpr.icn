@@ -1,0 +1,28 @@
+#---------------------------------------- 1 rung20_section_seqexpr_section_basic
+procedure main();
+  s := "hello";
+  write(s[1:4]);
+end
+#----------------------------------------- 2 rung20_section_seqexpr_section_full
+procedure main();
+  s := "hello";
+  write(s[1:6]);
+end
+#------------------------------------------ 3 rung20_section_seqexpr_section_var
+procedure main();
+  s := "abcdef";
+  i := 2;
+  j := 5;
+  write(s[i:j]);
+end
+#---------------------------------------- 4 rung20_section_seqexpr_seqexpr_basic
+procedure main()
+  x := (1; 2; 3);
+  write(x);
+end
+#----------------------------------------- 5 rung20_section_seqexpr_seqexpr_side
+procedure main()
+  x := 0;
+  y := (x := x + 1; x := x + 1; x);
+  write(y);
+end
