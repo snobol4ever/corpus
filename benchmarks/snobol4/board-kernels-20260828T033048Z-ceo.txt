@@ -1,0 +1,30 @@
+FIXED-ITERATION SNOBOL4 BENCHMARKS -- N fixed per kernel (SCALE.tsv), elapsed cpu time measured
+engines: sbl m3 m4   reps: 1   corpus: /home/claude/corpus/benchmarks/snobol4   scale: /home/claude/corpus/benchmarks/snobol4/SCALE.tsv
+measurement condition: SCRIP_NOHUGE=1  SCRIP_HEAP_MB=4096 (sbl unaffected -- separate binary)
+
+BENCHMARK                     N        sbl/s         m3/s         m4/s     m3:sbl    m4:m3    gc  nivcsw  check
+-------------------- ---------- ------------ ------------ ------------   -------- -------- ----- -------  -----
+arith_loop             90000000        38.3M       128.4M       152.0M      3.35x    1.18x     0     68!  ok
+array_sum                 20000        31.3K        12.3K        11.6K      0.39x    0.94x     0     49!  ok
+eval_fixed              4000000         6.7M         6.1M         6.7M      0.92x    1.09x     0     41!  ok
+fibonacci                 20000        12.0K        18.2K        20.4K      1.51x    1.12x     0     81!  ok
+func_call              50000000        29.0M        54.8M        62.3M      1.89x    1.14x     0     89!  ok
+ident_call1            50000000        31.4M        74.0M        80.4M      2.36x    1.09x     0     91!  ok
+ident_call2            40000000        33.5M        63.3M        67.7M      1.89x    1.07x     0      20  ok
+indirect_dispatch      10000000        17.9M        11.0M        11.2M      0.62x    1.01x     0     21!  ok
+mixed_workload           400000       595.3K       212.8K       209.0K      0.36x    0.98x     0     36!  ok
+op_dispatch            30000000        17.0M        58.0M        64.0M      3.41x    1.10x     0      12  ok
+pattern_bt              2000000         4.1M         5.2M         6.0M      1.27x    1.14x     0      12  ok
+roman                    800000       782.2K       578.9K       610.2K      0.74x    1.05x     0      18  ok
+string_concat          10000000         4.8M        16.0M        16.6M      3.36x    1.04x     0     36!  ok
+string_manip           10000000        15.1M         8.3M         8.5M      0.55x    1.03x     0      17  ok
+string_pattern          8000000        15.0M        15.5M        16.0M      1.04x    1.03x     0      12  ok
+table_access              20000        25.8K        18.9K        19.6K      0.73x    1.04x     0      20  ok
+table_variety             50000        62.7K        43.0K        42.2K      0.69x    0.98x     0      20  ok
+var_access             30000000        15.6M        56.1M        60.9M      3.59x    1.08x     0     31!  ok
+
+CHECK RESULT: ok=18 bad=0
+⛔ 10 row(s) have nivcsw > 20 -- winning rep still scheduler-contaminated; re-measure quieter.
+⛔ UNSCALED (no row in /home/claude/corpus/benchmarks/snobol4/SCALE.tsv, not measured): name_indirection test_icon
+   Every benchmark needs a committed N in SCALE.tsv -- run scripts/calibrate_bench_scale.sh to add it.
+gc: 0 rows collected inside the window at HEAP=4096MB -- every rate above is stall-free.
