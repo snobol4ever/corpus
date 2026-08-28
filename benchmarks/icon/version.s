@@ -18,6 +18,8 @@ main_α:
                         mov              edx, 0
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
+                        .type            n0_kw_icon_bx, @function
+n0_kw_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_kw_icon_α:           mov              r11, 1
                         mov              rdi, qword ptr [rip + .Lmain_α_2_0]
@@ -35,6 +37,9 @@ n0_kw_icon_α:           mov              r11, 1
 n0_kw_icon_β:           mov              r11, 1;                              jmp   main_ω
 .Lmain_α_2_0:           .quad            .Lmain_α_2_0_s
 .Lmain_α_2_0_s:         .string          "&version"
+                        .size            n0_kw_icon_bx, .-n0_kw_icon_bx
+                        .type            n1_call_icon_bx, @function
+n1_call_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_call_icon_α:         mov              r11, 2
                         mov              rax, qword ptr [rsp + 48]
@@ -62,6 +67,7 @@ n1_call_icon_α:         mov              r11, 2
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   main_γ
 n1_call_icon_β:         mov              r11, 2;                              jmp   main_ω
+                        .size            n1_call_icon_bx, .-n1_call_icon_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
