@@ -24,15 +24,15 @@ n1_lit_string_α:        sub              rsp, 16
                         mov              r11, 2
                         mov              qword ptr [rsp + 0], 2               # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx6_0]
+                        mov              rax, qword ptr [rip + .Lmain_α_6_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n2_assign_α
-.Lx6_0:                 .quad            .Lx6_0_s
-.Lx6_0_s:               .string          "hello"
+.Lmain_α_6_0:           .quad            .Lmain_α_6_0_s
+.Lmain_α_6_0_s:         .string          "hello"
 #-----------------------------------------------------------------------------------------------------------------------
 n2_assign_α:            mov              r11, 3
                         mov              rsi, qword ptr [rsp + 0]             # lit_string
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              rdi, qword ptr [rip + .Lx7_0]
+                        mov              rdi, qword ptr [rip + .Lmain_α_7_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -41,8 +41,8 @@ n2_assign_α:            mov              r11, 3
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_statement_end_α
-.Lx7_0:                 .quad            .Lx7_0_s
-.Lx7_0_s:               .string          "OUTPUT"
+.Lmain_α_7_0:           .quad            .Lmain_α_7_0_s
+.Lmain_α_7_0_s:         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n3_statement_end_α:     mov              r11, 4
                         mov              r10, 1
