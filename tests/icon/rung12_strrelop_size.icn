@@ -1,0 +1,29 @@
+#---------------------------------------------------- 1 rung12_strrelop_size_seq
+procedure main();
+  if ("abc" == "abc") then write("equal");
+  if ("abc" == "def") then write("nope");
+  write("done");
+end
+#---------------------------------------------------- 2 rung12_strrelop_size_sge
+procedure main();
+  if ("bcd" >>= "abc") then write("ge");
+  if ("abc" >>= "bcd") then write("nope");
+  write("done");
+end
+#--------------------------------------------------- 3 rung12_strrelop_size_size
+procedure main();
+  s := "hello";
+  write(*s);
+end
+#---------------------------------------------------- 4 rung12_strrelop_size_slt
+procedure main();
+  if ("abc" << "bcd") then write("less");
+  if ("bcd" << "abc") then write("nope");
+  write("done");
+end
+#---------------------------------------------------- 5 rung12_strrelop_size_sne
+procedure main();
+  if ("abc" ~== "def") then write("differ");
+  if ("abc" ~== "abc") then write("nope");
+  write("done");
+end
