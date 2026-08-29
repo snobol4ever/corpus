@@ -4271,14 +4271,15 @@ n167_call_proc_staged_α:
 .Lcall_proc_staged_α_224_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_224_2
 .Lcall_proc_staged_α_224_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_224_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n169_call_prolog_α
 .Lcall_proc_staged_α_224_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -4390,9 +4391,9 @@ n167_call_proc_staged_β:
                         mov              qword ptr [rsp + 136], rdx
                         cmp              al, 104;                             je    n169_call_prolog_α
                                                                               jmp   n168_suspend_α
-.Lcall_proc_staged_β_224_0:
-                        .quad            .Lcall_proc_staged_β_224_0_s
-.Lcall_proc_staged_β_224_0_s:
+.Lcall_proc_staged_α_224_0:
+                        .quad            .Lcall_proc_staged_α_224_0_s
+.Lcall_proc_staged_α_224_0_s:
                         .string          "append/3"
                         .size            n167_call_proc_staged_bx, .-n167_call_proc_staged_bx
                         .type            n168_suspend_bx, @function
@@ -5534,14 +5535,15 @@ n254_call_proc_staged_α:
 .Lcall_proc_staged_α_303_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_303_2
 .Lcall_proc_staged_α_303_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_303_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n263_call_prolog_α
 .Lcall_proc_staged_α_303_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -5642,9 +5644,9 @@ n254_call_proc_staged_β:
                         mov              qword ptr [rsp + 376], rdx
                         cmp              al, 104;                             je    n263_call_prolog_α
                                                                               jmp   n255_var_ref_α
-.Lcall_proc_staged_β_303_0:
-                        .quad            .Lcall_proc_staged_β_303_0_s
-.Lcall_proc_staged_β_303_0_s:
+.Lcall_proc_staged_α_303_0:
+                        .quad            .Lcall_proc_staged_α_303_0_s
+.Lcall_proc_staged_α_303_0_s:
                         .string          "nrev/2"
                         .size            n254_call_proc_staged_bx, .-n254_call_proc_staged_bx
                         .type            n255_var_ref_bx, @function
@@ -5851,14 +5853,15 @@ n261_call_proc_staged_α:
 .Lcall_proc_staged_α_314_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_314_2
 .Lcall_proc_staged_α_314_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_314_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n254_call_proc_staged_β
 .Lcall_proc_staged_α_314_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -5970,9 +5973,9 @@ n261_call_proc_staged_β:
                         mov              qword ptr [rsp + 120], rdx
                         cmp              al, 104;                             je    n254_call_proc_staged_β
                                                                               jmp   n262_suspend_α
-.Lcall_proc_staged_β_314_0:
-                        .quad            .Lcall_proc_staged_β_314_0_s
-.Lcall_proc_staged_β_314_0_s:
+.Lcall_proc_staged_α_314_0:
+                        .quad            .Lcall_proc_staged_α_314_0_s
+.Lcall_proc_staged_α_314_0_s:
                         .string          "app/3"
                         .size            n261_call_proc_staged_bx, .-n261_call_proc_staged_bx
                         .type            n262_suspend_bx, @function
@@ -7239,14 +7242,15 @@ n352_call_proc_staged_α:
 .Lcall_proc_staged_α_404_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_404_2
 .Lcall_proc_staged_α_404_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_404_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n354_call_prolog_α
 .Lcall_proc_staged_α_404_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -7347,9 +7351,9 @@ n352_call_proc_staged_β:
                         mov              qword ptr [rsp + 120], rdx
                         cmp              al, 104;                             je    n354_call_prolog_α
                                                                               jmp   n353_suspend_α
-.Lcall_proc_staged_β_404_0:
-                        .quad            .Lcall_proc_staged_β_404_0_s
-.Lcall_proc_staged_β_404_0_s:
+.Lcall_proc_staged_α_404_0:
+                        .quad            .Lcall_proc_staged_α_404_0_s
+.Lcall_proc_staged_α_404_0_s:
                         .string          "data/2"
                         .size            n352_call_proc_staged_bx, .-n352_call_proc_staged_bx
                         .type            n353_suspend_bx, @function
@@ -7791,14 +7795,15 @@ n414_call_proc_staged_α:
 .Lcall_proc_staged_α_427_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_427_2
 .Lcall_proc_staged_α_427_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_427_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n416_call_prolog_α
 .Lcall_proc_staged_α_427_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -7899,9 +7904,9 @@ n414_call_proc_staged_β:
                         mov              qword ptr [rsp + 104], rdx
                         cmp              al, 104;                             je    n416_call_prolog_α
                                                                               jmp   n415_suspend_α
-.Lcall_proc_staged_β_427_0:
-                        .quad            .Lcall_proc_staged_β_427_0_s
-.Lcall_proc_staged_β_427_0_s:
+.Lcall_proc_staged_α_427_0:
+                        .quad            .Lcall_proc_staged_α_427_0_s
+.Lcall_proc_staged_α_427_0_s:
                         .string          "data/2"
                         .size            n414_call_proc_staged_bx, .-n414_call_proc_staged_bx
                         .type            n415_suspend_bx, @function
@@ -9695,14 +9700,15 @@ n465_call_proc_staged_α:
 .Lcall_proc_staged_α_522_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_522_2
 .Lcall_proc_staged_α_522_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_522_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n467_call_prolog_α
 .Lcall_proc_staged_α_522_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -9814,9 +9820,9 @@ n465_call_proc_staged_β:
                         mov              qword ptr [rsp + 136], rdx
                         cmp              al, 104;                             je    n467_call_prolog_α
                                                                               jmp   n466_suspend_α
-.Lcall_proc_staged_β_522_0:
-                        .quad            .Lcall_proc_staged_β_522_0_s
-.Lcall_proc_staged_β_522_0_s:
+.Lcall_proc_staged_α_522_0:
+                        .quad            .Lcall_proc_staged_α_522_0_s
+.Lcall_proc_staged_α_522_0_s:
                         .string          "app/3"
                         .size            n465_call_proc_staged_bx, .-n465_call_proc_staged_bx
                         .type            n466_suspend_bx, @function
@@ -10029,14 +10035,15 @@ n527_call_proc_staged_α:
 .Lcall_proc_staged_α_541_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_541_2
 .Lcall_proc_staged_α_541_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_541_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n535_lit_string_α
 .Lcall_proc_staged_α_541_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -10126,9 +10133,9 @@ n527_call_proc_staged_β:
                         mov              qword ptr [rsp + 296], rdx
                         cmp              al, 104;                             je    n535_lit_string_α
                                                                               jmp   n528_var_ref_α
-.Lcall_proc_staged_β_541_0:
-                        .quad            .Lcall_proc_staged_β_541_0_s
-.Lcall_proc_staged_β_541_0_s:
+.Lcall_proc_staged_α_541_0:
+                        .quad            .Lcall_proc_staged_α_541_0_s
+.Lcall_proc_staged_α_541_0_s:
                         .string          "data/1"
                         .size            n527_call_proc_staged_bx, .-n527_call_proc_staged_bx
                         .type            n528_var_ref_bx, @function
@@ -10251,14 +10258,15 @@ n530_call_proc_staged_α:
 .Lcall_proc_staged_α_547_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_547_2
 .Lcall_proc_staged_α_547_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_547_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n527_call_proc_staged_β
 .Lcall_proc_staged_α_547_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -10359,9 +10367,9 @@ n530_call_proc_staged_β:
                         mov              qword ptr [rsp + 184], rdx
                         cmp              al, 104;                             je    n527_call_proc_staged_β
                                                                               jmp   n531_var_α
-.Lcall_proc_staged_β_547_0:
-                        .quad            .Lcall_proc_staged_β_547_0_s
-.Lcall_proc_staged_β_547_0_s:
+.Lcall_proc_staged_α_547_0:
+                        .quad            .Lcall_proc_staged_α_547_0_s
+.Lcall_proc_staged_α_547_0_s:
                         .string          "nrev/2"
                         .size            n530_call_proc_staged_bx, .-n530_call_proc_staged_bx
                         .type            n531_var_bx, @function

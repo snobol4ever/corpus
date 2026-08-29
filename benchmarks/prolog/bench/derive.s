@@ -10311,14 +10311,15 @@ n920_call_proc_staged_α:
 .Lcall_proc_staged_α_931_6:
                         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_931_2
 .Lcall_proc_staged_α_931_1:
+                        mov              rdi, qword ptr [rip + .Lcall_proc_staged_α_931_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_ab_undef_fn_stub@PLT
+                        call             rt_pl_iso_throw_existence_key@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n923_lit_string_α
 .Lcall_proc_staged_α_931_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
@@ -10397,9 +10398,9 @@ n920_call_proc_staged_β:
                         mov              qword ptr [rsp + 232], rdx
                         cmp              al, 104;                             je    n923_lit_string_α
                                                                               jmp   n921_lit_string_α
-.Lcall_proc_staged_β_931_0:
-                        .quad            .Lcall_proc_staged_β_931_0_s
-.Lcall_proc_staged_β_931_0_s:
+.Lcall_proc_staged_α_931_0:
+                        .quad            .Lcall_proc_staged_α_931_0_s
+.Lcall_proc_staged_α_931_0_s:
                         .string          "top/0"
                         .size            n920_call_proc_staged_bx, .-n920_call_proc_staged_bx
                         .type            n921_lit_string_bx, @function
