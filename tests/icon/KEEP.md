@@ -154,10 +154,22 @@ session could find.** Individually measured (not assumed), grouped by signature:
   exactly icon-n2's "suspend_after" shape (suspend, then a body call after resume).** Mailed ceo
   (`icon-n2-cxprimes-scan2-corroboration`) as two concretely-typed witnesses for that row's own
   remaining work — not this row's to fix, characterization only.
-- `rung36_jcon_genqueen`, `rung36_jcon_level` — FAIL (output mismatch, rc=1), both modes.
-  `genqueen` is the other half of `icn-recogn-genqueen-suspend-shape.task.md` (currently `rc=1
-  ERROR 246 -- stack overflow` per that task's own latest measurement, not a SIGSEGV — re-check its
-  own NEXT before trusting this summary, it moves fast). `level` is unexplained, not traced.
+- `rung36_jcon_genqueen` — FAIL (output mismatch, rc=1), both modes. The other half of
+  `icn-recogn-genqueen-suspend-shape.task.md` (currently `rc=1 ERROR 246 -- stack overflow` per that
+  task's own latest measurement, not a SIGSEGV — re-check its own NEXT before trusting this summary,
+  it moves fast).
+- `rung36_jcon_level` — **root-caused (2026-08-29, seat02), not unexplained any more.** `&level`
+  (`rt_k_level`) is only maintained by `bb_define_activate()` (`src/templates/bb/bb_define.cpp:54`,
+  the generator-capable procedure role) — `bb_define_sr()` (`:380`, the standard role used for
+  ordinary procedures) never touches it, so calling/returning from any non-`suspend` procedure never
+  moves `&level`. Repro needs no generator content at all: `procedure p(); write(&level); end` called
+  from `main` prints the SAME value before and after, not `+1`. Isolating this also surfaced a second,
+  separate defect (the crash after this file's 11th line of output) that reproduces without `&level`
+  and corroborates the already-open `icon-n2-generator-activation-frames` value-path item instead of
+  being new. Full detail, both parts: `FINDING-2026-08-29-seat02-icon-level-keyword-not-tracked-for-
+  non-generator-procedures.md`. Two-line-shaped fix (mirror `bb_define_activate`'s `enter_env`/
+  `leave_env` `rt_k_level` pair into `bb_define_sr`), not attempted here (out of this row's lane, same
+  as `scan1`/`proto`).
 - `rung36_jcon_var` — CRASH (signal 6, SIGABRT), NOT the generator class: a named, deliberate internal
   guard, `"FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
   !x/?x element-variable or s[i:j] section)"`, citing `GOAL-IR-IMMUTABLE-EMIT.md` (exists, 231KB) by
