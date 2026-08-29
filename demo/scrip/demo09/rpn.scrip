@@ -56,9 +56,9 @@ procedure main()
             b := pull(stack);
             a := pull(stack);
             put(stack, case tok of {
-                "+": a + b
-                "-": a - b
-                "*": a * b
+                "+": a + b;
+                "-": a - b;
+                "*": a * b;
                 "/": a / b
             });
         } else
