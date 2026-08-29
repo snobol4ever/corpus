@@ -10,6 +10,19 @@ convert these then rather than re-pointing this file at a fresh row to stay quie
 
 ## 2 files — root-caused to the icon-n2 activation-frame/value-path defect, re-verified fresh today
 
+## DEFERRED
+- rung36_jcon_cxprimes.icn — SIGSEGV both modes (m3 rc=139, m4 rc=139), icon-n2 suspend_loop shape
+- rung36_jcon_scan2.icn — clean exit both modes, wrong output, icon-n2 value-path defect
+
+⛔ **REFORMATTED 2026-08-29 (seat09) TO MATCH THE GATE'S HARDENED PARSER** — the two filenames above
+were previously stated as inert prose (a backtick-wrapped, space-separated pair with no `## DEFERRED`
+heading), which `test_gate_suite_conversion_complete.sh`'s own format-hardening (hq_B 2026-08-29,
+"A PENDING.md DECLARES ONLY WHAT IS LISTED UNDER `## DEFERRED`, AND PROSE ANYWHERE ELSE IS INERT")
+stopped recognizing — landed to fix hq_B's OWN first PENDING.md, which had the identical defect. This
+was pure re-declaration, not new analysis: same two files, same reasoning, now in the `- ` list form
+under `## DEFERRED` the parser (`pending_sections()`) actually reads. No re-verification of the
+underlying claims was needed for this specific fix, though see below for a fresh check anyway.
+
 `rung36_jcon_cxprimes.icn rung36_jcon_scan2.icn`
 
 Both were long documented in this directory's `KEEP.md` (rung36 section) as belonging to this row's
