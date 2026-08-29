@@ -189,19 +189,19 @@ session could find.** Individually measured (not assumed), grouped by signature:
   with a throwaway 1-line local fix (built, byte-identical to `.expected`, reverted — no net diff).
   NOT the same cause as `rung38_cset_embedded_nul` (that's a different, unrelated m3/m4 divergence).
   See `FINDING-2026-08-29-seat12-icon-pos-keyword-reads-garbage-in-mode-4-r14-not-zeroed-at-entry.md`.
-- `rung36_jcon_prepro` — **NOT actually red, and not a SCRIP bug either — a HARNESS limitation, caught
-  by `byte-equal-or-no-delete` doing its job.** First pass here wrongly said "missing `prepro.dat`" —
-  wrong: `prepro.dat` (and `fncs1.dat`) DO exist in this directory, just without a `rung36_` prefix, so
-  the first scratch-copy sweep (which only copied `rung36_*` names) silently omitted them. Corrected:
-  copied both `.dat` files into scratch and re-tested. `prepro` (`$include "prepro.dat"`) then matches
-  `.expected` byte-for-byte, standalone, from ANY cwd, both modes — genuinely green. But it still can't
-  be CONVERTED: `convert-blocks`'s own on-disk re-validation step re-runs the WRITTEN suite entry, and
-  that run fails to find `prepro.dat` even with the `.dat` file sitting right next to the suite output
-  — `$include` resolution does not survive however a suite entry gets materialized/re-run in isolation
-  (not traced past confirming the failure is specifically in re-validation, not the original check).
-  **Any Icon test using `$include` with a companion data file is not safely convertible via this
-  harness today** — a real, generalizable gap, not a one-file quirk. Left loose, correctly, but for a
-  different reason than first stated.
+- `rung36_jcon_prepro` — **CONVERTED (seat11, 2026-08-29), no longer loose.** Was a HARNESS limitation,
+  not a SCRIP bug: `convert-blocks`'s on-disk re-validation step runs the written suite entry from a
+  fresh temp dir, which does not carry `$include "prepro.dat"`'s companion file the way the original
+  loose-file check (run from this directory) does. Fixed generally in `corpus_suite_harness.py` —
+  `run_suite_entry` now takes a `companion_dir` and copies any file named by an entry's own
+  `$include "X"` / `-INCLUDE 'X'` directive into its temp dir before running, threaded through all
+  three of its callers (`cmd_convert`, `cmd_convert_blocks`, `cmd_run`) — so this is not prepro-specific
+  and should hold for any future Icon/SNOBOL4/Snocone entry with a real companion include file. `prepro`
+  now lives as entry 33 of `rung36_all.icn`/`.ref` (33/33 PASS both modes, independently re-verified via
+  `corpus_suite_harness.py run` after landing); its loose `.icn`/`.expected`/`.s`/`.stdin` were removed
+  (the `.stdin` was a stray near-duplicate of `prepro.dat`, never actually used as program stdin — the
+  program takes none). `prepro.dat` itself stays in this directory permanently (not orphaned) — it is
+  the companion file the converted entry still needs at grading time, same as it did as a loose file.
 - `rung36_jcon_fncs1` — genuinely still red **even with `fncs1.dat` present** (the missing-fixture
   hypothesis was wrong for this one too, but doesn't explain it away like `prepro`). Diffed carefully:
   the first `open("fncs1.dat")`/read cycle matches `.expected` exactly; every SUBSEQUENT

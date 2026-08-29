@@ -2341,3 +2341,11 @@ write               1
 writes              1
 x                   3
 y                   4
+#--------------------------------------------------------- 33 rung36_jcon_prepro
+abc,def,ghi,xx,yy: 123 456 987 1 2
+prepro.dat here
+xyzzy: 47
+abc,def,ghi,xx,yy: 321 456 987 1 2
+found feature: ASCII
+no feature:    EBCDIC
+done
