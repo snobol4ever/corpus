@@ -120,8 +120,10 @@ scoreboard.
 ## Status
 
 The SNOBOL4 corpus board — every program and suite entry, both SCRIP execution modes, graded against
-SPITBOL x64 byte for byte — ran **1,299/1,299, FAIL=0** as of 2026-08-28 (the figure SCRIP's own
-README and the org profile also carry). Per-language checks that day: Pascal suites 96/96 both modes
+SPITBOL x64 byte for byte — runs **1,299/1,299, FAIL=0** (re-measured 2026-08-29, this tree, after
+`crosscheck/` finished converting — unchanged from 2026-08-28, the figure SCRIP's own README and the
+org profile also carry, as expected: conversion is byte-equal-or-no-delete by law). Per-language checks
+as of 2026-08-28: Pascal suites 96/96 both modes
 (loose set 150/154), Icon smoke 14/14 both modes, Snocone 5/5, Rebus 4/4, Prolog 5/5 in all three
 modes, Raku parser suite 83/83. `beauty.sno` — the SNOBOL4 beautifier, built from this repository's
 `include/` library — reproduces itself byte-identically through SCRIP in both modes.
