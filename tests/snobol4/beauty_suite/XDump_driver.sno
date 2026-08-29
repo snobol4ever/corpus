@@ -5,9 +5,9 @@
 *  Exercises: XDump on INTEGER, STRING, ARRAY, TABLE, CODE/PATTERN types
 *  Note: ARRAY uses 'lo:hi' prototype form so iMin/iMax pattern matches correctly.
 
--INCLUDE 'global.sno'
--INCLUDE 'Qize.sno'
--INCLUDE 'XDump.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'Qize.inc'
+-INCLUDE 'XDump.inc'
 
         &STLIMIT = 1000000
 

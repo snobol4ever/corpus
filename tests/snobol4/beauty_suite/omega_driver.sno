@@ -9,17 +9,17 @@
 *  (c) the Qize/lwr/upr/LEQ logic used inside them is exercised via the
 *  omega string construction path.
 
--INCLUDE 'global.sno'
--INCLUDE 'case.sno'
--INCLUDE 'assign.sno'
--INCLUDE 'Qize.sno'
--INCLUDE 'counter.sno'
--INCLUDE 'stack.sno'
--INCLUDE 'tree.sno'
--INCLUDE 'ShiftReduce.sno'
--INCLUDE 'Gen.sno'
--INCLUDE 'semantic.sno'
--INCLUDE 'omega.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'case.inc'
+-INCLUDE 'assign.inc'
+-INCLUDE 'Qize.inc'
+-INCLUDE 'counter.inc'
+-INCLUDE 'stack.inc'
+-INCLUDE 'tree.inc'
+-INCLUDE 'ShiftReduce.inc'
+-INCLUDE 'Gen.inc'
+-INCLUDE 'semantic.inc'
+-INCLUDE 'omega.inc'
 
         &STLIMIT   = 1000000
 

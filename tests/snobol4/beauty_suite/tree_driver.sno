@@ -1,5 +1,5 @@
--INCLUDE 'global.sno'
--INCLUDE 'tree.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'tree.inc'
         &STLIMIT = 1000000
 
 *  1: MakeLeaf creates node with correct t, v, n=0

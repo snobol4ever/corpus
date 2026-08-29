@@ -2,8 +2,8 @@
 *  Oracle: snobol4 -f -P256k -Idemo/inc driver.sno
 *  Run via: INC=demo/inc bash test/beauty/run_beauty_subsystem.sh trace
 
--INCLUDE 'global.sno'
--INCLUDE 'trace.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'trace.inc'
 
         &STLIMIT = 1000000
 

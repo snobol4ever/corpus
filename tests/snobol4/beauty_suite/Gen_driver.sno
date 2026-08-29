@@ -6,8 +6,8 @@
 *  Depends on: global.sno (nl)
 *  Gimpel parallel: none direct; output buffering pattern used throughout beauty.sno
 
--INCLUDE 'global.sno'
--INCLUDE 'Gen.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'Gen.inc'
 
         &STLIMIT = 1000000
         xTrace = 0

@@ -5,8 +5,8 @@
 *  Exercises: Qize/SQize — quoting strings as SNOBOL4 expressions
 *  Depends on: global.sno (bSlash,bs,ff,nl,cr,tab)
 
--INCLUDE 'global.sno'
--INCLUDE 'Qize.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'Qize.inc'
 
         &STLIMIT = 1000000
 

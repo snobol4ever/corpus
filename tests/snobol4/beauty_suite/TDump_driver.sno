@@ -9,15 +9,15 @@
 *        A leaf (n='', no children) renders as '(TypeName)'.
 *  Note: assignments to $'#L'/$'$B'/$'$X'/$'$C' must be on separate lines.
 
--INCLUDE 'global.sno'
+-INCLUDE 'global.inc'
         DATA('tree(t,v,n,c)')
         epsilon =
         $'#L'  = 0
         $'$B'  =
         $'$X'  =
         $'$C'  =
--INCLUDE 'Gen.sno'
--INCLUDE 'TDump.sno'
+-INCLUDE 'Gen.inc'
+-INCLUDE 'TDump.inc'
 
         &STLIMIT = 1000000
         xTrace = 0

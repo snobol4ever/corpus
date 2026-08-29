@@ -2,7 +2,7 @@
 *  Oracle: SPITBOL -I$INC driver.sno
 *  Exercises: FENCE primitive in pattern matching
 *  FENCE is a built-in in SPITBOL, snobol4dotnet, and CSNOBOL4 (>=2.3.3).
--INCLUDE 'global.sno'
+-INCLUDE 'global.inc'
 
         &STLIMIT = 1000000
 

@@ -1,8 +1,8 @@
 *  driver.sno — test driver for counter.sno
 *  Oracle: snobol4 -f -P256k -I$INC driver.sno
 *  Run via: bash test/beauty/run_beauty_subsystem.sh counter
--INCLUDE 'global.sno'
--INCLUDE 'counter.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'counter.inc'
 
         &STLIMIT = 1000000
         dummy = InitCounter()

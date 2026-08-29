@@ -4,8 +4,8 @@
 *  Exercises: match(subject,pattern) / notmatch(subject,pattern)
 *  Pattern usage mirrors beauty.sno line 254:
 *    TxInList = (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
--INCLUDE 'global.sno'
--INCLUDE 'match.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'match.inc'
 
         &STLIMIT = 1000000
 

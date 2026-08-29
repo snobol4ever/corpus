@@ -8,8 +8,8 @@
 *        a writable filesystem. Tests 4-5 verify FRETURN on inaccessible paths.
 *        Tests 1-3, 6-8 exercise LineMap entirely in memory.
 
--INCLUDE 'global.sno'
--INCLUDE 'ReadWrite.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'ReadWrite.inc'
 
         &STLIMIT = 1000000
 

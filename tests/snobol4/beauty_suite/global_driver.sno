@@ -3,7 +3,7 @@
 *  Exercises: character constants (nul/bs/ht/tab/nl/lf/vt/ff/cr/fSlash/semicolon/bSlash)
 *             UTF table construction and lookup
 *             TRUE/FALSE/digits globals
--INCLUDE 'global.sno'
+-INCLUDE 'global.inc'
 
         &STLIMIT = 1000000
 

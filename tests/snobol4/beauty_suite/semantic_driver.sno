@@ -1,9 +1,9 @@
 *  driver.sno — test driver for semantic subsystem
 *  Oracle: snobol4 -f -P256k -Idemo/inc driver.sno
 
--INCLUDE 'global.sno'
--INCLUDE 'counter.sno'
--INCLUDE 'semantic.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'counter.inc'
+-INCLUDE 'semantic.inc'
 
         &STLIMIT = 1000000
         dPATTERN   = REPLACE(DATATYPE(LEN(1)), &LCASE, &UCASE)

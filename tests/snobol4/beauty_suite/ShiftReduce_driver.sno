@@ -6,10 +6,10 @@
 *  Depends on: stack.sno (Push/Pop/Top), tree.sno (tree DATA type)
 *  Ref: snobol4corpus/programs/include/ShiftReduce.inc
 
--INCLUDE 'global.sno'
--INCLUDE 'stack.sno'
--INCLUDE 'tree.sno'
--INCLUDE 'ShiftReduce.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'stack.inc'
+-INCLUDE 'tree.inc'
+-INCLUDE 'ShiftReduce.inc'
 
         &STLIMIT = 1000000
         xTrace = 0
