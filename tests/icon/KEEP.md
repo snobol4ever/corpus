@@ -106,6 +106,24 @@ as "original not green" and `--skip`ped, left loose. Breakdown of the 43:
 
 **29 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
 task's own prior pass, seat06 2026-08-29 — "zero stale markers"). Not re-characterized here.
+**Named individually below (seat09, 2026-08-29) because `test_gate_suite_conversion_complete.sh`'s
+"declared" check is a literal basename substring match against this file's own text — a count
+("29 already carried...") does not satisfy it, only the name does.** This was invisible until
+`FINDING-2026-08-29-hq_B-the-suite-conversion-gate-capped-its-list-at-20-and-hid-190-files-across-four-languages.md`
+surfaced that the gate's failure list itself was silently capped at 20, so nobody had seen these
+28 sitting in the "undeclared" count until now (`rung36_jcon_btrees.icn` was already an exception,
+named elsewhere in this file's own dependency note below — the other 28 were not named anywhere):
+`rung36_jcon_arith.icn` `rung36_jcon_case.icn` `rung36_jcon_checkfpx.icn` `rung36_jcon_ck.icn`
+`rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_errors.icn` `rung36_jcon_evalx.icn`
+`rung36_jcon_every.icn` `rung36_jcon_fncs.icn` `rung36_jcon_geddump.icn` `rung36_jcon_gener.icn`
+`rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
+`rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
+`rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
+`rung36_jcon_sets.icn` `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn` `rung36_jcon_toby.icn`
+— reason for all 28, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
+re-verified against its own marker's claim (not merely inherited) by seat06's 2026-08-29 skeptical
+sweep of all 30 Icon `.xfail` files. No witness file touched by this declaration — it is a KEEP.md
+entry only, same as every other line in this file.
 
 **1 `.xfail` marker (`rung36_jcon_diffwrds`) was STALE — a genuine XPASS, found and fixed this
 pass.** It reads words via `read()` fed by its `.stdin` sidecar; manually re-running it without that
