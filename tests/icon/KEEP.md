@@ -211,9 +211,16 @@ session could find.** Individually measured (not assumed), grouped by signature:
   calls `collect()` between opens), not investigated past this precise repro. `rung36_jcon_fncs`
   (without the `1`) already carries a `.xfail` marker for its own reason, unconfirmed whether it's
   related.
-- `rung36_jcon_args` — FAIL both modes: reads command-line arguments the harness has no mechanism to
-  supply (no `.arg`/`.argv` sidecar exists, unlike `.stdin`). A harness capability gap, not a SCRIP bug
-  — would need new harness work (an argv sidecar, mirroring `sidecar_in_path`) to ever test for real.
+- `rung36_jcon_args` — **CORRECTED 2026-08-29 (seat14): the prior reason above was wrong.** The file
+  never reads command-line arguments (`main()` takes zero parameters; it only calls its own local
+  procedures with varying literal arg counts) — no harness capability is needed to test it. Runs to
+  completion (rc=0, no crash) but ~140 of 447 lines diverge from `.expected`: a real bug, root-caused to
+  a shared arg-staging buffer (`g_call_args[]` in `src/runtime/by_name_dispatch.c:905,919,945`) not
+  cleared across an indirect call-through-a-value (`(!plist)(...)`) recalled with fewer arguments than a
+  prior call — the omitted trailing parameter keeps the previous call's stale value instead of reading
+  as unbound. Direct named calls are unaffected. See `FINDING-2026-08-29-seat14-icon-args-keepmd-reason-
+  was-wrong-bug-is-g-call-args-not-cleared-across-indirect-recalls.md`. Not fixed here (out of this
+  row's lane, same as every other bug found on this row) — stays loose, not a KEEP.md design exclusion.
 - `rung36_jcon_scan` — FAIL both modes, **root-caused (2026-08-29, seat06), not "under-produces, untraced"
   any more.** `upto(!x)` — a scanning function whose argument is itself a generator, e.g. `upto(!&lcase)` —
   hangs (infinite loop), not merely under-produces; the witness's own `?`-scan wrapper happens to change
