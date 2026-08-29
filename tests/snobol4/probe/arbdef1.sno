@@ -1,3 +1,4 @@
+*--------------------------------------------------------------------- 1 arbdef1
 *  arbdef1.sno — ARBNO-RBP suspension-leak witness (Lon rung 2026-08-14).
 *  F's body runs a SUCCESSFUL match whose ARBNO suspends with count>=1 (never exhausts),
 *  then RETURN fires the FN_RBP floater (mov rsp,rbp; pop rbp).  If ARBNO's live rbp
