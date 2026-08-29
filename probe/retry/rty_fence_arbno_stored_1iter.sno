@@ -1,9 +1,0 @@
-*  RED, CHECKED IN RED (law 0d).  ONE iteration ('1+2') and still red -- kills the iteration-
-*  count hypothesis outright.  ⛔ HQ nearly published that false hypothesis: rewriting the
-*  witness to vary the count silently moved it to the INLINE road (all green), which is a
-*  reminder that an ablation must change ONE thing and the road is a thing.
-        expr  = LEN(1) ARBNO(FENCE('+') LEN(1))
-        '1+2' POS(0) expr RPOS(0)                       :S(Y)F(N)
-Y OUTPUT = 'match'                                      :(END)
-N OUTPUT = 'nomatch'
-END

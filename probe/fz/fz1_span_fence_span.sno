@@ -1,5 +1,0 @@
-	S = 'aaabbbccc'
-	S ? SPAN('a') FENCE SPAN('b') SPAN('c')	:F(NO)
-	OUTPUT = 'MATCH'	:(END)
-NO	OUTPUT = 'FAIL'
-END

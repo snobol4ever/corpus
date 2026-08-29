@@ -1,0 +1,96 @@
+*---------------------------------- 1 rty_arbno_extend_double_fires_cond_capture
+P
+P
+P
+A
+ok
+*------------------------------------------------------ 2 rty_arbno_leftctx_cond
+this is a test 
+*---------------------------------------------------- 3 rty_arbno_leftctx_inline
+this
+this 
+this i
+this is
+this is 
+this is a
+this is a 
+this is a t
+this is a te
+this is a tes
+this is a test
+this is a test 
+*---------------------------------------------------- 4 rty_arbno_leftctx_stored
+this
+this 
+this i
+this is
+this is 
+this is a
+this is a 
+this is a t
+this is a te
+this is a tes
+this is a test
+this is a test 
+*-------------------------------------------------------- 5 rty_arbno_noleft_ctl
+
+t
+th
+thi
+this
+this 
+this i
+this is
+this is 
+this is a
+this is a 
+this is a t
+this is a te
+this is a tes
+this is a test
+this is a test 
+*--------------------------------------------------------- 6 rty_break_nogen_ctl
+this
+*--------------------------------------------------------- 7 rty_deadlit_arb_ctl
+
+A
+AB
+ABC
+done
+*--------------------------------------------------------- 8 rty_fail_arb_inline
+
+A
+AB
+ABC
+done
+*--------------------------------------------------------- 9 rty_fail_bal_inline
+A
+AB
+ABC
+done
+*---------------------------------------------------- 10 rty_fail_bal_stored_ctl
+A
+AB
+ABC
+done
+*---------------------------------------------------------- 11 rty_fail_span_ctl
+ABC
+done
+*------------------------------------------------------ 12 rty_fence_arbno_defer
+match
+*------------------------------------------------- 13 rty_fence_arbno_inline_ctl
+match
+*----------------------------------------------------- 14 rty_fence_arbno_stored
+match
+*----------------------------------------------- 15 rty_fence_arbno_stored_1iter
+match
+*----------------------------------------------- 16 rty_fence_capdefer_both_segv
+match
+*------------------------------------------------ 17 rty_fence_capdefer_left_ctl
+match
+*----------------------------------------------- 18 rty_fence_capdefer_plainleft
+match
+*----------------------------------------------- 19 rty_fence_capdefer_right_ctl
+match
+*----------------------------------------------------- 20 rty_nofence_stored_ctl
+match

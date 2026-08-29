@@ -1,7 +1,0 @@
-*  CONTROL, GREEN -- BREAK alone (no ARBNO) is NOT a generator (unlike BREAKX): it proposes
-*  one candidate, and on failure retreats without retrying.  Guards NO-PER-OP-FILTER: any
-*  future cure for rty_arbno_leftctx_inline must not make plain BREAK start retrying too.
-	&ANCHOR = 1
-	subj = "this is a test ."
-	subj BREAK(' ') $ OUTPUT '.'
-END

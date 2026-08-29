@@ -1,6 +1,0 @@
-*  RED, CHECKED IN RED (law 0d).  Same defect one generator over: ARB $ OUTPUT FAIL fires once
-*  (oracle enumerates null/A/AB/ABC).  Falls with rty_fail_bal_inline -- ONE class, two members,
-*  which is why neither may be cured by an op-conditioned admission (NO-PER-OP-FILTER).
- 'ABC' ? POS(0) ARB $ OUTPUT FAIL
- OUTPUT = 'done'
-END

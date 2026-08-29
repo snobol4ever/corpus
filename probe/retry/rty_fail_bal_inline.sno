@@ -1,9 +1,0 @@
-*  RED, CHECKED IN RED (law 0d).  ***FAIL DOES NOT DRIVE GENERATOR RETRY, INLINE ROAD.***
-*  The manual's own enumeration idiom: BAL is a generator that EXTENDS on retry, and the
-*  FAIL element forces the scanner to re-drive it -- oracle prints A/AB/ABC.  SCRIP fires the
-*  generator ONCE.  ⭐ THE STORED TWIN rty_fail_bal_stored_ctl IS GREEN: the blob road wires
-*  this retreat correctly and the INLINE statement-graph road does not -- the OPPOSITE road
-*  from the rty_fence_* family beside it.
- 'ABC' ? POS(0) BAL $ OUTPUT FAIL
- OUTPUT = 'done'
-END

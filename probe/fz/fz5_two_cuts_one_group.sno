@@ -1,9 +1,0 @@
-*	FZ-3: TWO cuts inside ONE captured group -- the group COND reads its SAVE cursor back across
-*	both releases, so the depth model must compose them, not just the last one.
-	S = 'aaabbbccc'
-	S ? SPAN('a') . X FENCE SPAN('b') . Y	:F(BAD)
-	OUTPUT = 'A=' X '/' Y
-	S ? (SPAN('a') FENCE SPAN('b') FENCE SPAN('c')) . W	:F(BAD)
-	OUTPUT = 'D=' W	:(END)
-BAD	OUTPUT = 'UNEXPECTED-FAIL'
-END

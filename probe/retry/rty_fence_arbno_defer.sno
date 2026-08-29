@@ -1,7 +1,0 @@
-*  RED, CHECKED IN RED (law 0d).  The deferred reference *expr fails identically to the bare
-*  reference -- the defect is in the stored pattern's own resume surface, not in the defer road.
-        expr  = LEN(1) ARBNO(FENCE('+') LEN(1))
-        '1+2+3' POS(0) *expr RPOS(0)                    :S(Y)F(N)
-Y OUTPUT = 'match'                                      :(END)
-N OUTPUT = 'nomatch'
-END

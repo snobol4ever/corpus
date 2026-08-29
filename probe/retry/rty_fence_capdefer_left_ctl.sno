@@ -1,9 +1,0 @@
-*  CONTROL, GREEN (s192).  capture+defer on element 0 ONLY -- the ARBNO body right of the FENCE is a bare
-*  defer.  One token from rty_fence_capdefer_both_segv and it neither crashes nor mis-answers, which is
-*  what makes the crash a BOTH-SIDES fact rather than a defer-in-a-fenced-body fact.
-        num   = SPAN('0123456789')
-        expr  = num . FIRST ARBNO(FENCE('+') num)
-        '1+2+3' POS(0) expr RPOS(0)                     :S(Y)F(N)
-Y OUTPUT = 'match'                                      :(END)
-N OUTPUT = 'fail'
-END

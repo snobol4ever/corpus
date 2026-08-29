@@ -1,5 +1,0 @@
-*  CONTROL, GREEN -- SPAN is NOT an extending generator, so firing once IS correct here.
-*  Guards the cure: whatever fixes the reds must leave this printing 'ABC' exactly once.
- 'ABC' ? POS(0) SPAN('ABC') $ OUTPUT FAIL
- OUTPUT = 'done'
-END
