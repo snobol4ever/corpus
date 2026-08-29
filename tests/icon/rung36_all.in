@@ -366,18 +366,18 @@ abc\b!.de\b!..fghij\b!...k
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#-------------------------------------------------------- 14 rung36_jcon_meander
+#-------------------------------------------------------- 15 rung36_jcon_meander
 abc:2
 1234:2
 ABC:4
-#--------------------------------------------------------- 15 rung36_jcon_mffsol
+#--------------------------------------------------------- 16 rung36_jcon_mffsol
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#--------------------------------------------------------- 16 rung36_jcon_mindfa
+#--------------------------------------------------------- 17 rung36_jcon_mindfa
 abcdefgh
 01
 d
@@ -398,7 +398,7 @@ f
 g
 g
 d
-#---------------------------------------------------------- 24 rung36_jcon_roman
+#---------------------------------------------------------- 26 rung36_jcon_roman
 13
 4
 6
@@ -407,7 +407,7 @@ d
 39
 3999
 4000
-#-------------------------------------------------------- 32 rung36_jcon_wordcnt
+#-------------------------------------------------------- 35 rung36_jcon_wordcnt
 #
 #	W O R D   T A B U L A T I O N
 #

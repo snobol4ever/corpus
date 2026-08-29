@@ -827,7 +827,92 @@ procedure xprint(s1,s2,j,k);
    write(s1);
    every write(right(s2[ k+1 to *s2 ],j));
 end
-#------------------------------------------------------------ 9 rung36_jcon_left
+#------------------------------------------------------------ 9 rung36_jcon_kwds
+#SRC: JCON
+
+#  kwds.icn -- check keywords, as best can do reproducibly
+
+procedure main()
+   &error := 747;
+   every kw("allocated", &allocated | "[failed]");
+   every kw("ascii", &ascii | "[failed]");
+   every kw("clock", nmap(&clock) | "[failed]");
+   every kw("col", &col | "[failed]");
+   every kw("collections", &collections | "[failed]");
+   every kw("control", &control | "[failed]");
+   every kw("cset", &cset | "[failed]");
+   every kw("current", &current | "[failed]");
+   every kw("date", nmap(&date) | "[failed]");
+   every kw("dateline", (&dateline ** 'kwfxday, EIRL:m') | "[failed]");
+   every kw("digits", &digits | "[failed]");
+   every kw("dump", &dump | "[failed]");
+   every kw("e", &e | "[failed]");
+   every kw("error", &error | "[failed]");
+   every kw("errornumber", &errornumber | "[failed]");
+   every kw("errortext", &errortext | "[failed]");
+   every kw("errorvalue", &errorvalue | "[failed]");
+   every kw("errout", &errout | "[failed]");
+   every kw("fail", &fail | "[failed]");
+   every kw("features", "Macintosh" ~== &features | "[failed]");
+   every kw("input", &input | "[failed]");
+   every kw("interval", &interval | "[failed]");
+   every kw("lcase", &lcase | "[failed]");
+   every kw("ldrag", &ldrag | "[failed]");
+   every kw("letters", &letters | "[failed]");
+   every kw("level", &level | "[failed]");
+   every kw("lpress", &lpress | "[failed]");
+   every kw("lrelease", &lrelease | "[failed]");
+   every kw("main", &main | "[failed]");
+   every kw("mdrag", &mdrag | "[failed]");
+   every kw("meta", &meta | "[failed]");
+   every kw("mpress", &mpress | "[failed]");
+   every kw("mrelease", &mrelease | "[failed]");
+   every kw("null", &null | "[failed]");
+   every kw("output", &output | "[failed]");
+   every kw("phi", &phi | "[failed]");
+   every kw("pi", &pi | "[failed]");
+   every kw("pos", &pos | "[failed]");
+   every kw("progname", &progname | "[failed]");
+   every kw("random", &random | "[failed]");
+   every kw("rdrag", &rdrag | "[failed]");
+   every kw("regions", &regions | "[failed]");
+   every kw("resize", &resize | "[failed]");
+   every kw("row", &row | "[failed]");
+   every kw("rpress", &rpress | "[failed]");
+   every kw("rrelease", &rrelease | "[failed]");
+   every kw("shift", &shift | "[failed]");
+   every kw("source", &source | "[failed]");
+   every kw("storage", &storage | "[failed]");
+   every kw("subject", &subject | "[failed]");
+   every kw("time", nmap(right(&time,4,0)) | "[failed]");
+   every kw("trace", &trace | "[failed]");
+   every kw("ucase", &ucase | "[failed]");
+   every kw("version", left(&version,16) | "[failed]");
+   every kw("window", &window | "[failed]");
+   every kw("x", &x | "[failed]");
+   every kw("y", &y | "[failed]");
+end
+
+procedure kw(label, value)
+   local s;
+   static prev;
+
+   if \prev == label & value == "[failed]" then
+      return;
+   case type(value) of {
+      "string":  s := value;
+      "cset":    s := image(value) || "  [size " || *value || "]";
+      default:   s := image(value);
+      }
+   write(right("&" || label, 12), ": ", s);
+   prev := label;
+   return;
+end
+
+procedure nmap(s)
+   return map(s, "0123456789", "nnnnnnnnnn");
+end
+#----------------------------------------------------------- 10 rung36_jcon_left
 #SRC: JCON
 
 procedure main();
@@ -859,7 +944,7 @@ procedure main();
    write(left("stu", 5, "<>"));
    write(left("vwx", 6, "<>"));
 end
-#--------------------------------------------------------- 10 rung36_jcon_lexcmp
+#--------------------------------------------------------- 11 rung36_jcon_lexcmp
 #SRC: JCON
 
 # lexical comparison test
@@ -887,7 +972,7 @@ procedure wr(s);
    writes(right(image(\s) | "---", 6));
    return;
 end
-#---------------------------------------------------------- 11 rung36_jcon_lists
+#---------------------------------------------------------- 12 rung36_jcon_lists
 #SRC: JCON
 
 procedure main();
@@ -977,7 +1062,7 @@ procedure limage(label, lst);
    write();
    return;
 end
-#------------------------------------------------------------ 12 rung36_jcon_map
+#------------------------------------------------------------ 13 rung36_jcon_map
 #SRC: JCON
 
 procedure main();
@@ -992,7 +1077,7 @@ procedure main();
     write(map("", "abcdef", "!@#$%^"));
     write(map("abcdef", "aa", "bc"));
 end
-#------------------------------------------------------- 13 rung36_jcon_mathfunc
+#------------------------------------------------------- 14 rung36_jcon_mathfunc
 #SRC: JCON
 
 #  test math functions including argument coercion
@@ -1029,7 +1114,7 @@ procedure r(v)
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
-#-------------------------------------------------------- 14 rung36_jcon_meander
+#-------------------------------------------------------- 15 rung36_jcon_meander
 #SRC: V9SAM
 
 #
@@ -1065,7 +1150,7 @@ procedure meander(alpha,n)
        }
    return result;
 end
-#--------------------------------------------------------- 15 rung36_jcon_mffsol
+#--------------------------------------------------------- 16 rung36_jcon_mffsol
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -1182,7 +1267,7 @@ procedure newcolor()
 	if lum > 96 then return;
     }
     end
-#--------------------------------------------------------- 16 rung36_jcon_mindfa
+#--------------------------------------------------------- 17 rung36_jcon_mindfa
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -1399,7 +1484,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#-------------------------------------------------------- 17 rung36_jcon_numeric
+#-------------------------------------------------------- 18 rung36_jcon_numeric
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -1594,7 +1679,7 @@ procedure main()
    p21();
 end
 
-#---------------------------------------------------------- 18 rung36_jcon_parse
+#---------------------------------------------------------- 19 rung36_jcon_parse
 #SRC: JCON
 
 # test grouping of various operators
@@ -1616,7 +1701,116 @@ end
 procedure g(x);
 	return x+2;
 end
-#--------------------------------------------------------- 19 rung36_jcon_primes
+#--------------------------------------------------------- 20 rung36_jcon_prepro
+#SRC: V9GEN
+
+# test various preprocessor features
+
+# test $define and various whitespace uses
+$define abc 123;
+ $  define  def   456;
+$define	ghi 789;
+$ define  ghi   789;	# duplicate definition should be ok if same
+$undef ghi;
+$define ghi 987;		# different definition should be ok after $undef
+
+# test (when used later) that substituted text is rescanned
+$define yy (xx+xx);
+$define xx 1;
+
+# test undefinition of something that isn't defined
+$undef notdefined;
+
+# test ifdef of undefined symbol, and successful skip past bogus directive
+$ifdef notdef;
+$BOGUS;
+$endif;
+
+# test ifdef of defined symbol, and null test body
+$ifdef abc;
+$endif;
+
+# test ifndef of defined symbol
+$ifndef abc;
+$error -- abc not defined;
+$endif;#comment on if terminator
+
+
+# main test program
+
+procedure main()
+   # write values from definitions; test no substitution in string constant
+   write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
+
+   # test $include by including a code fragment from prepro.dat
+   $include "prepro.dat";
+
+   # write values defined in prepro.dat
+   write("xyzzy: ", xyzzy);
+   write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
+
+   # test that predefined symbols agree with &features
+   # (if defined, first argument is 1, else it's null)
+   precheck(_AMIGA,		"Amiga");
+   precheck(_ACORN,		"Acorn Archimedes");
+   precheck(_ATARI,		"Atari ST");
+   precheck(_CMS,		"CMS");
+   precheck(_MACINTOSH,		"Macintosh");
+   precheck(_MSDOS_386,		"MS-DOS/386");
+   precheck(_MSDOS,		"MS-DOS");
+   precheck(_MVS,		"MVS");
+   precheck(_OS2,		"OS/2");
+   precheck(_PORT,		"PORT");
+   precheck(_UNIX,		"UNIX");
+   precheck(_VMS,		"VMS");
+   precheck(_COMPILED,		"compiled");
+   precheck(_INTERPRETED,	"interpreted");
+   precheck(_JAVA,		"Java");
+   precheck(_ASCII,		"ASCII", 1);
+   precheck(_EBCDIC,		"EBCDIC", 1);
+   precheck(_CALLING,		"calling to Icon");
+   precheck(_CO_EXPRESSIONS,	"co-expressions");
+   precheck(_DIRECT_EXECUTION,	"direct execution");
+   precheck(_EVENT_MONITOR,	"event monitoring");
+   precheck(_EXECUTABLE_IMAGES,	"executable images");
+   precheck(_EXTERNAL_FUNCTIONS,"external functions");
+   precheck(_KEYBOARD_FUNCTIONS,"keyboard functions");
+   precheck(_LARGE_INTEGERS,	"large integers");
+   precheck(_MEMORY_MONITOR,	"memory monitoring");
+   precheck(_MULTITASKING,	"multiple programs");
+   precheck(_MULTIREGION,	"multiple regions");
+   precheck(_PIPES,		"pipes");
+   precheck(_RECORD_IO,		"record I/O");
+   precheck(_STRING_INVOKE,	"string invocation");
+   precheck(_SYSTEM_FUNCTION,	"system function");
+   precheck(_VISUALIZATION,	"visualization support");
+   precheck(_WINDOW_FUNCTIONS,	"window functions");
+   precheck(_X_WINDOW_SYSTEM,	"X Windows");
+   precheck(_PRESENTATION_MGR,	"Presentation Manager");
+   precheck(_ARM_FUNCTIONS,	"Archimedes extensions");
+   precheck(_DOS_FUNCTIONS,	"MS-DOS extensions");
+   write("done");
+end
+
+
+#  precheck (v, s, p) -- check that s is in &features iff v is non-null;
+#			 always print presence/absence if p is non-null
+
+procedure precheck (v, s, p)
+   if s == &features then {
+      if /v then
+	 write ("error: no predefined symbol for ", s); 
+      else if \p then 
+	 write ("found feature: ", s);
+      }
+   else {
+      if \v then
+	 write ("error: unexpected predefined symbol for ", s); 
+      else if \p then 
+	 write ("no feature:    ", s);
+      }
+end
+#--------------------------------------------------------- 21 rung36_jcon_primes
 #SRC: JCON
 
 # a simple and slow prime number generator
@@ -1629,7 +1823,7 @@ procedure main();
       write(i);
    };
 end
-#--------------------------------------------------------- 20 rung36_jcon_queens
+#--------------------------------------------------------- 22 rung36_jcon_queens
 #SRC: IPL
 
 ############################################################################
@@ -1728,7 +1922,7 @@ procedure show()
       }
    write();
 end
-#--------------------------------------------------------- 21 rung36_jcon_random
+#--------------------------------------------------------- 23 rung36_jcon_random
 #SRC: JCON
 
 #  test of random selection
@@ -1788,7 +1982,7 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#--------------------------------------------------------- 22 rung36_jcon_record
+#--------------------------------------------------------- 24 rung36_jcon_record
 #SRC: JCON
 
 record simple(f);
@@ -1832,7 +2026,7 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#---------------------------------------------------------- 23 rung36_jcon_right
+#---------------------------------------------------------- 25 rung36_jcon_right
 #SRC: JCON
 
 procedure main();
@@ -1864,7 +2058,7 @@ procedure main();
    write(right("stu", 5, "<>"));
    write(right("vwx", 6, "<>"));
 end
-#---------------------------------------------------------- 24 rung36_jcon_roman
+#---------------------------------------------------------- 26 rung36_jcon_roman
 #SRC: V9SAM
 
 #
@@ -1890,7 +2084,7 @@ procedure roman(n);
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#---------------------------------------------------------- 25 rung36_jcon_sieve
+#---------------------------------------------------------- 27 rung36_jcon_sieve
 #SRC: V9SAM
 
 #
@@ -1913,7 +2107,7 @@ procedure main(args);
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#-------------------------------------------------------- 26 rung36_jcon_statics
+#-------------------------------------------------------- 28 rung36_jcon_statics
 #SRC: JCON
 
 procedure main();
@@ -1940,7 +2134,7 @@ procedure p();
    write(c);
 
 end
-#--------------------------------------------------------- 27 rung36_jcon_string
+#--------------------------------------------------------- 29 rung36_jcon_string
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -2072,7 +2266,7 @@ end
 
 global s;
 
-#-------------------------------------------------------- 28 rung36_jcon_string1
+#-------------------------------------------------------- 30 rung36_jcon_string1
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -2127,7 +2321,90 @@ procedure main();
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#------------------------------------------------------ 29 rung36_jcon_substring
+#-------------------------------------------------------- 31 rung36_jcon_subjpos
+#SRC: JCON
+
+procedure main()
+   local i, s, x;
+
+   ws();		# dump initial state
+   write();
+
+   every setsubj(s := "cat" | "" | "donut" | "x") do
+      every i := -*s-2 to *s+3 do
+         setpos(i);
+   write();
+
+   "outer" ? {
+      ws();
+      &pos := 3;
+      ws();
+      "inner" ? {
+         ws();
+         &pos := 2;
+         ws();
+         }
+      ws();
+      }
+
+   "123456" ? {
+      &pos := 3;
+      x := 4;
+      write("&pos=", &pos, " x=", x);
+      &pos :=: x;
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      &pos :=: x;
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      x :=: &pos;
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      every &pos <-> x do write("&pos=", &pos, " x=", x);
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      every x <-> &pos do write("&pos=", &pos, " x=", x);
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 2;
+      every &pos <-> x do &subject := "A";
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 2;
+      every x <-> &pos do &subject := "A";
+      write("&pos=", &pos, " x=", x);
+   }
+end
+
+procedure setpos(n)
+   writes("p := ", right(image(n),10));
+   if &pos := n then
+      writes("       ");
+   else
+      writes(" FAILED");
+   ws();
+   return;
+end
+
+procedure setsubj(s)
+   writes("s := ", right(image(s),10));
+   if &subject := s then
+      writes("       ");
+   else
+      writes(" FAILED");
+   ws();
+   return;
+end
+
+procedure ws();	# write state of &setpos and &subject
+   write("  &pos=", image(&pos), "   &subject=", image(&subject));
+   return;
+end
+#------------------------------------------------------ 32 rung36_jcon_substring
 #SRC: JCON
 
 # string subscripting test
@@ -2193,7 +2470,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" }
    
 end
-#---------------------------------------------------------- 30 rung36_jcon_table
+#---------------------------------------------------------- 33 rung36_jcon_table
 #SRC: JCON
 
 # table test
@@ -2291,7 +2568,7 @@ procedure tdump(label, T);
    write();
    return;
 end
-#----------------------------------------------------------- 31 rung36_jcon_trim
+#----------------------------------------------------------- 34 rung36_jcon_trim
 #SRC: JCON
 
 procedure main();
@@ -2306,7 +2583,7 @@ procedure main();
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#-------------------------------------------------------- 32 rung36_jcon_wordcnt
+#-------------------------------------------------------- 35 rung36_jcon_wordcnt
 #SRC: V9SAM
 
 #
@@ -2332,113 +2609,4 @@ procedure wordcount(n);
    x := sort(t,3);
    every i := 1 to *x - 1 by 2 do
       write(left(x[ i ],n),x[ i + 1 ]);
-end
-#--------------------------------------------------------- 33 rung36_jcon_prepro
-#SRC: V9GEN
-
-# test various preprocessor features
-
-# test $define and various whitespace uses
-$define abc 123;
- $  define  def   456;
-$define	ghi 789;
-$ define  ghi   789;	# duplicate definition should be ok if same
-$undef ghi;
-$define ghi 987;		# different definition should be ok after $undef
-
-# test (when used later) that substituted text is rescanned
-$define yy (xx+xx);
-$define xx 1;
-
-# test undefinition of something that isn't defined
-$undef notdefined;
-
-# test ifdef of undefined symbol, and successful skip past bogus directive
-$ifdef notdef;
-$BOGUS;
-$endif;
-
-# test ifdef of defined symbol, and null test body
-$ifdef abc;
-$endif;
-
-# test ifndef of defined symbol
-$ifndef abc;
-$error -- abc not defined;
-$endif;#comment on if terminator
-
-
-# main test program
-
-procedure main()
-   # write values from definitions; test no substitution in string constant
-   write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
-
-   # test $include by including a code fragment from prepro.dat
-   $include "prepro.dat";
-
-   # write values defined in prepro.dat
-   write("xyzzy: ", xyzzy);
-   write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
-
-   # test that predefined symbols agree with &features
-   # (if defined, first argument is 1, else it's null)
-   precheck(_AMIGA,		"Amiga");
-   precheck(_ACORN,		"Acorn Archimedes");
-   precheck(_ATARI,		"Atari ST");
-   precheck(_CMS,		"CMS");
-   precheck(_MACINTOSH,		"Macintosh");
-   precheck(_MSDOS_386,		"MS-DOS/386");
-   precheck(_MSDOS,		"MS-DOS");
-   precheck(_MVS,		"MVS");
-   precheck(_OS2,		"OS/2");
-   precheck(_PORT,		"PORT");
-   precheck(_UNIX,		"UNIX");
-   precheck(_VMS,		"VMS");
-   precheck(_COMPILED,		"compiled");
-   precheck(_INTERPRETED,	"interpreted");
-   precheck(_JAVA,		"Java");
-   precheck(_ASCII,		"ASCII", 1);
-   precheck(_EBCDIC,		"EBCDIC", 1);
-   precheck(_CALLING,		"calling to Icon");
-   precheck(_CO_EXPRESSIONS,	"co-expressions");
-   precheck(_DIRECT_EXECUTION,	"direct execution");
-   precheck(_EVENT_MONITOR,	"event monitoring");
-   precheck(_EXECUTABLE_IMAGES,	"executable images");
-   precheck(_EXTERNAL_FUNCTIONS,"external functions");
-   precheck(_KEYBOARD_FUNCTIONS,"keyboard functions");
-   precheck(_LARGE_INTEGERS,	"large integers");
-   precheck(_MEMORY_MONITOR,	"memory monitoring");
-   precheck(_MULTITASKING,	"multiple programs");
-   precheck(_MULTIREGION,	"multiple regions");
-   precheck(_PIPES,		"pipes");
-   precheck(_RECORD_IO,		"record I/O");
-   precheck(_STRING_INVOKE,	"string invocation");
-   precheck(_SYSTEM_FUNCTION,	"system function");
-   precheck(_VISUALIZATION,	"visualization support");
-   precheck(_WINDOW_FUNCTIONS,	"window functions");
-   precheck(_X_WINDOW_SYSTEM,	"X Windows");
-   precheck(_PRESENTATION_MGR,	"Presentation Manager");
-   precheck(_ARM_FUNCTIONS,	"Archimedes extensions");
-   precheck(_DOS_FUNCTIONS,	"MS-DOS extensions");
-   write("done");
-end
-
-
-#  precheck (v, s, p) -- check that s is in &features iff v is non-null;
-#			 always print presence/absence if p is non-null
-
-procedure precheck (v, s, p)
-   if s == &features then {
-      if /v then
-	 write ("error: no predefined symbol for ", s); 
-      else if \p then 
-	 write ("found feature: ", s);
-      }
-   else {
-      if \v then
-	 write ("error: unexpected predefined symbol for ", s); 
-      else if \p then 
-	 write ("no feature:    ", s);
-      }
 end

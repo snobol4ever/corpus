@@ -180,15 +180,33 @@ session could find.** Individually measured (not assumed), grouped by signature:
   given the two modes are supposed to share one frontend — not traced past confirming the repro line;
   worth a FINDING if picked up, since "the parser gives different answers depending on which mode asked"
   is a bigger claim than this KEEP.md should assert without tracing it.
-- `rung36_jcon_kwds`, `rung36_jcon_subjpos` — m3 `PASS`, m4 `FAIL`. **Root-caused (seat12, 2026-08-29,
-  confirmed causally not just by inspection): `&pos`'s DEFAULT value only.** `&pos` is `r14+1`
-  (`bb_keyword_icon.cpp`); mode-3 zeroes `r14` before entry via `rt_outer_call_delta0` (`rt.c:52-59`),
-  mode-4's equivalent entry path (`scrip.c`'s `else` branch when `icn_cells_graph` — the default Icon
-  shape) never does. Isolated to the very first, unassigned read of `&pos` in each file — everything
-  after the program's first `&pos :=` assignment matches exactly, both witnesses. Confirmed causally
-  with a throwaway 1-line local fix (built, byte-identical to `.expected`, reverted — no net diff).
-  NOT the same cause as `rung38_cset_embedded_nul` (that's a different, unrelated m3/m4 divergence).
-  See `FINDING-2026-08-29-seat12-icon-pos-keyword-reads-garbage-in-mode-4-r14-not-zeroed-at-entry.md`.
+- `rung36_jcon_kwds`, `rung36_jcon_subjpos` — **CONVERTED (seat16, 2026-08-29), no longer loose.**
+  Root-caused by seat12 (`&pos`'s default value only: `&pos` is `r14+1` (`bb_keyword_icon.cpp`);
+  mode-3 zeroes `r14` before entry via `rt_outer_call_delta0` (`rt.c:52-59`), mode-4's equivalent
+  entry path (`scrip.c`'s `else` branch when `icn_cells_graph` — the default Icon shape) never did) —
+  see `FINDING-2026-08-29-seat12-icon-pos-keyword-reads-garbage-in-mode-4-r14-not-zeroed-at-entry.md`
+  for the full trace. **Fixed** (`SCRIP src/driver/scrip.c`, one line: `xor r14d, r14d` added before
+  that `else` branch's `jmp main_α`, mirroring mode-3's zeroing exactly) after a full verification
+  sweep beyond the 2 witnesses seat12's throwaway edit checked: `make pristine` clean build; Icon
+  smoke 14/14 both modes; SNOBOL4 broad corpus 1344/1344 both modes + `crosscheck/patterns.sno`
+  124/124 both modes; Prolog smoke 5/5 all 3 modes; Raku smoke 724/724 both modes; Rebus smoke 4/4;
+  Pascal m4 gate unchanged at its standing FAIL=4 (boolidx/boolptr/deep5/pb34, pre-existing, unrelated);
+  `beauty_suite` self-host gate 34/34 both modes — the `else` branch is reachable by any language
+  whenever `zframe_graph` is false, and every reachable language regression-tested clean. NOT the same
+  cause as `rung38_cset_embedded_nul` (a different, unrelated m3/m4 divergence, still open).
+  **Along the way, found and fixed a separate, genuine regression the fix's own verification needed**:
+  `corpus_suite_harness.py`'s `run_suite_entry()` graded every suite entry from a fresh temp dir with
+  no neighboring files, so `rung36_all`'s own `prepro` entry (converted by seat11 the same day) was
+  silently FAILING under the standard `run` grading path the moment it was graded fresh — seat11's
+  ledger described building exactly this companion-file fix and pushing it, but the cited commit
+  (`80c4ccd1`) does not exist anywhere in SCRIP history; whatever happened to it, it never landed.
+  Rebuilt it (`run_suite_entry` gained an optional `companion_dir`; scans an entry's own text for
+  `$include "X"` (Icon) / `-INCLUDE 'X'` (SNOBOL4/Snocone) and copies each named, present file into
+  the temp dir first; threaded through all three real call sites — `cmd_convert`'s and
+  `cmd_convert_blocks`'s re-validation loops, and `cmd_run`, which is what every board/gate actually
+  uses going forward). `rung36_all` (now 35 entries: the prior 33 + `kwds` + `subjpos`) re-verified
+  35/35 both modes via a fresh `corpus_suite_harness.py run` after landing, independent of the
+  conversion tooling that wrote it.
 - `rung36_jcon_prepro` — **CONVERTED (seat11, 2026-08-29), no longer loose.** Was a HARNESS limitation,
   not a SCRIP bug: `convert-blocks`'s on-disk re-validation step runs the written suite entry from a
   fresh temp dir, which does not carry `$include "prepro.dat"`'s companion file the way the original

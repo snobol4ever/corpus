@@ -603,7 +603,84 @@ gaggle
      e
      s
 gaggle
-#------------------------------------------------------------ 9 rung36_jcon_left
+#------------------------------------------------------------ 9 rung36_jcon_kwds
+  &allocated: 0
+  &allocated: 0
+  &allocated: 0
+  &allocated: 0
+      &ascii: &ascii  [size 128]
+      &clock: nn:nn:nn
+        &col: 0
+&collections: 0
+&collections: 0
+&collections: 0
+&collections: 0
+    &control: [failed]
+       &cset: &cset  [size 256]
+    &current: co-expression_1(0)
+       &date: nnnn/nn/nn
+   &dateline: ' ,:admy'  [size 7]
+     &digits: &digits  [size 10]
+       &dump: 0
+          &e: 2.718281828459045
+      &error: 747
+&errornumber: [failed]
+  &errortext: [failed]
+ &errorvalue: [failed]
+     &errout: &errout
+       &fail: [failed]
+   &features: UNIX
+   &features: Java
+   &features: ASCII
+   &features: co-expressions
+   &features: dynamic loading
+   &features: environment variables
+   &features: large integers
+   &features: pipes
+   &features: system function
+   &features: graphics
+      &input: &input
+   &interval: [failed]
+      &lcase: &lcase  [size 26]
+      &ldrag: -7
+    &letters: &letters  [size 52]
+      &level: 1
+     &lpress: -1
+   &lrelease: -4
+       &main: co-expression_1(0)
+      &mdrag: -8
+       &meta: [failed]
+     &mpress: -2
+   &mrelease: -5
+       &null: &null
+     &output: &output
+        &phi: 1.618033988749895
+         &pi: 3.141592653589793
+        &pos: 1
+   &progname: rung36_jcon_kwds
+     &random: 0
+      &rdrag: -9
+    &regions: 0
+    &regions: 0
+    &regions: 0
+     &resize: -10
+        &row: 0
+     &rpress: -3
+   &rrelease: -6
+      &shift: [failed]
+     &source: co-expression_1(0)
+    &storage: 0
+    &storage: 0
+    &storage: 0
+    &subject: 
+       &time: nnnn
+      &trace: 0
+      &ucase: &ucase  [size 26]
+    &version: Jcon Version 2.2
+     &window: &null
+          &x: 0
+          &y: 0
+#----------------------------------------------------------- 10 rung36_jcon_left
 a
 d
 g
@@ -628,7 +705,7 @@ mno
 237>
 stu<>
 vwx><>
-#--------------------------------------------------------- 10 rung36_jcon_lexcmp
+#--------------------------------------------------------- 11 rung36_jcon_lexcmp
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -665,7 +742,7 @@ vwx><>
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#---------------------------------------------------------- 11 rung36_jcon_lists
+#---------------------------------------------------------- 12 rung36_jcon_lists
 -2
 -2
 a. [0]
@@ -718,7 +795,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#------------------------------------------------------------ 12 rung36_jcon_map
+#------------------------------------------------------------ 13 rung36_jcon_map
 abcdef
 abcdef
 aBcDeF
@@ -729,7 +806,7 @@ a2c4e6
 A@C$E^
 
 cbcdef
-#------------------------------------------------------- 13 rung36_jcon_mathfunc
+#------------------------------------------------------- 14 rung36_jcon_mathfunc
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -809,11 +886,11 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#-------------------------------------------------------- 14 rung36_jcon_meander
+#-------------------------------------------------------- 15 rung36_jcon_meander
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#--------------------------------------------------------- 15 rung36_jcon_mffsol
+#--------------------------------------------------------- 16 rung36_jcon_mffsol
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -883,7 +960,7 @@ AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABAB
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#--------------------------------------------------------- 16 rung36_jcon_mindfa
+#--------------------------------------------------------- 17 rung36_jcon_mindfa
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -1284,7 +1361,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#-------------------------------------------------------- 17 rung36_jcon_numeric
+#-------------------------------------------------------- 18 rung36_jcon_numeric
 integer(2) ----> 2
 integer("2") ----> 2
 integer(" 2") ----> 2
@@ -1396,7 +1473,7 @@ abs(0) ----> 0
 -1 ~= -0 ----> 0
 36 ^ -9 ----> 0
 -36 ^ -9 ----> 0
-#---------------------------------------------------------- 18 rung36_jcon_parse
+#---------------------------------------------------------- 19 rung36_jcon_parse
 19683
 1
 -2
@@ -1408,7 +1485,15 @@ abs(0) ----> 0
 2
 3
 xy
-#--------------------------------------------------------- 19 rung36_jcon_primes
+#--------------------------------------------------------- 20 rung36_jcon_prepro
+abc,def,ghi,xx,yy: 123 456 987 1 2
+prepro.dat here
+xyzzy: 47
+abc,def,ghi,xx,yy: 321 456 987 1 2
+found feature: ASCII
+no feature:    EBCDIC
+done
+#--------------------------------------------------------- 21 rung36_jcon_primes
 2
 3
 5
@@ -1434,7 +1519,7 @@ xy
 83
 89
 97
-#--------------------------------------------------------- 20 rung36_jcon_queens
+#--------------------------------------------------------- 22 rung36_jcon_queens
 6-Queens:
 solution: 1
   -------------------------
@@ -1495,7 +1580,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#--------------------------------------------------------- 21 rung36_jcon_random
+#--------------------------------------------------------- 23 rung36_jcon_random
 
          0  i  2114
  453816694  i  4124
@@ -1561,7 +1646,7 @@ solution: 4
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#--------------------------------------------------------- 22 rung36_jcon_record
+#--------------------------------------------------------- 24 rung36_jcon_record
 1 2
 3 4
 5 6
@@ -1577,7 +1662,7 @@ solution: 4
 3
 7
  11 22 73 74 
-#---------------------------------------------------------- 23 rung36_jcon_right
+#---------------------------------------------------------- 25 rung36_jcon_right
 c
 f
 i
@@ -1602,7 +1687,7 @@ mno
 <237
 <>stu
 <><vwx
-#---------------------------------------------------------- 24 rung36_jcon_roman
+#---------------------------------------------------------- 26 rung36_jcon_roman
 XIII
 IV
 VI
@@ -1611,14 +1696,14 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#---------------------------------------------------------- 25 rung36_jcon_sieve
+#---------------------------------------------------------- 27 rung36_jcon_sieve
 There are 168 primes in the first 1000 integers.
-#-------------------------------------------------------- 26 rung36_jcon_statics
+#-------------------------------------------------------- 28 rung36_jcon_statics
 &null
 1
 1
 2
-#--------------------------------------------------------- 27 rung36_jcon_string
+#--------------------------------------------------------- 29 rung36_jcon_string
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -1850,7 +1935,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#-------------------------------------------------------- 28 rung36_jcon_string1
+#-------------------------------------------------------- 30 rung36_jcon_string1
 type string
 *s  5
 s:  abcde
@@ -1888,7 +1973,70 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#------------------------------------------------------ 29 rung36_jcon_substring
+#-------------------------------------------------------- 31 rung36_jcon_subjpos
+  &pos=1   &subject=""
+
+s :=      "cat"         &pos=1   &subject="cat"
+p :=         -5 FAILED  &pos=1   &subject="cat"
+p :=         -4 FAILED  &pos=1   &subject="cat"
+p :=         -3         &pos=1   &subject="cat"
+p :=         -2         &pos=2   &subject="cat"
+p :=         -1         &pos=3   &subject="cat"
+p :=          0         &pos=4   &subject="cat"
+p :=          1         &pos=1   &subject="cat"
+p :=          2         &pos=2   &subject="cat"
+p :=          3         &pos=3   &subject="cat"
+p :=          4         &pos=4   &subject="cat"
+p :=          5 FAILED  &pos=4   &subject="cat"
+p :=          6 FAILED  &pos=4   &subject="cat"
+s :=         ""         &pos=1   &subject=""
+p :=         -2 FAILED  &pos=1   &subject=""
+p :=         -1 FAILED  &pos=1   &subject=""
+p :=          0         &pos=1   &subject=""
+p :=          1         &pos=1   &subject=""
+p :=          2 FAILED  &pos=1   &subject=""
+p :=          3 FAILED  &pos=1   &subject=""
+s :=    "donut"         &pos=1   &subject="donut"
+p :=         -7 FAILED  &pos=1   &subject="donut"
+p :=         -6 FAILED  &pos=1   &subject="donut"
+p :=         -5         &pos=1   &subject="donut"
+p :=         -4         &pos=2   &subject="donut"
+p :=         -3         &pos=3   &subject="donut"
+p :=         -2         &pos=4   &subject="donut"
+p :=         -1         &pos=5   &subject="donut"
+p :=          0         &pos=6   &subject="donut"
+p :=          1         &pos=1   &subject="donut"
+p :=          2         &pos=2   &subject="donut"
+p :=          3         &pos=3   &subject="donut"
+p :=          4         &pos=4   &subject="donut"
+p :=          5         &pos=5   &subject="donut"
+p :=          6         &pos=6   &subject="donut"
+p :=          7 FAILED  &pos=6   &subject="donut"
+p :=          8 FAILED  &pos=6   &subject="donut"
+s :=        "x"         &pos=1   &subject="x"
+p :=         -3 FAILED  &pos=1   &subject="x"
+p :=         -2 FAILED  &pos=1   &subject="x"
+p :=         -1         &pos=1   &subject="x"
+p :=          0         &pos=2   &subject="x"
+p :=          1         &pos=1   &subject="x"
+p :=          2         &pos=2   &subject="x"
+p :=          3 FAILED  &pos=2   &subject="x"
+p :=          4 FAILED  &pos=2   &subject="x"
+
+  &pos=1   &subject="outer"
+  &pos=3   &subject="outer"
+  &pos=1   &subject="inner"
+  &pos=2   &subject="inner"
+  &pos=3   &subject="outer"
+&pos=3 x=4
+&pos=4 x=3
+&pos=3 x=9
+&pos=3 x=3
+&pos=3 x=9
+&pos=3 x=3
+&pos=1 x=3
+&pos=1 x=2
+#------------------------------------------------------ 32 rung36_jcon_substring
 A. a
 B. a
 B. b
@@ -2257,7 +2405,7 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#---------------------------------------------------------- 30 rung36_jcon_table
+#---------------------------------------------------------- 33 rung36_jcon_table
    initial : 0 :
  >> 
  >> 3 3 
@@ -2276,7 +2424,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#----------------------------------------------------------- 31 rung36_jcon_trim
+#----------------------------------------------------------- 34 rung36_jcon_trim
 "abc"
 "abc"
 "abc  "
@@ -2287,7 +2435,7 @@ v 7
 ""
 ""
 ""
-#-------------------------------------------------------- 32 rung36_jcon_wordcnt
+#-------------------------------------------------------- 35 rung36_jcon_wordcnt
 A                   2
 B                   1
 D                   1
@@ -2341,11 +2489,3 @@ write               1
 writes              1
 x                   3
 y                   4
-#--------------------------------------------------------- 33 rung36_jcon_prepro
-abc,def,ghi,xx,yy: 123 456 987 1 2
-prepro.dat here
-xyzzy: 47
-abc,def,ghi,xx,yy: 321 456 987 1 2
-found feature: ASCII
-no feature:    EBCDIC
-done
