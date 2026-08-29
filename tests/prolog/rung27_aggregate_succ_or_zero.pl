@@ -1,3 +1,4 @@
+%----------------------------------------------- 1 rung27_aggregate_succ_or_zero
 :- initialization(main).
 main :-
     succ_or_zero(3, X), write(X), nl,

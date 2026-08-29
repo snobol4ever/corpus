@@ -1,5 +1,2 @@
 %------------------------------------------------ 1 rung11_findall_findall_empty
-:- initialization(main).
-main :-
-    findall(X, fail, Xs),
-    write(Xs), nl.
+[]
