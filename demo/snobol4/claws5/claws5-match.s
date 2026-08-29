@@ -37,7 +37,8 @@ n1_match_arbno_β:       mov              r11, 2
                         cmp              r14d, eax;                           je    n3_match_alternate_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   n2_match_rpos_α
-n1_match_arbno_af:      mov              r11, 2
+.Lmatch_arbno_γ_1_af:   mov              r11, 2
+.Lmatch_arbno_ω_1_af:   mov              r11, 2
                         mov              eax, dword ptr [rbp + -48]
                         cmp              r14d, eax;                           jne   n4_match_span_β
                                                                               jmp   n0_match_pos_β
@@ -79,11 +80,14 @@ n3_match_alternate_α:   mov              r11, 4
                         mov              r11, 4;                              jmp   n4_match_span_α
 n3_match_alternate_β:   mov              r11, 4
                         mov              rax, qword ptr [rbp + -208];         jmp   rax
-n3_match_alternate_af:  mov              r11, 4
+.Lmatch_alternate_γ_3_af:
+                        mov              r11, 4
+.Lmatch_alternate_ω_3_af:
+                        mov              r11, 4
                         mov              r14d, dword ptr [rbp + -216]
                         mov              rax, qword ptr [rbp + -200];         jmp   rax
 .Lmatch_alternate_α_17_19:
-                                                                              jmp   n1_match_arbno_af
+                                                                              jmp   .Lmatch_arbno_ω_1_af
                         .size            n3_match_alternate_bx, .-n3_match_alternate_bx
                         .type            n4_match_span_bx, @function
 n4_match_span_bx:
@@ -110,13 +114,13 @@ n5_match_notany_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_notany_α:      mov              r11, 6
                         mov              eax, r14d
-                        cmp              eax, r15d;                           jge   n3_match_alternate_af
+                        cmp              eax, r15d;                           jge   .Lmatch_alternate_ω_3_af
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 95;                             je    n3_match_alternate_af
+                        cmp              esi, 95;                             je    .Lmatch_alternate_ω_3_af
                         add              r14d, 1;                             jmp   n6_match_break_α
 n5_match_notany_β:      mov              r11, 6
-                        sub              r14d, 1;                             jmp   n3_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_3_af
                         .size            n5_match_notany_bx, .-n5_match_notany_bx
                         .type            n6_match_break_bx, @function
 n6_match_break_bx:
@@ -186,11 +190,11 @@ n10_match_span_α:       mov              r11, 11
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              byte ptr [rdi+rsi], 0;               je    .Lmatch_span_α_30_1
                         add              ecx, 1;                              jmp   .Lmatch_span_α_30_0
-.Lmatch_span_α_30_1:    cmp              ecx, r14d;                           jle   n3_match_alternate_af
+.Lmatch_span_α_30_1:    cmp              ecx, r14d;                           jle   .Lmatch_alternate_ω_3_af
                         mov              dword ptr [rbp + -76], r14d
                         mov              r14d, ecx;                           jmp   n11_match_lit_α
 n10_match_span_β:       mov              r11, 11
-                        mov              r14d, dword ptr [rbp + -76];         jmp   n3_match_alternate_af
+                        mov              r14d, dword ptr [rbp + -76];         jmp   .Lmatch_alternate_ω_3_af
                         .size            n10_match_span_bx, .-n10_match_span_bx
                         .type            n11_match_lit_bx, @function
 n11_match_lit_bx:
@@ -622,7 +626,8 @@ n54_match_begin_β:      mov              r11, 34
                         cmp              rax, 0;                              jne   .Lmatch_begin_β_112_1
                                                                               jmp   .Lmatch_begin_α_112_0
 .Lmatch_begin_β_112_1:
-n54_match_begin_af:     mov              r11, 34
+.Lmatch_begin_γ_54_af:  mov              r11, 34
+.Lmatch_begin_ω_54_af:  mov              r11, 34
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
@@ -662,7 +667,8 @@ n56_match_arbno_β:      mov              r11, 36
                         cmp              r14d, eax;                           je    n60_match_alternate_β
                         mov              dword ptr [rbp + -60], r14d
                         mov              qword ptr [rbp + -56], r12;          jmp   n57_match_rpos_α
-n56_match_arbno_af:     mov              r11, 36
+.Lmatch_arbno_γ_56_af:  mov              r11, 36
+.Lmatch_arbno_ω_56_af:  mov              r11, 36
                         mov              eax, dword ptr [rbp + -64]
                         cmp              r14d, eax;                           jne   n61_match_span_β
                                                                               jmp   n55_match_pos_β
@@ -710,7 +716,7 @@ n58_match_end_α:        mov              r11, 38
                         add              rsp, 8
                         pop              r13
                         pop              r15
-                        pop              r14;                                 jmp   n54_match_begin_af
+                        pop              r14;                                 jmp   .Lmatch_begin_ω_54_af
 .Lmatch_end_α_118_13:   add              rsp, 16
                         add              rsp, 8
                         pop              r13
@@ -759,11 +765,14 @@ n60_match_alternate_α:  mov              r11, 40
                         mov              r11, 40;                             jmp   n61_match_span_α
 n60_match_alternate_β:  mov              r11, 40
                         mov              rax, qword ptr [rsp + 8];            jmp   rax
-n60_match_alternate_af: mov              r11, 40
+.Lmatch_alternate_γ_60_af:
+                        mov              r11, 40
+.Lmatch_alternate_ω_60_af:
+                        mov              r11, 40
                         mov              r14d, dword ptr [rsp + 0]
                         mov              rax, qword ptr [rsp + 16];           jmp   rax
 .Lmatch_alternate_α_122_19:
-                        add              rsp, 32;                             jmp   n56_match_arbno_af
+                        add              rsp, 32;                             jmp   .Lmatch_arbno_ω_56_af
                         .size            n60_match_alternate_bx, .-n60_match_alternate_bx
                         .type            n61_match_span_bx, @function
 n61_match_span_bx:
@@ -790,13 +799,13 @@ n62_match_notany_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n62_match_notany_α:     mov              r11, 42
                         mov              eax, r14d
-                        cmp              eax, r15d;                           jge   n60_match_alternate_af
+                        cmp              eax, r15d;                           jge   .Lmatch_alternate_ω_60_af
                         movsxd           rcx, r14d
                         movzx            esi, byte ptr [r13+rcx]
-                        cmp              esi, 95;                             je    n60_match_alternate_af
+                        cmp              esi, 95;                             je    .Lmatch_alternate_ω_60_af
                         add              r14d, 1;                             jmp   n63_match_break_α
 n62_match_notany_β:     mov              r11, 42
-                        sub              r14d, 1;                             jmp   n60_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_60_af
                         .size            n62_match_notany_bx, .-n62_match_notany_bx
                         .type            n63_match_break_bx, @function
 n63_match_break_bx:
@@ -866,11 +875,11 @@ n67_match_span_α:       mov              r11, 47
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              byte ptr [rdi+rsi], 0;               je    .Lmatch_span_α_135_1
                         add              ecx, 1;                              jmp   .Lmatch_span_α_135_0
-.Lmatch_span_α_135_1:   cmp              ecx, r14d;                           jle   n60_match_alternate_af
+.Lmatch_span_α_135_1:   cmp              ecx, r14d;                           jle   .Lmatch_alternate_ω_60_af
                         mov              dword ptr [rbp + -92], r14d
                         mov              r14d, ecx;                           jmp   n68_match_lit_α
 n67_match_span_β:       mov              r11, 47
-                        mov              r14d, dword ptr [rbp + -92];         jmp   n60_match_alternate_af
+                        mov              r14d, dword ptr [rbp + -92];         jmp   .Lmatch_alternate_ω_60_af
                         .size            n67_match_span_bx, .-n67_match_span_bx
                         .type            n68_match_lit_bx, @function
 n68_match_lit_bx:

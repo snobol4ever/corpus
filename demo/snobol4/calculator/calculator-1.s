@@ -211,7 +211,10 @@ n18_match_alternate_α:  mov              r11, 7
                         mov              r11, 7;                              jmp   PAT$2_γ
 n18_match_alternate_β:  mov              r11, 7
                         mov              rax, qword ptr [rbp + -64];          jmp   rax
-n18_match_alternate_af: mov              r11, 7
+.Lmatch_alternate_γ_18_af:
+                        mov              r11, 7
+.Lmatch_alternate_ω_18_af:
+                        mov              r11, 7
                         mov              r14d, dword ptr [rbp + -72]
                         mov              rax, qword ptr [rbp + -56];          jmp   rax
 .Lmatch_alternate_α_25_19:
@@ -223,13 +226,13 @@ n19_match_lit_bx:
 n19_match_lit_α:        mov              r11, 8
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n18_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_18_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 40;                             jne   n18_match_alternate_af
+                        cmp              eax, 40;                             jne   .Lmatch_alternate_ω_18_af
                         add              r14d, 1;                             jmp   n20_match_defer_α
 n19_match_lit_β:        mov              r11, 8
-                        sub              r14d, 1;                             jmp   n18_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_18_af
                         .size            n19_match_lit_bx, .-n19_match_lit_bx
                         .type            n20_match_defer_bx, @function
 n20_match_defer_bx:
@@ -366,7 +369,7 @@ n22_match_defer_α:      mov              r11, 11
                         lea              rcx, [rip + .Lmatch_defer_α_31_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_31_4:                                                         jmp   .Lmatch_alternate_γ_18_s1
-.Lmatch_defer_α_31_5:                                                         jmp   n18_match_alternate_af
+.Lmatch_defer_α_31_5:                                                         jmp   .Lmatch_alternate_ω_18_af
 .Lmatch_defer_α_31_0:   push             r14
                         push             r15
                         push             r13
@@ -387,7 +390,7 @@ n22_match_defer_α:      mov              r11, 11
                         pop              r13
                         pop              r15
                         pop              r14
-                        test             eax, eax;                            js    n18_match_alternate_af
+                        test             eax, eax;                            js    .Lmatch_alternate_ω_18_af
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_31_6]
@@ -395,7 +398,7 @@ n22_match_defer_α:      mov              r11, 11
                         push             rax;                                 jmp   .Lmatch_alternate_γ_18_s1
 .Lmatch_defer_α_31_6:   add              rsp, 8
                         pop              rax
-                        mov              r14d, eax;                           jmp   n18_match_alternate_af
+                        mov              r14d, eax;                           jmp   .Lmatch_alternate_ω_18_af
 n22_match_defer_β:      mov              r11, 11
                         cmp              qword ptr [rsp + 0], 0;              jne   .Lmatch_defer_β_31_12
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
@@ -441,7 +444,7 @@ n23_match_defer_α:      mov              r11, 12
                         lea              rcx, [rip + .Lmatch_defer_α_32_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_32_4:                                                         jmp   .Lmatch_alternate_γ_18_s0
-.Lmatch_defer_α_32_5:                                                         jmp   n18_match_alternate_af
+.Lmatch_defer_α_32_5:                                                         jmp   .Lmatch_alternate_ω_18_af
 .Lmatch_defer_α_32_0:   push             r14
                         push             r15
                         push             r13
@@ -462,7 +465,7 @@ n23_match_defer_α:      mov              r11, 12
                         pop              r13
                         pop              r15
                         pop              r14
-                        test             eax, eax;                            js    n18_match_alternate_af
+                        test             eax, eax;                            js    .Lmatch_alternate_ω_18_af
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_32_6]
@@ -470,7 +473,7 @@ n23_match_defer_α:      mov              r11, 12
                         push             rax;                                 jmp   .Lmatch_alternate_γ_18_s0
 .Lmatch_defer_α_32_6:   add              rsp, 8
                         pop              rax
-                        mov              r14d, eax;                           jmp   n18_match_alternate_af
+                        mov              r14d, eax;                           jmp   .Lmatch_alternate_ω_18_af
 n23_match_defer_β:      mov              r11, 12
                         cmp              qword ptr [rsp + 0], 0;              jne   .Lmatch_defer_β_32_12
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
@@ -550,7 +553,10 @@ n33_match_alternate_α:  mov              r11, 13
                         mov              r11, 13;                             jmp   PAT$3_γ
 n33_match_alternate_β:  mov              r11, 13
                         mov              rax, qword ptr [rbp + -96];          jmp   rax
-n33_match_alternate_af: mov              r11, 13
+.Lmatch_alternate_γ_33_af:
+                        mov              r11, 13
+.Lmatch_alternate_ω_33_af:
+                        mov              r11, 13
                         mov              r14d, dword ptr [rbp + -104]
                         mov              rax, qword ptr [rbp + -88];          jmp   rax
 .Lmatch_alternate_α_42_19:
@@ -562,13 +568,13 @@ n34_match_lit_bx:
 n34_match_lit_α:        mov              r11, 14
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n33_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_33_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 45;                             jne   n33_match_alternate_af
+                        cmp              eax, 45;                             jne   .Lmatch_alternate_ω_33_af
                         add              r14d, 1;                             jmp   n35_match_assign_save_α
 n34_match_lit_β:        mov              r11, 14
-                        sub              r14d, 1;                             jmp   n33_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_33_af
                         .size            n34_match_lit_bx, .-n34_match_lit_bx
                         .type            n35_match_assign_save_bx, @function
 n35_match_assign_save_bx:
@@ -687,13 +693,13 @@ n38_match_lit_bx:
 n38_match_lit_α:        mov              r11, 18
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n33_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_33_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 43;                             jne   n33_match_alternate_af
+                        cmp              eax, 43;                             jne   .Lmatch_alternate_ω_33_af
                         add              r14d, 1;                             jmp   n39_match_defer_α
 n38_match_lit_β:        mov              r11, 18
-                        sub              r14d, 1;                             jmp   n33_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_33_af
                         .size            n38_match_lit_bx, .-n38_match_lit_bx
                         .type            n39_match_defer_bx, @function
 n39_match_defer_bx:
@@ -816,7 +822,7 @@ n40_match_defer_α:      mov              r11, 20
                         lea              rcx, [rip + .Lmatch_defer_α_53_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_53_4:                                                         jmp   .Lmatch_alternate_γ_33_s0
-.Lmatch_defer_α_53_5:                                                         jmp   n33_match_alternate_af
+.Lmatch_defer_α_53_5:                                                         jmp   .Lmatch_alternate_ω_33_af
 .Lmatch_defer_α_53_0:   push             r14
                         push             r15
                         push             r13
@@ -837,7 +843,7 @@ n40_match_defer_α:      mov              r11, 20
                         pop              r13
                         pop              r15
                         pop              r14
-                        test             eax, eax;                            js    n33_match_alternate_af
+                        test             eax, eax;                            js    .Lmatch_alternate_ω_33_af
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_53_6]
@@ -845,7 +851,7 @@ n40_match_defer_α:      mov              r11, 20
                         push             rax;                                 jmp   .Lmatch_alternate_γ_33_s0
 .Lmatch_defer_α_53_6:   add              rsp, 8
                         pop              rax
-                        mov              r14d, eax;                           jmp   n33_match_alternate_af
+                        mov              r14d, eax;                           jmp   .Lmatch_alternate_ω_33_af
 n40_match_defer_β:      mov              r11, 20
                         cmp              qword ptr [rsp + 0], 0;              jne   .Lmatch_defer_β_53_12
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
@@ -1003,7 +1009,10 @@ n55_match_alternate_α:  mov              r11, 22
                         mov              r11, 22;                             jmp   PAT$4_γ
 n55_match_alternate_β:  mov              r11, 22
                         mov              rax, qword ptr [rbp + -128];         jmp   rax
-n55_match_alternate_af: mov              r11, 22
+.Lmatch_alternate_γ_55_af:
+                        mov              r11, 22
+.Lmatch_alternate_ω_55_af:
+                        mov              r11, 22
                         mov              r14d, dword ptr [rbp + -136]
                         mov              rax, qword ptr [rbp + -120];         jmp   rax
 .Lmatch_alternate_α_67_19:
@@ -1013,7 +1022,7 @@ n55_match_alternate_af: mov              r11, 22
 n56_match_lit_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n56_match_lit_α:        mov              r11, 23;                             jmp   .Lmatch_alternate_γ_55_s2
-n56_match_lit_β:        mov              r11, 23;                             jmp   n55_match_alternate_af
+n56_match_lit_β:        mov              r11, 23;                             jmp   .Lmatch_alternate_ω_55_af
                         .size            n56_match_lit_bx, .-n56_match_lit_bx
                         .type            n57_match_lit_bx, @function
 n57_match_lit_bx:
@@ -1021,13 +1030,13 @@ n57_match_lit_bx:
 n57_match_lit_α:        mov              r11, 24
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n55_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_55_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 47;                             jne   n55_match_alternate_af
+                        cmp              eax, 47;                             jne   .Lmatch_alternate_ω_55_af
                         add              r14d, 1;                             jmp   n58_match_assign_save_α
 n57_match_lit_β:        mov              r11, 24
-                        sub              r14d, 1;                             jmp   n55_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_55_af
                         .size            n57_match_lit_bx, .-n57_match_lit_bx
                         .type            n58_match_assign_save_bx, @function
 n58_match_assign_save_bx:
@@ -1146,13 +1155,13 @@ n61_match_lit_bx:
 n61_match_lit_α:        mov              r11, 28
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n55_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_55_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 42;                             jne   n55_match_alternate_af
+                        cmp              eax, 42;                             jne   .Lmatch_alternate_ω_55_af
                         add              r14d, 1;                             jmp   n62_match_assign_save_α
 n61_match_lit_β:        mov              r11, 28
-                        sub              r14d, 1;                             jmp   n55_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_55_af
                         .size            n61_match_lit_bx, .-n61_match_lit_bx
                         .type            n62_match_assign_save_bx, @function
 n62_match_assign_save_bx:
@@ -1414,7 +1423,10 @@ n85_match_alternate_α:  mov              r11, 33
                         mov              r11, 33;                             jmp   PAT$5_γ
 n85_match_alternate_β:  mov              r11, 33
                         mov              rax, qword ptr [rbp + -128];         jmp   rax
-n85_match_alternate_af: mov              r11, 33
+.Lmatch_alternate_γ_85_af:
+                        mov              r11, 33
+.Lmatch_alternate_ω_85_af:
+                        mov              r11, 33
                         mov              r14d, dword ptr [rbp + -136]
                         mov              rax, qword ptr [rbp + -120];         jmp   rax
 .Lmatch_alternate_α_97_19:
@@ -1424,7 +1436,7 @@ n85_match_alternate_af: mov              r11, 33
 n86_match_lit_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n86_match_lit_α:        mov              r11, 34;                             jmp   .Lmatch_alternate_γ_85_s2
-n86_match_lit_β:        mov              r11, 34;                             jmp   n85_match_alternate_af
+n86_match_lit_β:        mov              r11, 34;                             jmp   .Lmatch_alternate_ω_85_af
                         .size            n86_match_lit_bx, .-n86_match_lit_bx
                         .type            n87_match_lit_bx, @function
 n87_match_lit_bx:
@@ -1432,13 +1444,13 @@ n87_match_lit_bx:
 n87_match_lit_α:        mov              r11, 35
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n85_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_85_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 45;                             jne   n85_match_alternate_af
+                        cmp              eax, 45;                             jne   .Lmatch_alternate_ω_85_af
                         add              r14d, 1;                             jmp   n88_match_assign_save_α
 n87_match_lit_β:        mov              r11, 35
-                        sub              r14d, 1;                             jmp   n85_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_85_af
                         .size            n87_match_lit_bx, .-n87_match_lit_bx
                         .type            n88_match_assign_save_bx, @function
 n88_match_assign_save_bx:
@@ -1557,13 +1569,13 @@ n91_match_lit_bx:
 n91_match_lit_α:        mov              r11, 39
                         mov              eax, r14d
                         add              eax, 1
-                        cmp              eax, r15d;                           jg    n85_match_alternate_af
+                        cmp              eax, r15d;                           jg    .Lmatch_alternate_ω_85_af
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
-                        cmp              eax, 43;                             jne   n85_match_alternate_af
+                        cmp              eax, 43;                             jne   .Lmatch_alternate_ω_85_af
                         add              r14d, 1;                             jmp   n92_match_assign_save_α
 n91_match_lit_β:        mov              r11, 39
-                        sub              r14d, 1;                             jmp   n85_match_alternate_af
+                        sub              r14d, 1;                             jmp   .Lmatch_alternate_ω_85_af
                         .size            n91_match_lit_bx, .-n91_match_lit_bx
                         .type            n92_match_assign_save_bx, @function
 n92_match_assign_save_bx:
@@ -1858,7 +1870,8 @@ n120_match_arbno_β:     mov              r11, 46
                         cmp              r14d, eax;                           je    n122_match_defer_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   n121_match_rpos_α
-n120_match_arbno_af:    mov              r11, 46
+.Lmatch_arbno_γ_120_af: mov              r11, 46
+.Lmatch_arbno_ω_120_af: mov              r11, 46
                         mov              eax, dword ptr [rbp + -48]
                         cmp              r14d, eax;                           jmp   n119_match_pos_β
                         .size            n120_match_arbno_bx, .-n120_match_arbno_bx
@@ -1910,7 +1923,7 @@ n122_match_defer_α:     mov              r11, 48
                         lea              rcx, [rip + .Lmatch_defer_α_130_4]
                         push             rcx;                                 jmp   rax
 .Lmatch_defer_α_130_4:                                                        jmp   n123_match_assign_save_α
-.Lmatch_defer_α_130_5:                                                        jmp   n120_match_arbno_af
+.Lmatch_defer_α_130_5:                                                        jmp   .Lmatch_arbno_ω_120_af
 .Lmatch_defer_α_130_0:  push             r14
                         push             r15
                         push             r13
@@ -1931,7 +1944,7 @@ n122_match_defer_α:     mov              r11, 48
                         pop              r13
                         pop              r15
                         pop              r14
-                        test             eax, eax;                            js    n120_match_arbno_af
+                        test             eax, eax;                            js    .Lmatch_arbno_ω_120_af
                         mov              ecx, r14d
                         mov              r14d, eax
                         lea              rax, [rip + .Lmatch_defer_α_130_6]
@@ -1939,7 +1952,7 @@ n122_match_defer_α:     mov              r11, 48
                         push             rax;                                 jmp   n123_match_assign_save_α
 .Lmatch_defer_α_130_6:  add              rsp, 8
                         pop              rax
-                        mov              r14d, eax;                           jmp   n120_match_arbno_af
+                        mov              r14d, eax;                           jmp   .Lmatch_arbno_ω_120_af
 n122_match_defer_β:     mov              r11, 48
                         cmp              qword ptr [rsp + 0], 0;              jne   .Lmatch_defer_β_130_12
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL]
@@ -2184,7 +2197,7 @@ n137_define_α:          mov              r11, 53
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n160_statement_begin_α]
+                        lea              r9, [rip + EMIT_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2276,7 +2289,7 @@ n140_define_α:          mov              r11, 56
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n178_statement_begin_α]
+                        lea              r9, [rip + PSH_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2368,7 +2381,7 @@ n143_define_α:          mov              r11, 59
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + n187_statement_begin_α]
+                        lea              r9, [rip + DRF_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2503,7 +2516,7 @@ n146_define_α:          mov              r11, 62
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n206_statement_begin_α]
+                        lea              r9, [rip + ADD_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2595,7 +2608,7 @@ n149_define_α:          mov              r11, 65
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n231_statement_begin_α]
+                        lea              r9, [rip + SUB_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2687,7 +2700,7 @@ n152_define_α:          mov              r11, 68
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n256_statement_begin_α]
+                        lea              r9, [rip + MUL_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2779,7 +2792,7 @@ n155_define_α:          mov              r11, 71
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n281_statement_begin_α]
+                        lea              r9, [rip + DIV_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2871,7 +2884,7 @@ n158_define_α:          mov              r11, 74
                         mov              edx, 0
                         mov              ecx, 0
                         mov              r8d, 0
-                        lea              r9, [rip + n306_statement_begin_α]
+                        lea              r9, [rip + NEG_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3405,7 +3418,8 @@ n193_match_begin_β:     mov              r11, 109
                         cmp              rax, 0;                              jne   .Lmatch_begin_β_578_1
                                                                               jmp   .Lmatch_begin_α_578_0
 .Lmatch_begin_β_578_1:
-n193_match_begin_af:    mov              r11, 109
+.Lmatch_begin_γ_193_af: mov              r11, 109
+.Lmatch_begin_ω_193_af: mov              r11, 109
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
@@ -3487,7 +3501,7 @@ n197_match_end_α:       mov              r11, 113
                         add              rsp, 8
                         pop              r13
                         pop              r15
-                        pop              r14;                                 jmp   n193_match_begin_af
+                        pop              r14;                                 jmp   .Lmatch_begin_ω_193_af
 .Lmatch_end_α_584_13:   add              rsp, 16
                         add              rsp, 8
                         pop              r13
@@ -7596,7 +7610,8 @@ n435_match_begin_β:     mov              r11, 351
                         cmp              rax, 0;                              jne   .Lmatch_begin_β_911_1
                                                                               jmp   .Lmatch_begin_α_911_0
 .Lmatch_begin_β_911_1:
-n435_match_begin_af:    mov              r11, 351
+.Lmatch_begin_γ_435_af: mov              r11, 351
+.Lmatch_begin_ω_435_af: mov              r11, 351
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
@@ -7720,7 +7735,7 @@ n437_match_end_α:       mov              r11, 353
                         add              rsp, 8
                         pop              r13
                         pop              r15
-                        pop              r14;                                 jmp   n435_match_begin_af
+                        pop              r14;                                 jmp   .Lmatch_begin_ω_435_af
 .Lmatch_end_α_914_13:   add              rsp, 16
                         add              rsp, 8
                         pop              r13

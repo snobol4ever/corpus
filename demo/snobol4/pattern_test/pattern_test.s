@@ -129,7 +129,8 @@ n6_match_begin_β:       mov              r11, 7
                         cmp              rax, 0;                              jne   .Lmatch_begin_β_28_1
                                                                               jmp   .Lmatch_begin_α_28_0
 .Lmatch_begin_β_28_1:
-n6_match_begin_af:      mov              r11, 7
+.Lmatch_begin_γ_6_af:   mov              r11, 7
+.Lmatch_begin_ω_6_af:   mov              r11, 7
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
@@ -225,7 +226,7 @@ n10_match_end_α:        mov              r11, 11
                         add              rsp, 8
                         pop              r13
                         pop              r15
-                        pop              r14;                                 jmp   n6_match_begin_af
+                        pop              r14;                                 jmp   .Lmatch_begin_ω_6_af
 .Lmatch_end_α_36_13:    add              rsp, 16
                         add              rsp, 8
                         pop              r13
