@@ -437,9 +437,9 @@ n21_statement_end_α:    mov              r11, 22
                         .type            n22_statement_begin_bx, @function
 n22_statement_begin_bx:
 #=======================================================================================================================
-# INCE  <stmt 6, line 10: source not in main file (INCLUDE)>
+# INCE
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 10 0
+                        .loc             1 9 0
 n22_statement_begin_α:  mov              r11, 23
                         mov              r10, 6;                              jmp   n23_statement_end_α
 n22_statement_begin_β:  mov              r11, 23;                             jmp   n24_statement_begin_α
@@ -972,9 +972,9 @@ n54_statement_end_α:    mov              r11, 55
                         .type            n55_statement_begin_bx, @function
 n55_statement_begin_bx:
 #=======================================================================================================================
-# FUNC_CALL_END  <stmt 13, line 17: source not in main file (INCLUDE)>
+# FUNC_CALL_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 17 0
+                        .loc             1 16 0
 n55_statement_begin_α:  mov              r11, 56
                         mov              r10, 13;                             jmp   n56_statement_end_α
 n55_statement_begin_β:  mov              r11, 56;                             jmp   n57_statement_begin_α

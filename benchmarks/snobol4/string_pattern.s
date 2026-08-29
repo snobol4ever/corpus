@@ -1177,9 +1177,9 @@ n84_statement_end_α:    mov              r11, 63
                         .type            n85_statement_begin_bx, @function
 n85_statement_begin_bx:
 #=======================================================================================================================
-# STRING_PATTERN_END  <stmt 11, line 15: source not in main file (INCLUDE)>
+# STRING_PATTERN_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 15 0
+                        .loc             1 14 0
 n85_statement_begin_α:  mov              r11, 64
                         mov              r10, 11;                             jmp   n86_statement_end_α
 n85_statement_begin_β:  mov              r11, 64;                             jmp   n87_statement_begin_α

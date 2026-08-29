@@ -744,9 +744,9 @@ n44_statement_end_α:    mov              r11, 45
                         .type            n45_statement_begin_bx, @function
 n45_statement_begin_bx:
 #=======================================================================================================================
-# ARITH_LOOP_END  <stmt 10, line 14: source not in main file (INCLUDE)>
+# ARITH_LOOP_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 14 0
+                        .loc             1 13 0
 n45_statement_begin_α:  mov              r11, 46
                         mov              r10, 10;                             jmp   n46_statement_end_α
 n45_statement_begin_β:  mov              r11, 46;                             jmp   n47_statement_begin_α

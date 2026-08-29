@@ -836,9 +836,9 @@ n50_statement_end_α:    mov              r11, 51
                         .type            n51_statement_begin_bx, @function
 n51_statement_begin_bx:
 #=======================================================================================================================
-# STRING_MANIP_END  <stmt 11, line 15: source not in main file (INCLUDE)>
+# STRING_MANIP_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 15 0
+                        .loc             1 14 0
 n51_statement_begin_α:  mov              r11, 52
                         mov              r10, 11;                             jmp   n52_statement_end_α
 n51_statement_begin_β:  mov              r11, 52;                             jmp   n53_statement_begin_α

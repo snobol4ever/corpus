@@ -1060,9 +1060,9 @@ n47_statement_end_α:    mov              r11, 48
                         .type            n48_statement_begin_bx, @function
 n48_statement_begin_bx:
 #=======================================================================================================================
-# ROMAN_END  <stmt 8, line 17: source not in main file (INCLUDE)>
+# ROMAN_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 17 0
+                        .loc             1 16 0
 n48_statement_begin_α:  mov              r11, 49
                         mov              r10, 8;                              jmp   n49_statement_end_α
 n48_statement_begin_β:  mov              r11, 49;                             jmp   n50_statement_begin_α
@@ -1744,9 +1744,9 @@ n85_statement_end_α:    mov              r11, 86
                         .type            n86_statement_begin_bx, @function
 n86_statement_begin_bx:
 #=======================================================================================================================
-# ROMAN_RUN_END  <stmt 15, line 24: source not in main file (INCLUDE)>
+# ROMAN_RUN_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 24 0
+                        .loc             1 23 0
 n86_statement_begin_α:  mov              r11, 87
                         mov              r10, 15;                             jmp   n87_statement_end_α
 n86_statement_begin_β:  mov              r11, 87;                             jmp   n88_statement_begin_α

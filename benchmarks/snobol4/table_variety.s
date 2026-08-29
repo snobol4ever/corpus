@@ -5242,9 +5242,9 @@ n296_statement_end_α:   mov              r11, 297
                         .type            n297_statement_begin_bx, @function
 n297_statement_begin_bx:
 #=======================================================================================================================
-# TABLE_VARIETY_END  <stmt 38, line 61: source not in main file (INCLUDE)>
+# TABLE_VARIETY_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 61 0
+                        .loc             1 60 0
 n297_statement_begin_α: mov              r11, 298
                         mov              r10, 38;                             jmp   n298_statement_end_α
 n297_statement_begin_β: mov              r11, 298;                            jmp   n299_statement_begin_α

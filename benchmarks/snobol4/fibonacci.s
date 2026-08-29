@@ -776,9 +776,9 @@ n36_statement_end_α:    mov              r11, 37
                         .type            n37_statement_begin_bx, @function
 n37_statement_begin_bx:
 #=======================================================================================================================
-# FIBE  <stmt 7, line 11: source not in main file (INCLUDE)>
+# FIBE
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 11 0
+                        .loc             1 10 0
 n37_statement_begin_α:  mov              r11, 38
                         mov              r10, 7;                              jmp   n38_statement_end_α
 n37_statement_begin_β:  mov              r11, 38;                             jmp   n39_statement_begin_α
@@ -1275,9 +1275,9 @@ n65_statement_end_α:    mov              r11, 66
                         .type            n66_statement_begin_bx, @function
 n66_statement_begin_bx:
 #=======================================================================================================================
-# FIBONACCI_END  <stmt 13, line 17: source not in main file (INCLUDE)>
+# FIBONACCI_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 17 0
+                        .loc             1 16 0
 n66_statement_begin_α:  mov              r11, 67
                         mov              r10, 13;                             jmp   n67_statement_end_α
 n66_statement_begin_β:  mov              r11, 67;                             jmp   n68_statement_begin_α

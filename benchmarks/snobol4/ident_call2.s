@@ -805,9 +805,9 @@ n49_statement_end_α:    mov              r11, 50
                         .type            n50_statement_begin_bx, @function
 n50_statement_begin_bx:
 #=======================================================================================================================
-# IDENT_CALL2_END  <stmt 11, line 15: source not in main file (INCLUDE)>
+# IDENT_CALL2_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 15 0
+                        .loc             1 14 0
 n50_statement_begin_α:  mov              r11, 51
                         mov              r10, 11;                             jmp   n51_statement_end_α
 n50_statement_begin_β:  mov              r11, 51;                             jmp   n52_statement_begin_α

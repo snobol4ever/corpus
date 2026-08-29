@@ -960,9 +960,9 @@ n54_statement_end_α:    mov              r11, 55
                         .type            n55_statement_begin_bx, @function
 n55_statement_begin_bx:
 #=======================================================================================================================
-# name_indirection_end  <stmt 11, line 17: source not in main file (INCLUDE)>
+# name_indirection_end
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 17 0
+                        .loc             1 16 0
 n55_statement_begin_α:  mov              r11, 56
                         mov              r10, 11;                             jmp   n56_statement_end_α
 n55_statement_begin_β:  mov              r11, 56;                             jmp   n57_statement_begin_α

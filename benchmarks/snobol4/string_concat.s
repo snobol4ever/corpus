@@ -762,9 +762,9 @@ n45_statement_end_α:    mov              r11, 46
                         .type            n46_statement_begin_bx, @function
 n46_statement_begin_bx:
 #=======================================================================================================================
-# STRING_CONCAT_END  <stmt 10, line 16: source not in main file (INCLUDE)>
+# STRING_CONCAT_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 16 0
+                        .loc             1 15 0
 n46_statement_begin_α:  mov              r11, 47
                         mov              r10, 10;                             jmp   n47_statement_end_α
 n46_statement_begin_β:  mov              r11, 47;                             jmp   n48_statement_begin_α

@@ -791,9 +791,9 @@ n45_statement_end_α:    mov              r11, 38
                         .type            n46_statement_begin_bx, @function
 n46_statement_begin_bx:
 #=======================================================================================================================
-# RSUM_END  <stmt 7, line 14: source not in main file (INCLUDE)>
+# RSUM_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 14 0
+                        .loc             1 13 0
 n46_statement_begin_α:  mov              r11, 39
                         mov              r10, 7;                              jmp   n47_statement_end_α
 n46_statement_begin_β:  mov              r11, 39;                             jmp   n48_statement_begin_α
@@ -2628,9 +2628,9 @@ n152_statement_end_α:   mov              r11, 145
                         .type            n153_statement_begin_bx, @function
 n153_statement_begin_bx:
 #=======================================================================================================================
-# MIXED_WORKLOAD_END  <stmt 25, line 32: source not in main file (INCLUDE)>
+# MIXED_WORKLOAD_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 32 0
+                        .loc             1 31 0
 n153_statement_begin_α: mov              r11, 146
                         mov              r10, 25;                             jmp   n154_statement_end_α
 n153_statement_begin_β: mov              r11, 146;                            jmp   n155_statement_begin_α
