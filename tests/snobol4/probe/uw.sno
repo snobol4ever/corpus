@@ -1,3 +1,15 @@
+*------------------------------------------------------------------------- 1 uw2
+* uw2.sno — U-1b unwind success-path control witness
+* Value-spine statement: always succeeds, no :F exit, no fail-side depth accumulation.
+* POSITIVE CONTROL (known-good): both SCRIP_UNWIND=0 and SCRIP_UNWIND=1 produce rc=0.
+* .s differs (UNWIND=1 adds β trampolines for the lit/coerce nodes) but execution is identical.
+* Oracle: sbl produces "8"
+* Acceptance: timeout 8s scrip --run uw2.sno (both gates) = "8" = uw2.ref
+        A = 5
+        B = 3
+        OUTPUT = A + B
+END
+*------------------------------------------------------------------------- 2 uw3
 * uw3.sno — U-1b unwind fail-side behavioral witness
 * Two comparison statements with both :S and :F branches.
 * At failure: value-spine cells (lit_integer, coerce_numeric) are at depth>0 on RSP.
