@@ -14,6 +14,39 @@ Run: `bash SCRIP/scripts/probe_leafsib_measure.sh` (add `SCRIP_SPAN_FRAME=0`
 for the legacy flat arm — **unset is ON since s188**, see the s193 section). A witness is RED iff stdout differs from its `.ref` — a
 SIGSEGV, an abort, a hang and a silent wrong answer all count the same.
 
+## ⛔⭐⭐⭐ 2026-08-29 (seat08) — CONVERTED TO SUITE FORMAT, AND THE ARM STOPPED DISCRIMINATING ENTIRELY
+
+**Corpus-crosscheck-probe-total-conversion, clause 3 (Lon's total-conversion ruling).** All twelve
+witnesses (`{arb,bal}_flat_{red,grn}` included) converted to `tests/snobol4/probe/leafsib.{sno,ref}`
+via `corpus_suite_harness.py convert --modes m3,m4`, byte-equal validated both directions, both modes,
+**and both `SCRIP_SPAN_FRAME` arms**, before the loose files in `corpus/probe/leafsib/` were deleted.
+`probe_leafsib_measure.sh` is re-pointed to `extract` each entry from the suite into a scratch dir at
+run time — its per-sibling loop, env-var-arm sensitivity, and output format are byte-for-byte
+unchanged (verified: full stdout captured before and after the re-point, both arms, byte-identical).
+The dual-arm diagnostic this file exists for is NOT lost by conversion: `SCRIP_SPAN_FRAME=0
+python3 SCRIP/scripts/corpus_suite_harness.py run tests/snobol4/probe/leafsib.sno
+tests/snobol4/probe/leafsib.ref --modes m3,m4` (or the re-pointed measure script with the same env
+var) still exercises it, because the harness's `run`/`extract` path shells out to `./scrip` with the
+caller's environment inherited, unchanged.
+
+**⛔⛔ AND THE THING THE s193 PADDED PAIRS WERE MINTED TO CATCH NO LONGER REPRODUCES.** s193 measured
+`arb_flat_red`/`bal_flat_red` at **m4 rc=139 (SIGSEGV) under `SCRIP_SPAN_FRAME=0`**, pass under `=1`
+(12/12 default · 10/12 under `=0` — the padded pairs were the only members still discriminating the
+arms by then). Re-measured 2026-08-29 (seat08), twice — once pre-pull, once on a fresh `make pristine`
+binary at SCRIP `7817f370` after pulling 3 new commits (none touching `sn4_span_frame`/leaf-frame code;
+the one touched file, `emit.cpp`, changed only in Icon N-2 generator-frame territory) — **both arms now
+measure 12/12 pass, both modes, on both the loose files (pre-deletion) and the converted suite.** This
+is NOT root-caused here — out of this row's lane (corpus format conversion, not frame codegen) — see
+`FINDING-2026-08-29-seat08-leafsib-span-frame-arm-fully-inert.md` for the measurement and a pointer for
+whoever owns `SCRIP_SPAN_FRAME`/frame-widening to decide whether the switch is now dead code (the
+"ZETA HAS NO MODES" precedent, Lon 2026-08-27, is the standing appetite for removing a killswitch once
+nothing discriminates on it — this is named as a candidate, not claimed as a ruling).
+
+⛔ **IF YOU ARE HERE BECAUSE THIS INSTRUMENT WENT RED AGAIN:** that would mean either the underlying
+defect this file's whole history is about came back, or the OFF arm's own behavior changed a second
+time. Either way, re-read the s193 section below in full before touching anything — it documents the
+same "looks fixed, isn't, or is fixed for a reason nobody can name yet" shape twice already.
+
 ## ⛔⭐⭐⭐ s193 — THE EIGHT ABOVE ARE AN INERT INSTRUMENT, AND BOTH DECLINES BELOW ARE DEAD
 
 Measured at SCRIP `408aab34`, `make pristine` EXIT=0, RT_OPT `-O0` (row `alt-arb-bal-witness`):
@@ -51,7 +84,8 @@ the pair proves the defect is the **coordinate's magnitude**, never the op or th
 
 Under `=1` each homes at `[rbp-80]`, the carve widens `sub rsp,24` → `sub rsp,56` (+32 = the two consecutive
 16B slots), and `retry_whack` moves `[rbp-56]` → `[rbp-88]` in step. With the pairs added the instrument reads
-**12/12 default · 10/12 under `=0`** — it discriminates the arms again.
+**12/12 default · 10/12 under `=0`** — it discriminates the arms again. **⛔ THIS TABLE IS HISTORICAL — see the
+2026-08-29 section above: the `=0`/m4 SIGSEGV column no longer reproduces at HEAD.**
 
 ### Both declines below are DEAD — do not act on them
 
@@ -140,3 +174,7 @@ legacy `FR()` spelling byte-identically, so that rung inherits the plumbing.
 
 Both declines are PROVEN INERT: `--compile` output is byte-identical across
 both killswitch arms for `leafsib_bal` and `leafsib_arb`.
+
+⛔ **THE ABOVE TWO SECTIONS ARE ALSO HISTORICAL AS OF 2026-08-29** — see the top section. The
+family currently measures 12/12 green on both arms, so nothing is "declined by design" as a live
+red right now; the declines are kept here as the reasoning trail in case the class returns.
