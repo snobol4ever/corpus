@@ -270,7 +270,7 @@ n18_define_α:           mov              r11, 19
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + n20_statement_begin_α]
+                        lea              r9, [rip + EVAL_FIXED_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11

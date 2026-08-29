@@ -238,7 +238,7 @@ n14_define_α:           mov              r11, 15
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + n16_statement_begin_α]
+                        lea              r9, [rip + ADD1_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -518,7 +518,7 @@ n29_define_α:           mov              r11, 30
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + n31_statement_begin_α]
+                        lea              r9, [rip + INDIRECT_DISPATCH_α]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
