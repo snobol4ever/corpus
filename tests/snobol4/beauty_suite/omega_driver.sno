@@ -15,7 +15,7 @@
 -INCLUDE 'Qize.inc'
 -INCLUDE 'counter.inc'
 -INCLUDE 'stack.inc'
--INCLUDE 'tree.inc'
+-INCLUDE 'tree_mini.inc'
 -INCLUDE 'ShiftReduce.inc'
 -INCLUDE 'Gen.inc'
 -INCLUDE 'semantic.inc'

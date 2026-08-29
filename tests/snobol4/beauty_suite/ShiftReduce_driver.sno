@@ -8,7 +8,7 @@
 
 -INCLUDE 'global.inc'
 -INCLUDE 'stack.inc'
--INCLUDE 'tree.inc'
+-INCLUDE 'tree_mini.inc'
 -INCLUDE 'ShiftReduce.inc'
 
         &STLIMIT = 1000000

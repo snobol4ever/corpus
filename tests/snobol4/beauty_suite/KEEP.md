@@ -48,6 +48,34 @@ directory's *content* needs other work (e.g. `m1_min.in` having no matching `.re
 `corpus-suites-consolidation` ledger for `crosscheck/beauty` — a different, already-flagged directory, not
 this one). Nothing on disk here was modified by this evaluation.
 
+## ⛔⭐ OUT-OF-DIALECT ROWS — NOT SPITBOL-CONFORMANCE WITNESSES (Lon ruled, 2026-08-29; executed hq_P)
+
+These drivers **PASS their pinned `.ref` and are kept as regression tests**, but they exercise constructs the live
+SPITBOL oracle rejects **by documented restriction**. ⛔ They are therefore NOT evidence of SNOBOL4/SPITBOL
+conformance and must not be counted in a conformance score. ⛔ Do NOT "cure" SCRIP to match the oracle here and do
+NOT re-pin them: SCRIP is deliberately MORE PERMISSIVE than SPITBOL on these constructs, and the pins record that.
+
+| driver | construct | site | live `sbl -bf` | SPITBOL v3.7 manual |
+|---|---|---|---|---|
+| `tree_driver` | `ARRAY('1:0')` — zero-length array (upper bound below lower) | `tree_mini.inc:16` | `ERROR 067 -- array dimension is zero, negative or out of range` | line **11380** (error table); bounds rule line **8922**: *"each L and H are integers giving the lower and upper bounds"* |
+| `ReadWrite_driver` | `INPUT(.rdInput, 8, fileName '[-m10 -l131072]')` — CSNOBOL4 bracket file specification | `corpus/include/ReadWrite.inc:9` | `ERROR 116 -- inappropriate file specification for input` | line **11434** |
+| `TDump_driver` cases 1–2 only | `NULL *IDENT(n(x))` — unevaluated expression over an unset `tree()` field; SUCCEEDS under SPITBOL, FAILS under CSNOBOL4, so the driver's `'(Name)'` expectations are CSNOBOL4 answers | `corpus/include/TDump.inc:31,49` | *runs*, but the driver's own self-test prints `FAIL: 1` / `FAIL: 2` | driver's own note, lines 7–9 |
+
+⛔⭐ **`TDump_driver.ref` DELIBERATELY CONTAINS TWO `FAIL:` LINES.** They are the driver's own prose, not a harness
+verdict, and **SCRIP reproduces the oracle byte-for-byte** — the row is green because the two agree. See
+`REF-PROVENANCE.md` §5.
+
+✅⭐ **`trace_driver` IS NOT ON THIS LIST, THOUGH IT WAS RULED ONTO IT.** Its `ERROR 243` belonged to the local
+`trace.sno` that the include-dedup (corpus `04b403542`) DELETED hours before the ruling; the library `trace.inc`
+returns `.dummy` (a name) rather than `''` (a string) through `:(NRETURN)` and so satisfies the restriction. Measured
+2026-08-29: `rc=0`, 9/9 PASS, byte-identical to its pin. ⛔ **It is a genuine conformance witness — do not exclude
+it.** Routed to `ceo`; full evidence in `REF-PROVENANCE.md` §5.
+
+⭐ **Scoring:** `tree_driver` and `ReadWrite_driver` reach `scorecard_snobol4.sh` as **`pin-only`** rows (the live
+oracle refuses them, a pin exists), and are named with their reason in that script's PIN-ONLY report — the same
+shape as the `beauty_self` by-design exclusion, and deliberately NOT a run-time skip list, which this suite table's
+own law (`scorecard_snobol4.sh:72`) forbids.
+
 ## Exhaustive filename manifest (gate: `test_gate_suite_conversion_complete.sh` matches literal basenames)
 
 The prose above names subsystems, not filenames — `test_gate_suite_conversion_complete.sh` does a literal

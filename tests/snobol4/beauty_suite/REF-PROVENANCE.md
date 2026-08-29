@@ -125,3 +125,73 @@ fixture, not in the shipped library.
 - `tree` is a **fixture question** — a purpose-written miniature using a construct SPITBOL rejects.
 - `trace` is a **drift question** — a copy that no longer matches its `.inc`.
 ⛔ Three different answers may be right. Still asked, still unruled, still nothing changed.
+
+## 5. ⭐⭐ RULED BY LON 2026-08-29 — AND EXECUTING IT FOUND THAT ONE OF THE THREE IS NO LONGER OUT OF DIALECT
+
+**hq_P, 2026-08-29, executing ceo's three routed rulings. ⛔ THE HEADER OF THIS FILE IS NOW STALE: files in this
+directory WERE changed by this pass. What follows is what changed and why.**
+
+Lon ruled all three open items in one sitting (ledger: `postoffice/tasks/beauty-suite-ref-provenance.task.md`):
+
+| item | ruling |
+|---|---|
+| the three pins | **OUT-OF-DIALECT** — mark as not-SNOBOL4-conformance-witnesses, construct + manual line each, exclude from SPITBOL-conformance scoring, keep as regression tests. No `.ref` touched, no re-pin precedent. |
+| `TDump` | **ADOPT LIBRARY + RE-PIN** — delete the drifted local variant, re-pin `TDump_driver.ref` from the oracle run of the library version. The ONE sanctioned re-pin. |
+| `tree` | **RENAME DISTINCTLY** — keep the miniature as a fixture under a name it does not share with the library file; update the driver's `-INCLUDE`; ref untouched. |
+
+### ⛔⭐ `trace_driver` IS NOT OUT OF DIALECT ANY MORE — THE INCLUDE-DEDUP ALREADY CURED IT
+
+⛔ **It was marked as one of the three. It is not one of the three, and marking it would have enshrined a false claim
+and permanently excluded a genuinely conformant witness.** Measured, not inferred:
+
+```
+OLD local trace.sno  (T8Trace = '')       ->  trace_driver.sno(59) : ERROR 243 -- function result in nreturn is not name
+library trace.inc    (T8Trace = .dummy)   ->  rc=0, 9/9 PASS, byte-identical to the pinned trace_driver.ref
+```
+
+⭐ **The whole of ERROR 243 was one token.** SPITBOL's documented NRETURN restriction (manual line 5961: the label
+"says that the function is returning the **name** (i.e., address) of a variable") requires the function's result to
+be a name. The old local copy assigned `T8Trace = ''` — a **string** — and returned through `:(NRETURN)`. The library
+file assigns `T8Trace = .dummy`, a genuine name, and satisfies the restriction.
+
+⛔ **The evidence in sections 1–4 above was gathered against `beauty_suite/trace.sno`, WHICH NO LONGER EXISTS.** The
+include-dedup (corpus `04b403542`, same day, hours earlier) swapped `trace` to its library `.inc` — it is listed
+there under *"8 swap cleanly"*. So the dedup silently repaired the defect, and this file went on describing it.
+⭐ **Section 4 had already classified `trace` correctly as "a DRIFT question — a copy that no longer matches its
+`.inc`"; what nobody checked is that deleting the drifted copy is itself the cure.** The ruling and the dedup were
+concurrent and neither knew about the other.
+
+⭐⭐ **THE TRANSFERABLE LESSON — AND IT IS THIS FILE'S SECOND TIME LEARNING IT (see the §1 CORRECTION above): EVIDENCE
+NAMES A FILE, AND A FILE CAN BE DELETED OUT FROM UNDER A CONCLUSION THAT IS STILL TRUE OF IT.** The §1 correction was
+*"the provenance was documentation, not history"*; this one is *"the finding was about a path, not a program."* Both
+are the same defect — a claim whose subject moved while the claim stood still. ⛔ **Re-verify a refusal against the
+CURRENT tree before acting on it, however recently it was measured;** three hours was enough here.
+
+### What was executed
+
+| file | change | control arm |
+|---|---|---|
+| `tree.inc` → `tree_mini.inc` | renamed; `-INCLUDE` updated in **three** drivers | 17/17 PASS before and after |
+| `TDump.inc` | deleted (drifted variant); driver now resolves `corpus/include/TDump.inc` | 17/17 PASS |
+| `TDump_driver.ref` | re-pinned from `sbl -bf` on the library version | SCRIP m3 **byte-identical to the oracle** |
+
+⛔⭐ **THE `tree` RENAME IS WIDER THAN THE RULING'S WORDING — "the driver's `-INCLUDE`" IS THREE DRIVERS, NOT ONE.**
+`src/driver/scrip.c:1038` adds the **source file's own directory before `SNO_LIB`**, so `beauty_suite/tree.inc`
+shadowed `corpus/include/tree.inc` for **every** driver in the directory that names it: `tree_driver`,
+`ShiftReduce_driver` and `omega_driver`. Renaming while updating only `tree_driver` would have silently flipped the
+other two onto the 88-line library file — the opposite of the ruling's *"zero behavioral churn"*. All three were
+updated together; 17/17 both sides confirms nothing moved.
+
+### ⛔ `TDump_driver.ref` NOW CONTAINS TWO `FAIL:` LINES, AND THAT IS THE PIN, NOT A REGRESSION
+
+The re-pinned ref reads `FAIL: 1 TLump leaf got: foo` / `FAIL: 2 TLump node got: (BinOp x 42)`. **Do not "cure" this.**
+Those strings are the *driver's own prose*, not a harness verdict, and both SCRIP and `sbl -bf` produce them
+**identically** — the board is green because SCRIP agrees with the oracle exactly.
+
+⭐ The cause is the same dialect split this whole file is about, and the driver said so at its own lines 7–9 all
+along: *"TLump leaf detection uses `NULL *IDENT(n(x))` which in CSNOBOL4 FAILS for `tree()` objects where n=''."*
+The deleted local variant forced every node down the internal path (`IDENT(REPLACE(DATATYPE(x),&LCASE,&UCASE),'TREE')`),
+reproducing CSNOBOL4's behavior under SPITBOL; the library file uses the unevaluated `NULL *IDENT(n(x))`, which
+**succeeds** under SPITBOL, so a leaf takes the leaf path and renders `foo` instead of `(Name)`. ⛔ **So the driver's
+cases 1–2 assert CSNOBOL4 answers and are OUT-OF-DIALECT in exactly the sense Lon ruled** — they are marked as such
+in `KEEP.md` rather than left as bare `FAIL:` strings for a later seat to chase.
