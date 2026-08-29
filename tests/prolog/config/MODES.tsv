@@ -1,0 +1,8 @@
+# MODES.tsv — the DECLARED grading mode per family. hq_C FORMAT RULING (TRIO 2026-08-29):
+# DECLARED, NEVER DERIVED. A family absent from this file is UNKNOWN, which is UNPROVEN at
+# grading time — never PASS, never FAIL — and is reported loudly by the builder.
+# ⛔ Do NOT populate this by pattern-matching family names. The mode is a property of THE RUNNER;
+# record what a runner actually does, with the runner named, or leave the family out.
+#
+# family	modes	(evidence)
+parser	ast	# SCRIP/scripts/test_prolog_parser_fixtures.sh grades parser.pl via `scrip --dump-ast`, diffed per entry
