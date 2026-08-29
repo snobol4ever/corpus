@@ -1,0 +1,16 @@
+*----------------------------------------------------- 1 content_after_end XFAIL
+* SCRIP keeps label-scanning text physically AFTER a valid END statement; SPITBOL stops at END.
+* Two identical trailing lines here trigger a spurious "duplicate label" parse error in scrip.
+* Root cause behind csnobol4_suite/sudoku.sno, where the puzzle-grid text after END repeats a
+* row verbatim.  sbl -bf prints "hi" cleanly (rc=0); scrip refuses to compile at all.
+	OUTPUT = 'hi'
+END
+data line
+data line
+*----------------------------------------------------- 2 lowercase_keyword XFAIL
+* SCRIP requires uppercase END (design choice, RULES.md); csnobol4_suite programs commonly end
+* lowercase.  BOTH scrip and the sbl -bf correctness oracle reject this -- corpus dialect, not a
+* SCRIP-only defect.  Cure: util_uppercase_keywords.py already exists for this normalization.
+	value = 1
+	OUTPUT = value
+end
