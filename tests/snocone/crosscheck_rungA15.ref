@@ -1,4 +1,4 @@
-/*------------------------------------------------------------ 1 A15_lib_case */
+/*----------------------------------------------------------- 1 A15_lib_case */
 hello world
 HELLO WORLD
 Hello world
@@ -6,3 +6,42 @@ ok: icase hello
 ok: icase HELLO
 ok: icase HeLLo
 no match ok
+/*----------------------------------------------------- 2 A15_lib_math XFAIL */
+7
+3
+3.5
+2.1
+42
+0
+1
+-1
+4
+25
+12
+/*---------------------------------------------------- 3 A15_lib_stack XFAIL */
+3
+c
+b
+1
+a
+0
+empty ok
+x
+1
+x
+99
+world
+hello
+/*--------------------------------------------------- 4 A15_lib_string XFAIL */
+****hi
+hi****
+hello
+hello
+hello
+hihihi
+contains ok
+startswith ok
+endswith ok
+no startswith ok
+2
+0

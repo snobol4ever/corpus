@@ -1,3 +1,4 @@
+/*---------------------------------------------------- 1 hello_literals XFAIL */
 // literals.sc - String and numeric literal coercion.
 // Tests: null string, integer/real OUTPUT coercion, string concat,
 //        arithmetic precedence, single- and double-quoted literals.
