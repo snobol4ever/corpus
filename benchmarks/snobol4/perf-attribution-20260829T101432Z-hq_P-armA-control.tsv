@@ -1,0 +1,20 @@
+# perf-attribution TSV -- 2026-08-29 hq_P -- row perf-pattern-defer-capture-layer-cure, grading ARM A (SCRIP 8d944ead)
+# instrument: perf stat -e instructions,cycles totals (startup NOT removed) via /home/claude/.tools/bin/perf shim
+#   (/usr/bin/perf is a STUB on kernel 6.17-oem and prints an install hint instead of counting -- reach the shim by absolute path);
+#   RT_OPT=-O0; NOHUGE=1 HEAP_MB=4096; oracle=/home/resources/spitbol-bench-oracle/sbl -bf -s16m (clean, s255);
+#   N per SCALE.tsv; kernels wrapped by bench_wrap.sh --mode=iter --n=N (fixed work, no wall-clock deadline);
+#   SCRIP tree 5ac22e54, pristine build; m4 = ./scrip --compile + gcc -m64 -no-pie against out/libscrip_rt.so
+# INSTRUMENT VALIDATED AGAINST THE BASELINE: the sbl arm reproduces perf-attribution-20260827T233658Z.tsv
+#   to the digit -- pattern_bt 1686, string_pattern 787 -- so this file shares that file's instrument and basis.
+# UNITS NOTE (answers seat06's q-hq_P): insn_per_iter here and in the baseline are perf-stat RETIRED INSTRUCTIONS,
+#   on BOTH the sbl and m4 sides. The GOAL's phrase "SPITBOL Ir parity" uses callgrind's term Ir for a perf-stat
+#   count; that is a MISNOMER IN THE PROSE, not a units mismatch in the data. No re-pin is needed on units grounds.
+# CONTROL ARM: engine=m4_precure rows are the SAME tree with ONLY src/runtime/rtx/rtx_match.s reverted to 8d944ead^
+#   (the cure's single touched file), rebuilt, measured identically, then restored. Repeat spread on this box is ~0.01%.
+kernel	engine	N	insn_total	insn_per_iter	wall_best_s	ipc	top_cost_centers
+pattern_bt	sbl	2000000	3372193865	1686	0.90	1.60	(reference; reproduces baseline 1686 exactly)
+pattern_bt	m4	2000000	4463051135	2232	0.37	3.01	n58_match_defer_bx=32.3%,n0_match_alternate_bx=15.1%,n57_match_begin_bx=8.6%,rt_dcap_pump=6.1%,n6_match_lit_bx=3.8%,n2_match_span_bx=3.6%
+pattern_bt	m4_precure	2000000	4462827660	2231	0.39	3.01	CONTROL: rtx_match.s reverted to 8d944ead^ -- delta vs m4 = +0.005%, INSIDE the 0.01% noise
+string_pattern	sbl	8000000	6298937379	787	2.57	2.63	(reference; reproduces baseline 787 exactly)
+string_pattern	m4	8000000	9639463351	1205	0.63	3.95	rt_dcap_pump=38.8%,NV_SET_fn=6.4%,n9_match_break_bx=6.1%,n5_match_break_bx=4.7%,NV_CELL_IF_FASTSET_fn=4.4%,n68_match_end_bx=4.2%,rt_cap_slice_on=3.6%
+string_pattern	m4_precure	8000000	9639207785	1205	0.62	3.96	CONTROL: rtx_match.s reverted to 8d944ead^ -- delta vs m4 = +0.003%, INSIDE the 0.01% noise
