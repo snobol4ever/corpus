@@ -214,8 +214,15 @@ session could find.** Individually measured (not assumed), grouped by signature:
 - `rung36_jcon_args` — FAIL both modes: reads command-line arguments the harness has no mechanism to
   supply (no `.arg`/`.argv` sidecar exists, unlike `.stdin`). A harness capability gap, not a SCRIP bug
   — would need new harness work (an argv sidecar, mirroring `sidecar_in_path`) to ever test for real.
-- `rung36_jcon_scan` — FAIL both modes, output is a strict subset of `.expected` (missing later lines,
-  not garbled) — under-produces rather than diverges. Not traced further.
+- `rung36_jcon_scan` — FAIL both modes, **root-caused (2026-08-29, seat06), not "under-produces, untraced"
+  any more.** `upto(!x)` — a scanning function whose argument is itself a generator, e.g. `upto(!&lcase)` —
+  hangs (infinite loop), not merely under-produces; the witness's own `?`-scan wrapper happens to change
+  the failure mode to bounded-but-wrong output, which is what made this look like ordinary under-production
+  before isolating the minimal repro. Not cset-specific (`upto(!"abcd")` reproduces identically). Mechanism
+  verified in `src/templates/bb/bb_scan_upto.cpp`'s β (resume) path — see
+  `FINDING-2026-08-29-seat06-icon-upto-with-generator-argument-infinite-loops.md` for the full trace and
+  the two minimal repros. Full graph-wiring root cause (where the argument generator's advance should route
+  into `upto`'s α instead of β) not found — flagged as the next step in the finding, not attempted here.
 - `rung36_jcon_scan1` — FAIL both modes, **root-caused (2026-08-29, seat09), not a mystery any more.**
   `&ascii`/`&cset` are built off-by-one in `src/runtime/keywords.c:75-76` — `chr(0)` never lands in its
   correct first slot and wraps to the last one instead (`&ascii[1]` is `\x01`, `&ascii[128]` is `\x00`).
