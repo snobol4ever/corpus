@@ -60,9 +60,48 @@ Both intentionally excluded (`--skip`) from the `rung37_all` conversion (seat03,
 Both stay loose until their respective situations resolve (bug fixed / probe retired), same
 standing as `ladder/`'s open-defect witnesses in the Snocone sibling task.
 
+## rung03 — 4 of 5 files HARD-BLOCKED on a known, already-tracked, rank-0 fleet defect (seat03, 2026-08-29)
+
+`rung03_suspend_gen rung03_suspend_gen_compose rung03_suspend_gen_filter rung03_suspend_return` —
+this task's own priority list flagged rung03 as "genuine generator/coroutine content, screen
+individually for the tgrlink-class activation-frame risk before converting." That screening was
+done for real (not by reading source alone — by actually running each file): **all 4 SIGSEGV, both
+m3 and m4, deterministically, on ordinary `while ... suspend i do ...` / `suspend 1; return 2`
+generator procedures — nothing exotic, no `create(`, no indirect calls.** `corpus_suite_harness.py
+convert-blocks`'s own `byte-equal-or-no-delete` check refused all 4 mechanically before anything was
+written or deleted — the safety net worked exactly as designed.
+
+**This is not a new defect and not this row's to chase**: it is a four-line-reproducible, already
+fully root-caused, rank-0 fleet priority — `FINDING-2026-08-24-hq_P-icon-bench-0-of-8-is-one-defect-
+suspend-procedures-get-no-activation-frame.md` (a procedure containing `suspend` is emitted with NO
+activation frame; body still addresses frame-relative slots that were never carved, corrupting the
+γ/ω port pair and jumping to a small integer as if it were code). Routed to, and under active
+construction as, `icon-n2-generator-activation-frames` (QUEUE.tsv rank 0, owner `hq_P`; SCRIP history
+shows ~20 commits against it up to current HEAD, still incomplete — killswitch default OFF as of the
+FINDING). Three OTHER rows already sit `PARKED-AWAITING`/`BLOCKED-ON` this exact same row
+(`icon-bench-correct-zero-of-eight`, `icn-recogn-genqueen-suspend-shape`,
+`scrip-polyglot-demo-icon-semicolon-5-files`) — this is a well-established blocking relationship, not
+a novel one. **Stays loose until N-2 lands**, then re-run `convert-blocks` fresh (do not assume these
+4 are the only rung03-shaped casualties elsewhere in the tree — this same signature can hit any
+plain `suspend`-based generator procedure anywhere in `tests/icon/`).
+
+`rung03_suspend_return` names TWO closely related but distinct constructs to disambiguate if this is
+ever revisited: the file crashes on its `suspend 1;` before `return 2;` is ever reached (same root
+cause as the other 3, not a second defect).
+
+**`rung03_suspend_fail` is the 5th file and does NOT use `suspend` at all** (its name is a misnomer —
+content is an ordinary procedure that returns nothing on one path, testing procedure-fails-silently
+semantics). It is green (m3+m4 both PASS) and has a real `.expected` oracle — genuinely convertible —
+but converting it alone makes a family of one, the same open "convert vs. KEEP.md" policy question
+already deferred for the 4 other singletons (`rung14_case_return_arm`, `rung15_iterate_string`,
+`rung16_seqexpr_gen_basic`, `rung38_cset_embedded_nul`, see task NEXT). Not decided unilaterally here
+either — left loose pending that one policy call, not because of any risk.
+
 ## Re-running this classification
 
 Re-`grep` the 8 standalone names across `SCRIP/scripts/` before trusting the "no real dependency"
 claim above — a future script could add a genuine read. Re-check `ls <name>.*` for an `.expected`
 appearing (would mean the file became convertible). Re-check the 2 rung37 witnesses' owning
-FINDING/task state before assuming either is still open.
+FINDING/task state before assuming either is still open. Re-check `icon-n2-generator-activation-
+frames`' QUEUE.tsv state before assuming rung03 is still blocked — once it lands, re-run
+`convert-blocks` on all 5 rung03 files fresh rather than trusting this table.
