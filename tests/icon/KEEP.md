@@ -123,13 +123,19 @@ unchanged, before and after — the delta is fully explained by this one fix, no
 session could find.** Individually measured (not assumed), grouped by signature:
 
 - `rung36_jcon_cxprimes`, `rung36_jcon_recogn`, `rung36_jcon_scan2` — SIGSEGV (signal 11), both modes,
-  content confirmed `suspend`-or-alternation-based generator/backtracking code. Plausibly the same
-  class as rung03 above (`icon-n2-generator-activation-frames`) — `recogn` (and `genqueen`, below)
-  specifically already have their OWN dedicated task, `icn-recogn-genqueen-suspend-shape.task.md`
-  (state OPEN, un-parked by Lon 2026-08-28, depends on `icon-n2-generator-activation-frames`) — cite
-  that row for those two, not this KEEP.md, if picking the bug up. `cxprimes`/`scan2` are NOT named in
-  any task this session found; plausibly the same class, not confirmed by a trace — check there before
-  assuming they're covered by the recogn/genqueen row.
+  content confirmed `suspend`-or-alternation-based generator/backtracking code. Same class as rung03
+  above (`icon-n2-generator-activation-frames`) — `recogn` (and `genqueen`, below) specifically already
+  have their OWN dedicated task, `icn-recogn-genqueen-suspend-shape.task.md` (state OPEN, un-parked by
+  Lon 2026-08-28, depends on `icon-n2-generator-activation-frames`) — cite that row for those two, not
+  this KEEP.md, if picking the bug up. ⭐ **`cxprimes`/`scan2` CONFIRMED, not just plausible (seat08,
+  2026-08-29, re-tested against HEAD post the region-resident-protocol landing, `98b6e12c`/`38a0119b`):
+  both still crash — `cxprimes`'s `sieve` suspends inside a `while` loop (maps to icon-n2's own
+  "suspend_loop" witness shape, still-unfixed as of that landing; crashes non-deterministically,
+  rc=132/139 across identical runs), `scan2` crashes deterministically entering its "non-local"
+  section, whose only content (`every write(foo()) do write(move(1))`, foo()'s only call site) is
+  exactly icon-n2's "suspend_after" shape (suspend, then a body call after resume).** Mailed ceo
+  (`icon-n2-cxprimes-scan2-corroboration`) as two concretely-typed witnesses for that row's own
+  remaining work — not this row's to fix, characterization only.
 - `rung36_jcon_genqueen`, `rung36_jcon_level` — FAIL (output mismatch, rc=1), both modes.
   `genqueen` is the other half of `icn-recogn-genqueen-suspend-shape.task.md` (currently `rc=1
   ERROR 246 -- stack overflow` per that task's own latest measurement, not a SIGSEGV — re-check its
