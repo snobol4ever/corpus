@@ -1,9 +1,0 @@
-*  clobarm C - control for the arena-unwind theory: identical to clob_altarm_blobvar_red
-*  except BOTH arms capture into the SAME variable I. If the stale arm-1 pending
-*  capture is the corruption, this shape masks it (last-write-wins) and passes.
-        t = ('if' . I | SPAN('abcdefghijklmnopqrstuvwxyz') . I)
-        s = 'iffoo'
-        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
-YES     OUTPUT = 'id=' I                                      :(END)
-NO      OUTPUT = 'parse fail'
-END

@@ -1,8 +1,0 @@
-*  clobarm B - PASSING SIBLING of clob_altarm_varcross_red: identical control flow,
-*  but arm interiors are inline (no pattern-variable crossing, no MATCH_VALUE).
-        t = ('if' . K | SPAN('abcdefghijklmnopqrstuvwxyz') . I)
-        s = 'iffoo'
-        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
-YES     OUTPUT = 'id=' I                                      :(END)
-NO      OUTPUT = 'parse fail'
-END

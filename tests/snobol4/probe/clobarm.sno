@@ -1,0 +1,52 @@
+*-------------------------------------------------- 1 clob_altarm_arm2direct_red
+*  clobarm E - DISCRIMINATOR: is the mis-priced SPAN cell s128's defect or pre-existing?
+*  arm1 ('zz') fails outright, so arm2's SPAN runs on the FIRST pass with NO backtrack
+*  and NO choice-record resume. If this corrupts under the DEFAULT (OFF) arm, the
+*  zd mis-pricing is PRE-EXISTING and s128 merely made it reachable.
+        t = ('zz' . K | SPAN('abcdefghijklmnopqrstuvwxyz') . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
+*----------------------------------------------------- 2 clob_altarm_blobvar_red
+*  clobarm B - PASSING SIBLING of clob_altarm_varcross_red: identical control flow,
+*  but arm interiors are inline (no pattern-variable crossing, no MATCH_VALUE).
+        t = ('if' . K | SPAN('abcdefghijklmnopqrstuvwxyz') . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
+*----------------------------------------------------- 3 clob_altarm_samevar_red
+*  clobarm C - control for the arena-unwind theory: identical to clob_altarm_blobvar_red
+*  except BOTH arms capture into the SAME variable I. If the stale arm-1 pending
+*  capture is the corruption, this shape masks it (last-write-wins) and passes.
+        t = ('if' . I | SPAN('abcdefghijklmnopqrstuvwxyz') . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
+*-------------------------------------------------- 4 clob_altarm_trueinline_grn
+*  clobarm D - the PASSING-SIBLING candidate: same ALT+capture backtrack written
+*  INLINE in the match statement (no pattern variable => no PAT$ blob).
+*  If this passes, the inline ALT path already unwinds the capture arena on arm
+*  resume and its spelling is the model for the blob path.
+        s = 'iffoo'
+        s POS(0) ('if' . K | SPAN('abcdefghijklmnopqrstuvwxyz') . I) RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
+*---------------------------------------------------- 5 clob_altarm_varcross_red
+*  clobarm A - outer ALT whose arm interiors cross into other pattern VARIABLES.
+*  arm1 (a . K) matches 'if', RPOS(0) fails, scanner must fall through to arm2 (b . I).
+*  No FENCE: isolates the wire-crossing (IR_MATCH_VALUE) from 124's fence.
+        a = 'if'
+        b = SPAN('abcdefghijklmnopqrstuvwxyz')
+        t = (a . K | b . I)
+        s = 'iffoo'
+        s POS(0) t RPOS(0)                                    :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END
