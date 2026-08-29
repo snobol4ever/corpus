@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "OP_DISPATCH"
@@ -1175,9 +1176,9 @@ n73_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n73_call_α:             sub              rsp, 16
                         mov              r11, 74
-                        lea              rcx, [rip + .Lcall_sig194z]
+                        lea              rcx, [rip + .Lcall_α_sig194z]
                         lea              rax, [rip + OP_DISPATCH_α];          jmp   rax
-.Lcall_sig194z:         .quad            1
+.Lcall_α_sig194z:       .quad            1
                         .quad            .Lcall_α_194_2
                         .quad            .Lcall_α_194_2
                         .quad            16
@@ -1293,9 +1294,9 @@ n80_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n80_call_α:             sub              rsp, 16
                         mov              r11, 81
-                        lea              rcx, [rip + .Lcall_sig204z]
+                        lea              rcx, [rip + .Lcall_α_sig204z]
                         lea              rax, [rip + OP_DISPATCH_α];          jmp   rax
-.Lcall_sig204z:         .quad            1
+.Lcall_α_sig204z:       .quad            1
                         .quad            .Lcall_α_204_2
                         .quad            .Lcall_α_204_2
                         .quad            16

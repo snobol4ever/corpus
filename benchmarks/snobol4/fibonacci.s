@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "FIB"
@@ -582,9 +583,9 @@ n29_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n29_call_α:             sub              rsp, 16
                         mov              r11, 30
-                        lea              rcx, [rip + .Lcall_sig141z]
+                        lea              rcx, [rip + .Lcall_α_sig141z]
                         lea              rax, [rip + FIB_α];                  jmp   rax
-.Lcall_sig141z:         .quad            1
+.Lcall_α_sig141z:       .quad            1
                         .quad            .Lcall_α_141_2
                         .quad            .Lcall_α_141_2
                         .quad            16
@@ -688,9 +689,9 @@ n33_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n33_call_α:             sub              rsp, 16
                         mov              r11, 34
-                        lea              rcx, [rip + .Lcall_sig146z]
+                        lea              rcx, [rip + .Lcall_α_sig146z]
                         lea              rax, [rip + FIB_α];                  jmp   rax
-.Lcall_sig146z:         .quad            1
+.Lcall_α_sig146z:       .quad            1
                         .quad            .Lcall_α_146_2
                         .quad            .Lcall_α_146_2
                         .quad            16
@@ -995,9 +996,9 @@ n48_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n48_call_α:             sub              rsp, 16
                         mov              r11, 49
-                        lea              rcx, [rip + .Lcall_sig172z]
+                        lea              rcx, [rip + .Lcall_α_sig172z]
                         lea              rax, [rip + FIB_α];                  jmp   rax
-.Lcall_sig172z:         .quad            1
+.Lcall_α_sig172z:       .quad            1
                         .quad            .Lcall_α_172_2
                         .quad            .Lcall_α_172_2
                         .quad            16
@@ -1448,9 +1449,9 @@ n79_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n79_call_α:             sub              rsp, 16
                         mov              r11, 80
-                        lea              rcx, [rip + .Lcall_sig217z]
+                        lea              rcx, [rip + .Lcall_α_sig217z]
                         lea              rax, [rip + FIB_α];                  jmp   rax
-.Lcall_sig217z:         .quad            1
+.Lcall_α_sig217z:       .quad            1
                         .quad            .Lcall_α_217_2
                         .quad            .Lcall_α_217_2
                         .quad            16

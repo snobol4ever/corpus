@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "ARITH_LOOP"
@@ -807,9 +808,9 @@ n50_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n50_call_α:             sub              rsp, 16
                         mov              r11, 51
-                        lea              rcx, [rip + .Lcall_sig139z]
+                        lea              rcx, [rip + .Lcall_α_sig139z]
                         lea              rax, [rip + ARITH_LOOP_α];           jmp   rax
-.Lcall_sig139z:         .quad            1
+.Lcall_α_sig139z:       .quad            1
                         .quad            .Lcall_α_139_2
                         .quad            .Lcall_α_139_2
                         .quad            16
@@ -925,9 +926,9 @@ n57_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n57_call_α:             sub              rsp, 16
                         mov              r11, 58
-                        lea              rcx, [rip + .Lcall_sig149z]
+                        lea              rcx, [rip + .Lcall_α_sig149z]
                         lea              rax, [rip + ARITH_LOOP_α];           jmp   rax
-.Lcall_sig149z:         .quad            1
+.Lcall_α_sig149z:       .quad            1
                         .quad            .Lcall_α_149_2
                         .quad            .Lcall_α_149_2
                         .quad            16

@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "EVAL_FIXED"
@@ -454,10 +455,10 @@ n26_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd102:       .string          "EVAL"
+.Lcall_α_rkfnzd102:     .string          "EVAL"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd102]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd102]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 262169
@@ -872,9 +873,9 @@ n55_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n55_call_α:             sub              rsp, 16
                         mov              r11, 56
-                        lea              rcx, [rip + .Lcall_sig145z]
+                        lea              rcx, [rip + .Lcall_α_sig145z]
                         lea              rax, [rip + EVAL_FIXED_α];           jmp   rax
-.Lcall_sig145z:         .quad            1
+.Lcall_α_sig145z:       .quad            1
                         .quad            .Lcall_α_145_2
                         .quad            .Lcall_α_145_2
                         .quad            16

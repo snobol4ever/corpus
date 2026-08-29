@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "TABLE_VARIETY"
@@ -458,10 +459,10 @@ n26_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd379:       .string          "TABLE"
+.Lcall_α_rkfnzd379:     .string          "TABLE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd379]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd379]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 327748
@@ -4621,10 +4622,10 @@ n265_call_α:            sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd702:       .string          "SIZE"
+.Lcall_α_rkfnzd702:     .string          "SIZE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd702]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd702]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 262193
@@ -4775,10 +4776,10 @@ n271_call_α:            sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd709:       .string          "SIZE"
+.Lcall_α_rkfnzd709:     .string          "SIZE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd709]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd709]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 262193
@@ -4947,10 +4948,10 @@ n278_call_α:            sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd717:       .string          "SIZE"
+.Lcall_α_rkfnzd717:     .string          "SIZE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd717]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd717]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 262193
@@ -5329,9 +5330,9 @@ n302_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n302_call_α:            sub              rsp, 16
                         mov              r11, 303
-                        lea              rcx, [rip + .Lcall_sig753z]
+                        lea              rcx, [rip + .Lcall_α_sig753z]
                         lea              rax, [rip + TABLE_VARIETY_α];        jmp   rax
-.Lcall_sig753z:         .quad            1
+.Lcall_α_sig753z:       .quad            1
                         .quad            .Lcall_α_753_2
                         .quad            .Lcall_α_753_2
                         .quad            16
@@ -5447,9 +5448,9 @@ n309_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n309_call_α:            sub              rsp, 16
                         mov              r11, 310
-                        lea              rcx, [rip + .Lcall_sig763z]
+                        lea              rcx, [rip + .Lcall_α_sig763z]
                         lea              rax, [rip + TABLE_VARIETY_α];        jmp   rax
-.Lcall_sig763z:         .quad            1
+.Lcall_α_sig763z:       .quad            1
                         .quad            .Lcall_α_763_2
                         .quad            .Lcall_α_763_2
                         .quad            16

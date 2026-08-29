@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "ADD1"
@@ -765,10 +766,10 @@ n43_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], r8
                         .section         .rodata
-.Lcall_rkfnzd155:       .string          "APPLY"
+.Lcall_α_rkfnzd155:     .string          "APPLY"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd155]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd155]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
                         mov              ecx, 327695
@@ -1249,10 +1250,10 @@ n74_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], r8
                         .section         .rodata
-.Lcall_rkfnzd200:       .string          "APPLY"
+.Lcall_α_rkfnzd200:     .string          "APPLY"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd200]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd200]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
                         mov              ecx, 327695
@@ -1357,9 +1358,9 @@ n81_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n81_call_α:             sub              rsp, 16
                         mov              r11, 82
-                        lea              rcx, [rip + .Lcall_sig210z]
+                        lea              rcx, [rip + .Lcall_α_sig210z]
                         lea              rax, [rip + INDIRECT_DISPATCH_α];    jmp   rax
-.Lcall_sig210z:         .quad            1
+.Lcall_α_sig210z:       .quad            1
                         .quad            .Lcall_α_210_2
                         .quad            .Lcall_α_210_2
                         .quad            16

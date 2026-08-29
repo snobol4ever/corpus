@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "name_indirection"
@@ -490,10 +491,10 @@ n30_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd113:       .string          "SNO$NAME"
+.Lcall_α_rkfnzd113:     .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd113]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd113]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 524341
@@ -539,10 +540,10 @@ n32_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd116:       .string          "SNO$NAME"
+.Lcall_α_rkfnzd116:     .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd116]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd116]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 524341
@@ -905,10 +906,10 @@ n51_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd143:       .string          "SNO$NAME"
+.Lcall_α_rkfnzd143:     .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd143]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd143]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 524341
@@ -1023,9 +1024,9 @@ n60_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n60_call_α:             sub              rsp, 16
                         mov              r11, 61
-                        lea              rcx, [rip + .Lcall_sig157z]
+                        lea              rcx, [rip + .Lcall_α_sig157z]
                         lea              rax, [rip + name_indirection_α];     jmp   rax
-.Lcall_sig157z:         .quad            1
+.Lcall_α_sig157z:       .quad            1
                         .quad            .Lcall_α_157_2
                         .quad            .Lcall_α_157_2
                         .quad            16

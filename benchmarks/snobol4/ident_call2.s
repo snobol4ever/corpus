@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "IDENT_CALL2"
@@ -868,9 +869,9 @@ n55_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n55_call_α:             sub              rsp, 16
                         mov              r11, 56
-                        lea              rcx, [rip + .Lcall_sig145z]
+                        lea              rcx, [rip + .Lcall_α_sig145z]
                         lea              rax, [rip + IDENT_CALL2_α];          jmp   rax
-.Lcall_sig145z:         .quad            1
+.Lcall_α_sig145z:       .quad            1
                         .quad            .Lcall_α_145_2
                         .quad            .Lcall_α_145_2
                         .quad            16

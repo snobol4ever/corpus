@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "INC"
@@ -688,9 +689,9 @@ n37_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n37_call_α:             sub              rsp, 16
                         mov              r11, 38
-                        lea              rcx, [rip + .Lcall_sig133z]
+                        lea              rcx, [rip + .Lcall_α_sig133z]
                         lea              rax, [rip + INC_α];                  jmp   rax
-.Lcall_sig133z:         .quad            1
+.Lcall_α_sig133z:       .quad            1
                         .quad            .Lcall_α_133_2
                         .quad            .Lcall_α_133_2
                         .quad            16
@@ -1035,9 +1036,9 @@ n60_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n60_call_α:             sub              rsp, 16
                         mov              r11, 61
-                        lea              rcx, [rip + .Lcall_sig168z]
+                        lea              rcx, [rip + .Lcall_α_sig168z]
                         lea              rax, [rip + INC_α];                  jmp   rax
-.Lcall_sig168z:         .quad            1
+.Lcall_α_sig168z:       .quad            1
                         .quad            .Lcall_α_168_2
                         .quad            .Lcall_α_168_2
                         .quad            16
@@ -1153,9 +1154,9 @@ n67_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n67_call_α:             sub              rsp, 16
                         mov              r11, 68
-                        lea              rcx, [rip + .Lcall_sig178z]
+                        lea              rcx, [rip + .Lcall_α_sig178z]
                         lea              rax, [rip + FUNC_CALL_α];            jmp   rax
-.Lcall_sig178z:         .quad            1
+.Lcall_α_sig178z:       .quad            1
                         .quad            .Lcall_α_178_2
                         .quad            .Lcall_α_178_2
                         .quad            16

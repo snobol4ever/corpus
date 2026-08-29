@@ -216,6 +216,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "STRING_PATTERN"
@@ -492,10 +493,10 @@ n52_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd142:       .string          "SNO$MKPAT"
+.Lcall_α_rkfnzd142:     .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd142]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd142]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 589876
@@ -1315,9 +1316,9 @@ n96_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n96_call_α:             sub              rsp, 16
                         mov              r11, 75
-                        lea              rcx, [rip + .Lcall_sig210z]
+                        lea              rcx, [rip + .Lcall_α_sig210z]
                         lea              rax, [rip + STRING_PATTERN_α];       jmp   rax
-.Lcall_sig210z:         .quad            1
+.Lcall_α_sig210z:       .quad            1
                         .quad            .Lcall_α_210_2
                         .quad            .Lcall_α_210_2
                         .quad            16

@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "VAR_ACCESS"
@@ -1335,9 +1336,9 @@ n90_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n90_call_α:             sub              rsp, 16
                         mov              r11, 91
-                        lea              rcx, [rip + .Lcall_sig253z]
+                        lea              rcx, [rip + .Lcall_α_sig253z]
                         lea              rax, [rip + VAR_ACCESS_α];           jmp   rax
-.Lcall_sig253z:         .quad            1
+.Lcall_α_sig253z:       .quad            1
                         .quad            .Lcall_α_253_2
                         .quad            .Lcall_α_253_2
                         .quad            16
@@ -1453,9 +1454,9 @@ n97_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n97_call_α:             sub              rsp, 16
                         mov              r11, 98
-                        lea              rcx, [rip + .Lcall_sig263z]
+                        lea              rcx, [rip + .Lcall_α_sig263z]
                         lea              rax, [rip + VAR_ACCESS_α];           jmp   rax
-.Lcall_sig263z:         .quad            1
+.Lcall_α_sig263z:       .quad            1
                         .quad            .Lcall_α_263_2
                         .quad            .Lcall_α_263_2
                         .quad            16

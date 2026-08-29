@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "TABLE_ACCESS"
@@ -418,10 +419,10 @@ n22_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd144:       .string          "TABLE"
+.Lcall_α_rkfnzd144:     .string          "TABLE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd144]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd144]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 327748
@@ -1588,9 +1589,9 @@ n96_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n96_call_α:             sub              rsp, 16
                         mov              r11, 97
-                        lea              rcx, [rip + .Lcall_sig251z]
+                        lea              rcx, [rip + .Lcall_α_sig251z]
                         lea              rax, [rip + TABLE_ACCESS_α];         jmp   rax
-.Lcall_sig251z:         .quad            1
+.Lcall_α_sig251z:       .quad            1
                         .quad            .Lcall_α_251_2
                         .quad            .Lcall_α_251_2
                         .quad            16
@@ -1706,9 +1707,9 @@ n103_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n103_call_α:            sub              rsp, 16
                         mov              r11, 104
-                        lea              rcx, [rip + .Lcall_sig261z]
+                        lea              rcx, [rip + .Lcall_α_sig261z]
                         lea              rax, [rip + TABLE_ACCESS_α];         jmp   rax
-.Lcall_sig261z:         .quad            1
+.Lcall_α_sig261z:       .quad            1
                         .quad            .Lcall_α_261_2
                         .quad            .Lcall_α_261_2
                         .quad            16

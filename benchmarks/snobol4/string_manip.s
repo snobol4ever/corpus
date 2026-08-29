@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "STRING_MANIP"
@@ -491,10 +492,10 @@ n28_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 72]
                         mov              qword ptr [rsp + 40], r8
                         .section         .rodata
-.Lcall_rkfnzd111:       .string          "REPLACE"
+.Lcall_α_rkfnzd111:     .string          "REPLACE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd111]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd111]
                         lea              rsi, [rsp + 0]
                         mov              edx, 3
                         mov              ecx, 458798
@@ -561,10 +562,10 @@ n33_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 40]
                         mov              qword ptr [rsp + 8], r8
                         .section         .rodata
-.Lcall_rkfnzd119:       .string          "SIZE"
+.Lcall_α_rkfnzd119:     .string          "SIZE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd119]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd119]
                         lea              rsi, [rsp + 0]
                         mov              edx, 1
                         mov              ecx, 262193
@@ -899,9 +900,9 @@ n56_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n56_call_α:             sub              rsp, 16
                         mov              r11, 57
-                        lea              rcx, [rip + .Lcall_sig154z]
+                        lea              rcx, [rip + .Lcall_α_sig154z]
                         lea              rax, [rip + STRING_MANIP_α];         jmp   rax
-.Lcall_sig154z:         .quad            1
+.Lcall_α_sig154z:       .quad            1
                         .quad            .Lcall_α_154_2
                         .quad            .Lcall_α_154_2
                         .quad            16
