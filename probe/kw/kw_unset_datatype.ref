@@ -1,4 +1,0 @@
-unset-var=STRING
-null-lit=STRING
-assigned-null=STRING
-nonnull=STRING

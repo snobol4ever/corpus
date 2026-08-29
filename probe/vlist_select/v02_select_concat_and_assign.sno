@@ -1,9 +1,0 @@
-        x = 'nn'
-        z = (IDENT(x) 0, 5)
-        OUTPUT = 'z=' z
-        OUTPUT = 'direct=' (IDENT(x) 0, 5)
-        w = (LT(1,0) 7, 9)
-        OUTPUT = 'w=' w
-        v = (LT(1,2) 7, 9)
-        OUTPUT = 'v=' v
-END

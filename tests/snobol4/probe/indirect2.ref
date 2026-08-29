@@ -1,0 +1,30 @@
+*------------------------------------------------------ 1 indirect_name_boundary
+T1 ok legal
+T2 ERR 239
+T3 ERR 239
+T4 ok eq
+T5 ok
+T6 ok
+T7 ok
+T8 ERR 239
+T9 ERR 239
+TA ok legal
+TB ERR 239
+END errlimit=995
+*----------------------------------------------------- 2 indirect_name_datatypes
+T1 ERR 239
+T2 ERR 239
+T3 ERR 239
+T4 ERR 239
+T5 ERR 239
+T6 ERR 239
+T7 ok ZERO
+T8 realname=realname
+END errlimit=994
+*---------------------------------------------- 3 indirect_nul_prefix_name XFAIL
+SIZE(Z)=256
+T1 ok via var
+T2 ok direct
+T3 ok nulprefix
+T4 ok nulmid
+END errlimit=100

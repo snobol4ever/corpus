@@ -1,0 +1,364 @@
+*--------------------------------------------- 1 ptj1_arbno_defer_nonterminating
+* json -- TIME-BASED: fixed ms budget, count iterations.
+* workload: 631 KB of twitter.json parsed into real TABLEs/ARRAYs; check is the full node census.
+* DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
+* between them is the cost of the sprinkled loads (capture + *function() + structure build).
+* Every OUTPUT in the original driver is accumulated into the check value instead of printed,
+* so the check witnesses every value computed, not merely that the match succeeded.
+* input: json.dat on stdin (runner redirects <family>.dat).
+        &STLIMIT =  -1
+        ZCHK    =   1
+        ZBUD    =   1000
+        ZFLR    =   20
+*------------------------------------------------------------------------------
+* json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
+* ENG 685, Lon Cherryholmes Sr.
+*
+* This is the WORK member of the json family (json-match.sno / json-match-fence.sno
+* are the recognize-only members: same grammar, zero side effects).  Here the ONE
+* BIG pattern match carries deferred semantic actions that BUILD the data:
+*
+*     JSON object  ->  TABLE, keyed by member name   (wrapped in jobj so that
+*                      insertion order is retained for deterministic output)
+*     JSON array   ->  ARRAY(1..n), one-origin
+*     JSON number  ->  INTEGER  (no fraction, no exponent)
+*                      REAL     (fraction or exponent present)
+*     JSON string  ->  STRING   (escapes decoded, \uXXXX -> UTF-8)
+*     true / false ->  STRING 'true' / 'false'
+*     null         ->  the null string
+*
+* Values are reduced on a shift/reduce value stack: a frame records the stack
+* base at '{' or '[', and the close brace pops everything above that base into
+* one TABLE or ARRAY.  No per-frame allocation, so cost is O(nodes), not O(depth
+* * nodes).  All deferred actions are DIRECT (epsilon . *f()) - none are built
+* through EVAL, so the run-time-compiled and compile-time-built deferred forms
+* are never mixed in one program.
+*
+* Run: scrip --run json.sno < citm_catalog.json
+*      sbl -b -d512m -i64m -s256m json.sno < citm_catalog.json
+*      snobol4 -b -f -d 8m -P 4m -S 4m json.sno < citm_catalog.json
+*------------------------------------------------------------------------------
+                bslash          =   CHAR(92)
+                tabch           =   CHAR(9)
+                lf              =   CHAR(10)
+                cr              =   CHAR(13)
+                dq              =   '"'
+                dig             =   '0123456789'
+*------------------------------------------------------------------------------
+                DATA('jobj(otab,okeys,onum)')
+*------------------------------------------------------------------------------
+*  Value stack (shift/reduce), key stack, and frame stack.
+*------------------------------------------------------------------------------
+                VMAX            =   262144
+                DMAX            =   4096
+                vs              =   ARRAY(VMAX)
+                ks              =   ARRAY(VMAX)
+                fkd             =   ARRAY(DMAX)
+                fvb             =   ARRAY(DMAX)
+                fkb             =   ARRAY(DMAX)
+                vsp             =   0
+                ksp             =   0
+                dep             =   0
+                maxdep          =   0
+                nObj            =   0
+                nArr            =   0
+                nStr            =   0
+                nInt            =   0
+                nReal           =   0
+                nBool           =   0
+                nNull           =   0
+*------------------------------------------------------------------------------
+*  Escape and hex lookup tables.
+*------------------------------------------------------------------------------
+                esc             =   TABLE()
+                esc[dq]         =   dq
+                esc[bslash]     =   bslash
+                esc['/']        =   '/'
+                esc['b']        =   CHAR(8)
+                esc['f']        =   CHAR(12)
+                esc['n']        =   lf
+                esc['r']        =   cr
+                esc['t']        =   tabch
+                hxv             =   TABLE()
+                hxs             =   '0123456789abcdef'
+                hxi             =   0
+hxlp            hxi             =   LT(hxi, 16) hxi + 1         :F(hxdone)
+                hxc             =   SUBSTR(hxs, hxi, 1)
+                hxv[hxc]        =   hxi - 1
+                hxv[REPLACE(hxc, &LCASE, &UCASE)] = hxi - 1     :(hxlp)
+hxdone
+*------------------------------------------------------------------------------
+*  jutf8(n) - Unicode scalar -> UTF-8 byte string (BMP; surrogates passed through).
+*------------------------------------------------------------------------------
+                DEFINE('jutf8(n)')                              :(jutf8_end)
+jutf8           LT(n, 128)                                      :F(jutf8_2)
+                jutf8           =   CHAR(n)                     :(RETURN)
+jutf8_2         LT(n, 2048)                                     :F(jutf8_3)
+                jutf8           =   CHAR(192 + (n / 64)) CHAR(128 + REMDR(n, 64))
++                                                               :(RETURN)
+jutf8_3         jutf8           =   CHAR(224 + (n / 4096))
++                                   CHAR(128 + REMDR(n / 64, 64))
++                                   CHAR(128 + REMDR(n, 64))    :(RETURN)
+jutf8_end
+*------------------------------------------------------------------------------
+*  jdec(s) - decode JSON string escapes.  Fast path returns s untouched when the
+*  literal held no backslash at all, which is the common case by a wide margin.
+*------------------------------------------------------------------------------
+                DEFINE('jdec(s)r,seg,ec,hx,n')                  :(jdec_end)
+jdec            s               bslash                          :F(jdec_fast)
+                r               =
+jdec_lp         s               FENCE (BREAK(bslash) | '') . seg bslash LEN(1) . ec =
++                                                               :F(jdec_done)
+                r               =   r seg
+                IDENT(ec, 'u')                                  :S(jdec_u)
+                r               =   r esc[ec]                   :(jdec_lp)
+jdec_u          s               FENCE LEN(4) . hx =             :F(jdec_done)
+                n               =   ((hxv[SUBSTR(hx, 1, 1)] * 16 + hxv[SUBSTR(hx, 2, 1)]) * 16
++                                   + hxv[SUBSTR(hx, 3, 1)]) * 16 + hxv[SUBSTR(hx, 4, 1)]
+                r               =   r jutf8(n)                  :(jdec_lp)
+jdec_done       jdec            =   r s                         :(RETURN)
+jdec_fast       jdec            =   s                           :(RETURN)
+jdec_end
+*------------------------------------------------------------------------------
+*  Value-stack shift.
+*------------------------------------------------------------------------------
+                DEFINE('vpush(v)')                              :(vpush_end)
+vpush           vsp             =   vsp + 1
+                GT(vsp, VMAX)                                   :S(voflo)
+                vs[vsp]         =   v
+                vpush           =   .dummy                      :(RETURN)
+voflo           OUTPUT          =   'json.sno: value stack overflow at ' vsp
+                vpush           =   .dummy                      :(RETURN)
+vpush_end
+*------------------------------------------------------------------------------
+*  Deferred semantic actions - ALL direct (epsilon . *f()), none via EVAL.
+*------------------------------------------------------------------------------
+                DEFINE('pobj()')                                :(pobj_end)
+pobj            dep             =   dep + 1
+                maxdep          =   GT(dep, maxdep) dep
+                maxdep          =   maxdep
+                fkd[dep]        =   'O'
+                fvb[dep]        =   vsp
+                fkb[dep]        =   ksp
+                pobj            =   .dummy                      :(NRETURN)
+pobj_end
+*------------------------------------------------------------------------------
+                DEFINE('parr()')                                :(parr_end)
+parr            dep             =   dep + 1
+                maxdep          =   GT(dep, maxdep) dep
+                maxdep          =   maxdep
+                fkd[dep]        =   'A'
+                fvb[dep]        =   vsp
+                fkb[dep]        =   ksp
+                parr            =   .dummy                      :(NRETURN)
+parr_end
+*------------------------------------------------------------------------------
+                DEFINE('ekey()')                                :(ekey_end)
+ekey            ksp             =   ksp + 1
+                ks[ksp]         =   jdec(jxk)
+                ekey            =   .dummy                      :(NRETURN)
+ekey_end
+*------------------------------------------------------------------------------
+                DEFINE('eobj()vb,kb,n,t,ka,i')                  :(eobj_end)
+eobj            vb              =   fvb[dep]
+                kb              =   fkb[dep]
+                n               =   vsp - vb
+                t               =   TABLE()
+                ka              =   ARRAY(GT(n, 0) n)           :F(eobj_empty)
+                i               =   0
+eobj_lp         i               =   LT(i, n) i + 1              :F(eobj_fin)
+                ka[i]           =   ks[kb + i]
+                t[ka[i]]        =   vs[vb + i]                  :(eobj_lp)
+eobj_empty      ka              =   ARRAY(1)
+eobj_fin        vsp             =   vb
+                ksp             =   kb
+                dep             =   dep - 1
+                nObj            =   nObj + 1
+                dummy           =   vpush(jobj(t, ka, n))
+                eobj            =   .dummy                      :(NRETURN)
+eobj_end
+*------------------------------------------------------------------------------
+                DEFINE('earr()vb,n,a,i')                        :(earr_end)
+earr            vb              =   fvb[dep]
+                n               =   vsp - vb
+                a               =   ARRAY(GT(n, 0) n)           :F(earr_empty)
+                i               =   0
+earr_lp         i               =   LT(i, n) i + 1              :F(earr_fin)
+                a[i]            =   vs[vb + i]                  :(earr_lp)
+earr_empty      a               =   ARRAY(1)
+earr_fin        vsp             =   vb
+                dep             =   dep - 1
+                nArr            =   nArr + 1
+                dummy           =   vpush(a)
+                earr            =   .dummy                      :(NRETURN)
+earr_end
+*------------------------------------------------------------------------------
+                DEFINE('estr()')                                :(estr_end)
+estr            nStr            =   nStr + 1
+                dummy           =   vpush(jdec(jxs))
+                estr            =   .dummy                      :(NRETURN)
+estr_end
+*------------------------------------------------------------------------------
+*  INTEGER when the literal carried neither fraction nor exponent, else REAL.
+*------------------------------------------------------------------------------
+                DEFINE('enum()')                                :(enum_end)
+enum            jxn             ANY('.eE')                      :S(enum_real)
+                nInt            =   nInt + 1
+                dummy           =   vpush(CONVERT(jxn, 'INTEGER'))
+                enum            =   .dummy                      :(NRETURN)
+enum_real       nReal           =   nReal + 1
+                dummy           =   vpush(CONVERT(jxn, 'REAL'))
+                enum            =   .dummy                      :(NRETURN)
+enum_end
+*------------------------------------------------------------------------------
+                DEFINE('etru()')                                :(etru_end)
+etru            nBool           =   nBool + 1
+                dummy           =   vpush('true')
+                etru            =   .dummy                      :(NRETURN)
+etru_end
+*------------------------------------------------------------------------------
+                DEFINE('efal()')                                :(efal_end)
+efal            nBool           =   nBool + 1
+                dummy           =   vpush('false')
+                efal            =   .dummy                      :(NRETURN)
+efal_end
+*------------------------------------------------------------------------------
+                DEFINE('enul()')                                :(enul_end)
+enul            nNull           =   nNull + 1
+                dummy           =   vpush(NULL)
+                enul            =   .dummy                      :(NRETURN)
+enul_end
+*------------------------------------------------------------------------------
+*  THE GRAMMAR - RFC 8259.  Same shape as json-match.sno; the only additions are
+*  the capture dots and the deferred action epsilons.
+*------------------------------------------------------------------------------
+                ws              =   FENCE(SPAN(' ' tabch lf cr) | '')
+                jescape         =   bslash
++                                   ( ANY(dq '/bfnrt' bslash)
++                                   | 'u' ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF')
++                                   )
+                jchunk          =   BREAK(dq bslash lf cr)
+                jstrbody        =   jchunk ARBNO(jescape jchunk)
+*------------------------------------------------------------------------------
+                jnumber         =   ( FENCE('-' | '')
++                                     ( '0' | ANY('123456789') FENCE(SPAN(dig) | '') )
++                                     FENCE('.' SPAN(dig) | '')
++                                     FENCE(ANY('eE') FENCE(ANY('+-') | '') SPAN(dig) | '')
++                                   ) . jxn
+*------------------------------------------------------------------------------
+                jkey            =   dq jstrbody . jxk dq (epsilon . *ekey())
+                jstring         =   dq jstrbody . jxs dq (epsilon . *estr())
+*------------------------------------------------------------------------------
+                jmember         =   ws jkey ws ':' *jelement
+                jobject         =   '{' (epsilon . *pobj())
++                                   ( jmember ARBNO(',' jmember) | ws )
++                                   '}' (epsilon . *eobj()) FENCE
+                jarray          =   '[' (epsilon . *parr())
++                                   ( *jelement ARBNO(',' *jelement) | ws )
++                                   ']' (epsilon . *earr()) FENCE
+                jvalue          =   jstring
++                                   | jnumber (epsilon . *enum())
++                                   | jobject
++                                   | jarray
++                                   | 'true'  (epsilon . *etru())
++                                   | 'false' (epsilon . *efal())
++                                   | 'null'  (epsilon . *enul())
+                jelement        =   ws *jvalue ws
+                json            =   POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+                &TRIM           =   0
+*------------------------------------------------------------------------------
+*  READ ALL AT ONCE - .INPUT is re-associated raw on fd 0 with a 4 MiB record
+*  length, so a single reference transfers the whole input in one read, byte
+*  for byte (no line splitting, no newline reconstruction).  Inputs larger
+*  than 4194304 bytes are silently truncated at the -r length.
+*------------------------------------------------------------------------------
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        ZSRC    =   INPUT
+        DEFINE('ZBODY(ZKN)')                            :(ZBODY_END)
+ZBODY   ZI      =   1
+ZBL     vsp     =   0
+        ksp     =   0
+        dep     =   0
+        maxdep  =   0
+        nObj    =   0
+        nArr    =   0
+        nStr    =   0
+        nInt    =   0
+        nReal   =   0
+        nBool   =   0
+        nNull   =   0
+        ZSRC    ?   json                                :F(ZBAD)
+        ZI      =   LT(ZI, ZKN) ZI + 1                  :S(ZBL)
+        ZBODY   =   nObj '/' nArr '/' nStr '/' nInt '/' nReal '/' nBool '/' nNull '/' maxdep
++                                                       :(RETURN)
+ZBAD    ZBODY   =   'MATCH-FAILED'                      :(RETURN)
+ZBODY_END
+*	PT-J WALL 1 (s169): ZERO ARBNO iterations complete; the FIRST ARBNO iteration over the
+*	deferred (*) body NEVER RETURNS.  `["s"]` has no comma so ARBNO never fires -- it matches
+*	in ~1.1 s.  `["s","s"]` fires it ONCE and the program does not come back.
+*	⛔ SCRIP DOES NOT TERMINATE ON THE SECOND MATCH.  Measured s169: still spinning at
+*	   4 min 11 s, RSS FLAT at 28 MB (control-flow loop, NOT allocation growth); 420 s budget,
+*	   no completion; 5 of 5 clean runs timed out.  ⛔ NEVER wire into a gate without a timeout.
+*	⛔ The pure-grammar sibling (json-match.sno) does NOT hang on this input -- it has its own
+*	   defect (SIGSEGV on any non-empty object).  The hang needs THIS grammar, the one with
+*	   the captures, which is why this witness carries it whole: reduction FAILED this seat.
+	ZSRC = '["s"]'
+	OUTPUT = 'one-element ' ZBODY(1)
+	ZSRC = '["s","s"]'
+	OUTPUT = 'two-element ' ZBODY(1)
+END
+*---------------------------------------------- 2 ptj2_number_leading_digit_segv
+* json-match -- TIME-BASED: fixed ms budget, count iterations.
+* workload: full recursive JSON grammar over 631 KB of twitter.json.
+* PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
+* deserializing sibling (json.sno) which runs the same grammar with sprinkled loads.
+* input: json.dat on stdin (runner redirects <family>.dat).  check = SIZE of the slurped
+* text, so a missing or truncated input cannot masquerade as a passing run.
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+                $' '           =  SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | ''
+*------------------------------------------------------------------------------
+                jescape        =  '\'
++                                 ( ANY('"/bfnrt\')
++                                 | 'u'
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                   ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
+*------------------------------------------------------------------------------
+                jnumber        =  ('-' | '')
++                                 ('0' | ANY('123456789') (SPAN('0123456789') | ''))
++                                 ('.' SPAN('0123456789') | '')
++                                 ( ANY('eE') (ANY('+-') | '') SPAN('0123456789')
++                                 | ''
++                                 )
+*------------------------------------------------------------------------------
+                jmember        =  $' ' jstring $' ' ':' *jelement
+                jobject        =  '{' ( jmember ARBNO($' ' ',' jmember) | $' ' ) '}'
+                jarray         =  '[' ( *jelement ARBNO($' ' ',' *jelement) | $' ' ) ']'
+                jvalue         =  ( jstring
++                                 | jnumber
++                                 | jobject
++                                 | jarray
++                                 | 'true'
++                                 | 'false'
++                                 | 'null'
++                                 )
+                jelement       =  $' ' *jvalue $' '
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+*	PT-J WALL 2 (s169): with the FULL json grammar loaded, an input whose number has a
+*	leading digit 1-9 SIGSEGVs; the same input with a leading '0' matches.  The input split
+*	is exact and lines up with jnumber's ANY('123456789')(SPAN|'') arm -- but ⛔ THE ARM IN
+*	ISOLATION DOES NOT FAULT (reduction tried and failed s169), so the fault is CONTEXT-
+*	DEPENDENT within this grammar and this witness carries the whole grammar deliberately.
+	'{"a": 0}' ? json	:F(N1)
+	OUTPUT = 'leading-zero MATCH'
+N1	'{"a": 1}' ? json	:F(N2)
+	OUTPUT = 'leading-one MATCH'	:(END)
+N2	OUTPUT = 'leading-one FAIL'
+END

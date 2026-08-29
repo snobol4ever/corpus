@@ -1,5 +1,0 @@
-STCOUNT-assign-failed errtype=209 keyword in assignment is protected
-ALPHABET-assign-failed errtype=208
-FNCLEVEL-assign-failed errtype=209
-ANCHOR-assign-ok val=1
-end

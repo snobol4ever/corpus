@@ -9,6 +9,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
@@ -61,10 +62,10 @@ n3_call_icon_α:         mov              r11, 4
                         mov              rax, qword ptr [rsp + 520]
                         mov              qword ptr [rsp + 488], rax
                         .section         .rodata
-.Lcall_icon_rkfn33:     .string          "table"
+.Lcall_icon_α_rkfn33:   .string          "table"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn33]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn33]
                         lea              rsi, [rsp + 480]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -415,10 +416,10 @@ n28_call_icon_α:        mov              r11, 29
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
                         .section         .rodata
-.Lcall_icon_rkfn68:     .string          "write"
+.Lcall_icon_α_rkfn68:   .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn68]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn68]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8

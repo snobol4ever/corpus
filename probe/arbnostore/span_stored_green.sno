@@ -1,5 +1,0 @@
-                  C              =  SPAN('a')
-                  'aaa'          POS(0) C RPOS(0)                                  :S(OK)F(NO)
-OK                OUTPUT         =  'MATCH'                                        :(END)
-NO                OUTPUT         =  'NOMATCH'                                      :(END)
-END

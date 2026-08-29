@@ -1,5 +1,0 @@
-*  probe: user function called with more arguments than it declares
-        DEFINE('addpair(a,b)')                    :(mainline)
-addpair addpair = a + b                           :(RETURN)
-mainline OUTPUT = addpair(1, 2, 3)
-END

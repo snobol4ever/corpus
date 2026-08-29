@@ -1,0 +1,22 @@
+*------------------------------------------------------------- 1 vl_alt_first_ok
+first-ok  [0]
+lit       [1]
+cat       [pq]
+*----------------------------------------------------------- 2 vl_alt_nested_cat
+in-cat [A[7]]
+stored [L7R]
+n-ary  [c]
+all-fail signals failure, u=[preset]
+end
+*------------------------------------------------ 3 vlist_expr_alternation XFAIL
+first-succeeds       1
+first-fails          9
+three-first-succeeds 1
+three-last-succeeds  7
+side-effect x
+no-eval-of-second    x
+side-effect q
+second-evaluated     q
+all-fail             statement failed
+treebank-shape       0:5
+end

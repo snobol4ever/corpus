@@ -1,8 +1,0 @@
-#  Same collision via match() -- a POSITION-RETURNER, not a cursor-mover.  This
-#  falsifies the s231 characterization ("literal preceding a CURSOR-MOVER").
-#  The affected set is exactly {tab, move, match}: the three carve-compensated
-#  sites (emit.cpp:1230/1231/1236).  many/any/upto/find/bal/pos are all clean.
-#  Oracle: A4C
-procedure main();
-   "112 xy" ? { write("A", match("112"), "C"); };
-end

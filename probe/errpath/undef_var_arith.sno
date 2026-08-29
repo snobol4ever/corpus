@@ -1,6 +1,0 @@
-*  probe: arithmetic on an undefined (null-valued) variable -- Appendix D 1 territory
-        &ERRLIMIT = 100
-        total = missing_amount + 1               :F(fail1)
-        OUTPUT = 'accepted ' total                :(END)
-fail1   OUTPUT = 'errtype ' &ERRTYPE
-END

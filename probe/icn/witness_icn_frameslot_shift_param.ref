@@ -1,2 +1,0 @@
-entry:       p="-n10" q="AA" r="BB" s="CC"
-after match: p="-n10" q="AA" r="BB" s="CC"

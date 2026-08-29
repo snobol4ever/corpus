@@ -1,0 +1,323 @@
+*---------------------------------------------------------- 1 kw_bare_names_null
+*  KW-9 witness: a PLAIN (non-&) variable that happens to share a keyword's
+*  name is an ORDINARY VARIABLE, and an unset one reads as the NULL STRING.
+*  Manual: keywords are set apart by the unary & operator (Ch.16 opening); the
+*  bare spellings carry no keyword meaning at all.
+*  This pins the ARMED default, where the NV_GET_fn bare-name hijack family
+*  (core.c ~2200: STNO/STLIMIT/ANCHOR/TRIM/FULLSCAN/CASE/MAXLNGTH/FTRACE/
+*  TRACE/ERRLIMIT/CODE) is bypassed.  On the LEGACY arm (SCRIP_KW_STATIC=0)
+*  every row below is ORACLE-WRONG -- MAXLNGTH reads 524288 and the rest read
+*  0 -- which is the measured correctness case for retiring that arm (KW-4).
+	OUTPUT = 'MAXLNGTH=[' MAXLNGTH ']'
+	OUTPUT = 'TRACE=[' TRACE ']'
+	OUTPUT = 'STCOUNT=[' STCOUNT ']'
+	OUTPUT = 'STNO=[' STNO ']'
+	OUTPUT = 'ANCHOR=[' ANCHOR ']'
+	OUTPUT = 'TRIM=[' TRIM ']'
+	OUTPUT = 'FULLSCAN=[' FULLSCAN ']'
+	OUTPUT = 'ERRLIMIT=[' ERRLIMIT ']'
+END
+*-------------------------------------------------------------- 2 kw_bare_shadow
+*  KW-1 witness: bare (unprefixed) keyword names are ORDINARY VARIABLES.
+*  Manual Ch.16 p.187: "Their names are set apart from other variables by
+*  the unary operator ampersand (&)."  A bare name therefore has NO keyword
+*  meaning and reads as the null string until the program assigns it.
+	OUTPUT = '[' STCOUNT ']'
+	OUTPUT = '[' STNO ']'
+	OUTPUT = '[' STLIMIT ']'
+	OUTPUT = '[' ANCHOR ']'
+	OUTPUT = '[' TRIM ']'
+	OUTPUT = '[' FULLSCAN ']'
+	OUTPUT = '[' CASE ']'
+	OUTPUT = '[' MAXLNGTH ']'
+	OUTPUT = '[' FTRACE ']'
+	OUTPUT = '[' TRACE ']'
+	OUTPUT = '[' ERRLIMIT ']'
+	OUTPUT = '[' CODE ']'
+	OUTPUT = '[' FNCLEVEL ']'
+	OUTPUT = '[' RTNTYPE ']'
+	OUTPUT = 'DT-STCOUNT=' DATATYPE(STCOUNT)
+	OUTPUT = 'DT-ANCHOR=' DATATYPE(ANCHOR)
+*  a bare name is assignable like any variable, and assigning it must NOT
+*  disturb the keyword of the same name
+	ANCHOR = 'mine'
+	OUTPUT = 'bare-after-assign=[' ANCHOR ']'
+	OUTPUT = 'kw-still=' &ANCHOR
+END
+*---------------------------------------------------------------- 3 kw_datatypes
+*  KW-1 witness: the DATATYPE of every protected repository keyword.
+*  SNOBOL4 has NO cset datatype -- &UCASE/&LCASE/&ALPHABET are STRINGs.
+	OUTPUT = 'ALPHABET=' DATATYPE(&ALPHABET) ' ' SIZE(&ALPHABET)
+	OUTPUT = 'UCASE=' DATATYPE(&UCASE) ' ' SIZE(&UCASE)
+	OUTPUT = 'LCASE=' DATATYPE(&LCASE) ' ' SIZE(&LCASE)
+	OUTPUT = 'ARB=' DATATYPE(&ARB)
+	OUTPUT = 'BAL=' DATATYPE(&BAL)
+	OUTPUT = 'REM=' DATATYPE(&REM)
+	OUTPUT = 'FAIL=' DATATYPE(&FAIL)
+	OUTPUT = 'FENCE=' DATATYPE(&FENCE)
+	OUTPUT = 'ABORT=' DATATYPE(&ABORT)
+	OUTPUT = 'SUCCEED=' DATATYPE(&SUCCEED)
+	OUTPUT = 'RTNTYPE=' DATATYPE(&RTNTYPE)
+	OUTPUT = 'STCOUNT=' DATATYPE(&STCOUNT)
+	OUTPUT = 'UCASE-val=' &UCASE
+	OUTPUT = 'LCASE-val=' &LCASE
+END
+*----------------------------------------------------------------- 4 kw_defaults
+*  KW-1 witness: initial values of every SNOBOL4 keyword (manual Ch.16).
+*  These are the values the KW-STATIC .data block must be born holding.
+	OUTPUT = 'ANCHOR=' &ANCHOR
+	OUTPUT = 'TRIM=' &TRIM
+	OUTPUT = 'CASE=' &CASE
+	OUTPUT = 'CODE=' &CODE
+	OUTPUT = 'DUMP=' &DUMP
+	OUTPUT = 'ERRLIMIT=' &ERRLIMIT
+	OUTPUT = 'ERRTYPE=' &ERRTYPE
+	OUTPUT = 'FTRACE=' &FTRACE
+	OUTPUT = 'FULLSCAN=' &FULLSCAN
+	OUTPUT = 'MAXLNGTH=' &MAXLNGTH
+	OUTPUT = 'STLIMIT=' &STLIMIT
+	OUTPUT = 'TRACE=' &TRACE
+	OUTPUT = 'ABEND=' &ABEND
+	OUTPUT = 'INPUT=' &INPUT
+	OUTPUT = 'OUTPUT=' &OUTPUT
+	OUTPUT = 'PROFILE=' &PROFILE
+	OUTPUT = 'COMPARE=' &COMPARE
+	OUTPUT = 'FNCLEVEL=' &FNCLEVEL
+	OUTPUT = 'RTNTYPE=[' &RTNTYPE ']'
+	OUTPUT = 'ERRTEXT=[' &ERRTEXT ']'
+END
+*-------------------------------------------------------------- 5 kw_direct_read
+*  KW-D witness: keyword READS are direct cell loads (zero runtime calls) --
+*  GOAL-SNOBOL4-100 line 510, Lon verbatim "use direct references".
+*  Exercises every direct-read class: a scalar exported cell after a WRITE
+*  (&ANCHOR -- read-after-write coherence through rt_kw_write_idx), the
+*  oracle-seeded default (&TRIM = 1), a kwb_own slot at offset 0 (&CASE) and
+*  at offset 8 (&ERRTYPE), a protected live counter (&STCOUNT), and one STR
+*  keyword (&ALPHABET) which stays on the indexed call BY DESIGN (live
+*  repository).  Output must be byte-identical on SCRIP_KW_DIRECT=0/1 and
+*  m3/m4 -- the .ref is live-oracle output.
+	&ANCHOR = 1
+	OUTPUT = 'anchor=' &ANCHOR
+	OUTPUT = 'trim=' &TRIM
+	&ERRLIMIT = 5
+	OUTPUT = 'errlimit=' &ERRLIMIT
+	OUTPUT = 'errtype=' &ERRTYPE
+	OUTPUT = 'stcount=' &STCOUNT
+	OUTPUT = 'case=' &CASE
+	OUTPUT = 'alpha=' SIZE(&ALPHABET)
+END
+*----------------------------------------------------------- 6 kw_errtext_string
+*  KW-3b witness: &ERRTEXT IS THE ONE UNPROTECTED KEYWORD THAT TAKES A NON-INTEGER.
+*  Manual Ch.14 "SPITBOL Statements", Replacement field: "If the subject is an
+*  unprotected keyword, the replacement field must evaluate to an integer value
+*  (except for &ERRTEXT, which will accept a string)."  Manual Ch.16 &ERRTEXT:
+*  "It is possible to assign a string to &ERRTEXT which is then used in a
+*  subsequent error report if &ERRTYPE is assigned a value out of the range used
+*  by SPITBOL for its own purposes."
+*  ORACLE-MEASURED, NOT INFERRED: an INTEGER assigned to &ERRTEXT also reads back
+*  as a STRING ("5", DATATYPE STRING), so the entry accepts any value and
+*  stringifies it -- it is not a "string-typed" slot that rejects integers.
+*  SCRIP s147 baseline: the ARMED keyword block raised "Error 208 ... not
+*  integer" and TERMINATED here, because kwb_write_ent had no &ERRTEXT carve-out
+*  ahead of its 208 test; the legacy arm merely swallowed the write and read back
+*  null.  ARM-SENSITIVE: legacy wrong-but-quiet, armed was fatal, both now green.
+	&ERRTEXT = 'a custom message'
+	OUTPUT = 'str=[' &ERRTEXT ']'
+	OUTPUT = 'str_dt=' DATATYPE(&ERRTEXT)
+	&ERRTEXT = 5
+	OUTPUT = 'int=[' &ERRTEXT ']'
+	OUTPUT = 'int_dt=' DATATYPE(&ERRTEXT)
+	&ERRTEXT = ''
+	OUTPUT = 'nul=[' &ERRTEXT ']'
+	OUTPUT = 'still running'
+END
+*----------------------------------------------------------- 7 kw_errtype_signal
+*  KW-8 witness: assigning &ERRTYPE SIGNALS AN IMMEDIATE ERROR (manual Ch.16
+*  &ERRTYPE: "may be assigned a value; in this case, an immediate error is
+*  signaled ... used for reporting errors detected by a program") -- the
+*  program-defined-error mechanism.
+*  Pins three measured facts: (1) the STORE lands first, so &ERRTYPE reads back
+*  the assigned code after the statement fails; (2) there is NO zero exemption
+*  -- &ERRTYPE = 0 signals too; (3) it routes through the SAME interceptable
+*  machinery as 208/209, so a non-zero &ERRLIMIT converts it to statement
+*  failure and DECREMENTS (100 -> 99 -> 98 across the two assignments).
+*  Code 999 is pinned deliberately: it is outside SPITBOL's own range, so the
+*  custom &ERRTEXT survives and both engines report it.  Codes 451/777 are NOT
+*  used -- the oracle answers them with fragments of neighbouring strings
+*  ("during ", "file "), which is it indexing past its message table, not a
+*  contract to reproduce.
+	&ERRLIMIT = 100
+	&ERRTYPE = 0	:S(A1)F(A2)
+A1	OUTPUT = 'zero-ok val=' &ERRTYPE	:(B0)
+A2	OUTPUT = 'zero-failed type=' &ERRTYPE
+B0	OUTPUT = 'errlimit=' &ERRLIMIT
+	&ERRTEXT = 'MINE'
+	&ERRTYPE = 999	:S(B1)F(B2)
+B1	OUTPUT = 'SUCCEEDED'	:(C0)
+B2	OUTPUT = 'failed type=' &ERRTYPE ' errlimit=' &ERRLIMIT ' text=[' &ERRTEXT ']'
+C0	OUTPUT = 'end'
+END
+*----------------------------------------------------------- 8 kw_maxlngth_floor
+*  KW-7 witness: &MAXLNGTH has its OWN floor, Appendix D error 287
+*  "Value assigned to keyword MAXLNGTH is too small".  The floor was
+*  bisected against the live x64 oracle to EXACTLY 1024: 1023 raises 287,
+*  1024 stores.  (corpus/programs/csnobol4-suite/scanerr.sno restores
+*  &MAXLNGTH to 1024 after its overflow probe -- its author knew the bound.)
+*  Manual Ch.16 &ERRLIMIT: no SETEXIT label, so an error becomes STATEMENT
+*  FAILURE and each attempt takes its :F branch.
+	&ERRLIMIT = 1000
+	&MAXLNGTH = 1023	:S(A1)F(A2)
+A1	OUTPUT = 'maxlngth-1023-SUCCEEDED'	:(B0)
+A2	OUTPUT = 'maxlngth-1023-failed errtype=' &ERRTYPE ' ' &ERRTEXT
+B0	&MAXLNGTH = 1024	:S(B1)F(B2)
+B1	OUTPUT = 'maxlngth-1024-ok val=' &MAXLNGTH	:(C0)
+B2	OUTPUT = 'maxlngth-1024-FAILED errtype=' &ERRTYPE
+*  a negative &MAXLNGTH answers 210, NOT 287 -- the general range test owns
+*  the negative half, so this arm only ever sees a positive under-floor value.
+C0	&MAXLNGTH = -1		:S(C1)F(C2)
+C1	OUTPUT = 'maxlngth-neg-SUCCEEDED'	:(Z)
+C2	OUTPUT = 'maxlngth-neg-failed errtype=' &ERRTYPE
+Z	OUTPUT = 'end'
+END
+*----------------------------------------------------------- 9 kw_pattern_family
+*  KW-3 witness (s147): the PRIMITIVE-PATTERN KEYWORD FAMILY must BEHAVE as its
+*  pattern, not merely report DATATYPE=PATTERN.  Manual Ch.16 p.187-188 names each
+*  a protected read-only repository of a fundamental system pattern: "&ARB The
+*  primitive pattern ARB", and likewise BAL/REM/FAIL/FENCE/ABORT/SUCCEED.
+*
+*  PINS THE s147 REGRESSION: CN-2 re-keyed the tier-3 keyword read from the bare
+*  name to a canonical "&Name", severing the bridge by which &ARB reached the bare
+*  ARB pattern variable -- every one of these then fell into the user-constant tier
+*  and raised error 342 ON READ.  kw_datatypes.sno caught the DATATYPE symptom;
+*  nothing pinned the BEHAVIOUR.  This file does, so the class cannot go silent again.
+*
+*  SCOPE IS THE LANDED SN4-PAT SUBSET ON PURPOSE.  Only &ARB and &REM are used as
+*  pattern OPERANDS here, because SCRIP's lowerer rejects &BAL/&FAIL/&FENCE/&SUCCEED/
+*  &ABORT in a pattern outright ("pattern shape outside the SN4-PAT subset") -- a
+*  SEPARATE, LARGER gap that is not this witness's business.  The remaining five are
+*  therefore pinned at the READ, which is the exact operation the regression broke;
+*  promote them to real matches when the pattern subset widens.
+	&ANCHOR = 0
+	S = 'abcdef'
+	S ? &ARB . X 'cd'					:F(FARB)
+	OUTPUT = 'ARB-match=' X
+	S ? 'cd' &REM . Y					:F(FREM)
+	OUTPUT = 'REM-match=' Y
+	OUTPUT = 'BAL-read=' DATATYPE(&BAL)
+	OUTPUT = 'FAIL-read=' DATATYPE(&FAIL)
+	OUTPUT = 'FENCE-read=' DATATYPE(&FENCE)
+	OUTPUT = 'ABORT-read=' DATATYPE(&ABORT)
+	OUTPUT = 'SUCCEED-read=' DATATYPE(&SUCCEED)
+	OUTPUT = 'PATTERN-KEYWORDS-OK'				:(END)
+FARB	OUTPUT = 'FAIL: &ARB did not match'			:(END)
+FREM	OUTPUT = 'FAIL: &REM did not match'			:(END)
+END
+*--------------------------------------------------------- 10 kw_protected_write
+*  KW-1 witness: assigning a PROTECTED keyword raises error 209
+*  (manual Ch.16 p.187 "Protected keywords cannot be changed by a program").
+*  Manual Ch.16 &ERRLIMIT: with no SETEXIT label, an error becomes
+*  STATEMENT FAILURE, so each attempt below takes its :F branch.
+	&ERRLIMIT = 1000
+	&STCOUNT = 5		:S(A1)F(A2)
+A1	OUTPUT = 'STCOUNT-assign-SUCCEEDED'	:(B0)
+A2	OUTPUT = 'STCOUNT-assign-failed errtype=' &ERRTYPE ' ' &ERRTEXT
+B0	&ALPHABET = 'x'		:S(B1)F(B2)
+B1	OUTPUT = 'ALPHABET-assign-SUCCEEDED'	:(C0)
+B2	OUTPUT = 'ALPHABET-assign-failed errtype=' &ERRTYPE
+C0	&FNCLEVEL = 3		:S(C1)F(C2)
+C1	OUTPUT = 'FNCLEVEL-assign-SUCCEEDED'	:(D0)
+C2	OUTPUT = 'FNCLEVEL-assign-failed errtype=' &ERRTYPE
+*  an UNPROTECTED keyword assigns cleanly and reads back
+D0	&ANCHOR = 1		:S(D1)F(D2)
+D1	OUTPUT = 'ANCHOR-assign-ok val=' &ANCHOR	:(Z)
+D2	OUTPUT = 'ANCHOR-assign-FAILED'
+Z	OUTPUT = 'end'
+END
+*------------------------------------------------------------- 11 kw_range_value
+*  KW-7 witness: the keyword-assignment RANGE family, Appendix D error 210
+*  "Keyword value assigned is negative or too large".  Every bound below was
+*  BISECTED against the live x64 oracle, not read off the manual.
+*  Manual Ch.16 &ERRLIMIT: with no SETEXIT label an error becomes STATEMENT
+*  FAILURE, so each attempt takes its :F branch and the run continues.
+	&ERRLIMIT = 1000
+*  negative is rejected for an ordinary unprotected keyword
+	&ANCHOR = -1		:S(A1)F(A2)
+A1	OUTPUT = 'anchor-neg-SUCCEEDED'		:(B0)
+A2	OUTPUT = 'anchor-neg-failed errtype=' &ERRTYPE ' ' &ERRTEXT
+*  the ceiling is EXACTLY 16777216 (2^24) inclusive
+B0	&ANCHOR = 16777216	:S(B1)F(B2)
+B1	OUTPUT = 'anchor-2p24-ok val=' &ANCHOR	:(C0)
+B2	OUTPUT = 'anchor-2p24-FAILED errtype=' &ERRTYPE
+C0	&ANCHOR = 16777217	:S(C1)F(C2)
+C1	OUTPUT = 'anchor-over-SUCCEEDED'	:(D0)
+C2	OUTPUT = 'anchor-over-failed errtype=' &ERRTYPE
+*  &STLIMIT is exempt from BOTH halves -- manual p.191: "There are no
+*  restrictions on the integer values for &STLIMIT", and &STLIMIT = -1 is
+*  the documented way to disable statement counting.
+D0	&STLIMIT = -1		:S(D1)F(D2)
+D1	OUTPUT = 'stlimit-neg-ok val=' &STLIMIT	:(E0)
+D2	OUTPUT = 'stlimit-neg-FAILED errtype=' &ERRTYPE
+E0	&STLIMIT = 2147483647	:S(E1)F(E2)
+E1	OUTPUT = 'stlimit-big-ok val=' &STLIMIT	:(F0)
+E2	OUTPUT = 'stlimit-big-FAILED errtype=' &ERRTYPE
+*  &PROFILE narrows to 0..2 (Ch.16: 0 off, 1 on, 2 charges function time
+*  to the calling statement); 3 is out of range.
+*  ONLY the 0 and 3 cases are exercised, DELIBERATELY: any value that
+*  ENABLES profiling makes the oracle print a timing table at termination,
+*  and those timings are nondeterministic -- a graded .ref cannot carry them.
+*  The 210 row below still catches any widening of the upper bound.
+F0	&PROFILE = 0		:S(F1)F(F2)
+F1	OUTPUT = 'profile-0-ok val=' &PROFILE	:(G0)
+F2	OUTPUT = 'profile-0-FAILED errtype=' &ERRTYPE
+G0	&PROFILE = 3		:S(G1)F(G2)
+G1	OUTPUT = 'profile-3-SUCCEEDED'		:(Z)
+G2	OUTPUT = 'profile-3-failed errtype=' &ERRTYPE
+Z	OUTPUT = 'end'
+END
+*---------------------------------------------------------- 12 kw_unset_datatype
+*  s146 HANDOFF TO HQ (B1).  NOT a keyword witness -- it is the minimal
+*  localization of the s145 "DATATYPE(null) = NULL vs oracle STRING" suspect,
+*  found while clearing the KW-1 bare-name class.
+*  The four lines below separate the defect from its neighbours:
+*    a null LITERAL       -> STRING in both engines  (correct today)
+*    an ASSIGNED null     -> STRING in both engines  (correct today)
+*    a non-null string    -> STRING in both engines  (correct today)
+*    an UNSET VARIABLE    -> STRING in oracle, NULL in SCRIP   <-- THE DEFECT
+*  So DATATYPE is INNOCENT.  The wrong datum is the descriptor an unset
+*  variable yields: it carries a distinct NULL tag instead of being the null
+*  string that manual p.24 says every fresh variable starts as.
+	OUTPUT = 'unset-var=' DATATYPE(ZZZ)
+	OUTPUT = 'null-lit=' DATATYPE('')
+	X =
+	OUTPUT = 'assigned-null=' DATATYPE(X)
+	OUTPUT = 'nonnull=' DATATYPE('a')
+END
+*------------------------------------------------------ 13 kw_write_not_constant
+*  KW-3b witness: A KEYWORD THE MANUAL NAMES CAN NEVER BE AN UNKNOWN "&name" ON
+*  THE WRITE SIDE EITHER.  s147 fixed exactly this hole on the READ side (CN-2
+*  re-keyed the tier-3 read to a canonical "&Name", so &ARB/&BAL/&REM fell into
+*  the user-constant tier and raised 342 ON READ).  The WRITE side has the same
+*  hole, unfixed: rt_keyword_write_snobol4's legacy cascade handles only
+*  anchor/trim/maxlngth/error/trace/dump/random plus four accept-and-ignore
+*  names, and EVERY OTHER keyword falls through to NV_SET_fn, which CN-2 marks
+*  is_const -- so the SECOND assignment raises 341 and TERMINATES the program.
+*  &CASE is a documented unprotected keyword (manual Ch.16: "Setting it to zero
+*  will prevent case-folding during compilation with the functions CODE and
+*  EVAL.  Initially 1, causing case-folding to occur."), so re-assigning it is
+*  ordinary, supported SPITBOL.
+*  ⛔ THE PRECEDING STATEMENT IS LOAD-BEARING, DO NOT "SIMPLIFY" IT AWAY: with
+*  the &CASE pair as the program's FIRST statements the seal does not fire and
+*  the witness goes green for the wrong reason.  It is minimized already.
+*  ARM-SENSITIVE BY CONSTRUCTION, and that is the point: the armed block claims
+*  every keyword it names in kwb_write and returns BEFORE the NV_SET_fn
+*  constant tier is ever reached, so KW-2/KW-3b fix this class wholesale rather
+*  than by patching the legacy cascade (which KW-4 deletes outright).
+	OUTPUT = 'start'
+	&CASE = 1
+	&CASE = 0
+	OUTPUT = 'case=' &CASE
+	&ERRLIMIT = 1
+	&ERRLIMIT = 0
+	OUTPUT = 'errlimit=' &ERRLIMIT
+	OUTPUT = 'still running'
+END

@@ -1,0 +1,6 @@
+*--------------------------------------------- 1 ptj1_arbno_defer_nonterminating
+one-element 0/1/1/0/0/0/0/1
+two-element 0/1/2/0/0/0/0/1
+*---------------------------------------------- 2 ptj2_number_leading_digit_segv
+leading-zero MATCH
+leading-one MATCH

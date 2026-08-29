@@ -1,4 +1,0 @@
-zero-failed type=0
-errlimit=99
-failed type=999 errlimit=98 text=[MINE]
-end

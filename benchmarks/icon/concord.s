@@ -31,10 +31,10 @@ n1_call_icon_α:         mov              r11, 2
                         mov              rax, qword ptr [rsp + 1448]
                         mov              qword ptr [rsp + 1416], rax
                         .section         .rodata
-.Lcall_icon_rkfn72:     .string          "string"
+.Lcall_icon_α_rkfn72:   .string          "string"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn72]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn72]
                         lea              rsi, [rsp + 1408]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -421,7 +421,7 @@ n25_disjunction_α:      mov              r11, 26
                         mov              qword ptr [rsp + 144], 0
                         mov              qword ptr [rsp + 152], 0
                         mov              dword ptr [rsp + 160], 0;            jmp   n53_disjunction_α
-n25_disjunction_as:     mov              r11, 26
+.Ldisjunction_γ_25_as:  mov              r11, 26
                         mov              eax, dword ptr [rsp + 160]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_107_0
                         mov              rax, qword ptr [rsp + 224]
@@ -484,7 +484,7 @@ n28_disjunction_α:      mov              r11, 29
                         mov              qword ptr [rsp + 720], 0
                         mov              qword ptr [rsp + 728], 0
                         mov              dword ptr [rsp + 736], 0;            jmp   n46_lit_string_α
-n28_disjunction_as:     mov              r11, 29
+.Ldisjunction_γ_28_as:  mov              r11, 29
                         mov              eax, dword ptr [rsp + 736]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_112_0
                         mov              rax, qword ptr [rsp + 752]
@@ -750,7 +750,7 @@ n43_conjunction_α:      mov              r11, 44
                         mov              rax, qword ptr [rsp + 512]
                         mov              qword ptr [rsp + 448], rax
                         mov              rax, qword ptr [rsp + 520]
-                        mov              qword ptr [rsp + 456], rax;          jmp   n25_disjunction_as
+                        mov              qword ptr [rsp + 456], rax;          jmp   .Ldisjunction_γ_25_as
 n43_conjunction_β:      mov              r11, 44;                             jmp   n63_scan_α
                         .size            n43_conjunction_bx, .-n43_conjunction_bx
                         .type            n44_lit_integer_bx, @function
@@ -772,7 +772,7 @@ n45_assign_α:           mov              r11, 46
                         mov              qword ptr [rsp + 1488], rax
                         mov              qword ptr [rsp + 1496], rdx
                         mov              qword ptr [rsp + 960], rax
-                        mov              qword ptr [rsp + 968], rdx;          jmp   n28_disjunction_as
+                        mov              qword ptr [rsp + 968], rdx;          jmp   .Ldisjunction_γ_28_as
 n45_assign_β:           mov              r11, 46;                             jmp   n29_var_ref_α
                         .size            n45_assign_bx, .-n45_assign_bx
                         .type            n46_lit_string_bx, @function
@@ -935,7 +935,7 @@ n52_assign_α:           mov              r11, 53
                         mov              qword ptr [rsp + 1488], rax
                         mov              qword ptr [rsp + 1496], rdx
                         mov              qword ptr [rsp + 752], rax
-                        mov              qword ptr [rsp + 760], rdx;          jmp   n28_disjunction_as
+                        mov              qword ptr [rsp + 760], rdx;          jmp   .Ldisjunction_γ_28_as
 n52_assign_β:           mov              r11, 53;                             jmp   n29_var_ref_α
                         .size            n52_assign_bx, .-n52_assign_bx
                         .type            n53_disjunction_bx, @function
@@ -945,7 +945,7 @@ n53_disjunction_α:      mov              r11, 54
                         mov              qword ptr [rsp + 336], 0
                         mov              qword ptr [rsp + 344], 0
                         mov              dword ptr [rsp + 352], 0;            jmp   n67_var_α
-n53_disjunction_as:     mov              r11, 54
+.Ldisjunction_γ_53_as:  mov              r11, 54
                         mov              eax, dword ptr [rsp + 352]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_147_0
                         mov              rax, qword ptr [rsp + 368]
@@ -1100,7 +1100,7 @@ n62_assign_var_α:       mov              r11, 63
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n63_scan_α
                         mov              qword ptr [rsp + 224], rax
-                        mov              qword ptr [rsp + 232], rdx;          jmp   n25_disjunction_as
+                        mov              qword ptr [rsp + 232], rdx;          jmp   .Ldisjunction_γ_25_as
 n62_assign_var_β:       mov              r11, 63;                             jmp   n63_scan_α
                         .size            n62_assign_var_bx, .-n62_assign_var_bx
                         .type            n63_scan_bx, @function
@@ -1170,7 +1170,7 @@ n66_binop_test_α:       mov              r11, 67
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n53_disjunction_as
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldisjunction_γ_53_as
 n66_binop_test_β:       mov              r11, 67;                             jmp   n53_disjunction_af
                         .size            n66_binop_test_bx, .-n66_binop_test_bx
                         .type            n67_var_bx, @function
@@ -1191,7 +1191,7 @@ n68_unop_test_α:        mov              r11, 69
                         cmp              al, 104;                             je    n53_disjunction_af
                         cmp              eax, 0;                              jne   n53_disjunction_af
                         mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0;            jmp   n53_disjunction_as
+                        mov              qword ptr [rsp + 376], 0;            jmp   .Ldisjunction_γ_53_as
 n68_unop_test_β:        mov              r11, 69;                             jmp   n53_disjunction_af
                         .size            n68_unop_test_bx, .-n68_unop_test_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1782,10 +1782,10 @@ n00029_call_icon_α:       mov              r11, 96
                         mov              rax, qword ptr [rsp + 584]
                         mov              qword ptr [rsp + 552], rax
                         .section         .rodata
-.Lcall_icon_rkfn251:    .string          "write"
+.Lcall_icon_α_rkfn251:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn251]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn251]
                         lea              rsi, [rsp + 544]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1836,10 +1836,10 @@ n00031_call_icon_α:       mov              r11, 99
                         mov              rax, qword ptr [rsp + 376]
                         mov              qword ptr [rsp + 328], rax
                         .section         .rodata
-.Lcall_icon_rkfn255:    .string          "repl"
+.Lcall_icon_α_rkfn255:  .string          "repl"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn255]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn255]
                         lea              rsi, [rsp + 320]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2085,10 +2085,10 @@ n00045_call_icon_α:       mov              r11, 114
                         mov              rax, qword ptr [rsp + 88]
                         mov              qword ptr [rsp + 56], rax
                         .section         .rodata
-.Lcall_icon_rkfn275:    .string          "write"
+.Lcall_icon_α_rkfn275:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn275]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn275]
                         lea              rsi, [rsp + 48]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2181,10 +2181,10 @@ n00047_call_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00047_call_icon_α:       mov              r11, 115
                         .section         .rodata
-.Lcall_icon_rkfn314:    .string          "read"
+.Lcall_icon_α_rkfn314:  .string          "read"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn314]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn314]
                         lea              rsi, [rbp + -928]
                         mov              edx, 0
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2341,10 +2341,10 @@ n00056_call_icon_α:       mov              r11, 124
                         mov              rax, qword ptr [rbp + -296]
                         mov              qword ptr [rbp + -344], rax
                         .section         .rodata
-.Lcall_icon_rkfn325:    .string          "right"
+.Lcall_icon_α_rkfn325:  .string          "right"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn325]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn325]
                         lea              rsi, [rbp + -352]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2399,10 +2399,10 @@ n00060_call_icon_α:       mov              r11, 127
                         mov              rax, qword ptr [rbp + -360]
                         mov              qword ptr [rbp + -424], rax
                         .section         .rodata
-.Lcall_icon_rkfn330:    .string          "write"
+.Lcall_icon_α_rkfn330:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn330]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn330]
                         lea              rsi, [rbp + -432]
                         mov              edx, 3
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2438,10 +2438,10 @@ n00061_call_icon_α:       mov              r11, 129
                         mov              rax, qword ptr [rbp + -456]
                         mov              qword ptr [rbp + -488], rax
                         .section         .rodata
-.Lcall_icon_rkfn334:    .string          "map"
+.Lcall_icon_α_rkfn334:  .string          "map"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn334]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn334]
                         lea              rsi, [rbp + -496]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2686,7 +2686,7 @@ n00073_disjunction_α:     mov              r11, 142
                         mov              qword ptr [rbp + -736], 0
                         mov              qword ptr [rbp + -728], 0
                         mov              dword ptr [rbp + -720], 0;           jmp   n00076_var_α
-n00073_disjunction_as:    mov              r11, 142
+.Ldisjunction_γ_304_as: mov              r11, 142
                         mov              eax, dword ptr [rbp + -720]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_354_0
                                                                               jmp   n00077_conjunction_α
@@ -2946,10 +2946,10 @@ n00086_call_icon_α:       mov              r11, 154
                         mov              rax, qword ptr [rsp + 2856]
                         mov              qword ptr [rsp + 2824], rax
                         .section         .rodata
-.Lcall_icon_rkfn481:    .string          "string"
+.Lcall_icon_α_rkfn481:  .string          "string"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn481]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn481]
                         lea              rsi, [rsp + 2816]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2992,10 +2992,10 @@ n00084_call_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00084_call_icon_α:       mov              r11, 156
                         .section         .rodata
-.Lcall_icon_rkfn484:    .string          "table"
+.Lcall_icon_α_rkfn484:  .string          "table"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn484]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn484]
                         lea              rsi, [rsp + 2736]
                         mov              edx, 0
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3066,10 +3066,10 @@ n00092_call_icon_α:       mov              r11, 161
                         mov              rax, qword ptr [rsp + 296]
                         mov              qword ptr [rsp + 264], rax
                         .section         .rodata
-.Lcall_icon_rkfn492:    .string          "get"
+.Lcall_icon_α_rkfn492:  .string          "get"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn492]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn492]
                         lea              rsi, [rsp + 256]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3133,7 +3133,7 @@ n00097_disjunction_α:     mov              r11, 165
                         mov              qword ptr [rsp + 384], 0
                         mov              qword ptr [rsp + 392], 0
                         mov              dword ptr [rsp + 400], 0;            jmp   n00098_lit_string_α
-n00097_disjunction_as:    mov              r11, 165
+.Ldisjunction_γ_381_as: mov              r11, 165
                         mov              eax, dword ptr [rsp + 400]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_499_0
                         mov              rax, qword ptr [rsp + 2912]
@@ -3202,7 +3202,7 @@ n00099_scan_β:            mov              r11, 166
                         .type            n00103_conjunction_bx, @function
 n00103_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00103_conjunction_α:     mov              r11, 167;                            jmp   n00097_disjunction_as
+n00103_conjunction_α:     mov              r11, 167;                            jmp   .Ldisjunction_γ_381_as
 n00103_conjunction_β:     mov              r11, 167;                            jmp   n00101_scan_α
                         .size            n00103_conjunction_bx, .-n00103_conjunction_bx
                         .type            n00102_var_bx, @function
@@ -3237,10 +3237,10 @@ n00105_call_icon_α:       mov              r11, 170
                         mov              rax, qword ptr [rsp + 2664]
                         mov              qword ptr [rsp + 2616], rax
                         .section         .rodata
-.Lcall_icon_rkfn508:    .string          "put"
+.Lcall_icon_α_rkfn508:  .string          "put"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn508]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn508]
                         lea              rsi, [rsp + 2608]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3255,7 +3255,7 @@ n00105_call_icon_α:       mov              r11, 170
                         mov              qword ptr [rsp + 2592], rax
                         mov              qword ptr [rsp + 2600], rdx
                         cmp              al, 104;                             je    n00101_scan_α
-                                                                              jmp   n00097_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_381_as
 n00105_call_icon_β:       mov              r11, 170;                            jmp   n00101_scan_α
                         .size            n00105_call_icon_bx, .-n00105_call_icon_bx
                         .type            n00098_lit_string_bx, @function
@@ -3384,7 +3384,7 @@ n00112_disjunction_α:     mov              r11, 178
                         mov              qword ptr [rsp + 2240], 0
                         mov              qword ptr [rsp + 2248], 0
                         mov              dword ptr [rsp + 2256], 0;           jmp   n00113_lit_string_α
-n00112_disjunction_as:    mov              r11, 178
+.Ldisjunction_γ_394_as: mov              r11, 178
                         mov              eax, dword ptr [rsp + 2256]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_520_0
                         mov              rax, qword ptr [rsp + 2272]
@@ -3455,7 +3455,7 @@ n00100_disjunction_α:     mov              r11, 182
                         mov              qword ptr [rsp + 496], 0
                         mov              qword ptr [rsp + 504], 0
                         mov              dword ptr [rsp + 512], 0;            jmp   n00117_var_α
-n00100_disjunction_as:    mov              r11, 182
+.Ldisjunction_γ_398_as: mov              r11, 182
                         mov              eax, dword ptr [rsp + 512]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_526_0
                         mov              rax, qword ptr [rsp + 576]
@@ -3512,10 +3512,10 @@ n00121_call_icon_α:       mov              r11, 185
                         mov              rax, qword ptr [rsp + 2200]
                         mov              qword ptr [rsp + 2152], rax
                         .section         .rodata
-.Lcall_icon_rkfn531:    .string          "stop"
+.Lcall_icon_α_rkfn531:  .string          "stop"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn531]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn531]
                         lea              rsi, [rsp + 2144]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3530,7 +3530,7 @@ n00121_call_icon_α:       mov              r11, 185
                         mov              qword ptr [rsp + 2128], rax
                         mov              qword ptr [rsp + 2136], rdx
                         cmp              al, 104;                             je    n00114_lit_integer_α
-                                                                              jmp   n00100_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_398_as
 n00121_call_icon_β:       mov              r11, 185;                            jmp   n00114_lit_integer_α
                         .size            n00121_call_icon_bx, .-n00121_call_icon_bx
                         .type            n00117_var_bx, @function
@@ -3577,10 +3577,10 @@ n00123_call_builtin_gen_α:
                         mov              r11, qword ptr [rip + rtccb+64]
 .Lcall_builtin_gen_α_536_60:
                         .section         .rodata
-.Lcall_builtin_gen_bynamegenfn188: .string          "find"
+.Lcall_builtin_gen_α_bynamegenfn188: .string          "find"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_builtin_gen_bynamegenfn188]
+                        lea              rdi, [rip + .Lcall_builtin_gen_α_bynamegenfn188]
                         lea              rsi, [rsp + 2032]
                         mov              edx, 2
                         lea              rcx, [rsp + 2064]
@@ -3734,7 +3734,7 @@ n00118_disjunction_α:     mov              r11, 196
                         mov              qword ptr [rsp + 592], 0
                         mov              qword ptr [rsp + 600], 0
                         mov              dword ptr [rsp + 608], 0;            jmp   n00131_lit_charset_α
-n00118_disjunction_as:    mov              r11, 196
+.Ldisjunction_γ_412_as: mov              r11, 196
                         mov              eax, dword ptr [rsp + 608]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_548_0
                         mov              rax, qword ptr [rsp + 2960]
@@ -3775,7 +3775,7 @@ n00132_assign_var_α:      mov              r11, 197
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n00114_lit_integer_α
                         mov              qword ptr [rsp + 576], rax
-                        mov              qword ptr [rsp + 584], rdx;          jmp   n00100_disjunction_as
+                        mov              qword ptr [rsp + 584], rdx;          jmp   .Ldisjunction_γ_398_as
 n00132_assign_var_β:      mov              r11, 197;                            jmp   n00114_lit_integer_α
                         .size            n00132_assign_var_bx, .-n00132_assign_var_bx
                         .type            n00133_lit_integer_bx, @function
@@ -3784,7 +3784,7 @@ n00133_lit_integer_bx:
 n00133_lit_integer_α:     mov              r11, 198
                         mov              qword ptr [rsp + 1968], 3            # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_550_0]
-                        mov              qword ptr [rsp + 1976], rax;         jmp   n00118_disjunction_as
+                        mov              qword ptr [rsp + 1976], rax;         jmp   .Ldisjunction_γ_412_as
 n00133_lit_integer_β:     mov              r11, 198;                            jmp   n00114_lit_integer_α
 .Llit_integer_α_550_0:  .quad            1
                         .size            n00133_lit_integer_bx, .-n00133_lit_integer_bx
@@ -3890,10 +3890,10 @@ n00139_call_icon_α:       mov              r11, 205
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .rodata
-.Lcall_icon_bynamefn205: .string          "any"
+.Lcall_icon_α_bynamefn205: .string          "any"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_bynamefn205]
+                        lea              rdi, [rip + .Lcall_icon_α_bynamefn205]
                         lea              rsi, [rsp + 1808]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3931,7 +3931,7 @@ n00140_disjunction_α:     mov              r11, 206
                         mov              qword ptr [rsp + 1488], 0
                         mov              qword ptr [rsp + 1496], 0
                         mov              dword ptr [rsp + 1504], 0;           jmp   n00141_lit_string_α
-n00140_disjunction_as:    mov              r11, 206
+.Ldisjunction_γ_422_as: mov              r11, 206
                         mov              eax, dword ptr [rsp + 1504]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_561_0
                         mov              rax, qword ptr [rsp + 1520]
@@ -4003,10 +4003,10 @@ n00148_call_builtin_α:    mov              r11, 210
                         mov              rax, qword ptr [rsp + 664]
                         mov              qword ptr [rsp + 1448], rax
                         .section         .rodata
-.Lcall_builtin_rkfn567: .string          "IDENTICAL"
+.Lcall_builtin_α_rkfn567: .string          "IDENTICAL"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_builtin_rkfn567]
+                        lea              rdi, [rip + .Lcall_builtin_α_rkfn567]
                         lea              rsi, [rsp + 1440]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4066,10 +4066,10 @@ n00153_call_builtin_α:    mov              r11, 214
                         mov              rax, qword ptr [rsp + 664]
                         mov              qword ptr [rsp + 1336], rax
                         .section         .rodata
-.Lcall_builtin_rkfn573: .string          "IDENTICAL"
+.Lcall_builtin_α_rkfn573: .string          "IDENTICAL"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_builtin_rkfn573]
+                        lea              rdi, [rip + .Lcall_builtin_α_rkfn573]
                         lea              rsi, [rsp + 1328]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4094,7 +4094,7 @@ n00155_disjunction_α:     mov              r11, 215
                         mov              qword ptr [rsp + 1056], 0
                         mov              qword ptr [rsp + 1064], 0
                         mov              dword ptr [rsp + 1072], 0;           jmp   n00156_var_α
-n00155_disjunction_as:    mov              r11, 215
+.Ldisjunction_γ_431_as: mov              r11, 215
                         mov              eax, dword ptr [rsp + 1072]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_575_0
                         mov              rax, qword ptr [rsp + 1088]
@@ -4175,10 +4175,10 @@ n00161_call_icon_α:       mov              r11, 220
                         mov              rax, qword ptr [rsp + 1240]
                         mov              qword ptr [rsp + 1176], rax
                         .section         .rodata
-.Lcall_icon_rkfn582:    .string          "stop"
+.Lcall_icon_α_rkfn582:  .string          "stop"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn582]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn582]
                         lea              rsi, [rsp + 1168]
                         mov              edx, 3
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4193,7 +4193,7 @@ n00161_call_icon_α:       mov              r11, 220
                         mov              qword ptr [rsp + 1152], rax
                         mov              qword ptr [rsp + 1160], rdx
                         cmp              al, 104;                             je    n00155_disjunction_af
-                                                                              jmp   n00155_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_431_as
 n00161_call_icon_β:       mov              r11, 220;                            jmp   n00155_disjunction_af
                         .size            n00161_call_icon_bx, .-n00161_call_icon_bx
                         .type            n00156_var_bx, @function
@@ -4215,10 +4215,10 @@ n00162_call_icon_α:       mov              r11, 222
                         mov              rax, qword ptr [rsp + 1144]
                         mov              qword ptr [rsp + 1112], rax
                         .section         .rodata
-.Lcall_icon_rkfn586:    .string          "integer"
+.Lcall_icon_α_rkfn586:  .string          "integer"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn586]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn586]
                         lea              rsi, [rsp + 1104]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4233,7 +4233,7 @@ n00162_call_icon_α:       mov              r11, 222
                         mov              qword ptr [rsp + 1088], rax
                         mov              qword ptr [rsp + 1096], rdx
                         cmp              al, 104;                             je    n00155_disjunction_af
-                                                                              jmp   n00155_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_431_as
 n00162_call_icon_β:       mov              r11, 222;                            jmp   n00155_disjunction_af
                         .size            n00162_call_icon_bx, .-n00162_call_icon_bx
                         .type            n00154_lit_string_bx, @function
@@ -4260,10 +4260,10 @@ n00163_call_builtin_α:    mov              r11, 224
                         mov              rax, qword ptr [rsp + 664]
                         mov              qword ptr [rsp + 984], rax
                         .section         .rodata
-.Lcall_builtin_rkfn589: .string          "IDENTICAL"
+.Lcall_builtin_α_rkfn589: .string          "IDENTICAL"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_builtin_rkfn589]
+                        lea              rdi, [rip + .Lcall_builtin_α_rkfn589]
                         lea              rsi, [rsp + 976]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4288,7 +4288,7 @@ n00164_disjunction_α:     mov              r11, 225
                         mov              qword ptr [rsp + 704], 0
                         mov              qword ptr [rsp + 712], 0
                         mov              dword ptr [rsp + 720], 0;            jmp   n00165_var_α
-n00164_disjunction_as:    mov              r11, 225
+.Ldisjunction_γ_441_as: mov              r11, 225
                         mov              eax, dword ptr [rsp + 720]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_591_0
                         mov              rax, qword ptr [rsp + 736]
@@ -4336,7 +4336,7 @@ n00168_conjunction_α:     mov              r11, 228
                         mov              rax, qword ptr [rsp + 640]
                         mov              qword ptr [rsp + 624], rax
                         mov              rax, qword ptr [rsp + 648]
-                        mov              qword ptr [rsp + 632], rax;          jmp   n00118_disjunction_as
+                        mov              qword ptr [rsp + 632], rax;          jmp   .Ldisjunction_γ_412_as
 n00168_conjunction_β:     mov              r11, 228;                            jmp   n00114_lit_integer_α
                         .size            n00168_conjunction_bx, .-n00168_conjunction_bx
                         .type            n00167_lit_string_bx, @function
@@ -4388,10 +4388,10 @@ n00171_call_icon_α:       mov              r11, 232
                         mov              rax, qword ptr [rsp + 888]
                         mov              qword ptr [rsp + 824], rax
                         .section         .rodata
-.Lcall_icon_rkfn601:    .string          "stop"
+.Lcall_icon_α_rkfn601:  .string          "stop"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn601]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn601]
                         lea              rsi, [rsp + 816]
                         mov              edx, 3
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4406,7 +4406,7 @@ n00171_call_icon_α:       mov              r11, 232
                         mov              qword ptr [rsp + 800], rax
                         mov              qword ptr [rsp + 808], rdx
                         cmp              al, 104;                             je    n00164_disjunction_af
-                                                                              jmp   n00164_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_441_as
 n00171_call_icon_β:       mov              r11, 232;                            jmp   n00164_disjunction_af
                         .size            n00171_call_icon_bx, .-n00171_call_icon_bx
                         .type            n00165_var_bx, @function
@@ -4428,10 +4428,10 @@ n00172_call_icon_α:       mov              r11, 234
                         mov              rax, qword ptr [rsp + 792]
                         mov              qword ptr [rsp + 760], rax
                         .section         .rodata
-.Lcall_icon_rkfn605:    .string          "real"
+.Lcall_icon_α_rkfn605:  .string          "real"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn605]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn605]
                         lea              rsi, [rsp + 752]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4446,7 +4446,7 @@ n00172_call_icon_α:       mov              r11, 234
                         mov              qword ptr [rsp + 736], rax
                         mov              qword ptr [rsp + 744], rdx
                         cmp              al, 104;                             je    n00164_disjunction_af
-                                                                              jmp   n00164_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_441_as
 n00172_call_icon_β:       mov              r11, 234;                            jmp   n00164_disjunction_af
                         .size            n00172_call_icon_bx, .-n00172_call_icon_bx
                         .type            n00145_lit_string_bx, @function
@@ -4483,10 +4483,10 @@ n00174_call_icon_α:       mov              r11, 237
                         mov              rax, qword ptr [rsp + 1752]
                         mov              qword ptr [rsp + 1704], rax
                         .section         .rodata
-.Lcall_icon_rkfn610:    .string          "stop"
+.Lcall_icon_α_rkfn610:  .string          "stop"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn610]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn610]
                         lea              rsi, [rsp + 1696]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4501,7 +4501,7 @@ n00174_call_icon_α:       mov              r11, 237
                         mov              qword ptr [rsp + 1680], rax
                         mov              qword ptr [rsp + 1688], rdx
                         cmp              al, 104;                             je    n00140_disjunction_af
-                                                                              jmp   n00140_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_422_as
 n00174_call_icon_β:       mov              r11, 237;                            jmp   n00140_disjunction_af
                         .size            n00174_call_icon_bx, .-n00174_call_icon_bx
                         .type            n00144_var_bx, @function
@@ -4523,10 +4523,10 @@ n00175_call_icon_α:       mov              r11, 239
                         mov              rax, qword ptr [rsp + 1672]
                         mov              qword ptr [rsp + 1640], rax
                         .section         .rodata
-.Lcall_icon_rkfn614:    .string          "get"
+.Lcall_icon_α_rkfn614:  .string          "get"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn614]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn614]
                         lea              rsi, [rsp + 1632]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4541,7 +4541,7 @@ n00175_call_icon_α:       mov              r11, 239
                         mov              qword ptr [rsp + 1616], rax
                         mov              qword ptr [rsp + 1624], rdx
                         cmp              al, 104;                             je    n00140_disjunction_af
-                                                                              jmp   n00140_disjunction_as
+                                                                              jmp   .Ldisjunction_γ_422_as
 n00175_call_icon_β:       mov              r11, 239;                            jmp   n00140_disjunction_af
                         .size            n00175_call_icon_bx, .-n00175_call_icon_bx
                         .type            n00141_lit_string_bx, @function
@@ -4627,7 +4627,7 @@ n00177_binop_test_α:      mov              r11, 243
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00140_disjunction_as
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldisjunction_γ_422_as
 n00177_binop_test_β:      mov              r11, 243;                            jmp   n00143_scan_tab_β
                         .size            n00177_binop_test_bx, .-n00177_binop_test_bx
                         .type            n00101_scan_bx, @function
@@ -4813,10 +4813,10 @@ n00187_call_icon_α:       mov              r11, 256
                         mov              rax, qword ptr [rsp + 200]
                         mov              qword ptr [rsp + 168], rax
                         .section         .rodata
-.Lcall_icon_rkfn640:    .string          "pull"
+.Lcall_icon_α_rkfn640:  .string          "pull"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn640]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn640]
                         lea              rsi, [rsp + 160]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4847,10 +4847,10 @@ n00189_call_icon_α:       mov              r11, 257
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 88], rax
                         .section         .rodata
-.Lcall_icon_rkfn642:    .string          "push"
+.Lcall_icon_α_rkfn642:  .string          "push"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn642]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn642]
                         lea              rsi, [rsp + 80]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5092,7 +5092,7 @@ n00196_disjunction_α:     mov              r11, 265
                         mov              qword ptr [rsp + 112], 0
                         mov              qword ptr [rsp + 120], 0
                         mov              dword ptr [rsp + 128], 0;            jmp   n00197_lit_string_α
-n00196_disjunction_as:    mov              r11, 265
+.Ldisjunction_γ_652_as: mov              r11, 265
                         mov              eax, dword ptr [rsp + 128]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_677_0
                                                                               jmp   n00198_var_α
@@ -5216,7 +5216,7 @@ n00205_return_α:          mov              r11, 273
                         .type            n00206_conjunction_bx, @function
 n00206_conjunction_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00206_conjunction_α:     mov              r11, 274;                            jmp   n00196_disjunction_as
+n00206_conjunction_α:     mov              r11, 274;                            jmp   .Ldisjunction_γ_652_as
 n00206_conjunction_β:     mov              r11, 274;                            jmp   n00198_var_α
                         .size            n00206_conjunction_bx, .-n00206_conjunction_bx
                         .type            n00197_lit_string_bx, @function
@@ -5240,10 +5240,10 @@ n00207_call_icon_α:       mov              r11, 276
                         mov              rax, qword ptr [rsp + 296]
                         mov              qword ptr [rsp + 264], rax
                         .section         .rodata
-.Lcall_icon_rkfn689:    .string          "getenv"
+.Lcall_icon_α_rkfn689:  .string          "getenv"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn689]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn689]
                         lea              rsi, [rsp + 256]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5281,10 +5281,10 @@ n00209_call_icon_α:       mov              r11, 278
                         mov              rax, qword ptr [rsp + 216]
                         mov              qword ptr [rsp + 184], rax
                         .section         .rodata
-.Lcall_icon_rkfn692:    .string          "write"
+.Lcall_icon_α_rkfn692:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn692]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn692]
                         lea              rsi, [rsp + 176]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5374,7 +5374,7 @@ n00211_disjunction_α:     mov              r11, 280
                         mov              qword ptr [rsp + 272], 0
                         mov              qword ptr [rsp + 280], 0
                         mov              dword ptr [rsp + 288], 0;            jmp   n00212_lit_string_α
-n00211_disjunction_as:    mov              r11, 280
+.Ldisjunction_γ_695_as: mov              r11, 280
                         mov              eax, dword ptr [rsp + 288]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_713_0
                         mov              rax, qword ptr [rsp + 320]
@@ -5409,10 +5409,10 @@ n00214_call_icon_α:       mov              r11, 282
                         mov              rax, qword ptr [rsp + 456]
                         mov              qword ptr [rsp + 424], rax
                         .section         .rodata
-.Lcall_icon_rkfn716:    .string          "getenv"
+.Lcall_icon_α_rkfn716:  .string          "getenv"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn716]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn716]
                         lea              rsi, [rsp + 416]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5501,7 +5501,7 @@ n00220_conjunction_α:     mov              r11, 288
                         mov              rax, qword ptr [rsp + 320]
                         mov              qword ptr [rsp + 304], rax
                         mov              rax, qword ptr [rsp + 328]
-                        mov              qword ptr [rsp + 312], rax;          jmp   n00211_disjunction_as
+                        mov              qword ptr [rsp + 312], rax;          jmp   .Ldisjunction_γ_695_as
 n00220_conjunction_β:     mov              r11, 288;                            jmp   n00213_var_α
                         .size            n00220_conjunction_bx, .-n00220_conjunction_bx
                         .type            n00213_var_bx, @function
@@ -5578,10 +5578,10 @@ n00224_call_icon_α:       mov              r11, 292
                         mov              rax, qword ptr [rsp + 200]
                         mov              qword ptr [rsp + 136], rax
                         .section         .rodata
-.Lcall_icon_rkfn728:    .string          "write"
+.Lcall_icon_α_rkfn728:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn728]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn728]
                         lea              rsi, [rsp + 128]
                         mov              edx, 3
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5767,7 +5767,7 @@ n00228_disjunction_α:     mov              r11, 297
                         mov              qword ptr [rsp + 640], 0
                         mov              qword ptr [rsp + 648], 0
                         mov              dword ptr [rsp + 656], 0;            jmp   n00229_var_ref_α
-n00228_disjunction_as:    mov              r11, 297
+.Ldisjunction_γ_737_as: mov              r11, 297
                         mov              eax, dword ptr [rsp + 656]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_775_0
                         mov              rax, qword ptr [rsp + 672]
@@ -5855,10 +5855,10 @@ n00235_call_icon_α:       mov              r11, 302
                         mov              rax, qword ptr [rsp + 584]
                         mov              qword ptr [rsp + 536], rax
                         .section         .rodata
-.Lcall_icon_rkfn783:    .string          "put"
+.Lcall_icon_α_rkfn783:  .string          "put"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn783]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn783]
                         lea              rsi, [rsp + 528]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5896,10 +5896,10 @@ n00236_call_icon_α:       mov              r11, 304
                         mov              rax, qword ptr [rsp + 488]
                         mov              qword ptr [rsp + 456], rax
                         .section         .rodata
-.Lcall_icon_rkfn786:    .string          "write"
+.Lcall_icon_α_rkfn786:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn786]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn786]
                         lea              rsi, [rsp + 448]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6139,10 +6139,10 @@ n00254_call_icon_α:       mov              r11, 320
                         mov              rax, qword ptr [rsp + 408]
                         mov              qword ptr [rsp + 312], rax
                         .section         .rodata
-.Lcall_icon_rkfn809:    .string          "right"
+.Lcall_icon_α_rkfn809:  .string          "right"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn809]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn809]
                         lea              rsi, [rsp + 304]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6173,10 +6173,10 @@ n00255_call_icon_α:       mov              r11, 321
                         mov              rax, qword ptr [rsp + 280]
                         mov              qword ptr [rsp + 184], rax
                         .section         .rodata
-.Lcall_icon_rkfn811:    .string          "write"
+.Lcall_icon_α_rkfn811:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn811]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn811]
                         lea              rsi, [rsp + 176]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6355,7 +6355,7 @@ n00264_assign_α:          mov              r11, 333
                         mov              qword ptr [r9 + 112], rax            # Collections____STATIC__labels
                         mov              qword ptr [r9 + 120], rdx
                         mov              qword ptr [rsp + 672], rax
-                        mov              qword ptr [rsp + 680], rdx;          jmp   n00228_disjunction_as
+                        mov              qword ptr [rsp + 680], rdx;          jmp   .Ldisjunction_γ_737_as
 n00264_assign_β:          mov              r11, 333;                            jmp   n00230_make_list_α
                         .size            n00264_assign_bx, .-n00264_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6410,7 +6410,7 @@ n00265_disjunction_α:     mov              r11, 334
                         mov              qword ptr [rsp + 640], 0
                         mov              qword ptr [rsp + 648], 0
                         mov              dword ptr [rsp + 656], 0;            jmp   n00266_var_ref_α
-n00265_disjunction_as:    mov              r11, 334
+.Ldisjunction_γ_828_as: mov              r11, 334
                         mov              eax, dword ptr [rsp + 656]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_865_0
                         mov              rax, qword ptr [rsp + 672]
@@ -6498,10 +6498,10 @@ n00272_call_icon_α:       mov              r11, 339
                         mov              rax, qword ptr [rsp + 584]
                         mov              qword ptr [rsp + 536], rax
                         .section         .rodata
-.Lcall_icon_rkfn873:    .string          "put"
+.Lcall_icon_α_rkfn873:  .string          "put"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn873]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn873]
                         lea              rsi, [rsp + 528]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6539,10 +6539,10 @@ n00273_call_icon_α:       mov              r11, 341
                         mov              rax, qword ptr [rsp + 488]
                         mov              qword ptr [rsp + 456], rax
                         .section         .rodata
-.Lcall_icon_rkfn876:    .string          "write"
+.Lcall_icon_α_rkfn876:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn876]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn876]
                         lea              rsi, [rsp + 448]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6782,10 +6782,10 @@ n00291_call_icon_α:       mov              r11, 357
                         mov              rax, qword ptr [rsp + 408]
                         mov              qword ptr [rsp + 312], rax
                         .section         .rodata
-.Lcall_icon_rkfn899:    .string          "right"
+.Lcall_icon_α_rkfn899:  .string          "right"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn899]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn899]
                         lea              rsi, [rsp + 304]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6816,10 +6816,10 @@ n00292_call_icon_α:       mov              r11, 358
                         mov              rax, qword ptr [rsp + 280]
                         mov              qword ptr [rsp + 184], rax
                         .section         .rodata
-.Lcall_icon_rkfn901:    .string          "write"
+.Lcall_icon_α_rkfn901:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn901]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn901]
                         lea              rsi, [rsp + 176]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6983,7 +6983,7 @@ n00300_assign_α:          mov              r11, 369
                         mov              qword ptr [r9 + 144], rax            # Regions____STATIC__labels
                         mov              qword ptr [r9 + 152], rdx
                         mov              qword ptr [rsp + 672], rax
-                        mov              qword ptr [rsp + 680], rdx;          jmp   n00265_disjunction_as
+                        mov              qword ptr [rsp + 680], rdx;          jmp   .Ldisjunction_γ_828_as
 n00300_assign_β:          mov              r11, 369;                            jmp   n00267_make_list_α
                         .size            n00300_assign_bx, .-n00300_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7053,10 +7053,10 @@ n00303_call_icon_α:       mov              r11, 371
                         mov              rax, qword ptr [rsp + 232]
                         mov              qword ptr [rsp + 200], rax
                         .section         .rodata
-.Lcall_icon_rkfn926:    .string          "write"
+.Lcall_icon_α_rkfn926:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn926]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn926]
                         lea              rsi, [rsp + 192]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7103,10 +7103,10 @@ n00305_call_icon_α:       mov              r11, 373
                         mov              rax, qword ptr [rsp + 152]
                         mov              qword ptr [rsp + 120], rax
                         .section         .rodata
-.Lcall_icon_rkfn929:    .string          "write"
+.Lcall_icon_α_rkfn929:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn929]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn929]
                         lea              rsi, [rsp + 112]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7159,10 +7159,10 @@ n00307_call_icon_α:       mov              r11, 375
                         mov              rax, qword ptr [rsp + 72]
                         mov              qword ptr [rsp + 40], rax
                         .section         .rodata
-.Lcall_icon_rkfn932:    .string          "write"
+.Lcall_icon_α_rkfn932:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn932]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn932]
                         lea              rsi, [rsp + 32]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7237,7 +7237,7 @@ n00308_disjunction_α:     mov              r11, 377
                         mov              qword ptr [rsp + 640], 0
                         mov              qword ptr [rsp + 648], 0
                         mov              dword ptr [rsp + 656], 0;            jmp   n00309_var_ref_α
-n00308_disjunction_as:    mov              r11, 377
+.Ldisjunction_γ_935_as: mov              r11, 377
                         mov              eax, dword ptr [rsp + 656]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_972_0
                         mov              rax, qword ptr [rsp + 672]
@@ -7325,10 +7325,10 @@ n00315_call_icon_α:       mov              r11, 382
                         mov              rax, qword ptr [rsp + 584]
                         mov              qword ptr [rsp + 536], rax
                         .section         .rodata
-.Lcall_icon_rkfn980:    .string          "put"
+.Lcall_icon_α_rkfn980:  .string          "put"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn980]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn980]
                         lea              rsi, [rsp + 528]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7366,10 +7366,10 @@ n00316_call_icon_α:       mov              r11, 384
                         mov              rax, qword ptr [rsp + 488]
                         mov              qword ptr [rsp + 456], rax
                         .section         .rodata
-.Lcall_icon_rkfn983:    .string          "write"
+.Lcall_icon_α_rkfn983:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn983]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn983]
                         lea              rsi, [rsp + 448]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7609,10 +7609,10 @@ n00334_call_icon_α:       mov              r11, 400
                         mov              rax, qword ptr [rsp + 408]
                         mov              qword ptr [rsp + 312], rax
                         .section         .rodata
-.Lcall_icon_rkfn1006:   .string          "right"
+.Lcall_icon_α_rkfn1006: .string          "right"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1006]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1006]
                         lea              rsi, [rsp + 304]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7643,10 +7643,10 @@ n00335_call_icon_α:       mov              r11, 401
                         mov              rax, qword ptr [rsp + 280]
                         mov              qword ptr [rsp + 184], rax
                         .section         .rodata
-.Lcall_icon_rkfn1008:   .string          "write"
+.Lcall_icon_α_rkfn1008: .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1008]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1008]
                         lea              rsi, [rsp + 176]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7813,7 +7813,7 @@ n00343_assign_α:          mov              r11, 412
                         mov              qword ptr [r9 + 176], rax            # Storage____STATIC__labels
                         mov              qword ptr [r9 + 184], rdx
                         mov              qword ptr [rsp + 672], rax
-                        mov              qword ptr [rsp + 680], rdx;          jmp   n00308_disjunction_as
+                        mov              qword ptr [rsp + 680], rdx;          jmp   .Ldisjunction_γ_935_as
 n00343_assign_β:          mov              r11, 412;                            jmp   n00310_make_list_α
                         .size            n00343_assign_bx, .-n00343_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7861,7 +7861,8 @@ n00344_disjunction_α:    mov              r11, 413
                         mov              qword ptr [rsp + 112], 0
                         mov              qword ptr [rsp + 120], 0
                         mov              dword ptr [rsp + 128], 0;            jmp   n00345_var_ref_α
-n00344_disjunction_as:   mov              r11, 413
+.Ldisjunction_γ_1024_as:
+                        mov              r11, 413
                         mov              eax, dword ptr [rsp + 128]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_1038_0
                         mov              rax, qword ptr [rsp + 144]
@@ -8104,7 +8105,7 @@ n00356_assign_α:         mov              r11, 425
                         mov              qword ptr [r9 + 208], rax            # Time____STATIC__lasttime
                         mov              qword ptr [r9 + 216], rdx
                         mov              qword ptr [rsp + 144], rax
-                        mov              qword ptr [rsp + 152], rdx;          jmp   n00344_disjunction_as
+                        mov              qword ptr [rsp + 152], rdx;          jmp   .Ldisjunction_γ_1024_as
 n00356_assign_β:         mov              r11, 425;                            jmp   n00346_kw_icon_α
                         .size            n00356_assign_bx, .-n00356_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -8158,6 +8159,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "uses"
@@ -8333,7 +8335,8 @@ n00362_disjunction_α:    mov              r11, 432
                         mov              qword ptr [rsp + 832], 0
                         mov              qword ptr [rsp + 840], 0
                         mov              dword ptr [rsp + 848], 0;            jmp   n00364_var_ref_α
-n00362_disjunction_as:   mov              r11, 432
+.Ldisjunction_γ_1061_as:
+                        mov              r11, 432
                         mov              eax, dword ptr [rsp + 848]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_1110_0
                         mov              rax, qword ptr [rsp + 864]
@@ -8372,7 +8375,8 @@ n00367_disjunction_α:    mov              r11, 434
                         mov              qword ptr [rsp + 688], 0
                         mov              qword ptr [rsp + 696], 0
                         mov              dword ptr [rsp + 704], 0;            jmp   n00368_var_ref_α
-n00367_disjunction_as:   mov              r11, 434
+.Ldisjunction_γ_1063_as:
+                        mov              r11, 434
                         mov              eax, dword ptr [rsp + 704]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_1113_0
                         mov              rax, qword ptr [rsp + 720]
@@ -8425,10 +8429,10 @@ n00372_call_icon_α:      mov              r11, 437
                         mov              rax, qword ptr [rsp + 664]
                         mov              qword ptr [rsp + 632], rax
                         .section         .rodata
-.Lcall_icon_rkfn1117:   .string          "table"
+.Lcall_icon_α_rkfn1117: .string          "table"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1117]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1117]
                         lea              rsi, [rsp + 624]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8655,10 +8659,10 @@ n00381_call_icon_α:      mov              r11, 446
                         mov              rax, qword ptr [rsp + 440]
                         mov              qword ptr [rsp + 392], rax
                         .section         .rodata
-.Lcall_icon_rkfn1129:   .string          "sort"
+.Lcall_icon_α_rkfn1129: .string          "sort"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1129]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1129]
                         lea              rsi, [rsp + 384]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8703,10 +8707,10 @@ n00384_call_icon_α:      mov              r11, 449
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 104], rax
                         .section         .rodata
-.Lcall_icon_rkfn1134:   .string          "get"
+.Lcall_icon_α_rkfn1134: .string          "get"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1134]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1134]
                         lea              rsi, [rsp + 96]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8764,10 +8768,10 @@ n00389_call_icon_α:      mov              r11, 453
                         mov              rax, qword ptr [rsp + 280]
                         mov              qword ptr [rsp + 232], rax
                         .section         .rodata
-.Lcall_icon_rkfn1140:   .string          "left"
+.Lcall_icon_α_rkfn1140: .string          "left"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1140]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1140]
                         lea              rsi, [rsp + 224]
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8803,10 +8807,10 @@ n00391_call_icon_α:      mov              r11, 455
                         mov              rax, qword ptr [rsp + 360]
                         mov              qword ptr [rsp + 328], rax
                         .section         .rodata
-.Lcall_icon_rkfn1144:   .string          "get"
+.Lcall_icon_α_rkfn1144: .string          "get"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn1144]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn1144]
                         lea              rsi, [rsp + 320]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8924,7 +8928,7 @@ n00370_lit_integer_bx:
 n00370_lit_integer_α:    mov              r11, 459
                         mov              qword ptr [rsp + 816], 3             # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_1150_0]
-                        mov              qword ptr [rsp + 824], rax;          jmp   n00367_disjunction_as
+                        mov              qword ptr [rsp + 824], rax;          jmp   .Ldisjunction_γ_1063_as
 n00370_lit_integer_β:    mov              r11, 459;                            jmp   n00367_disjunction_af
 .Llit_integer_α_1150_0: .quad            15
                         .size            n00370_lit_integer_bx, .-n00370_lit_integer_bx
@@ -8998,7 +9002,7 @@ n00397_unop_test_α:      mov              r11, 464
                         mov              rax, qword ptr [rsp + 800]
                         mov              qword ptr [rsp + 720], rax
                         mov              rax, qword ptr [rsp + 808]
-                        mov              qword ptr [rsp + 728], rax;          jmp   n00367_disjunction_as
+                        mov              qword ptr [rsp + 728], rax;          jmp   .Ldisjunction_γ_1063_as
 n00397_unop_test_β:      mov              r11, 464;                            jmp   n00367_disjunction_af
                         .size            n00397_unop_test_bx, .-n00397_unop_test_bx
                         .type            n00366_lit_integer_bx, @function
@@ -9007,7 +9011,7 @@ n00366_lit_integer_bx:
 n00366_lit_integer_α:    mov              r11, 465
                         mov              qword ptr [rsp + 960], 3             # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_1157_0]
-                        mov              qword ptr [rsp + 968], rax;          jmp   n00362_disjunction_as
+                        mov              qword ptr [rsp + 968], rax;          jmp   .Ldisjunction_γ_1061_as
 n00366_lit_integer_β:    mov              r11, 465;                            jmp   n00362_disjunction_af
 .Llit_integer_α_1157_0: .quad            72
                         .size            n00366_lit_integer_bx, .-n00366_lit_integer_bx
@@ -9081,7 +9085,7 @@ n00401_unop_test_α:      mov              r11, 470
                         mov              rax, qword ptr [rsp + 944]
                         mov              qword ptr [rsp + 864], rax
                         mov              rax, qword ptr [rsp + 952]
-                        mov              qword ptr [rsp + 872], rax;          jmp   n00362_disjunction_as
+                        mov              qword ptr [rsp + 872], rax;          jmp   .Ldisjunction_γ_1061_as
 n00401_unop_test_β:      mov              r11, 470;                            jmp   n00362_disjunction_af
                         .size            n00401_unop_test_bx, .-n00401_unop_test_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9156,6 +9160,9 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        mov              esi, 976
+                        call             rt_proc_set_gen_region_ft@PLT
                         .section         .rodata
 .Lstartup_pname3:       .string          "options"
                         .align           8

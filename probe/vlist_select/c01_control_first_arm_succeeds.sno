@@ -1,4 +1,0 @@
-        x =
-        OUTPUT = 'a=' (IDENT(x) 0, 5)
-        OUTPUT = 'b=' (LT(1,2) 7, 9)
-END

@@ -1,6 +1,0 @@
-procedure main();
-   local s;
-   s := "-n10";
-   s ? { if ="-" then write("blk1 matched"); };
-   s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]"); };
-end

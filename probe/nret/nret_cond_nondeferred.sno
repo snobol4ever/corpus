@@ -1,7 +1,0 @@
-        DEFINE('F()')                    :(FEND)
-F       F = .dummy                       :(NRETURN)
-FEND
-        'ABCDE' ? LEN(2) . F()           :F(B1)
-        OUTPUT = 'B dummy=' dummy        :(END)
-B1      OUTPUT = 'B NOMATCH'
-END

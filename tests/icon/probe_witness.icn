@@ -1,0 +1,133 @@
+#----------------------------------------- 1 witness_icn_argslot_collision_count
+#  Exactly ONE operand is lost per scan-family call (one 16B carve = one 16B slot),
+#  and the damage COMPOUNDS with multiple scan calls in one list.
+#  Line 1 oracle: ABC112D   (only "C", the immediate predecessor, is lost)
+#  Line 2 oracle: A1B12     (two carves, two victims)
+procedure main();
+   "112 xy" ? { write("A", "B", "C", tab(4), "D"); };
+   "112 xy" ? { write("A", tab(2), "B", tab(4)); };
+end
+#----------------------------------------- 2 witness_icn_argslot_collision_match
+#  Same collision via match() -- a POSITION-RETURNER, not a cursor-mover.  This
+#  falsifies the s231 characterization ("literal preceding a CURSOR-MOVER").
+#  The affected set is exactly {tab, move, match}: the three carve-compensated
+#  sites (emit.cpp:1230/1231/1236).  many/any/upto/find/bal/pos are all clean.
+#  Oracle: A4C
+procedure main();
+   "112 xy" ? { write("A", match("112"), "C"); };
+end
+#-------------------------------------- 3 witness_icn_argslot_collision_nonwrite
+#  Not write()-specific and not literal-specific: a user-defined procedure loses
+#  its argument, a LIST CONSTRUCTOR loses its element, and a VARIABLE operand is
+#  lost just as a literal is.
+#  Line 3 note: hoisting the scan call out (x := tab(4)) does NOT reliably avoid
+#  the defect -- measured SCRIP "C112C" vs oracle "A112C", i.e. the shifted read
+#  picked up a neighbouring slot rather than dropping to empty.  Hoisting helped
+#  in the /tmp probe where BOTH the literal and the read were staged post-carve;
+#  it does not help when the operand was written pre-carve.  Do not record
+#  "hoist to a variable" as a workaround without re-measuring the exact shape.
+#  Oracle:  f:A/112/C  |  A 112 C  |  A112C
+procedure f(a, b, c);
+   write("f:", a, "/", b, "/", c);
+end
+procedure main();
+   local L, v, x;
+   "112 xy" ? { f("A", tab(4), "C"); };
+   "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]); };
+   v := "A";
+   "112 xy" ? { x := tab(4); write(v, x, "C"); };
+end
+#------------------------------------------- 4 witness_icn_argslot_collision_tab
+#  The operand immediately preceding a scan-family call in an argument list is
+#  DESTROYED.  Mechanism: the box carves 16B at alpha (sub rsp,16) and then writes
+#  its result at its assigned rsp-relative slot -- post-carve, so the store lands
+#  16 bytes low, exactly on the slot of the box allocated immediately before it.
+#  Slots are handed out in sequential 16B units, so the victim is deterministic.
+#  Oracle: A112C
+procedure main();
+   "112 xy" ? { write("A", tab(4), "C"); };
+end
+#------------------------------------------------ 5 witness_icn_carve_leak_lucky
+procedure main();
+   local s;
+   s := "-n10";
+   s ? { tab(2); };
+   write("s=[", s, "] *s=", *s);
+end
+#---------------------------------------------- 6 witness_icn_carve_leak_subject
+procedure main();
+   local s;
+   s := "-n10";
+   s ? { if ="-" then write("blk1 matched"); };
+   s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]"); };
+end
+#-------------------------------------------------- 7 witness_icn_carve_leak_var
+procedure main();
+   local s;
+   s := "-n10";
+   s ? { tab(match("-")); };
+   write("s=[", s, "] *s=", *s);
+end
+#----------------------------------------- 8 witness_icn_frameslot_shift_options
+# WITNESS: the ROOT BLOCKER of 7 of 8 headline Icon benchmarks, minimized.
+# ipl options() does `x ? { if ="-" ... while c := move(1) ... find(c,optstring) }`.
+# The tab(match) carve corrupts the `optstring` PARAMETER to "" before find()
+# reads it; because "" is non-null the `/optstring := string(&letters)` default
+# never fires, find() searches an empty string, and every option is rejected.
+# Oracle-verified against Arizona Icon 9.5.25a.
+procedure opts(arg,optstring);
+   local c;
+   arg ? {
+      if ="-" then {
+         while c := move(1) do
+            write("c=",image(c)," optstring=",image(optstring),
+                  " find=",image(find(c,optstring)));
+      };
+   };
+end
+procedure main();
+   opts("-n10","n+");
+end
+#------------------------------------------- 9 witness_icn_frameslot_shift_param
+# WITNESS: scan-family FORTH carve shifts live PARAMETER slots (Z-3/Z-4 class).
+# `="-"` desugars to tab(match("-")) = TWO scan-family boxes = two 16B carves.
+# Every later rsp-relative param read is then 32 bytes (2 DESCRs) low:
+# r returns p's value, s returns q's, and p/q read off the end as ""/&null.
+# Extends the s234b argument-slot collision finding: the victims are not only
+# operand-list slots but LIVE PARAMETER slots of the enclosing activation.
+procedure t(p,q,r,s);
+   write("entry:       p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
+   p ? {
+      if ="-" then
+         write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
+   };
+end
+procedure main();
+   t("-n10","AA","BB","CC");
+end
+#-------------------------------------- 10 witness_icn_options_dash_branch XFAIL
+procedure main(args);
+   local r;
+   r := opt2(args);
+   write("flist size=", *r);
+end
+procedure opt2(arg);
+   local x,i,c,otab,flist,o,p;
+   otab := table();
+   flist := [];
+   while x := get(arg) do
+      x ? {
+         if ="-" & not pos(0) then {
+            write("dash");
+            }
+         else put(flist,x)
+         };
+   return flist;
+end
+#----------------------------------------------- 11 witness_icn_pos0_stale_delta
+procedure main();
+   local s;
+   s := "-n10";
+   s ? { if ="-" then write("A match"); };
+   s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N"); };
+end

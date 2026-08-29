@@ -1,0 +1,123 @@
+*---------------------------------------------------------- 1 kw_bare_names_null
+MAXLNGTH=[]
+TRACE=[]
+STCOUNT=[]
+STNO=[]
+ANCHOR=[]
+TRIM=[]
+FULLSCAN=[]
+ERRLIMIT=[]
+*-------------------------------------------------------------- 2 kw_bare_shadow
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+DT-STCOUNT=STRING
+DT-ANCHOR=STRING
+bare-after-assign=[mine]
+kw-still=0
+*---------------------------------------------------------------- 3 kw_datatypes
+ALPHABET=STRING 256
+UCASE=STRING 26
+LCASE=STRING 26
+ARB=PATTERN
+BAL=PATTERN
+REM=PATTERN
+FAIL=PATTERN
+FENCE=PATTERN
+ABORT=PATTERN
+SUCCEED=PATTERN
+RTNTYPE=STRING
+STCOUNT=INTEGER
+UCASE-val=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+LCASE-val=abcdefghijklmnopqrstuvwxyz
+*----------------------------------------------------------------- 4 kw_defaults
+ANCHOR=0
+TRIM=1
+CASE=0
+CODE=0
+DUMP=0
+ERRLIMIT=0
+ERRTYPE=0
+FTRACE=0
+FULLSCAN=1
+MAXLNGTH=16777216
+STLIMIT=2147483647
+TRACE=0
+ABEND=0
+INPUT=1
+OUTPUT=1
+PROFILE=0
+COMPARE=0
+FNCLEVEL=0
+RTNTYPE=[]
+ERRTEXT=[]
+*-------------------------------------------------------------- 5 kw_direct_read
+anchor=1
+trim=1
+errlimit=5
+errtype=0
+stcount=7
+case=0
+alpha=256
+*----------------------------------------------------------- 6 kw_errtext_string
+str=[a custom message]
+str_dt=STRING
+int=[5]
+int_dt=STRING
+nul=[]
+still running
+*----------------------------------------------------------- 7 kw_errtype_signal
+zero-failed type=0
+errlimit=99
+failed type=999 errlimit=98 text=[MINE]
+end
+*----------------------------------------------------------- 8 kw_maxlngth_floor
+maxlngth-1023-failed errtype=287 value assigned to keyword maxlngth is too small
+maxlngth-1024-ok val=1024
+maxlngth-neg-failed errtype=210
+end
+*----------------------------------------------------------- 9 kw_pattern_family
+ARB-match=ab
+REM-match=ef
+BAL-read=PATTERN
+FAIL-read=PATTERN
+FENCE-read=PATTERN
+ABORT-read=PATTERN
+SUCCEED-read=PATTERN
+PATTERN-KEYWORDS-OK
+*--------------------------------------------------------- 10 kw_protected_write
+STCOUNT-assign-failed errtype=209 keyword in assignment is protected
+ALPHABET-assign-failed errtype=208
+FNCLEVEL-assign-failed errtype=209
+ANCHOR-assign-ok val=1
+end
+*------------------------------------------------------------- 11 kw_range_value
+anchor-neg-failed errtype=210 keyword value assigned is negative or too large
+anchor-2p24-ok val=16777216
+anchor-over-failed errtype=210
+stlimit-neg-ok val=-1
+stlimit-big-ok val=2147483647
+profile-0-ok val=0
+profile-3-failed errtype=210
+end
+*---------------------------------------------------------- 12 kw_unset_datatype
+unset-var=STRING
+null-lit=STRING
+assigned-null=STRING
+nonnull=STRING
+*------------------------------------------------------ 13 kw_write_not_constant
+start
+case=0
+errlimit=0
+still running

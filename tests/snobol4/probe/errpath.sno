@@ -1,0 +1,21 @@
+*------------------------------------------------------------- 1 subscript_range
+*  probe: array index beyond its declared bounds
+        &ERRLIMIT = 100
+        cells = ARRAY('1:3')
+        cells[7] = 99                             :F(fail1)
+        OUTPUT = 'accepted ' cells[7]              :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END
+*------------------------------------------------------------- 2 undef_var_arith
+*  probe: arithmetic on an undefined (null-valued) variable -- Appendix D 1 territory
+        &ERRLIMIT = 100
+        total = missing_amount + 1               :F(fail1)
+        OUTPUT = 'accepted ' total                :(END)
+fail1   OUTPUT = 'errtype ' &ERRTYPE
+END
+*----------------------------------------------------------------- 3 wrong_arity
+*  probe: user function called with more arguments than it declares
+        DEFINE('addpair(a,b)')                    :(mainline)
+addpair addpair = a + b                           :(RETURN)
+mainline OUTPUT = addpair(1, 2, 3)
+END

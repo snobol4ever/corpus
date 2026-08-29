@@ -1,4 +1,0 @@
-maxlngth-1023-failed errtype=287 value assigned to keyword maxlngth is too small
-maxlngth-1024-ok val=1024
-maxlngth-neg-failed errtype=210
-end

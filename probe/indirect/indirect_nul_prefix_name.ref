@@ -1,6 +1,0 @@
-SIZE(Z)=256
-T1 ok via var
-T2 ok direct
-T3 ok nulprefix
-T4 ok nulmid
-END errlimit=100

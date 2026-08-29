@@ -1,0 +1,77 @@
+*-------------------------------------------------- 1 se_errlimit_survives XFAIL
+* SETEXIT FACE 8 -- THE &ERRLIMIT HALF, WITH NO TRAP ANYWHERE IN THE PROGRAM.
+* &ERRLIMIT non-zero makes a raised error SURVIVABLE: the statement takes its own failure
+* exit and execution continues.  Nothing here mentions SETEXIT, which is the point --
+* &ERRLIMIT decides WHETHER an error is survivable, SETEXIT only decides WHERE control goes.
+	&ERRLIMIT = 10
+	X = NOSUCHFN(1)		:F(NX)
+	OUTPUT = "NOFAIL"
+NX	OUTPUT = "CONTINUED"
+END
+*------------------------------------------------------------ 2 se_oneshot XFAIL
+* SETEXIT FACE 4 -- THE TRAP IS ONE-SHOT.  Firing DISARMS it, so the SECOND error takes
+* the ordinary failure exit and the handler is NOT re-entered.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	D = 0
+	X = 1 / D		:F(S5)
+S5	OUTPUT = "MID"
+	Y = 1 / D		:F(S7)
+S7	OUTPUT = "AFTER"
+	:(END)
+H	OUTPUT = "HANDLER S" &LASTNO
+	:(CONTINUE)
+END
+*-------------------------------------------------------------- 3 se_rearm XFAIL
+* SETEXIT FACE 5 -- A HANDLER THAT RE-ARMS ITSELF CATCHES THE NEXT ERROR TOO.
+* The companion to se_oneshot: same program, one added SETEXIT inside the handler.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	D = 0
+	X = 1 / D		:F(S5)
+S5	OUTPUT = "MID"
+	Y = 1 / D		:F(S7)
+S7	OUTPUT = "AFTER"
+	:(END)
+H	OUTPUT = "HANDLER S" &LASTNO
+	SETEXIT(.H)
+	:(CONTINUE)
+END
+*--------------------------------------------------------- 4 se_reset_null XFAIL
+* SETEXIT FACE 6 -- FIRING RESETS THE STORED ARGUMENT TO NULL, so a handler asking
+* SETEXIT what was armed is answered with the null string, not with its own label.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	D = 0
+	X = 1 / D
+	:(END)
+H	OUTPUT = "PREV=[" SETEXIT("") "]"
+	:(END)
+END
+*--------------------------------------------------------- 5 se_trap_fires XFAIL
+* SETEXIT FACE 2 -- AN ARMED TRAP TAKES CONTROL WHEN A RUNTIME ERROR OCCURS.
+* The divisor is held in a VARIABLE on purpose: SPITBOL constant-folds 1/0 at COMPILE
+* time, which is diagnosed before SETEXIT can ever arm, so a literal witness measures
+* the folder and not the trap.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	D = 0
+	X = 1 / D
+	OUTPUT = "AFTER"
+	:(END)
+H	OUTPUT = "HANDLER " &ERRTEXT " S" &LASTNO
+	:(END)
+END
+*-------------------------------------------------------- 6 se_trap_lastno XFAIL
+* SETEXIT FACE 9 -- THE HANDLER'S VIEW OF WHERE THE ERROR HAPPENED.  Companion to
+* se_trap_undef: identical program, except the handler reports &LASTNO.  RED BY DESIGN beyond
+* the trap rung -- g_core_err_stmt never advances in this tree, so every runtime error reports
+* statement 0 (seat8, s194, named not fixed).  This row is what will notice when that is cured.
+	SETEXIT(.H)
+	&ERRLIMIT = 10
+	X = NOSUCHFN(1)
+	OUTPUT = "AFTER"
+	:(END)
+H	OUTPUT = "HANDLER S" &LASTNO
+	:(END)
+END

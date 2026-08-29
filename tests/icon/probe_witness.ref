@@ -1,0 +1,29 @@
+#----------------------------------------- 1 witness_icn_argslot_collision_count
+ABC112D
+A1B12
+#----------------------------------------- 2 witness_icn_argslot_collision_match
+A4C
+#-------------------------------------- 3 witness_icn_argslot_collision_nonwrite
+f:A/112/C
+A 112 C
+A112C
+#------------------------------------------- 4 witness_icn_argslot_collision_tab
+A112C
+#------------------------------------------------ 5 witness_icn_carve_leak_lucky
+s=[-n10] *s=4
+#---------------------------------------------- 6 witness_icn_carve_leak_subject
+blk1 matched
+blk2 *subj=4 subj=[-n10]
+#-------------------------------------------------- 7 witness_icn_carve_leak_var
+s=[-n10] *s=4
+#----------------------------------------- 8 witness_icn_frameslot_shift_options
+c="n" optstring="n+" find=1
+#------------------------------------------- 9 witness_icn_frameslot_shift_param
+entry:       p="-n10" q="AA" r="BB" s="CC"
+after match: p="-n10" q="AA" r="BB" s="CC"
+#-------------------------------------- 10 witness_icn_options_dash_branch XFAIL
+dash
+flist size=0
+#----------------------------------------------- 11 witness_icn_pos0_stale_delta
+A match
+B &pos=1 pos(1)=Y pos(0)=N pos(5)=N

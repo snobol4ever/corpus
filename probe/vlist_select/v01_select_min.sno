@@ -1,6 +1,0 @@
-        x = 'nonnull'
-        OUTPUT = 'a=[' (IDENT(x) 0, 5) ']'
-        y =
-        OUTPUT = 'b=[' (IDENT(y) 0, 5) ']'
-        OUTPUT = 'c=[' (IDENT(x) 0, 3 * 2 - 1) ']'
-END

@@ -1,0 +1,5 @@
+*-------------------------------------------- 1 m1e_eval_chained_defer_red XFAIL
+	a = *(1 + 2)
+	b = *a
+	OUTPUT = EVAL(b)
+END

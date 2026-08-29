@@ -1,9 +1,0 @@
-#  The operand immediately preceding a scan-family call in an argument list is
-#  DESTROYED.  Mechanism: the box carves 16B at alpha (sub rsp,16) and then writes
-#  its result at its assigned rsp-relative slot -- post-carve, so the store lands
-#  16 bytes low, exactly on the slot of the box allocated immediately before it.
-#  Slots are handed out in sequential 16B units, so the victim is deterministic.
-#  Oracle: A112C
-procedure main();
-   "112 xy" ? { write("A", tab(4), "C"); };
-end

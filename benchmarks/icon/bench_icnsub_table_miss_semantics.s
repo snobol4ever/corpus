@@ -9,6 +9,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
@@ -41,10 +42,10 @@ n1_call_icon_α:         mov              r11, 2
                         mov              rax, qword ptr [rsp + 2440]
                         mov              qword ptr [rsp + 2408], rax
                         .section         .rodata
-.Lcall_icon_rkfn119:    .string          "table"
+.Lcall_icon_α_rkfn119:  .string          "table"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn119]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn119]
                         lea              rsi, [rsp + 2400]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1000,10 +1001,10 @@ n67_call_icon_α:        mov              r11, 68
                         mov              rax, qword ptr [rsp + 1240]
                         mov              qword ptr [rsp + 952], rax
                         .section         .rodata
-.Lcall_icon_rkfn199:    .string          "write"
+.Lcall_icon_α_rkfn199:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn199]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn199]
                         lea              rsi, [rsp + 944]
                         mov              edx, 13
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1137,10 +1138,10 @@ n77_call_icon_α:        mov              r11, 78
                         mov              rax, qword ptr [rsp + 856]
                         mov              qword ptr [rsp + 824], rax
                         .section         .rodata
-.Lcall_icon_rkfn214:    .string          "string"
+.Lcall_icon_α_rkfn214:  .string          "string"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn214]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn214]
                         lea              rsi, [rsp + 816]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1320,10 +1321,10 @@ n90_call_icon_α:        mov              r11, 91
                         mov              rax, qword ptr [rsp + 632]
                         mov              qword ptr [rsp + 600], rax
                         .section         .rodata
-.Lcall_icon_rkfn235:    .string          "string"
+.Lcall_icon_α_rkfn235:  .string          "string"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn235]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn235]
                         lea              rsi, [rsp + 592]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1512,10 +1513,10 @@ n99_call_icon_α:        mov              r11, 100
                         mov              rax, qword ptr [rsp + 376]
                         mov              qword ptr [rsp + 344], rax
                         .section         .rodata
-.Lcall_icon_rkfn249:    .string          "write"
+.Lcall_icon_α_rkfn249:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn249]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn249]
                         lea              rsi, [rsp + 336]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1802,10 +1803,10 @@ n00017_call_icon_α:       mov              r11, 117
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
                         .section         .rodata
-.Lcall_icon_rkfn276:    .string          "write"
+.Lcall_icon_α_rkfn276:  .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn276]
+                        lea              rdi, [rip + .Lcall_icon_α_rkfn276]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
