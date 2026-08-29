@@ -1,3 +1,4 @@
+%---------------------------------------------------- 1 rung79_stream_permission
 :- initialization(main).
 t(N, G) :- ( catch(G, error(E,_), true) -> ( var(E) -> write(N=success) ; E = permission_error(Op,Ty,_), write(N=perm(Op,Ty)) ) ; write(N=failed) ), nl.
 main :-

@@ -1,3 +1,4 @@
+%--------------------------------------------------- 1 rung10_programs_puzzle_01
 %-------------------------------------------------------------------------------
 % 1
 % In a certain bank the positions of cashier, manager, and teller are held by

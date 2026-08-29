@@ -1,3 +1,4 @@
+%-------------------------------------------------------- 1 rung80_dec10_streams
 std(user,user)
 after_told(user)
 read4(alpha(1),beta(two),gamma(3),end_of_file)

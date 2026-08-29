@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung06_lists_lists
 % rung06_lists — append/3, length/2, reverse/2
 % Expected output: [a,b,c,d]  4  [d,c,b,a]
 :- initialization(main).

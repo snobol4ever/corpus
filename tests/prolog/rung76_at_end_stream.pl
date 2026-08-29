@@ -1,3 +1,4 @@
+%-------------------------------------------------------- 1 rung76_at_end_stream
 :- initialization(main).
 main :-
     open('/tmp/rung76_s.txt', write, WS),

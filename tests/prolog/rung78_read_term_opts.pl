@@ -1,3 +1,4 @@
+%------------------------------------------------------- 1 rung78_read_term_opts
 :- initialization(main).
 main :-
     open('/tmp/rung78_d.txt', write, W),

@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung71_byte_io
 :- initialization(main).
 main :-
     open('/tmp/rung71_br.bin', write, WS, [type(binary)]),

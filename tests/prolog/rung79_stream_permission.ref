@@ -1,3 +1,4 @@
+%---------------------------------------------------- 1 rung79_stream_permission
 getchar_on_write=perm(input,stream)
 getcode_on_write=perm(input,stream)
 peekchar_on_write=perm(input,stream)

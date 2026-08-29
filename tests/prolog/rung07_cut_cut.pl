@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung07_cut_cut
 % rung07_cut — !, differ/N, closed-world negation
 % Expected output: differ(a,b)=yes  differ(a,a)=no
 :- initialization(main).

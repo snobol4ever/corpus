@@ -1,3 +1,4 @@
+%-------------------------------------------------- 1 rung08_recursion_recursion
 % rung08_recursion — fibonacci/2, factorial/2
 % Expected output: 8  6
 :- initialization(main).

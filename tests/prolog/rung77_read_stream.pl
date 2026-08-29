@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung77_read_stream
 :- initialization(main).
 main :-
     open('/tmp/rung77_data.txt', write, W),

@@ -1,3 +1,4 @@
+%------------------------------------------------------ 1 rung67_stream_property
 :- initialization(main).
 main :-
     open('/tmp/rung67_a.txt', write, S),

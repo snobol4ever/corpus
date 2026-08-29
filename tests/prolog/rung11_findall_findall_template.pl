@@ -1,3 +1,4 @@
+%--------------------------------------------- 1 rung11_findall_findall_template
 :- initialization(main).
 pair(a,1). pair(b,2). pair(c,3).
 main :-

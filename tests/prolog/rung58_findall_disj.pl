@@ -1,3 +1,4 @@
+%--------------------------------------------------------- 1 rung58_findall_disj
 :- initialization(main).
 main :-
     findall(X, (X=1;X=2;X=3), La), write(La), nl,

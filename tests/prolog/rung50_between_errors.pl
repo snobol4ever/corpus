@@ -1,3 +1,4 @@
+%------------------------------------------------------- 1 rung50_between_errors
 :- initialization(main).
 main :- catch(between(a,3,_), error(F1,_), (write(F1), nl)),
         catch(between(1,b,_), error(F2,_), (write(F2), nl)),

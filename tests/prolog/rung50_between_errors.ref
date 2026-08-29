@@ -1,3 +1,4 @@
+%------------------------------------------------------- 1 rung50_between_errors
 type_error(integer,a)
 type_error(integer,b)
 instantiation_error

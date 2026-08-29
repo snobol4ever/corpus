@@ -1,3 +1,4 @@
+%-------------------------------------------------------- 1 rung80_dec10_streams
 :- initialization(main).
 main :-
     telling(T0), seeing(S0),
