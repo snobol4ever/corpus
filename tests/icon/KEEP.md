@@ -97,6 +97,98 @@ already deferred for the 4 other singletons (`rung14_case_return_arm`, `rung15_i
 `rung16_seqexpr_gen_basic`, `rung38_cset_embedded_nul`, see task NEXT). Not decided unilaterally here
 either — left loose pending that one policy call, not because of any risk.
 
+## rung36 — 32 of 75 converted (`rung36_all.icn`/`.ref`); 43 stay loose, all individually measured, not guessed (seat07, 2026-08-29)
+
+Fresh `convert-blocks icon` run against all 75 (on a scratch copy, `.expected`→`.ref`): 32 genuinely
+green (byte-equal both directions, both modes, independently re-verified via a second `run` pass
+after placement) → `rung36_all.icn`/`.ref` (+ `.in` stdin sidecar, 3 of the 32 use stdin). 43 refused
+as "original not green" and `--skip`ped, left loose. Breakdown of the 43:
+
+**29 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
+task's own prior pass, seat06 2026-08-29 — "zero stale markers"). Not re-characterized here.
+
+**1 `.xfail` marker (`rung36_jcon_diffwrds`) was STALE — a genuine XPASS, found and fixed this
+pass.** It reads words via `read()` fed by its `.stdin` sidecar; manually re-running it without that
+stdin (a methodology mistake caught before trusting it) gave empty output and looked red, but with
+the real `.stdin` content it matches `.expected` byte-for-byte in both modes. Some intervening SCRIP
+commit fixed whatever the marker used to document — the marker gave no reason text to trace which
+one. Marker deleted; the file converted normally as entry #? of the 32 above. This is Icon's own
+instance of the same class `FINDING-2026-08-29-hq_P-three-of-four-xfail-markers-were-stale-xpass.md`
+found in Snocone that day (3 of 4 there; 1 of 30 here) — not filed as its own FINDING, folded in here
+instead: one file, ordinary "the bug got fixed and nobody promoted the marker" drift, not a new
+mechanism. Confirmed via the 3 global hard gates: PASS +1 / XFAIL -1 uniformly, FAIL/BADEXIT/TOTAL
+unchanged, before and after — the delta is fully explained by this one fix, not a mystery.
+
+**14 had NO `.xfail` marker at all — genuinely new findings, not previously documented anywhere this
+session could find.** Individually measured (not assumed), grouped by signature:
+
+- `rung36_jcon_cxprimes`, `rung36_jcon_recogn`, `rung36_jcon_scan2` — SIGSEGV (signal 11), both modes,
+  content confirmed `suspend`-or-alternation-based generator/backtracking code. Plausibly the same
+  class as rung03 above (`icon-n2-generator-activation-frames`) — `recogn` (and `genqueen`, below)
+  specifically already have their OWN dedicated task, `icn-recogn-genqueen-suspend-shape.task.md`
+  (state OPEN, un-parked by Lon 2026-08-28, depends on `icon-n2-generator-activation-frames`) — cite
+  that row for those two, not this KEEP.md, if picking the bug up. `cxprimes`/`scan2` are NOT named in
+  any task this session found; plausibly the same class, not confirmed by a trace — check there before
+  assuming they're covered by the recogn/genqueen row.
+- `rung36_jcon_genqueen`, `rung36_jcon_level` — FAIL (output mismatch, rc=1), both modes.
+  `genqueen` is the other half of `icn-recogn-genqueen-suspend-shape.task.md` (currently `rc=1
+  ERROR 246 -- stack overflow` per that task's own latest measurement, not a SIGSEGV — re-check its
+  own NEXT before trusting this summary, it moves fast). `level` is unexplained, not traced.
+- `rung36_jcon_var` — CRASH (signal 6, SIGABRT), NOT the generator class: a named, deliberate internal
+  guard, `"FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
+  !x/?x element-variable or s[i:j] section)"`, citing `GOAL-IR-IMMUTABLE-EMIT.md` (exists, 231KB) by
+  name in its own error text. A real, already-named, already-scoped architectural gap — not chased
+  further here, the guard message already points at its own owning doc.
+- `rung36_jcon_proto` — m3 `PASS(rc=1)`, m4 `SKIP` (parse error: "line 28: expected expression (got
+  ,)", on the empty-tuple literal `(,,,);`). A genuine m3-vs-m4 PARSE divergence, which is surprising
+  given the two modes are supposed to share one frontend — not traced past confirming the repro line;
+  worth a FINDING if picked up, since "the parser gives different answers depending on which mode asked"
+  is a bigger claim than this KEEP.md should assert without tracing it.
+- `rung36_jcon_kwds`, `rung36_jcon_subjpos` — m3 `PASS`, m4 `FAIL` (output mismatch, not a crash). Same
+  *shape* of finding as `rung38_cset_embedded_nul` elsewhere in this tree (m3/m4 correctness
+  divergence against a real oracle) — not confirmed to be the SAME cause, not traced.
+- `rung36_jcon_prepro` — **NOT actually red, and not a SCRIP bug either — a HARNESS limitation, caught
+  by `byte-equal-or-no-delete` doing its job.** First pass here wrongly said "missing `prepro.dat`" —
+  wrong: `prepro.dat` (and `fncs1.dat`) DO exist in this directory, just without a `rung36_` prefix, so
+  the first scratch-copy sweep (which only copied `rung36_*` names) silently omitted them. Corrected:
+  copied both `.dat` files into scratch and re-tested. `prepro` (`$include "prepro.dat"`) then matches
+  `.expected` byte-for-byte, standalone, from ANY cwd, both modes — genuinely green. But it still can't
+  be CONVERTED: `convert-blocks`'s own on-disk re-validation step re-runs the WRITTEN suite entry, and
+  that run fails to find `prepro.dat` even with the `.dat` file sitting right next to the suite output
+  — `$include` resolution does not survive however a suite entry gets materialized/re-run in isolation
+  (not traced past confirming the failure is specifically in re-validation, not the original check).
+  **Any Icon test using `$include` with a companion data file is not safely convertible via this
+  harness today** — a real, generalizable gap, not a one-file quirk. Left loose, correctly, but for a
+  different reason than first stated.
+- `rung36_jcon_fncs1` — genuinely still red **even with `fncs1.dat` present** (the missing-fixture
+  hypothesis was wrong for this one too, but doesn't explain it away like `prepro`). Diffed carefully:
+  the first `open("fncs1.dat")`/read cycle matches `.expected` exactly; every SUBSEQUENT
+  `open("fncs1.dat")` in the same program run (it reopens the same path several times, apparently to
+  re-read its own source under different string transforms) returns `&fail` in SCRIP where the
+  reference keeps succeeding. Smells like a real repeated-open/GC-interaction bug (the program also
+  calls `collect()` between opens), not investigated past this precise repro. `rung36_jcon_fncs`
+  (without the `1`) already carries a `.xfail` marker for its own reason, unconfirmed whether it's
+  related.
+- `rung36_jcon_args` — FAIL both modes: reads command-line arguments the harness has no mechanism to
+  supply (no `.arg`/`.argv` sidecar exists, unlike `.stdin`). A harness capability gap, not a SCRIP bug
+  — would need new harness work (an argv sidecar, mirroring `sidecar_in_path`) to ever test for real.
+- `rung36_jcon_scan` — FAIL both modes, output is a strict subset of `.expected` (missing later lines,
+  not garbled) — under-produces rather than diverges. Not traced further.
+- `rung36_jcon_scan1` — FAIL both modes, output values are `.expected`'s values **each shifted by
+  exactly +14** (e.g. `15 30 45...` vs `1 16 31...`) — a suspiciously regular offset, not random
+  divergence, in `&ascii ? { ... upto(...) ... }` scanning code. Worth a real look before assuming it's
+  the same class as anything else here; a constant offset smells mechanical, not semantic.
+
+**`util_zframe_ab.sh` hardcodes a path to `rung36_jcon_btrees.icn`** (one of its 5 fixed A/B
+witnesses) — `btrees` is one of the 29 still-red `.xfail` files above, stays loose, was NOT touched
+this pass, so that script is NOT at risk from this conversion. It WILL be at risk the day someone
+converts or deletes `btrees` — re-check this note then, don't assume it's been handled.
+
+**`test_icon_ir_rung_36.sh` was rewritten this pass** (SCRIP repo, same session) to delegate to
+`corpus_suite_harness.py run --lang icon` for the 32 now-converted entries, refusing rc=2 if the suite
+is missing, per `FINDING-2026-08-29-hq_P-converting-a-family-silently-disarms-its-per-family-glob-script.md`'s
+established shape — it no longer globs the (now largely gone) loose `.icn` files directly.
+
 ## Re-running this classification
 
 Re-`grep` the 8 standalone names across `SCRIP/scripts/` before trusting the "no real dependency"
