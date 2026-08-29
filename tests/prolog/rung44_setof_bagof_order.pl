@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung44_setof_bagof_order
 item(banana).
 item(apple).
 item(cherry).

@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung13_assertz_assertz_atom
 :- assertz(color(red)).
 :- assertz(color(green)).
 :- assertz(color(blue)).

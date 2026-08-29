@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung14_retract_retract_all
 :- assertz(item(a)).
 :- assertz(item(b)).
 :- assertz(item(c)).

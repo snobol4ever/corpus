@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung13_assertz_asserta_order
 :- assertz(item(b)).
 :- assertz(item(c)).
 :- asserta(item(a)).

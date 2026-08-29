@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung83_write_family_metacall
 main :-
     open('/tmp/rung83_probe.txt', write, S0), close(S0),
     open('/tmp/rung83_probe.txt', read, R),
