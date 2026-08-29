@@ -150,6 +150,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "NUMERALS"
@@ -487,10 +488,10 @@ n34_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], r8
                         .section         .rodata
-.Lcall_rkfnzd95:        .string          "SNO$MKPAT"
+.Lcall_α_rkfnzd95:      .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd95]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd95]
                         lea              rsi, [rsp + 0]
                         mov              edx, 2
                         mov              ecx, 589876

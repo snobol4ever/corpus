@@ -18,6 +18,7 @@ main:
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
+                        xor              r14d, r14d
                                                                               jmp   main_α
                         .section         .rodata
 .Lgvan0:                .string          "ROMAN"
@@ -726,9 +727,9 @@ n27_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n27_call_α:             sub              rsp, 16
                         mov              r11, 28
-                        lea              rcx, [rip + .Lcall_sig133z]
+                        lea              rcx, [rip + .Lcall_α_sig133z]
                         lea              rax, [rip + ROMAN_α];                jmp   rax
-.Lcall_sig133z:         .quad            1
+.Lcall_α_sig133z:       .quad            1
                         .quad            .Lcall_α_133_2
                         .quad            .Lcall_α_133_2
                         .quad            16
@@ -808,10 +809,10 @@ n30_call_α:             sub              rsp, 16
                         mov              r8, qword ptr [rsp + 72]
                         mov              qword ptr [rsp + 40], r8
                         .section         .rodata
-.Lcall_rkfnzd137:       .string          "REPLACE"
+.Lcall_α_rkfnzd137:     .string          "REPLACE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_rkfnzd137]
+                        lea              rdi, [rip + .Lcall_α_rkfnzd137]
                         lea              rsi, [rsp + 0]
                         mov              edx, 3
                         mov              ecx, 458798
@@ -1147,9 +1148,9 @@ n45_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n45_call_α:             sub              rsp, 16
                         mov              r11, 46
-                        lea              rcx, [rip + .Lcall_sig161z]
+                        lea              rcx, [rip + .Lcall_α_sig161z]
                         lea              rax, [rip + ROMAN_α];                jmp   rax
-.Lcall_sig161z:         .quad            1
+.Lcall_α_sig161z:       .quad            1
                         .quad            .Lcall_α_161_2
                         .quad            .Lcall_α_161_2
                         .quad            16
@@ -1498,9 +1499,9 @@ n67_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n67_call_α:             sub              rsp, 16
                         mov              r11, 68
-                        lea              rcx, [rip + .Lcall_sig195z]
+                        lea              rcx, [rip + .Lcall_α_sig195z]
                         lea              rax, [rip + TEST_α];                 jmp   rax
-.Lcall_sig195z:         .quad            2
+.Lcall_α_sig195z:       .quad            2
                         .quad            .Lcall_α_195_2
                         .quad            .Lcall_α_195_2
                         .quad            32
@@ -1577,9 +1578,9 @@ n72_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n72_call_α:             sub              rsp, 16
                         mov              r11, 73
-                        lea              rcx, [rip + .Lcall_sig203z]
+                        lea              rcx, [rip + .Lcall_α_sig203z]
                         lea              rax, [rip + TEST_α];                 jmp   rax
-.Lcall_sig203z:         .quad            2
+.Lcall_α_sig203z:       .quad            2
                         .quad            .Lcall_α_203_2
                         .quad            .Lcall_α_203_2
                         .quad            32
@@ -1656,9 +1657,9 @@ n77_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n77_call_α:             sub              rsp, 16
                         mov              r11, 78
-                        lea              rcx, [rip + .Lcall_sig211z]
+                        lea              rcx, [rip + .Lcall_α_sig211z]
                         lea              rax, [rip + TEST_α];                 jmp   rax
-.Lcall_sig211z:         .quad            2
+.Lcall_α_sig211z:       .quad            2
                         .quad            .Lcall_α_211_2
                         .quad            .Lcall_α_211_2
                         .quad            32
@@ -1735,9 +1736,9 @@ n82_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n82_call_α:             sub              rsp, 16
                         mov              r11, 83
-                        lea              rcx, [rip + .Lcall_sig219z]
+                        lea              rcx, [rip + .Lcall_α_sig219z]
                         lea              rax, [rip + TEST_α];                 jmp   rax
-.Lcall_sig219z:         .quad            2
+.Lcall_α_sig219z:       .quad            2
                         .quad            .Lcall_α_219_2
                         .quad            .Lcall_α_219_2
                         .quad            32
