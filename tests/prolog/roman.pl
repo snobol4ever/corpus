@@ -1,3 +1,4 @@
+%----------------------------------------------------------------------- 1 roman
 % SCRIP DEMO3 -- Roman Numerals (Prolog section)
 % Idiom: arithmetic rules map value to numeral via recursive subtraction
 :- initialization(main, main).

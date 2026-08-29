@@ -1,3 +1,4 @@
+%------------------------------------------------------------------ 1 palindrome
 % SCRIP DEMO4 -- Palindrome (Prolog section)
 % Idiom: reverse/2 built-in; unification does the comparison
 :- initialization(main, main).
