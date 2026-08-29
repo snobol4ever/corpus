@@ -51,9 +51,9 @@ general "stack-adjacent memory corruption" shape** — mixed result, not a fix f
 | `fz_segv_24` | 8/8 signal 11 | looks stable at N=8 — **not proven**, see below |
 
 ⛔ Two of five read constant at N=8 as of the last update, below this project's own N≫12 bar; three of
-the five (`fz_segv_09` at N=18, `fz_red_m4a...`, `fz_red_m4b...`) were ALREADY proven non-deterministic
-at small N, and a fuzz probe whose whole purpose is finding a wild memory access is exactly the shape
-where "8/8 so far" is weak evidence, not a green light on its own.
+the five (`fz_segv_09` at N=18, `fz_red_m4a_blob_alt_fence_defer`, `fz_red_m4b_blob_defer_fence`) were
+ALREADY proven non-deterministic at small N, and a fuzz probe whose whole purpose is finding a wild
+memory access is exactly the shape where "8/8 so far" is weak evidence, not a green light on its own.
 
 ⛔⭐ **UPDATE (seat03, 2026-08-28, third pass) — the N≫12 bar is now MET for both, while resending
 seat06's blocked ask to hq_P.** Freshly rebuilt both from scratch (fresh `scrip --compile` → `gcc -c` →
