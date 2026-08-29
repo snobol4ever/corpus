@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung75_number_atom
 :- initialization(main).
 main :-
     number_atom(123, A1), writeq(A1), nl,

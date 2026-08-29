@@ -1,3 +1,4 @@
+%---------------------------------------------------------------- 1 rung72_unget
 :- initialization(main).
 main :-
     open('/tmp/rung72_ug.txt', write, WS), write(WS, 'ABC'), close(WS),
