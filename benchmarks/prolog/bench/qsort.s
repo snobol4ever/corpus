@@ -23,23 +23,21 @@ n0_call_prolog_bx:
 n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_73_102
+                        test             rax, rax;                            je    .Lcall_prolog_α_73_102
                         mov              qword ptr [rsp + 2080], rax
                         mov              rax, qword ptr [rsp + 80]
-                        mov              rdx, qword ptr [rsp + 88];           jmp   .Lpartition$2F4_α_73_101
-.Lpartition$2F4_α_73_102:
-                        lea              r12, [rip + g_plw_cellws_on]
+                        mov              rdx, qword ptr [rsp + 88];           jmp   .Lcall_prolog_α_73_101
+.Lcall_prolog_α_73_102: lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_73_100
+                        test             eax, eax;                            jne   .Lcall_prolog_α_73_100
                         lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lpartition$2F4_α_73_100
+                        cmp              eax, 2;                              je    .Lcall_prolog_α_73_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
-                        mov              eax, 3;                              jmp   .Lpartition$2F4_α_73_101
-.Lpartition$2F4_α_73_100:
-                        lea              rdi, [rsp + 96]
+                        mov              eax, 3;                              jmp   .Lcall_prolog_α_73_101
+.Lcall_prolog_α_73_100: lea              rdi, [rsp + 96]
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -49,8 +47,7 @@ n0_call_prolog_α:       mov              r11, 1
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_73_101:
-                        mov              qword ptr [rsp + 80], rax
+.Lcall_prolog_α_73_101: mov              qword ptr [rsp + 80], rax
                         mov              qword ptr [rsp + 88], rdx
                         cmp              al, 104;                             je    partition$2F4_ω
                                                                               jmp   n1_var_ref_α
@@ -70,18 +67,18 @@ n2_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:       mov              r11, 3
                         mov              qword ptr [rsp + 2048], 3            # result
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_76_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_76_0]
                         mov              qword ptr [rsp + 2056], rax;         jmp   n3_lit_integer_α
-.Lpartition$2F4_α_76_0: .quad            3
+.Llit_integer_α_76_0:   .quad            3
                         .size            n2_lit_integer_bx, .-n2_lit_integer_bx
                         .type            n3_lit_integer_bx, @function
 n3_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_integer_α:       mov              r11, 4
                         mov              qword ptr [rsp + 2064], 3            # result
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_77_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_77_0]
                         mov              qword ptr [rsp + 2072], rax;         jmp   n4_call_prolog_α
-.Lpartition$2F4_α_77_0: .quad            0
+.Llit_integer_α_77_0:   .quad            0
                         .size            n3_lit_integer_bx, .-n3_lit_integer_bx
                         .type            n4_call_prolog_bx, @function
 n4_call_prolog_bx:
@@ -101,62 +98,52 @@ n4_call_prolog_α:       mov              r11, 5
                         mov              qword ptr [rsp + 1992], rax
                         lea              rdi, [rsp + 1984]
                         lea              r8, [rsp + 1984]
-.Lpartition$2F4_α_78_110:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_78_113
+.Lcall_prolog_α_78_110: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_78_113
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_78_111
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_78_112
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_78_110
-.Lpartition$2F4_α_78_112:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_78_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_78_111
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_78_112
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_78_110
+.Lcall_prolog_α_78_112: cmp              esi, 2;                              jne   .Lcall_prolog_α_78_111
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_78_111
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_78_110
-.Lpartition$2F4_α_78_113:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_78_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_78_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_78_110
+.Lcall_prolog_α_78_113: cmp              al, 72;                              jne   .Lcall_prolog_α_78_111
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_78_111
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_78_111
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_78_110
-.Lpartition$2F4_α_78_111:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_78_114
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_78_114
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_78_118
+                        test             rax, rax;                            je    .Lcall_prolog_α_78_111
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_78_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_78_110
+.Lcall_prolog_α_78_111: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_78_114
+                        cmp              al, 104;                             je    .Lcall_prolog_α_78_114
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_78_118
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_78_114
-                                                                              jmp   .Lpartition$2F4_α_78_118
-.Lpartition$2F4_α_78_118:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 80;                              jne   .Lpartition$2F4_α_78_119
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_78_114
+                                                                              jmp   .Lcall_prolog_α_78_118
+.Lcall_prolog_α_78_118: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 80;                              jne   .Lcall_prolog_α_78_119
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              edx, dword ptr [r12 + 0]
-                        cmp              dl, 0;                               je    .Lpartition$2F4_α_78_116
+                        cmp              dl, 0;                               je    .Lcall_prolog_α_78_116
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, edx;                            jne   .Lpartition$2F4_α_78_115
-                                                                              jmp   .Lpartition$2F4_α_78_114
-.Lpartition$2F4_α_78_119:
-                        cmp              al, 3;                               jne   .Lpartition$2F4_α_78_120
+                        cmp              esi, edx;                            jne   .Lcall_prolog_α_78_115
+                                                                              jmp   .Lcall_prolog_α_78_114
+.Lcall_prolog_α_78_119: cmp              al, 3;                               jne   .Lcall_prolog_α_78_120
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lpartition$2F4_α_78_114
-                                                                              jmp   .Lpartition$2F4_α_78_115
-.Lpartition$2F4_α_78_120:
-                        cmp              al, 2;                               jne   .Lpartition$2F4_α_78_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_78_114
+                                                                              jmp   .Lcall_prolog_α_78_115
+.Lcall_prolog_α_78_120: cmp              al, 2;                               jne   .Lcall_prolog_α_78_114
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lpartition$2F4_α_78_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_78_114
                         mov              rdx, qword ptr [r8 + 8]
-                        test             rdx, rdx;                            je    .Lpartition$2F4_α_78_114
-                                                                              jmp   .Lpartition$2F4_α_78_115
-.Lpartition$2F4_α_78_114:
-                        mov              eax, 3
-                        mov              edx, 1;                              jmp   .Lpartition$2F4_α_78_117
-.Lpartition$2F4_α_78_115:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_78_117
-.Lpartition$2F4_α_78_116:
-                        mov              esi, 3
+                        test             rdx, rdx;                            je    .Lcall_prolog_α_78_114
+                                                                              jmp   .Lcall_prolog_α_78_115
+.Lcall_prolog_α_78_114: mov              eax, 3
+                        mov              edx, 1;                              jmp   .Lcall_prolog_α_78_117
+.Lcall_prolog_α_78_115: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_78_117
+.Lcall_prolog_α_78_116: mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -165,8 +152,7 @@ n4_call_prolog_α:       mov              r11, 5
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_78_117:
-                        mov              qword ptr [rsp + 1968], rax
+.Lcall_prolog_α_78_117: mov              qword ptr [rsp + 1968], rax
                         mov              qword ptr [rsp + 1976], rdx
                         cmp              al, 104;                             je    n30_var_ref_α
                                                                               jmp   n5_var_ref_α
@@ -217,109 +203,94 @@ n8_call_prolog_α:       mov              r11, 9
                         mov              qword ptr [rsp + 1896], rax
                         lea              rdi, [rsp + 1888]
                         lea              r8, [rsp + 1888]
-.Lpartition$2F4_α_85_60:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_85_63
+.Lcall_prolog_α_85_60:  mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_85_63
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_61
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_85_62
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_85_60
-.Lpartition$2F4_α_85_62:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_85_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_61
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_85_62
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_85_60
+.Lcall_prolog_α_85_62:  cmp              esi, 2;                              jne   .Lcall_prolog_α_85_61
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_85_60
-.Lpartition$2F4_α_85_63:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_85_60
+.Lcall_prolog_α_85_63:  cmp              al, 72;                              jne   .Lcall_prolog_α_85_61
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_61
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_85_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_85_60
-.Lpartition$2F4_α_85_61:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_85_80
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_85_80
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_74
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_61
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_85_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_85_60
+.Lcall_prolog_α_85_61:  mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_85_80
+                        cmp              al, 104;                             je    .Lcall_prolog_α_85_80
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_85_74
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_85_80
-                                                                              jmp   .Lpartition$2F4_α_85_74
-.Lpartition$2F4_α_85_74:
-                        mov              ecx, dword ptr [r8 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_85_73
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_85_80
+                                                                              jmp   .Lcall_prolog_α_85_74
+.Lcall_prolog_α_85_74:  mov              ecx, dword ptr [r8 + 0]
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_85_73
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_85_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_85_72
                         mov              edx, dword ptr [r8 + 4]
-                        cmp              eax, edx;                            jne   .Lpartition$2F4_α_85_73
+                        cmp              eax, edx;                            jne   .Lcall_prolog_α_85_73
                         lea              r9, [rsp + 1904]
-.Lpartition$2F4_α_85_64:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_85_67
+.Lcall_prolog_α_85_64:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_85_67
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_65
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_85_66
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_85_64
-.Lpartition$2F4_α_85_66:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_85_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_65
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_85_66
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_85_64
+.Lcall_prolog_α_85_66:  cmp              esi, 2;                              jne   .Lcall_prolog_α_85_65
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_85_64
-.Lpartition$2F4_α_85_67:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_85_64
+.Lcall_prolog_α_85_67:  cmp              al, 72;                              jne   .Lcall_prolog_α_85_65
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_65
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_85_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_85_64
-.Lpartition$2F4_α_85_65:
-                        lea              rcx, [rsp + 1920]
-.Lpartition$2F4_α_85_68:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_85_71
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_65
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_85_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_85_64
+.Lcall_prolog_α_85_65:  lea              rcx, [rsp + 1920]
+.Lcall_prolog_α_85_68:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_85_71
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_69
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_85_70
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_85_68
-.Lpartition$2F4_α_85_70:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_85_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_69
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_85_70
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_85_68
+.Lcall_prolog_α_85_70:  cmp              esi, 2;                              jne   .Lcall_prolog_α_85_69
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_85_68
-.Lpartition$2F4_α_85_71:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_85_68
+.Lcall_prolog_α_85_71:  cmp              al, 72;                              jne   .Lcall_prolog_α_85_69
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_69
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_85_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_85_68
-.Lpartition$2F4_α_85_69:
-                        cmp              r9, rcx;                             je    .Lpartition$2F4_α_85_72
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_69
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_85_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_85_68
+.Lcall_prolog_α_85_69:  cmp              r9, rcx;                             je    .Lcall_prolog_α_85_72
                         mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_85_75
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_85_75
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_72
+                        cmp              al, 0;                               je    .Lcall_prolog_α_85_75
+                        cmp              al, 104;                             je    .Lcall_prolog_α_85_75
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_85_72
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_85_75
-                                                                              jmp   .Lpartition$2F4_α_85_72
-.Lpartition$2F4_α_85_75:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_85_76
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_85_76
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_85_75
+                                                                              jmp   .Lcall_prolog_α_85_72
+.Lcall_prolog_α_85_75:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_85_76
+                        cmp              al, 104;                             je    .Lcall_prolog_α_85_76
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_85_72
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_85_76
-                                                                              jmp   .Lpartition$2F4_α_85_72
-.Lpartition$2F4_α_85_76:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_85_76
+                                                                              jmp   .Lcall_prolog_α_85_72
+.Lcall_prolog_α_85_76:  lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_85_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_85_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 48
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_85_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_85_72
                         add              rdi, rsi
                         mov              qword ptr [rdi + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -344,27 +315,26 @@ n8_call_prolog_α:       mov              r11, 9
                         mov              rax, qword ptr [r12 + 24]
                         mov              qword ptr [rcx + 8], rax
                         mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_85_77
-.Lpartition$2F4_α_85_80:
-                        lea              r12, [rip + g_plw_dot_sl]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_85_77
+.Lcall_prolog_α_85_80:  lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_85_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_85_72
                         lea              r12, [rip + g_hp_fr]
                         mov              eax, dword ptr [r12 + 24]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_85_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_85_72
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 8]
                         sub              rax, 48
-                        cmp              rdi, rax;                            ja    .Lpartition$2F4_α_85_72
+                        cmp              rdi, rax;                            ja    .Lcall_prolog_α_85_72
                         lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_85_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_85_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 72
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_85_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_85_72
                         lea              r12, [rip + g_hp_fr]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              qword ptr [rdi + 0], 0
@@ -378,35 +348,30 @@ n8_call_prolog_α:       mov              r11, 9
                         add              rax, 1
                         mov              qword ptr [r12 + 16], rax
                         lea              r9, [rsp + 1904]
-.Lpartition$2F4_α_85_81:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_85_84
+.Lcall_prolog_α_85_81:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_85_84
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_82
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_85_83
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_85_81
-.Lpartition$2F4_α_85_83:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_85_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_82
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_85_83
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_85_81
+.Lcall_prolog_α_85_83:  cmp              esi, 2;                              jne   .Lcall_prolog_α_85_82
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_85_81
-.Lpartition$2F4_α_85_84:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_85_81
+.Lcall_prolog_α_85_84:  cmp              al, 72;                              jne   .Lcall_prolog_α_85_82
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_82
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_85_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_85_81
-.Lpartition$2F4_α_85_82:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_85_85
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_85_85
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_86
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_82
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_85_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_85_81
+.Lcall_prolog_α_85_82:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_85_85
+                        cmp              al, 104;                             je    .Lcall_prolog_α_85_85
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_85_86
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_85_85
-                                                                              jmp   .Lpartition$2F4_α_85_86
-.Lpartition$2F4_α_85_85:
-                        mov              qword ptr [rdx + 0], 72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_85_85
+                                                                              jmp   .Lcall_prolog_α_85_86
+.Lcall_prolog_α_85_85:  mov              qword ptr [rdx + 0], 72
                         lea              rax, [rdx + 0]
                         mov              qword ptr [rdx + 8], rax
                         lea              r12, [rip + g_pl_trail]
@@ -425,43 +390,36 @@ n8_call_prolog_α:       mov              r11, 9
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [r9 + 0], 72
                         lea              rax, [rdx + 0]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_85_87
-.Lpartition$2F4_α_85_86:
-                        mov              rax, qword ptr [r9 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_85_87
+.Lcall_prolog_α_85_86:  mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [rdx + 0], rax
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [rdx + 8], rax
-.Lpartition$2F4_α_85_87:
-                        lea              rcx, [rsp + 1920]
-.Lpartition$2F4_α_85_88:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_85_91
+.Lcall_prolog_α_85_87:  lea              rcx, [rsp + 1920]
+.Lcall_prolog_α_85_88:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_85_91
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_89
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_85_90
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_85_88
-.Lpartition$2F4_α_85_90:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_85_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_89
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_85_90
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_85_88
+.Lcall_prolog_α_85_90:  cmp              esi, 2;                              jne   .Lcall_prolog_α_85_89
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_85_88
-.Lpartition$2F4_α_85_91:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_85_88
+.Lcall_prolog_α_85_91:  cmp              al, 72;                              jne   .Lcall_prolog_α_85_89
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_85_89
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_85_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_85_88
-.Lpartition$2F4_α_85_89:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_85_92
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_85_92
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_85_93
+                        test             rax, rax;                            je    .Lcall_prolog_α_85_89
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_85_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_85_88
+.Lcall_prolog_α_85_89:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_85_92
+                        cmp              al, 104;                             je    .Lcall_prolog_α_85_92
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_85_93
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_85_92
-                                                                              jmp   .Lpartition$2F4_α_85_93
-.Lpartition$2F4_α_85_92:
-                        mov              qword ptr [rdx + 16], 72
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_85_92
+                                                                              jmp   .Lcall_prolog_α_85_93
+.Lcall_prolog_α_85_92:  mov              qword ptr [rdx + 16], 72
                         lea              rax, [rdx + 16]
                         mov              qword ptr [rdx + 24], rax
                         lea              r12, [rip + g_pl_trail]
@@ -480,14 +438,12 @@ n8_call_prolog_α:       mov              r11, 9
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [rcx + 0], 72
                         lea              rax, [rdx + 16]
-                        mov              qword ptr [rcx + 8], rax;            jmp   .Lpartition$2F4_α_85_94
-.Lpartition$2F4_α_85_93:
-                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [rcx + 8], rax;            jmp   .Lcall_prolog_α_85_94
+.Lcall_prolog_α_85_93:  mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rdx + 16], rax
                         mov              rax, qword ptr [rcx + 8]
                         mov              qword ptr [rdx + 24], rax
-.Lpartition$2F4_α_85_94:
-                        lea              r12, [rip + g_pl_trail]
+.Lcall_prolog_α_85_94:  lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
@@ -506,12 +462,10 @@ n8_call_prolog_α:       mov              r11, 9
                         mov              eax, dword ptr [r12 + 0]
                         mov              dword ptr [r8 + 4], eax
                         mov              qword ptr [r8 + 8], rdx
-                        mov              rax, qword ptr [r8 + 0];             jmp   .Lpartition$2F4_α_85_77
-.Lpartition$2F4_α_85_73:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_85_77
-.Lpartition$2F4_α_85_72:
-                        mov              esi, 3
+                        mov              rax, qword ptr [r8 + 0];             jmp   .Lcall_prolog_α_85_77
+.Lcall_prolog_α_85_73:  mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_85_77
+.Lcall_prolog_α_85_72:  mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -520,8 +474,7 @@ n8_call_prolog_α:       mov              r11, 9
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_85_77:
-                        mov              qword ptr [rsp + 1872], rax
+.Lcall_prolog_α_85_77:  mov              qword ptr [rsp + 1872], rax
                         mov              qword ptr [rsp + 1880], rdx
                         cmp              al, 104;                             je    n29_call_prolog_α
                                                                               jmp   n9_var_ref_α
@@ -559,73 +512,63 @@ n11_call_prolog_α:      mov              r11, 12
                         mov              qword ptr [rsp + 1800], rax
                         lea              rdi, [rsp + 1792]
                         lea              r8, [rsp + 1792]
-.Lpartition$2F4_α_90_40:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_90_56
+.Lcall_prolog_α_90_40:  mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_90_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_90_41
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_90_55
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_90_40
-.Lpartition$2F4_α_90_55:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_90_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_90_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_90_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_90_40
+.Lcall_prolog_α_90_55:  cmp              esi, 2;                              jne   .Lcall_prolog_α_90_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_90_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_90_40
-.Lpartition$2F4_α_90_56:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_90_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_90_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_90_40
+.Lcall_prolog_α_90_56:  cmp              al, 72;                              jne   .Lcall_prolog_α_90_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_90_41
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_90_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_90_40
-.Lpartition$2F4_α_90_41:
-                        lea              r9, [rsp + 1808]
-.Lpartition$2F4_α_90_42:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_90_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_90_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_90_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_90_40
+.Lcall_prolog_α_90_41:  lea              r9, [rsp + 1808]
+.Lcall_prolog_α_90_42:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_90_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_90_43
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_90_57
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_90_42
-.Lpartition$2F4_α_90_57:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_90_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_90_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_90_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_90_42
+.Lcall_prolog_α_90_57:  cmp              esi, 2;                              jne   .Lcall_prolog_α_90_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_90_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_90_42
-.Lpartition$2F4_α_90_58:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_90_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_90_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_90_42
+.Lcall_prolog_α_90_58:  cmp              al, 72;                              jne   .Lcall_prolog_α_90_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_90_43
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_90_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_90_42
-.Lpartition$2F4_α_90_43:
-                        cmp              r8, r9;                              je    .Lpartition$2F4_α_90_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_90_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_90_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_90_42
+.Lcall_prolog_α_90_43:  cmp              r8, r9;                              je    .Lcall_prolog_α_90_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_90_44
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_90_44
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_90_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_90_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_90_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_90_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_90_44
-                                                                              jmp   .Lpartition$2F4_α_90_45
-.Lpartition$2F4_α_90_44:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_90_53
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_90_53
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_90_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_90_44
+                                                                              jmp   .Lcall_prolog_α_90_45
+.Lcall_prolog_α_90_44:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_90_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_90_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_90_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_90_53
-                                                                              jmp   .Lpartition$2F4_α_90_46
-.Lpartition$2F4_α_90_46:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_90_53
+                                                                              jmp   .Lcall_prolog_α_90_46
+.Lcall_prolog_α_90_46:  lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_90_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_90_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_90_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_90_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -638,25 +581,23 @@ n11_call_prolog_α:      mov              r11, 12
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lpartition$2F4_α_90_51
-.Lpartition$2F4_α_90_45:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_90_47
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_90_47
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_90_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_90_51
+.Lcall_prolog_α_90_45:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_90_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_90_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_90_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_90_47
-                                                                              jmp   .Lpartition$2F4_α_90_48
-.Lpartition$2F4_α_90_47:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_90_47
+                                                                              jmp   .Lcall_prolog_α_90_48
+.Lcall_prolog_α_90_47:  lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_90_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_90_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_90_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_90_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -669,42 +610,36 @@ n11_call_prolog_α:      mov              r11, 12
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_90_51
-.Lpartition$2F4_α_90_48:
-                        mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_90_51
+.Lcall_prolog_α_90_48:  mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_90_49
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_90_53
-                                                                              jmp   .Lpartition$2F4_α_90_52
-.Lpartition$2F4_α_90_49:
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_90_52
-                        cmp              cl, 5;                               je    .Lpartition$2F4_α_90_53
-                        cmp              dl, 5;                               je    .Lpartition$2F4_α_90_53
-                        cmp              cl, 3;                               jne   .Lpartition$2F4_α_90_50
-                        cmp              dl, 3;                               jne   .Lpartition$2F4_α_90_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_90_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_90_53
+                                                                              jmp   .Lcall_prolog_α_90_52
+.Lcall_prolog_α_90_49:  cmp              dl, 80;                              je    .Lcall_prolog_α_90_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_90_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_90_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_90_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_90_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_90_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_90_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_90_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_90_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lpartition$2F4_α_90_51
-                                                                              jmp   .Lpartition$2F4_α_90_52
-.Lpartition$2F4_α_90_50:
-                        mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_90_51
+                                                                              jmp   .Lcall_prolog_α_90_52
+.Lcall_prolog_α_90_50:  mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_90_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_90_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_90_53
-.Lpartition$2F4_α_90_51:
-                        mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_90_54
-.Lpartition$2F4_α_90_52:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_90_54
-.Lpartition$2F4_α_90_53:
-                        mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_90_53
+.Lcall_prolog_α_90_51:  mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_90_54
+.Lcall_prolog_α_90_52:  mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_90_54
+.Lcall_prolog_α_90_53:  mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -713,8 +648,7 @@ n11_call_prolog_α:      mov              r11, 12
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_90_54:
-                        mov              qword ptr [rsp + 1776], rax
+.Lcall_prolog_α_90_54:  mov              qword ptr [rsp + 1776], rax
                         mov              qword ptr [rsp + 1784], rdx
                         cmp              al, 104;                             je    n29_call_prolog_α
                                                                               jmp   n12_var_ref_α
@@ -765,109 +699,94 @@ n15_call_prolog_α:      mov              r11, 16
                         mov              qword ptr [rsp + 1704], rax
                         lea              rdi, [rsp + 1696]
                         lea              r8, [rsp + 1696]
-.Lpartition$2F4_α_97_60:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_97_63
+.Lcall_prolog_α_97_60:  mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_97_63
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_61
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_97_62
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_97_60
-.Lpartition$2F4_α_97_62:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_97_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_61
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_97_62
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_97_60
+.Lcall_prolog_α_97_62:  cmp              esi, 2;                              jne   .Lcall_prolog_α_97_61
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_97_60
-.Lpartition$2F4_α_97_63:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_97_60
+.Lcall_prolog_α_97_63:  cmp              al, 72;                              jne   .Lcall_prolog_α_97_61
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_61
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_97_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_97_60
-.Lpartition$2F4_α_97_61:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_97_80
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_97_80
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_74
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_61
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_97_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_97_60
+.Lcall_prolog_α_97_61:  mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_97_80
+                        cmp              al, 104;                             je    .Lcall_prolog_α_97_80
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_97_74
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_97_80
-                                                                              jmp   .Lpartition$2F4_α_97_74
-.Lpartition$2F4_α_97_74:
-                        mov              ecx, dword ptr [r8 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_97_73
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_97_80
+                                                                              jmp   .Lcall_prolog_α_97_74
+.Lcall_prolog_α_97_74:  mov              ecx, dword ptr [r8 + 0]
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_97_73
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_97_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_97_72
                         mov              edx, dword ptr [r8 + 4]
-                        cmp              eax, edx;                            jne   .Lpartition$2F4_α_97_73
+                        cmp              eax, edx;                            jne   .Lcall_prolog_α_97_73
                         lea              r9, [rsp + 1712]
-.Lpartition$2F4_α_97_64:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_97_67
+.Lcall_prolog_α_97_64:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_97_67
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_65
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_97_66
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_97_64
-.Lpartition$2F4_α_97_66:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_97_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_65
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_97_66
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_97_64
+.Lcall_prolog_α_97_66:  cmp              esi, 2;                              jne   .Lcall_prolog_α_97_65
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_97_64
-.Lpartition$2F4_α_97_67:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_97_64
+.Lcall_prolog_α_97_67:  cmp              al, 72;                              jne   .Lcall_prolog_α_97_65
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_65
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_97_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_97_64
-.Lpartition$2F4_α_97_65:
-                        lea              rcx, [rsp + 1728]
-.Lpartition$2F4_α_97_68:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_97_71
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_65
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_97_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_97_64
+.Lcall_prolog_α_97_65:  lea              rcx, [rsp + 1728]
+.Lcall_prolog_α_97_68:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_97_71
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_69
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_97_70
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_97_68
-.Lpartition$2F4_α_97_70:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_97_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_69
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_97_70
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_97_68
+.Lcall_prolog_α_97_70:  cmp              esi, 2;                              jne   .Lcall_prolog_α_97_69
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_97_68
-.Lpartition$2F4_α_97_71:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_97_68
+.Lcall_prolog_α_97_71:  cmp              al, 72;                              jne   .Lcall_prolog_α_97_69
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_69
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_97_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_97_68
-.Lpartition$2F4_α_97_69:
-                        cmp              r9, rcx;                             je    .Lpartition$2F4_α_97_72
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_69
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_97_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_97_68
+.Lcall_prolog_α_97_69:  cmp              r9, rcx;                             je    .Lcall_prolog_α_97_72
                         mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_97_75
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_97_75
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_72
+                        cmp              al, 0;                               je    .Lcall_prolog_α_97_75
+                        cmp              al, 104;                             je    .Lcall_prolog_α_97_75
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_97_72
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_97_75
-                                                                              jmp   .Lpartition$2F4_α_97_72
-.Lpartition$2F4_α_97_75:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_97_76
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_97_76
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_97_75
+                                                                              jmp   .Lcall_prolog_α_97_72
+.Lcall_prolog_α_97_75:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_97_76
+                        cmp              al, 104;                             je    .Lcall_prolog_α_97_76
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_97_72
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_97_76
-                                                                              jmp   .Lpartition$2F4_α_97_72
-.Lpartition$2F4_α_97_76:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_97_76
+                                                                              jmp   .Lcall_prolog_α_97_72
+.Lcall_prolog_α_97_76:  lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_97_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_97_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 48
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_97_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_97_72
                         add              rdi, rsi
                         mov              qword ptr [rdi + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -892,27 +811,26 @@ n15_call_prolog_α:      mov              r11, 16
                         mov              rax, qword ptr [r12 + 24]
                         mov              qword ptr [rcx + 8], rax
                         mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_97_77
-.Lpartition$2F4_α_97_80:
-                        lea              r12, [rip + g_plw_dot_sl]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_97_77
+.Lcall_prolog_α_97_80:  lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_97_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_97_72
                         lea              r12, [rip + g_hp_fr]
                         mov              eax, dword ptr [r12 + 24]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_97_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_97_72
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 8]
                         sub              rax, 48
-                        cmp              rdi, rax;                            ja    .Lpartition$2F4_α_97_72
+                        cmp              rdi, rax;                            ja    .Lcall_prolog_α_97_72
                         lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_97_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_97_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 72
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_97_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_97_72
                         lea              r12, [rip + g_hp_fr]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              qword ptr [rdi + 0], 0
@@ -926,35 +844,30 @@ n15_call_prolog_α:      mov              r11, 16
                         add              rax, 1
                         mov              qword ptr [r12 + 16], rax
                         lea              r9, [rsp + 1712]
-.Lpartition$2F4_α_97_81:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_97_84
+.Lcall_prolog_α_97_81:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_97_84
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_82
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_97_83
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_97_81
-.Lpartition$2F4_α_97_83:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_97_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_82
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_97_83
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_97_81
+.Lcall_prolog_α_97_83:  cmp              esi, 2;                              jne   .Lcall_prolog_α_97_82
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_97_81
-.Lpartition$2F4_α_97_84:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_97_81
+.Lcall_prolog_α_97_84:  cmp              al, 72;                              jne   .Lcall_prolog_α_97_82
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_82
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_97_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_97_81
-.Lpartition$2F4_α_97_82:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_97_85
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_97_85
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_86
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_82
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_97_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_97_81
+.Lcall_prolog_α_97_82:  mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_97_85
+                        cmp              al, 104;                             je    .Lcall_prolog_α_97_85
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_97_86
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_97_85
-                                                                              jmp   .Lpartition$2F4_α_97_86
-.Lpartition$2F4_α_97_85:
-                        mov              qword ptr [rdx + 0], 72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_97_85
+                                                                              jmp   .Lcall_prolog_α_97_86
+.Lcall_prolog_α_97_85:  mov              qword ptr [rdx + 0], 72
                         lea              rax, [rdx + 0]
                         mov              qword ptr [rdx + 8], rax
                         lea              r12, [rip + g_pl_trail]
@@ -973,43 +886,36 @@ n15_call_prolog_α:      mov              r11, 16
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [r9 + 0], 72
                         lea              rax, [rdx + 0]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_97_87
-.Lpartition$2F4_α_97_86:
-                        mov              rax, qword ptr [r9 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_97_87
+.Lcall_prolog_α_97_86:  mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [rdx + 0], rax
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [rdx + 8], rax
-.Lpartition$2F4_α_97_87:
-                        lea              rcx, [rsp + 1728]
-.Lpartition$2F4_α_97_88:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_97_91
+.Lcall_prolog_α_97_87:  lea              rcx, [rsp + 1728]
+.Lcall_prolog_α_97_88:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_97_91
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_89
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_97_90
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_97_88
-.Lpartition$2F4_α_97_90:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_97_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_89
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_97_90
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_97_88
+.Lcall_prolog_α_97_90:  cmp              esi, 2;                              jne   .Lcall_prolog_α_97_89
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_97_88
-.Lpartition$2F4_α_97_91:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_97_88
+.Lcall_prolog_α_97_91:  cmp              al, 72;                              jne   .Lcall_prolog_α_97_89
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_97_89
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_97_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_97_88
-.Lpartition$2F4_α_97_89:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_97_92
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_97_92
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_97_93
+                        test             rax, rax;                            je    .Lcall_prolog_α_97_89
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_97_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_97_88
+.Lcall_prolog_α_97_89:  mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_97_92
+                        cmp              al, 104;                             je    .Lcall_prolog_α_97_92
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_97_93
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_97_92
-                                                                              jmp   .Lpartition$2F4_α_97_93
-.Lpartition$2F4_α_97_92:
-                        mov              qword ptr [rdx + 16], 72
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_97_92
+                                                                              jmp   .Lcall_prolog_α_97_93
+.Lcall_prolog_α_97_92:  mov              qword ptr [rdx + 16], 72
                         lea              rax, [rdx + 16]
                         mov              qword ptr [rdx + 24], rax
                         lea              r12, [rip + g_pl_trail]
@@ -1028,14 +934,12 @@ n15_call_prolog_α:      mov              r11, 16
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [rcx + 0], 72
                         lea              rax, [rdx + 16]
-                        mov              qword ptr [rcx + 8], rax;            jmp   .Lpartition$2F4_α_97_94
-.Lpartition$2F4_α_97_93:
-                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [rcx + 8], rax;            jmp   .Lcall_prolog_α_97_94
+.Lcall_prolog_α_97_93:  mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rdx + 16], rax
                         mov              rax, qword ptr [rcx + 8]
                         mov              qword ptr [rdx + 24], rax
-.Lpartition$2F4_α_97_94:
-                        lea              r12, [rip + g_pl_trail]
+.Lcall_prolog_α_97_94:  lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
@@ -1054,12 +958,10 @@ n15_call_prolog_α:      mov              r11, 16
                         mov              eax, dword ptr [r12 + 0]
                         mov              dword ptr [r8 + 4], eax
                         mov              qword ptr [r8 + 8], rdx
-                        mov              rax, qword ptr [r8 + 0];             jmp   .Lpartition$2F4_α_97_77
-.Lpartition$2F4_α_97_73:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_97_77
-.Lpartition$2F4_α_97_72:
-                        mov              esi, 3
+                        mov              rax, qword ptr [r8 + 0];             jmp   .Lcall_prolog_α_97_77
+.Lcall_prolog_α_97_73:  mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_97_77
+.Lcall_prolog_α_97_72:  mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1068,8 +970,7 @@ n15_call_prolog_α:      mov              r11, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_97_77:
-                        mov              qword ptr [rsp + 1680], rax
+.Lcall_prolog_α_97_77:  mov              qword ptr [rsp + 1680], rax
                         mov              qword ptr [rsp + 1688], rdx
                         cmp              al, 104;                             je    n29_call_prolog_α
                                                                               jmp   n16_var_ref_α
@@ -1107,73 +1008,63 @@ n18_call_prolog_α:      mov              r11, 19
                         mov              qword ptr [rsp + 1608], rax
                         lea              rdi, [rsp + 1600]
                         lea              r8, [rsp + 1600]
-.Lpartition$2F4_α_102_40:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_102_56
+.Lcall_prolog_α_102_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_102_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_102_41
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_102_55
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_102_40
-.Lpartition$2F4_α_102_55:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_102_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_102_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_102_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_102_40
+.Lcall_prolog_α_102_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_102_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_102_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_102_40
-.Lpartition$2F4_α_102_56:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_102_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_102_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_102_40
+.Lcall_prolog_α_102_56: cmp              al, 72;                              jne   .Lcall_prolog_α_102_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_102_41
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_102_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_102_40
-.Lpartition$2F4_α_102_41:
-                        lea              r9, [rsp + 1616]
-.Lpartition$2F4_α_102_42:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_102_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_102_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_102_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_102_40
+.Lcall_prolog_α_102_41: lea              r9, [rsp + 1616]
+.Lcall_prolog_α_102_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_102_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_102_43
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_102_57
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_102_42
-.Lpartition$2F4_α_102_57:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_102_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_102_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_102_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_102_42
+.Lcall_prolog_α_102_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_102_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_102_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_102_42
-.Lpartition$2F4_α_102_58:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_102_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_102_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_102_42
+.Lcall_prolog_α_102_58: cmp              al, 72;                              jne   .Lcall_prolog_α_102_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_102_43
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_102_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_102_42
-.Lpartition$2F4_α_102_43:
-                        cmp              r8, r9;                              je    .Lpartition$2F4_α_102_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_102_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_102_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_102_42
+.Lcall_prolog_α_102_43: cmp              r8, r9;                              je    .Lcall_prolog_α_102_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_102_44
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_102_44
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_102_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_102_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_102_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_102_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_102_44
-                                                                              jmp   .Lpartition$2F4_α_102_45
-.Lpartition$2F4_α_102_44:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_102_53
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_102_53
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_102_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_102_44
+                                                                              jmp   .Lcall_prolog_α_102_45
+.Lcall_prolog_α_102_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_102_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_102_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_102_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_102_53
-                                                                              jmp   .Lpartition$2F4_α_102_46
-.Lpartition$2F4_α_102_46:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_102_53
+                                                                              jmp   .Lcall_prolog_α_102_46
+.Lcall_prolog_α_102_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_102_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_102_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_102_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_102_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -1186,25 +1077,23 @@ n18_call_prolog_α:      mov              r11, 19
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lpartition$2F4_α_102_51
-.Lpartition$2F4_α_102_45:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_102_47
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_102_47
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_102_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_102_51
+.Lcall_prolog_α_102_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_102_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_102_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_102_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_102_47
-                                                                              jmp   .Lpartition$2F4_α_102_48
-.Lpartition$2F4_α_102_47:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_102_47
+                                                                              jmp   .Lcall_prolog_α_102_48
+.Lcall_prolog_α_102_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_102_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_102_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_102_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_102_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -1217,42 +1106,36 @@ n18_call_prolog_α:      mov              r11, 19
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_102_51
-.Lpartition$2F4_α_102_48:
-                        mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_102_51
+.Lcall_prolog_α_102_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_102_49
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_102_53
-                                                                              jmp   .Lpartition$2F4_α_102_52
-.Lpartition$2F4_α_102_49:
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_102_52
-                        cmp              cl, 5;                               je    .Lpartition$2F4_α_102_53
-                        cmp              dl, 5;                               je    .Lpartition$2F4_α_102_53
-                        cmp              cl, 3;                               jne   .Lpartition$2F4_α_102_50
-                        cmp              dl, 3;                               jne   .Lpartition$2F4_α_102_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_102_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_102_53
+                                                                              jmp   .Lcall_prolog_α_102_52
+.Lcall_prolog_α_102_49: cmp              dl, 80;                              je    .Lcall_prolog_α_102_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_102_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_102_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_102_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_102_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_102_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_102_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_102_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_102_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lpartition$2F4_α_102_51
-                                                                              jmp   .Lpartition$2F4_α_102_52
-.Lpartition$2F4_α_102_50:
-                        mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_102_51
+                                                                              jmp   .Lcall_prolog_α_102_52
+.Lcall_prolog_α_102_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_102_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_102_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_102_53
-.Lpartition$2F4_α_102_51:
-                        mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_102_54
-.Lpartition$2F4_α_102_52:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_102_54
-.Lpartition$2F4_α_102_53:
-                        mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_102_53
+.Lcall_prolog_α_102_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_102_54
+.Lcall_prolog_α_102_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_102_54
+.Lcall_prolog_α_102_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1261,8 +1144,7 @@ n18_call_prolog_α:      mov              r11, 19
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_102_54:
-                        mov              qword ptr [rsp + 1584], rax
+.Lcall_prolog_α_102_54: mov              qword ptr [rsp + 1584], rax
                         mov              qword ptr [rsp + 1592], rdx
                         cmp              al, 104;                             je    n29_call_prolog_α
                                                                               jmp   n19_var_α
@@ -1362,13 +1244,13 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              qword ptr [rsp + 1408], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_118_200
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_118_200
                         mov              rax, qword ptr [rsp + 1440]
                         mov              rdx, qword ptr [rsp + 1448]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lpartition$2F4_α_118_201
-.Lpartition$2F4_α_118_200:
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_118_201
+.Lcall_proc_staged_α_118_200:
                         mov              edi, 0
                         mov              rsi, qword ptr [rsp + 1440]
                         mov              rdx, qword ptr [rsp + 1448]
@@ -1380,16 +1262,16 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_118_201:
+.Lcall_proc_staged_α_118_201:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_118_202
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_118_202
                         mov              rax, qword ptr [rsp + 1456]
                         mov              rdx, qword ptr [rsp + 1464]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lpartition$2F4_α_118_203
-.Lpartition$2F4_α_118_202:
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_118_203
+.Lcall_proc_staged_α_118_202:
                         mov              edi, 1
                         mov              rsi, qword ptr [rsp + 1456]
                         mov              rdx, qword ptr [rsp + 1464]
@@ -1401,16 +1283,16 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_118_203:
+.Lcall_proc_staged_α_118_203:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_118_204
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_118_204
                         mov              rax, qword ptr [rsp + 1472]
                         mov              rdx, qword ptr [rsp + 1480]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lpartition$2F4_α_118_205
-.Lpartition$2F4_α_118_204:
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lcall_proc_staged_α_118_205
+.Lcall_proc_staged_α_118_204:
                         mov              edi, 2
                         mov              rsi, qword ptr [rsp + 1472]
                         mov              rdx, qword ptr [rsp + 1480]
@@ -1422,16 +1304,16 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_118_205:
+.Lcall_proc_staged_α_118_205:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_118_206
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_118_206
                         mov              rax, qword ptr [rsp + 1488]
                         mov              rdx, qword ptr [rsp + 1496]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 48], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lpartition$2F4_α_118_207
-.Lpartition$2F4_α_118_206:
+                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lcall_proc_staged_α_118_207
+.Lcall_proc_staged_α_118_206:
                         mov              edi, 3
                         mov              rsi, qword ptr [rsp + 1488]
                         mov              rdx, qword ptr [rsp + 1496]
@@ -1443,9 +1325,9 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_118_207:
+.Lcall_proc_staged_α_118_207:
                         sub              rsp, 8
-                        lea              rax, [rip + .Lpartition$2F4_α_118_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        lea              rax, [rip + .Lcall_proc_staged_α_118_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 0
                         mov              esi, 4
@@ -1457,19 +1339,19 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_118_1
-                        lea              rcx, [rip + .Lpartition$2F4_α_118_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_118_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_118_4]
                         push             rcx
-                        lea              rcx, [rip + .Lpartition$2F4_α_118_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_118_3]
                         push             rcx
-                        lea              rdx, [rip + .Lpartition$2F4_α_118_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_118_4]
                                                                               jmp   rax
-.Lpartition$2F4_α_118_3:
+.Lcall_proc_staged_α_118_3:
                         add              rsp, 16
                         mov              qword ptr [rsp + 1416], rsp
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 1408]
-                        test             rax, rax;                            jne   .Lpartition$2F4_α_118_5
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_118_5
                         mov              qword ptr [rsp + 1408], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1478,14 +1360,14 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lpartition$2F4_α_118_2
-.Lpartition$2F4_α_118_5:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lpartition$2F4_α_118_2
-.Lpartition$2F4_α_118_4:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_118_2
+.Lcall_proc_staged_α_118_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_118_2
+.Lcall_proc_staged_α_118_4:
                         add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 1408]
-                        test             rax, rax;                            jne   .Lpartition$2F4_α_118_6
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_118_6
                         mov              qword ptr [rsp + 1408], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1494,10 +1376,10 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lpartition$2F4_α_118_2
-.Lpartition$2F4_α_118_6:
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lpartition$2F4_α_118_2
-.Lpartition$2F4_α_118_1:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_118_2
+.Lcall_proc_staged_α_118_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_118_2
+.Lcall_proc_staged_α_118_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1506,10 +1388,10 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_118_2:
+.Lcall_proc_staged_α_118_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lpartition$2F4_α_118_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_118_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -1525,7 +1407,7 @@ n27_call_proc_staged_α: mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 1328]
                         mov              rdx, qword ptr [rsp + 1336]
-.Lpartition$2F4_α_118_29:
+.Lcall_proc_staged_α_118_29:
                         mov              qword ptr [rsp + 1328], rax
                         mov              qword ptr [rsp + 1336], rdx
                         cmp              al, 104;                             je    n72_call_prolog_α
@@ -1613,23 +1495,23 @@ n27_call_proc_staged_β: mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n72_call_prolog_α
                         sub              rsp, 8
-                        lea              r8, [rip + .Lpartition$2F4_α_118_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_118_7]
                         push             r8
-                        lea              rcx, [rip + .Lpartition$2F4_α_118_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_118_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lpartition$2F4_α_118_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_118_3]
                         push             rcx
-                        lea              rdx, [rip + .Lpartition$2F4_α_118_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_118_4]
                                                                               jmp   rax
-.Lpartition$2F4_α_118_7:
+.Lcall_proc_staged_α_118_7:
                         add              rsp, 16
                         mov              qword ptr [rsp + 1328], rax
                         mov              qword ptr [rsp + 1336], rdx
                         cmp              al, 104;                             je    n72_call_prolog_α
                                                                               jmp   n28_suspend_α
-.Lpartition$2F4_β_118_0:
-                        .quad            .Lpartition$2F4_β_118_0_s
-.Lpartition$2F4_β_118_0_s:
+.Lcall_proc_staged_β_118_0:
+                        .quad            .Lcall_proc_staged_β_118_0_s
+.Lcall_proc_staged_β_118_0_s:
                         .string          "partition/4"
                         .size            n27_call_proc_staged_bx, .-n27_call_proc_staged_bx
                         .type            n28_suspend_bx, @function
@@ -1637,7 +1519,7 @@ n28_suspend_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n28_suspend_α:          mov              r11, 29
                         mov              rax, qword ptr [rsp + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_120_61
+                        test             rax, rax;                            je    .Lsuspend_α_120_61
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1648,8 +1530,7 @@ n28_suspend_α:          mov              r11, 29
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 2080];         jmp   rax
-.Lpartition$2F4_α_120_61:
-                        mov              rdi, qword ptr [rsp + 80]
+.Lsuspend_α_120_61:     mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         lea              rdx, [rip + n28_suspend_β]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1706,20 +1587,18 @@ n31_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n31_lit_integer_α:      mov              r11, 32
                         mov              qword ptr [rsp + 1264], 3            # result
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_124_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_124_0]
                         mov              qword ptr [rsp + 1272], rax;         jmp   n32_lit_integer_α
-.Lpartition$2F4_α_124_0:
-                        .quad            3
+.Llit_integer_α_124_0:  .quad            3
                         .size            n31_lit_integer_bx, .-n31_lit_integer_bx
                         .type            n32_lit_integer_bx, @function
 n32_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n32_lit_integer_α:      mov              r11, 33
                         mov              qword ptr [rsp + 1280], 3            # result
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_125_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_125_0]
                         mov              qword ptr [rsp + 1288], rax;         jmp   n33_call_prolog_α
-.Lpartition$2F4_α_125_0:
-                        .quad            0
+.Llit_integer_α_125_0:  .quad            0
                         .size            n32_lit_integer_bx, .-n32_lit_integer_bx
                         .type            n33_call_prolog_bx, @function
 n33_call_prolog_bx:
@@ -1739,61 +1618,61 @@ n33_call_prolog_α:      mov              r11, 34
                         mov              qword ptr [rsp + 1208], rax
                         lea              rdi, [rsp + 1200]
                         lea              r8, [rsp + 1200]
-.Lpartition$2F4_α_126_110:
+.Lcall_prolog_α_126_110:
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_126_113
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_126_113
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_126_111
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_126_112
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_126_110
-.Lpartition$2F4_α_126_112:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_126_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_126_111
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_126_112
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_126_110
+.Lcall_prolog_α_126_112:
+                        cmp              esi, 2;                              jne   .Lcall_prolog_α_126_111
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_126_111
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_126_110
-.Lpartition$2F4_α_126_113:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_126_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_126_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_126_110
+.Lcall_prolog_α_126_113:
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_126_111
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_126_111
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_126_111
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_126_110
-.Lpartition$2F4_α_126_111:
+                        test             rax, rax;                            je    .Lcall_prolog_α_126_111
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_126_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_126_110
+.Lcall_prolog_α_126_111:
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_126_114
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_126_114
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_126_118
+                        cmp              al, 0;                               je    .Lcall_prolog_α_126_114
+                        cmp              al, 104;                             je    .Lcall_prolog_α_126_114
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_126_118
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_126_114
-                                                                              jmp   .Lpartition$2F4_α_126_118
-.Lpartition$2F4_α_126_118:
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_126_114
+                                                                              jmp   .Lcall_prolog_α_126_118
+.Lcall_prolog_α_126_118:
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 80;                              jne   .Lpartition$2F4_α_126_119
+                        cmp              al, 80;                              jne   .Lcall_prolog_α_126_119
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              edx, dword ptr [r12 + 0]
-                        cmp              dl, 0;                               je    .Lpartition$2F4_α_126_116
+                        cmp              dl, 0;                               je    .Lcall_prolog_α_126_116
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, edx;                            jne   .Lpartition$2F4_α_126_115
-                                                                              jmp   .Lpartition$2F4_α_126_114
-.Lpartition$2F4_α_126_119:
-                        cmp              al, 3;                               jne   .Lpartition$2F4_α_126_120
+                        cmp              esi, edx;                            jne   .Lcall_prolog_α_126_115
+                                                                              jmp   .Lcall_prolog_α_126_114
+.Lcall_prolog_α_126_119:
+                        cmp              al, 3;                               jne   .Lcall_prolog_α_126_120
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lpartition$2F4_α_126_114
-                                                                              jmp   .Lpartition$2F4_α_126_115
-.Lpartition$2F4_α_126_120:
-                        cmp              al, 2;                               jne   .Lpartition$2F4_α_126_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_126_114
+                                                                              jmp   .Lcall_prolog_α_126_115
+.Lcall_prolog_α_126_120:
+                        cmp              al, 2;                               jne   .Lcall_prolog_α_126_114
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lpartition$2F4_α_126_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_126_114
                         mov              rdx, qword ptr [r8 + 8]
-                        test             rdx, rdx;                            je    .Lpartition$2F4_α_126_114
-                                                                              jmp   .Lpartition$2F4_α_126_115
-.Lpartition$2F4_α_126_114:
+                        test             rdx, rdx;                            je    .Lcall_prolog_α_126_114
+                                                                              jmp   .Lcall_prolog_α_126_115
+.Lcall_prolog_α_126_114:
                         mov              eax, 3
-                        mov              edx, 1;                              jmp   .Lpartition$2F4_α_126_117
-.Lpartition$2F4_α_126_115:
+                        mov              edx, 1;                              jmp   .Lcall_prolog_α_126_117
+.Lcall_prolog_α_126_115:
                         mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_126_117
-.Lpartition$2F4_α_126_116:
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_126_117
+.Lcall_prolog_α_126_116:
                         mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1803,7 +1682,7 @@ n33_call_prolog_α:      mov              r11, 34
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_126_117:
+.Lcall_prolog_α_126_117:
                         mov              qword ptr [rsp + 1184], rax
                         mov              qword ptr [rsp + 1192], rdx
                         cmp              al, 104;                             je    n55_var_ref_α
@@ -1855,109 +1734,94 @@ n37_call_prolog_α:      mov              r11, 38
                         mov              qword ptr [rsp + 1112], rax
                         lea              rdi, [rsp + 1104]
                         lea              r8, [rsp + 1104]
-.Lpartition$2F4_α_133_60:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_133_63
+.Lcall_prolog_α_133_60: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_133_63
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_61
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_133_62
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_133_60
-.Lpartition$2F4_α_133_62:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_133_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_61
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_133_62
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_133_60
+.Lcall_prolog_α_133_62: cmp              esi, 2;                              jne   .Lcall_prolog_α_133_61
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_133_60
-.Lpartition$2F4_α_133_63:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_133_60
+.Lcall_prolog_α_133_63: cmp              al, 72;                              jne   .Lcall_prolog_α_133_61
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_61
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_133_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_133_60
-.Lpartition$2F4_α_133_61:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_133_80
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_133_80
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_74
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_61
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_133_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_133_60
+.Lcall_prolog_α_133_61: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_133_80
+                        cmp              al, 104;                             je    .Lcall_prolog_α_133_80
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_133_74
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_133_80
-                                                                              jmp   .Lpartition$2F4_α_133_74
-.Lpartition$2F4_α_133_74:
-                        mov              ecx, dword ptr [r8 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_133_73
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_133_80
+                                                                              jmp   .Lcall_prolog_α_133_74
+.Lcall_prolog_α_133_74: mov              ecx, dword ptr [r8 + 0]
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_133_73
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_133_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_133_72
                         mov              edx, dword ptr [r8 + 4]
-                        cmp              eax, edx;                            jne   .Lpartition$2F4_α_133_73
+                        cmp              eax, edx;                            jne   .Lcall_prolog_α_133_73
                         lea              r9, [rsp + 1120]
-.Lpartition$2F4_α_133_64:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_133_67
+.Lcall_prolog_α_133_64: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_133_67
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_65
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_133_66
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_133_64
-.Lpartition$2F4_α_133_66:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_133_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_65
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_133_66
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_133_64
+.Lcall_prolog_α_133_66: cmp              esi, 2;                              jne   .Lcall_prolog_α_133_65
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_133_64
-.Lpartition$2F4_α_133_67:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_133_64
+.Lcall_prolog_α_133_67: cmp              al, 72;                              jne   .Lcall_prolog_α_133_65
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_65
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_133_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_133_64
-.Lpartition$2F4_α_133_65:
-                        lea              rcx, [rsp + 1136]
-.Lpartition$2F4_α_133_68:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_133_71
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_65
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_133_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_133_64
+.Lcall_prolog_α_133_65: lea              rcx, [rsp + 1136]
+.Lcall_prolog_α_133_68: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_133_71
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_69
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_133_70
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_133_68
-.Lpartition$2F4_α_133_70:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_133_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_69
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_133_70
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_133_68
+.Lcall_prolog_α_133_70: cmp              esi, 2;                              jne   .Lcall_prolog_α_133_69
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_133_68
-.Lpartition$2F4_α_133_71:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_133_68
+.Lcall_prolog_α_133_71: cmp              al, 72;                              jne   .Lcall_prolog_α_133_69
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_69
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_133_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_133_68
-.Lpartition$2F4_α_133_69:
-                        cmp              r9, rcx;                             je    .Lpartition$2F4_α_133_72
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_69
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_133_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_133_68
+.Lcall_prolog_α_133_69: cmp              r9, rcx;                             je    .Lcall_prolog_α_133_72
                         mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_133_75
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_133_75
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_72
+                        cmp              al, 0;                               je    .Lcall_prolog_α_133_75
+                        cmp              al, 104;                             je    .Lcall_prolog_α_133_75
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_133_72
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_133_75
-                                                                              jmp   .Lpartition$2F4_α_133_72
-.Lpartition$2F4_α_133_75:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_133_76
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_133_76
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_133_75
+                                                                              jmp   .Lcall_prolog_α_133_72
+.Lcall_prolog_α_133_75: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_133_76
+                        cmp              al, 104;                             je    .Lcall_prolog_α_133_76
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_133_72
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_133_76
-                                                                              jmp   .Lpartition$2F4_α_133_72
-.Lpartition$2F4_α_133_76:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_133_76
+                                                                              jmp   .Lcall_prolog_α_133_72
+.Lcall_prolog_α_133_76: lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_133_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_133_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 48
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_133_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_133_72
                         add              rdi, rsi
                         mov              qword ptr [rdi + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -1982,27 +1846,26 @@ n37_call_prolog_α:      mov              r11, 38
                         mov              rax, qword ptr [r12 + 24]
                         mov              qword ptr [rcx + 8], rax
                         mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_133_77
-.Lpartition$2F4_α_133_80:
-                        lea              r12, [rip + g_plw_dot_sl]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_133_77
+.Lcall_prolog_α_133_80: lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_133_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_133_72
                         lea              r12, [rip + g_hp_fr]
                         mov              eax, dword ptr [r12 + 24]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_133_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_133_72
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 8]
                         sub              rax, 48
-                        cmp              rdi, rax;                            ja    .Lpartition$2F4_α_133_72
+                        cmp              rdi, rax;                            ja    .Lcall_prolog_α_133_72
                         lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_133_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_133_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 72
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_133_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_133_72
                         lea              r12, [rip + g_hp_fr]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              qword ptr [rdi + 0], 0
@@ -2016,35 +1879,30 @@ n37_call_prolog_α:      mov              r11, 38
                         add              rax, 1
                         mov              qword ptr [r12 + 16], rax
                         lea              r9, [rsp + 1120]
-.Lpartition$2F4_α_133_81:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_133_84
+.Lcall_prolog_α_133_81: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_133_84
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_82
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_133_83
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_133_81
-.Lpartition$2F4_α_133_83:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_133_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_82
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_133_83
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_133_81
+.Lcall_prolog_α_133_83: cmp              esi, 2;                              jne   .Lcall_prolog_α_133_82
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_133_81
-.Lpartition$2F4_α_133_84:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_133_81
+.Lcall_prolog_α_133_84: cmp              al, 72;                              jne   .Lcall_prolog_α_133_82
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_82
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_133_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_133_81
-.Lpartition$2F4_α_133_82:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_133_85
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_133_85
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_86
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_82
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_133_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_133_81
+.Lcall_prolog_α_133_82: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_133_85
+                        cmp              al, 104;                             je    .Lcall_prolog_α_133_85
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_133_86
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_133_85
-                                                                              jmp   .Lpartition$2F4_α_133_86
-.Lpartition$2F4_α_133_85:
-                        mov              qword ptr [rdx + 0], 72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_133_85
+                                                                              jmp   .Lcall_prolog_α_133_86
+.Lcall_prolog_α_133_85: mov              qword ptr [rdx + 0], 72
                         lea              rax, [rdx + 0]
                         mov              qword ptr [rdx + 8], rax
                         lea              r12, [rip + g_pl_trail]
@@ -2063,43 +1921,36 @@ n37_call_prolog_α:      mov              r11, 38
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [r9 + 0], 72
                         lea              rax, [rdx + 0]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_133_87
-.Lpartition$2F4_α_133_86:
-                        mov              rax, qword ptr [r9 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_133_87
+.Lcall_prolog_α_133_86: mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [rdx + 0], rax
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [rdx + 8], rax
-.Lpartition$2F4_α_133_87:
-                        lea              rcx, [rsp + 1136]
-.Lpartition$2F4_α_133_88:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_133_91
+.Lcall_prolog_α_133_87: lea              rcx, [rsp + 1136]
+.Lcall_prolog_α_133_88: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_133_91
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_89
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_133_90
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_133_88
-.Lpartition$2F4_α_133_90:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_133_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_89
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_133_90
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_133_88
+.Lcall_prolog_α_133_90: cmp              esi, 2;                              jne   .Lcall_prolog_α_133_89
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_133_88
-.Lpartition$2F4_α_133_91:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_133_88
+.Lcall_prolog_α_133_91: cmp              al, 72;                              jne   .Lcall_prolog_α_133_89
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_133_89
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_133_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_133_88
-.Lpartition$2F4_α_133_89:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_133_92
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_133_92
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_133_93
+                        test             rax, rax;                            je    .Lcall_prolog_α_133_89
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_133_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_133_88
+.Lcall_prolog_α_133_89: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_133_92
+                        cmp              al, 104;                             je    .Lcall_prolog_α_133_92
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_133_93
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_133_92
-                                                                              jmp   .Lpartition$2F4_α_133_93
-.Lpartition$2F4_α_133_92:
-                        mov              qword ptr [rdx + 16], 72
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_133_92
+                                                                              jmp   .Lcall_prolog_α_133_93
+.Lcall_prolog_α_133_92: mov              qword ptr [rdx + 16], 72
                         lea              rax, [rdx + 16]
                         mov              qword ptr [rdx + 24], rax
                         lea              r12, [rip + g_pl_trail]
@@ -2118,14 +1969,12 @@ n37_call_prolog_α:      mov              r11, 38
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [rcx + 0], 72
                         lea              rax, [rdx + 16]
-                        mov              qword ptr [rcx + 8], rax;            jmp   .Lpartition$2F4_α_133_94
-.Lpartition$2F4_α_133_93:
-                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [rcx + 8], rax;            jmp   .Lcall_prolog_α_133_94
+.Lcall_prolog_α_133_93: mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rdx + 16], rax
                         mov              rax, qword ptr [rcx + 8]
                         mov              qword ptr [rdx + 24], rax
-.Lpartition$2F4_α_133_94:
-                        lea              r12, [rip + g_pl_trail]
+.Lcall_prolog_α_133_94: lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
@@ -2144,12 +1993,10 @@ n37_call_prolog_α:      mov              r11, 38
                         mov              eax, dword ptr [r12 + 0]
                         mov              dword ptr [r8 + 4], eax
                         mov              qword ptr [r8 + 8], rdx
-                        mov              rax, qword ptr [r8 + 0];             jmp   .Lpartition$2F4_α_133_77
-.Lpartition$2F4_α_133_73:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_133_77
-.Lpartition$2F4_α_133_72:
-                        mov              esi, 3
+                        mov              rax, qword ptr [r8 + 0];             jmp   .Lcall_prolog_α_133_77
+.Lcall_prolog_α_133_73: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_133_77
+.Lcall_prolog_α_133_72: mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2158,8 +2005,7 @@ n37_call_prolog_α:      mov              r11, 38
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_133_77:
-                        mov              qword ptr [rsp + 1088], rax
+.Lcall_prolog_α_133_77: mov              qword ptr [rsp + 1088], rax
                         mov              qword ptr [rsp + 1096], rdx
                         cmp              al, 104;                             je    n54_call_prolog_α
                                                                               jmp   n38_var_ref_α
@@ -2197,73 +2043,63 @@ n40_call_prolog_α:      mov              r11, 41
                         mov              qword ptr [rsp + 1016], rax
                         lea              rdi, [rsp + 1008]
                         lea              r8, [rsp + 1008]
-.Lpartition$2F4_α_138_40:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_138_56
+.Lcall_prolog_α_138_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_138_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_138_41
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_138_55
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_138_40
-.Lpartition$2F4_α_138_55:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_138_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_138_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_138_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_138_40
+.Lcall_prolog_α_138_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_138_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_138_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_138_40
-.Lpartition$2F4_α_138_56:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_138_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_138_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_138_40
+.Lcall_prolog_α_138_56: cmp              al, 72;                              jne   .Lcall_prolog_α_138_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_138_41
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_138_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_138_40
-.Lpartition$2F4_α_138_41:
-                        lea              r9, [rsp + 1024]
-.Lpartition$2F4_α_138_42:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_138_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_138_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_138_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_138_40
+.Lcall_prolog_α_138_41: lea              r9, [rsp + 1024]
+.Lcall_prolog_α_138_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_138_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_138_43
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_138_57
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_138_42
-.Lpartition$2F4_α_138_57:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_138_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_138_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_138_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_138_42
+.Lcall_prolog_α_138_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_138_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_138_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_138_42
-.Lpartition$2F4_α_138_58:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_138_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_138_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_138_42
+.Lcall_prolog_α_138_58: cmp              al, 72;                              jne   .Lcall_prolog_α_138_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_138_43
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_138_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_138_42
-.Lpartition$2F4_α_138_43:
-                        cmp              r8, r9;                              je    .Lpartition$2F4_α_138_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_138_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_138_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_138_42
+.Lcall_prolog_α_138_43: cmp              r8, r9;                              je    .Lcall_prolog_α_138_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_138_44
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_138_44
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_138_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_138_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_138_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_138_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_138_44
-                                                                              jmp   .Lpartition$2F4_α_138_45
-.Lpartition$2F4_α_138_44:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_138_53
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_138_53
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_138_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_138_44
+                                                                              jmp   .Lcall_prolog_α_138_45
+.Lcall_prolog_α_138_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_138_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_138_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_138_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_138_53
-                                                                              jmp   .Lpartition$2F4_α_138_46
-.Lpartition$2F4_α_138_46:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_138_53
+                                                                              jmp   .Lcall_prolog_α_138_46
+.Lcall_prolog_α_138_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_138_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_138_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_138_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_138_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -2276,25 +2112,23 @@ n40_call_prolog_α:      mov              r11, 41
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lpartition$2F4_α_138_51
-.Lpartition$2F4_α_138_45:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_138_47
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_138_47
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_138_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_138_51
+.Lcall_prolog_α_138_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_138_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_138_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_138_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_138_47
-                                                                              jmp   .Lpartition$2F4_α_138_48
-.Lpartition$2F4_α_138_47:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_138_47
+                                                                              jmp   .Lcall_prolog_α_138_48
+.Lcall_prolog_α_138_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_138_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_138_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_138_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_138_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -2307,42 +2141,36 @@ n40_call_prolog_α:      mov              r11, 41
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_138_51
-.Lpartition$2F4_α_138_48:
-                        mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_138_51
+.Lcall_prolog_α_138_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_138_49
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_138_53
-                                                                              jmp   .Lpartition$2F4_α_138_52
-.Lpartition$2F4_α_138_49:
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_138_52
-                        cmp              cl, 5;                               je    .Lpartition$2F4_α_138_53
-                        cmp              dl, 5;                               je    .Lpartition$2F4_α_138_53
-                        cmp              cl, 3;                               jne   .Lpartition$2F4_α_138_50
-                        cmp              dl, 3;                               jne   .Lpartition$2F4_α_138_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_138_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_138_53
+                                                                              jmp   .Lcall_prolog_α_138_52
+.Lcall_prolog_α_138_49: cmp              dl, 80;                              je    .Lcall_prolog_α_138_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_138_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_138_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_138_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_138_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_138_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_138_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_138_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_138_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lpartition$2F4_α_138_51
-                                                                              jmp   .Lpartition$2F4_α_138_52
-.Lpartition$2F4_α_138_50:
-                        mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_138_51
+                                                                              jmp   .Lcall_prolog_α_138_52
+.Lcall_prolog_α_138_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_138_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_138_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_138_53
-.Lpartition$2F4_α_138_51:
-                        mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_138_54
-.Lpartition$2F4_α_138_52:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_138_54
-.Lpartition$2F4_α_138_53:
-                        mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_138_53
+.Lcall_prolog_α_138_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_138_54
+.Lcall_prolog_α_138_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_138_54
+.Lcall_prolog_α_138_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2351,8 +2179,7 @@ n40_call_prolog_α:      mov              r11, 41
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_138_54:
-                        mov              qword ptr [rsp + 992], rax
+.Lcall_prolog_α_138_54: mov              qword ptr [rsp + 992], rax
                         mov              qword ptr [rsp + 1000], rdx
                         cmp              al, 104;                             je    n54_call_prolog_α
                                                                               jmp   n41_var_ref_α
@@ -2390,73 +2217,63 @@ n43_call_prolog_α:      mov              r11, 44
                         mov              qword ptr [rsp + 936], rax
                         lea              rdi, [rsp + 928]
                         lea              r8, [rsp + 928]
-.Lpartition$2F4_α_143_40:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_143_56
+.Lcall_prolog_α_143_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_143_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_143_41
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_143_55
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_143_40
-.Lpartition$2F4_α_143_55:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_143_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_143_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_143_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_143_40
+.Lcall_prolog_α_143_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_143_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_143_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_143_40
-.Lpartition$2F4_α_143_56:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_143_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_143_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_143_40
+.Lcall_prolog_α_143_56: cmp              al, 72;                              jne   .Lcall_prolog_α_143_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_143_41
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_143_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_143_40
-.Lpartition$2F4_α_143_41:
-                        lea              r9, [rsp + 944]
-.Lpartition$2F4_α_143_42:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_143_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_143_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_143_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_143_40
+.Lcall_prolog_α_143_41: lea              r9, [rsp + 944]
+.Lcall_prolog_α_143_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_143_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_143_43
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_143_57
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_143_42
-.Lpartition$2F4_α_143_57:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_143_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_143_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_143_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_143_42
+.Lcall_prolog_α_143_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_143_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_143_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_143_42
-.Lpartition$2F4_α_143_58:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_143_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_143_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_143_42
+.Lcall_prolog_α_143_58: cmp              al, 72;                              jne   .Lcall_prolog_α_143_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_143_43
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_143_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_143_42
-.Lpartition$2F4_α_143_43:
-                        cmp              r8, r9;                              je    .Lpartition$2F4_α_143_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_143_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_143_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_143_42
+.Lcall_prolog_α_143_43: cmp              r8, r9;                              je    .Lcall_prolog_α_143_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_143_44
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_143_44
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_143_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_143_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_143_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_143_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_143_44
-                                                                              jmp   .Lpartition$2F4_α_143_45
-.Lpartition$2F4_α_143_44:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_143_53
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_143_53
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_143_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_143_44
+                                                                              jmp   .Lcall_prolog_α_143_45
+.Lcall_prolog_α_143_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_143_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_143_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_143_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_143_53
-                                                                              jmp   .Lpartition$2F4_α_143_46
-.Lpartition$2F4_α_143_46:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_143_53
+                                                                              jmp   .Lcall_prolog_α_143_46
+.Lcall_prolog_α_143_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_143_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_143_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_143_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_143_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -2469,25 +2286,23 @@ n43_call_prolog_α:      mov              r11, 44
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lpartition$2F4_α_143_51
-.Lpartition$2F4_α_143_45:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_143_47
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_143_47
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_143_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_143_51
+.Lcall_prolog_α_143_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_143_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_143_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_143_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_143_47
-                                                                              jmp   .Lpartition$2F4_α_143_48
-.Lpartition$2F4_α_143_47:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_143_47
+                                                                              jmp   .Lcall_prolog_α_143_48
+.Lcall_prolog_α_143_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_143_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_143_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_143_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_143_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -2500,42 +2315,36 @@ n43_call_prolog_α:      mov              r11, 44
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_143_51
-.Lpartition$2F4_α_143_48:
-                        mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_143_51
+.Lcall_prolog_α_143_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_143_49
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_143_53
-                                                                              jmp   .Lpartition$2F4_α_143_52
-.Lpartition$2F4_α_143_49:
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_143_52
-                        cmp              cl, 5;                               je    .Lpartition$2F4_α_143_53
-                        cmp              dl, 5;                               je    .Lpartition$2F4_α_143_53
-                        cmp              cl, 3;                               jne   .Lpartition$2F4_α_143_50
-                        cmp              dl, 3;                               jne   .Lpartition$2F4_α_143_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_143_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_143_53
+                                                                              jmp   .Lcall_prolog_α_143_52
+.Lcall_prolog_α_143_49: cmp              dl, 80;                              je    .Lcall_prolog_α_143_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_143_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_143_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_143_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_143_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_143_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_143_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_143_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_143_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lpartition$2F4_α_143_51
-                                                                              jmp   .Lpartition$2F4_α_143_52
-.Lpartition$2F4_α_143_50:
-                        mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_143_51
+                                                                              jmp   .Lcall_prolog_α_143_52
+.Lcall_prolog_α_143_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_143_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_143_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_143_53
-.Lpartition$2F4_α_143_51:
-                        mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_143_54
-.Lpartition$2F4_α_143_52:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_143_54
-.Lpartition$2F4_α_143_53:
-                        mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_143_53
+.Lcall_prolog_α_143_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_143_54
+.Lcall_prolog_α_143_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_143_54
+.Lcall_prolog_α_143_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2544,8 +2353,7 @@ n43_call_prolog_α:      mov              r11, 44
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_143_54:
-                        mov              qword ptr [rsp + 912], rax
+.Lcall_prolog_α_143_54: mov              qword ptr [rsp + 912], rax
                         mov              qword ptr [rsp + 920], rdx
                         cmp              al, 104;                             je    n54_call_prolog_α
                                                                               jmp   n44_var_ref_α
@@ -2596,109 +2404,94 @@ n47_call_prolog_α:      mov              r11, 48
                         mov              qword ptr [rsp + 840], rax
                         lea              rdi, [rsp + 832]
                         lea              r8, [rsp + 832]
-.Lpartition$2F4_α_150_60:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_150_63
+.Lcall_prolog_α_150_60: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_150_63
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_61
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_150_62
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_150_60
-.Lpartition$2F4_α_150_62:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_150_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_61
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_150_62
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_150_60
+.Lcall_prolog_α_150_62: cmp              esi, 2;                              jne   .Lcall_prolog_α_150_61
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_150_60
-.Lpartition$2F4_α_150_63:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_150_60
+.Lcall_prolog_α_150_63: cmp              al, 72;                              jne   .Lcall_prolog_α_150_61
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_61
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_150_61
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_150_60
-.Lpartition$2F4_α_150_61:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_150_80
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_150_80
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_74
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_61
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_150_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_150_60
+.Lcall_prolog_α_150_61: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_150_80
+                        cmp              al, 104;                             je    .Lcall_prolog_α_150_80
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_150_74
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_150_80
-                                                                              jmp   .Lpartition$2F4_α_150_74
-.Lpartition$2F4_α_150_74:
-                        mov              ecx, dword ptr [r8 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_150_73
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_150_80
+                                                                              jmp   .Lcall_prolog_α_150_74
+.Lcall_prolog_α_150_74: mov              ecx, dword ptr [r8 + 0]
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_150_73
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_150_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_150_72
                         mov              edx, dword ptr [r8 + 4]
-                        cmp              eax, edx;                            jne   .Lpartition$2F4_α_150_73
+                        cmp              eax, edx;                            jne   .Lcall_prolog_α_150_73
                         lea              r9, [rsp + 848]
-.Lpartition$2F4_α_150_64:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_150_67
+.Lcall_prolog_α_150_64: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_150_67
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_65
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_150_66
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_150_64
-.Lpartition$2F4_α_150_66:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_150_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_65
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_150_66
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_150_64
+.Lcall_prolog_α_150_66: cmp              esi, 2;                              jne   .Lcall_prolog_α_150_65
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_150_64
-.Lpartition$2F4_α_150_67:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_150_64
+.Lcall_prolog_α_150_67: cmp              al, 72;                              jne   .Lcall_prolog_α_150_65
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_65
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_150_65
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_150_64
-.Lpartition$2F4_α_150_65:
-                        lea              rcx, [rsp + 864]
-.Lpartition$2F4_α_150_68:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_150_71
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_65
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_150_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_150_64
+.Lcall_prolog_α_150_65: lea              rcx, [rsp + 864]
+.Lcall_prolog_α_150_68: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_150_71
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_69
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_150_70
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_150_68
-.Lpartition$2F4_α_150_70:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_150_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_69
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_150_70
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_150_68
+.Lcall_prolog_α_150_70: cmp              esi, 2;                              jne   .Lcall_prolog_α_150_69
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_150_68
-.Lpartition$2F4_α_150_71:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_150_68
+.Lcall_prolog_α_150_71: cmp              al, 72;                              jne   .Lcall_prolog_α_150_69
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_69
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_150_69
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_150_68
-.Lpartition$2F4_α_150_69:
-                        cmp              r9, rcx;                             je    .Lpartition$2F4_α_150_72
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_69
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_150_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_150_68
+.Lcall_prolog_α_150_69: cmp              r9, rcx;                             je    .Lcall_prolog_α_150_72
                         mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_150_75
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_150_75
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_72
+                        cmp              al, 0;                               je    .Lcall_prolog_α_150_75
+                        cmp              al, 104;                             je    .Lcall_prolog_α_150_75
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_150_72
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_150_75
-                                                                              jmp   .Lpartition$2F4_α_150_72
-.Lpartition$2F4_α_150_75:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_150_76
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_150_76
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_150_75
+                                                                              jmp   .Lcall_prolog_α_150_72
+.Lcall_prolog_α_150_75: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_150_76
+                        cmp              al, 104;                             je    .Lcall_prolog_α_150_76
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_150_72
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_150_76
-                                                                              jmp   .Lpartition$2F4_α_150_72
-.Lpartition$2F4_α_150_76:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_150_76
+                                                                              jmp   .Lcall_prolog_α_150_72
+.Lcall_prolog_α_150_76: lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_150_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_150_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 48
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_150_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_150_72
                         add              rdi, rsi
                         mov              qword ptr [rdi + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -2723,27 +2516,26 @@ n47_call_prolog_α:      mov              r11, 48
                         mov              rax, qword ptr [r12 + 24]
                         mov              qword ptr [rcx + 8], rax
                         mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_150_77
-.Lpartition$2F4_α_150_80:
-                        lea              r12, [rip + g_plw_dot_sl]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_150_77
+.Lcall_prolog_α_150_80: lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_150_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_150_72
                         lea              r12, [rip + g_hp_fr]
                         mov              eax, dword ptr [r12 + 24]
-                        test             eax, eax;                            je    .Lpartition$2F4_α_150_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_150_72
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 8]
                         sub              rax, 48
-                        cmp              rdi, rax;                            ja    .Lpartition$2F4_α_150_72
+                        cmp              rdi, rax;                            ja    .Lcall_prolog_α_150_72
                         lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lpartition$2F4_α_150_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_150_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 72
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_150_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_150_72
                         lea              r12, [rip + g_hp_fr]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              qword ptr [rdi + 0], 0
@@ -2757,35 +2549,30 @@ n47_call_prolog_α:      mov              r11, 48
                         add              rax, 1
                         mov              qword ptr [r12 + 16], rax
                         lea              r9, [rsp + 848]
-.Lpartition$2F4_α_150_81:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_150_84
+.Lcall_prolog_α_150_81: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_150_84
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_82
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_150_83
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_150_81
-.Lpartition$2F4_α_150_83:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_150_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_82
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_150_83
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_150_81
+.Lcall_prolog_α_150_83: cmp              esi, 2;                              jne   .Lcall_prolog_α_150_82
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_150_81
-.Lpartition$2F4_α_150_84:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_150_81
+.Lcall_prolog_α_150_84: cmp              al, 72;                              jne   .Lcall_prolog_α_150_82
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_82
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_150_82
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_150_81
-.Lpartition$2F4_α_150_82:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_150_85
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_150_85
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_86
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_82
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_150_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_150_81
+.Lcall_prolog_α_150_82: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_150_85
+                        cmp              al, 104;                             je    .Lcall_prolog_α_150_85
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_150_86
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_150_85
-                                                                              jmp   .Lpartition$2F4_α_150_86
-.Lpartition$2F4_α_150_85:
-                        mov              qword ptr [rdx + 0], 72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_150_85
+                                                                              jmp   .Lcall_prolog_α_150_86
+.Lcall_prolog_α_150_85: mov              qword ptr [rdx + 0], 72
                         lea              rax, [rdx + 0]
                         mov              qword ptr [rdx + 8], rax
                         lea              r12, [rip + g_pl_trail]
@@ -2804,43 +2591,36 @@ n47_call_prolog_α:      mov              r11, 48
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [r9 + 0], 72
                         lea              rax, [rdx + 0]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_150_87
-.Lpartition$2F4_α_150_86:
-                        mov              rax, qword ptr [r9 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_150_87
+.Lcall_prolog_α_150_86: mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [rdx + 0], rax
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [rdx + 8], rax
-.Lpartition$2F4_α_150_87:
-                        lea              rcx, [rsp + 864]
-.Lpartition$2F4_α_150_88:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_150_91
+.Lcall_prolog_α_150_87: lea              rcx, [rsp + 864]
+.Lcall_prolog_α_150_88: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_150_91
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_89
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_150_90
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_150_88
-.Lpartition$2F4_α_150_90:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_150_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_89
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_150_90
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_150_88
+.Lcall_prolog_α_150_90: cmp              esi, 2;                              jne   .Lcall_prolog_α_150_89
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_150_88
-.Lpartition$2F4_α_150_91:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_150_88
+.Lcall_prolog_α_150_91: cmp              al, 72;                              jne   .Lcall_prolog_α_150_89
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_150_89
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_150_89
-                        mov              rcx, rax;                            jmp   .Lpartition$2F4_α_150_88
-.Lpartition$2F4_α_150_89:
-                        mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_150_92
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_150_92
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_150_93
+                        test             rax, rax;                            je    .Lcall_prolog_α_150_89
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_150_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_150_88
+.Lcall_prolog_α_150_89: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_150_92
+                        cmp              al, 104;                             je    .Lcall_prolog_α_150_92
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_150_93
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lpartition$2F4_α_150_92
-                                                                              jmp   .Lpartition$2F4_α_150_93
-.Lpartition$2F4_α_150_92:
-                        mov              qword ptr [rdx + 16], 72
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_150_92
+                                                                              jmp   .Lcall_prolog_α_150_93
+.Lcall_prolog_α_150_92: mov              qword ptr [rdx + 16], 72
                         lea              rax, [rdx + 16]
                         mov              qword ptr [rdx + 24], rax
                         lea              r12, [rip + g_pl_trail]
@@ -2859,14 +2639,12 @@ n47_call_prolog_α:      mov              r11, 48
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [rcx + 0], 72
                         lea              rax, [rdx + 16]
-                        mov              qword ptr [rcx + 8], rax;            jmp   .Lpartition$2F4_α_150_94
-.Lpartition$2F4_α_150_93:
-                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [rcx + 8], rax;            jmp   .Lcall_prolog_α_150_94
+.Lcall_prolog_α_150_93: mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rdx + 16], rax
                         mov              rax, qword ptr [rcx + 8]
                         mov              qword ptr [rdx + 24], rax
-.Lpartition$2F4_α_150_94:
-                        lea              r12, [rip + g_pl_trail]
+.Lcall_prolog_α_150_94: lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
@@ -2885,12 +2663,10 @@ n47_call_prolog_α:      mov              r11, 48
                         mov              eax, dword ptr [r12 + 0]
                         mov              dword ptr [r8 + 4], eax
                         mov              qword ptr [r8 + 8], rdx
-                        mov              rax, qword ptr [r8 + 0];             jmp   .Lpartition$2F4_α_150_77
-.Lpartition$2F4_α_150_73:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_150_77
-.Lpartition$2F4_α_150_72:
-                        mov              esi, 3
+                        mov              rax, qword ptr [r8 + 0];             jmp   .Lcall_prolog_α_150_77
+.Lcall_prolog_α_150_73: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_150_77
+.Lcall_prolog_α_150_72: mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2899,8 +2675,7 @@ n47_call_prolog_α:      mov              r11, 48
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_150_77:
-                        mov              qword ptr [rsp + 816], rax
+.Lcall_prolog_α_150_77: mov              qword ptr [rsp + 816], rax
                         mov              qword ptr [rsp + 824], rdx
                         cmp              al, 104;                             je    n54_call_prolog_α
                                                                               jmp   n48_var_ref_α
@@ -2949,13 +2724,13 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              qword ptr [rsp + 704], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_160_200
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_160_200
                         mov              rax, qword ptr [rsp + 736]
                         mov              rdx, qword ptr [rsp + 744]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lpartition$2F4_α_160_201
-.Lpartition$2F4_α_160_200:
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_160_201
+.Lcall_proc_staged_α_160_200:
                         mov              edi, 0
                         mov              rsi, qword ptr [rsp + 736]
                         mov              rdx, qword ptr [rsp + 744]
@@ -2967,16 +2742,16 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_160_201:
+.Lcall_proc_staged_α_160_201:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_160_202
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_160_202
                         mov              rax, qword ptr [rsp + 752]
                         mov              rdx, qword ptr [rsp + 760]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lpartition$2F4_α_160_203
-.Lpartition$2F4_α_160_202:
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_160_203
+.Lcall_proc_staged_α_160_202:
                         mov              edi, 1
                         mov              rsi, qword ptr [rsp + 752]
                         mov              rdx, qword ptr [rsp + 760]
@@ -2988,16 +2763,16 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_160_203:
+.Lcall_proc_staged_α_160_203:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_160_204
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_160_204
                         mov              rax, qword ptr [rsp + 768]
                         mov              rdx, qword ptr [rsp + 776]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lpartition$2F4_α_160_205
-.Lpartition$2F4_α_160_204:
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lcall_proc_staged_α_160_205
+.Lcall_proc_staged_α_160_204:
                         mov              edi, 2
                         mov              rsi, qword ptr [rsp + 768]
                         mov              rdx, qword ptr [rsp + 776]
@@ -3009,16 +2784,16 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_160_205:
+.Lcall_proc_staged_α_160_205:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lpartition$2F4_α_160_206
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_160_206
                         mov              rax, qword ptr [rsp + 784]
                         mov              rdx, qword ptr [rsp + 792]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 48], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lpartition$2F4_α_160_207
-.Lpartition$2F4_α_160_206:
+                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lcall_proc_staged_α_160_207
+.Lcall_proc_staged_α_160_206:
                         mov              edi, 3
                         mov              rsi, qword ptr [rsp + 784]
                         mov              rdx, qword ptr [rsp + 792]
@@ -3030,9 +2805,9 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_160_207:
+.Lcall_proc_staged_α_160_207:
                         sub              rsp, 8
-                        lea              rax, [rip + .Lpartition$2F4_α_160_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        lea              rax, [rip + .Lcall_proc_staged_α_160_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 0
                         mov              esi, 4
@@ -3044,19 +2819,19 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_160_1
-                        lea              rcx, [rip + .Lpartition$2F4_α_160_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_160_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_160_4]
                         push             rcx
-                        lea              rcx, [rip + .Lpartition$2F4_α_160_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_160_3]
                         push             rcx
-                        lea              rdx, [rip + .Lpartition$2F4_α_160_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_160_4]
                                                                               jmp   rax
-.Lpartition$2F4_α_160_3:
+.Lcall_proc_staged_α_160_3:
                         add              rsp, 16
                         mov              qword ptr [rsp + 712], rsp
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 704]
-                        test             rax, rax;                            jne   .Lpartition$2F4_α_160_5
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_160_5
                         mov              qword ptr [rsp + 704], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3065,14 +2840,14 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lpartition$2F4_α_160_2
-.Lpartition$2F4_α_160_5:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lpartition$2F4_α_160_2
-.Lpartition$2F4_α_160_4:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_160_2
+.Lcall_proc_staged_α_160_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_160_2
+.Lcall_proc_staged_α_160_4:
                         add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 704]
-                        test             rax, rax;                            jne   .Lpartition$2F4_α_160_6
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_160_6
                         mov              qword ptr [rsp + 704], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3081,10 +2856,10 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lpartition$2F4_α_160_2
-.Lpartition$2F4_α_160_6:
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lpartition$2F4_α_160_2
-.Lpartition$2F4_α_160_1:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_160_2
+.Lcall_proc_staged_α_160_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_160_2
+.Lcall_proc_staged_α_160_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3093,10 +2868,10 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_160_2:
+.Lcall_proc_staged_α_160_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lpartition$2F4_α_160_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_160_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -3112,7 +2887,7 @@ n52_call_proc_staged_α: mov              r11, 53
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 624]
                         mov              rdx, qword ptr [rsp + 632]
-.Lpartition$2F4_α_160_29:
+.Lcall_proc_staged_α_160_29:
                         mov              qword ptr [rsp + 624], rax
                         mov              qword ptr [rsp + 632], rdx
                         cmp              al, 104;                             je    n54_call_prolog_α
@@ -3200,23 +2975,23 @@ n52_call_proc_staged_β: mov              r11, 53
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n54_call_prolog_α
                         sub              rsp, 8
-                        lea              r8, [rip + .Lpartition$2F4_α_160_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_160_7]
                         push             r8
-                        lea              rcx, [rip + .Lpartition$2F4_α_160_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_160_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lpartition$2F4_α_160_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_160_3]
                         push             rcx
-                        lea              rdx, [rip + .Lpartition$2F4_α_160_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_160_4]
                                                                               jmp   rax
-.Lpartition$2F4_α_160_7:
+.Lcall_proc_staged_α_160_7:
                         add              rsp, 16
                         mov              qword ptr [rsp + 624], rax
                         mov              qword ptr [rsp + 632], rdx
                         cmp              al, 104;                             je    n54_call_prolog_α
                                                                               jmp   n53_suspend_α
-.Lpartition$2F4_β_160_0:
-                        .quad            .Lpartition$2F4_β_160_0_s
-.Lpartition$2F4_β_160_0_s:
+.Lcall_proc_staged_β_160_0:
+                        .quad            .Lcall_proc_staged_β_160_0_s
+.Lcall_proc_staged_β_160_0_s:
                         .string          "partition/4"
                         .size            n52_call_proc_staged_bx, .-n52_call_proc_staged_bx
                         .type            n53_suspend_bx, @function
@@ -3224,7 +2999,7 @@ n53_suspend_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n53_suspend_α:          mov              r11, 54
                         mov              rax, qword ptr [rsp + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_162_61
+                        test             rax, rax;                            je    .Lsuspend_α_162_61
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3235,8 +3010,7 @@ n53_suspend_α:          mov              r11, 54
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 2080];         jmp   rax
-.Lpartition$2F4_α_162_61:
-                        mov              rdi, qword ptr [rsp + 80]
+.Lsuspend_α_162_61:     mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         lea              rdx, [rip + n53_suspend_β]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3293,10 +3067,9 @@ n56_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n56_lit_integer_α:      mov              r11, 57
                         mov              qword ptr [rsp + 560], 3             # result
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_166_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_166_0]
                         mov              qword ptr [rsp + 568], rax;          jmp   n57_lit_string_α
-.Lpartition$2F4_α_166_0:
-                        .quad            2
+.Llit_integer_α_166_0:  .quad            2
                         .size            n56_lit_integer_bx, .-n56_lit_integer_bx
                         .type            n57_lit_string_bx, @function
 n57_lit_string_bx:
@@ -3304,12 +3077,10 @@ n57_lit_string_bx:
 n57_lit_string_α:       mov              r11, 58
                         mov              qword ptr [rsp + 576], 2             # result
                         mov              dword ptr [rsp + 580], 2
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_167_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_167_0]
                         mov              qword ptr [rsp + 584], rax;          jmp   n58_call_prolog_α
-.Lpartition$2F4_α_167_0:
-                        .quad            .Lpartition$2F4_α_167_0_s
-.Lpartition$2F4_α_167_0_s:
-                        .string          "[]"
+.Llit_string_α_167_0:   .quad            .Llit_string_α_167_0_s
+.Llit_string_α_167_0_s: .string          "[]"
                         .size            n57_lit_string_bx, .-n57_lit_string_bx
                         .type            n58_call_prolog_bx, @function
 n58_call_prolog_bx:
@@ -3329,50 +3100,50 @@ n58_call_prolog_α:      mov              r11, 59
                         mov              qword ptr [rsp + 504], rax
                         lea              rdi, [rsp + 496]
                         lea              r8, [rsp + 496]
-.Lpartition$2F4_α_168_110:
+.Lcall_prolog_α_168_110:
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_168_113
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_168_113
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_168_111
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_168_112
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_168_110
-.Lpartition$2F4_α_168_112:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_168_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_168_111
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_168_112
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_168_110
+.Lcall_prolog_α_168_112:
+                        cmp              esi, 2;                              jne   .Lcall_prolog_α_168_111
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_168_111
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_168_110
-.Lpartition$2F4_α_168_113:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_168_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_168_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_168_110
+.Lcall_prolog_α_168_113:
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_168_111
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_168_111
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_168_111
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_168_110
-.Lpartition$2F4_α_168_111:
+                        test             rax, rax;                            je    .Lcall_prolog_α_168_111
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_168_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_168_110
+.Lcall_prolog_α_168_111:
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_168_114
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_168_114
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_168_118
+                        cmp              al, 0;                               je    .Lcall_prolog_α_168_114
+                        cmp              al, 104;                             je    .Lcall_prolog_α_168_114
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_168_118
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_168_114
-                                                                              jmp   .Lpartition$2F4_α_168_118
-.Lpartition$2F4_α_168_118:
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_168_114
+                                                                              jmp   .Lcall_prolog_α_168_118
+.Lcall_prolog_α_168_118:
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 80;                              je    .Lpartition$2F4_α_168_115
-                        cmp              al, 3;                               je    .Lpartition$2F4_α_168_114
-                        cmp              al, 2;                               jne   .Lpartition$2F4_α_168_114
+                        cmp              al, 80;                              je    .Lcall_prolog_α_168_115
+                        cmp              al, 3;                               je    .Lcall_prolog_α_168_114
+                        cmp              al, 2;                               jne   .Lcall_prolog_α_168_114
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lpartition$2F4_α_168_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_168_114
                         mov              rdx, qword ptr [r8 + 8]
-                        test             rdx, rdx;                            je    .Lpartition$2F4_α_168_114
-                                                                              jmp   .Lpartition$2F4_α_168_116
-.Lpartition$2F4_α_168_114:
+                        test             rdx, rdx;                            je    .Lcall_prolog_α_168_114
+                                                                              jmp   .Lcall_prolog_α_168_116
+.Lcall_prolog_α_168_114:
                         mov              eax, 3
-                        mov              edx, 1;                              jmp   .Lpartition$2F4_α_168_117
-.Lpartition$2F4_α_168_115:
+                        mov              edx, 1;                              jmp   .Lcall_prolog_α_168_117
+.Lcall_prolog_α_168_115:
                         mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_168_117
-.Lpartition$2F4_α_168_116:
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_168_117
+.Lcall_prolog_α_168_116:
                         mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3382,7 +3153,7 @@ n58_call_prolog_α:      mov              r11, 59
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_168_117:
+.Lcall_prolog_α_168_117:
                         mov              qword ptr [rsp + 480], rax
                         mov              qword ptr [rsp + 488], rdx
                         cmp              al, 104;                             je    n72_call_prolog_α
@@ -3404,12 +3175,10 @@ n60_lit_string_bx:
 n60_lit_string_α:       mov              r11, 61
                         mov              qword ptr [rsp + 464], 2             # result
                         mov              dword ptr [rsp + 468], 2
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_171_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_171_0]
                         mov              qword ptr [rsp + 472], rax;          jmp   n61_call_prolog_α
-.Lpartition$2F4_α_171_0:
-                        .quad            .Lpartition$2F4_α_171_0_s
-.Lpartition$2F4_α_171_0_s:
-                        .string          "[]"
+.Llit_string_α_171_0:   .quad            .Llit_string_α_171_0_s
+.Llit_string_α_171_0_s: .string          "[]"
                         .size            n60_lit_string_bx, .-n60_lit_string_bx
                         .type            n61_call_prolog_bx, @function
 n61_call_prolog_bx:
@@ -3420,14 +3189,12 @@ n61_call_prolog_α:      mov              r11, 62
                         mov              rax, qword ptr [rsp + 456]
                         mov              qword ptr [rsp + 424], rax
                         lea              rdi, [rsp + 416]
-                        mov              rsi, qword ptr [rip + .Lpartition$2F4_α_172_2]
-                                                                              jmp   .Lpartition$2F4_α_172_3
-.Lpartition$2F4_α_172_2:
-                        .quad            .Lpartition$2F4_α_172_2_s
-.Lpartition$2F4_α_172_2_s:
+                        mov              rsi, qword ptr [rip + .Lcall_prolog_α_172_2]
+                                                                              jmp   .Lcall_prolog_α_172_3
+.Lcall_prolog_α_172_2:  .quad            .Lcall_prolog_α_172_2_s
+.Lcall_prolog_α_172_2_s:
                         .string          "[]"
-.Lpartition$2F4_α_172_3:
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lcall_prolog_α_172_3:  mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_dop_unify_cs@PLT
@@ -3473,73 +3240,63 @@ n64_call_prolog_α:      mov              r11, 65
                         mov              qword ptr [rsp + 344], rax
                         lea              rdi, [rsp + 336]
                         lea              r8, [rsp + 336]
-.Lpartition$2F4_α_177_40:
-                        mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_177_56
+.Lcall_prolog_α_177_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_177_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_177_41
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_177_55
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_177_40
-.Lpartition$2F4_α_177_55:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_177_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_177_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_177_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_177_40
+.Lcall_prolog_α_177_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_177_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_177_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_177_40
-.Lpartition$2F4_α_177_56:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_177_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_177_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_177_40
+.Lcall_prolog_α_177_56: cmp              al, 72;                              jne   .Lcall_prolog_α_177_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_177_41
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_177_41
-                        mov              r8, rax;                             jmp   .Lpartition$2F4_α_177_40
-.Lpartition$2F4_α_177_41:
-                        lea              r9, [rsp + 352]
-.Lpartition$2F4_α_177_42:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lpartition$2F4_α_177_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_177_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_177_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_177_40
+.Lcall_prolog_α_177_41: lea              r9, [rsp + 352]
+.Lcall_prolog_α_177_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_177_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_177_43
-                        cmp              esi, 1;                              jne   .Lpartition$2F4_α_177_57
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_177_42
-.Lpartition$2F4_α_177_57:
-                        cmp              esi, 2;                              jne   .Lpartition$2F4_α_177_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_177_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_177_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_177_42
+.Lcall_prolog_α_177_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_177_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_177_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_177_42
-.Lpartition$2F4_α_177_58:
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_177_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_177_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_177_42
+.Lcall_prolog_α_177_58: cmp              al, 72;                              jne   .Lcall_prolog_α_177_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_177_43
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_177_43
-                        mov              r9, rax;                             jmp   .Lpartition$2F4_α_177_42
-.Lpartition$2F4_α_177_43:
-                        cmp              r8, r9;                              je    .Lpartition$2F4_α_177_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_177_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_177_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_177_42
+.Lcall_prolog_α_177_43: cmp              r8, r9;                              je    .Lcall_prolog_α_177_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_177_44
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_177_44
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_177_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_177_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_177_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_177_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lpartition$2F4_α_177_44
-                                                                              jmp   .Lpartition$2F4_α_177_45
-.Lpartition$2F4_α_177_44:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_177_53
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_177_53
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_177_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_177_44
+                                                                              jmp   .Lcall_prolog_α_177_45
+.Lcall_prolog_α_177_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_177_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_177_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_177_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_177_53
-                                                                              jmp   .Lpartition$2F4_α_177_46
-.Lpartition$2F4_α_177_46:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_177_53
+                                                                              jmp   .Lcall_prolog_α_177_46
+.Lcall_prolog_α_177_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_177_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_177_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_177_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_177_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -3552,25 +3309,23 @@ n64_call_prolog_α:      mov              r11, 65
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lpartition$2F4_α_177_51
-.Lpartition$2F4_α_177_45:
-                        mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lpartition$2F4_α_177_47
-                        cmp              al, 104;                             je    .Lpartition$2F4_α_177_47
-                        cmp              al, 72;                              jne   .Lpartition$2F4_α_177_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_177_51
+.Lcall_prolog_α_177_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_177_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_177_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_177_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lpartition$2F4_α_177_47
-                                                                              jmp   .Lpartition$2F4_α_177_48
-.Lpartition$2F4_α_177_47:
-                        lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_177_47
+                                                                              jmp   .Lcall_prolog_α_177_48
+.Lcall_prolog_α_177_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lpartition$2F4_α_177_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_177_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lpartition$2F4_α_177_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_177_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -3583,42 +3338,36 @@ n64_call_prolog_α:      mov              r11, 65
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lpartition$2F4_α_177_51
-.Lpartition$2F4_α_177_48:
-                        mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_177_51
+.Lcall_prolog_α_177_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lpartition$2F4_α_177_49
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_177_53
-                                                                              jmp   .Lpartition$2F4_α_177_52
-.Lpartition$2F4_α_177_49:
-                        cmp              dl, 80;                              je    .Lpartition$2F4_α_177_52
-                        cmp              cl, 5;                               je    .Lpartition$2F4_α_177_53
-                        cmp              dl, 5;                               je    .Lpartition$2F4_α_177_53
-                        cmp              cl, 3;                               jne   .Lpartition$2F4_α_177_50
-                        cmp              dl, 3;                               jne   .Lpartition$2F4_α_177_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_177_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_177_53
+                                                                              jmp   .Lcall_prolog_α_177_52
+.Lcall_prolog_α_177_49: cmp              dl, 80;                              je    .Lcall_prolog_α_177_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_177_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_177_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_177_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_177_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_177_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_177_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lpartition$2F4_α_177_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_177_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lpartition$2F4_α_177_51
-                                                                              jmp   .Lpartition$2F4_α_177_52
-.Lpartition$2F4_α_177_50:
-                        mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_177_51
+                                                                              jmp   .Lcall_prolog_α_177_52
+.Lcall_prolog_α_177_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_177_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_177_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lpartition$2F4_α_177_53
-.Lpartition$2F4_α_177_51:
-                        mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lpartition$2F4_α_177_54
-.Lpartition$2F4_α_177_52:
-                        mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lpartition$2F4_α_177_54
-.Lpartition$2F4_α_177_53:
-                        mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_177_53
+.Lcall_prolog_α_177_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_177_54
+.Lcall_prolog_α_177_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_177_54
+.Lcall_prolog_α_177_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3627,8 +3376,7 @@ n64_call_prolog_α:      mov              r11, 65
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lpartition$2F4_α_177_54:
-                        mov              qword ptr [rsp + 320], rax
+.Lcall_prolog_α_177_54: mov              qword ptr [rsp + 320], rax
                         mov              qword ptr [rsp + 328], rdx
                         cmp              al, 104;                             je    n72_call_prolog_α
                                                                               jmp   n65_var_ref_α
@@ -3649,12 +3397,10 @@ n66_lit_string_bx:
 n66_lit_string_α:       mov              r11, 67
                         mov              qword ptr [rsp + 304], 2             # result
                         mov              dword ptr [rsp + 308], 2
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_180_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_180_0]
                         mov              qword ptr [rsp + 312], rax;          jmp   n67_call_prolog_α
-.Lpartition$2F4_α_180_0:
-                        .quad            .Lpartition$2F4_α_180_0_s
-.Lpartition$2F4_α_180_0_s:
-                        .string          "[]"
+.Llit_string_α_180_0:   .quad            .Llit_string_α_180_0_s
+.Llit_string_α_180_0_s: .string          "[]"
                         .size            n66_lit_string_bx, .-n66_lit_string_bx
                         .type            n67_call_prolog_bx, @function
 n67_call_prolog_bx:
@@ -3665,14 +3411,12 @@ n67_call_prolog_α:      mov              r11, 68
                         mov              rax, qword ptr [rsp + 296]
                         mov              qword ptr [rsp + 264], rax
                         lea              rdi, [rsp + 256]
-                        mov              rsi, qword ptr [rip + .Lpartition$2F4_α_181_2]
-                                                                              jmp   .Lpartition$2F4_α_181_3
-.Lpartition$2F4_α_181_2:
-                        .quad            .Lpartition$2F4_α_181_2_s
-.Lpartition$2F4_α_181_2_s:
+                        mov              rsi, qword ptr [rip + .Lcall_prolog_α_181_2]
+                                                                              jmp   .Lcall_prolog_α_181_3
+.Lcall_prolog_α_181_2:  .quad            .Lcall_prolog_α_181_2_s
+.Lcall_prolog_α_181_2_s:
                         .string          "[]"
-.Lpartition$2F4_α_181_3:
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lcall_prolog_α_181_3:  mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_dop_unify_cs@PLT
@@ -3701,12 +3445,10 @@ n69_lit_string_bx:
 n69_lit_string_α:       mov              r11, 70
                         mov              qword ptr [rsp + 224], 2             # result
                         mov              dword ptr [rsp + 228], 2
-                        mov              rax, qword ptr [rip + .Lpartition$2F4_α_184_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_184_0]
                         mov              qword ptr [rsp + 232], rax;          jmp   n70_call_prolog_α
-.Lpartition$2F4_α_184_0:
-                        .quad            .Lpartition$2F4_α_184_0_s
-.Lpartition$2F4_α_184_0_s:
-                        .string          "[]"
+.Llit_string_α_184_0:   .quad            .Llit_string_α_184_0_s
+.Llit_string_α_184_0_s: .string          "[]"
                         .size            n69_lit_string_bx, .-n69_lit_string_bx
                         .type            n70_call_prolog_bx, @function
 n70_call_prolog_bx:
@@ -3717,14 +3459,12 @@ n70_call_prolog_α:      mov              r11, 71
                         mov              rax, qword ptr [rsp + 216]
                         mov              qword ptr [rsp + 184], rax
                         lea              rdi, [rsp + 176]
-                        mov              rsi, qword ptr [rip + .Lpartition$2F4_α_185_2]
-                                                                              jmp   .Lpartition$2F4_α_185_3
-.Lpartition$2F4_α_185_2:
-                        .quad            .Lpartition$2F4_α_185_2_s
-.Lpartition$2F4_α_185_2_s:
+                        mov              rsi, qword ptr [rip + .Lcall_prolog_α_185_2]
+                                                                              jmp   .Lcall_prolog_α_185_3
+.Lcall_prolog_α_185_2:  .quad            .Lcall_prolog_α_185_2_s
+.Lcall_prolog_α_185_2_s:
                         .string          "[]"
-.Lpartition$2F4_α_185_3:
-                        mov              qword ptr [rip + rtccb+40], r8
+.Lcall_prolog_α_185_3:  mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_dop_unify_cs@PLT
@@ -3743,7 +3483,7 @@ n71_suspend_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n71_suspend_α:          mov              r11, 72
                         mov              rax, qword ptr [rsp + 0]
-                        test             rax, rax;                            je    .Lpartition$2F4_α_187_61
+                        test             rax, rax;                            je    .Lsuspend_α_187_61
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3754,8 +3494,7 @@ n71_suspend_α:          mov              r11, 72
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 2080];         jmp   rax
-.Lpartition$2F4_α_187_61:
-                        mov              rdi, qword ptr [rsp + 80]
+.Lsuspend_α_187_61:     mov              rdi, qword ptr [rsp + 80]
                         mov              rsi, qword ptr [rsp + 88]
                         lea              rdx, [rip + n71_suspend_β]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3852,21 +3591,23 @@ n189_call_prolog_bx:
 n189_call_prolog_α:     mov              r11, 74
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_237_102
+                        test             rax, rax;                            je    .Lcall_prolog_α_237_102
                         mov              qword ptr [rsp + 1488], rax
                         mov              rax, qword ptr [rsp + 64]
-                        mov              rdx, qword ptr [rsp + 72];           jmp   .Lqsort$2F3_α_237_101
-.Lqsort$2F3_α_237_102:  lea              r12, [rip + g_plw_cellws_on]
+                        mov              rdx, qword ptr [rsp + 72];           jmp   .Lcall_prolog_α_237_101
+.Lcall_prolog_α_237_102:
+                        lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_237_100
+                        test             eax, eax;                            jne   .Lcall_prolog_α_237_100
                         lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lqsort$2F3_α_237_100
+                        cmp              eax, 2;                              je    .Lcall_prolog_α_237_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
-                        mov              eax, 3;                              jmp   .Lqsort$2F3_α_237_101
-.Lqsort$2F3_α_237_100:  lea              rdi, [rsp + 80]
+                        mov              eax, 3;                              jmp   .Lcall_prolog_α_237_101
+.Lcall_prolog_α_237_100:
+                        lea              rdi, [rsp + 80]
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3876,7 +3617,8 @@ n189_call_prolog_α:     mov              r11, 74
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_237_101:  mov              qword ptr [rsp + 64], rax
+.Lcall_prolog_α_237_101:
+                        mov              qword ptr [rsp + 64], rax
                         mov              qword ptr [rsp + 72], rdx
                         cmp              al, 104;                             je    qsort$2F3_ω
                                                                               jmp   n190_var_ref_α
@@ -3896,18 +3638,18 @@ n191_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n191_lit_integer_α:     mov              r11, 76
                         mov              qword ptr [rsp + 1456], 3            # result
-                        mov              rax, qword ptr [rip + .Lqsort$2F3_α_240_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_240_0]
                         mov              qword ptr [rsp + 1464], rax;         jmp   n192_lit_integer_α
-.Lqsort$2F3_α_240_0:    .quad            3
+.Llit_integer_α_240_0:  .quad            3
                         .size            n191_lit_integer_bx, .-n191_lit_integer_bx
                         .type            n192_lit_integer_bx, @function
 n192_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n192_lit_integer_α:     mov              r11, 77
                         mov              qword ptr [rsp + 1472], 3            # result
-                        mov              rax, qword ptr [rip + .Lqsort$2F3_α_241_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_241_0]
                         mov              qword ptr [rsp + 1480], rax;         jmp   n193_call_prolog_α
-.Lqsort$2F3_α_241_0:    .quad            0
+.Llit_integer_α_241_0:  .quad            0
                         .size            n192_lit_integer_bx, .-n192_lit_integer_bx
                         .type            n193_call_prolog_bx, @function
 n193_call_prolog_bx:
@@ -3927,52 +3669,62 @@ n193_call_prolog_α:     mov              r11, 78
                         mov              qword ptr [rsp + 1400], rax
                         lea              rdi, [rsp + 1392]
                         lea              r8, [rsp + 1392]
-.Lqsort$2F3_α_242_110:  mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_242_113
+.Lcall_prolog_α_242_110:
+                        mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_242_113
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_242_111
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_242_112
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_242_110
-.Lqsort$2F3_α_242_112:  cmp              esi, 2;                              jne   .Lqsort$2F3_α_242_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_242_111
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_242_112
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_242_110
+.Lcall_prolog_α_242_112:
+                        cmp              esi, 2;                              jne   .Lcall_prolog_α_242_111
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_242_111
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_242_110
-.Lqsort$2F3_α_242_113:  cmp              al, 72;                              jne   .Lqsort$2F3_α_242_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_242_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_242_110
+.Lcall_prolog_α_242_113:
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_242_111
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_242_111
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_242_111
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_242_110
-.Lqsort$2F3_α_242_111:  mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_242_114
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_242_114
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_242_118
+                        test             rax, rax;                            je    .Lcall_prolog_α_242_111
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_242_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_242_110
+.Lcall_prolog_α_242_111:
+                        mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_242_114
+                        cmp              al, 104;                             je    .Lcall_prolog_α_242_114
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_242_118
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_242_114
-                                                                              jmp   .Lqsort$2F3_α_242_118
-.Lqsort$2F3_α_242_118:  mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 80;                              jne   .Lqsort$2F3_α_242_119
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_242_114
+                                                                              jmp   .Lcall_prolog_α_242_118
+.Lcall_prolog_α_242_118:
+                        mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 80;                              jne   .Lcall_prolog_α_242_119
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              edx, dword ptr [r12 + 0]
-                        cmp              dl, 0;                               je    .Lqsort$2F3_α_242_116
+                        cmp              dl, 0;                               je    .Lcall_prolog_α_242_116
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, edx;                            jne   .Lqsort$2F3_α_242_115
-                                                                              jmp   .Lqsort$2F3_α_242_114
-.Lqsort$2F3_α_242_119:  cmp              al, 3;                               jne   .Lqsort$2F3_α_242_120
+                        cmp              esi, edx;                            jne   .Lcall_prolog_α_242_115
+                                                                              jmp   .Lcall_prolog_α_242_114
+.Lcall_prolog_α_242_119:
+                        cmp              al, 3;                               jne   .Lcall_prolog_α_242_120
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lqsort$2F3_α_242_114
-                                                                              jmp   .Lqsort$2F3_α_242_115
-.Lqsort$2F3_α_242_120:  cmp              al, 2;                               jne   .Lqsort$2F3_α_242_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_242_114
+                                                                              jmp   .Lcall_prolog_α_242_115
+.Lcall_prolog_α_242_120:
+                        cmp              al, 2;                               jne   .Lcall_prolog_α_242_114
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lqsort$2F3_α_242_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_242_114
                         mov              rdx, qword ptr [r8 + 8]
-                        test             rdx, rdx;                            je    .Lqsort$2F3_α_242_114
-                                                                              jmp   .Lqsort$2F3_α_242_115
-.Lqsort$2F3_α_242_114:  mov              eax, 3
-                        mov              edx, 1;                              jmp   .Lqsort$2F3_α_242_117
-.Lqsort$2F3_α_242_115:  mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_242_117
-.Lqsort$2F3_α_242_116:  mov              esi, 3
+                        test             rdx, rdx;                            je    .Lcall_prolog_α_242_114
+                                                                              jmp   .Lcall_prolog_α_242_115
+.Lcall_prolog_α_242_114:
+                        mov              eax, 3
+                        mov              edx, 1;                              jmp   .Lcall_prolog_α_242_117
+.Lcall_prolog_α_242_115:
+                        mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_242_117
+.Lcall_prolog_α_242_116:
+                        mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3981,7 +3733,8 @@ n193_call_prolog_α:     mov              r11, 78
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_242_117:  mov              qword ptr [rsp + 1376], rax
+.Lcall_prolog_α_242_117:
+                        mov              qword ptr [rsp + 1376], rax
                         mov              qword ptr [rsp + 1384], rdx
                         cmp              al, 104;                             je    n222_var_ref_α
                                                                               jmp   n194_var_ref_α
@@ -4032,94 +3785,94 @@ n197_call_prolog_α:     mov              r11, 82
                         mov              qword ptr [rsp + 1304], rax
                         lea              rdi, [rsp + 1296]
                         lea              r8, [rsp + 1296]
-.Lqsort$2F3_α_249_60:   mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_249_63
+.Lcall_prolog_α_249_60: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_249_63
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_61
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_249_62
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_249_60
-.Lqsort$2F3_α_249_62:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_249_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_61
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_249_62
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_249_60
+.Lcall_prolog_α_249_62: cmp              esi, 2;                              jne   .Lcall_prolog_α_249_61
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_61
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_249_60
-.Lqsort$2F3_α_249_63:   cmp              al, 72;                              jne   .Lqsort$2F3_α_249_61
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_249_60
+.Lcall_prolog_α_249_63: cmp              al, 72;                              jne   .Lcall_prolog_α_249_61
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_61
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_249_61
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_249_60
-.Lqsort$2F3_α_249_61:   mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_249_80
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_249_80
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_249_74
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_61
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_249_61
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_249_60
+.Lcall_prolog_α_249_61: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_249_80
+                        cmp              al, 104;                             je    .Lcall_prolog_α_249_80
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_249_74
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_249_80
-                                                                              jmp   .Lqsort$2F3_α_249_74
-.Lqsort$2F3_α_249_74:   mov              ecx, dword ptr [r8 + 0]
-                        cmp              cl, 80;                              jne   .Lqsort$2F3_α_249_73
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_249_80
+                                                                              jmp   .Lcall_prolog_α_249_74
+.Lcall_prolog_α_249_74: mov              ecx, dword ptr [r8 + 0]
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_249_73
                         lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lqsort$2F3_α_249_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_249_72
                         mov              edx, dword ptr [r8 + 4]
-                        cmp              eax, edx;                            jne   .Lqsort$2F3_α_249_73
+                        cmp              eax, edx;                            jne   .Lcall_prolog_α_249_73
                         lea              r9, [rsp + 1312]
-.Lqsort$2F3_α_249_64:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_249_67
+.Lcall_prolog_α_249_64: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_249_67
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_65
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_249_66
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_249_64
-.Lqsort$2F3_α_249_66:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_249_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_65
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_249_66
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_249_64
+.Lcall_prolog_α_249_66: cmp              esi, 2;                              jne   .Lcall_prolog_α_249_65
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_65
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_249_64
-.Lqsort$2F3_α_249_67:   cmp              al, 72;                              jne   .Lqsort$2F3_α_249_65
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_249_64
+.Lcall_prolog_α_249_67: cmp              al, 72;                              jne   .Lcall_prolog_α_249_65
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_65
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_249_65
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_249_64
-.Lqsort$2F3_α_249_65:   lea              rcx, [rsp + 1328]
-.Lqsort$2F3_α_249_68:   mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_249_71
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_65
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_249_65
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_249_64
+.Lcall_prolog_α_249_65: lea              rcx, [rsp + 1328]
+.Lcall_prolog_α_249_68: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_249_71
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_69
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_249_70
-                        mov              rcx, rax;                            jmp   .Lqsort$2F3_α_249_68
-.Lqsort$2F3_α_249_70:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_249_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_69
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_249_70
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_249_68
+.Lcall_prolog_α_249_70: cmp              esi, 2;                              jne   .Lcall_prolog_α_249_69
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_69
-                        mov              rcx, rax;                            jmp   .Lqsort$2F3_α_249_68
-.Lqsort$2F3_α_249_71:   cmp              al, 72;                              jne   .Lqsort$2F3_α_249_69
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_249_68
+.Lcall_prolog_α_249_71: cmp              al, 72;                              jne   .Lcall_prolog_α_249_69
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_69
-                        cmp              rax, rcx;                            je    .Lqsort$2F3_α_249_69
-                        mov              rcx, rax;                            jmp   .Lqsort$2F3_α_249_68
-.Lqsort$2F3_α_249_69:   cmp              r9, rcx;                             je    .Lqsort$2F3_α_249_72
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_69
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_249_69
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_249_68
+.Lcall_prolog_α_249_69: cmp              r9, rcx;                             je    .Lcall_prolog_α_249_72
                         mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_249_75
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_249_75
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_249_72
+                        cmp              al, 0;                               je    .Lcall_prolog_α_249_75
+                        cmp              al, 104;                             je    .Lcall_prolog_α_249_75
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_249_72
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_249_75
-                                                                              jmp   .Lqsort$2F3_α_249_72
-.Lqsort$2F3_α_249_75:   mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_249_76
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_249_76
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_249_72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_249_75
+                                                                              jmp   .Lcall_prolog_α_249_72
+.Lcall_prolog_α_249_75: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_249_76
+                        cmp              al, 104;                             je    .Lcall_prolog_α_249_76
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_249_72
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lqsort$2F3_α_249_76
-                                                                              jmp   .Lqsort$2F3_α_249_72
-.Lqsort$2F3_α_249_76:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_249_76
+                                                                              jmp   .Lcall_prolog_α_249_72
+.Lcall_prolog_α_249_76: lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lqsort$2F3_α_249_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_249_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 48
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_249_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_249_72
                         add              rdi, rsi
                         mov              qword ptr [rdi + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -4144,26 +3897,26 @@ n197_call_prolog_α:     mov              r11, 82
                         mov              rax, qword ptr [r12 + 24]
                         mov              qword ptr [rcx + 8], rax
                         mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lqsort$2F3_α_249_77
-.Lqsort$2F3_α_249_80:   lea              r12, [rip + g_plw_dot_sl]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_249_77
+.Lcall_prolog_α_249_80: lea              r12, [rip + g_plw_dot_sl]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            je    .Lqsort$2F3_α_249_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_249_72
                         lea              r12, [rip + g_hp_fr]
                         mov              eax, dword ptr [r12 + 24]
-                        test             eax, eax;                            je    .Lqsort$2F3_α_249_72
+                        test             eax, eax;                            je    .Lcall_prolog_α_249_72
                         mov              rdi, qword ptr [r12 + 0]
                         mov              rax, qword ptr [r12 + 8]
                         sub              rax, 48
-                        cmp              rdi, rax;                            ja    .Lqsort$2F3_α_249_72
+                        cmp              rdi, rax;                            ja    .Lcall_prolog_α_249_72
                         lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
-                        test             rdi, rdi;                            je    .Lqsort$2F3_α_249_72
+                        test             rdi, rdi;                            je    .Lcall_prolog_α_249_72
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 72
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_249_72
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_249_72
                         lea              r12, [rip + g_hp_fr]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              qword ptr [rdi + 0], 0
@@ -4177,30 +3930,30 @@ n197_call_prolog_α:     mov              r11, 82
                         add              rax, 1
                         mov              qword ptr [r12 + 16], rax
                         lea              r9, [rsp + 1312]
-.Lqsort$2F3_α_249_81:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_249_84
+.Lcall_prolog_α_249_81: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_249_84
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_82
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_249_83
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_249_81
-.Lqsort$2F3_α_249_83:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_249_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_82
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_249_83
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_249_81
+.Lcall_prolog_α_249_83: cmp              esi, 2;                              jne   .Lcall_prolog_α_249_82
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_82
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_249_81
-.Lqsort$2F3_α_249_84:   cmp              al, 72;                              jne   .Lqsort$2F3_α_249_82
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_249_81
+.Lcall_prolog_α_249_84: cmp              al, 72;                              jne   .Lcall_prolog_α_249_82
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_82
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_249_82
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_249_81
-.Lqsort$2F3_α_249_82:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_249_85
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_249_85
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_249_86
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_82
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_249_82
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_249_81
+.Lcall_prolog_α_249_82: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_249_85
+                        cmp              al, 104;                             je    .Lcall_prolog_α_249_85
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_249_86
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_249_85
-                                                                              jmp   .Lqsort$2F3_α_249_86
-.Lqsort$2F3_α_249_85:   mov              qword ptr [rdx + 0], 72
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_249_85
+                                                                              jmp   .Lcall_prolog_α_249_86
+.Lcall_prolog_α_249_85: mov              qword ptr [rdx + 0], 72
                         lea              rax, [rdx + 0]
                         mov              qword ptr [rdx + 8], rax
                         lea              r12, [rip + g_pl_trail]
@@ -4219,36 +3972,36 @@ n197_call_prolog_α:     mov              r11, 82
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [r9 + 0], 72
                         lea              rax, [rdx + 0]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lqsort$2F3_α_249_87
-.Lqsort$2F3_α_249_86:   mov              rax, qword ptr [r9 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_249_87
+.Lcall_prolog_α_249_86: mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [rdx + 0], rax
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [rdx + 8], rax
-.Lqsort$2F3_α_249_87:   lea              rcx, [rsp + 1328]
-.Lqsort$2F3_α_249_88:   mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_249_91
+.Lcall_prolog_α_249_87: lea              rcx, [rsp + 1328]
+.Lcall_prolog_α_249_88: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_249_91
                         mov              esi, dword ptr [rcx + 4]
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_89
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_249_90
-                        mov              rcx, rax;                            jmp   .Lqsort$2F3_α_249_88
-.Lqsort$2F3_α_249_90:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_249_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_89
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_249_90
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_249_88
+.Lcall_prolog_α_249_90: cmp              esi, 2;                              jne   .Lcall_prolog_α_249_89
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_89
-                        mov              rcx, rax;                            jmp   .Lqsort$2F3_α_249_88
-.Lqsort$2F3_α_249_91:   cmp              al, 72;                              jne   .Lqsort$2F3_α_249_89
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_249_88
+.Lcall_prolog_α_249_91: cmp              al, 72;                              jne   .Lcall_prolog_α_249_89
                         mov              rax, qword ptr [rcx + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_249_89
-                        cmp              rax, rcx;                            je    .Lqsort$2F3_α_249_89
-                        mov              rcx, rax;                            jmp   .Lqsort$2F3_α_249_88
-.Lqsort$2F3_α_249_89:   mov              eax, dword ptr [rcx + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_249_92
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_249_92
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_249_93
+                        test             rax, rax;                            je    .Lcall_prolog_α_249_89
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_249_89
+                        mov              rcx, rax;                            jmp   .Lcall_prolog_α_249_88
+.Lcall_prolog_α_249_89: mov              eax, dword ptr [rcx + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_249_92
+                        cmp              al, 104;                             je    .Lcall_prolog_α_249_92
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_249_93
                         mov              rax, qword ptr [rcx + 8]
-                        cmp              rax, rcx;                            je    .Lqsort$2F3_α_249_92
-                                                                              jmp   .Lqsort$2F3_α_249_93
-.Lqsort$2F3_α_249_92:   mov              qword ptr [rdx + 16], 72
+                        cmp              rax, rcx;                            je    .Lcall_prolog_α_249_92
+                                                                              jmp   .Lcall_prolog_α_249_93
+.Lcall_prolog_α_249_92: mov              qword ptr [rdx + 16], 72
                         lea              rax, [rdx + 16]
                         mov              qword ptr [rdx + 24], rax
                         lea              r12, [rip + g_pl_trail]
@@ -4267,12 +4020,12 @@ n197_call_prolog_α:     mov              r11, 82
                         mov              dword ptr [r12 + 32], eax
                         mov              qword ptr [rcx + 0], 72
                         lea              rax, [rdx + 16]
-                        mov              qword ptr [rcx + 8], rax;            jmp   .Lqsort$2F3_α_249_94
-.Lqsort$2F3_α_249_93:   mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [rcx + 8], rax;            jmp   .Lcall_prolog_α_249_94
+.Lcall_prolog_α_249_93: mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rdx + 16], rax
                         mov              rax, qword ptr [rcx + 8]
                         mov              qword ptr [rdx + 24], rax
-.Lqsort$2F3_α_249_94:   lea              r12, [rip + g_pl_trail]
+.Lcall_prolog_α_249_94: lea              r12, [rip + g_pl_trail]
                         mov              rdi, qword ptr [r12 + 0]
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
@@ -4291,10 +4044,10 @@ n197_call_prolog_α:     mov              r11, 82
                         mov              eax, dword ptr [r12 + 0]
                         mov              dword ptr [r8 + 4], eax
                         mov              qword ptr [r8 + 8], rdx
-                        mov              rax, qword ptr [r8 + 0];             jmp   .Lqsort$2F3_α_249_77
-.Lqsort$2F3_α_249_73:   mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_249_77
-.Lqsort$2F3_α_249_72:   mov              esi, 3
+                        mov              rax, qword ptr [r8 + 0];             jmp   .Lcall_prolog_α_249_77
+.Lcall_prolog_α_249_73: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_249_77
+.Lcall_prolog_α_249_72: mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4303,7 +4056,7 @@ n197_call_prolog_α:     mov              r11, 82
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_249_77:   mov              qword ptr [rsp + 1280], rax
+.Lcall_prolog_α_249_77: mov              qword ptr [rsp + 1280], rax
                         mov              qword ptr [rsp + 1288], rdx
                         cmp              al, 104;                             je    n221_call_prolog_α
                                                                               jmp   n198_var_ref_α
@@ -4341,63 +4094,63 @@ n200_call_prolog_α:     mov              r11, 85
                         mov              qword ptr [rsp + 1208], rax
                         lea              rdi, [rsp + 1200]
                         lea              r8, [rsp + 1200]
-.Lqsort$2F3_α_254_40:   mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_254_56
+.Lcall_prolog_α_254_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_254_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_254_41
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_254_55
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_254_40
-.Lqsort$2F3_α_254_55:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_254_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_254_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_254_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_254_40
+.Lcall_prolog_α_254_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_254_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_254_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_254_40
-.Lqsort$2F3_α_254_56:   cmp              al, 72;                              jne   .Lqsort$2F3_α_254_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_254_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_254_40
+.Lcall_prolog_α_254_56: cmp              al, 72;                              jne   .Lcall_prolog_α_254_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_254_41
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_254_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_254_40
-.Lqsort$2F3_α_254_41:   lea              r9, [rsp + 1216]
-.Lqsort$2F3_α_254_42:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_254_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_254_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_254_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_254_40
+.Lcall_prolog_α_254_41: lea              r9, [rsp + 1216]
+.Lcall_prolog_α_254_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_254_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_254_43
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_254_57
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_254_42
-.Lqsort$2F3_α_254_57:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_254_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_254_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_254_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_254_42
+.Lcall_prolog_α_254_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_254_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_254_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_254_42
-.Lqsort$2F3_α_254_58:   cmp              al, 72;                              jne   .Lqsort$2F3_α_254_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_254_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_254_42
+.Lcall_prolog_α_254_58: cmp              al, 72;                              jne   .Lcall_prolog_α_254_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_254_43
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_254_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_254_42
-.Lqsort$2F3_α_254_43:   cmp              r8, r9;                              je    .Lqsort$2F3_α_254_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_254_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_254_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_254_42
+.Lcall_prolog_α_254_43: cmp              r8, r9;                              je    .Lcall_prolog_α_254_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_254_44
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_254_44
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_254_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_254_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_254_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_254_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_254_44
-                                                                              jmp   .Lqsort$2F3_α_254_45
-.Lqsort$2F3_α_254_44:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_254_53
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_254_53
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_254_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_254_44
+                                                                              jmp   .Lcall_prolog_α_254_45
+.Lcall_prolog_α_254_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_254_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_254_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_254_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_254_53
-                                                                              jmp   .Lqsort$2F3_α_254_46
-.Lqsort$2F3_α_254_46:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_254_53
+                                                                              jmp   .Lcall_prolog_α_254_46
+.Lcall_prolog_α_254_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_254_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_254_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_254_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_254_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -4410,23 +4163,23 @@ n200_call_prolog_α:     mov              r11, 85
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lqsort$2F3_α_254_51
-.Lqsort$2F3_α_254_45:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_254_47
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_254_47
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_254_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_254_51
+.Lcall_prolog_α_254_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_254_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_254_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_254_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_254_47
-                                                                              jmp   .Lqsort$2F3_α_254_48
-.Lqsort$2F3_α_254_47:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_254_47
+                                                                              jmp   .Lcall_prolog_α_254_48
+.Lcall_prolog_α_254_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_254_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_254_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_254_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_254_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -4439,36 +4192,36 @@ n200_call_prolog_α:     mov              r11, 85
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lqsort$2F3_α_254_51
-.Lqsort$2F3_α_254_48:   mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_254_51
+.Lcall_prolog_α_254_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lqsort$2F3_α_254_49
-                        cmp              dl, 80;                              je    .Lqsort$2F3_α_254_53
-                                                                              jmp   .Lqsort$2F3_α_254_52
-.Lqsort$2F3_α_254_49:   cmp              dl, 80;                              je    .Lqsort$2F3_α_254_52
-                        cmp              cl, 5;                               je    .Lqsort$2F3_α_254_53
-                        cmp              dl, 5;                               je    .Lqsort$2F3_α_254_53
-                        cmp              cl, 3;                               jne   .Lqsort$2F3_α_254_50
-                        cmp              dl, 3;                               jne   .Lqsort$2F3_α_254_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_254_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_254_53
+                                                                              jmp   .Lcall_prolog_α_254_52
+.Lcall_prolog_α_254_49: cmp              dl, 80;                              je    .Lcall_prolog_α_254_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_254_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_254_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_254_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_254_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_254_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_254_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_254_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_254_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lqsort$2F3_α_254_51
-                                                                              jmp   .Lqsort$2F3_α_254_52
-.Lqsort$2F3_α_254_50:   mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_254_51
+                                                                              jmp   .Lcall_prolog_α_254_52
+.Lcall_prolog_α_254_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_254_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_254_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_254_53
-.Lqsort$2F3_α_254_51:   mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lqsort$2F3_α_254_54
-.Lqsort$2F3_α_254_52:   mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_254_54
-.Lqsort$2F3_α_254_53:   mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_254_53
+.Lcall_prolog_α_254_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_254_54
+.Lcall_prolog_α_254_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_254_54
+.Lcall_prolog_α_254_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4477,7 +4230,7 @@ n200_call_prolog_α:     mov              r11, 85
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_254_54:   mov              qword ptr [rsp + 1184], rax
+.Lcall_prolog_α_254_54: mov              qword ptr [rsp + 1184], rax
                         mov              qword ptr [rsp + 1192], rdx
                         cmp              al, 104;                             je    n221_call_prolog_α
                                                                               jmp   n201_var_ref_α
@@ -4515,63 +4268,63 @@ n203_call_prolog_α:     mov              r11, 88
                         mov              qword ptr [rsp + 1128], rax
                         lea              rdi, [rsp + 1120]
                         lea              r8, [rsp + 1120]
-.Lqsort$2F3_α_259_40:   mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_259_56
+.Lcall_prolog_α_259_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_259_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_259_41
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_259_55
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_259_40
-.Lqsort$2F3_α_259_55:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_259_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_259_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_259_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_259_40
+.Lcall_prolog_α_259_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_259_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_259_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_259_40
-.Lqsort$2F3_α_259_56:   cmp              al, 72;                              jne   .Lqsort$2F3_α_259_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_259_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_259_40
+.Lcall_prolog_α_259_56: cmp              al, 72;                              jne   .Lcall_prolog_α_259_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_259_41
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_259_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_259_40
-.Lqsort$2F3_α_259_41:   lea              r9, [rsp + 1136]
-.Lqsort$2F3_α_259_42:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_259_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_259_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_259_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_259_40
+.Lcall_prolog_α_259_41: lea              r9, [rsp + 1136]
+.Lcall_prolog_α_259_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_259_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_259_43
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_259_57
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_259_42
-.Lqsort$2F3_α_259_57:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_259_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_259_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_259_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_259_42
+.Lcall_prolog_α_259_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_259_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_259_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_259_42
-.Lqsort$2F3_α_259_58:   cmp              al, 72;                              jne   .Lqsort$2F3_α_259_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_259_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_259_42
+.Lcall_prolog_α_259_58: cmp              al, 72;                              jne   .Lcall_prolog_α_259_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_259_43
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_259_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_259_42
-.Lqsort$2F3_α_259_43:   cmp              r8, r9;                              je    .Lqsort$2F3_α_259_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_259_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_259_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_259_42
+.Lcall_prolog_α_259_43: cmp              r8, r9;                              je    .Lcall_prolog_α_259_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_259_44
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_259_44
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_259_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_259_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_259_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_259_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_259_44
-                                                                              jmp   .Lqsort$2F3_α_259_45
-.Lqsort$2F3_α_259_44:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_259_53
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_259_53
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_259_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_259_44
+                                                                              jmp   .Lcall_prolog_α_259_45
+.Lcall_prolog_α_259_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_259_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_259_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_259_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_259_53
-                                                                              jmp   .Lqsort$2F3_α_259_46
-.Lqsort$2F3_α_259_46:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_259_53
+                                                                              jmp   .Lcall_prolog_α_259_46
+.Lcall_prolog_α_259_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_259_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_259_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_259_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_259_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -4584,23 +4337,23 @@ n203_call_prolog_α:     mov              r11, 88
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lqsort$2F3_α_259_51
-.Lqsort$2F3_α_259_45:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_259_47
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_259_47
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_259_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_259_51
+.Lcall_prolog_α_259_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_259_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_259_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_259_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_259_47
-                                                                              jmp   .Lqsort$2F3_α_259_48
-.Lqsort$2F3_α_259_47:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_259_47
+                                                                              jmp   .Lcall_prolog_α_259_48
+.Lcall_prolog_α_259_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_259_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_259_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_259_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_259_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -4613,36 +4366,36 @@ n203_call_prolog_α:     mov              r11, 88
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lqsort$2F3_α_259_51
-.Lqsort$2F3_α_259_48:   mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_259_51
+.Lcall_prolog_α_259_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lqsort$2F3_α_259_49
-                        cmp              dl, 80;                              je    .Lqsort$2F3_α_259_53
-                                                                              jmp   .Lqsort$2F3_α_259_52
-.Lqsort$2F3_α_259_49:   cmp              dl, 80;                              je    .Lqsort$2F3_α_259_52
-                        cmp              cl, 5;                               je    .Lqsort$2F3_α_259_53
-                        cmp              dl, 5;                               je    .Lqsort$2F3_α_259_53
-                        cmp              cl, 3;                               jne   .Lqsort$2F3_α_259_50
-                        cmp              dl, 3;                               jne   .Lqsort$2F3_α_259_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_259_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_259_53
+                                                                              jmp   .Lcall_prolog_α_259_52
+.Lcall_prolog_α_259_49: cmp              dl, 80;                              je    .Lcall_prolog_α_259_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_259_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_259_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_259_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_259_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_259_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_259_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_259_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_259_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lqsort$2F3_α_259_51
-                                                                              jmp   .Lqsort$2F3_α_259_52
-.Lqsort$2F3_α_259_50:   mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_259_51
+                                                                              jmp   .Lcall_prolog_α_259_52
+.Lcall_prolog_α_259_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_259_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_259_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_259_53
-.Lqsort$2F3_α_259_51:   mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lqsort$2F3_α_259_54
-.Lqsort$2F3_α_259_52:   mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_259_54
-.Lqsort$2F3_α_259_53:   mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_259_53
+.Lcall_prolog_α_259_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_259_54
+.Lcall_prolog_α_259_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_259_54
+.Lcall_prolog_α_259_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4651,7 +4404,7 @@ n203_call_prolog_α:     mov              r11, 88
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_259_54:   mov              qword ptr [rsp + 1104], rax
+.Lcall_prolog_α_259_54: mov              qword ptr [rsp + 1104], rax
                         mov              qword ptr [rsp + 1112], rdx
                         cmp              al, 104;                             je    n221_call_prolog_α
                                                                               jmp   n204_var_ref_α
@@ -4701,13 +4454,14 @@ n208_call_proc_staged_α:
                         mov              qword ptr [rsp + 1008], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_269_200
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_269_200
                         mov              rax, qword ptr [rsp + 1040]
                         mov              rdx, qword ptr [rsp + 1048]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lqsort$2F3_α_269_201
-.Lqsort$2F3_α_269_200:  mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_269_201
+.Lcall_proc_staged_α_269_200:
+                        mov              edi, 0
                         mov              rsi, qword ptr [rsp + 1040]
                         mov              rdx, qword ptr [rsp + 1048]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4718,15 +4472,17 @@ n208_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_269_201:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_269_201:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_269_202
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_269_202
                         mov              rax, qword ptr [rsp + 1056]
                         mov              rdx, qword ptr [rsp + 1064]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lqsort$2F3_α_269_203
-.Lqsort$2F3_α_269_202:  mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_269_203
+.Lcall_proc_staged_α_269_202:
+                        mov              edi, 1
                         mov              rsi, qword ptr [rsp + 1056]
                         mov              rdx, qword ptr [rsp + 1064]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4737,15 +4493,17 @@ n208_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_269_203:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_269_203:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_269_204
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_269_204
                         mov              rax, qword ptr [rsp + 1072]
                         mov              rdx, qword ptr [rsp + 1080]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lqsort$2F3_α_269_205
-.Lqsort$2F3_α_269_204:  mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lcall_proc_staged_α_269_205
+.Lcall_proc_staged_α_269_204:
+                        mov              edi, 2
                         mov              rsi, qword ptr [rsp + 1072]
                         mov              rdx, qword ptr [rsp + 1080]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4756,15 +4514,17 @@ n208_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_269_205:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_269_205:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_269_206
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_269_206
                         mov              rax, qword ptr [rsp + 1088]
                         mov              rdx, qword ptr [rsp + 1096]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 48], rax
-                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lqsort$2F3_α_269_207
-.Lqsort$2F3_α_269_206:  mov              edi, 3
+                        mov              qword ptr [r8 + 56], rdx;            jmp   .Lcall_proc_staged_α_269_207
+.Lcall_proc_staged_α_269_206:
+                        mov              edi, 3
                         mov              rsi, qword ptr [rsp + 1088]
                         mov              rdx, qword ptr [rsp + 1096]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4775,8 +4535,9 @@ n208_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_269_207:  sub              rsp, 8
-                        lea              rax, [rip + .Lqsort$2F3_α_269_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+.Lcall_proc_staged_α_269_207:
+                        sub              rsp, 8
+                        lea              rax, [rip + .Lcall_proc_staged_α_269_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 0
                         mov              esi, 4
@@ -4788,17 +4549,19 @@ n208_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_269_1
-                        lea              rcx, [rip + .Lqsort$2F3_α_269_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_269_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_269_4]
                         push             rcx
-                        lea              rcx, [rip + .Lqsort$2F3_α_269_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_269_3]
                         push             rcx
-                        lea              rdx, [rip + .Lqsort$2F3_α_269_4];    jmp   rax
-.Lqsort$2F3_α_269_3:    add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_269_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_269_3:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 1016], rsp
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 1008]
-                        test             rax, rax;                            jne   .Lqsort$2F3_α_269_5
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_269_5
                         mov              qword ptr [rsp + 1008], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -4807,12 +4570,14 @@ n208_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lqsort$2F3_α_269_2
-.Lqsort$2F3_α_269_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lqsort$2F3_α_269_2
-.Lqsort$2F3_α_269_4:    add              rsp, 16
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_269_2
+.Lcall_proc_staged_α_269_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_269_2
+.Lcall_proc_staged_α_269_4:
+                        add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 1008]
-                        test             rax, rax;                            jne   .Lqsort$2F3_α_269_6
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_269_6
                         mov              qword ptr [rsp + 1008], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -4821,9 +4586,11 @@ n208_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lqsort$2F3_α_269_2
-.Lqsort$2F3_α_269_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lqsort$2F3_α_269_2
-.Lqsort$2F3_α_269_1:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_269_2
+.Lcall_proc_staged_α_269_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_269_2
+.Lcall_proc_staged_α_269_1:
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_ab_undef_fn_stub@PLT
@@ -4831,9 +4598,10 @@ n208_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_269_2:    mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
+.Lcall_proc_staged_α_269_2:
+                        mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lqsort$2F3_α_269_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_269_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -4849,7 +4617,8 @@ n208_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 928]
                         mov              rdx, qword ptr [rsp + 936]
-.Lqsort$2F3_α_269_29:   mov              qword ptr [rsp + 928], rax
+.Lcall_proc_staged_α_269_29:
+                        mov              qword ptr [rsp + 928], rax
                         mov              qword ptr [rsp + 936], rdx
                         cmp              al, 104;                             je    n221_call_prolog_α
                                                                               jmp   n209_var_ref_α
@@ -4937,20 +4706,24 @@ n208_call_proc_staged_β:
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n221_call_prolog_α
                         sub              rsp, 8
-                        lea              r8, [rip + .Lqsort$2F3_α_269_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_269_7]
                         push             r8
-                        lea              rcx, [rip + .Lqsort$2F3_α_269_4]     # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_269_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lqsort$2F3_α_269_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_269_3]
                         push             rcx
-                        lea              rdx, [rip + .Lqsort$2F3_α_269_4];    jmp   rax
-.Lqsort$2F3_α_269_7:    add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_269_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_269_7:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 928], rax
                         mov              qword ptr [rsp + 936], rdx
                         cmp              al, 104;                             je    n221_call_prolog_α
                                                                               jmp   n209_var_ref_α
-.Lqsort$2F3_β_269_0:    .quad            .Lqsort$2F3_β_269_0_s
-.Lqsort$2F3_β_269_0_s:  .string          "partition/4"
+.Lcall_proc_staged_β_269_0:
+                        .quad            .Lcall_proc_staged_β_269_0_s
+.Lcall_proc_staged_β_269_0_s:
+                        .string          "partition/4"
                         .size            n208_call_proc_staged_bx, .-n208_call_proc_staged_bx
                         .type            n209_var_ref_bx, @function
 n209_var_ref_bx:
@@ -4987,13 +4760,14 @@ n212_call_proc_staged_α:
                         mov              qword ptr [rsp + 848], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_277_200
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_277_200
                         mov              rax, qword ptr [rsp + 880]
                         mov              rdx, qword ptr [rsp + 888]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lqsort$2F3_α_277_201
-.Lqsort$2F3_α_277_200:  mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_277_201
+.Lcall_proc_staged_α_277_200:
+                        mov              edi, 0
                         mov              rsi, qword ptr [rsp + 880]
                         mov              rdx, qword ptr [rsp + 888]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5004,15 +4778,17 @@ n212_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_277_201:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_277_201:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_277_202
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_277_202
                         mov              rax, qword ptr [rsp + 896]
                         mov              rdx, qword ptr [rsp + 904]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lqsort$2F3_α_277_203
-.Lqsort$2F3_α_277_202:  mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_277_203
+.Lcall_proc_staged_α_277_202:
+                        mov              edi, 1
                         mov              rsi, qword ptr [rsp + 896]
                         mov              rdx, qword ptr [rsp + 904]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5023,15 +4799,17 @@ n212_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_277_203:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_277_203:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_277_204
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_277_204
                         mov              rax, qword ptr [rsp + 912]
                         mov              rdx, qword ptr [rsp + 920]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lqsort$2F3_α_277_205
-.Lqsort$2F3_α_277_204:  mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lcall_proc_staged_α_277_205
+.Lcall_proc_staged_α_277_204:
+                        mov              edi, 2
                         mov              rsi, qword ptr [rsp + 912]
                         mov              rdx, qword ptr [rsp + 920]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5042,8 +4820,9 @@ n212_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_277_205:  sub              rsp, 8
-                        lea              rax, [rip + .Lqsort$2F3_α_277_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+.Lcall_proc_staged_α_277_205:
+                        sub              rsp, 8
+                        lea              rax, [rip + .Lcall_proc_staged_α_277_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 1
                         mov              esi, 3
@@ -5055,17 +4834,19 @@ n212_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_277_1
-                        lea              rcx, [rip + .Lqsort$2F3_α_277_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_277_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_277_4]
                         push             rcx
-                        lea              rcx, [rip + .Lqsort$2F3_α_277_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_277_3]
                         push             rcx
-                        lea              rdx, [rip + .Lqsort$2F3_α_277_4];    jmp   rax
-.Lqsort$2F3_α_277_3:    add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_277_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_277_3:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 856], rsp
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 848]
-                        test             rax, rax;                            jne   .Lqsort$2F3_α_277_5
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_277_5
                         mov              qword ptr [rsp + 848], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5074,12 +4855,14 @@ n212_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lqsort$2F3_α_277_2
-.Lqsort$2F3_α_277_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lqsort$2F3_α_277_2
-.Lqsort$2F3_α_277_4:    add              rsp, 16
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_277_2
+.Lcall_proc_staged_α_277_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_277_2
+.Lcall_proc_staged_α_277_4:
+                        add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 848]
-                        test             rax, rax;                            jne   .Lqsort$2F3_α_277_6
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_277_6
                         mov              qword ptr [rsp + 848], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5088,9 +4871,11 @@ n212_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lqsort$2F3_α_277_2
-.Lqsort$2F3_α_277_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lqsort$2F3_α_277_2
-.Lqsort$2F3_α_277_1:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_277_2
+.Lcall_proc_staged_α_277_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_277_2
+.Lcall_proc_staged_α_277_1:
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_ab_undef_fn_stub@PLT
@@ -5098,9 +4883,10 @@ n212_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_277_2:    mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
+.Lcall_proc_staged_α_277_2:
+                        mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lqsort$2F3_α_277_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_277_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -5116,7 +4902,8 @@ n212_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 784]
                         mov              rdx, qword ptr [rsp + 792]
-.Lqsort$2F3_α_277_29:   mov              qword ptr [rsp + 784], rax
+.Lcall_proc_staged_α_277_29:
+                        mov              qword ptr [rsp + 784], rax
                         mov              qword ptr [rsp + 792], rdx
                         cmp              al, 104;                             je    n208_call_proc_staged_β
                                                                               jmp   n213_var_ref_α
@@ -5193,20 +4980,24 @@ n212_call_proc_staged_β:
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n208_call_proc_staged_β
                         sub              rsp, 8
-                        lea              r8, [rip + .Lqsort$2F3_α_277_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_277_7]
                         push             r8
-                        lea              rcx, [rip + .Lqsort$2F3_α_277_4]     # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_277_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lqsort$2F3_α_277_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_277_3]
                         push             rcx
-                        lea              rdx, [rip + .Lqsort$2F3_α_277_4];    jmp   rax
-.Lqsort$2F3_α_277_7:    add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_277_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_277_7:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 784], rax
                         mov              qword ptr [rsp + 792], rdx
                         cmp              al, 104;                             je    n208_call_proc_staged_β
                                                                               jmp   n213_var_ref_α
-.Lqsort$2F3_β_277_0:    .quad            .Lqsort$2F3_β_277_0_s
-.Lqsort$2F3_β_277_0_s:  .string          "qsort/3"
+.Lcall_proc_staged_β_277_0:
+                        .quad            .Lcall_proc_staged_β_277_0_s
+.Lcall_proc_staged_β_277_0_s:
+                        .string          "qsort/3"
                         .size            n212_call_proc_staged_bx, .-n212_call_proc_staged_bx
                         .type            n213_var_ref_bx, @function
 n213_var_ref_bx:
@@ -5232,10 +5023,10 @@ n215_lit_string_bx:
 n215_lit_string_α:      mov              r11, 100
                         mov              qword ptr [rsp + 768], 2             # result
                         mov              dword ptr [rsp + 772], 1
-                        mov              rax, qword ptr [rip + .Lqsort$2F3_α_282_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_282_0]
                         mov              qword ptr [rsp + 776], rax;          jmp   n216_var_ref_α
-.Lqsort$2F3_α_282_0:    .quad            .Lqsort$2F3_α_282_0_s
-.Lqsort$2F3_α_282_0_s:  .string          "."
+.Llit_string_α_282_0:   .quad            .Llit_string_α_282_0_s
+.Llit_string_α_282_0_s: .string          "."
                         .size            n215_lit_string_bx, .-n215_lit_string_bx
                         .type            n216_var_ref_bx, @function
 n216_var_ref_bx:
@@ -5295,13 +5086,14 @@ n219_call_proc_staged_α:
                         mov              qword ptr [rsp + 592], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_289_200
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_289_200
                         mov              rax, qword ptr [rsp + 624]
                         mov              rdx, qword ptr [rsp + 632]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lqsort$2F3_α_289_201
-.Lqsort$2F3_α_289_200:  mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_289_201
+.Lcall_proc_staged_α_289_200:
+                        mov              edi, 0
                         mov              rsi, qword ptr [rsp + 624]
                         mov              rdx, qword ptr [rsp + 632]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5312,15 +5104,17 @@ n219_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_289_201:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_289_201:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_289_202
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_289_202
                         mov              rax, qword ptr [rsp + 640]
                         mov              rdx, qword ptr [rsp + 648]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lqsort$2F3_α_289_203
-.Lqsort$2F3_α_289_202:  mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_289_203
+.Lcall_proc_staged_α_289_202:
+                        mov              edi, 1
                         mov              rsi, qword ptr [rsp + 640]
                         mov              rdx, qword ptr [rsp + 648]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5331,15 +5125,17 @@ n219_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_289_203:  lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_289_203:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lqsort$2F3_α_289_204
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_289_204
                         mov              rax, qword ptr [rsp + 688]
                         mov              rdx, qword ptr [rsp + 696]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lqsort$2F3_α_289_205
-.Lqsort$2F3_α_289_204:  mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lcall_proc_staged_α_289_205
+.Lcall_proc_staged_α_289_204:
+                        mov              edi, 2
                         mov              rsi, qword ptr [rsp + 688]
                         mov              rdx, qword ptr [rsp + 696]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5350,8 +5146,9 @@ n219_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_289_205:  sub              rsp, 8
-                        lea              rax, [rip + .Lqsort$2F3_α_289_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+.Lcall_proc_staged_α_289_205:
+                        sub              rsp, 8
+                        lea              rax, [rip + .Lcall_proc_staged_α_289_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 1
                         mov              esi, 3
@@ -5363,17 +5160,19 @@ n219_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_289_1
-                        lea              rcx, [rip + .Lqsort$2F3_α_289_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_289_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_289_4]
                         push             rcx
-                        lea              rcx, [rip + .Lqsort$2F3_α_289_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_289_3]
                         push             rcx
-                        lea              rdx, [rip + .Lqsort$2F3_α_289_4];    jmp   rax
-.Lqsort$2F3_α_289_3:    add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_289_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_289_3:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 600], rsp
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 592]
-                        test             rax, rax;                            jne   .Lqsort$2F3_α_289_5
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_289_5
                         mov              qword ptr [rsp + 592], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5382,12 +5181,14 @@ n219_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lqsort$2F3_α_289_2
-.Lqsort$2F3_α_289_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lqsort$2F3_α_289_2
-.Lqsort$2F3_α_289_4:    add              rsp, 16
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_289_2
+.Lcall_proc_staged_α_289_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_289_2
+.Lcall_proc_staged_α_289_4:
+                        add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 592]
-                        test             rax, rax;                            jne   .Lqsort$2F3_α_289_6
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_289_6
                         mov              qword ptr [rsp + 592], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5396,9 +5197,11 @@ n219_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lqsort$2F3_α_289_2
-.Lqsort$2F3_α_289_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lqsort$2F3_α_289_2
-.Lqsort$2F3_α_289_1:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_289_2
+.Lcall_proc_staged_α_289_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_289_2
+.Lcall_proc_staged_α_289_1:
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_ab_undef_fn_stub@PLT
@@ -5406,9 +5209,10 @@ n219_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_289_2:    mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
+.Lcall_proc_staged_α_289_2:
+                        mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lqsort$2F3_α_289_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_289_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -5424,7 +5228,8 @@ n219_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 528]
                         mov              rdx, qword ptr [rsp + 536]
-.Lqsort$2F3_α_289_29:   mov              qword ptr [rsp + 528], rax
+.Lcall_proc_staged_α_289_29:
+                        mov              qword ptr [rsp + 528], rax
                         mov              qword ptr [rsp + 536], rdx
                         cmp              al, 104;                             je    n212_call_proc_staged_β
                                                                               jmp   n220_suspend_α
@@ -5501,27 +5306,31 @@ n219_call_proc_staged_β:
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n212_call_proc_staged_β
                         sub              rsp, 8
-                        lea              r8, [rip + .Lqsort$2F3_α_289_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_289_7]
                         push             r8
-                        lea              rcx, [rip + .Lqsort$2F3_α_289_4]     # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_289_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lqsort$2F3_α_289_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_289_3]
                         push             rcx
-                        lea              rdx, [rip + .Lqsort$2F3_α_289_4];    jmp   rax
-.Lqsort$2F3_α_289_7:    add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_289_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_289_7:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 528], rax
                         mov              qword ptr [rsp + 536], rdx
                         cmp              al, 104;                             je    n212_call_proc_staged_β
                                                                               jmp   n220_suspend_α
-.Lqsort$2F3_β_289_0:    .quad            .Lqsort$2F3_β_289_0_s
-.Lqsort$2F3_β_289_0_s:  .string          "qsort/3"
+.Lcall_proc_staged_β_289_0:
+                        .quad            .Lcall_proc_staged_β_289_0_s
+.Lcall_proc_staged_β_289_0_s:
+                        .string          "qsort/3"
                         .size            n219_call_proc_staged_bx, .-n219_call_proc_staged_bx
                         .type            n220_suspend_bx, @function
 n220_suspend_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n220_suspend_α:         mov              r11, 105
                         mov              rax, qword ptr [rsp + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_291_61
+                        test             rax, rax;                            je    .Lsuspend_α_291_61
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5532,7 +5341,7 @@ n220_suspend_α:         mov              r11, 105
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 1488];         jmp   rax
-.Lqsort$2F3_α_291_61:   mov              rdi, qword ptr [rsp + 64]
+.Lsuspend_α_291_61:     mov              rdi, qword ptr [rsp + 64]
                         mov              rsi, qword ptr [rsp + 72]
                         lea              rdx, [rip + n220_suspend_β]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -5589,9 +5398,9 @@ n223_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n223_lit_integer_α:     mov              r11, 108
                         mov              qword ptr [rsp + 464], 3             # result
-                        mov              rax, qword ptr [rip + .Lqsort$2F3_α_295_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_295_0]
                         mov              qword ptr [rsp + 472], rax;          jmp   n224_lit_string_α
-.Lqsort$2F3_α_295_0:    .quad            2
+.Llit_integer_α_295_0:  .quad            2
                         .size            n223_lit_integer_bx, .-n223_lit_integer_bx
                         .type            n224_lit_string_bx, @function
 n224_lit_string_bx:
@@ -5599,10 +5408,10 @@ n224_lit_string_bx:
 n224_lit_string_α:      mov              r11, 109
                         mov              qword ptr [rsp + 480], 2             # result
                         mov              dword ptr [rsp + 484], 2
-                        mov              rax, qword ptr [rip + .Lqsort$2F3_α_296_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_296_0]
                         mov              qword ptr [rsp + 488], rax;          jmp   n225_call_prolog_α
-.Lqsort$2F3_α_296_0:    .quad            .Lqsort$2F3_α_296_0_s
-.Lqsort$2F3_α_296_0_s:  .string          "[]"
+.Llit_string_α_296_0:   .quad            .Llit_string_α_296_0_s
+.Llit_string_α_296_0_s: .string          "[]"
                         .size            n224_lit_string_bx, .-n224_lit_string_bx
                         .type            n225_call_prolog_bx, @function
 n225_call_prolog_bx:
@@ -5622,43 +5431,51 @@ n225_call_prolog_α:     mov              r11, 110
                         mov              qword ptr [rsp + 408], rax
                         lea              rdi, [rsp + 400]
                         lea              r8, [rsp + 400]
-.Lqsort$2F3_α_297_110:  mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_297_113
+.Lcall_prolog_α_297_110:
+                        mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_297_113
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_297_111
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_297_112
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_297_110
-.Lqsort$2F3_α_297_112:  cmp              esi, 2;                              jne   .Lqsort$2F3_α_297_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_297_111
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_297_112
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_297_110
+.Lcall_prolog_α_297_112:
+                        cmp              esi, 2;                              jne   .Lcall_prolog_α_297_111
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_297_111
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_297_110
-.Lqsort$2F3_α_297_113:  cmp              al, 72;                              jne   .Lqsort$2F3_α_297_111
+                        test             rax, rax;                            je    .Lcall_prolog_α_297_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_297_110
+.Lcall_prolog_α_297_113:
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_297_111
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_297_111
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_297_111
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_297_110
-.Lqsort$2F3_α_297_111:  mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_297_114
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_297_114
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_297_118
+                        test             rax, rax;                            je    .Lcall_prolog_α_297_111
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_297_111
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_297_110
+.Lcall_prolog_α_297_111:
+                        mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_297_114
+                        cmp              al, 104;                             je    .Lcall_prolog_α_297_114
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_297_118
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_297_114
-                                                                              jmp   .Lqsort$2F3_α_297_118
-.Lqsort$2F3_α_297_118:  mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 80;                              je    .Lqsort$2F3_α_297_115
-                        cmp              al, 3;                               je    .Lqsort$2F3_α_297_114
-                        cmp              al, 2;                               jne   .Lqsort$2F3_α_297_114
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_297_114
+                                                                              jmp   .Lcall_prolog_α_297_118
+.Lcall_prolog_α_297_118:
+                        mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 80;                              je    .Lcall_prolog_α_297_115
+                        cmp              al, 3;                               je    .Lcall_prolog_α_297_114
+                        cmp              al, 2;                               jne   .Lcall_prolog_α_297_114
                         mov              esi, dword ptr [r8 + 4]
-                        cmp              esi, 0;                              jne   .Lqsort$2F3_α_297_114
+                        cmp              esi, 0;                              jne   .Lcall_prolog_α_297_114
                         mov              rdx, qword ptr [r8 + 8]
-                        test             rdx, rdx;                            je    .Lqsort$2F3_α_297_114
-                                                                              jmp   .Lqsort$2F3_α_297_116
-.Lqsort$2F3_α_297_114:  mov              eax, 3
-                        mov              edx, 1;                              jmp   .Lqsort$2F3_α_297_117
-.Lqsort$2F3_α_297_115:  mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_297_117
-.Lqsort$2F3_α_297_116:  mov              esi, 3
+                        test             rdx, rdx;                            je    .Lcall_prolog_α_297_114
+                                                                              jmp   .Lcall_prolog_α_297_116
+.Lcall_prolog_α_297_114:
+                        mov              eax, 3
+                        mov              edx, 1;                              jmp   .Lcall_prolog_α_297_117
+.Lcall_prolog_α_297_115:
+                        mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_297_117
+.Lcall_prolog_α_297_116:
+                        mov              esi, 3
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -5667,7 +5484,8 @@ n225_call_prolog_α:     mov              r11, 110
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_297_117:  mov              qword ptr [rsp + 384], rax
+.Lcall_prolog_α_297_117:
+                        mov              qword ptr [rsp + 384], rax
                         mov              qword ptr [rsp + 392], rdx
                         cmp              al, 104;                             je    n236_call_prolog_α
                                                                               jmp   n226_var_ref_α
@@ -5688,10 +5506,10 @@ n227_lit_string_bx:
 n227_lit_string_α:      mov              r11, 112
                         mov              qword ptr [rsp + 368], 2             # result
                         mov              dword ptr [rsp + 372], 2
-                        mov              rax, qword ptr [rip + .Lqsort$2F3_α_300_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_300_0]
                         mov              qword ptr [rsp + 376], rax;          jmp   n228_call_prolog_α
-.Lqsort$2F3_α_300_0:    .quad            .Lqsort$2F3_α_300_0_s
-.Lqsort$2F3_α_300_0_s:  .string          "[]"
+.Llit_string_α_300_0:   .quad            .Llit_string_α_300_0_s
+.Llit_string_α_300_0_s: .string          "[]"
                         .size            n227_lit_string_bx, .-n227_lit_string_bx
                         .type            n228_call_prolog_bx, @function
 n228_call_prolog_bx:
@@ -5702,11 +5520,12 @@ n228_call_prolog_α:     mov              r11, 113
                         mov              rax, qword ptr [rsp + 360]
                         mov              qword ptr [rsp + 328], rax
                         lea              rdi, [rsp + 320]
-                        mov              rsi, qword ptr [rip + .Lqsort$2F3_α_301_2]
-                                                                              jmp   .Lqsort$2F3_α_301_3
-.Lqsort$2F3_α_301_2:    .quad            .Lqsort$2F3_α_301_2_s
-.Lqsort$2F3_α_301_2_s:  .string          "[]"
-.Lqsort$2F3_α_301_3:    mov              qword ptr [rip + rtccb+40], r8
+                        mov              rsi, qword ptr [rip + .Lcall_prolog_α_301_2]
+                                                                              jmp   .Lcall_prolog_α_301_3
+.Lcall_prolog_α_301_2:  .quad            .Lcall_prolog_α_301_2_s
+.Lcall_prolog_α_301_2_s:
+                        .string          "[]"
+.Lcall_prolog_α_301_3:  mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_dop_unify_cs@PLT
@@ -5752,63 +5571,63 @@ n231_call_prolog_α:     mov              r11, 116
                         mov              qword ptr [rsp + 248], rax
                         lea              rdi, [rsp + 240]
                         lea              r8, [rsp + 240]
-.Lqsort$2F3_α_306_40:   mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_306_56
+.Lcall_prolog_α_306_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_306_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_306_41
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_306_55
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_306_40
-.Lqsort$2F3_α_306_55:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_306_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_306_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_306_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_306_40
+.Lcall_prolog_α_306_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_306_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_306_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_306_40
-.Lqsort$2F3_α_306_56:   cmp              al, 72;                              jne   .Lqsort$2F3_α_306_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_306_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_306_40
+.Lcall_prolog_α_306_56: cmp              al, 72;                              jne   .Lcall_prolog_α_306_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_306_41
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_306_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_306_40
-.Lqsort$2F3_α_306_41:   lea              r9, [rsp + 256]
-.Lqsort$2F3_α_306_42:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_306_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_306_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_306_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_306_40
+.Lcall_prolog_α_306_41: lea              r9, [rsp + 256]
+.Lcall_prolog_α_306_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_306_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_306_43
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_306_57
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_306_42
-.Lqsort$2F3_α_306_57:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_306_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_306_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_306_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_306_42
+.Lcall_prolog_α_306_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_306_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_306_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_306_42
-.Lqsort$2F3_α_306_58:   cmp              al, 72;                              jne   .Lqsort$2F3_α_306_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_306_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_306_42
+.Lcall_prolog_α_306_58: cmp              al, 72;                              jne   .Lcall_prolog_α_306_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_306_43
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_306_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_306_42
-.Lqsort$2F3_α_306_43:   cmp              r8, r9;                              je    .Lqsort$2F3_α_306_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_306_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_306_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_306_42
+.Lcall_prolog_α_306_43: cmp              r8, r9;                              je    .Lcall_prolog_α_306_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_306_44
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_306_44
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_306_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_306_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_306_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_306_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_306_44
-                                                                              jmp   .Lqsort$2F3_α_306_45
-.Lqsort$2F3_α_306_44:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_306_53
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_306_53
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_306_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_306_44
+                                                                              jmp   .Lcall_prolog_α_306_45
+.Lcall_prolog_α_306_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_306_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_306_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_306_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_306_53
-                                                                              jmp   .Lqsort$2F3_α_306_46
-.Lqsort$2F3_α_306_46:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_306_53
+                                                                              jmp   .Lcall_prolog_α_306_46
+.Lcall_prolog_α_306_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_306_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_306_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_306_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_306_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -5821,23 +5640,23 @@ n231_call_prolog_α:     mov              r11, 116
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lqsort$2F3_α_306_51
-.Lqsort$2F3_α_306_45:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_306_47
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_306_47
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_306_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_306_51
+.Lcall_prolog_α_306_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_306_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_306_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_306_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_306_47
-                                                                              jmp   .Lqsort$2F3_α_306_48
-.Lqsort$2F3_α_306_47:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_306_47
+                                                                              jmp   .Lcall_prolog_α_306_48
+.Lcall_prolog_α_306_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_306_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_306_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_306_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_306_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -5850,36 +5669,36 @@ n231_call_prolog_α:     mov              r11, 116
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lqsort$2F3_α_306_51
-.Lqsort$2F3_α_306_48:   mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_306_51
+.Lcall_prolog_α_306_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lqsort$2F3_α_306_49
-                        cmp              dl, 80;                              je    .Lqsort$2F3_α_306_53
-                                                                              jmp   .Lqsort$2F3_α_306_52
-.Lqsort$2F3_α_306_49:   cmp              dl, 80;                              je    .Lqsort$2F3_α_306_52
-                        cmp              cl, 5;                               je    .Lqsort$2F3_α_306_53
-                        cmp              dl, 5;                               je    .Lqsort$2F3_α_306_53
-                        cmp              cl, 3;                               jne   .Lqsort$2F3_α_306_50
-                        cmp              dl, 3;                               jne   .Lqsort$2F3_α_306_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_306_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_306_53
+                                                                              jmp   .Lcall_prolog_α_306_52
+.Lcall_prolog_α_306_49: cmp              dl, 80;                              je    .Lcall_prolog_α_306_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_306_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_306_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_306_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_306_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_306_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_306_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_306_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_306_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lqsort$2F3_α_306_51
-                                                                              jmp   .Lqsort$2F3_α_306_52
-.Lqsort$2F3_α_306_50:   mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_306_51
+                                                                              jmp   .Lcall_prolog_α_306_52
+.Lcall_prolog_α_306_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_306_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_306_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_306_53
-.Lqsort$2F3_α_306_51:   mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lqsort$2F3_α_306_54
-.Lqsort$2F3_α_306_52:   mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_306_54
-.Lqsort$2F3_α_306_53:   mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_306_53
+.Lcall_prolog_α_306_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_306_54
+.Lcall_prolog_α_306_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_306_54
+.Lcall_prolog_α_306_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -5888,7 +5707,7 @@ n231_call_prolog_α:     mov              r11, 116
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_306_54:   mov              qword ptr [rsp + 224], rax
+.Lcall_prolog_α_306_54: mov              qword ptr [rsp + 224], rax
                         mov              qword ptr [rsp + 232], rdx
                         cmp              al, 104;                             je    n236_call_prolog_α
                                                                               jmp   n232_var_ref_α
@@ -5926,63 +5745,63 @@ n234_call_prolog_α:     mov              r11, 119
                         mov              qword ptr [rsp + 168], rax
                         lea              rdi, [rsp + 160]
                         lea              r8, [rsp + 160]
-.Lqsort$2F3_α_311_40:   mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_311_56
+.Lcall_prolog_α_311_40: mov              eax, dword ptr [r8 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_311_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_311_41
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_311_55
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_311_40
-.Lqsort$2F3_α_311_55:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_311_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_311_41
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_311_55
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_311_40
+.Lcall_prolog_α_311_55: cmp              esi, 2;                              jne   .Lcall_prolog_α_311_41
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_311_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_311_40
-.Lqsort$2F3_α_311_56:   cmp              al, 72;                              jne   .Lqsort$2F3_α_311_41
+                        test             rax, rax;                            je    .Lcall_prolog_α_311_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_311_40
+.Lcall_prolog_α_311_56: cmp              al, 72;                              jne   .Lcall_prolog_α_311_41
                         mov              rax, qword ptr [r8 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_311_41
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_311_41
-                        mov              r8, rax;                             jmp   .Lqsort$2F3_α_311_40
-.Lqsort$2F3_α_311_41:   lea              r9, [rsp + 176]
-.Lqsort$2F3_α_311_42:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 40;                              jne   .Lqsort$2F3_α_311_58
+                        test             rax, rax;                            je    .Lcall_prolog_α_311_41
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_311_41
+                        mov              r8, rax;                             jmp   .Lcall_prolog_α_311_40
+.Lcall_prolog_α_311_41: lea              r9, [rsp + 176]
+.Lcall_prolog_α_311_42: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 40;                              jne   .Lcall_prolog_α_311_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_311_43
-                        cmp              esi, 1;                              jne   .Lqsort$2F3_α_311_57
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_311_42
-.Lqsort$2F3_α_311_57:   cmp              esi, 2;                              jne   .Lqsort$2F3_α_311_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_311_43
+                        cmp              esi, 1;                              jne   .Lcall_prolog_α_311_57
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_311_42
+.Lcall_prolog_α_311_57: cmp              esi, 2;                              jne   .Lcall_prolog_α_311_43
                         mov              rax, qword ptr [rax + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_311_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_311_42
-.Lqsort$2F3_α_311_58:   cmp              al, 72;                              jne   .Lqsort$2F3_α_311_43
+                        test             rax, rax;                            je    .Lcall_prolog_α_311_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_311_42
+.Lcall_prolog_α_311_58: cmp              al, 72;                              jne   .Lcall_prolog_α_311_43
                         mov              rax, qword ptr [r9 + 8]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_311_43
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_311_43
-                        mov              r9, rax;                             jmp   .Lqsort$2F3_α_311_42
-.Lqsort$2F3_α_311_43:   cmp              r8, r9;                              je    .Lqsort$2F3_α_311_51
+                        test             rax, rax;                            je    .Lcall_prolog_α_311_43
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_311_43
+                        mov              r9, rax;                             jmp   .Lcall_prolog_α_311_42
+.Lcall_prolog_α_311_43: cmp              r8, r9;                              je    .Lcall_prolog_α_311_51
                         mov              eax, dword ptr [r8 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_311_44
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_311_44
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_311_45
+                        cmp              al, 0;                               je    .Lcall_prolog_α_311_44
+                        cmp              al, 104;                             je    .Lcall_prolog_α_311_44
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_311_45
                         mov              rax, qword ptr [r8 + 8]
-                        cmp              rax, r8;                             je    .Lqsort$2F3_α_311_44
-                                                                              jmp   .Lqsort$2F3_α_311_45
-.Lqsort$2F3_α_311_44:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_311_53
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_311_53
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_311_46
+                        cmp              rax, r8;                             je    .Lcall_prolog_α_311_44
+                                                                              jmp   .Lcall_prolog_α_311_45
+.Lcall_prolog_α_311_44: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_311_53
+                        cmp              al, 104;                             je    .Lcall_prolog_α_311_53
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_311_46
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_311_53
-                                                                              jmp   .Lqsort$2F3_α_311_46
-.Lqsort$2F3_α_311_46:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_311_53
+                                                                              jmp   .Lcall_prolog_α_311_46
+.Lcall_prolog_α_311_46: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_311_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_311_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_311_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_311_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -5995,23 +5814,23 @@ n234_call_prolog_α:     mov              r11, 119
                         mov              rax, qword ptr [r9 + 0]
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
-                        mov              qword ptr [r8 + 8], rax;             jmp   .Lqsort$2F3_α_311_51
-.Lqsort$2F3_α_311_45:   mov              eax, dword ptr [r9 + 0]
-                        cmp              al, 0;                               je    .Lqsort$2F3_α_311_47
-                        cmp              al, 104;                             je    .Lqsort$2F3_α_311_47
-                        cmp              al, 72;                              jne   .Lqsort$2F3_α_311_48
+                        mov              qword ptr [r8 + 8], rax;             jmp   .Lcall_prolog_α_311_51
+.Lcall_prolog_α_311_45: mov              eax, dword ptr [r9 + 0]
+                        cmp              al, 0;                               je    .Lcall_prolog_α_311_47
+                        cmp              al, 104;                             je    .Lcall_prolog_α_311_47
+                        cmp              al, 72;                              jne   .Lcall_prolog_α_311_48
                         mov              rax, qword ptr [r9 + 8]
-                        cmp              rax, r9;                             je    .Lqsort$2F3_α_311_47
-                                                                              jmp   .Lqsort$2F3_α_311_48
-.Lqsort$2F3_α_311_47:   lea              r12, [rip + g_pl_trail]
+                        cmp              rax, r9;                             je    .Lcall_prolog_α_311_47
+                                                                              jmp   .Lcall_prolog_α_311_48
+.Lcall_prolog_α_311_47: lea              r12, [rip + g_pl_trail]
                         mov              rcx, qword ptr [r12 + 0]
-                        test             rcx, rcx;                            je    .Lqsort$2F3_α_311_53
+                        test             rcx, rcx;                            je    .Lcall_prolog_α_311_53
                         mov              eax, dword ptr [r12 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r12 + 24]
                         sub              rax, 24
-                        cmp              rsi, rax;                            ja    .Lqsort$2F3_α_311_53
+                        cmp              rsi, rax;                            ja    .Lcall_prolog_α_311_53
                         add              rcx, rsi
                         mov              qword ptr [rcx + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -6024,36 +5843,36 @@ n234_call_prolog_α:     mov              r11, 119
                         mov              rax, qword ptr [r8 + 0]
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
-                        mov              qword ptr [r9 + 8], rax;             jmp   .Lqsort$2F3_α_311_51
-.Lqsort$2F3_α_311_48:   mov              ecx, dword ptr [r8 + 0]
+                        mov              qword ptr [r9 + 8], rax;             jmp   .Lcall_prolog_α_311_51
+.Lcall_prolog_α_311_48: mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
-                        cmp              cl, 80;                              jne   .Lqsort$2F3_α_311_49
-                        cmp              dl, 80;                              je    .Lqsort$2F3_α_311_53
-                                                                              jmp   .Lqsort$2F3_α_311_52
-.Lqsort$2F3_α_311_49:   cmp              dl, 80;                              je    .Lqsort$2F3_α_311_52
-                        cmp              cl, 5;                               je    .Lqsort$2F3_α_311_53
-                        cmp              dl, 5;                               je    .Lqsort$2F3_α_311_53
-                        cmp              cl, 3;                               jne   .Lqsort$2F3_α_311_50
-                        cmp              dl, 3;                               jne   .Lqsort$2F3_α_311_50
+                        cmp              cl, 80;                              jne   .Lcall_prolog_α_311_49
+                        cmp              dl, 80;                              je    .Lcall_prolog_α_311_53
+                                                                              jmp   .Lcall_prolog_α_311_52
+.Lcall_prolog_α_311_49: cmp              dl, 80;                              je    .Lcall_prolog_α_311_52
+                        cmp              cl, 5;                               je    .Lcall_prolog_α_311_53
+                        cmp              dl, 5;                               je    .Lcall_prolog_α_311_53
+                        cmp              cl, 3;                               jne   .Lcall_prolog_α_311_50
+                        cmp              dl, 3;                               jne   .Lcall_prolog_α_311_50
                         mov              rax, qword ptr [r8 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_311_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_311_53
                         mov              rax, qword ptr [r9 + 0]
-                        cmp              rax, 3;                              jne   .Lqsort$2F3_α_311_53
+                        cmp              rax, 3;                              jne   .Lcall_prolog_α_311_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            je    .Lqsort$2F3_α_311_51
-                                                                              jmp   .Lqsort$2F3_α_311_52
-.Lqsort$2F3_α_311_50:   mov              rax, qword ptr [r8 + 0]
+                        cmp              rax, rsi;                            je    .Lcall_prolog_α_311_51
+                                                                              jmp   .Lcall_prolog_α_311_52
+.Lcall_prolog_α_311_50: mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_311_53
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_311_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
-                        cmp              rax, rsi;                            jne   .Lqsort$2F3_α_311_53
-.Lqsort$2F3_α_311_51:   mov              rax, qword ptr [r8 + 0]
-                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lqsort$2F3_α_311_54
-.Lqsort$2F3_α_311_52:   mov              eax, 104
-                        mov              edx, 0;                              jmp   .Lqsort$2F3_α_311_54
-.Lqsort$2F3_α_311_53:   mov              esi, 2
+                        cmp              rax, rsi;                            jne   .Lcall_prolog_α_311_53
+.Lcall_prolog_α_311_51: mov              rax, qword ptr [r8 + 0]
+                        mov              rdx, qword ptr [r8 + 8];             jmp   .Lcall_prolog_α_311_54
+.Lcall_prolog_α_311_52: mov              eax, 104
+                        mov              edx, 0;                              jmp   .Lcall_prolog_α_311_54
+.Lcall_prolog_α_311_53: mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6062,7 +5881,7 @@ n234_call_prolog_α:     mov              r11, 119
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lqsort$2F3_α_311_54:   mov              qword ptr [rsp + 144], rax
+.Lcall_prolog_α_311_54: mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 152], rdx
                         cmp              al, 104;                             je    n236_call_prolog_α
                                                                               jmp   n235_suspend_α
@@ -6073,7 +5892,7 @@ n235_suspend_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n235_suspend_α:         mov              r11, 120
                         mov              rax, qword ptr [rsp + 0]
-                        test             rax, rax;                            je    .Lqsort$2F3_α_313_61
+                        test             rax, rax;                            je    .Lsuspend_α_313_61
                         mov              qword ptr [rsp + 0], 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -6084,7 +5903,7 @@ n235_suspend_α:         mov              r11, 120
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 1488];         jmp   rax
-.Lqsort$2F3_α_313_61:   mov              rdi, qword ptr [rsp + 64]
+.Lsuspend_α_313_61:     mov              rdi, qword ptr [rsp + 64]
                         mov              rsi, qword ptr [rsp + 72]
                         lea              rdx, [rip + n235_suspend_β]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6205,20 +6024,22 @@ n315_call_prolog_bx:
 n315_call_prolog_α:     mov              r11, 122
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
-                        test             rax, rax;                            je    .Lmain_α_477_102
+                        test             rax, rax;                            je    .Lcall_prolog_α_477_102
                         mov              rax, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rsp + 40];           jmp   .Lmain_α_477_101
-.Lmain_α_477_102:       lea              r12, [rip + g_plw_cellws_on]
+                        mov              rdx, qword ptr [rsp + 40];           jmp   .Lcall_prolog_α_477_101
+.Lcall_prolog_α_477_102:
+                        lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
-                        test             eax, eax;                            jne   .Lmain_α_477_100
+                        test             eax, eax;                            jne   .Lcall_prolog_α_477_100
                         lea              r12, [rip + g_zeta_mode]
                         mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lmain_α_477_100
+                        cmp              eax, 2;                              je    .Lcall_prolog_α_477_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
-                        mov              eax, 3;                              jmp   .Lmain_α_477_101
-.Lmain_α_477_100:       lea              rdi, [rsp + 48]
+                        mov              eax, 3;                              jmp   .Lcall_prolog_α_477_101
+.Lcall_prolog_α_477_100:
+                        lea              rdi, [rsp + 48]
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -6228,7 +6049,8 @@ n315_call_prolog_α:     mov              r11, 122
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_477_101:       mov              qword ptr [rsp + 32], rax
+.Lcall_prolog_α_477_101:
+                        mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   n316_lit_string_α
@@ -6240,19 +6062,19 @@ n316_lit_string_bx:
 n316_lit_string_α:      mov              r11, 123
                         mov              qword ptr [rsp + 5888], 2            # result
                         mov              dword ptr [rsp + 5892], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_478_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_478_0]
                         mov              qword ptr [rsp + 5896], rax;         jmp   n317_lit_integer_α
-.Lmain_α_478_0:         .quad            .Lmain_α_478_0_s
-.Lmain_α_478_0_s:       .string          "."
+.Llit_string_α_478_0:   .quad            .Llit_string_α_478_0_s
+.Llit_string_α_478_0_s: .string          "."
                         .size            n316_lit_string_bx, .-n316_lit_string_bx
                         .type            n317_lit_integer_bx, @function
 n317_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n317_lit_integer_α:     mov              r11, 124
                         mov              qword ptr [rsp + 5792], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_479_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_479_0]
                         mov              qword ptr [rsp + 5800], rax;         jmp   n318_lit_string_α
-.Lmain_α_479_0:         .quad            27
+.Llit_integer_α_479_0:  .quad            27
                         .size            n317_lit_integer_bx, .-n317_lit_integer_bx
                         .type            n318_lit_string_bx, @function
 n318_lit_string_bx:
@@ -6260,19 +6082,19 @@ n318_lit_string_bx:
 n318_lit_string_α:      mov              r11, 125
                         mov              qword ptr [rsp + 5776], 2            # result
                         mov              dword ptr [rsp + 5780], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_480_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_480_0]
                         mov              qword ptr [rsp + 5784], rax;         jmp   n319_lit_integer_α
-.Lmain_α_480_0:         .quad            .Lmain_α_480_0_s
-.Lmain_α_480_0_s:       .string          "."
+.Llit_string_α_480_0:   .quad            .Llit_string_α_480_0_s
+.Llit_string_α_480_0_s: .string          "."
                         .size            n318_lit_string_bx, .-n318_lit_string_bx
                         .type            n319_lit_integer_bx, @function
 n319_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n319_lit_integer_α:     mov              r11, 126
                         mov              qword ptr [rsp + 5680], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_481_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_481_0]
                         mov              qword ptr [rsp + 5688], rax;         jmp   n320_lit_string_α
-.Lmain_α_481_0:         .quad            74
+.Llit_integer_α_481_0:  .quad            74
                         .size            n319_lit_integer_bx, .-n319_lit_integer_bx
                         .type            n320_lit_string_bx, @function
 n320_lit_string_bx:
@@ -6280,19 +6102,19 @@ n320_lit_string_bx:
 n320_lit_string_α:      mov              r11, 127
                         mov              qword ptr [rsp + 5664], 2            # result
                         mov              dword ptr [rsp + 5668], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_482_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_482_0]
                         mov              qword ptr [rsp + 5672], rax;         jmp   n321_lit_integer_α
-.Lmain_α_482_0:         .quad            .Lmain_α_482_0_s
-.Lmain_α_482_0_s:       .string          "."
+.Llit_string_α_482_0:   .quad            .Llit_string_α_482_0_s
+.Llit_string_α_482_0_s: .string          "."
                         .size            n320_lit_string_bx, .-n320_lit_string_bx
                         .type            n321_lit_integer_bx, @function
 n321_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n321_lit_integer_α:     mov              r11, 128
                         mov              qword ptr [rsp + 5568], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_483_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_483_0]
                         mov              qword ptr [rsp + 5576], rax;         jmp   n322_lit_string_α
-.Lmain_α_483_0:         .quad            17
+.Llit_integer_α_483_0:  .quad            17
                         .size            n321_lit_integer_bx, .-n321_lit_integer_bx
                         .type            n322_lit_string_bx, @function
 n322_lit_string_bx:
@@ -6300,19 +6122,19 @@ n322_lit_string_bx:
 n322_lit_string_α:      mov              r11, 129
                         mov              qword ptr [rsp + 5552], 2            # result
                         mov              dword ptr [rsp + 5556], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_484_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_484_0]
                         mov              qword ptr [rsp + 5560], rax;         jmp   n323_lit_integer_α
-.Lmain_α_484_0:         .quad            .Lmain_α_484_0_s
-.Lmain_α_484_0_s:       .string          "."
+.Llit_string_α_484_0:   .quad            .Llit_string_α_484_0_s
+.Llit_string_α_484_0_s: .string          "."
                         .size            n322_lit_string_bx, .-n322_lit_string_bx
                         .type            n323_lit_integer_bx, @function
 n323_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n323_lit_integer_α:     mov              r11, 130
                         mov              qword ptr [rsp + 5456], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_485_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_485_0]
                         mov              qword ptr [rsp + 5464], rax;         jmp   n324_lit_string_α
-.Lmain_α_485_0:         .quad            33
+.Llit_integer_α_485_0:  .quad            33
                         .size            n323_lit_integer_bx, .-n323_lit_integer_bx
                         .type            n324_lit_string_bx, @function
 n324_lit_string_bx:
@@ -6320,19 +6142,19 @@ n324_lit_string_bx:
 n324_lit_string_α:      mov              r11, 131
                         mov              qword ptr [rsp + 5440], 2            # result
                         mov              dword ptr [rsp + 5444], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_486_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_486_0]
                         mov              qword ptr [rsp + 5448], rax;         jmp   n325_lit_integer_α
-.Lmain_α_486_0:         .quad            .Lmain_α_486_0_s
-.Lmain_α_486_0_s:       .string          "."
+.Llit_string_α_486_0:   .quad            .Llit_string_α_486_0_s
+.Llit_string_α_486_0_s: .string          "."
                         .size            n324_lit_string_bx, .-n324_lit_string_bx
                         .type            n325_lit_integer_bx, @function
 n325_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n325_lit_integer_α:     mov              r11, 132
                         mov              qword ptr [rsp + 5344], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_487_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_487_0]
                         mov              qword ptr [rsp + 5352], rax;         jmp   n326_lit_string_α
-.Lmain_α_487_0:         .quad            94
+.Llit_integer_α_487_0:  .quad            94
                         .size            n325_lit_integer_bx, .-n325_lit_integer_bx
                         .type            n326_lit_string_bx, @function
 n326_lit_string_bx:
@@ -6340,19 +6162,19 @@ n326_lit_string_bx:
 n326_lit_string_α:      mov              r11, 133
                         mov              qword ptr [rsp + 5328], 2            # result
                         mov              dword ptr [rsp + 5332], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_488_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_488_0]
                         mov              qword ptr [rsp + 5336], rax;         jmp   n327_lit_integer_α
-.Lmain_α_488_0:         .quad            .Lmain_α_488_0_s
-.Lmain_α_488_0_s:       .string          "."
+.Llit_string_α_488_0:   .quad            .Llit_string_α_488_0_s
+.Llit_string_α_488_0_s: .string          "."
                         .size            n326_lit_string_bx, .-n326_lit_string_bx
                         .type            n327_lit_integer_bx, @function
 n327_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n327_lit_integer_α:     mov              r11, 134
                         mov              qword ptr [rsp + 5232], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_489_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_489_0]
                         mov              qword ptr [rsp + 5240], rax;         jmp   n328_lit_string_α
-.Lmain_α_489_0:         .quad            18
+.Llit_integer_α_489_0:  .quad            18
                         .size            n327_lit_integer_bx, .-n327_lit_integer_bx
                         .type            n328_lit_string_bx, @function
 n328_lit_string_bx:
@@ -6360,19 +6182,19 @@ n328_lit_string_bx:
 n328_lit_string_α:      mov              r11, 135
                         mov              qword ptr [rsp + 5216], 2            # result
                         mov              dword ptr [rsp + 5220], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_490_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_490_0]
                         mov              qword ptr [rsp + 5224], rax;         jmp   n329_lit_integer_α
-.Lmain_α_490_0:         .quad            .Lmain_α_490_0_s
-.Lmain_α_490_0_s:       .string          "."
+.Llit_string_α_490_0:   .quad            .Llit_string_α_490_0_s
+.Llit_string_α_490_0_s: .string          "."
                         .size            n328_lit_string_bx, .-n328_lit_string_bx
                         .type            n329_lit_integer_bx, @function
 n329_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n329_lit_integer_α:     mov              r11, 136
                         mov              qword ptr [rsp + 5120], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_491_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_491_0]
                         mov              qword ptr [rsp + 5128], rax;         jmp   n330_lit_string_α
-.Lmain_α_491_0:         .quad            46
+.Llit_integer_α_491_0:  .quad            46
                         .size            n329_lit_integer_bx, .-n329_lit_integer_bx
                         .type            n330_lit_string_bx, @function
 n330_lit_string_bx:
@@ -6380,19 +6202,19 @@ n330_lit_string_bx:
 n330_lit_string_α:      mov              r11, 137
                         mov              qword ptr [rsp + 5104], 2            # result
                         mov              dword ptr [rsp + 5108], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_492_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_492_0]
                         mov              qword ptr [rsp + 5112], rax;         jmp   n331_lit_integer_α
-.Lmain_α_492_0:         .quad            .Lmain_α_492_0_s
-.Lmain_α_492_0_s:       .string          "."
+.Llit_string_α_492_0:   .quad            .Llit_string_α_492_0_s
+.Llit_string_α_492_0_s: .string          "."
                         .size            n330_lit_string_bx, .-n330_lit_string_bx
                         .type            n331_lit_integer_bx, @function
 n331_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n331_lit_integer_α:     mov              r11, 138
                         mov              qword ptr [rsp + 5008], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_493_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_493_0]
                         mov              qword ptr [rsp + 5016], rax;         jmp   n332_lit_string_α
-.Lmain_α_493_0:         .quad            83
+.Llit_integer_α_493_0:  .quad            83
                         .size            n331_lit_integer_bx, .-n331_lit_integer_bx
                         .type            n332_lit_string_bx, @function
 n332_lit_string_bx:
@@ -6400,19 +6222,19 @@ n332_lit_string_bx:
 n332_lit_string_α:      mov              r11, 139
                         mov              qword ptr [rsp + 4992], 2            # result
                         mov              dword ptr [rsp + 4996], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_494_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_494_0]
                         mov              qword ptr [rsp + 5000], rax;         jmp   n333_lit_integer_α
-.Lmain_α_494_0:         .quad            .Lmain_α_494_0_s
-.Lmain_α_494_0_s:       .string          "."
+.Llit_string_α_494_0:   .quad            .Llit_string_α_494_0_s
+.Llit_string_α_494_0_s: .string          "."
                         .size            n332_lit_string_bx, .-n332_lit_string_bx
                         .type            n333_lit_integer_bx, @function
 n333_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n333_lit_integer_α:     mov              r11, 140
                         mov              qword ptr [rsp + 4896], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_495_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_495_0]
                         mov              qword ptr [rsp + 4904], rax;         jmp   n334_lit_string_α
-.Lmain_α_495_0:         .quad            65
+.Llit_integer_α_495_0:  .quad            65
                         .size            n333_lit_integer_bx, .-n333_lit_integer_bx
                         .type            n334_lit_string_bx, @function
 n334_lit_string_bx:
@@ -6420,19 +6242,19 @@ n334_lit_string_bx:
 n334_lit_string_α:      mov              r11, 141
                         mov              qword ptr [rsp + 4880], 2            # result
                         mov              dword ptr [rsp + 4884], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_496_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_496_0]
                         mov              qword ptr [rsp + 4888], rax;         jmp   n335_lit_integer_α
-.Lmain_α_496_0:         .quad            .Lmain_α_496_0_s
-.Lmain_α_496_0_s:       .string          "."
+.Llit_string_α_496_0:   .quad            .Llit_string_α_496_0_s
+.Llit_string_α_496_0_s: .string          "."
                         .size            n334_lit_string_bx, .-n334_lit_string_bx
                         .type            n335_lit_integer_bx, @function
 n335_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n335_lit_integer_α:     mov              r11, 142
                         mov              qword ptr [rsp + 4784], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_497_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_497_0]
                         mov              qword ptr [rsp + 4792], rax;         jmp   n336_lit_string_α
-.Lmain_α_497_0:         .quad            2
+.Llit_integer_α_497_0:  .quad            2
                         .size            n335_lit_integer_bx, .-n335_lit_integer_bx
                         .type            n336_lit_string_bx, @function
 n336_lit_string_bx:
@@ -6440,19 +6262,19 @@ n336_lit_string_bx:
 n336_lit_string_α:      mov              r11, 143
                         mov              qword ptr [rsp + 4768], 2            # result
                         mov              dword ptr [rsp + 4772], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_498_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_498_0]
                         mov              qword ptr [rsp + 4776], rax;         jmp   n337_lit_integer_α
-.Lmain_α_498_0:         .quad            .Lmain_α_498_0_s
-.Lmain_α_498_0_s:       .string          "."
+.Llit_string_α_498_0:   .quad            .Llit_string_α_498_0_s
+.Llit_string_α_498_0_s: .string          "."
                         .size            n336_lit_string_bx, .-n336_lit_string_bx
                         .type            n337_lit_integer_bx, @function
 n337_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n337_lit_integer_α:     mov              r11, 144
                         mov              qword ptr [rsp + 4672], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_499_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_499_0]
                         mov              qword ptr [rsp + 4680], rax;         jmp   n338_lit_string_α
-.Lmain_α_499_0:         .quad            32
+.Llit_integer_α_499_0:  .quad            32
                         .size            n337_lit_integer_bx, .-n337_lit_integer_bx
                         .type            n338_lit_string_bx, @function
 n338_lit_string_bx:
@@ -6460,19 +6282,19 @@ n338_lit_string_bx:
 n338_lit_string_α:      mov              r11, 145
                         mov              qword ptr [rsp + 4656], 2            # result
                         mov              dword ptr [rsp + 4660], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_500_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_500_0]
                         mov              qword ptr [rsp + 4664], rax;         jmp   n339_lit_integer_α
-.Lmain_α_500_0:         .quad            .Lmain_α_500_0_s
-.Lmain_α_500_0_s:       .string          "."
+.Llit_string_α_500_0:   .quad            .Llit_string_α_500_0_s
+.Llit_string_α_500_0_s: .string          "."
                         .size            n338_lit_string_bx, .-n338_lit_string_bx
                         .type            n339_lit_integer_bx, @function
 n339_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n339_lit_integer_α:     mov              r11, 146
                         mov              qword ptr [rsp + 4560], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_501_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_501_0]
                         mov              qword ptr [rsp + 4568], rax;         jmp   n340_lit_string_α
-.Lmain_α_501_0:         .quad            53
+.Llit_integer_α_501_0:  .quad            53
                         .size            n339_lit_integer_bx, .-n339_lit_integer_bx
                         .type            n340_lit_string_bx, @function
 n340_lit_string_bx:
@@ -6480,19 +6302,19 @@ n340_lit_string_bx:
 n340_lit_string_α:      mov              r11, 147
                         mov              qword ptr [rsp + 4544], 2            # result
                         mov              dword ptr [rsp + 4548], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_502_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_502_0]
                         mov              qword ptr [rsp + 4552], rax;         jmp   n341_lit_integer_α
-.Lmain_α_502_0:         .quad            .Lmain_α_502_0_s
-.Lmain_α_502_0_s:       .string          "."
+.Llit_string_α_502_0:   .quad            .Llit_string_α_502_0_s
+.Llit_string_α_502_0_s: .string          "."
                         .size            n340_lit_string_bx, .-n340_lit_string_bx
                         .type            n341_lit_integer_bx, @function
 n341_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n341_lit_integer_α:     mov              r11, 148
                         mov              qword ptr [rsp + 4448], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_503_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_503_0]
                         mov              qword ptr [rsp + 4456], rax;         jmp   n342_lit_string_α
-.Lmain_α_503_0:         .quad            28
+.Llit_integer_α_503_0:  .quad            28
                         .size            n341_lit_integer_bx, .-n341_lit_integer_bx
                         .type            n342_lit_string_bx, @function
 n342_lit_string_bx:
@@ -6500,19 +6322,19 @@ n342_lit_string_bx:
 n342_lit_string_α:      mov              r11, 149
                         mov              qword ptr [rsp + 4432], 2            # result
                         mov              dword ptr [rsp + 4436], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_504_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_504_0]
                         mov              qword ptr [rsp + 4440], rax;         jmp   n343_lit_integer_α
-.Lmain_α_504_0:         .quad            .Lmain_α_504_0_s
-.Lmain_α_504_0_s:       .string          "."
+.Llit_string_α_504_0:   .quad            .Llit_string_α_504_0_s
+.Llit_string_α_504_0_s: .string          "."
                         .size            n342_lit_string_bx, .-n342_lit_string_bx
                         .type            n343_lit_integer_bx, @function
 n343_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n343_lit_integer_α:     mov              r11, 150
                         mov              qword ptr [rsp + 4336], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_505_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_505_0]
                         mov              qword ptr [rsp + 4344], rax;         jmp   n344_lit_string_α
-.Lmain_α_505_0:         .quad            85
+.Llit_integer_α_505_0:  .quad            85
                         .size            n343_lit_integer_bx, .-n343_lit_integer_bx
                         .type            n344_lit_string_bx, @function
 n344_lit_string_bx:
@@ -6520,19 +6342,19 @@ n344_lit_string_bx:
 n344_lit_string_α:      mov              r11, 151
                         mov              qword ptr [rsp + 4320], 2            # result
                         mov              dword ptr [rsp + 4324], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_506_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_506_0]
                         mov              qword ptr [rsp + 4328], rax;         jmp   n345_lit_integer_α
-.Lmain_α_506_0:         .quad            .Lmain_α_506_0_s
-.Lmain_α_506_0_s:       .string          "."
+.Llit_string_α_506_0:   .quad            .Llit_string_α_506_0_s
+.Llit_string_α_506_0_s: .string          "."
                         .size            n344_lit_string_bx, .-n344_lit_string_bx
                         .type            n345_lit_integer_bx, @function
 n345_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n345_lit_integer_α:     mov              r11, 152
                         mov              qword ptr [rsp + 4224], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_507_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_507_0]
                         mov              qword ptr [rsp + 4232], rax;         jmp   n346_lit_string_α
-.Lmain_α_507_0:         .quad            99
+.Llit_integer_α_507_0:  .quad            99
                         .size            n345_lit_integer_bx, .-n345_lit_integer_bx
                         .type            n346_lit_string_bx, @function
 n346_lit_string_bx:
@@ -6540,19 +6362,19 @@ n346_lit_string_bx:
 n346_lit_string_α:      mov              r11, 153
                         mov              qword ptr [rsp + 4208], 2            # result
                         mov              dword ptr [rsp + 4212], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_508_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_508_0]
                         mov              qword ptr [rsp + 4216], rax;         jmp   n347_lit_integer_α
-.Lmain_α_508_0:         .quad            .Lmain_α_508_0_s
-.Lmain_α_508_0_s:       .string          "."
+.Llit_string_α_508_0:   .quad            .Llit_string_α_508_0_s
+.Llit_string_α_508_0_s: .string          "."
                         .size            n346_lit_string_bx, .-n346_lit_string_bx
                         .type            n347_lit_integer_bx, @function
 n347_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n347_lit_integer_α:     mov              r11, 154
                         mov              qword ptr [rsp + 4112], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_509_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_509_0]
                         mov              qword ptr [rsp + 4120], rax;         jmp   n348_lit_string_α
-.Lmain_α_509_0:         .quad            47
+.Llit_integer_α_509_0:  .quad            47
                         .size            n347_lit_integer_bx, .-n347_lit_integer_bx
                         .type            n348_lit_string_bx, @function
 n348_lit_string_bx:
@@ -6560,19 +6382,19 @@ n348_lit_string_bx:
 n348_lit_string_α:      mov              r11, 155
                         mov              qword ptr [rsp + 4096], 2            # result
                         mov              dword ptr [rsp + 4100], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_510_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_510_0]
                         mov              qword ptr [rsp + 4104], rax;         jmp   n349_lit_integer_α
-.Lmain_α_510_0:         .quad            .Lmain_α_510_0_s
-.Lmain_α_510_0_s:       .string          "."
+.Llit_string_α_510_0:   .quad            .Llit_string_α_510_0_s
+.Llit_string_α_510_0_s: .string          "."
                         .size            n348_lit_string_bx, .-n348_lit_string_bx
                         .type            n349_lit_integer_bx, @function
 n349_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n349_lit_integer_α:     mov              r11, 156
                         mov              qword ptr [rsp + 4000], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_511_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_511_0]
                         mov              qword ptr [rsp + 4008], rax;         jmp   n350_lit_string_α
-.Lmain_α_511_0:         .quad            28
+.Llit_integer_α_511_0:  .quad            28
                         .size            n349_lit_integer_bx, .-n349_lit_integer_bx
                         .type            n350_lit_string_bx, @function
 n350_lit_string_bx:
@@ -6580,19 +6402,19 @@ n350_lit_string_bx:
 n350_lit_string_α:      mov              r11, 157
                         mov              qword ptr [rsp + 3984], 2            # result
                         mov              dword ptr [rsp + 3988], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_512_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_512_0]
                         mov              qword ptr [rsp + 3992], rax;         jmp   n351_lit_integer_α
-.Lmain_α_512_0:         .quad            .Lmain_α_512_0_s
-.Lmain_α_512_0_s:       .string          "."
+.Llit_string_α_512_0:   .quad            .Llit_string_α_512_0_s
+.Llit_string_α_512_0_s: .string          "."
                         .size            n350_lit_string_bx, .-n350_lit_string_bx
                         .type            n351_lit_integer_bx, @function
 n351_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n351_lit_integer_α:     mov              r11, 158
                         mov              qword ptr [rsp + 3888], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_513_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_513_0]
                         mov              qword ptr [rsp + 3896], rax;         jmp   n352_lit_string_α
-.Lmain_α_513_0:         .quad            82
+.Llit_integer_α_513_0:  .quad            82
                         .size            n351_lit_integer_bx, .-n351_lit_integer_bx
                         .type            n352_lit_string_bx, @function
 n352_lit_string_bx:
@@ -6600,19 +6422,19 @@ n352_lit_string_bx:
 n352_lit_string_α:      mov              r11, 159
                         mov              qword ptr [rsp + 3872], 2            # result
                         mov              dword ptr [rsp + 3876], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_514_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_514_0]
                         mov              qword ptr [rsp + 3880], rax;         jmp   n353_lit_integer_α
-.Lmain_α_514_0:         .quad            .Lmain_α_514_0_s
-.Lmain_α_514_0_s:       .string          "."
+.Llit_string_α_514_0:   .quad            .Llit_string_α_514_0_s
+.Llit_string_α_514_0_s: .string          "."
                         .size            n352_lit_string_bx, .-n352_lit_string_bx
                         .type            n353_lit_integer_bx, @function
 n353_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n353_lit_integer_α:     mov              r11, 160
                         mov              qword ptr [rsp + 3776], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_515_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_515_0]
                         mov              qword ptr [rsp + 3784], rax;         jmp   n354_lit_string_α
-.Lmain_α_515_0:         .quad            6
+.Llit_integer_α_515_0:  .quad            6
                         .size            n353_lit_integer_bx, .-n353_lit_integer_bx
                         .type            n354_lit_string_bx, @function
 n354_lit_string_bx:
@@ -6620,19 +6442,19 @@ n354_lit_string_bx:
 n354_lit_string_α:      mov              r11, 161
                         mov              qword ptr [rsp + 3760], 2            # result
                         mov              dword ptr [rsp + 3764], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_516_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_516_0]
                         mov              qword ptr [rsp + 3768], rax;         jmp   n355_lit_integer_α
-.Lmain_α_516_0:         .quad            .Lmain_α_516_0_s
-.Lmain_α_516_0_s:       .string          "."
+.Llit_string_α_516_0:   .quad            .Llit_string_α_516_0_s
+.Llit_string_α_516_0_s: .string          "."
                         .size            n354_lit_string_bx, .-n354_lit_string_bx
                         .type            n355_lit_integer_bx, @function
 n355_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n355_lit_integer_α:     mov              r11, 162
                         mov              qword ptr [rsp + 3664], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_517_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_517_0]
                         mov              qword ptr [rsp + 3672], rax;         jmp   n356_lit_string_α
-.Lmain_α_517_0:         .quad            11
+.Llit_integer_α_517_0:  .quad            11
                         .size            n355_lit_integer_bx, .-n355_lit_integer_bx
                         .type            n356_lit_string_bx, @function
 n356_lit_string_bx:
@@ -6640,19 +6462,19 @@ n356_lit_string_bx:
 n356_lit_string_α:      mov              r11, 163
                         mov              qword ptr [rsp + 3648], 2            # result
                         mov              dword ptr [rsp + 3652], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_518_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_518_0]
                         mov              qword ptr [rsp + 3656], rax;         jmp   n357_lit_integer_α
-.Lmain_α_518_0:         .quad            .Lmain_α_518_0_s
-.Lmain_α_518_0_s:       .string          "."
+.Llit_string_α_518_0:   .quad            .Llit_string_α_518_0_s
+.Llit_string_α_518_0_s: .string          "."
                         .size            n356_lit_string_bx, .-n356_lit_string_bx
                         .type            n357_lit_integer_bx, @function
 n357_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n357_lit_integer_α:     mov              r11, 164
                         mov              qword ptr [rsp + 3552], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_519_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_519_0]
                         mov              qword ptr [rsp + 3560], rax;         jmp   n358_lit_string_α
-.Lmain_α_519_0:         .quad            55
+.Llit_integer_α_519_0:  .quad            55
                         .size            n357_lit_integer_bx, .-n357_lit_integer_bx
                         .type            n358_lit_string_bx, @function
 n358_lit_string_bx:
@@ -6660,19 +6482,19 @@ n358_lit_string_bx:
 n358_lit_string_α:      mov              r11, 165
                         mov              qword ptr [rsp + 3536], 2            # result
                         mov              dword ptr [rsp + 3540], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_520_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_520_0]
                         mov              qword ptr [rsp + 3544], rax;         jmp   n359_lit_integer_α
-.Lmain_α_520_0:         .quad            .Lmain_α_520_0_s
-.Lmain_α_520_0_s:       .string          "."
+.Llit_string_α_520_0:   .quad            .Llit_string_α_520_0_s
+.Llit_string_α_520_0_s: .string          "."
                         .size            n358_lit_string_bx, .-n358_lit_string_bx
                         .type            n359_lit_integer_bx, @function
 n359_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n359_lit_integer_α:     mov              r11, 166
                         mov              qword ptr [rsp + 3440], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_521_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_521_0]
                         mov              qword ptr [rsp + 3448], rax;         jmp   n360_lit_string_α
-.Lmain_α_521_0:         .quad            29
+.Llit_integer_α_521_0:  .quad            29
                         .size            n359_lit_integer_bx, .-n359_lit_integer_bx
                         .type            n360_lit_string_bx, @function
 n360_lit_string_bx:
@@ -6680,19 +6502,19 @@ n360_lit_string_bx:
 n360_lit_string_α:      mov              r11, 167
                         mov              qword ptr [rsp + 3424], 2            # result
                         mov              dword ptr [rsp + 3428], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_522_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_522_0]
                         mov              qword ptr [rsp + 3432], rax;         jmp   n361_lit_integer_α
-.Lmain_α_522_0:         .quad            .Lmain_α_522_0_s
-.Lmain_α_522_0_s:       .string          "."
+.Llit_string_α_522_0:   .quad            .Llit_string_α_522_0_s
+.Llit_string_α_522_0_s: .string          "."
                         .size            n360_lit_string_bx, .-n360_lit_string_bx
                         .type            n361_lit_integer_bx, @function
 n361_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n361_lit_integer_α:     mov              r11, 168
                         mov              qword ptr [rsp + 3328], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_523_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_523_0]
                         mov              qword ptr [rsp + 3336], rax;         jmp   n362_lit_string_α
-.Lmain_α_523_0:         .quad            39
+.Llit_integer_α_523_0:  .quad            39
                         .size            n361_lit_integer_bx, .-n361_lit_integer_bx
                         .type            n362_lit_string_bx, @function
 n362_lit_string_bx:
@@ -6700,19 +6522,19 @@ n362_lit_string_bx:
 n362_lit_string_α:      mov              r11, 169
                         mov              qword ptr [rsp + 3312], 2            # result
                         mov              dword ptr [rsp + 3316], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_524_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_524_0]
                         mov              qword ptr [rsp + 3320], rax;         jmp   n363_lit_integer_α
-.Lmain_α_524_0:         .quad            .Lmain_α_524_0_s
-.Lmain_α_524_0_s:       .string          "."
+.Llit_string_α_524_0:   .quad            .Llit_string_α_524_0_s
+.Llit_string_α_524_0_s: .string          "."
                         .size            n362_lit_string_bx, .-n362_lit_string_bx
                         .type            n363_lit_integer_bx, @function
 n363_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n363_lit_integer_α:     mov              r11, 170
                         mov              qword ptr [rsp + 3216], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_525_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_525_0]
                         mov              qword ptr [rsp + 3224], rax;         jmp   n364_lit_string_α
-.Lmain_α_525_0:         .quad            81
+.Llit_integer_α_525_0:  .quad            81
                         .size            n363_lit_integer_bx, .-n363_lit_integer_bx
                         .type            n364_lit_string_bx, @function
 n364_lit_string_bx:
@@ -6720,19 +6542,19 @@ n364_lit_string_bx:
 n364_lit_string_α:      mov              r11, 171
                         mov              qword ptr [rsp + 3200], 2            # result
                         mov              dword ptr [rsp + 3204], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_526_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_526_0]
                         mov              qword ptr [rsp + 3208], rax;         jmp   n365_lit_integer_α
-.Lmain_α_526_0:         .quad            .Lmain_α_526_0_s
-.Lmain_α_526_0_s:       .string          "."
+.Llit_string_α_526_0:   .quad            .Llit_string_α_526_0_s
+.Llit_string_α_526_0_s: .string          "."
                         .size            n364_lit_string_bx, .-n364_lit_string_bx
                         .type            n365_lit_integer_bx, @function
 n365_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n365_lit_integer_α:     mov              r11, 172
                         mov              qword ptr [rsp + 3104], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_527_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_527_0]
                         mov              qword ptr [rsp + 3112], rax;         jmp   n366_lit_string_α
-.Lmain_α_527_0:         .quad            90
+.Llit_integer_α_527_0:  .quad            90
                         .size            n365_lit_integer_bx, .-n365_lit_integer_bx
                         .type            n366_lit_string_bx, @function
 n366_lit_string_bx:
@@ -6740,19 +6562,19 @@ n366_lit_string_bx:
 n366_lit_string_α:      mov              r11, 173
                         mov              qword ptr [rsp + 3088], 2            # result
                         mov              dword ptr [rsp + 3092], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_528_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_528_0]
                         mov              qword ptr [rsp + 3096], rax;         jmp   n367_lit_integer_α
-.Lmain_α_528_0:         .quad            .Lmain_α_528_0_s
-.Lmain_α_528_0_s:       .string          "."
+.Llit_string_α_528_0:   .quad            .Llit_string_α_528_0_s
+.Llit_string_α_528_0_s: .string          "."
                         .size            n366_lit_string_bx, .-n366_lit_string_bx
                         .type            n367_lit_integer_bx, @function
 n367_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n367_lit_integer_α:     mov              r11, 174
                         mov              qword ptr [rsp + 2992], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_529_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_529_0]
                         mov              qword ptr [rsp + 3000], rax;         jmp   n368_lit_string_α
-.Lmain_α_529_0:         .quad            37
+.Llit_integer_α_529_0:  .quad            37
                         .size            n367_lit_integer_bx, .-n367_lit_integer_bx
                         .type            n368_lit_string_bx, @function
 n368_lit_string_bx:
@@ -6760,19 +6582,19 @@ n368_lit_string_bx:
 n368_lit_string_α:      mov              r11, 175
                         mov              qword ptr [rsp + 2976], 2            # result
                         mov              dword ptr [rsp + 2980], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_530_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_530_0]
                         mov              qword ptr [rsp + 2984], rax;         jmp   n369_lit_integer_α
-.Lmain_α_530_0:         .quad            .Lmain_α_530_0_s
-.Lmain_α_530_0_s:       .string          "."
+.Llit_string_α_530_0:   .quad            .Llit_string_α_530_0_s
+.Llit_string_α_530_0_s: .string          "."
                         .size            n368_lit_string_bx, .-n368_lit_string_bx
                         .type            n369_lit_integer_bx, @function
 n369_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n369_lit_integer_α:     mov              r11, 176
                         mov              qword ptr [rsp + 2880], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_531_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_531_0]
                         mov              qword ptr [rsp + 2888], rax;         jmp   n370_lit_string_α
-.Lmain_α_531_0:         .quad            10
+.Llit_integer_α_531_0:  .quad            10
                         .size            n369_lit_integer_bx, .-n369_lit_integer_bx
                         .type            n370_lit_string_bx, @function
 n370_lit_string_bx:
@@ -6780,19 +6602,19 @@ n370_lit_string_bx:
 n370_lit_string_α:      mov              r11, 177
                         mov              qword ptr [rsp + 2864], 2            # result
                         mov              dword ptr [rsp + 2868], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_532_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_532_0]
                         mov              qword ptr [rsp + 2872], rax;         jmp   n371_lit_integer_α
-.Lmain_α_532_0:         .quad            .Lmain_α_532_0_s
-.Lmain_α_532_0_s:       .string          "."
+.Llit_string_α_532_0:   .quad            .Llit_string_α_532_0_s
+.Llit_string_α_532_0_s: .string          "."
                         .size            n370_lit_string_bx, .-n370_lit_string_bx
                         .type            n371_lit_integer_bx, @function
 n371_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n371_lit_integer_α:     mov              r11, 178
                         mov              qword ptr [rsp + 2768], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_533_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_533_0]
                         mov              qword ptr [rsp + 2776], rax;         jmp   n372_lit_string_α
-.Lmain_α_533_0:         .quad            0
+.Llit_integer_α_533_0:  .quad            0
                         .size            n371_lit_integer_bx, .-n371_lit_integer_bx
                         .type            n372_lit_string_bx, @function
 n372_lit_string_bx:
@@ -6800,19 +6622,19 @@ n372_lit_string_bx:
 n372_lit_string_α:      mov              r11, 179
                         mov              qword ptr [rsp + 2752], 2            # result
                         mov              dword ptr [rsp + 2756], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_534_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_534_0]
                         mov              qword ptr [rsp + 2760], rax;         jmp   n373_lit_integer_α
-.Lmain_α_534_0:         .quad            .Lmain_α_534_0_s
-.Lmain_α_534_0_s:       .string          "."
+.Llit_string_α_534_0:   .quad            .Llit_string_α_534_0_s
+.Llit_string_α_534_0_s: .string          "."
                         .size            n372_lit_string_bx, .-n372_lit_string_bx
                         .type            n373_lit_integer_bx, @function
 n373_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n373_lit_integer_α:     mov              r11, 180
                         mov              qword ptr [rsp + 2656], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_535_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_535_0]
                         mov              qword ptr [rsp + 2664], rax;         jmp   n374_lit_string_α
-.Lmain_α_535_0:         .quad            66
+.Llit_integer_α_535_0:  .quad            66
                         .size            n373_lit_integer_bx, .-n373_lit_integer_bx
                         .type            n374_lit_string_bx, @function
 n374_lit_string_bx:
@@ -6820,19 +6642,19 @@ n374_lit_string_bx:
 n374_lit_string_α:      mov              r11, 181
                         mov              qword ptr [rsp + 2640], 2            # result
                         mov              dword ptr [rsp + 2644], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_536_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_536_0]
                         mov              qword ptr [rsp + 2648], rax;         jmp   n375_lit_integer_α
-.Lmain_α_536_0:         .quad            .Lmain_α_536_0_s
-.Lmain_α_536_0_s:       .string          "."
+.Llit_string_α_536_0:   .quad            .Llit_string_α_536_0_s
+.Llit_string_α_536_0_s: .string          "."
                         .size            n374_lit_string_bx, .-n374_lit_string_bx
                         .type            n375_lit_integer_bx, @function
 n375_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n375_lit_integer_α:     mov              r11, 182
                         mov              qword ptr [rsp + 2544], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_537_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_537_0]
                         mov              qword ptr [rsp + 2552], rax;         jmp   n376_lit_string_α
-.Lmain_α_537_0:         .quad            51
+.Llit_integer_α_537_0:  .quad            51
                         .size            n375_lit_integer_bx, .-n375_lit_integer_bx
                         .type            n376_lit_string_bx, @function
 n376_lit_string_bx:
@@ -6840,19 +6662,19 @@ n376_lit_string_bx:
 n376_lit_string_α:      mov              r11, 183
                         mov              qword ptr [rsp + 2528], 2            # result
                         mov              dword ptr [rsp + 2532], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_538_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_538_0]
                         mov              qword ptr [rsp + 2536], rax;         jmp   n377_lit_integer_α
-.Lmain_α_538_0:         .quad            .Lmain_α_538_0_s
-.Lmain_α_538_0_s:       .string          "."
+.Llit_string_α_538_0:   .quad            .Llit_string_α_538_0_s
+.Llit_string_α_538_0_s: .string          "."
                         .size            n376_lit_string_bx, .-n376_lit_string_bx
                         .type            n377_lit_integer_bx, @function
 n377_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n377_lit_integer_α:     mov              r11, 184
                         mov              qword ptr [rsp + 2432], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_539_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_539_0]
                         mov              qword ptr [rsp + 2440], rax;         jmp   n378_lit_string_α
-.Lmain_α_539_0:         .quad            7
+.Llit_integer_α_539_0:  .quad            7
                         .size            n377_lit_integer_bx, .-n377_lit_integer_bx
                         .type            n378_lit_string_bx, @function
 n378_lit_string_bx:
@@ -6860,19 +6682,19 @@ n378_lit_string_bx:
 n378_lit_string_α:      mov              r11, 185
                         mov              qword ptr [rsp + 2416], 2            # result
                         mov              dword ptr [rsp + 2420], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_540_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_540_0]
                         mov              qword ptr [rsp + 2424], rax;         jmp   n379_lit_integer_α
-.Lmain_α_540_0:         .quad            .Lmain_α_540_0_s
-.Lmain_α_540_0_s:       .string          "."
+.Llit_string_α_540_0:   .quad            .Llit_string_α_540_0_s
+.Llit_string_α_540_0_s: .string          "."
                         .size            n378_lit_string_bx, .-n378_lit_string_bx
                         .type            n379_lit_integer_bx, @function
 n379_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n379_lit_integer_α:     mov              r11, 186
                         mov              qword ptr [rsp + 2320], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_541_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_541_0]
                         mov              qword ptr [rsp + 2328], rax;         jmp   n380_lit_string_α
-.Lmain_α_541_0:         .quad            21
+.Llit_integer_α_541_0:  .quad            21
                         .size            n379_lit_integer_bx, .-n379_lit_integer_bx
                         .type            n380_lit_string_bx, @function
 n380_lit_string_bx:
@@ -6880,19 +6702,19 @@ n380_lit_string_bx:
 n380_lit_string_α:      mov              r11, 187
                         mov              qword ptr [rsp + 2304], 2            # result
                         mov              dword ptr [rsp + 2308], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_542_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_542_0]
                         mov              qword ptr [rsp + 2312], rax;         jmp   n381_lit_integer_α
-.Lmain_α_542_0:         .quad            .Lmain_α_542_0_s
-.Lmain_α_542_0_s:       .string          "."
+.Llit_string_α_542_0:   .quad            .Llit_string_α_542_0_s
+.Llit_string_α_542_0_s: .string          "."
                         .size            n380_lit_string_bx, .-n380_lit_string_bx
                         .type            n381_lit_integer_bx, @function
 n381_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n381_lit_integer_α:     mov              r11, 188
                         mov              qword ptr [rsp + 2208], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_543_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_543_0]
                         mov              qword ptr [rsp + 2216], rax;         jmp   n382_lit_string_α
-.Lmain_α_543_0:         .quad            85
+.Llit_integer_α_543_0:  .quad            85
                         .size            n381_lit_integer_bx, .-n381_lit_integer_bx
                         .type            n382_lit_string_bx, @function
 n382_lit_string_bx:
@@ -6900,19 +6722,19 @@ n382_lit_string_bx:
 n382_lit_string_α:      mov              r11, 189
                         mov              qword ptr [rsp + 2192], 2            # result
                         mov              dword ptr [rsp + 2196], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_544_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_544_0]
                         mov              qword ptr [rsp + 2200], rax;         jmp   n383_lit_integer_α
-.Lmain_α_544_0:         .quad            .Lmain_α_544_0_s
-.Lmain_α_544_0_s:       .string          "."
+.Llit_string_α_544_0:   .quad            .Llit_string_α_544_0_s
+.Llit_string_α_544_0_s: .string          "."
                         .size            n382_lit_string_bx, .-n382_lit_string_bx
                         .type            n383_lit_integer_bx, @function
 n383_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n383_lit_integer_α:     mov              r11, 190
                         mov              qword ptr [rsp + 2096], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_545_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_545_0]
                         mov              qword ptr [rsp + 2104], rax;         jmp   n384_lit_string_α
-.Lmain_α_545_0:         .quad            27
+.Llit_integer_α_545_0:  .quad            27
                         .size            n383_lit_integer_bx, .-n383_lit_integer_bx
                         .type            n384_lit_string_bx, @function
 n384_lit_string_bx:
@@ -6920,19 +6742,19 @@ n384_lit_string_bx:
 n384_lit_string_α:      mov              r11, 191
                         mov              qword ptr [rsp + 2080], 2            # result
                         mov              dword ptr [rsp + 2084], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_546_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_546_0]
                         mov              qword ptr [rsp + 2088], rax;         jmp   n385_lit_integer_α
-.Lmain_α_546_0:         .quad            .Lmain_α_546_0_s
-.Lmain_α_546_0_s:       .string          "."
+.Llit_string_α_546_0:   .quad            .Llit_string_α_546_0_s
+.Llit_string_α_546_0_s: .string          "."
                         .size            n384_lit_string_bx, .-n384_lit_string_bx
                         .type            n385_lit_integer_bx, @function
 n385_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n385_lit_integer_α:     mov              r11, 192
                         mov              qword ptr [rsp + 1984], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_547_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_547_0]
                         mov              qword ptr [rsp + 1992], rax;         jmp   n386_lit_string_α
-.Lmain_α_547_0:         .quad            31
+.Llit_integer_α_547_0:  .quad            31
                         .size            n385_lit_integer_bx, .-n385_lit_integer_bx
                         .type            n386_lit_string_bx, @function
 n386_lit_string_bx:
@@ -6940,19 +6762,19 @@ n386_lit_string_bx:
 n386_lit_string_α:      mov              r11, 193
                         mov              qword ptr [rsp + 1968], 2            # result
                         mov              dword ptr [rsp + 1972], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_548_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_548_0]
                         mov              qword ptr [rsp + 1976], rax;         jmp   n387_lit_integer_α
-.Lmain_α_548_0:         .quad            .Lmain_α_548_0_s
-.Lmain_α_548_0_s:       .string          "."
+.Llit_string_α_548_0:   .quad            .Llit_string_α_548_0_s
+.Llit_string_α_548_0_s: .string          "."
                         .size            n386_lit_string_bx, .-n386_lit_string_bx
                         .type            n387_lit_integer_bx, @function
 n387_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n387_lit_integer_α:     mov              r11, 194
                         mov              qword ptr [rsp + 1872], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_549_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_549_0]
                         mov              qword ptr [rsp + 1880], rax;         jmp   n388_lit_string_α
-.Lmain_α_549_0:         .quad            63
+.Llit_integer_α_549_0:  .quad            63
                         .size            n387_lit_integer_bx, .-n387_lit_integer_bx
                         .type            n388_lit_string_bx, @function
 n388_lit_string_bx:
@@ -6960,19 +6782,19 @@ n388_lit_string_bx:
 n388_lit_string_α:      mov              r11, 195
                         mov              qword ptr [rsp + 1856], 2            # result
                         mov              dword ptr [rsp + 1860], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_550_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_550_0]
                         mov              qword ptr [rsp + 1864], rax;         jmp   n389_lit_integer_α
-.Lmain_α_550_0:         .quad            .Lmain_α_550_0_s
-.Lmain_α_550_0_s:       .string          "."
+.Llit_string_α_550_0:   .quad            .Llit_string_α_550_0_s
+.Llit_string_α_550_0_s: .string          "."
                         .size            n388_lit_string_bx, .-n388_lit_string_bx
                         .type            n389_lit_integer_bx, @function
 n389_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n389_lit_integer_α:     mov              r11, 196
                         mov              qword ptr [rsp + 1760], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_551_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_551_0]
                         mov              qword ptr [rsp + 1768], rax;         jmp   n390_lit_string_α
-.Lmain_α_551_0:         .quad            75
+.Llit_integer_α_551_0:  .quad            75
                         .size            n389_lit_integer_bx, .-n389_lit_integer_bx
                         .type            n390_lit_string_bx, @function
 n390_lit_string_bx:
@@ -6980,19 +6802,19 @@ n390_lit_string_bx:
 n390_lit_string_α:      mov              r11, 197
                         mov              qword ptr [rsp + 1744], 2            # result
                         mov              dword ptr [rsp + 1748], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_552_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_552_0]
                         mov              qword ptr [rsp + 1752], rax;         jmp   n391_lit_integer_α
-.Lmain_α_552_0:         .quad            .Lmain_α_552_0_s
-.Lmain_α_552_0_s:       .string          "."
+.Llit_string_α_552_0:   .quad            .Llit_string_α_552_0_s
+.Llit_string_α_552_0_s: .string          "."
                         .size            n390_lit_string_bx, .-n390_lit_string_bx
                         .type            n391_lit_integer_bx, @function
 n391_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n391_lit_integer_α:     mov              r11, 198
                         mov              qword ptr [rsp + 1648], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_553_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_553_0]
                         mov              qword ptr [rsp + 1656], rax;         jmp   n392_lit_string_α
-.Lmain_α_553_0:         .quad            4
+.Llit_integer_α_553_0:  .quad            4
                         .size            n391_lit_integer_bx, .-n391_lit_integer_bx
                         .type            n392_lit_string_bx, @function
 n392_lit_string_bx:
@@ -7000,19 +6822,19 @@ n392_lit_string_bx:
 n392_lit_string_α:      mov              r11, 199
                         mov              qword ptr [rsp + 1632], 2            # result
                         mov              dword ptr [rsp + 1636], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_554_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_554_0]
                         mov              qword ptr [rsp + 1640], rax;         jmp   n393_lit_integer_α
-.Lmain_α_554_0:         .quad            .Lmain_α_554_0_s
-.Lmain_α_554_0_s:       .string          "."
+.Llit_string_α_554_0:   .quad            .Llit_string_α_554_0_s
+.Llit_string_α_554_0_s: .string          "."
                         .size            n392_lit_string_bx, .-n392_lit_string_bx
                         .type            n393_lit_integer_bx, @function
 n393_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n393_lit_integer_α:     mov              r11, 200
                         mov              qword ptr [rsp + 1536], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_555_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_555_0]
                         mov              qword ptr [rsp + 1544], rax;         jmp   n394_lit_string_α
-.Lmain_α_555_0:         .quad            95
+.Llit_integer_α_555_0:  .quad            95
                         .size            n393_lit_integer_bx, .-n393_lit_integer_bx
                         .type            n394_lit_string_bx, @function
 n394_lit_string_bx:
@@ -7020,19 +6842,19 @@ n394_lit_string_bx:
 n394_lit_string_α:      mov              r11, 201
                         mov              qword ptr [rsp + 1520], 2            # result
                         mov              dword ptr [rsp + 1524], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_556_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_556_0]
                         mov              qword ptr [rsp + 1528], rax;         jmp   n395_lit_integer_α
-.Lmain_α_556_0:         .quad            .Lmain_α_556_0_s
-.Lmain_α_556_0_s:       .string          "."
+.Llit_string_α_556_0:   .quad            .Llit_string_α_556_0_s
+.Llit_string_α_556_0_s: .string          "."
                         .size            n394_lit_string_bx, .-n394_lit_string_bx
                         .type            n395_lit_integer_bx, @function
 n395_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n395_lit_integer_α:     mov              r11, 202
                         mov              qword ptr [rsp + 1424], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_557_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_557_0]
                         mov              qword ptr [rsp + 1432], rax;         jmp   n396_lit_string_α
-.Lmain_α_557_0:         .quad            99
+.Llit_integer_α_557_0:  .quad            99
                         .size            n395_lit_integer_bx, .-n395_lit_integer_bx
                         .type            n396_lit_string_bx, @function
 n396_lit_string_bx:
@@ -7040,19 +6862,19 @@ n396_lit_string_bx:
 n396_lit_string_α:      mov              r11, 203
                         mov              qword ptr [rsp + 1408], 2            # result
                         mov              dword ptr [rsp + 1412], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_558_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_558_0]
                         mov              qword ptr [rsp + 1416], rax;         jmp   n397_lit_integer_α
-.Lmain_α_558_0:         .quad            .Lmain_α_558_0_s
-.Lmain_α_558_0_s:       .string          "."
+.Llit_string_α_558_0:   .quad            .Llit_string_α_558_0_s
+.Llit_string_α_558_0_s: .string          "."
                         .size            n396_lit_string_bx, .-n396_lit_string_bx
                         .type            n397_lit_integer_bx, @function
 n397_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n397_lit_integer_α:     mov              r11, 204
                         mov              qword ptr [rsp + 1312], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_559_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_559_0]
                         mov              qword ptr [rsp + 1320], rax;         jmp   n398_lit_string_α
-.Lmain_α_559_0:         .quad            11
+.Llit_integer_α_559_0:  .quad            11
                         .size            n397_lit_integer_bx, .-n397_lit_integer_bx
                         .type            n398_lit_string_bx, @function
 n398_lit_string_bx:
@@ -7060,19 +6882,19 @@ n398_lit_string_bx:
 n398_lit_string_α:      mov              r11, 205
                         mov              qword ptr [rsp + 1296], 2            # result
                         mov              dword ptr [rsp + 1300], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_560_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_560_0]
                         mov              qword ptr [rsp + 1304], rax;         jmp   n399_lit_integer_α
-.Lmain_α_560_0:         .quad            .Lmain_α_560_0_s
-.Lmain_α_560_0_s:       .string          "."
+.Llit_string_α_560_0:   .quad            .Llit_string_α_560_0_s
+.Llit_string_α_560_0_s: .string          "."
                         .size            n398_lit_string_bx, .-n398_lit_string_bx
                         .type            n399_lit_integer_bx, @function
 n399_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n399_lit_integer_α:     mov              r11, 206
                         mov              qword ptr [rsp + 1200], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_561_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_561_0]
                         mov              qword ptr [rsp + 1208], rax;         jmp   n400_lit_string_α
-.Lmain_α_561_0:         .quad            28
+.Llit_integer_α_561_0:  .quad            28
                         .size            n399_lit_integer_bx, .-n399_lit_integer_bx
                         .type            n400_lit_string_bx, @function
 n400_lit_string_bx:
@@ -7080,19 +6902,19 @@ n400_lit_string_bx:
 n400_lit_string_α:      mov              r11, 207
                         mov              qword ptr [rsp + 1184], 2            # result
                         mov              dword ptr [rsp + 1188], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_562_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_562_0]
                         mov              qword ptr [rsp + 1192], rax;         jmp   n401_lit_integer_α
-.Lmain_α_562_0:         .quad            .Lmain_α_562_0_s
-.Lmain_α_562_0_s:       .string          "."
+.Llit_string_α_562_0:   .quad            .Llit_string_α_562_0_s
+.Llit_string_α_562_0_s: .string          "."
                         .size            n400_lit_string_bx, .-n400_lit_string_bx
                         .type            n401_lit_integer_bx, @function
 n401_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n401_lit_integer_α:     mov              r11, 208
                         mov              qword ptr [rsp + 1088], 3            # result
-                        mov              rax, qword ptr [rip + .Lmain_α_563_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_563_0]
                         mov              qword ptr [rsp + 1096], rax;         jmp   n402_lit_string_α
-.Lmain_α_563_0:         .quad            61
+.Llit_integer_α_563_0:  .quad            61
                         .size            n401_lit_integer_bx, .-n401_lit_integer_bx
                         .type            n402_lit_string_bx, @function
 n402_lit_string_bx:
@@ -7100,19 +6922,19 @@ n402_lit_string_bx:
 n402_lit_string_α:      mov              r11, 209
                         mov              qword ptr [rsp + 1072], 2            # result
                         mov              dword ptr [rsp + 1076], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_564_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_564_0]
                         mov              qword ptr [rsp + 1080], rax;         jmp   n403_lit_integer_α
-.Lmain_α_564_0:         .quad            .Lmain_α_564_0_s
-.Lmain_α_564_0_s:       .string          "."
+.Llit_string_α_564_0:   .quad            .Llit_string_α_564_0_s
+.Llit_string_α_564_0_s: .string          "."
                         .size            n402_lit_string_bx, .-n402_lit_string_bx
                         .type            n403_lit_integer_bx, @function
 n403_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n403_lit_integer_α:     mov              r11, 210
                         mov              qword ptr [rsp + 976], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_565_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_565_0]
                         mov              qword ptr [rsp + 984], rax;          jmp   n404_lit_string_α
-.Lmain_α_565_0:         .quad            74
+.Llit_integer_α_565_0:  .quad            74
                         .size            n403_lit_integer_bx, .-n403_lit_integer_bx
                         .type            n404_lit_string_bx, @function
 n404_lit_string_bx:
@@ -7120,19 +6942,19 @@ n404_lit_string_bx:
 n404_lit_string_α:      mov              r11, 211
                         mov              qword ptr [rsp + 960], 2             # result
                         mov              dword ptr [rsp + 964], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_566_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_566_0]
                         mov              qword ptr [rsp + 968], rax;          jmp   n405_lit_integer_α
-.Lmain_α_566_0:         .quad            .Lmain_α_566_0_s
-.Lmain_α_566_0_s:       .string          "."
+.Llit_string_α_566_0:   .quad            .Llit_string_α_566_0_s
+.Llit_string_α_566_0_s: .string          "."
                         .size            n404_lit_string_bx, .-n404_lit_string_bx
                         .type            n405_lit_integer_bx, @function
 n405_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n405_lit_integer_α:     mov              r11, 212
                         mov              qword ptr [rsp + 864], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_567_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_567_0]
                         mov              qword ptr [rsp + 872], rax;          jmp   n406_lit_string_α
-.Lmain_α_567_0:         .quad            18
+.Llit_integer_α_567_0:  .quad            18
                         .size            n405_lit_integer_bx, .-n405_lit_integer_bx
                         .type            n406_lit_string_bx, @function
 n406_lit_string_bx:
@@ -7140,19 +6962,19 @@ n406_lit_string_bx:
 n406_lit_string_α:      mov              r11, 213
                         mov              qword ptr [rsp + 848], 2             # result
                         mov              dword ptr [rsp + 852], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_568_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_568_0]
                         mov              qword ptr [rsp + 856], rax;          jmp   n407_lit_integer_α
-.Lmain_α_568_0:         .quad            .Lmain_α_568_0_s
-.Lmain_α_568_0_s:       .string          "."
+.Llit_string_α_568_0:   .quad            .Llit_string_α_568_0_s
+.Llit_string_α_568_0_s: .string          "."
                         .size            n406_lit_string_bx, .-n406_lit_string_bx
                         .type            n407_lit_integer_bx, @function
 n407_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n407_lit_integer_α:     mov              r11, 214
                         mov              qword ptr [rsp + 752], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_569_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_569_0]
                         mov              qword ptr [rsp + 760], rax;          jmp   n408_lit_string_α
-.Lmain_α_569_0:         .quad            92
+.Llit_integer_α_569_0:  .quad            92
                         .size            n407_lit_integer_bx, .-n407_lit_integer_bx
                         .type            n408_lit_string_bx, @function
 n408_lit_string_bx:
@@ -7160,19 +6982,19 @@ n408_lit_string_bx:
 n408_lit_string_α:      mov              r11, 215
                         mov              qword ptr [rsp + 736], 2             # result
                         mov              dword ptr [rsp + 740], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_570_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_570_0]
                         mov              qword ptr [rsp + 744], rax;          jmp   n409_lit_integer_α
-.Lmain_α_570_0:         .quad            .Lmain_α_570_0_s
-.Lmain_α_570_0_s:       .string          "."
+.Llit_string_α_570_0:   .quad            .Llit_string_α_570_0_s
+.Llit_string_α_570_0_s: .string          "."
                         .size            n408_lit_string_bx, .-n408_lit_string_bx
                         .type            n409_lit_integer_bx, @function
 n409_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n409_lit_integer_α:     mov              r11, 216
                         mov              qword ptr [rsp + 640], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_571_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_571_0]
                         mov              qword ptr [rsp + 648], rax;          jmp   n410_lit_string_α
-.Lmain_α_571_0:         .quad            40
+.Llit_integer_α_571_0:  .quad            40
                         .size            n409_lit_integer_bx, .-n409_lit_integer_bx
                         .type            n410_lit_string_bx, @function
 n410_lit_string_bx:
@@ -7180,19 +7002,19 @@ n410_lit_string_bx:
 n410_lit_string_α:      mov              r11, 217
                         mov              qword ptr [rsp + 624], 2             # result
                         mov              dword ptr [rsp + 628], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_572_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_572_0]
                         mov              qword ptr [rsp + 632], rax;          jmp   n411_lit_integer_α
-.Lmain_α_572_0:         .quad            .Lmain_α_572_0_s
-.Lmain_α_572_0_s:       .string          "."
+.Llit_string_α_572_0:   .quad            .Llit_string_α_572_0_s
+.Llit_string_α_572_0_s: .string          "."
                         .size            n410_lit_string_bx, .-n410_lit_string_bx
                         .type            n411_lit_integer_bx, @function
 n411_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n411_lit_integer_α:     mov              r11, 218
                         mov              qword ptr [rsp + 528], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_573_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_573_0]
                         mov              qword ptr [rsp + 536], rax;          jmp   n412_lit_string_α
-.Lmain_α_573_0:         .quad            53
+.Llit_integer_α_573_0:  .quad            53
                         .size            n411_lit_integer_bx, .-n411_lit_integer_bx
                         .type            n412_lit_string_bx, @function
 n412_lit_string_bx:
@@ -7200,19 +7022,19 @@ n412_lit_string_bx:
 n412_lit_string_α:      mov              r11, 219
                         mov              qword ptr [rsp + 512], 2             # result
                         mov              dword ptr [rsp + 516], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_574_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_574_0]
                         mov              qword ptr [rsp + 520], rax;          jmp   n413_lit_integer_α
-.Lmain_α_574_0:         .quad            .Lmain_α_574_0_s
-.Lmain_α_574_0_s:       .string          "."
+.Llit_string_α_574_0:   .quad            .Llit_string_α_574_0_s
+.Llit_string_α_574_0_s: .string          "."
                         .size            n412_lit_string_bx, .-n412_lit_string_bx
                         .type            n413_lit_integer_bx, @function
 n413_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n413_lit_integer_α:     mov              r11, 220
                         mov              qword ptr [rsp + 416], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_575_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_575_0]
                         mov              qword ptr [rsp + 424], rax;          jmp   n414_lit_string_α
-.Lmain_α_575_0:         .quad            59
+.Llit_integer_α_575_0:  .quad            59
                         .size            n413_lit_integer_bx, .-n413_lit_integer_bx
                         .type            n414_lit_string_bx, @function
 n414_lit_string_bx:
@@ -7220,19 +7042,19 @@ n414_lit_string_bx:
 n414_lit_string_α:      mov              r11, 221
                         mov              qword ptr [rsp + 400], 2             # result
                         mov              dword ptr [rsp + 404], 1
-                        mov              rax, qword ptr [rip + .Lmain_α_576_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_576_0]
                         mov              qword ptr [rsp + 408], rax;          jmp   n415_lit_integer_α
-.Lmain_α_576_0:         .quad            .Lmain_α_576_0_s
-.Lmain_α_576_0_s:       .string          "."
+.Llit_string_α_576_0:   .quad            .Llit_string_α_576_0_s
+.Llit_string_α_576_0_s: .string          "."
                         .size            n414_lit_string_bx, .-n414_lit_string_bx
                         .type            n415_lit_integer_bx, @function
 n415_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n415_lit_integer_α:     mov              r11, 222
                         mov              qword ptr [rsp + 304], 3             # result
-                        mov              rax, qword ptr [rip + .Lmain_α_577_0]
+                        mov              rax, qword ptr [rip + .Llit_integer_α_577_0]
                         mov              qword ptr [rsp + 312], rax;          jmp   n416_lit_string_α
-.Lmain_α_577_0:         .quad            8
+.Llit_integer_α_577_0:  .quad            8
                         .size            n415_lit_integer_bx, .-n415_lit_integer_bx
                         .type            n416_lit_string_bx, @function
 n416_lit_string_bx:
@@ -7240,10 +7062,10 @@ n416_lit_string_bx:
 n416_lit_string_α:      mov              r11, 223
                         mov              qword ptr [rsp + 288], 2             # result
                         mov              dword ptr [rsp + 292], 2
-                        mov              rax, qword ptr [rip + .Lmain_α_578_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_578_0]
                         mov              qword ptr [rsp + 296], rax;          jmp   n417_call_prolog_α
-.Lmain_α_578_0:         .quad            .Lmain_α_578_0_s
-.Lmain_α_578_0_s:       .string          "[]"
+.Llit_string_α_578_0:   .quad            .Llit_string_α_578_0_s
+.Llit_string_α_578_0_s: .string          "[]"
                         .size            n416_lit_string_bx, .-n416_lit_string_bx
                         .type            n417_call_prolog_bx, @function
 n417_call_prolog_bx:
@@ -8860,10 +8682,10 @@ n468_lit_string_bx:
 n468_lit_string_α:      mov              r11, 275
                         mov              qword ptr [rsp + 5920], 2            # result
                         mov              dword ptr [rsp + 5924], 2
-                        mov              rax, qword ptr [rip + .Lmain_α_631_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_631_0]
                         mov              qword ptr [rsp + 5928], rax;         jmp   n469_call_proc_staged_α
-.Lmain_α_631_0:         .quad            .Lmain_α_631_0_s
-.Lmain_α_631_0_s:       .string          "[]"
+.Llit_string_α_631_0:   .quad            .Llit_string_α_631_0_s
+.Llit_string_α_631_0_s: .string          "[]"
                         .size            n468_lit_string_bx, .-n468_lit_string_bx
                         .type            n469_call_proc_staged_bx, @function
 n469_call_proc_staged_bx:
@@ -8873,13 +8695,14 @@ n469_call_proc_staged_α:
                         mov              qword ptr [rsp + 256], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lmain_α_633_200
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_633_200
                         mov              rax, qword ptr [rsp + 5808]
                         mov              rdx, qword ptr [rsp + 5816]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lmain_α_633_201
-.Lmain_α_633_200:       mov              edi, 0
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_633_201
+.Lcall_proc_staged_α_633_200:
+                        mov              edi, 0
                         mov              rsi, qword ptr [rsp + 5808]
                         mov              rdx, qword ptr [rsp + 5816]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8890,15 +8713,17 @@ n469_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_633_201:       lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_633_201:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lmain_α_633_202
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_633_202
                         mov              rax, qword ptr [rsp + 5904]
                         mov              rdx, qword ptr [rsp + 5912]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lmain_α_633_203
-.Lmain_α_633_202:       mov              edi, 1
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_633_203
+.Lcall_proc_staged_α_633_202:
+                        mov              edi, 1
                         mov              rsi, qword ptr [rsp + 5904]
                         mov              rdx, qword ptr [rsp + 5912]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8909,15 +8734,17 @@ n469_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_633_203:       lea              r8, [rip + g_gc_pending]
+.Lcall_proc_staged_α_633_203:
+                        lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lmain_α_633_204
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_633_204
                         mov              rax, qword ptr [rsp + 5920]
                         mov              rdx, qword ptr [rsp + 5928]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 32], rax
-                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lmain_α_633_205
-.Lmain_α_633_204:       mov              edi, 2
+                        mov              qword ptr [r8 + 40], rdx;            jmp   .Lcall_proc_staged_α_633_205
+.Lcall_proc_staged_α_633_204:
+                        mov              edi, 2
                         mov              rsi, qword ptr [rsp + 5920]
                         mov              rdx, qword ptr [rsp + 5928]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8928,8 +8755,9 @@ n469_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_633_205:       sub              rsp, 8
-                        lea              rax, [rip + .Lmain_α_633_7]          # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+.Lcall_proc_staged_α_633_205:
+                        sub              rsp, 8
+                        lea              rax, [rip + .Lcall_proc_staged_α_633_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 1
                         mov              esi, 3
@@ -8941,17 +8769,19 @@ n469_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lmain_α_633_1
-                        lea              rcx, [rip + .Lmain_α_633_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_633_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_633_4]
                         push             rcx
-                        lea              rcx, [rip + .Lmain_α_633_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_633_3]
                         push             rcx
-                        lea              rdx, [rip + .Lmain_α_633_4];         jmp   rax
-.Lmain_α_633_3:         add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_633_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_633_3:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 264], rsp
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 256]
-                        test             rax, rax;                            jne   .Lmain_α_633_5
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_633_5
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8960,12 +8790,14 @@ n469_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmain_α_633_2
-.Lmain_α_633_5:         call             rt_gen_spine_pass_γ@PLT;             jmp   .Lmain_α_633_2
-.Lmain_α_633_4:         add              rsp, 16
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_633_2
+.Lcall_proc_staged_α_633_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_633_2
+.Lcall_proc_staged_α_633_4:
+                        add              rsp, 16
                         add              rsp, 16
                         mov              rax, qword ptr [rsp + 256]
-                        test             rax, rax;                            jne   .Lmain_α_633_6
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_633_6
                         mov              qword ptr [rsp + 256], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8974,9 +8806,11 @@ n469_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmain_α_633_2
-.Lmain_α_633_6:         call             rt_gen_spine_pass_ω@PLT;             jmp   .Lmain_α_633_2
-.Lmain_α_633_1:         mov              qword ptr [rip + rtccb+40], r8
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_633_2
+.Lcall_proc_staged_α_633_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_633_2
+.Lcall_proc_staged_α_633_1:
+                        mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_ab_undef_fn_stub@PLT
@@ -8984,9 +8818,10 @@ n469_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_633_2:         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
+.Lcall_proc_staged_α_633_2:
+                        mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lmain_α_633_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_633_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -9002,7 +8837,8 @@ n469_call_proc_staged_α:
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              rax, qword ptr [rsp + 192]
                         mov              rdx, qword ptr [rsp + 200]
-.Lmain_α_633_29:        mov              qword ptr [rsp + 192], rax
+.Lcall_proc_staged_α_633_29:
+                        mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
                         cmp              al, 104;                             je    n476_call_prolog_α
                                                                               jmp   n470_var_α
@@ -9079,20 +8915,24 @@ n469_call_proc_staged_β:
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n476_call_prolog_α
                         sub              rsp, 8
-                        lea              r8, [rip + .Lmain_α_633_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_633_7]
                         push             r8
-                        lea              rcx, [rip + .Lmain_α_633_4]          # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_633_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lmain_α_633_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_633_3]
                         push             rcx
-                        lea              rdx, [rip + .Lmain_α_633_4];         jmp   rax
-.Lmain_α_633_7:         add              rsp, 16
+                        lea              rdx, [rip + .Lcall_proc_staged_α_633_4]
+                                                                              jmp   rax
+.Lcall_proc_staged_α_633_7:
+                        add              rsp, 16
                         mov              qword ptr [rsp + 192], rax
                         mov              qword ptr [rsp + 200], rdx
                         cmp              al, 104;                             je    n476_call_prolog_α
                                                                               jmp   n470_var_α
-.Lmain_β_633_0:         .quad            .Lmain_β_633_0_s
-.Lmain_β_633_0_s:       .string          "qsort/3"
+.Lcall_proc_staged_β_633_0:
+                        .quad            .Lcall_proc_staged_β_633_0_s
+.Lcall_proc_staged_β_633_0_s:
+                        .string          "qsort/3"
                         .size            n469_call_proc_staged_bx, .-n469_call_proc_staged_bx
                         .type            n470_var_bx, @function
 n470_var_bx:
@@ -9112,10 +8952,10 @@ n471_call_prolog_α:     mov              r11, 278
                         mov              rax, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 168], rax
                         .section         .rodata
-.Lrkfn637:              .string          "$write"
+.Lcall_prolog_rkfn637:  .string          "$write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn637]
+                        lea              rdi, [rip + .Lcall_prolog_rkfn637]
                         lea              rsi, [rsp + 160]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9139,10 +8979,10 @@ n472_lit_string_bx:
 n472_lit_string_α:      mov              r11, 279
                         mov              qword ptr [rsp + 128], 2             # result
                         mov              dword ptr [rsp + 132], 0
-                        mov              rax, qword ptr [rip + .Lmain_α_638_0]
+                        mov              rax, qword ptr [rip + .Llit_string_α_638_0]
                         mov              qword ptr [rsp + 136], rax;          jmp   n473_call_prolog_α
-.Lmain_α_638_0:         .quad            .Lmain_α_638_0_s
-.Lmain_α_638_0_s:       .string          ""
+.Llit_string_α_638_0:   .quad            .Llit_string_α_638_0_s
+.Llit_string_α_638_0_s: .string          ""
                         .size            n472_lit_string_bx, .-n472_lit_string_bx
                         .type            n473_call_prolog_bx, @function
 n473_call_prolog_bx:
@@ -9153,10 +8993,10 @@ n473_call_prolog_α:     mov              r11, 280
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 120], rax
                         .section         .rodata
-.Lrkfn640:              .string          "$nl0"
+.Lcall_prolog_rkfn640:  .string          "$nl0"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn640]
+                        lea              rdi, [rip + .Lcall_prolog_rkfn640]
                         lea              rsi, [rsp + 112]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
