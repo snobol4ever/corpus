@@ -3469,7 +3469,7 @@ n00046_call_icon_α:       mov              r11, 166
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    show_ω
-                                                                              jmp   show_γ
+                                                                              jmp   show_ω
 n00046_call_icon_β:       mov              r11, 166;                            jmp   show_ω
                         .size            n00046_call_icon_bx, .-n00046_call_icon_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9272,7 +9272,7 @@ n00362_call_proc_staged_α:
 .Lmain_α_1141_29:       mov              qword ptr [rsp + 32], rax
                         mov              qword ptr [rsp + 40], rdx
                         cmp              al, 104;                             je    main_ω
-                                                                              jmp   main_γ
+                                                                              jmp   main_ω
 n00362_call_proc_staged_β:
                         mov              r11, 460;                            jmp   main_ω
 .Lmain_β_1141_0:        .quad            .Lmain_β_1141_0_s

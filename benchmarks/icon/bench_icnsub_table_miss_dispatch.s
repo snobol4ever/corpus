@@ -320,7 +320,7 @@ n20_call_icon_α:        mov              r11, 21
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
-                                                                              jmp   main_γ
+                                                                              jmp   main_ω
 n20_call_icon_β:        mov              r11, 21;                             jmp   main_ω
                         .size            n20_call_icon_bx, .-n20_call_icon_bx
 #-----------------------------------------------------------------------------------------------------------------------

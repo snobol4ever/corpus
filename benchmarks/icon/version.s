@@ -65,7 +65,7 @@ n1_call_icon_α:         mov              r11, 2
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
-                                                                              jmp   main_γ
+                                                                              jmp   main_ω
 n1_call_icon_β:         mov              r11, 2;                              jmp   main_ω
                         .size            n1_call_icon_bx, .-n1_call_icon_bx
 #-----------------------------------------------------------------------------------------------------------------------
