@@ -104,6 +104,57 @@ are simply the ones that happened to flip within this session's measurement. The
 `convert_one`'s own check plus a second independent re-validation pass (same scrutiny every other
 converted family received) — not a guarantee against rare flakiness `-no-pie` would close off entirely.
 
+⛔⭐ **UPDATE (seat03, 2026-08-29, fourth pass) — THE "STABLE AT N=28" READING WAS CORRECT AND
+INCOMPLETE: a second, independent non-determinism axis found in the same two witnesses.** hq_P ruled
+on this row's `q-probe-fuzz-5-permanent-genuine-defects` ask this session — but the ask hq_P actually
+saw was seat03's reconstruction of seat06's original N=8-era wording (the real answer's session had
+already ended; see the task LEDGER), so hq_P's ruling correctly asked for exactly the N=20
+re-measurement this row had *already done and pushed* (`corpus ad2b0a43`) before their ruling arrived.
+A mail-latency mismatch, not an error in the ruling.
+
+hq_P's point 2 said: *"if a witness is DETERMINISTIC-CRASH, it is a function of its input, so it IS
+convertible... if it flips even once at N=20, it joins the non-deterministic three."* Applying that
+test directly — actually running `corpus_suite_harness.py convert` against these two now that their m4
+signal reads stable — reproduced exactly the flip hq_P's test was built to catch, on an axis nobody had
+independently stress-tested before: **the m3 (in-process, mode 3) result, not the m4 crash signal.**
+
+Cleanest single piece of evidence — `corpus_suite_harness.py`'s own on-disk re-validation step measuring
+the SAME unmoved original file twice, seconds apart:
+```
+fz_red_m1b_arbno_defer_blob: orig ={'m3': Verdict(FAIL, rc=0, detail='output mismatch'), 'm4': Verdict(CRASH, rc=-11, detail='signal 11')}
+                              suite={'m3': Verdict(HANG, rc=None, detail='exceeded 10.0s'),      'm4': Verdict(CRASH, rc=-11, detail='signal 11')}
+```
+Two measurements of the byte-identical, unmoved `.sno`, taken seconds apart: one HANGs past 10s, the
+other exits cleanly (rc=0) with the wrong output. Five more isolated repeat attempts each (this
+session) reproduced the same flip directly for `fz_segv_24` too — explicit verdicts observed across the
+two witnesses' attempts: HANG, FAIL(rc=0), HANG, FAIL(rc=0), HANG, FAIL(rc=0) (plus several attempts
+where both sides of that one comparison happened to agree, which is why the earlier N=28 m4-only study
+never tripped over this — it was never watching m3). This is not the PIE/ASLR-signal mechanism already
+ruled out for `-no-pie` above (that one is m4-linker-specific, `compile_m4()`-only); m3 is the
+in-process interpreter and never calls `compile_m4()` at all — consistent with this file's own earlier
+caution that "a full explanation for those two may need a second mechanism."
+
+**REVISED CONCLUSION: all 5 witnesses are non-deterministic — none currently converts — via TWO
+distinguishable mechanisms, not one undifferentiated "5 permanent":**
+- **3 witnesses** (`fz_segv_09`, `fz_red_m4a_blob_alt_fence_defer`, `fz_red_m4b_blob_defer_fence`): the
+  m4 CRASH SIGNAL itself is unstable (established earlier in this file).
+- **2 witnesses** (`fz_red_m1b_arbno_defer_blob`, `fz_segv_24`): m4 signal is rock-stable (confirmed
+  across 28+ runs and every attempt this session), but the m3 RESULT KIND flips between HANG and
+  FAIL(rc=0, wrong output) (established just now).
+
+This is RULES.md's own FACT RULE playing out exactly as written — *"a control arm pins one axis; it
+does not tell you how many axes there are."* The N=28 study rightly proved the m4-signal axis stable
+and never claimed anything about m3; the gap was in what got assumed about the untested axis, not in
+the measurement that was actually taken.
+
+**Not chased to root cause here** — same restraint as every prior pass on this row; root-causing 5
+memory-safety defects is a different, larger undertaking than this row's conversion job (hq_P's own
+ruling, point 3, says the same: mint it as its own row rather than open five investigations under this
+one). Routed as `fuzz-nondeterminism-rootcause` (task file + QUEUE.tsv row), evidence = this file.
+Policy question (does Lon's "convert TOTALLY" mean convert-anyway or cure-then-convert for a witness
+unstable against itself) routed to ceo, per hq_P's point 4. Zero corpus witness files touched —
+documentation only, same as every prior pass on this row.
+
 ## Machine-readable exception list (5 remaining)
 
 - probe/fuzz/fz_red_m1b_arbno_defer_blob.sno
