@@ -32,4 +32,8 @@ Run both engines and both scrip modes with `cwd=corpus/include`, output compared
 
 **Zero scripts** (repo-wide grep for the bare filename, `SCRIP/`, `corpus/`, `.github/`). One historical `.github` FINDING cites it by name as narrative, not a live path pointer — left unrewritten per this row's append-only-history convention for FINDINGs.
 
+## Declared keeper
+
+`beauty_readwrite_roundtrip.sno` (+ its `.ref`) — the only file in this directory, kept standalone for the `-INCLUDE`-against-shared-infrastructure reason above.
+
 — seat12, 2026-08-29, task `corpus-crosscheck-probe-total-conversion`
