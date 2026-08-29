@@ -1,7 +1,3 @@
-*------------------------------------------------ 1 gim_break_value_drops_prefix
-SIZE(HIGHS)=158
-[abb]
-[abb]
 [x]
 [x]
 31 2
@@ -10,20 +6,28 @@ FAILED AS IT SHOULD
 ACDEF
 ACDEF
 D
-*------------------------------------------------- 10 gim_blanks_min_wrong XFAIL
+*-------------------------------------------------- 9 gim_blanks_min_wrong XFAIL
 X=A
+*----------------------------------------------- 10 gim_break_value_drops_prefix
+SIZE(HIGHS)=158
+[abb]
+[abb]
 *------------------------------------------ 11 gim_defer_cassign_array_elt XFAIL
 [x][y][z]
-*--------------------------------------------- 12 gim_fortput_m4_only_segv XFAIL
+*---------------------------------------------- 12 gim_double_include_hang XFAIL
+3
+*-------------------------------------------- 13 gim_double_include_once_control
+3
+*--------------------------------------------- 14 gim_fortput_m4_only_segv XFAIL
 hi                                                                             1
-*----------------------------------------- 13 gim_goto_function_call_parse XFAIL
+*----------------------------------------- 15 gim_goto_function_call_parse XFAIL
 sib1 go
 sib1 landed
 sib2 go
 sib2 landed
 witness go
 witness landed
-*-------------------------------------- 14 gim_indirect_read_third_operand XFAIL
+*-------------------------------------- 16 gim_indirect_read_third_operand XFAIL
 V1=stored
 stored
 V1stored
@@ -31,21 +35,21 @@ V1xystored
 V1xstoredy
 V1xstored
 V1=again
-*---------------------------------------------- 15 gim_name_of_field_store XFAIL
+*---------------------------------------------- 17 gim_name_of_field_store XFAIL
 CHANGED
 CHANGED2
-*----------------------------------------------- 16 gim_not_op_no_template XFAIL
+*----------------------------------------------------- 18 gim_not_op_no_template
 A
 B
-*------------------------------------------------ 17 gim_omitted_arg_shift XFAIL
+*------------------------------------------------ 19 gim_omitted_arg_shift XFAIL
 [x][y]
 [][y]
 [x][]
-*-------------------------------------- 18 gim_or_single_alternative_crash XFAIL
+*-------------------------------------- 20 gim_or_single_alternative_crash XFAIL
 built
-*----------------------------------------------- 19 gim_real_literal_parse XFAIL
+*----------------------------------------------------- 21 gim_real_literal_parse
 74.
-*---------------------------------------- 20 gim_seq_code_loop_in_function XFAIL
+*---------------------------------------- 22 gim_seq_code_loop_in_function XFAIL
 a
 b
 c
@@ -55,7 +59,5 @@ a
 b
 c
 witness returned, K = 4
-*------------------------------------------- 21 gim_span_self_rebind_wrong XFAIL
+*------------------------------------------- 23 gim_span_self_rebind_wrong XFAIL
 ACDEF
-*---------------------------------------------- 22 gim_double_include_hang XFAIL
-3

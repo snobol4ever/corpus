@@ -1,4 +1,19 @@
-*------------------------------------------------ 1 gim_break_value_drops_prefix
+ N = 'V'; S = 'xyz'; S LEN(1) . *$N =; OUTPUT = '[' V ']';END;* gim_defer_cassign_indirect
+ PAT = LEN(1) . *V; S = 'xyz'; S PAT =; OUTPUT = '[' V ']';END;* gim_defer_cassign_simple_control
+ I = SPAN('0123456789'); DY = 83; P = '(' I $ X *GT(DY,X) ',' I $ M; T = '(334,12)(31,2)(0,1)'; T P :F(GDP_F); OUTPUT = X ' ' M :(END);GDP_F OUTPUT = 'NO MATCH';END;* gim_defer_pred_in_pattern_segv
+ E = CONVERT('GE(1,2)', 'EXPRESSION'); EVAL(E) :S(Y); OUTPUT = 'FAILED AS IT SHOULD' :(Z);Y OUTPUT = 'SUCCEEDED (WRONG)';Z;END;* gim_eval_silent_success
+ OUTPUT = 2 ** 0.5; OUTPUT = 1.0 / 3.0; OUTPUT = 2.0 / 3.0; OUTPUT = 4.0 ** 0.5; OUTPUT = 1 + 1;END;* gim_real_print_precision
+ DEFINE('STRIP(S1,S2)P') :(STRIP_END);STRIP STRIP = S1; P = SPAN(S2); STRIP P = :(RETURN);STRIP_END; OUTPUT = STRIP('ABCDEF', 'BDF');END;* gim_span_param_pattern_wrong
+ S = 'ABCDEF'; X = 'BDF'; P = SPAN(X); S P =; OUTPUT = S;END;* gim_span_self_rebind_control
+ R = 3; 'ABCDEF' TAB(*R) LEN(1) . C; OUTPUT = C;END;* gim_tab_defer_no_template
+*-------------------------------------------------- 9 gim_blanks_min_wrong XFAIL
+*  MINIMAL WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.
+*  SCRIP answers 'X = A' -- a SILENT WRONG ANSWER, oracle-differential, and
+*  INDEPENDENT of RTSEQ-RESUME (SCRIP_RTSEQ_RESUME=0 gives the same wrong answer).
+-INCLUDE "BLANKS.sno"
+        OUTPUT  =  BLANKS('X = A')
+END
+*----------------------------------------------- 10 gim_break_value_drops_prefix
         X  =  'ab'
         &ALPHABET  BREAK('b')  REM . HIGHS
         OUTPUT  =  'SIZE(HIGHS)=' SIZE(HIGHS)
@@ -8,21 +23,6 @@
         H2  =  'bcdefghijklmnopqrstuvwxyz'
         Y  (BREAK(H2) | REM) . S2  =  S2 'b'
         OUTPUT  =  '[' Y ']'
-END
- N = 'V'; S = 'xyz'; S LEN(1) . *$N =; OUTPUT = '[' V ']';END;* gim_defer_cassign_indirect
- PAT = LEN(1) . *V; S = 'xyz'; S PAT =; OUTPUT = '[' V ']';END;* gim_defer_cassign_simple_control
- I = SPAN('0123456789'); DY = 83; P = '(' I $ X *GT(DY,X) ',' I $ M; T = '(334,12)(31,2)(0,1)'; T P :F(GDP_F); OUTPUT = X ' ' M :(END);GDP_F OUTPUT = 'NO MATCH';END;* gim_defer_pred_in_pattern_segv
- E = CONVERT('GE(1,2)', 'EXPRESSION'); EVAL(E) :S(Y); OUTPUT = 'FAILED AS IT SHOULD' :(Z);Y OUTPUT = 'SUCCEEDED (WRONG)';Z;END;* gim_eval_silent_success
- OUTPUT = 2 ** 0.5; OUTPUT = 1.0 / 3.0; OUTPUT = 2.0 / 3.0; OUTPUT = 4.0 ** 0.5; OUTPUT = 1 + 1;END;* gim_real_print_precision
- DEFINE('STRIP(S1,S2)P') :(STRIP_END);STRIP STRIP = S1; P = SPAN(S2); STRIP P = :(RETURN);STRIP_END; OUTPUT = STRIP('ABCDEF', 'BDF');END;* gim_span_param_pattern_wrong
- S = 'ABCDEF'; X = 'BDF'; P = SPAN(X); S P =; OUTPUT = S;END;* gim_span_self_rebind_control
- R = 3; 'ABCDEF' TAB(*R) LEN(1) . C; OUTPUT = C;END;* gim_tab_defer_no_template
-*------------------------------------------------- 10 gim_blanks_min_wrong XFAIL
-*  MINIMAL WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.
-*  SCRIP answers 'X = A' -- a SILENT WRONG ANSWER, oracle-differential, and
-*  INDEPENDENT of RTSEQ-RESUME (SCRIP_RTSEQ_RESUME=0 gives the same wrong answer).
--INCLUDE "BLANKS.sno"
-        OUTPUT  =  BLANKS('X = A')
 END
 *------------------------------------------ 11 gim_defer_cassign_array_elt XFAIL
 *  gim_defer_cassign_array_elt - SILENT WRONG ANSWER (distilled from CRACK.sno,
@@ -42,7 +42,30 @@ END
         S  PAT  =
         OUTPUT  =  '[' A<1> '][' A<2> '][' A<3> ']'
 END
-*--------------------------------------------- 12 gim_fortput_m4_only_segv XFAIL
+*---------------------------------------------- 12 gim_double_include_hang XFAIL
+*  gim_double_include_hang - INCLUDING THE SAME FILE TWICE HANGS SCRIP.
+*
+*  Distilled from gimpel batch D.  MINP.sno includes SPACING.sno AND
+*  COUNT.sno, and SPACING.sno itself includes COUNT.sno -- the ordinary
+*  "name every module you use" habit, which is why the shape is everywhere in
+*  the gimpel library.  The oracle is INCLUDE-ONCE and answers normally.
+*  SCRIP re-expands the file, and the resulting image never terminates:
+*  rc=124, NO output, NO diagnostic, in BOTH modes.
+*
+*  ORACLE: 3.  SCRIP: hangs.
+*  Control one file over: gim_double_include_once_control (same body, one
+*  include) is GREEN, so the ingredient is the SECOND include and nothing else.
+-INCLUDE "gim_double_include_hang_A.sno"
+-INCLUDE "gim_double_include_hang_A.sno"
+        OUTPUT  =  DI_COUNT('aaa','a')
+END
+*-------------------------------------------- 13 gim_double_include_once_control
+*  gim_double_include_once_control - the GREEN CONTROL for
+*  gim_double_include_hang: the identical program with ONE include.
+-INCLUDE "gim_double_include_hang_A.inc"
+        OUTPUT  =  DI_COUNT('aaa','a')
+END
+*--------------------------------------------- 14 gim_fortput_m4_only_segv XFAIL
 *  gim_fortput_m4_only_segv - AN m4-ONLY SIGSEGV, THREE LINES, **CURED BY THE
 *  SPAN-FRAME FLIP** -- kept as a regression guard and as an independent
 *  witness FOR that flip, from a seat that did not know it was landing.
@@ -83,7 +106,7 @@ END
 -INCLUDE "/home/claude4/corpus/programs/gimpel/FORTPUT.sno"
         FORTPUT('hi')
 END
-*----------------------------------------- 13 gim_goto_function_call_parse XFAIL
+*----------------------------------------- 15 gim_goto_function_call_parse XFAIL
 *  gim_goto_function_call_parse - distilled from gimpel STATEF_driver (batch F).
 *  A GOTO WHOSE OPERAND IS A FUNCTION CALL -- :(GO()) -- IS A PARSE ERROR IN
 *  SCRIP.  The oracle compiles and runs it: the function returns a label NAME
@@ -112,7 +135,7 @@ L2      OUTPUT  =  'sib2 landed'
         OUTPUT  =  'NOT REACHED'
 L3      OUTPUT  =  'witness landed'
 END
-*-------------------------------------- 14 gim_indirect_read_third_operand XFAIL
+*-------------------------------------- 16 gim_indirect_read_third_operand XFAIL
 *  indirect_read_third_operand - distilled from gimpel TEMP_driver (batch C).
 *  An indirect read $N whose cell was created ONLY by a preceding indirect
 *  store reads as NULL when N is ALSO the first operand of the SAME three-
@@ -148,7 +171,7 @@ TEMP_END
         $L  =  'again'
         OUTPUT  =  L '=' $L
 END
-*---------------------------------------------- 15 gim_name_of_field_store XFAIL
+*---------------------------------------------- 17 gim_name_of_field_store XFAIL
 *  MINIMAL WITNESS (s186, batch B, from LINEARIZ.sno and READL.sno): an
 *  indirect store through the NAME OF A DATA FIELD -- P = .R(X) then $P = ...
 *  -- is a SILENT NO-OP in SCRIP; the field keeps its old value.  The same
@@ -167,7 +190,7 @@ END
 	$Q  =  'CHANGED2'
 	OUTPUT  =  Y
 END
-*----------------------------------------------- 16 gim_not_op_no_template XFAIL
+*----------------------------------------------------- 18 gim_not_op_no_template
 *  gim_not_op_no_template - COMPILER FATAL.  The unary ~ (negation) operator
 *  reaches the emitter as IR op=3 with no template, aborting the compile in
 *  both m3 and m4 (op NUMBER valid at SCRIP 0b75fa5e -- the enum went
@@ -177,7 +200,7 @@ END
         OUTPUT  =  'A'  ~P<9>
         OUTPUT  =  'B'
 END
-*------------------------------------------------ 17 gim_omitted_arg_shift XFAIL
+*------------------------------------------------ 19 gim_omitted_arg_shift XFAIL
 *  gim_omitted_arg_shift - SILENT WRONG ANSWER.  An OMITTED LEADING argument in
 *  a call, F(, 'y'), shifts the remaining arguments left in SCRIP: 'y' lands in
 *  A instead of B.  A trailing omission, F('x', ), is handled correctly.
@@ -190,7 +213,7 @@ F_END
         OUTPUT  =  F(, 'y')
         OUTPUT  =  F('x', )
 END
-*-------------------------------------- 18 gim_or_single_alternative_crash XFAIL
+*-------------------------------------- 20 gim_or_single_alternative_crash XFAIL
 *  gim_or_single_alternative_crash - distilled from gimpel batch E, where it
 *  takes OR_driver, ORSORT_driver and ORVISUAL_driver together.
 *  ONE call to OR(LIST) with a SINGLE one-character alternative crashes
@@ -217,7 +240,7 @@ END
         P  =  OR(',A')
         OUTPUT  =  'built'
 END
-*----------------------------------------------- 19 gim_real_literal_parse XFAIL
+*----------------------------------------------------- 21 gim_real_literal_parse
 *  gim_real_literal_parse - PARSE ERROR.  A real literal written with a
 *  TRAILING DOT and no fractional digits, 25., is rejected by SCRIP's SNOBOL4
 *  parser, so no code is generated at all.  Distilled from DAY.sno line 9,
@@ -225,7 +248,7 @@ END
         X  =  (25. * 3) - 1
         OUTPUT  =  X
 END
-*---------------------------------------- 20 gim_seq_code_loop_in_function XFAIL
+*---------------------------------------- 22 gim_seq_code_loop_in_function XFAIL
 *  seq_code_loop_in_function - distilled from gimpel SEQ_driver (batch C);
 *  the same crash takes AI_driver and AOPA_driver, which both go through SEQ.
 *  A DEFINE'd function that (a) reaches its loop variable INDIRECTLY through
@@ -266,7 +289,7 @@ SIB2    OUTPUT  =  'sibling function freturned, M = ' M
 WITNESS S1(' OUTPUT = A<K> ', .K)
         OUTPUT  =  'witness returned, K = ' K
 END
-*------------------------------------------- 21 gim_span_self_rebind_wrong XFAIL
+*------------------------------------------- 23 gim_span_self_rebind_wrong XFAIL
 *  gim_span_self_rebind_wrong - SILENT WRONG ANSWER, 5 lines, no function.
 *  A variable rebound to a PATTERN BUILT OVER ITS OWN FORMER VALUE (X = SPAN(X))
 *  is inert as a pattern in SCRIP: the replacement removes nothing and the
@@ -280,21 +303,4 @@ END
         X  =  SPAN(X)
         S  X  =
         OUTPUT  =  S
-END
-*---------------------------------------------- 22 gim_double_include_hang XFAIL
-*  gim_double_include_hang - INCLUDING THE SAME FILE TWICE HANGS SCRIP.
-*
-*  Distilled from gimpel batch D.  MINP.sno includes SPACING.sno AND
-*  COUNT.sno, and SPACING.sno itself includes COUNT.sno -- the ordinary
-*  "name every module you use" habit, which is why the shape is everywhere in
-*  the gimpel library.  The oracle is INCLUDE-ONCE and answers normally.
-*  SCRIP re-expands the file, and the resulting image never terminates:
-*  rc=124, NO output, NO diagnostic, in BOTH modes.
-*
-*  ORACLE: 3.  SCRIP: hangs.
-*  Control one file over: gim_double_include_once_control (same body, one
-*  include) is GREEN, so the ingredient is the SECOND include and nothing else.
--INCLUDE "gim_double_include_hang_A.sno"
--INCLUDE "gim_double_include_hang_A.sno"
-        OUTPUT  =  DI_COUNT('aaa','a')
 END
