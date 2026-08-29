@@ -1,6 +1,0 @@
-# rung16 A5: generative seq-expr (side-effect; alternate) as direct every generator
-procedure main()
-  x := 0;
-  every (x := x + 10; "a" | "b" | "c");
-  write(x);
-end
