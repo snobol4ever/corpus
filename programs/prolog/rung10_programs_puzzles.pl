@@ -1,3 +1,7 @@
+% PROVENANCE: source anthology of logic-puzzle problem statements this file's 20 real solvers
+% (tests/prolog/rung10_programs_puzzle_01.pl through _20.pl) were written from -- not itself a
+% runnable test (parse error, calls to undefined differ/4 and display/4; ruled by hq_C 2026-08-28,
+% moved here by tests-consolidate-prolog so it stops counting as an unconverted graded witness).
 %-------------------------------------------------------------------------------
 % 3
 % Dorothy, Jean, Virginia, Bill, Jim, and Tom are six young persons who have
