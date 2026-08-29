@@ -90,3 +90,38 @@ Same family as the stale `.xfail` markers (3 of 4 in `crosscheck/snocone` were f
 `.expected` seat16 found on `write_canonical` — **a recorded expectation that outlived, or never had, the authority
 it claims.** The shared cure is to re-derive against the oracle rather than inherit; the shared danger is that all
 three read as green.
+
+## 4. ⭐⭐ WHY `beauty.sno` RUNS IN BOTH ENGINES AND THESE THREE DO NOT — measured, on Lon's note that they all derive from it
+
+Lon: *"All of these programs derived from `beauty.sno` which runs in both SPITBOL and CSNOBOL4."* Confirmed —
+`beauty.sno` (618 lines, 16 `-INCLUDE`s) runs under live `sbl -bf` with **rc=0 and zero errors** once its include
+path resolves. That looked like it should settle the matter. It does not, and the reason is the finding:
+
+⛔ **`beauty.sno` NEVER CALLS ANY OF THEM.** Measured call counts in `beauty.sno`: `Read(` **0** · `Write(` **0** ·
+`Trace(` **0** · `MakeLeaf(` **0** · `MakeNode(` **0**. It *includes* the code, so the code COMPILES under SPITBOL —
+but ERROR 067/116/243 are **runtime** refusals, raised only when the routine actually executes. The parent compiles
+them and never runs them; the drivers run them. **A program passing is not evidence that the code it includes
+passes.**
+
+And the three files are not one story — they stand in three different relationships to the library:
+
+| suite file | vs `corpus/include/` | what it actually is |
+|---|---|---|
+| `ReadWrite.sno` | **BYTE-IDENTICAL** to `ReadWrite.inc` | the *live library file* `beauty.sno` includes |
+| `global.sno` | **BYTE-IDENTICAL** to `global.inc` | ditto |
+| `trace.sno` | same length, bytes differ | a drifted copy |
+| `tree.sno` | **18 lines vs `tree.inc`'s 88; BOTH its `DEFINE`d routines (`MakeNode`, `MakeLeaf`) are ABSENT from the `.inc`** | a separately-written miniature that only borrows the name |
+
+⛔⭐ **THE CONSEQUENCE, AND IT IS NOT A TEST-PIN QUESTION:** `ReadWrite.sno` is byte-identical to the library file
+`beauty.sno` ships with, and it contains `INPUT(.rdInput, 8, fileName '[-m10 -l131072]')` — a **CSNOBOL4-only file
+specification** SPITBOL rejects (ERROR 116). So this is a **live portability defect in the beauty library itself**,
+not a stale pin: any program that calls `Read()` is CSNOBOL4-only today. `beauty.sno` is portable only because it
+never calls it. `tree.sno`'s `ARRAY('1:0')` (zero-length array, ERROR 067) is the same shape but sits in a test
+fixture, not in the shipped library.
+
+⭐ **This re-sizes the disposition question.** It is no longer "re-pin or keep" over three test refs:
+- `ReadWrite` (and any other `.inc` with the same file-spec form) is a **library portability question** — worth
+  knowing whether the beauty library is meant to be dual-engine in fact or only in the paths `beauty.sno` exercises.
+- `tree` is a **fixture question** — a purpose-written miniature using a construct SPITBOL rejects.
+- `trace` is a **drift question** — a copy that no longer matches its `.inc`.
+⛔ Three different answers may be right. Still asked, still unruled, still nothing changed.
