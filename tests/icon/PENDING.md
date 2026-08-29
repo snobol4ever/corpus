@@ -42,6 +42,17 @@ one of the two has changed shape since `KEEP.md` was last edited:**
   SUPERSEDED-NEXT already flagged for `scan2`/`recogn` after `SCRIP_ICN_GENFRAME2` went default-ON
   (`0b35b5fc`); `KEEP.md`'s older prose simply predates that landing.
 
+## DEFERRED icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps
+- rung36_jcon_proto.icn — V9GEN Icon-syntax stress test; 6 parser gaps (unary prefix `^`/REFRESH;
+  augmented `|||:=`/`===:=`/`~===:=`/`&:=`/`@:=`) plus 2 emitter-level gaps (`op=120` GOUGE, `op=122`
+  no-template) — full catalog in
+  `.github/FINDING-2026-08-29-seat08-icon-proto-v9gen-kitchen-sink-multiple-frontend-emitter-gaps.md`
+  (seat08). This is a SEPARATE row from `icon-n2-generator-activation-frames` above — a per-section
+  `## DEFERRED <row>` heading (hq_B 2026-08-29, SCRIP `18e04c63`, landed for exactly this "one
+  directory, two different owning rows" shape) is what makes both declarations legal in the same file;
+  the file-level `ROW:` line at the top still names the icon-n2 row and governs the bare `## DEFERRED`
+  section above, unrelated to this one.
+
 ## NOT included here, deliberately: `recogn` and `genqueen`
 
 Both are ALSO ultimately blocked on `icon-n2-generator-activation-frames`, but their DIRECT,
