@@ -1,0 +1,39 @@
+/*-------------------------------------------- 1 A16_assign_009_assign_string */
+hello
+/*------------------------------------------- 2 A16_assign_010_assign_integer */
+42
+/*--------------------------------------------- 3 A16_assign_011_assign_chain */
+alpha
+/*---------------------------------------------- 4 A16_assign_012_assign_null */
+/*----------------------------------------- 5 A16_assign_013_assign_overwrite */
+second
+/*----------------------------------- 6 A16_assign_014_assign_indirect_dollar */
+hello
+/*-------------------------------------- 7 A16_assign_015_assign_indirect_var */
+world
+/*----------------------------------------- 8 A16_assign_016_assign_to_output */
+alpha
+beta
+/*-------------------------------------------------- 9 A16_hello_empty_string */
+/*-------------------------------------------------------- 10 A16_hello_hello */
+hello world
+/*-------------------------------------------------------- 11 A16_hello_multi */
+line one
+line two
+line three
+/*----------------------------------- 12 A16_output_001_output_string_literal */
+hello world
+/*---------------------------------- 13 A16_output_002_output_integer_literal */
+42
+/*------------------------------------- 14 A16_output_003_output_real_literal */
+3.14
+/*------------------------------------- 15 A16_output_004_output_empty_string */
+/*---------------------------------------- 16 A16_output_005_output_multiline */
+line one
+line two
+line three
+/*--------------------------------- 17 A16_output_006_output_keyword_alphabet */
+256
+/*----------------------------------------- 18 A16_output_007_output_null_var */
+/*------------------------------------ 19 A16_output_008_output_double_quoted */
+hello world

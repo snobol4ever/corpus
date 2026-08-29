@@ -1,6 +1,0 @@
-// A13_define_simple_return.sc — simple function: double a number
-function double(s) {
-    return 2 * s;
-}
-OUTPUT = double(5);
-OUTPUT = double(21);

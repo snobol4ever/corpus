@@ -1,1 +1,0 @@
-GZ#5 native subset: indirect-assignment LHS ($name = expr) not in landed subset (TT_VAR only). IR_MATCH_*/computed-target lowering pending. See GOAL-SNOBOL4-BB.md.

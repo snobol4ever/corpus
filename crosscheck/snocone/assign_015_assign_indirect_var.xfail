@@ -1,1 +1,0 @@
-GZ#5 native subset: indirect-assignment LHS ($v = expr) not in landed subset (TT_VAR only). Computed-target lowering pending. See GOAL-SNOBOL4-BB.md.

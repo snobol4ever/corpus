@@ -1,1 +1,0 @@
-M-SC-ANCHOR: &ANCHOR keyword not honoured by ? operator in Snocone — emit_x64_snocone does not propagate kw_anchor to pattern match path
