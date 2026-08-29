@@ -4678,13 +4678,20 @@ n342_match_defer_α:     mov              r11, 229
                         lea              rcx, [rip + g_sno_defer_cells+16384]
                         mov              rax, qword ptr [rcx + 0]
                         lea              rdx, [rip + .S8]
-                        cmp              rax, rdx;                            jne   .Lmain_α_567_30
+                        cmp              rax, rdx;                            jne   .Lmain_α_567_22
                         mov              rax, qword ptr [rcx + 8]
+                        test             rax, rax;                            je    .Lmain_α_567_22
                         mov              edx, dword ptr [rax + 0]
                         and              edx, 255
-                        cmp              edx, 2;                              jne   .Lmain_α_567_30
-                        mov              edx, dword ptr [rax + 4]
-                        cmp              edx, 1;                              jne   .Lmain_α_567_30
+                        cmp              edx, 2;                              je    .Lmain_α_567_32
+                        cmp              edx, 8;                              jne   .Lmain_α_567_22
+                        mov              rdx, qword ptr [rax + 8]
+                        test             rdx, rdx;                            je    .Lmain_α_567_22
+                        mov              rax, qword ptr [rdx + 0]
+                        test             rax, rax;                            jne   .Lmain_α_567_23
+                                                                              jmp   .Lmain_α_567_22
+.Lmain_α_567_32:        mov              edx, dword ptr [rax + 4]
+                        cmp              edx, 1;                              jne   .Lmain_α_567_22
                         movsxd           rcx, r14d
                         cmp              ecx, r15d;                           jge   .Lmain_α_567_31
                         movzx            esi, byte ptr [r13+rcx]
@@ -4695,18 +4702,6 @@ n342_match_defer_α:     mov              r11, 229
                         mov              edx, r14d
                         add              edx, 1;                              jmp   .Lmain_α_567_0
 .Lmain_α_567_31:        mov              edx, -1;                             jmp   .Lmain_α_567_0
-.Lmain_α_567_30:        lea              rsi, [rip + g_sno_defer_cells+16384]
-                        lea              rdi, [rip + .S8]
-                        mov              rcx, qword ptr [rsi + 0]
-                        cmp              rcx, rdi;                            jne   .Lmain_α_567_22
-                        mov              rcx, qword ptr [rsi + 8]
-                        test             rcx, rcx;                            je    .Lmain_α_567_22
-                        mov              rax, qword ptr [rcx + 0]
-                        cmp              al, 8;                               jne   .Lmain_α_567_22
-                        mov              rdx, qword ptr [rcx + 8]
-                        test             rdx, rdx;                            je    .Lmain_α_567_22
-                        mov              rax, qword ptr [rdx + 0]
-                        test             rax, rax;                            jne   .Lmain_α_567_23
 .Lmain_α_567_22:        push             r14
                         push             r15
                         push             r13
