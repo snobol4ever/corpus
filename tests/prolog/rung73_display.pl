@@ -1,3 +1,4 @@
+%-------------------------------------------------------------- 1 rung73_display
 :- initialization(main).
 main :-
     display(1+2*3), nl,
