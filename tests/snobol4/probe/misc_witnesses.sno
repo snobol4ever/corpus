@@ -1,3 +1,16 @@
+ 'ab' ? POS(0) FENCE(ARBNO('z')) 'ab' RPOS(0) :S(A)F(B);A OUTPUT = 'ok' :(END);B OUTPUT = 'no';END;* fence_arbno_top
+ P = LEN(1); I = 1;LOOP 'abcde' ? *P $ V :F(NO); OUTPUT = V; P = LEN(1) LEN(1) LEN(1) LEN(1); I = I + 1; LE(I,2) :S(LOOP); OUTPUT = '=S' :(EN);NO OUTPUT = '=F';EN;END;* os1_runtime_k
+ DEFINE('R(S)') :(R.END);R S ? POS(0) ARBNO('z') 'ab' RPOS(0) = 'XY' :F(FRETURN); R = S :(RETURN);R.END; OUTPUT = R('ab') :S(OK)F(NO);OK OUTPUT = 'T2 ok' :(END);NO OUTPUT = 'T2 failed';END;* repldef1
+*------------------------------------------------------------------- 4 fencedef1
+        DEFINE('F(S)')                                        :(F.END)
+F       S ? POS(0) FENCE(ARBNO('z')) 'ab' RPOS(0)            :F(FRETURN)
+        F = 'matched'                                         :(RETURN)
+F.END
+        OUTPUT = F('ab')                                      :S(OK)F(NO)
+OK      OUTPUT = 'T1 ok'                                      :(END)
+NO      OUTPUT = 'T1 failed'
+END
+*--------------------------------------------------------- 5 ident_differ_inline
 *  ident_differ_inline.sno -- correctness witness for the s199 IR_IDENT/IR_DIFFER inline slice (slices 2+3).
 *  Covers: 1-arg and 2-arg forms of both IDENT and DIFFER, over string/integer/null operands (both same-
 *  type and mixed-type), plus the claws5 hot idiom `IDENT(x) default_value` (PRED(a,b) expr conditional-

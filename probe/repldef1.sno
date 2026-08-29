@@ -1,8 +1,0 @@
-        DEFINE('R(S)')                                        :(R.END)
-R       S ? POS(0) ARBNO('z') 'ab' RPOS(0) = 'XY'            :F(FRETURN)
-        R = S                                                 :(RETURN)
-R.END
-        OUTPUT = R('ab')                                      :S(OK)F(NO)
-OK      OUTPUT = 'T2 ok'                                      :(END)
-NO      OUTPUT = 'T2 failed'
-END
