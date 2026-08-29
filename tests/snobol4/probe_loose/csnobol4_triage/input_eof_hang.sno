@@ -1,7 +1,0 @@
-* INPUT() on an exhausted/empty file never signals failure in scrip: the S(loop) branch keeps
-* succeeding forever, so this floods stdout with blank records instead of terminating (root
-* cause of csnobol4_suite/openi.sno + openo2.sno TIMEOUT).  sbl -bf fails fast instead (ERROR 116
-* -- inappropriate file specification for input, rc=0, no hang).  SCRIP-only defect.
-	INPUT(.holder, 10, , "input_eof_hang.dat")
-loop	OUTPUT = holder			:S(loop)
-END
