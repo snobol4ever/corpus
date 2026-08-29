@@ -29,3 +29,34 @@ consolidation, not this row. This declaration covers only "is the file loose or 
 all seven is: converted.
 
 — seat14, 2026-08-27, task `tests-consolidate-snobol4-loose`
+
+## Genuinely file-driven keepers (relocated here, deliberately NOT banner-block-converted)
+
+Per Lon's 2026-08-28 ruling on `corpus-crosscheck-probe-total-conversion` ("make them ALL use the
+multi-liner or one-liner Python harness as appropriate... ONLY genuinely stdin/file-driven tests stay
+standalone, marked in a KEEP.md beside them"): the RTX-FUNC-11 witness pair uses `-INCLUDE` to pull in a
+separate `.sno`/`.inc` file at runtime — that is the mechanism under test, not incidental structure, so
+converting it into one banner-block entry would stop testing what it exists to test. Relocated out of
+`corpus/probe/` (to satisfy that row's DONE-WHEN — zero loose `.sno` there) into standalone files here
+instead, structure fully preserved, verified still running correctly from the new location (include
+paths resolve relative to cwd, unaffected by the move since both halves of each pair moved together):
+
+- `rtx11_dynvar_include.sno` (+ its `rtx11_dynvar.inc`) / `rtx11_dynvar_inline.sno` — a two-sided
+  witness comparing runtime-created variables arriving via `-INCLUDE` against an identical inline
+  control arm. Kept as a pair (not split, one converted / one not) so a future reader can still directly
+  diff the two arms — that comparison is the point of the witness.
+- `rtx_func_11_include.sno` (+ its `rtx_func_11_inc.sno`, the included half) /
+  `rtx_func_11_inline.sno` — same shape, a 40-scalar + 40-iteration threshold witness. Same pairing
+  rationale.
+
+⚠️ **Both pairs' own header comments claim a live SIGSEGV** ("Oracle: clean. SCRIP m3/m4: SIGSEGV" /
+"this (-INCLUDE) arm SEGVs under SCRIP mode 3 and mode 4") **that no longer reproduces** — re-verified
+2026-08-29 (seat06): all four `.sno` files agree with their `.ref`, in both scrip modes, and against the
+live SPITBOL oracle directly (not just the pin). This is the fourth instance this row's own history has
+found of a documented arm/bug divergence that has since been silently resolved (after `SCRIP_SPAN_FRAME`/
+`leafsib`, `SCRIP_CHOICE_RBP`/`clobarm`, and the `ab` family's `SCRIP_AB` divergence) — not fixed or
+re-verified as a compiler-correctness question here, only noted so the header comments' crash claim
+isn't taken at face value by a future reader; the file-driven structure is still worth keeping regardless
+of whether the specific crash still reproduces.
+
+— seat06, 2026-08-29, task `corpus-crosscheck-probe-total-conversion`
