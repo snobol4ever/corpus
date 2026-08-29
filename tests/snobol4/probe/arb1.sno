@@ -1,3 +1,4 @@
+*------------------------------------------------------------------------ 1 arb1
 *  arb1.sno — EARN-4 gate witness (GOAL-RBP-EARN.md names this file; it did not exist until 2026-08-11e).
 *  Minimal pair. IDENTICAL pattern; the ONLY difference is the subject.
 *    T1 subject "abcabc" -> ARBNO succeeds with 2 instances.
