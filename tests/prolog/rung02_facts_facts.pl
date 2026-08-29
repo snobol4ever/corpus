@@ -1,3 +1,4 @@
+%---------------------------------------------------------- 1 rung02_facts_facts
 % rung02_facts — deterministic fact lookup
 % Expected output (one per line): brown jones smith
 :- initialization(main).
