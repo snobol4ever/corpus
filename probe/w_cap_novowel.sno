@@ -1,6 +1,0 @@
-        VOWEL = ANY('AEIOU')
-        PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ')
-        'BCD' ? PAT . N	:F(NOPE)
-        OUTPUT = 'MATCHED:[' N ']'	:(END)
-NOPE    OUTPUT = 'FAILED'
-END

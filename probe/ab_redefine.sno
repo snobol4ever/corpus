@@ -1,8 +1,0 @@
-* AB-0 witness: re-DEFINE repoints the fn cell; DEFINE(s,name) alt entry label (p.219).
-	DEFINE('F()')			:(E1)
-F	F = 'first'			:(RETURN)
-E1	OUTPUT = F()
-	DEFINE('F()','G')		:(E2)
-G	F = 'second-via-alt-entry'	:(RETURN)
-E2	OUTPUT = F()
-END

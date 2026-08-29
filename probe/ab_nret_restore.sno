@@ -1,9 +1,0 @@
-* AB-0 witness: NRETURN returns the NAME of a FORMAL, which is restored on return.
-* Does the caller assignment land on the RESTORED outer A? (deref is caller-side POST-restore)
-	DEFINE('NM(A)')			:(NM_END)
-NM	NM = .A				:(NRETURN)
-NM_END
-	A = 'outer'
-	NM('inner') = 'written'
-	OUTPUT = 'A=' A
-END

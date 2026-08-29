@@ -1,5 +1,0 @@
-        VOWEL = ANY('AEIOU')
-        PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ')
-        'GRAY' ? PAT . N
-        OUTPUT = N
-END

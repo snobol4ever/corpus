@@ -1,8 +1,0 @@
-*       Z4 PROBE — tight arithmetic loop.  Storage regime under test: per-BB result cells.
-        N = 0
-        S = 0
-LOOP    N = N + 1
-        S = S + N * 2 - 1
-        GT(N,3000000)                                     :F(LOOP)
-        OUTPUT = 'arith ' S
-END

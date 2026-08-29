@@ -1,3 +1,0 @@
-match OK cnt=1
-subject intact test
-second OK R=C cnt=2

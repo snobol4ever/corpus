@@ -1,9 +1,0 @@
-* AB-0 witness: NRETURN as lvalue (manual p.133 STORE example).
-	DEFINE('STORE()')		:(STORE_END)
-STORE	STORE = .DUMMY			:(NRETURN)
-STORE_END
-	STORE() = 43
-	OUTPUT = 'DUMMY=' DUMMY
-	'ABCDE' ? LEN(2) . STORE()
-	OUTPUT = 'DUMMY=' DUMMY
-END

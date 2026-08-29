@@ -1,4 +1,0 @@
-control statement-position sp(4) = [24]   want 24
-expr-position new  ep(4) = [24]   want 24
-before redefine    rd(3) = [6]   want 6
-after  redefine    rd(4) = [24]   want 24

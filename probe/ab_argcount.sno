@@ -1,8 +1,0 @@
-* AB-0 witness: missing args supplied as null, extra args ignored (manual p.212).
-	DEFINE('T(A,B)')		:(T_END)
-T	T = '[' A '|' B ']'		:(RETURN)
-T_END
-	OUTPUT = T('x')
-	OUTPUT = T('x','y','z')
-	OUTPUT = T()
-END
