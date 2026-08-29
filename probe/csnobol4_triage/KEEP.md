@@ -44,23 +44,26 @@ the seat06 FINDING above, is frozen historical narration and correctly left unto
   has no `-INCLUDE` concept, and authoring a sibling-free rewrite would mean writing new witness content,
   not converting existing content. Left loose.
 
-## Blocked on HANG in a shared-suite context — genuinely unresolved, not attempted
+## `input_eof_hang.sno` — RECLASSIFIED 2026-08-29 (seat09): NO LONGER HANGS, moved to the path-dependent bucket below
 
-- **`input_eof_hang.sno`** (+ its empty `.dat` companion) — `INPUT()` on an exhausted file never signals
-  failure in scrip; the `:S(loop)` branch keeps succeeding forever. Confirmed still current and severe:
-  `timeout 3s` produced **649,699 lines** of blank output before being killed. Oracle fails fast instead
-  (`ERROR 116`, rc=0, no hang). This is a real, still-open SCRIP defect, but converting a HANG-class
-  witness into a suite entry means every future run of the WHOLE `csnobol4_triage` suite pays this
-  witness's full timeout, every time — the exact shape of concern `probe/fuzz`'s own blocker
-  (`fuzz-nondeterminism-rootcause`) was minted over. Not measured for cross-run determinism the way fuzz's
-  witnesses were (this session only ran it once, deliberately, under a tight timeout) — that measurement,
-  not a guess either way, is the next step before converting. Left loose.
+⭐ **The hang itself appears resolved — measured, not assumed.** seat07's characterization (`timeout 3s`
+produced 649,699 lines before being killed) does not reproduce today: 3 consecutive runs, both modes,
+all rc=0 in ~15ms with **zero** lines of output (`INPUT()` on the exhausted file now evidently fails the
+reference rather than looping `:S(loop)` forever — never root-caused here, just measured before/after).
+This is the same "documented defect, now silently resolved" shape this row has hit repeatedly
+(`SCRIP_SPAN_FRAME`/`leafsib`, `SCRIP_CHOICE_RBP`/`clobarm`, the `ab` family, s129/`clobarm` again) —
+worth someone cross-referencing what changed, not chased here (out of this row's lane). The determinism
+question this entry used to be blocked on is now moot: there is no hang left to measure the determinism
+of. **Not simply convertible as a clean PASS, though** — see below, it has a new blocker of its own.
 
 ## Blocked — oracle output is source-path-dependent, can't be pinned as a suite `.ref`
 
-Three witnesses whose oracle output embeds the SOURCE FILE'S OWN PATH (`&FILE`/`&LASTFILE` values, or an
+Four witnesses whose oracle output embeds the SOURCE FILE'S OWN PATH (`&FILE`/`&LASTFILE` values, or an
 inline `ERROR NNN` diagnostic naming the file being compiled) as part of the very text that would need
-pinning into a frozen `.ref`. A suite entry is extracted into a fresh temp directory before every run
+pinning into a frozen `.ref`. **This bucket grew from 3 to 4 this session** (`input_eof_hang` joined it
+after its hang resolved, see above) — four independent instances of the identical blocker is worth
+someone actually making the harness-normalization-vs-hand-authored-`.ref` call now, rather than letting
+a fifth accumulate before anyone does. A suite entry is extracted into a fresh temp directory before every run
 (`corpus_suite_harness.py`'s own documented contract), so a `.ref` built from the loose file's *original*
 location can never match again post-conversion — not even if the underlying defect were fixed, since the
 path itself would differ. Converting these correctly needs either a normalization step this harness
@@ -86,6 +89,16 @@ where noted:
   `&ANCHOR`/`&CASE`/.../`&TRIM` block, ~20 lines, oracle rc=0) that's still missing, not the whole
   feature. `&DUMP` is now a **partial** implementation, not an unimplemented no-op. Worth a fresh look by
   whoever owns `&DUMP` — this is closer to done than the file currently documents.
+- **`input_eof_hang.sno`** (+ its empty `.dat` companion) — reclassified here this session (was HANG,
+  see above). scrip now exits rc=0 with **zero output**, both modes — the assignment on the exhausted
+  `INPUT()` reference apparently now fails cleanly rather than looping, so nothing ever reaches `OUTPUT`.
+  Oracle: rc=0, prints `ERROR 116 -- inappropriate file specification for input` plus the full stats
+  trailer, both embedding `input_eof_hang.sno` by name (`sbl -bf`, re-run live this session). scrip's own
+  output has no path-dependency at all (there's nothing in it to pin), but a `.ref` pinning the ORACLE's
+  correct behavior — which this conversion would need, per this row's byte-equal-against-oracle
+  convention — does. A real, still-open, milder divergence (scrip: silent success; oracle: diagnosed
+  failure) than the resolved hang, but blocked on the same path-normalization question as its three
+  siblings above.
 
 ## Genuinely two stacked defects, not one — needs a fix (or at least a FINDING), not a conversion
 
