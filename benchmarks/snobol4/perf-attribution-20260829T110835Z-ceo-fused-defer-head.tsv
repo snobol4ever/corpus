@@ -1,0 +1,16 @@
+# perf-attribution TSV -- 2026-08-29 ceo -- row perf-pattern-defer-capture-layer-cure, grading the FUSED PROBE HEAD
+# (bb_match_defer.cpp: the one-char-string arm and the resolved-fn inline cache shared a duplicated (key,cell) load +
+#  key compare, and the one-char DT_S/len==1 preconditions ran FIRST on every anchor position even for pattern-valued
+#  deferred vars -- a structurally-guaranteed per-position miss. One load, one compare, one tag branch now.)
+# instrument: perf stat -e instructions totals via /home/claude/.tools/bin/perf shim; RT_OPT=-O0; NOHUGE=1 HEAP_MB=4096;
+#   kernels wrapped bench_wrap.sh --mode=iter --n=N (N per SCALE.tsv); m4 = ./scrip --compile + gcc -m64 -no-pie vs out/libscrip_rt.so
+# CONTROL ARM: m4_precure = a SEPARATE CLONE at origin/main HEAD (the tree minus ONLY this cure; no stash, no revert) --
+#   and it REPRODUCES hq_P's same-day armA TSV to 2-3 counts (pattern_bt 2234 vs their 2231/2232; string_pattern 1205 vs 1205),
+#   so this file shares that file's instrument and basis. sbl reference rows not re-run this sitting; the precure agreement is the continuity proof.
+# ⚠ WALL/IPC CAVEAT: measured under a LIVE FLEET-16 (loadavg spiking) -- wall_best_s and ipc are load-contaminated
+#   (pattern_bt wall even inverts vs insn); insn_per_iter is the graded instrument, per this row's own gate.
+kernel	engine	N	insn_total	insn_per_iter	wall_best_s	ipc	top_cost_centers
+pattern_bt	m4	2000000	4312817385	2156	0.69	1.99	n58_match_defer_bx=26.6%,n0_match_alternate_bx=18.4%,n57_match_begin_bx=8.7%,rt_dcap_pump=6.0%,n6_match_lit_bx=4.1%,n2_match_span_bx=3.2%
+pattern_bt	m4_precure	2000000	4469552781	2234	0.64	2.33	CONTROL: clone at origin/main (pre fused-head) -- cure delta = -3.49% insn/iter
+string_pattern	m4	8000000	9589192870	1198	1.09	2.29	rt_dcap_pump dominant (unchanged); fused head worth -0.58% here
+string_pattern	m4_precure	8000000	9645541602	1205	1.12	3.52	CONTROL: clone at origin/main -- cure delta = -0.58% insn/iter
