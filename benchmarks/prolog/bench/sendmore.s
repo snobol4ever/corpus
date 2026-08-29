@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lsumdigit$2F5_α_42_102
+                        mov              qword ptr [rsp + 1296], rax
                         mov              rax, qword ptr [rsp + 96]
                         mov              rdx, qword ptr [rsp + 104];          jmp   .Lsumdigit$2F5_α_42_101
 .Lsumdigit$2F5_α_42_102:
@@ -1547,6 +1548,7 @@ n106_call_prolog_α:     mov              r11, 43
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Ldigit$2F1_α_197_102
+                        mov              qword ptr [rsp + 2464], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Ldigit$2F1_α_197_101
 .Ldigit$2F1_α_197_102:  lea              r12, [rip + g_plw_cellws_on]
@@ -3599,6 +3601,7 @@ n318_call_prolog_α:     mov              r11, 134
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lsolve$2F8_α_461_102
+                        mov              qword ptr [rsp + 4320], rax
                         mov              rax, qword ptr [rsp + 144]
                         mov              rdx, qword ptr [rsp + 152];          jmp   .Lsolve$2F8_α_461_101
 .Lsolve$2F8_α_461_102:  lea              r12, [rip + g_plw_cellws_on]
@@ -8910,6 +8913,7 @@ n710_call_prolog_α:     mov              r11, 277
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lleftdigit$2F1_α_792_102
+                        mov              qword ptr [rsp + 2224], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lleftdigit$2F1_α_792_101
 .Lleftdigit$2F1_α_792_102:

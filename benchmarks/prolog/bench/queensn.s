@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lsel$2F3_α_30_102
+                        mov              qword ptr [rsp + 896], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lsel$2F3_α_30_101
 .Lsel$2F3_α_30_102:     lea              r12, [rip + g_plw_cellws_on]
@@ -1966,6 +1967,7 @@ n81_call_prolog_α:      mov              r11, 31
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lq10$2F1_α_120_102
+                        mov              qword ptr [rsp + 1408], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lq10$2F1_α_120_101
 .Lq10$2F1_α_120_102:    lea              r12, [rip + g_plw_cellws_on]
@@ -3020,6 +3022,7 @@ n164_call_prolog_α:     mov              r11, 70
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Ltest$2F2_α_196_102
+                        mov              qword ptr [rsp + 944], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Ltest$2F2_α_196_101
 .Ltest$2F2_α_196_102:   lea              r12, [rip + g_plw_cellws_on]
@@ -5364,6 +5367,7 @@ n342_call_prolog_α:     mov              r11, 139
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lsafe$2F2_α_369_102
+                        mov              qword ptr [rsp + 848], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lsafe$2F2_α_369_101
 .Lsafe$2F2_α_369_102:   lea              r12, [rip + g_plw_cellws_on]
@@ -6767,6 +6771,7 @@ n413_call_prolog_α:     mov              r11, 166
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lperm$2F2_α_442_102
+                        mov              qword ptr [rsp + 880], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lperm$2F2_α_442_101
 .Lperm$2F2_α_442_102:   lea              r12, [rip + g_plw_cellws_on]
@@ -8128,6 +8133,7 @@ n488_call_prolog_α:     mov              r11, 195
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lpair$2F3_α_529_102
+                        mov              qword ptr [rsp + 1232], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lpair$2F3_α_529_101
 .Lpair$2F3_α_529_102:   lea              r12, [rip + g_plw_cellws_on]
@@ -9946,6 +9952,7 @@ n591_call_prolog_α:     mov              r11, 236
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lq$2F2_α_610_102
+                        mov              qword ptr [rsp + 640], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lq$2F2_α_610_101
 .Lq$2F2_α_610_102:      lea              r12, [rip + g_plw_cellws_on]

@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lsel$2F3_α_30_102
+                        mov              qword ptr [rsp + 896], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lsel$2F3_α_30_101
 .Lsel$2F3_α_30_102:     lea              r12, [rip + g_plw_cellws_on]
@@ -1966,6 +1967,7 @@ n81_call_prolog_α:      mov              r11, 31
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lqueens$2F2_α_94_102
+                        mov              qword ptr [rsp + 416], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lqueens$2F2_α_94_101
 .Lqueens$2F2_α_94_102:  lea              r12, [rip + g_plw_cellws_on]
@@ -5273,6 +5275,7 @@ n289_call_prolog_α:     mov              r11, 111
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lqueens_2$2F3_α_338_102
+                        mov              qword ptr [rsp + 1520], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lqueens_2$2F3_α_338_101
 .Lqueens_2$2F3_α_338_102:

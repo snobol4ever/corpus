@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Larea$2F2_α_201_102
+                        mov              qword ptr [rsp + 5280], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Larea$2F2_α_201_101
 .Larea$2F2_α_201_102:   lea              r12, [rip + g_plw_cellws_on]
@@ -3806,6 +3807,7 @@ n477_call_prolog_α:     mov              r11, 202
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lquery$2F1_α_517_102
+                        mov              qword ptr [rsp + 1328], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lquery$2F1_α_517_101
 .Lquery$2F1_α_517_102:  lea              r12, [rip + g_plw_cellws_on]
@@ -5023,6 +5025,7 @@ n577_call_prolog_α:     mov              r11, 242
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lpop$2F2_α_778_102
+                        mov              qword ptr [rsp + 5280], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lpop$2F2_α_778_101
 .Lpop$2F2_α_778_102:    lea              r12, [rip + g_plw_cellws_on]
@@ -8805,6 +8808,7 @@ n1054_call_prolog_α:    mov              r11, 443
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Ldensity$2F2_α_1076_102
+                        mov              qword ptr [rsp + 736], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Ldensity$2F2_α_1076_101
 .Ldensity$2F2_α_1076_102:

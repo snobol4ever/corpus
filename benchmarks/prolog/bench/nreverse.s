@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lnreverse$2F2_α_36_102
+                        mov              qword ptr [rsp + 1104], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lnreverse$2F2_α_36_101
 .Lnreverse$2F2_α_36_102:
@@ -1582,6 +1583,7 @@ n90_call_prolog_α:      mov              r11, 37
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lreverse$2F2_α_103_102
+                        mov              qword ptr [rsp + 416], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lreverse$2F2_α_103_101
 .Lreverse$2F2_α_103_102:
@@ -2340,6 +2342,7 @@ n124_call_prolog_α:     mov              r11, 50
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .L$reverse_$2F3_α_163_102
+                        mov              qword ptr [rsp + 1168], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .L$reverse_$2F3_α_163_101
 .L$reverse_$2F3_α_163_102:
@@ -4281,6 +4284,7 @@ n223_call_prolog_α:     mov              r11, 89
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lconcatenate$2F3_α_260_102
+                        mov              qword ptr [rsp + 1088], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lconcatenate$2F3_α_260_101
 .Lconcatenate$2F3_α_260_102:

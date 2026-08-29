@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Linterpret$2F1_α_14_102
+                        mov              qword ptr [rsp + 416], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Linterpret$2F1_α_14_101
 .Linterpret$2F1_α_14_102:
@@ -808,6 +809,7 @@ n38_call_prolog_α:      mov              r11, 15
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Linterpret$2F2_α_189_102
+                        mov              qword ptr [rsp + 4288], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Linterpret$2F2_α_189_101
 .Linterpret$2F2_α_189_102:
@@ -7628,6 +7630,7 @@ n423_call_prolog_α:     mov              r11, 166
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lis_built_in$2F1_α_441_102
+                        mov              qword ptr [rsp + 544], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lis_built_in$2F1_α_441_101
 .Lis_built_in$2F1_α_441_102:
@@ -8193,6 +8196,7 @@ n466_call_prolog_α:     mov              r11, 184
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lmeta_qsort$2F0_α_471_102
+                        mov              qword ptr [rsp + 160], rax
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24];           jmp   .Lmeta_qsort$2F0_α_471_101
 .Lmeta_qsort$2F0_α_471_102:
@@ -8535,6 +8539,7 @@ n478_call_prolog_α:     mov              r11, 189
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Ldefine$2F2_α_780_102
+                        mov              qword ptr [rsp + 10496], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Ldefine$2F2_α_780_101
 .Ldefine$2F2_α_780_102: lea              r12, [rip + g_plw_cellws_on]
@@ -14988,6 +14993,7 @@ n1146_call_prolog_α:    mov              r11, 491
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Linterpret_built_in$2F1_α_1167_102
+                        mov              qword ptr [rsp + 624], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Linterpret_built_in$2F1_α_1167_101
 .Linterpret_built_in$2F1_α_1167_102:
@@ -15603,6 +15609,7 @@ n1197_call_prolog_α:    mov              r11, 512
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Linterpret_disjunction$2F3_α_1281_102
+                        mov              qword ptr [rsp + 2448], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Linterpret_disjunction$2F3_α_1281_101
 .Linterpret_disjunction$2F3_α_1281_102:

@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lzebra$2F1_α_196_102
+                        mov              qword ptr [rsp + 6848], rax
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40];           jmp   .Lzebra$2F1_α_196_101
 .Lzebra$2F1_α_196_102:  lea              r12, [rip + g_plw_cellws_on]
@@ -6194,6 +6195,7 @@ n504_call_prolog_α:     mov              r11, 197
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lright_of$2F3_α_538_102
+                        mov              qword ptr [rsp + 1056], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lright_of$2F3_α_538_101
 .Lright_of$2F3_α_538_102:
@@ -8090,6 +8092,7 @@ n593_call_prolog_α:     mov              r11, 231
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lnext_to$2F3_α_644_102
+                        mov              qword ptr [rsp + 1568], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lnext_to$2F3_α_644_101
 .Lnext_to$2F3_α_644_102:
@@ -10541,6 +10544,7 @@ n725_call_prolog_α:     mov              r11, 282
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lmy_member$2F2_α_747_102
+                        mov              qword ptr [rsp + 656], rax
                         mov              rax, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rsp + 56];           jmp   .Lmy_member$2F2_α_747_101
 .Lmy_member$2F2_α_747_102:

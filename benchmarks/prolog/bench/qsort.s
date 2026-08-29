@@ -24,6 +24,7 @@ n0_call_prolog_α:       mov              r11, 1
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lpartition$2F4_α_73_102
+                        mov              qword ptr [rsp + 2080], rax
                         mov              rax, qword ptr [rsp + 80]
                         mov              rdx, qword ptr [rsp + 88];           jmp   .Lpartition$2F4_α_73_101
 .Lpartition$2F4_α_73_102:
@@ -3852,6 +3853,7 @@ n189_call_prolog_α:     mov              r11, 74
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Lqsort$2F3_α_237_102
+                        mov              qword ptr [rsp + 1488], rax
                         mov              rax, qword ptr [rsp + 64]
                         mov              rdx, qword ptr [rsp + 72];           jmp   .Lqsort$2F3_α_237_101
 .Lqsort$2F3_α_237_102:  lea              r12, [rip + g_plw_cellws_on]

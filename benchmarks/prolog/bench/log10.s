@@ -8661,6 +8661,7 @@ n766_call_prolog_α:     mov              r11, 307
                         lea              rdi, [rip + g_pl_zf_pending_cursor]
                         mov              rax, qword ptr [rdi]
                         test             rax, rax;                            je    .Ltop$2F0_α_770_102
+                        mov              qword ptr [rsp + 112], rax
                         mov              rax, qword ptr [rsp + 16]
                         mov              rdx, qword ptr [rsp + 24];           jmp   .Ltop$2F0_α_770_101
 .Ltop$2F0_α_770_102:    lea              r12, [rip + g_plw_cellws_on]
