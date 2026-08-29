@@ -1,5 +1,0 @@
-         VOWEL = ANY('AEIOU')
-         'VACUUM' ? VOWEL . N
-         OUTPUT = 'hit=' N             :S(END)
-         OUTPUT = 'miss'
-END

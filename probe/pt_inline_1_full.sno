@@ -1,6 +1,0 @@
-         VOWEL = ANY('AEIOU')
-         PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ')
-         'VACUUM' ? VOWEL . N
-         OUTPUT = 'hit=' N             :S(END)
-         OUTPUT = 'miss'
-END
