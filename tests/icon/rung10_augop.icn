@@ -19,7 +19,7 @@ procedure main();
   x %:= 7;
   write(x);
 end
-#--------------------------------------------------- 4 rung10_augop_break_repeat
+#--------------------------------------------------- 4 rung10_augop_augadd_every
 # rung10 t03: augmented add accumulator via every
 procedure main();
   local sum;
@@ -27,7 +27,7 @@ procedure main();
   every sum +:= (1 to 5);
   write(sum);
 end
-#---------------------------------------------------- 5 rung10_augop_break_while
+#---------------------------------------------------- 5 rung10_augop_augdiv
 # rung10 t04: augmented divide
 procedure main();
   local x;
