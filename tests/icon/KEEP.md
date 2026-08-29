@@ -174,10 +174,15 @@ session could find.** Individually measured (not assumed), grouped by signature:
   — would need new harness work (an argv sidecar, mirroring `sidecar_in_path`) to ever test for real.
 - `rung36_jcon_scan` — FAIL both modes, output is a strict subset of `.expected` (missing later lines,
   not garbled) — under-produces rather than diverges. Not traced further.
-- `rung36_jcon_scan1` — FAIL both modes, output values are `.expected`'s values **each shifted by
-  exactly +14** (e.g. `15 30 45...` vs `1 16 31...`) — a suspiciously regular offset, not random
-  divergence, in `&ascii ? { ... upto(...) ... }` scanning code. Worth a real look before assuming it's
-  the same class as anything else here; a constant offset smells mechanical, not semantic.
+- `rung36_jcon_scan1` — FAIL both modes, **root-caused (2026-08-29, seat09), not a mystery any more.**
+  `&ascii`/`&cset` are built off-by-one in `src/runtime/keywords.c:75-76` — `chr(0)` never lands in its
+  correct first slot and wraps to the last one instead (`&ascii[1]` is `\x01`, `&ascii[128]` is `\x00`).
+  scan1's `ascii?skips`/`ascii?vowls` lines are the only symptom in this file (both scan directly
+  within `&ascii`); every value in the diff is fully explained by this one construction bug, not a
+  family of small ones — confirmed independent of the unrelated `FINDING-2026-08-24-seat16-icon-cset-
+  string-literal-embedded-nul-truncates-to-empty.md` (`*skips` measures its full correct 18 members
+  here, not truncated). Full detail: `FINDING-2026-08-29-seat09-icon-ascii-and-cset-keywords-are-built-
+  off-by-one-chr0-wraps-to-the-end.md`. Two-line fix, not attempted here (out of this row's lane).
 
 **`util_zframe_ab.sh` hardcodes a path to `rung36_jcon_btrees.icn`** (one of its 5 fixed A/B
 witnesses) — `btrees` is one of the 29 still-red `.xfail` files above, stays loose, was NOT touched
