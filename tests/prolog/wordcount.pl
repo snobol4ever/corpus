@@ -1,3 +1,4 @@
+%------------------------------------------------------------------- 1 wordcount
 % SCRIP DEMO2 -- Word Count (Prolog section)
 % Idiom: DCG rules tokenise char list; phrase/3 counts words
 :- initialization(main, main).
