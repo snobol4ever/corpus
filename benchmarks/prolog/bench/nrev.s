@@ -9930,13 +9930,13 @@ main:
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 344], rcx
-                        mov              qword ptr [rsp + 352], rdx
-                        mov              qword ptr [rsp + 360], rsp
+                        sub              rsp, 448
+                        mov              qword ptr [rsp + 424], rcx
+                        mov              qword ptr [rsp + 432], rdx
+                        mov              qword ptr [rsp + 440], rsp
                         mov              rdi, rsp
                         xor              eax, eax
-                        mov              ecx, 336
+                        mov              ecx, 416
                         rep              stosb
 main_α_body:
                         .type            n526_var_ref_bx, @function
@@ -9944,28 +9944,28 @@ n526_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n526_var_ref_α:         mov              r11, 209
                         mov              rax, 4294967336
-                        lea              rdx, [rsp + 304]
-                        mov              qword ptr [rsp + 272], rax
-                        mov              qword ptr [rsp + 280], rdx;          jmp   n527_call_proc_staged_α
+                        lea              rdx, [rsp + 384]
+                        mov              qword ptr [rsp + 352], rax
+                        mov              qword ptr [rsp + 360], rdx;          jmp   n527_call_proc_staged_α
                         .size            n526_var_ref_bx, .-n526_var_ref_bx
                         .type            n527_call_proc_staged_bx, @function
 n527_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n527_call_proc_staged_α:
                         mov              r11, 210
-                        mov              qword ptr [rsp + 240], 0
+                        mov              qword ptr [rsp + 320], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lcall_proc_staged_α_538_200
-                        mov              rax, qword ptr [rsp + 272]
-                        mov              rdx, qword ptr [rsp + 280]
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_541_200
+                        mov              rax, qword ptr [rsp + 352]
+                        mov              rdx, qword ptr [rsp + 360]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_538_201
-.Lcall_proc_staged_α_538_200:
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_541_201
+.Lcall_proc_staged_α_541_200:
                         mov              edi, 0
-                        mov              rsi, qword ptr [rsp + 272]
-                        mov              rdx, qword ptr [rsp + 280]
+                        mov              rsi, qword ptr [rsp + 352]
+                        mov              rdx, qword ptr [rsp + 360]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9974,9 +9974,9 @@ n527_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lcall_proc_staged_α_538_201:
+.Lcall_proc_staged_α_541_201:
                         sub              rsp, 8
-                        lea              rax, [rip + .Lcall_proc_staged_α_538_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        lea              rax, [rip + .Lcall_proc_staged_α_541_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 5
                         mov              esi, 1
@@ -9988,20 +9988,20 @@ n527_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lcall_proc_staged_α_538_1
-                        lea              rcx, [rip + .Lcall_proc_staged_α_538_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_541_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_541_4]
                         push             rcx
-                        lea              rcx, [rip + .Lcall_proc_staged_α_538_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_541_3]
                         push             rcx
-                        lea              rdx, [rip + .Lcall_proc_staged_α_538_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_541_4]
                                                                               jmp   rax
-.Lcall_proc_staged_α_538_3:
+.Lcall_proc_staged_α_541_3:
                         add              rsp, 16
-                        mov              qword ptr [rsp + 248], rsp
+                        mov              qword ptr [rsp + 328], rsp
                         add              rsp, 16
-                        mov              rax, qword ptr [rsp + 240]
-                        test             rax, rax;                            jne   .Lcall_proc_staged_α_538_5
-                        mov              qword ptr [rsp + 240], 1
+                        mov              rax, qword ptr [rsp + 320]
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_541_5
+                        mov              qword ptr [rsp + 320], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10009,15 +10009,15 @@ n527_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_538_2
-.Lcall_proc_staged_α_538_5:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_538_2
-.Lcall_proc_staged_α_538_4:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_541_2
+.Lcall_proc_staged_α_541_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_541_2
+.Lcall_proc_staged_α_541_4:
                         add              rsp, 16
                         add              rsp, 16
-                        mov              rax, qword ptr [rsp + 240]
-                        test             rax, rax;                            jne   .Lcall_proc_staged_α_538_6
-                        mov              qword ptr [rsp + 240], 1
+                        mov              rax, qword ptr [rsp + 320]
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_541_6
+                        mov              qword ptr [rsp + 320], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10025,10 +10025,10 @@ n527_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_538_2
-.Lcall_proc_staged_α_538_6:
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_538_2
-.Lcall_proc_staged_α_538_1:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_541_2
+.Lcall_proc_staged_α_541_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_541_2
+.Lcall_proc_staged_α_541_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10037,10 +10037,10 @@ n527_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lcall_proc_staged_α_538_2:
+.Lcall_proc_staged_α_541_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_538_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_541_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -10048,25 +10048,25 @@ n527_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_nret_fix_tiny@PLT
-                        mov              qword ptr [rsp + 208], rax
-                        mov              qword ptr [rsp + 216], rdx
+                        mov              qword ptr [rsp + 288], rax
+                        mov              qword ptr [rsp + 296], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rax, qword ptr [rsp + 208]
-                        mov              rdx, qword ptr [rsp + 216]
-.Lcall_proc_staged_α_538_29:
-                        mov              qword ptr [rsp + 208], rax
-                        mov              qword ptr [rsp + 216], rdx
-                        cmp              al, 104;                             je    main_ω
+                        mov              rax, qword ptr [rsp + 288]
+                        mov              rdx, qword ptr [rsp + 296]
+.Lcall_proc_staged_α_541_29:
+                        mov              qword ptr [rsp + 288], rax
+                        mov              qword ptr [rsp + 296], rdx
+                        cmp              al, 104;                             je    n535_lit_string_α
                                                                               jmp   n528_var_ref_α
 n527_call_proc_staged_β:
                         mov              r11, 210
                         call             rt_gen_spine_resume_enter@PLT
-                        mov              qword ptr [rsp + 240], 0
-                        lea              rdi, [rsp + 256]
-                        lea              rsi, [rsp + 264]
+                        mov              qword ptr [rsp + 320], 0
+                        lea              rdi, [rsp + 336]
+                        lea              rsi, [rsp + 344]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10075,10 +10075,10 @@ n527_call_proc_staged_β:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    main_ω
+                        test             rax, rax;                            je    n535_lit_string_α
                         mov              rdi, rax
-                        mov              rsi, qword ptr [rsp + 256]
-                        mov              rdx, qword ptr [rsp + 264]
+                        mov              rsi, qword ptr [rsp + 336]
+                        mov              rdx, qword ptr [rsp + 344]
                         mov              ecx, 32
                         mov              r8d, 288
                         mov              qword ptr [rip + rtccb+40], r8
@@ -10090,8 +10090,8 @@ n527_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              edi, 0
-                        mov              rsi, qword ptr [rsp + 272]
-                        mov              rdx, qword ptr [rsp + 280]
+                        mov              rsi, qword ptr [rsp + 352]
+                        mov              rdx, qword ptr [rsp + 360]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10110,25 +10110,25 @@ n527_call_proc_staged_β:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    main_ω
+                        test             rax, rax;                            je    n535_lit_string_α
                         sub              rsp, 8
-                        lea              r8, [rip + .Lcall_proc_staged_α_538_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_541_7]
                         push             r8
-                        lea              rcx, [rip + .Lcall_proc_staged_α_538_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_541_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lcall_proc_staged_α_538_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_541_3]
                         push             rcx
-                        lea              rdx, [rip + .Lcall_proc_staged_α_538_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_541_4]
                                                                               jmp   rax
-.Lcall_proc_staged_α_538_7:
+.Lcall_proc_staged_α_541_7:
                         add              rsp, 16
-                        mov              qword ptr [rsp + 208], rax
-                        mov              qword ptr [rsp + 216], rdx
-                        cmp              al, 104;                             je    main_ω
+                        mov              qword ptr [rsp + 288], rax
+                        mov              qword ptr [rsp + 296], rdx
+                        cmp              al, 104;                             je    n535_lit_string_α
                                                                               jmp   n528_var_ref_α
-.Lcall_proc_staged_β_538_0:
-                        .quad            .Lcall_proc_staged_β_538_0_s
-.Lcall_proc_staged_β_538_0_s:
+.Lcall_proc_staged_β_541_0:
+                        .quad            .Lcall_proc_staged_β_541_0_s
+.Lcall_proc_staged_β_541_0_s:
                         .string          "data/1"
                         .size            n527_call_proc_staged_bx, .-n527_call_proc_staged_bx
                         .type            n528_var_ref_bx, @function
@@ -10136,37 +10136,37 @@ n528_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n528_var_ref_α:         mov              r11, 211
                         mov              rax, 4294967336
-                        lea              rdx, [rsp + 304]
-                        mov              qword ptr [rsp + 176], rax
-                        mov              qword ptr [rsp + 184], rdx;          jmp   n529_var_ref_α
+                        lea              rdx, [rsp + 384]
+                        mov              qword ptr [rsp + 256], rax
+                        mov              qword ptr [rsp + 264], rdx;          jmp   n529_var_ref_α
                         .size            n528_var_ref_bx, .-n528_var_ref_bx
                         .type            n529_var_ref_bx, @function
 n529_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n529_var_ref_α:         mov              r11, 212
                         mov              rax, 4294967336
-                        lea              rdx, [rsp + 288]
-                        mov              qword ptr [rsp + 192], rax
-                        mov              qword ptr [rsp + 200], rdx;          jmp   n530_call_proc_staged_α
+                        lea              rdx, [rsp + 368]
+                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 280], rdx;          jmp   n530_call_proc_staged_α
                         .size            n529_var_ref_bx, .-n529_var_ref_bx
                         .type            n530_call_proc_staged_bx, @function
 n530_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n530_call_proc_staged_α:
                         mov              r11, 213
-                        mov              qword ptr [rsp + 144], 0
+                        mov              qword ptr [rsp + 224], 0
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lcall_proc_staged_α_544_200
-                        mov              rax, qword ptr [rsp + 176]
-                        mov              rdx, qword ptr [rsp + 184]
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_547_200
+                        mov              rax, qword ptr [rsp + 256]
+                        mov              rdx, qword ptr [rsp + 264]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 0], rax
-                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_544_201
-.Lcall_proc_staged_α_544_200:
+                        mov              qword ptr [r8 + 8], rdx;             jmp   .Lcall_proc_staged_α_547_201
+.Lcall_proc_staged_α_547_200:
                         mov              edi, 0
-                        mov              rsi, qword ptr [rsp + 176]
-                        mov              rdx, qword ptr [rsp + 184]
+                        mov              rsi, qword ptr [rsp + 256]
+                        mov              rdx, qword ptr [rsp + 264]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10175,19 +10175,19 @@ n530_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lcall_proc_staged_α_544_201:
+.Lcall_proc_staged_α_547_201:
                         lea              r8, [rip + g_gc_pending]
                         mov              eax, dword ptr [r8 + 0]
-                        test             eax, eax;                            jne   .Lcall_proc_staged_α_544_202
-                        mov              rax, qword ptr [rsp + 192]
-                        mov              rdx, qword ptr [rsp + 200]
+                        test             eax, eax;                            jne   .Lcall_proc_staged_α_547_202
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              rdx, qword ptr [rsp + 280]
                         lea              r8, [rip + g_call_args]
                         mov              qword ptr [r8 + 16], rax
-                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_544_203
-.Lcall_proc_staged_α_544_202:
+                        mov              qword ptr [r8 + 24], rdx;            jmp   .Lcall_proc_staged_α_547_203
+.Lcall_proc_staged_α_547_202:
                         mov              edi, 1
-                        mov              rsi, qword ptr [rsp + 192]
-                        mov              rdx, qword ptr [rsp + 200]
+                        mov              rsi, qword ptr [rsp + 272]
+                        mov              rdx, qword ptr [rsp + 280]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10196,9 +10196,9 @@ n530_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lcall_proc_staged_α_544_203:
+.Lcall_proc_staged_α_547_203:
                         sub              rsp, 8
-                        lea              rax, [rip + .Lcall_proc_staged_α_544_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        lea              rax, [rip + .Lcall_proc_staged_α_547_7] # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 3
                         mov              esi, 2
@@ -10210,20 +10210,20 @@ n530_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lcall_proc_staged_α_544_1
-                        lea              rcx, [rip + .Lcall_proc_staged_α_544_4]
+                        test             rax, rax;                            je    .Lcall_proc_staged_α_547_1
+                        lea              rcx, [rip + .Lcall_proc_staged_α_547_4]
                         push             rcx
-                        lea              rcx, [rip + .Lcall_proc_staged_α_544_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_547_3]
                         push             rcx
-                        lea              rdx, [rip + .Lcall_proc_staged_α_544_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_547_4]
                                                                               jmp   rax
-.Lcall_proc_staged_α_544_3:
+.Lcall_proc_staged_α_547_3:
                         add              rsp, 16
-                        mov              qword ptr [rsp + 152], rsp
+                        mov              qword ptr [rsp + 232], rsp
                         add              rsp, 16
-                        mov              rax, qword ptr [rsp + 144]
-                        test             rax, rax;                            jne   .Lcall_proc_staged_α_544_5
-                        mov              qword ptr [rsp + 144], 1
+                        mov              rax, qword ptr [rsp + 224]
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_547_5
+                        mov              qword ptr [rsp + 224], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10231,15 +10231,15 @@ n530_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_544_2
-.Lcall_proc_staged_α_544_5:
-                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_544_2
-.Lcall_proc_staged_α_544_4:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_547_2
+.Lcall_proc_staged_α_547_5:
+                        call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_proc_staged_α_547_2
+.Lcall_proc_staged_α_547_4:
                         add              rsp, 16
                         add              rsp, 16
-                        mov              rax, qword ptr [rsp + 144]
-                        test             rax, rax;                            jne   .Lcall_proc_staged_α_544_6
-                        mov              qword ptr [rsp + 144], 1
+                        mov              rax, qword ptr [rsp + 224]
+                        test             rax, rax;                            jne   .Lcall_proc_staged_α_547_6
+                        mov              qword ptr [rsp + 224], 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10247,10 +10247,10 @@ n530_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_544_2
-.Lcall_proc_staged_α_544_6:
-                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_544_2
-.Lcall_proc_staged_α_544_1:
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_proc_staged_α_547_2
+.Lcall_proc_staged_α_547_6:
+                        call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_proc_staged_α_547_2
+.Lcall_proc_staged_α_547_1:
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10259,10 +10259,10 @@ n530_call_proc_staged_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lcall_proc_staged_α_544_2:
+.Lcall_proc_staged_α_547_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
                         mov              ecx, dword ptr [rcx + 0]
-                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_544_29
+                        cmp              ecx, 0;                              je    .Lcall_proc_staged_α_547_29
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              edx, 0
@@ -10270,25 +10270,25 @@ n530_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_nret_fix_tiny@PLT
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              qword ptr [rsp + 176], rax
+                        mov              qword ptr [rsp + 184], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              rdx, qword ptr [rsp + 104]
-.Lcall_proc_staged_α_544_29:
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              rax, qword ptr [rsp + 176]
+                        mov              rdx, qword ptr [rsp + 184]
+.Lcall_proc_staged_α_547_29:
+                        mov              qword ptr [rsp + 176], rax
+                        mov              qword ptr [rsp + 184], rdx
                         cmp              al, 104;                             je    n527_call_proc_staged_β
                                                                               jmp   n531_var_α
 n530_call_proc_staged_β:
                         mov              r11, 213
                         call             rt_gen_spine_resume_enter@PLT
-                        mov              qword ptr [rsp + 144], 0
-                        lea              rdi, [rsp + 160]
-                        lea              rsi, [rsp + 168]
+                        mov              qword ptr [rsp + 224], 0
+                        lea              rdi, [rsp + 240]
+                        lea              rsi, [rsp + 248]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10299,8 +10299,8 @@ n530_call_proc_staged_β:
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n527_call_proc_staged_β
                         mov              rdi, rax
-                        mov              rsi, qword ptr [rsp + 160]
-                        mov              rdx, qword ptr [rsp + 168]
+                        mov              rsi, qword ptr [rsp + 240]
+                        mov              rdx, qword ptr [rsp + 248]
                         mov              ecx, 48
                         mov              r8d, 1104
                         mov              qword ptr [rip + rtccb+40], r8
@@ -10312,8 +10312,8 @@ n530_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              edi, 0
-                        mov              rsi, qword ptr [rsp + 176]
-                        mov              rdx, qword ptr [rsp + 184]
+                        mov              rsi, qword ptr [rsp + 256]
+                        mov              rdx, qword ptr [rsp + 264]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10323,8 +10323,8 @@ n530_call_proc_staged_β:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              edi, 1
-                        mov              rsi, qword ptr [rsp + 192]
-                        mov              rdx, qword ptr [rsp + 200]
+                        mov              rsi, qword ptr [rsp + 272]
+                        mov              rdx, qword ptr [rsp + 280]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10345,48 +10345,48 @@ n530_call_proc_staged_β:
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    n527_call_proc_staged_β
                         sub              rsp, 8
-                        lea              r8, [rip + .Lcall_proc_staged_α_544_7]
+                        lea              r8, [rip + .Lcall_proc_staged_α_547_7]
                         push             r8
-                        lea              rcx, [rip + .Lcall_proc_staged_α_544_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
+                        lea              rcx, [rip + .Lcall_proc_staged_α_547_4] # PL-CALL-ALIGN: same 16B-unit pad as the first-call entry above -- this retry entry pushed L(7) unpadded too, 8-mod-16 into open_det/the callee jmp; matching add-rsp-8 below becomes 16.
                         push             rcx
-                        lea              rcx, [rip + .Lcall_proc_staged_α_544_3]
+                        lea              rcx, [rip + .Lcall_proc_staged_α_547_3]
                         push             rcx
-                        lea              rdx, [rip + .Lcall_proc_staged_α_544_4]
+                        lea              rdx, [rip + .Lcall_proc_staged_α_547_4]
                                                                               jmp   rax
-.Lcall_proc_staged_α_544_7:
+.Lcall_proc_staged_α_547_7:
                         add              rsp, 16
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              qword ptr [rsp + 176], rax
+                        mov              qword ptr [rsp + 184], rdx
                         cmp              al, 104;                             je    n527_call_proc_staged_β
                                                                               jmp   n531_var_α
-.Lcall_proc_staged_β_544_0:
-                        .quad            .Lcall_proc_staged_β_544_0_s
-.Lcall_proc_staged_β_544_0_s:
+.Lcall_proc_staged_β_547_0:
+                        .quad            .Lcall_proc_staged_β_547_0_s
+.Lcall_proc_staged_β_547_0_s:
                         .string          "nrev/2"
                         .size            n530_call_proc_staged_bx, .-n530_call_proc_staged_bx
                         .type            n531_var_bx, @function
 n531_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n531_var_α:             mov              r11, 214
-                        mov              rax, qword ptr [rsp + 288]
-                        mov              qword ptr [rsp + 80], rax
-                        mov              rax, qword ptr [rsp + 296]
-                        mov              qword ptr [rsp + 88], rax;           jmp   n532_call_prolog_α
+                        mov              rax, qword ptr [rsp + 368]
+                        mov              qword ptr [rsp + 160], rax
+                        mov              rax, qword ptr [rsp + 376]
+                        mov              qword ptr [rsp + 168], rax;          jmp   n532_call_prolog_α
                         .size            n531_var_bx, .-n531_var_bx
                         .type            n532_call_prolog_bx, @function
 n532_call_prolog_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n532_call_prolog_α:     mov              r11, 215
-                        mov              rax, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rax, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 72], rax
+                        mov              rax, qword ptr [rsp + 160]
+                        mov              qword ptr [rsp + 144], rax
+                        mov              rax, qword ptr [rsp + 168]
+                        mov              qword ptr [rsp + 152], rax
                         .section         .rodata
-.Lcall_prolog_rkfn548:  .string          "$write"
+.Lcall_prolog_α_rkfn551: .string          "$write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_prolog_rkfn548]
-                        lea              rsi, [rsp + 64]
+                        lea              rdi, [rip + .Lcall_prolog_α_rkfn551]
+                        lea              rsi, [rsp + 144]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10397,8 +10397,8 @@ n532_call_prolog_α:     mov              r11, 215
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 136], rdx
                         cmp              al, 104;                             je    n530_call_proc_staged_β
                                                                               jmp   n533_lit_string_α
 n532_call_prolog_β:     mov              r11, 215;                            jmp   n530_call_proc_staged_β
@@ -10407,27 +10407,27 @@ n532_call_prolog_β:     mov              r11, 215;                            j
 n533_lit_string_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n533_lit_string_α:      mov              r11, 216
-                        mov              qword ptr [rsp + 32], 2              # result
-                        mov              dword ptr [rsp + 36], 0
-                        mov              rax, qword ptr [rip + .Llit_string_α_549_0]
-                        mov              qword ptr [rsp + 40], rax;           jmp   n534_call_prolog_α
-.Llit_string_α_549_0:   .quad            .Llit_string_α_549_0_s
-.Llit_string_α_549_0_s: .string          ""
+                        mov              qword ptr [rsp + 112], 2             # result
+                        mov              dword ptr [rsp + 116], 0
+                        mov              rax, qword ptr [rip + .Llit_string_α_552_0]
+                        mov              qword ptr [rsp + 120], rax;          jmp   n534_call_prolog_α
+.Llit_string_α_552_0:   .quad            .Llit_string_α_552_0_s
+.Llit_string_α_552_0_s: .string          ""
                         .size            n533_lit_string_bx, .-n533_lit_string_bx
                         .type            n534_call_prolog_bx, @function
 n534_call_prolog_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n534_call_prolog_α:     mov              r11, 217
-                        mov              rax, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 24], rax
+                        mov              rax, qword ptr [rsp + 112]
+                        mov              qword ptr [rsp + 96], rax
+                        mov              rax, qword ptr [rsp + 120]
+                        mov              qword ptr [rsp + 104], rax
                         .section         .rodata
-.Lcall_prolog_rkfn551:  .string          "$nl0"
+.Lcall_prolog_α_rkfn554: .string          "$nl0"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_prolog_rkfn551]
-                        lea              rsi, [rsp + 16]
+                        lea              rdi, [rip + .Lcall_prolog_α_rkfn554]
+                        lea              rsi, [rsp + 96]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10438,12 +10438,68 @@ n534_call_prolog_α:     mov              r11, 217
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 80], rax
+                        mov              qword ptr [rsp + 88], rdx
                         cmp              al, 104;                             je    n530_call_proc_staged_β
                                                                               jmp   main_γ
 n534_call_prolog_β:     mov              r11, 217;                            jmp   n530_call_proc_staged_β
                         .size            n534_call_prolog_bx, .-n534_call_prolog_bx
+                        .type            n535_lit_string_bx, @function
+n535_lit_string_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n535_lit_string_α:      mov              r11, 218
+                        mov              qword ptr [rsp + 48], 2              # result
+                        mov              dword ptr [rsp + 52], 10
+                        mov              rax, qword ptr [rip + .Llit_string_α_555_0]
+                        mov              qword ptr [rsp + 56], rax;           jmp   n536_lit_string_α
+.Llit_string_α_555_0:   .quad            .Llit_string_α_555_0_s
+.Llit_string_α_555_0_s: .string          "user_error"
+                        .size            n535_lit_string_bx, .-n535_lit_string_bx
+                        .type            n536_lit_string_bx, @function
+n536_lit_string_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n536_lit_string_α:      mov              r11, 219
+                        mov              qword ptr [rsp + 64], 2              # result
+                        mov              dword ptr [rsp + 68], 44
+                        mov              rax, qword ptr [rip + .Llit_string_α_556_0]
+                        mov              qword ptr [rsp + 72], rax;           jmp   n537_call_prolog_α
+.Llit_string_α_556_0:   .quad            .Llit_string_α_556_0_s
+.Llit_string_α_556_0_s: .string          "Warning: initialization goal failed: main/0\n"
+                        .size            n536_lit_string_bx, .-n536_lit_string_bx
+                        .type            n537_call_prolog_bx, @function
+n537_call_prolog_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n537_call_prolog_α:     mov              r11, 220
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 32], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 40], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
+                        .section         .rodata
+.Lcall_prolog_α_rkfn558: .string          "$write2"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lcall_prolog_α_rkfn558]
+                        lea              rsi, [rsp + 16]
+                        mov              edx, 2
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        mov              ecx, 458752
+                        call             rt_call_arr_bl@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              al, 104;                             je    main_ω
+                                                                              jmp   main_ω
+n537_call_prolog_β:     mov              r11, 220;                            jmp   main_ω
+                        .size            n537_call_prolog_bx, .-n537_call_prolog_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                               jmp   main_ω
@@ -10451,12 +10507,12 @@ main_β:
 main_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rsp + 344]
-                        add              rsp, 368;                            jmp   rcx
+                        mov              rcx, qword ptr [rsp + 424]
+                        add              rsp, 448;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rcx, qword ptr [rsp + 352]
-                        add              rsp, 368;                            jmp   rcx
+                        mov              rcx, qword ptr [rsp + 432]
+                        add              rsp, 448;                            jmp   rcx
 module_init:
                         sub              rsp, 8
                         .section         .rodata
