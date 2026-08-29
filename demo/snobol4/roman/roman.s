@@ -883,9 +883,9 @@ n34_statement_end_α:    mov              r11, 35
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
 #=======================================================================================================================
-# ROMAN_END  <stmt 5, line 6: source not in main file (INCLUDE)>
+# ROMAN_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 6 0
+                        .loc             1 5 0
 n35_statement_begin_α:  mov              r11, 36
                         mov              r10, 5;                              jmp   n36_statement_end_α
 n35_statement_begin_β:  mov              r11, 36;                             jmp   n37_statement_begin_α
@@ -1444,9 +1444,9 @@ n61_statement_end_α:    mov              r11, 62
                         .type            n62_statement_begin_bx, @function
 n62_statement_begin_bx:
 #=======================================================================================================================
-# TEST_END  <stmt 10, line 11: source not in main file (INCLUDE)>
+# TEST_END
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 11 0
+                        .loc             1 10 0
 n62_statement_begin_α:  mov              r11, 63
                         mov              r10, 10;                             jmp   n63_statement_end_α
 n62_statement_begin_β:  mov              r11, 63;                             jmp   n64_statement_begin_α

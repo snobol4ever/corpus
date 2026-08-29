@@ -6118,9 +6118,9 @@ n338_statement_end_α:   mov              r11, 252
                         .type            n339_statement_begin_bx, @function
 n339_statement_begin_bx:
 #=======================================================================================================================
-# FNS_end  <stmt 28, line 56: source not in main file (INCLUDE)>
+# FNS_end
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 56 0
+                        .loc             1 55 0
 n339_statement_begin_α: mov              r11, 253
                         mov              r10, 28;                             jmp   n340_statement_end_α
 n339_statement_begin_β: mov              r11, 253;                            jmp   n341_statement_begin_α

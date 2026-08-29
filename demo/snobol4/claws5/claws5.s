@@ -2136,9 +2136,9 @@ n155_statement_end_α:   mov              r11, 117
                         .type            n156_statement_begin_bx, @function
 n156_statement_begin_bx:
 #=======================================================================================================================
-# token_end  <stmt 9, line 11: source not in main file (INCLUDE)>
+# token_end
 #-----------------------------------------------------------------------------------------------------------------------
-                        .loc             2 11 0
+                        .loc             1 10 0
 n156_statement_begin_α: mov              r11, 118
                         mov              r10, 9;                              jmp   n157_statement_end_α
 n156_statement_begin_β: mov              r11, 118;                            jmp   n158_statement_begin_α
