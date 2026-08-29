@@ -62,7 +62,7 @@ standing as `ladder/`'s open-defect witnesses in the Snocone sibling task.
 
 ## rung03 — 4 of 5 files HARD-BLOCKED on a known, already-tracked, rank-0 fleet defect (seat03, 2026-08-29)
 
-`rung03_suspend_gen rung03_suspend_gen_compose rung03_suspend_gen_filter rung03_suspend_return` —
+`rung03_suspend_gen.icn rung03_suspend_gen_compose.icn rung03_suspend_gen_filter.icn rung03_suspend_return.icn` —
 this task's own priority list flagged rung03 as "genuine generator/coroutine content, screen
 individually for the tgrlink-class activation-frame risk before converting." That screening was
 done for real (not by reading source alone — by actually running each file): **all 4 SIGSEGV, both
