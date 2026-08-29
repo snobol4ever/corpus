@@ -22,7 +22,7 @@ main_α_body:
 n0_kw_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_kw_icon_α:           mov              r11, 1
-                        mov              rdi, qword ptr [rip + .Lkw_icon_α_2_0]
+                        mov              rdi, qword ptr [rip + .Lmain_α_2_0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -35,8 +35,8 @@ n0_kw_icon_α:           mov              r11, 1
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx;           jmp   n1_call_icon_α
 n0_kw_icon_β:           mov              r11, 1;                              jmp   main_ω
-.Lkw_icon_α_2_0:        .quad            .Lkw_icon_α_2_0_s
-.Lkw_icon_α_2_0_s:      .string          "&version"
+.Lmain_α_2_0:           .quad            .Lmain_α_2_0_s
+.Lmain_α_2_0_s:         .string          "&version"
                         .size            n0_kw_icon_bx, .-n0_kw_icon_bx
                         .type            n1_call_icon_bx, @function
 n1_call_icon_bx:
@@ -47,10 +47,10 @@ n1_call_icon_α:         mov              r11, 2
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
                         .section         .rodata
-.Lcall_icon_rkfn4:      .string          "write"
+.Lrkfn4:                .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lcall_icon_rkfn4]
+                        lea              rdi, [rip + .Lrkfn4]
                         lea              rsi, [rsp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
