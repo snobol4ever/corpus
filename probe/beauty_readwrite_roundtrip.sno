@@ -1,0 +1,38 @@
+*---------------------------------------------------------------------------------------------------
+* beauty_readwrite_roundtrip.sno -- CALLS beauty's Read()/Write() (corpus/include/ReadWrite.inc) on
+* REAL files, not just bad paths, so the file-spec argument shape is genuinely exercised end to end.
+* FINDING-2026-08-29-hq_P-a-program-passing-is-not-evidence-the-code-it-includes-passes.md found
+* that beauty.sno itself never calls Read()/Write() (it only -INCLUDEs them), so their portability
+* had never actually been graded against a live oracle -- this witness closes that gap. Also checks
+* the offset->line-number map Read() builds, and the pre-existing bad-path FRETURN behavior.
+* Oracle: VERIFIED IDENTICAL under BOTH x64/bin/sbl -bf (SPITBOL) and CSNOBOL4B 2.3.3 snobol4 -f --
+* .ref is safe to grade against either.
+* Run from corpus/include so -INCLUDE resolves (same convention as util_run_beauty_oracle.sh):
+*   (cd corpus/include && /home/resources/x64/bin/sbl -bf ../probe/beauty_readwrite_roundtrip.sno)
+*   (cd corpus/include && /home/resources/csnobol4/snobol4 -f -b ../probe/beauty_readwrite_roundtrip.sno)
+*---------------------------------------------------------------------------------------------------
+-INCLUDE 'global.inc'
+-INCLUDE 'ReadWrite.inc'
+        longLine  =  DUPL('x', 5000)
+        content   =  'first line' nl longLine nl 'last line' nl
+        Write('/tmp/beauty_rw_roundtrip_probe_tmp.dat', content)          :F(T1BAD)
+        got       =  Read('/tmp/beauty_rw_roundtrip_probe_tmp.dat', 'rwmap') :F(T1BAD)
+        IDENT(got, content)                                               :F(T1BAD)
+        OUTPUT = 'T1 PASS: Write/Read roundtrip on a real file matches exactly, size=' SIZE(got)
+        :(T2)
+T1BAD   OUTPUT = 'T1 FAIL: roundtrip mismatch or FRETURN, got-size=' SIZE(got)
+T2      IDENT(rwmap[0], 1)                                                :F(T2BAD)
+        IDENT(rwmap[SIZE('first line') + 1], 2)                           :F(T2BAD)
+        OUTPUT = 'T2 PASS: line-offset map matches for the long-line record'
+        :(T3)
+T2BAD   OUTPUT = 'T2 FAIL: line-offset map wrong'
+T3      Read('/nonexistent/directory/nope.txt')                           :S(T3BAD)
+        OUTPUT = 'T3 PASS: Read FRETURN on inaccessible path'
+        :(T4)
+T3BAD   OUTPUT = 'T3 FAIL: Read should have FRETURNed on inaccessible path'
+T4      Write('/nonexistent/directory/nope.txt', 'x')                     :S(T4BAD)
+        OUTPUT = 'T4 PASS: Write FRETURN on inaccessible path'
+        :(DONE)
+T4BAD   OUTPUT = 'T4 FAIL: Write should have FRETURNed on inaccessible path'
+DONE
+END

@@ -3,35 +3,68 @@
 * by newline characters. Also create a map table indexed by offsets of each line with its
 * corresponding line number.
 *---------------------------------------------------------------------------------------------------
+* CSNOBOL4 takes the filename in a FOURTH argument to INPUT() (its third argument is an options
+* string only, and CSNOBOL4 text-mode input has no line-length cap to set); live SPITBOL has no
+* fourth argument at all and instead needs a plain 3-argument call with '[-l131072]' appended to
+* the name, raising INPUT's 1024-character default cap. Neither engine accepts the other's shape --
+* SPITBOL raises a FATAL error on the 4-argument form, not an ordinary match failure -- so this
+* tries the CSNOBOL4 shape first under a SETEXIT trap and falls back to SPITBOL's shape only if
+* that trapped, saving and restoring any error trap the caller already had installed.
+*---------------------------------------------------------------------------------------------------
                DEFINE('Read(fileName,rdMapName)'
-+                  'rdInput,rdIn,rdLine,rdLineNo,rdMap,rdOfs'
++                  'rdInput,rdIn,rdLine,rdLineNo,rdMap,rdOfs,rdPrevXit,rdPrevLim'
 +              )                                                                     :(ReadEnd)
-Read           INPUT(.rdInput, 8, fileName '[-m10 -l131072]')                        :F(FRETURN)
-               rdMap          =    TABLE()
+Read           rdPrevXit      =    SETEXIT(.ReadSpit)
+               rdPrevLim      =    &ERRLIMIT
+               &ERRLIMIT      =    1
+               INPUT(.rdInput, 8, , fileName)                                        :F(ReadNo)
+               SETEXIT(rdPrevXit)
+               &ERRLIMIT      =    rdPrevLim                                         :(ReadGo)
+ReadSpit       SETEXIT(rdPrevXit)
+               &ERRLIMIT      =    rdPrevLim
+               INPUT(.rdInput, 8, fileName '[-l131072]')                             :F(FRETURN)
+ReadGo         rdMap          =    TABLE()
                rdOfs          =    0
                rdLineNo       =    1
                Read           =
 Read3          rdMap[rdOfs]   =    rdLineNo
                rdLine         =
-Read5          rdIn           =    rdInput                                          :F(Read9)
+Read5          rdIn           =    rdInput                                           :F(Read9)
                rdLine         =    rdLine rdIn
-               LT(SIZE(rdIn), 131072)                                               :F(Read5)
+               LT(SIZE(rdIn), 131072)                                                :F(Read5)
                rdLine         RPOS(1) cr =
                rdOfs          =    rdOfs + SIZE(rdLine) + 1
                rdLineNo       =    rdLineNo + 1
-               Read           =    Read rdLine nl                                   :(Read3)
+               Read           =    Read rdLine nl                                    :(Read3)
 Read9          ENDFILE(8)
-               DIFFER(rdMapName)                                                    :F(RETURN)
-               $rdMapName     =    rdMap                                            :(RETURN)
+               DIFFER(rdMapName)                                                     :F(RETURN)
+               $rdMapName     =    rdMap                                             :(RETURN)
+ReadNo         SETEXIT(rdPrevXit)
+               &ERRLIMIT      =    rdPrevLim                                         :(FRETURN)
 ReadEnd
 *---------------------------------------------------------------------------------------------------
-               DEFINE('Write(fileName,fileStr)wrLine,wrOutput')                     :(WriteEnd)
-Write          OUTPUT(.wrOutput, 8, fileName)                                       :F(FRETURN)
-Write1         fileStr        POS(0) RPOS(0)                                        :S(Write9)
-               fileStr        POS(0) BREAK(nl) . wrLine nl =                        :S(Write3)
-               fileStr        POS(0) RTAB(0) . wrLine =                             :S(Write3)F(err)
-Write3         wrOutput       =    wrLine                                           :(Write1)
-Write9         ENDFILE(8)                                                           :(RETURN)
+* Write(fileName, fileStr) - portable OUTPUT() association, same reasoning as Read() above: CSNOBOL4
+* needs the filename in a fourth argument; SPITBOL has no fourth argument and needs a plain
+* 3-argument call (OUTPUT's default record length is already &MAXLNGTH, so no '[-l...]' suffix is
+* needed here).
+*---------------------------------------------------------------------------------------------------
+               DEFINE('Write(fileName,fileStr)wrLine,wrOutput,wrPrevXit,wrPrevLim')  :(WriteEnd)
+Write          wrPrevXit      =    SETEXIT(.WriteSpit)
+               wrPrevLim      =    &ERRLIMIT
+               &ERRLIMIT      =    1
+               OUTPUT(.wrOutput, 8, , fileName)                                      :F(WriteNo)
+               SETEXIT(wrPrevXit)
+               &ERRLIMIT      =    wrPrevLim                                         :(Write1)
+WriteSpit      SETEXIT(wrPrevXit)
+               &ERRLIMIT      =    wrPrevLim
+               OUTPUT(.wrOutput, 8, fileName)                                        :F(FRETURN)
+Write1         fileStr        POS(0) RPOS(0)                                         :S(Write9)
+               fileStr        POS(0) BREAK(nl) . wrLine nl =                         :S(Write3)
+               fileStr        POS(0) RTAB(0) . wrLine =                              :S(Write3)F(err)
+Write3         wrOutput       =    wrLine                                            :(Write1)
+Write9         ENDFILE(8)                                                            :(RETURN)
+WriteNo        SETEXIT(wrPrevXit)
+               &ERRLIMIT      =    wrPrevLim                                         :(FRETURN)
 WriteEnd
 *---------------------------------------------------------------------------------------------------
                DEFINE('LineMap(str,lmMapName)lmLineNo,lmMap,lmOfs,xOfs')            :(LineMapEnd)
