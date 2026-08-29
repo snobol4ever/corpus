@@ -1,3 +1,4 @@
+#--------------------------------------------------------- 1 rung03_suspend_fail
 # rung03 t03: procedure that fails (no return value)
 procedure positive(n);
   if n > 0 then return n;
