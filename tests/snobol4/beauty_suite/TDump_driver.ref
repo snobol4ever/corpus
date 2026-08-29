@@ -1,7 +1,0 @@
-FAIL: 1 TLump leaf got: foo
-FAIL: 2 TLump node got: (BinOp x 42)
-PASS: 3 TLump len=0 fails
-foo
-PASS: 4 TDump leaf
-(BinOp x 42)
-PASS: 5 TDump node

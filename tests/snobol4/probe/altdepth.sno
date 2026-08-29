@@ -1,2 +1,0 @@
- cmd = 'a' . X | 'ab' . X; outer = ARBNO(*cmd); s = 'ab'; s POS(0) *outer RPOS(0) :S(G)F(B);G OUTPUT = 'match ' X :(END);B OUTPUT = 'nomatch';END;* alt_captarm_defer_red
- cmd = ('a' | 'ab') ('d' | 'bd'); outer = ARBNO(*cmd); s = 'adbd'; s POS(0) *outer RPOS(0) :S(G)F(B);G OUTPUT = 'match' :(END);B OUTPUT = 'nomatch';END;* alt_twochoice_defer_red

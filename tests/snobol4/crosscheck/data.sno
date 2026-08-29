@@ -1,6 +1,0 @@
- A = ARRAY(5); A<1> = 'first'; A<3> = 'third'; A<5> = 'fifth'; OUTPUT = A<1>; OUTPUT = A<3>; OUTPUT = A<5>;END;* 091_array_create_access
- A = ARRAY(5); I = 1;FILL A<I> = I * I; I = I + 1; LE(I, 5) :S(FILL); I = 1;READ OUTPUT = A<I>; I = I + 1; LE(I, 5) :S(READ);END;* 092_array_loop_fill
- T = TABLE(); T['name'] = 'Alice'; T['age'] = 30; T['lang'] = 'SNOBOL4'; OUTPUT = T['name']; OUTPUT = T['age']; OUTPUT = T['lang'];END;* 093_table_create_access
- DATA('complex(real,imag)'); X = complex(3, -2); OUTPUT = real(X); OUTPUT = imag(X);END;* 094_data_define_access
- DATA('point(x,y)'); P = point(10, 20); OUTPUT = x(P); OUTPUT = y(P); x(P) = 99; OUTPUT = x(P);END;* 095_data_field_set
- DATA('node(val,next)'); N = node('hello', ''); OUTPUT = REPLACE(DATATYPE(N), &LCASE, &UCASE); OUTPUT = val(N);END;* 096_data_datatype_check

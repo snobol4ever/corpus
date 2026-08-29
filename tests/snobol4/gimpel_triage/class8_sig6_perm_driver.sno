@@ -1,9 +1,0 @@
--INCLUDE "class8_sig6_perm_module.sno"
-        A  =  ARRAY(2)
-        A<1>  =  'x'
-        A<2>  =  'y'
-        N  =  0
-LOOP    N  =  N + 1
-        PERM(A)                                  :S(LOOP)
-        OUTPUT  =  N ' permutations'
-END

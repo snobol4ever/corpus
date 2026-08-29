@@ -1,7 +1,0 @@
-*----------------------------------------------------------- 1 diag_regs_witness
-*     diag_witness.sno - multi-statement/multi-box program for r10/r11 crash-witness verification.
-        X = 'ABCDEF'
-        X ? BREAK('D') . HEAD REM . TAIL
-        OUTPUT = HEAD
-        OUTPUT = TAIL
-END

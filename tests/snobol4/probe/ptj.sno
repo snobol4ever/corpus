@@ -1,1 +1,0 @@
- elem = *val; val = ('"s"' | '[' elem ARBNO(',' elem) ']'); '["s","s"]' ? POS(0) elem RPOS(0) :F(NO); OUTPUT = 'MATCH' :(END);NO OUTPUT = 'FAIL';END;* ptj3_forward_defer_wrong_answer

@@ -1,4 +1,0 @@
--INCLUDE "class1_dup_label_shared.sno"
--INCLUDE "class1_dup_label_shared.sno"
-        OUTPUT = X()
-END

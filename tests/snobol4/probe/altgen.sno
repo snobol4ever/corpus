@@ -1,7 +1,0 @@
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' *E ARBNO(',' *E) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g01_arbno_bare
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARBNO(',' *E) ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g02_arbno_parens
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARBNO(',' *E) | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g03_arbno_alt_ws
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARBNO(',' *E) | 'zzz' ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g04_arbno_alt_lit
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( E ARBNO(',' E) | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g05_arbno_alt_nodefer
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( *E ARB | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g06_arb_alt
- ws = SPAN(' ') | ''; E = SPAN('0123456789'); P = '[' ( ARBNO(*E ',') *E | ws ) ']'; '[1,2]' P :F(NO); OUTPUT = 'MATCHED' :(END);NO OUTPUT = 'FAILED';END;* g07_arbno_lead_alt

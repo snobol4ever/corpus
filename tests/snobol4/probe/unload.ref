@@ -1,5 +1,0 @@
-*-------------------------------------------------------------------- 1 un_never
-never-defined: SUCCEEDED
-second unload: SUCCEEDED
-unload SUCCEEDED\nret=[]
-var after unload = [a value in the variable]

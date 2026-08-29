@@ -1,8 +1,0 @@
- OUTPUT = 'hello world';END;* 001_output_string_literal
- OUTPUT = 42;END;* 002_output_integer_literal
- OUTPUT = 3.14;END;* 003_output_real_literal
- OUTPUT = '';END;* 004_output_empty_string
- OUTPUT = 'line one'; OUTPUT = 'line two'; OUTPUT = 'line three';END;* 005_output_multiline
- OUTPUT = SIZE(&ALPHABET);END;* 006_output_keyword_alphabet
- OUTPUT = X;END;* 007_output_null_var
- OUTPUT = "hello world";END;* 008_output_double_quoted

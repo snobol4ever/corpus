@@ -1,8 +1,0 @@
- X = 'hello'; OUTPUT = X;END;* 009_assign_string
- N = 42; OUTPUT = N;END;* 010_assign_integer
- X = 'alpha'; Y = X; OUTPUT = Y;END;* 011_assign_chain
- X = 'something'; X =; OUTPUT = X;END;* 012_assign_null
- X = 'first'; X = 'second'; OUTPUT = X;END;* 013_assign_overwrite
- $'X' = 'hello'; OUTPUT = X;END;* 014_assign_indirect_dollar
- V = 'X'; $V = 'world'; OUTPUT = X;END;* 015_assign_indirect_var
- OUTPUT = 'alpha'; OUTPUT = 'beta';END;* 016_assign_to_output

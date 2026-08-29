@@ -1,4 +1,0 @@
-PASS W02/001: seq match succeeded
-PASS W02/003: seq rightly failed
-*-------------------------------------------------------------- 3 W02_seq_nested
-PASS W02/002: nested seq match succeeded

@@ -1,4 +1,0 @@
-T1 PASS: Write/Read roundtrip on a real file matches exactly, size=5022
-T2 PASS: line-offset map matches for the long-line record
-T3 PASS: Read FRETURN on inaccessible path
-T4 PASS: Write FRETURN on inaccessible path

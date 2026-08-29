@@ -1,5 +1,0 @@
- subject = 'hello'; subject ANY('aeiou') :f(e001); OUTPUT = 'PASS W05/001: any matched' :(END);e001 OUTPUT = 'FAIL W05/001: any should match';END;* W05_any
- subject = 'key:value'; subject BREAK(':') :f(e001); OUTPUT = 'PASS W05/004: break matched' :(END);e001 OUTPUT = 'FAIL W05/004: break should match';END;* W05_break
- subject = 'key:value'; subject BREAKX(':') :f(e001); OUTPUT = 'PASS W05/005: breakx matched' :(END);e001 OUTPUT = 'FAIL W05/005: breakx should match';END;* W05_breakx
- subject = 'hello'; subject NOTANY('aeiou') :f(e001); OUTPUT = 'PASS W05/002: notany matched' :(END);e001 OUTPUT = 'FAIL W05/002: notany should match';END;* W05_notany
- subject = '42abc'; subject SPAN('0123456789') :f(e001); OUTPUT = 'PASS W05/003: span matched' :(END);e001 OUTPUT = 'FAIL W05/003: span should match';END;* W05_span

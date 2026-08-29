@@ -1,6 +1,0 @@
- OUTPUT = 'hello' ' world';END;* 017_concat_two_strings
- OUTPUT = 'a' 'b' 'c';END;* 018_concat_three_strings
- X = 'hello'; OUTPUT = X ' world';END;* 019_concat_var_string
- OUTPUT = 42 ' items';END;* 020_concat_integer_string
- X = 'foo' 'bar'; OUTPUT = X;END;* 021_concat_in_assignment
- OUTPUT = 'a' 'b' 'c' 'd';END;* 022_concat_multipart

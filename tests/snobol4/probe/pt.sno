@@ -1,3 +1,0 @@
- VOWEL = ANY('AEIOU'); 'VACUUM' ? VOWEL . N; OUTPUT = 'hit=' N :S(END); OUTPUT = 'miss';END;* pt_inline_1
- VOWEL = ANY('AEIOU'); PAT = VOWEL SPAN('BCDFGHJKLMNPQRSTVWXYZ'); 'VACUUM' ? VOWEL . N; OUTPUT = 'hit=' N :S(END); OUTPUT = 'miss';END;* pt_inline_1_full
- VOWEL = ANY('AEIOU'); 'VACUUM' ? ANY('AEIOU') . N; OUTPUT = 'hit=' N :S(END); OUTPUT = 'miss';END;* pt_inline_1_hand

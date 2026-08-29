@@ -1,4 +1,0 @@
-*---------------------------------------------------------- 1 W01_pat_lit_anchor
-PASS W01/003: unanchored substring match
-PASS W01/001: literal match succeeded
-PASS W01/002: literal mismatch failed correctly

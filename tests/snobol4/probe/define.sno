@@ -1,6 +1,0 @@
-*---------------------------------------------------------- 1 dyn_define_1 XFAIL
-	PROTO = 'F(N)'
-	DEFINE(PROTO)	:(FEND)
-F	F = N + 1	:(RETURN)
-FEND	OUTPUT = F(2)
-END

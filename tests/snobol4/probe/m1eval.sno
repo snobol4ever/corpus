@@ -1,2 +1,0 @@
- t = *(1 + 2); OUTPUT = EVAL(t);END;* m1e_eval_defer1_ctl
- t = *(1 + 2); t = EVAL(t); OUTPUT = t;END;* m1e_eval_selfassign_ctl
