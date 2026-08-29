@@ -1,7 +1,6 @@
 probe_loose_fwctx_fwctx_conjunction	read_suite refused: family.ref is shorter than family.sno at seq 11 (seq11)
 probe_loose_fwctx_fwctx_standalone_ctl	read_suite refused: family.ref is shorter than family.sno at seq 12 (seq12)
 probe_loose_fwctx_fwctx_suite_malformed	read_suite refused: family.ref segment after seq 2 (fwctx_standalone_ctl) has 11 line(s), too short to hold 62 trailing one-line entrie(s)
-probe_loose_gimpel_gim_double_include_once_control	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
 probe_loose_table_nested_chain_incr_d1	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
 probe_loose_table_nested_chain_incr_d2	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
 probe_loose_table_nested_chain_incr_d3	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)

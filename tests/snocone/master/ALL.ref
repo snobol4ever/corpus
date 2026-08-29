@@ -1,0 +1,1219 @@
+/*--------------------------------------------------------- 1 simple_assign_1 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_ILIT 1) (TT_ILIT 2))))
+/*-------------------------------------------------------- 2 simple_assign_10 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_VAR y)))
+/*-------------------------------------------------------- 3 simple_assign_11 */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 1)))
+/*-------------------------------------------------------- 4 simple_assign_12 */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 4)))
+/*-------------------------------------------------------- 5 simple_assign_13 */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 3)))
+/*-------------------------------------------------------- 6 simple_assign_14 */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 2)))
+/*-------------------------------------------------------- 7 simple_assign_15 */
+(STMT :subj (TT_AUGOP (TT_VAR x) (TT_ILIT 2)))
+/*-------------------------------------------------------- 8 simple_assign_17 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC f)))
+/*-------------------------------------------------------- 9 simple_assign_18 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC g (TT_ILIT 42))))
+/*------------------------------------------------------- 10 simple_assign_19 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC f (TT_ILIT 1) (TT_ILIT 2))))
+/*-------------------------------------------------------- 11 simple_assign_2 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_DIV (TT_ILIT 10) (TT_VAR b))))
+/*------------------------------------------------------- 12 simple_assign_20 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC h (TT_VAR a) (TT_VAR b) (TT_VAR c))))
+/*------------------------------------------------------- 13 simple_assign_21 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SEQ (TT_QLIT "hello") (TT_VAR name))))
+/*------------------------------------------------------- 14 simple_assign_23 */
+(STMT :subj (TT_DO_WHILE
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+  (TT_VAR x)
+))
+/*------------------------------------------------------- 15 simple_assign_25 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR c) (TT_ADD (TT_VAR a) (TT_VAR b))))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR c)))
+    )
+  )
+))
+/*------------------------------------------------------- 16 simple_assign_27 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+    )
+  )
+))
+/*------------------------------------------------------- 17 simple_assign_28 */
+(STMT :subj (TT_IF
+  (TT_VAR a)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)))
+    )
+  )
+))
+/*------------------------------------------------------- 18 simple_assign_29 */
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 2: source not resolvable>"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 3))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not resolvable>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 4)))
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*-------------------------------------------------------- 19 simple_assign_3 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_MUL (TT_VAR a) (TT_VAR b))))
+/*------------------------------------------------------- 20 simple_assign_30 */
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "4"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 4, line 1: source not resolvable>"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not resolvable>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+            )
+          )
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "3"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 3, line 1: source not resolvable>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 3)))
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*------------------------------------------------------- 21 simple_assign_31 */
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "5"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 5, line 2: source not resolvable>"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not resolvable>"))
+              (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+            )
+          )
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "2"))
+              (TT_ATTR :stno (TT_QLIT "4"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 4, line 2: source not resolvable>"))
+              (TT_ATTR :subj
+                (TT_IF
+                  (TT_FNC EQ (TT_VAR x) (TT_ILIT 3))
+                  (TT_PROGRAM
+                    (TT_STMT
+                      (TT_ATTR :line (TT_QLIT "1"))
+                      (TT_ATTR :stno (TT_QLIT "3"))
+                      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 1: source not resolvable>"))
+                      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 3)))
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*------------------------------------------------------- 22 simple_assign_32 */
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR b) (TT_ILIT 2)))
+    )
+  )
+))
+/*------------------------------------------------------- 23 simple_assign_34 */
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+))
+/*------------------------------------------------------- 24 simple_assign_35 */
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_SCAN (TT_VAR x) (TT_QLIT "foo"))))
+/*------------------------------------------------------- 25 simple_assign_36 */
+(STMT :subj (TT_ASSIGN (TT_SEQ (TT_VAR x) (TT_QLIT "foo")) (TT_QLIT "bar")))
+/*------------------------------------------------------- 26 simple_assign_37 */
+(STMT :subj (TT_ASSIGN (TT_SCAN (TT_VAR x) (TT_QLIT "foo")) (TT_QLIT "bar")))
+/*-------------------------------------------------------- 27 simple_assign_4 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_VAR a) (TT_ILIT 3))))
+/*------------------------------------------------------- 28 simple_assign_43 */
+(STMT :subj (TT_WHILE
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+))
+/*-------------------------------------------------------- 29 simple_assign_5 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_SUB (TT_VAR a) (TT_VAR b)) (TT_VAR c))))
+/*-------------------------------------------------------- 30 simple_assign_6 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
+/*-------------------------------------------------------- 31 simple_assign_9 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_QLIT "hi")))
+/*------------------------------------------------------- 32 simple_output_88 */
+hello world
+/*------------------------------------------------------- 33 simple_program_1 */
+(STMT :subj (TT_VAR x))
+/*------------------------------------------------------ 34 simple_program_10 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "p")
+  (TT_QLIT "p()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_PROC_FAIL))
+    )
+  )
+))
+/*------------------------------------------------------ 35 simple_program_11 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "q")
+  (TT_QLIT "q()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_NRETURN))
+    )
+  )
+))
+/*------------------------------------------------------ 36 simple_program_12 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN))
+    )
+  )
+))
+/*------------------------------------------------------ 37 simple_program_13 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "g")
+  (TT_QLIT "g(a,b,c)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR c)))
+    )
+  )
+))
+/*------------------------------------------------------ 38 simple_program_15 */
+(STMT :subj (TT_SEQ (TT_VAR x) (TT_QLIT "foo")))
+/*------------------------------------------------------ 39 simple_program_16 */
+(STMT :subj (TT_SEQ (TT_SEQ (TT_VAR x) (TT_QLIT "a")) (TT_QLIT "b")))
+/*------------------------------------------------------ 40 simple_program_17 */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_SEQ (TT_SEQ (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c"))))
+/*------------------------------------------------------ 41 simple_program_18 */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_SEQ (TT_VAR p) (TT_QLIT "foo"))))
+/*------------------------------------------------------ 42 simple_program_19 */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_QLIT "foo")))
+/*------------------------------------------------------- 43 simple_program_2 */
+(STMT :subj (TT_ILIT 42))
+/*------------------------------------------------------ 44 simple_program_20 */
+(STMT :subj (TT_FNC DATA (TT_QLIT "Empty()")))
+/*------------------------------------------------------ 45 simple_program_21 */
+(STMT :subj (TT_FNC DATA (TT_QLIT "Person(name,age,email)")))
+/*------------------------------------------------------ 46 simple_program_22 */
+(STMT :subj (TT_FNC DATA (TT_QLIT "Point(x,y)")))
+/*------------------------------------------------------- 47 simple_program_3 */
+(STMT :subj (TT_QLIT "hello"))
+/*------------------------------------------------------- 48 simple_program_6 */
+(STMT :subj (TT_FNC print (TT_VAR x)))
+/*------------------------------------------------------- 49 simple_program_8 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR a)))
+    )
+  )
+))
+/*------------------------------------------------------- 50 simple_program_9 */
+(STMT :subj (TT_DEFINE (TT_QLIT "f") (TT_QLIT "f()") (TT_PROGRAM)))
+/*------------------------------------------------------- 51 simple_assign_24 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
+(STMT :subj (TT_DO_WHILE
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_VAR x) (TT_ILIT 1))))
+    )
+  )
+  (TT_VAR x)
+))
+/*------------------------------------------------------- 52 simple_assign_26 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN (TT_ADD (TT_VAR a) (TT_VAR b))))
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC f (TT_ILIT 1) (TT_ILIT 2))))
+/*------------------------------------------------------- 53 simple_assign_42 */
+(STMT :subj (TT_WHILE
+  (TT_VAR a)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
+    )
+  )
+))
+(STMT :subj (TT_WHILE
+  (TT_VAR b)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)))
+    )
+  )
+))
+/*-------------------------------------------------------- 54 simple_assign_8 */
+(STMT :subj (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)))
+(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_ILIT 2)))
+/*------------------------------------------------------- 55 simple_output_10 */
+/*------------------------------------------------------- 56 simple_output_11 */
+hello world
+/*------------------------------------------------------- 57 simple_output_12 */
+42
+/*------------------------------------------------------ 58 simple_output_134 */
+/*------------------------------------------------------ 59 simple_output_135 */
+hello world
+/*------------------------------------------------------ 60 simple_output_137 */
+hello world
+/*------------------------------------------------------ 61 simple_output_138 */
+42
+/*------------------------------------------------------ 62 simple_output_139 */
+3.14
+/*------------------------------------------------------- 63 simple_output_14 */
+3.14
+/*------------------------------------------------------ 64 simple_output_140 */
+/*------------------------------------------------------ 65 simple_output_142 */
+/*------------------------------------------------------ 66 simple_output_143 */
+hello world
+/*------------------------------------------------------- 67 simple_output_20 */
+3
+/*------------------------------------------------------- 68 simple_output_21 */
+2
+/*------------------------------------------------------- 69 simple_output_22 */
+256
+/*------------------------------------------------------- 70 simple_output_23 */
+42
+/*------------------------------------------------------- 71 simple_output_24 */
+7
+/*------------------------------------------------------- 72 simple_output_26 */
+42 items
+/*------------------------------------------------------- 73 simple_output_27 */
+abc
+/*------------------------------------------------------- 74 simple_output_28 */
+hello world
+/*------------------------------------------------------- 75 simple_output_32 */
+world
+/*------------------------------------------------------- 76 simple_output_39 */
+    hi
+/*------------------------------------------------------- 77 simple_output_59 */
+/*------------------------------------------------------- 78 simple_output_60 */
+hello world
+/*------------------------------------------------------- 79 simple_output_62 */
+hello world
+/*------------------------------------------------------- 80 simple_output_63 */
+42
+/*------------------------------------------------------- 81 simple_output_64 */
+3.14
+/*------------------------------------------------------- 82 simple_output_65 */
+/*------------------------------------------------------- 83 simple_output_67 */
+/*------------------------------------------------------- 84 simple_output_68 */
+hello world
+/*------------------------------------------------------ 85 simple_program_14 */
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "p")
+  (TT_QLIT "p()")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 1: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN))
+    )
+  )
+))
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "q")
+  (TT_QLIT "q(x)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_RETURN (TT_VAR x)))
+    )
+  )
+))
+/*------------------------------------------------------- 86 simple_assign_16 */
+(STMT :subj (TT_FOR
+  (TT_ASSIGN (TT_VAR i) (TT_ILIT 0))
+  (TT_FNC LT (TT_VAR i) (TT_ILIT 10))
+  (TT_AUGOP (TT_VAR i) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_LOOP_BREAK))
+    )
+  )
+))
+/*------------------------------------------------------- 87 simple_assign_22 */
+(STMT :subj (TT_FOR
+  (TT_ASSIGN (TT_VAR i) (TT_ILIT 0))
+  (TT_FNC LT (TT_VAR i) (TT_ILIT 10))
+  (TT_AUGOP (TT_VAR i) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_LOOP_NEXT))
+    )
+  )
+))
+/*------------------------------------------------------- 88 simple_assign_33 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 1)))
+    )
+  )
+))
+(STMT :subj (TT_ASSIGN (TT_VAR z) (TT_ILIT 2)))
+/*------------------------------------------------------- 89 simple_assign_40 */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 0)))
+    )
+  )
+))
+/*------------------------------------------------------ 90 simple_output_127 */
+hello
+/*------------------------------------------------------ 91 simple_output_128 */
+42
+/*------------------------------------------------------ 92 simple_output_132 */
+hello
+/*------------------------------------------------------ 93 simple_output_133 */
+alpha
+beta
+/*------------------------------------------------------- 94 simple_output_16 */
+42
+/*------------------------------------------------------- 95 simple_output_19 */
+hello
+/*-------------------------------------------------------- 96 simple_output_2 */
+hello
+world
+42
+/*------------------------------------------------------- 97 simple_output_25 */
+foobar
+/*------------------------------------------------------- 98 simple_output_29 */
+hello world
+/*------------------------------------------------------- 99 simple_output_52 */
+hello
+/*------------------------------------------------------ 100 simple_output_53 */
+42
+/*------------------------------------------------------ 101 simple_output_57 */
+hello
+/*------------------------------------------------------ 102 simple_output_58 */
+alpha
+beta
+/*------------------------------------------------------ 103 simple_output_91 */
+value=42
+42 things
+/*------------------------------------------------------ 104 simple_program_5 */
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_LOOP_BREAK))
+    )
+  )
+))
+/*------------------------------------------------------ 105 simple_program_7 */
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_LOOP_NEXT))
+    )
+  )
+))
+/*------------------------------------------------------ 106 simple_assign_38 */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 10)))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_LOOP_BREAK))
+    )
+  )
+  (TT_ILIT 2)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "3"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 3, line 3: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 20)))
+    )
+  )
+))
+/*------------------------------------------------------ 107 simple_assign_39 */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 10)))
+    )
+  )
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 3: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 99)))
+    )
+  )
+))
+/*------------------------------------------------------ 108 simple_assign_41 */
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_ILIT 1)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 1, line 2: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 10)))
+    )
+  )
+  (TT_ILIT 2)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 3: source not resolvable>"))
+      (TT_ATTR :subj (TT_ASSIGN (TT_VAR y) (TT_ILIT 20)))
+    )
+  )
+))
+/*------------------------------------------------------- 109 simple_assign_7 */
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 42)))
+(STMT :subj (TT_ASSIGN (TT_VAR y) (TT_QLIT "hello")))
+(STMT :subj (TT_ASSIGN (TT_VAR z) (TT_VAR x)))
+(STMT :subj (TT_VAR w))
+/*----------------------------------------------------- 110 simple_output_100 */
+13
+/*----------------------------------------------------- 111 simple_output_101 */
+15
+/*----------------------------------------------------- 112 simple_output_102 */
+25
+/*----------------------------------------------------- 113 simple_output_103 */
+42
+/*----------------------------------------------------- 114 simple_output_122 */
+42
+/*----------------------------------------------------- 115 simple_output_129 */
+alpha
+/*------------------------------------------------------ 116 simple_output_13 */
+line one
+line two
+line three
+/*----------------------------------------------------- 117 simple_output_130 */
+/*----------------------------------------------------- 118 simple_output_131 */
+second
+/*----------------------------------------------------- 119 simple_output_136 */
+line one
+line two
+line three
+/*----------------------------------------------------- 120 simple_output_141 */
+line one
+line two
+line three
+/*------------------------------------------------------ 121 simple_output_15 */
+alpha
+/*------------------------------------------------------ 122 simple_output_17 */
+/*------------------------------------------------------ 123 simple_output_18 */
+second
+/*------------------------------------------------------ 124 simple_output_42 */
+hello
+/*------------------------------------------------------ 125 simple_output_43 */
+hello there
+/*------------------------------------------------------ 126 simple_output_54 */
+alpha
+/*------------------------------------------------------ 127 simple_output_55 */
+/*------------------------------------------------------ 128 simple_output_56 */
+second
+/*------------------------------------------------------ 129 simple_output_61 */
+line one
+line two
+line three
+/*------------------------------------------------------ 130 simple_output_66 */
+line one
+line two
+line three
+/*------------------------------------------------------ 131 simple_output_81 */
+1
+2
+3
+/*------------------------------------------------------ 132 simple_output_87 */
+Hello, World!
+/*------------------------------------------------------ 133 simple_output_89 */
+foo-bar-baz
+/*------------------------------------------------------ 134 simple_output_90 */
+hello
+hello
+/*------------------------------------------------------ 135 simple_output_98 */
+81
+/*----------------------------------------------------- 136 simple_output_105 */
+3
+4
+/*------------------------------------------------------ 137 simple_output_30 */
+3
+-2
+/*------------------------------------------------------ 138 simple_output_40 */
+b > a
+a < b
+cat = cat
+cat != dog
+/*------------------------------------------------------ 139 simple_output_41 */
+found
+/*------------------------------------------------------ 140 simple_output_45 */
+42
+/*------------------------------------------------------- 141 simple_output_6 */
+1
+2
+3
+4
+5
+/*------------------------------------------------------ 142 simple_output_73 */
+yes
+/*------------------------------------------------------ 143 simple_output_84 */
+done
+/*------------------------------------------------------ 144 simple_output_86 */
+1
+2
+3
+end
+/*------------------------------------------------------ 145 simple_output_93 */
+empty
+/*------------------------------------------------------ 146 simple_program_4 */
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "4"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :src (TT_QLIT "        <stmt 2, line 4: source not resolvable>"))
+      (TT_ATTR :subj
+        (TT_WHILE
+          (TT_FNC EQ (TT_VAR y) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "3"))
+              (TT_ATTR :stno (TT_QLIT "1"))
+              (TT_ATTR :src (TT_QLIT "        <stmt 1, line 3: source not resolvable>"))
+              (TT_ATTR :subj (TT_LOOP_BREAK))
+            )
+          )
+        )
+      )
+    )
+  )
+))
+/*----------------------------------------------------- 147 simple_output_121 */
+99
+/*------------------------------------------------------- 148 simple_output_3 */
+hello
+42
+hello
+/*------------------------------------------------------ 149 simple_output_33 */
+different
+/*------------------------------------------------------ 150 simple_output_49 */
+10
+42
+/*------------------------------------------------------- 151 simple_output_5 */
+big
+big
+three
+not four
+/*------------------------------------------------------ 152 simple_output_50 */
+7
+42
+/*------------------------------------------------------ 153 simple_output_72 */
+done
+/*------------------------------------------------------ 154 simple_output_75 */
+ran
+/*------------------------------------------------------ 155 simple_output_77 */
+1
+2
+3
+/*------------------------------------------------------ 156 simple_output_80 */
+done
+/*------------------------------------------------------ 157 simple_output_99 */
+18
+/*----------------------------------------------------- 158 simple_output_106 */
+10
+20
+5
+/*----------------------------------------------------- 159 simple_output_126 */
+the question
+/*------------------------------------------------------ 160 simple_output_31 */
+10
+20
+99
+/*------------------------------------------------------ 161 simple_output_44 */
+matched
+/*------------------------------------------------------- 162 simple_output_7 */
+55
+/*------------------------------------------------------ 163 simple_output_70 */
+no match
+/*------------------------------------------------------ 164 simple_output_71 */
+matched
+/*------------------------------------------------------ 165 simple_output_83 */
+1
+2
+4
+5
+/*------------------------------------------------------ 166 simple_output_94 */
+has value
+/*------------------------------------------------------ 167 simple_output_95 */
+not empty
+/*----------------------------------------------------- 168 simple_output_107 */
+hello
+world
+/*----------------------------------------------------- 169 simple_output_108 */
+3
+1
+10
+/*----------------------------------------------------- 170 simple_output_123 */
+3
+/*------------------------------------------------------- 171 simple_output_4 */
+7
+7
+42
+5
+256
+10
+15
+/*------------------------------------------------------- 172 simple_output_8 */
+49
+27
+/*------------------------------------------------------ 173 simple_output_82 */
+1
+2
+3
+done
+/*------------------------------------------------------ 174 simple_output_48 */
+0
+1
+8
+55
+/*------------------------------------------------------ 175 simple_output_85 */
+1-1
+2-1
+3-1
+/*------------------------------------------------------ 176 simple_output_37 */
+3 < 5
+5 <= 5
+7 >= 5
+/*------------------------------------------------------ 177 simple_output_78 */
+1
+2
+done
+/*------------------------------------------------------ 178 simple_output_79 */
+1
+2
+4
+5
+/*------------------------------------------------------- 179 simple_output_1 */
+55
+15
+/*------------------------------------------------------ 180 simple_output_34 */
+5 > 3
+3 not > 5
+/*------------------------------------------------------ 181 simple_output_35 */
+equal
+not equal
+/*------------------------------------------------------ 182 simple_output_36 */
+numeric
+not numeric
+/*------------------------------------------------------ 183 simple_output_38 */
+42 = 42
+42 != 99
+/*------------------------------------------------------ 184 simple_output_47 */
+13579
+/*------------------------------------------------------ 185 simple_output_74 */
+two
+/*------------------------------------------------------ 186 simple_output_76 */
+1-1
+2-1
+3-1
+/*----------------------------------------------------- 187 simple_output_125 */
+match
+no match
+/*------------------------------------------------------ 188 simple_output_46 */
+positive
+not positive
+/*----------------------------------------------------- 189 simple_output_115 */
+equal
+not equal
+/*----------------------------------------------------- 190 simple_output_117 */
+greater
+not greater
+/*----------------------------------------------------- 191 simple_output_119 */
+less
+not less
+/*----------------------------------------------------- 192 simple_output_120 */
+not equal
+equal
+/*----------------------------------------------------- 193 simple_output_109 */
+equal
+not equal
+/*----------------------------------------------------- 194 simple_output_111 */
+greater
+not greater
+/*----------------------------------------------------- 195 simple_output_113 */
+less
+not less
+/*----------------------------------------------------- 196 simple_output_114 */
+different
+same
+/*------------------------------------------------------- 197 simple_output_9 */
+7
+3
+5
+8
+/*----------------------------------------------------- 198 simple_output_116 */
+ge
+ge
+not ge
+/*----------------------------------------------------- 199 simple_output_118 */
+le
+le
+not le
+/*----------------------------------------------------- 200 simple_output_110 */
+ge
+ge
+not ge
+/*----------------------------------------------------- 201 simple_output_112 */
+le
+le
+not le
+/*----------------------------------------------------------------- 202 alt_1 */
+(STMT :subj (TT_SCAN (TT_VAR x) (TT_ALT (TT_QLIT "foo") (TT_QLIT "bar"))))
+/*----------------------------------------------------------------- 203 alt_2 */
+(STMT :subj (TT_ASSIGN (TT_SCAN (TT_VAR x) (TT_ALT (TT_QLIT "a") (TT_QLIT "b"))) (TT_QLIT "z")))
+/*-------------------------------------------------------- 204 dupl_replace_1 */
+ababab
+/*----------------------------------------------------- 205 replace_replace_1 */
+hEllO
+/*-------------------------------------------------------- 206 size_replace_1 */
+5
+/*------------------------------------------------------------ 207 indirect_1 */
+world
+/*------------------------------------------------------------ 208 indirect_2 */
+world
+/*---------------------------------------------------------------- 209 size_1 */
+hello world
+11
+/*----------------------------------------------------- 210 capture_replace_5 */
+ell
+/*----------------------------------------------------- 211 keyword_replace_2 */
+stno ok
+/*------------------------------------------------------- 212 table_replace_1 */
+Alice
+30
+SNOBOL4
+/*----------------------------------------------------- 213 keyword_replace_1 */
+anchored match ok
+anchor prevented mid-string match
+/*-------------------------------------------------------- 214 size_keyword_1 */
+256
+/*-------------------------------------------------------- 215 size_keyword_2 */
+256
+/*--------------------------------------------------- 216 trim_size_replace_1 */
+5
+/*--------------------------------------------- 217 replace_keyword_replace_1 */
+olleh
+HELLO
+/*--------------------------------------------------- 218 dupl_size_replace_1 */
+12
+abcabcabcabc
+/*------------------------------------------------ 219 size_keyword_replace_1 */
+256
+26
+26
+/*------------------------------------------------- 220 len_capture_replace_1 */
+hello
+/*--------------------------------------------- 221 len_imm_capture_replace_1 */
+hello
+/*------------------------------------------------ 222 span_capture_replace_2 */
+hello
+/*--------------------------------------------- 223 replace_keyword_replace_2 */
+HELLO
+WORLD
+/*------------------------------------------------- 224 any_capture_replace_1 */
+e
+/*----------------------------------------------- 225 break_capture_replace_1 */
+hello
+/*------------------------------------------------- 226 len_capture_replace_2 */
+abc
+/*---------------------------------------------- 227 notany_capture_replace_1 */
+h
+/*------------------------------------------------- 228 pos_capture_replace_1 */
+a
+a
+a
+/*------------------------------------------------ 229 rtab_capture_replace_1 */
+abcd
+/*------------------------------------------------ 230 span_capture_replace_1 */
+12345
+/*------------------------------------------------ 231 span_capture_replace_3 */
+forty-two
+/*------------------------------------ 232 datatype_replace_keyword_replace_1 */
+STRING
+INTEGER
+REAL
+/*------------------------------------------- 233 break_len_capture_replace_1 */
+cat
+cat
+cat
+/*--------------------------------------------- 234 pos_len_capture_replace_1 */
+hel
+/*-------------------------------------------- 235 rpos_len_capture_replace_1 */
+lo
+/*--------------------------------------------- 236 tab_len_capture_replace_1 */
+de
+/*------------------------------------------- 237 trim_size_keyword_replace_1 */
+22 characters, 2 lines read
+/*---------------------------------------- 238 trim_replace_keyword_replace_1 */
+hello world
+HELLO WORLD
+Hello world
+ok: icase hello
+ok: icase HELLO
+ok: icase HeLLo
+no match ok
+/*----------------------------------------------- 239 break_len_rem_replace_1 */
+John / Smith
+/*---------------------------------------------- 240 trim_dupl_size_replace_1 */
+                                     alpha
+                                      beta
+                                     gamma
+
+                                     delta
+                                    epsilon
+                                    epsilon
+/*----------------------------------------------- 241 simple_output_124 XFAIL */
+7
+/*----------------------------------------------- 242 simple_output_104 XFAIL */
+2
+/*------------------------------------------------ 243 simple_output_92 XFAIL */
+no match
+/*------------------------------------------------ 244 simple_output_96 XFAIL */
+no value
+/*------------------------------------------------ 245 simple_output_97 XFAIL */
+has value
+/*------------------------------------------------ 246 simple_output_51 XFAIL */
+world hello
+/*----------------------------------------------- 247 simple_output_148 XFAIL */
+12
+/*----------------------------------------------- 248 simple_output_149 XFAIL */
+33
+/*----------------------------------------------- 249 simple_output_145 XFAIL */
+0
+/*----------------------------------------------- 250 simple_output_147 XFAIL */
+12
+/*----------------------------------------------- 251 simple_output_146 XFAIL */
+0
+/*----------------------------------------------- 252 simple_output_144 XFAIL */
+
+
+Hello World!
+0
+1
+-1
+1.
+1
+1
+1.0
+I'm here
+"Quote of the day"
+0
+1
+1
+
+Z
+A
+AZ
+3
+7
+9
+7
+/*------------------------------------------------ 253 simple_output_69 XFAIL */
+
+
+Hello World!
+0
+1
+-1
+1.
+1
+1
+1.0
+I'm here
+"Quote of the day"
+0
+1
+1
+
+Z
+A
+AZ
+3
+7
+9
+7
+/*----------------------------------------------- 254 capture_replace_1 XFAIL */
+test
+/*----------------------------------------------- 255 capture_replace_2 XFAIL */
+wor
+/*----------------------------------------------- 256 capture_replace_3 XFAIL */
+hel
+/*----------------------------------------------- 257 capture_replace_4 XFAIL */
+ell
+/*---------------------------------------------- 258 datatype_replace_1 XFAIL */
+COLOR
+255
+/*------------------------------------------------- 259 array_replace_1 XFAIL */
+first
+third
+fifth
+/*------------------------------------------------- 260 array_replace_2 XFAIL */
+1
+4
+9
+16
+25
+/*---------------------------------------------- 261 indirect_replace_1 XFAIL */
+[]
+/*------------------------------------------ 262 trim_keyword_replace_1 XFAIL */
+7
+3
+3.5
+2.1
+42
+0
+1
+-1
+4
+25
+12
+/*----------------------------------------- 263 break_len_rem_replace_2 XFAIL */
+3
+c
+b
+1
+a
+0
+empty ok
+x
+1
+x
+99
+world
+hello
+/*----------------------------------------- 264 break_any_pos_replace_1 XFAIL */
+****hi
+hi****
+hello
+hello
+hello
+hihihi
+contains ok
+startswith ok
+endswith ok
+no startswith ok
+2
+0

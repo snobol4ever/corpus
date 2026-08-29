@@ -1,0 +1,6 @@
+parser_class_and_main	read_suite refused: family.ref is shorter than family.sno at seq 4 (seq4)
+parser_class_basic	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
+parser_class_fields	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
+parser_class_method_param	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
+parser_class_multi_method	read_suite refused: family.ref is shorter than family.sno at seq 7 (seq7)
+parser_class_twigil	read_suite refused: family.ref is shorter than family.sno at seq 2 (seq2)
