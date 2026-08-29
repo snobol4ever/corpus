@@ -180,9 +180,15 @@ session could find.** Individually measured (not assumed), grouped by signature:
   given the two modes are supposed to share one frontend — not traced past confirming the repro line;
   worth a FINDING if picked up, since "the parser gives different answers depending on which mode asked"
   is a bigger claim than this KEEP.md should assert without tracing it.
-- `rung36_jcon_kwds`, `rung36_jcon_subjpos` — m3 `PASS`, m4 `FAIL` (output mismatch, not a crash). Same
-  *shape* of finding as `rung38_cset_embedded_nul` elsewhere in this tree (m3/m4 correctness
-  divergence against a real oracle) — not confirmed to be the SAME cause, not traced.
+- `rung36_jcon_kwds`, `rung36_jcon_subjpos` — m3 `PASS`, m4 `FAIL`. **Root-caused (seat12, 2026-08-29,
+  confirmed causally not just by inspection): `&pos`'s DEFAULT value only.** `&pos` is `r14+1`
+  (`bb_keyword_icon.cpp`); mode-3 zeroes `r14` before entry via `rt_outer_call_delta0` (`rt.c:52-59`),
+  mode-4's equivalent entry path (`scrip.c`'s `else` branch when `icn_cells_graph` — the default Icon
+  shape) never does. Isolated to the very first, unassigned read of `&pos` in each file — everything
+  after the program's first `&pos :=` assignment matches exactly, both witnesses. Confirmed causally
+  with a throwaway 1-line local fix (built, byte-identical to `.expected`, reverted — no net diff).
+  NOT the same cause as `rung38_cset_embedded_nul` (that's a different, unrelated m3/m4 divergence).
+  See `FINDING-2026-08-29-seat12-icon-pos-keyword-reads-garbage-in-mode-4-r14-not-zeroed-at-entry.md`.
 - `rung36_jcon_prepro` — **NOT actually red, and not a SCRIP bug either — a HARNESS limitation, caught
   by `byte-equal-or-no-delete` doing its job.** First pass here wrongly said "missing `prepro.dat`" —
   wrong: `prepro.dat` (and `fncs1.dat`) DO exist in this directory, just without a `rung36_` prefix, so
