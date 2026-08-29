@@ -368,7 +368,182 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#---------------------------------------------------------- 7 rung36_jcon_htprep
+#----------------------------------------------------------- 7 rung36_jcon_fncs1
+ ----> &null
+f := open("foo.baz","w") ----> file(foo.baz)
+write(f,"hello world") ----> "hello world"
+close(f) ----> file(foo.baz)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+)(niam erudecorp
+{ od 001 ot 1 yreve   
+)snoitcelloc&(etirw      
+od 001 ot 1 yreve      
+)0001(tsil         
+}      
+)"... gnitcelloc"(etirw   
+)(tcelloc   
+{ od )0001 ot 1,"x"(lper =: s yreve   
+))esacl&(gnirts(tesc      
+)(elbat =: t      
+)]s[(tes      
+]5 : 2[s      
+}      
+dne
+every write(reverse(!F)) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+every write(map(!F)) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+pr-c-d-r- m--n()
+   -v-ry 1 t- 100 d- {
+      wr-t-(&c-ll-ct--ns)
+      -v-ry 1 t- 100 d-
+         l-st(1000)
+      }
+   wr-t-("c-ll-ct-ng ...")
+   c-ll-ct()
+   -v-ry s := r-pl("x",1 t- 1000) d- {
+      cs-t(str-ng(&lc-s-))
+      t := t-bl-()
+      s-t([s])
+      s[2 : 5]
+      }
+-nd
+every write(map(!F,&cset || "aeiou",&cset || "-----")) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+procedureumain()
+uuueveryu1utou100udou{
+uuuuuuwrite(&collections)
+uuuuuueveryu1utou100udo
+uuuuuuuuulist(1000)
+uuuuuu}
+uuuwrite("collectingu...")
+uuucollect()
+uuueveryusu:=urepl("x",1utou1000)udou{
+uuuuuucset(string(&lcase))
+uuuuuutu:=utable()
+uuuuuuset([s])
+uuuuuus[2u:u5]
+uuuuuu}
+end
+every write(map(!F,&cset || "     ",&cset || "aeiou")) ----> none
+close(F) ----> file(fncs1.dat)
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while writes(reads(f)) ----> none
+close(f) ----> file(fncs1.dat)
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while writes(reads(f,10)) ----> none
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while write(read(f)) ----> none
+close(f) ----> file(fncs1.dat)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+0.25  1.318 0.252 0.244 0.083 0.968 0.247 0.255 0.5   1.284 -1.38 -1.26 
+0.5   1.047 0.523 0.463 0.165 0.877 0.479 0.546 0.707 1.648 -0.69 -0.63 
+0.75  0.722 0.848 0.643 0.244 0.731 0.681 0.931 0.866 2.117 -0.28 -0.26 
+1.0   0.0   1.570 0.785 0.321 0.540 0.841 1.557 1.0   2.718 0.0   0.0   
+1.25              0.896 0.394 0.315 0.948 3.009 1.118 3.490 0.223 0.203 
+1.5               0.982 0.463 0.070 0.997 14.10 1.224 4.481 0.405 0.369 
+1.75              1.051 0.528 -0.17 0.983 -5.52 1.322 5.754 0.559 0.509 
+2.0               1.107 0.588 -0.41 0.909 -2.18 1.414 7.389 0.693 0.630 
+2.25              1.152 0.643 -0.62 0.778 -1.23 1.5   9.487 0.810 0.738 
+2.5               1.190 0.694 -0.80 0.598 -0.74 1.581 12.18 0.916 0.834 
+2.75              1.222 0.741 -0.92 0.381 -0.41 1.658 15.64 1.011 0.920 
+3.0               1.249 0.785 -0.98 0.141 -0.14 1.732 20.08 1.098 1.0   
+3.25              1.272 0.825 -0.99 -0.10 0.108 1.802 25.79 1.178 1.072 
+3.5               1.292 0.862 -0.93 -0.35 0.374 1.870 33.11 1.252 1.140 
+3.75              1.310 0.896 -0.82 -0.57 0.696 1.936 42.52 1.321 1.203 
+4.0               1.325 0.927 -0.65 -0.75 1.157 2.0   54.59 1.386 1.261 
+4.25              1.339 0.956 -0.44 -0.89 2.006 2.061 70.10 1.446 1.317 
+4.5               1.352 0.982 -0.21 -0.97 4.637 2.121 90.01 1.504 1.369 
+4.75              1.363 1.007 0.037 -0.99 -26.5 2.179 115.5 1.558 1.418 
+5.0               1.373 1.030 0.283 -0.95 -3.38 2.236 148.4 1.609 1.464 
+5.25              1.382 1.051 0.512 -0.85 -1.67 2.291 190.5 1.658 1.509 
+5.5               1.390 1.071 0.708 -0.70 -0.99 2.345 244.6 1.704 1.551 
+5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
+6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
+6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
+#---------------------------------------------------------- 8 rung36_jcon_htprep
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
@@ -443,7 +618,7 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
-#----------------------------------------------------------- 8 rung36_jcon_kross
+#----------------------------------------------------------- 9 rung36_jcon_kross
 
 
 p
@@ -603,7 +778,7 @@ gaggle
      e
      s
 gaggle
-#------------------------------------------------------------ 9 rung36_jcon_kwds
+#----------------------------------------------------------- 10 rung36_jcon_kwds
   &allocated: 0
   &allocated: 0
   &allocated: 0
@@ -680,7 +855,7 @@ gaggle
      &window: &null
           &x: 0
           &y: 0
-#----------------------------------------------------------- 10 rung36_jcon_left
+#----------------------------------------------------------- 11 rung36_jcon_left
 a
 d
 g
@@ -705,7 +880,7 @@ mno
 237>
 stu<>
 vwx><>
-#--------------------------------------------------------- 11 rung36_jcon_lexcmp
+#--------------------------------------------------------- 12 rung36_jcon_lexcmp
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -742,7 +917,7 @@ vwx><>
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#---------------------------------------------------------- 12 rung36_jcon_lists
+#---------------------------------------------------------- 13 rung36_jcon_lists
 -2
 -2
 a. [0]
@@ -795,7 +970,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#------------------------------------------------------------ 13 rung36_jcon_map
+#------------------------------------------------------------ 14 rung36_jcon_map
 abcdef
 abcdef
 aBcDeF
@@ -806,7 +981,7 @@ a2c4e6
 A@C$E^
 
 cbcdef
-#------------------------------------------------------- 14 rung36_jcon_mathfunc
+#------------------------------------------------------- 15 rung36_jcon_mathfunc
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -886,11 +1061,11 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#-------------------------------------------------------- 15 rung36_jcon_meander
+#-------------------------------------------------------- 16 rung36_jcon_meander
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#--------------------------------------------------------- 16 rung36_jcon_mffsol
+#--------------------------------------------------------- 17 rung36_jcon_mffsol
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -960,7 +1135,7 @@ AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABAB
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#--------------------------------------------------------- 17 rung36_jcon_mindfa
+#--------------------------------------------------------- 18 rung36_jcon_mindfa
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -1361,7 +1536,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#-------------------------------------------------------- 18 rung36_jcon_numeric
+#-------------------------------------------------------- 19 rung36_jcon_numeric
 integer(2) ----> 2
 integer("2") ----> 2
 integer(" 2") ----> 2
@@ -1473,7 +1648,7 @@ abs(0) ----> 0
 -1 ~= -0 ----> 0
 36 ^ -9 ----> 0
 -36 ^ -9 ----> 0
-#---------------------------------------------------------- 19 rung36_jcon_parse
+#---------------------------------------------------------- 20 rung36_jcon_parse
 19683
 1
 -2
@@ -1485,7 +1660,7 @@ abs(0) ----> 0
 2
 3
 xy
-#--------------------------------------------------------- 20 rung36_jcon_prepro
+#--------------------------------------------------------- 21 rung36_jcon_prepro
 abc,def,ghi,xx,yy: 123 456 987 1 2
 prepro.dat here
 xyzzy: 47
@@ -1493,7 +1668,7 @@ abc,def,ghi,xx,yy: 321 456 987 1 2
 found feature: ASCII
 no feature:    EBCDIC
 done
-#--------------------------------------------------------- 21 rung36_jcon_primes
+#--------------------------------------------------------- 22 rung36_jcon_primes
 2
 3
 5
@@ -1519,7 +1694,7 @@ done
 83
 89
 97
-#--------------------------------------------------------- 22 rung36_jcon_queens
+#--------------------------------------------------------- 23 rung36_jcon_queens
 6-Queens:
 solution: 1
   -------------------------
@@ -1580,7 +1755,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#--------------------------------------------------------- 23 rung36_jcon_random
+#--------------------------------------------------------- 24 rung36_jcon_random
 
          0  i  2114
  453816694  i  4124
@@ -1646,7 +1821,7 @@ solution: 4
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#--------------------------------------------------------- 24 rung36_jcon_record
+#--------------------------------------------------------- 25 rung36_jcon_record
 1 2
 3 4
 5 6
@@ -1662,7 +1837,7 @@ solution: 4
 3
 7
  11 22 73 74 
-#---------------------------------------------------------- 25 rung36_jcon_right
+#---------------------------------------------------------- 26 rung36_jcon_right
 c
 f
 i
@@ -1687,7 +1862,7 @@ mno
 <237
 <>stu
 <><vwx
-#---------------------------------------------------------- 26 rung36_jcon_roman
+#---------------------------------------------------------- 27 rung36_jcon_roman
 XIII
 IV
 VI
@@ -1696,14 +1871,14 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#---------------------------------------------------------- 27 rung36_jcon_sieve
+#---------------------------------------------------------- 28 rung36_jcon_sieve
 There are 168 primes in the first 1000 integers.
-#-------------------------------------------------------- 28 rung36_jcon_statics
+#-------------------------------------------------------- 29 rung36_jcon_statics
 &null
 1
 1
 2
-#--------------------------------------------------------- 29 rung36_jcon_string
+#--------------------------------------------------------- 30 rung36_jcon_string
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -1935,7 +2110,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#-------------------------------------------------------- 30 rung36_jcon_string1
+#-------------------------------------------------------- 31 rung36_jcon_string1
 type string
 *s  5
 s:  abcde
@@ -1973,7 +2148,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#-------------------------------------------------------- 31 rung36_jcon_subjpos
+#-------------------------------------------------------- 32 rung36_jcon_subjpos
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -2036,7 +2211,7 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#------------------------------------------------------ 32 rung36_jcon_substring
+#------------------------------------------------------ 33 rung36_jcon_substring
 A. a
 B. a
 B. b
@@ -2405,7 +2580,7 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#---------------------------------------------------------- 33 rung36_jcon_table
+#---------------------------------------------------------- 34 rung36_jcon_table
    initial : 0 :
  >> 
  >> 3 3 
@@ -2424,7 +2599,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#----------------------------------------------------------- 34 rung36_jcon_trim
+#----------------------------------------------------------- 35 rung36_jcon_trim
 "abc"
 "abc"
 "abc  "
@@ -2435,7 +2610,7 @@ v 7
 ""
 ""
 ""
-#-------------------------------------------------------- 35 rung36_jcon_wordcnt
+#-------------------------------------------------------- 36 rung36_jcon_wordcnt
 A                   2
 B                   1
 D                   1

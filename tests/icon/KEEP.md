@@ -140,20 +140,31 @@ unchanged, before and after — the delta is fully explained by this one fix, no
 **14 had NO `.xfail` marker at all — genuinely new findings, not previously documented anywhere this
 session could find.** Individually measured (not assumed), grouped by signature:
 
-- `rung36_jcon_cxprimes`, `rung36_jcon_recogn`, `rung36_jcon_scan2` — SIGSEGV (signal 11), both modes,
-  content confirmed `suspend`-or-alternation-based generator/backtracking code. Same class as rung03
-  above (`icon-n2-generator-activation-frames`) — `recogn` (and `genqueen`, below) specifically already
-  have their OWN dedicated task, `icn-recogn-genqueen-suspend-shape.task.md` (state OPEN, un-parked by
-  Lon 2026-08-28, depends on `icon-n2-generator-activation-frames`) — cite that row for those two, not
-  this KEEP.md, if picking the bug up. ⭐ **`cxprimes`/`scan2` CONFIRMED, not just plausible (seat08,
-  2026-08-29, re-tested against HEAD post the region-resident-protocol landing, `98b6e12c`/`38a0119b`):
-  both still crash — `cxprimes`'s `sieve` suspends inside a `while` loop (maps to icon-n2's own
-  "suspend_loop" witness shape, still-unfixed as of that landing; crashes non-deterministically,
-  rc=132/139 across identical runs), `scan2` crashes deterministically entering its "non-local"
-  section, whose only content (`every write(foo()) do write(move(1))`, foo()'s only call site) is
-  exactly icon-n2's "suspend_after" shape (suspend, then a body call after resume).** Mailed ceo
-  (`icon-n2-cxprimes-scan2-corroboration`) as two concretely-typed witnesses for that row's own
-  remaining work — not this row's to fix, characterization only.
+- `rung36_jcon_cxprimes`, `rung36_jcon_recogn`, `rung36_jcon_scan2` — content confirmed
+  `suspend`-or-alternation-based generator/backtracking code, same class as rung03 above
+  (`icon-n2-generator-activation-frames`) — `recogn` (and `genqueen`, below) specifically already have
+  their OWN dedicated task, `icn-recogn-genqueen-suspend-shape.task.md` (QUEUE.tsv: rank 1, unassigned,
+  `PARKED-AWAITING:icon-n2-generator-activation-frames` — itself not yet unparked) — cite that row for
+  those two, not this KEEP.md, if picking the bug up.
+  ⛔ **STALE AS OF 2026-08-29 (seat02): only `cxprimes` still SIGSEGVs. `scan2` and `recogn` have BOTH
+  changed shape from crash to clean-exit-wrong-output** — this is the exact transition seat16's
+  2026-08-29 task-file NEXT already flagged after `SCRIP_ICN_GENFRAME2` went default-ON (`0b35b5fc`);
+  this bullet's SIGSEGV wording simply predates that landing and was never corrected here. Re-verified
+  fresh against today's pristine build (SCRIP HEAD past `a63cef7f`):
+  - `cxprimes` — still **SIGSEGV, both modes** (rc=139; non-deterministic per seat08's own note, so a
+    different rc on a future run is not itself a sign of drift). `sieve`'s suspend-inside-`while` shape
+    unchanged.
+  - `scan2` — **no longer crashes.** Clean exit (rc=0), both modes, but output diverges from
+    `.expected` starting partway through (wrong values, not merely short).
+  - `recogn` — **no longer crashes.** Clean exit (rc=0), both modes, but prints NOTHING where
+    `.expected` has 8 lines — the program silently does no work rather than the wrong work.
+  `cxprimes` and `scan2` are now formally declared via this directory's own `PENDING.md`
+  (`ROW: icon-n2-generator-activation-frames`), not merely named here — this KEEP.md bullet is
+  historical/narrative context now, the gate itself reads `PENDING.md`. `recogn` stays undeclared here
+  deliberately (see `PENDING.md`'s own text for why: its more precise direct blocker is
+  `icn-recogn-genqueen-suspend-shape`, and one `PENDING.md` names only one row). Mailed ceo
+  (`icon-n2-cxprimes-scan2-corroboration`, seat08 2026-08-29) as two concretely-typed witnesses for that
+  row's own remaining work — not this row's to fix, characterization only.
 - `rung36_jcon_genqueen` — FAIL (output mismatch, rc=1), both modes. The other half of
   `icn-recogn-genqueen-suspend-shape.task.md` (currently `rc=1 ERROR 246 -- stack overflow` per that
   task's own latest measurement, not a SIGSEGV — re-check its own NEXT before trusting this summary,
@@ -220,15 +231,26 @@ session could find.** Individually measured (not assumed), grouped by signature:
   (the `.stdin` was a stray near-duplicate of `prepro.dat`, never actually used as program stdin — the
   program takes none). `prepro.dat` itself stays in this directory permanently (not orphaned) — it is
   the companion file the converted entry still needs at grading time, same as it did as a loose file.
-- `rung36_jcon_fncs1` — genuinely still red **even with `fncs1.dat` present** (the missing-fixture
-  hypothesis was wrong for this one too, but doesn't explain it away like `prepro`). Diffed carefully:
-  the first `open("fncs1.dat")`/read cycle matches `.expected` exactly; every SUBSEQUENT
-  `open("fncs1.dat")` in the same program run (it reopens the same path several times, apparently to
-  re-read its own source under different string transforms) returns `&fail` in SCRIP where the
-  reference keeps succeeding. Smells like a real repeated-open/GC-interaction bug (the program also
-  calls `collect()` between opens), not investigated past this precise repro. `rung36_jcon_fncs`
-  (without the `1`) already carries a `.xfail` marker for its own reason, unconfirmed whether it's
-  related.
+- `rung36_jcon_fncs1` — **CONVERTED (seat02, 2026-08-29), no longer loose.** The repeated-open/GC bug
+  this bullet used to describe (`open("fncs1.dat")` returning `&fail` on the second+ reopen, where the
+  reference keeps succeeding) is **no longer reproducing** — re-verified fresh against today's pristine
+  build (SCRIP HEAD past `a63cef7f`), PASS/PASS both modes, both with and without its stray `.stdin`
+  sidecar (confirmed genuinely unused, same "near-duplicate of the real companion" shape as `prepro`'s
+  own `.stdin` — `fncs1.icn` only ever calls `read(f)` on its own opened file handle, never touches
+  stdin). Some intervening SCRIP commit fixed whatever this bullet's repro used to hit; nothing here
+  traced which one (same as `diffwrds`' stale-marker precedent above — the fix predates the marker's
+  removal, not vice versa). Two independent harness gaps this fix depended on (the two-harness-gap
+  landing, `SCRIP 022f3a00`, hq_B 2026-08-29: cwd-must-be-the-source-directory, and `open()`-as-a-
+  companion-reference alongside `$include`) were already landed before this session; this session only
+  did the conversion itself. Staged as entry 36 of `rung36_all.icn`/`.ref`/`.in` (alphabetical position,
+  between `endetab` and `htprep`) via the same careful staged-copy method as `kwds`/`subjpos`/`prepro`
+  before it: built on a scratch copy, round-tripped (all 35 originals verified byte-identical, not just
+  the new entry), regraded 72/72 (36 entries × 2 modes) on the staged copy, THEN installed, THEN
+  independently regraded 72/72 again from the real, freshly-read installed files. Orphaned loose
+  `rung36_jcon_fncs1.{icn,expected,stdin}` removed; `.s` removed too (RULES.md: `.s` artifacts live only
+  beside benchmarks/demos). `fncs1.dat` stays in this directory permanently, same as `prepro.dat` — it
+  is the companion the converted entry still needs at grading time. `rung36_jcon_fncs`
+  (without the `1`) is unrelated, still carries its own `.xfail` marker, still loose, not touched here.
 - `rung36_jcon_args` — **CORRECTED 2026-08-29 (seat14): the prior reason above was wrong.** The file
   never reads command-line arguments (`main()` takes zero parameters; it only calls its own local
   procedures with varying literal arg counts) — no harness capability is needed to test it. Runs to
