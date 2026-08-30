@@ -1,8 +1,0 @@
-	Word = SPAN("abcdefghijklmnopqrstuvwxyz")
-	Num = SPAN("0123456789")
-	Item = Word | Num
-	Line = ARBNO(*Item " ")
-	"go 42 stop " POS(0) Line RPOS(0)	:S(Y)F(N)
-Y	OUTPUT = "match"	:(END)
-N	OUTPUT = "nomatch"
-END

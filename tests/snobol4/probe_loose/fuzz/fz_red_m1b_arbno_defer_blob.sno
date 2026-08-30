@@ -1,8 +1,0 @@
-*  s188 seat4 REDUCTION of fz_segv_24 (row fuzz-segv-batch).  MECHANISM: M1 ARBNO-OVER-DEFER RE-ENTRY (blob road -- no FENCE needed)
-*  Necessary ingredients, each measured by ablation: outer ARBNO + the defer + the pattern reached through a STORED pattern *P. Written INLINE ('aa a' ARBNO(*G0) RPOS(0)) it is GREEN -- the road is the ingredient.
-          G0            =  ARBNO(TAB(1))
-          P             =  ARBNO(*G0)
-          'aa a' *P RPOS(0)                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

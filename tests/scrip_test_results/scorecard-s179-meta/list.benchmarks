@@ -1,0 +1,15 @@
+/home/claude/corpus/benchmarks/snobol4/arith_loop.sno
+/home/claude/corpus/benchmarks/snobol4/array_sum.sno
+/home/claude/corpus/benchmarks/snobol4/eval_fixed.sno
+/home/claude/corpus/benchmarks/snobol4/fibonacci.sno
+/home/claude/corpus/benchmarks/snobol4/func_call.sno
+/home/claude/corpus/benchmarks/snobol4/indirect_dispatch.sno
+/home/claude/corpus/benchmarks/snobol4/mixed_workload.sno
+/home/claude/corpus/benchmarks/snobol4/op_dispatch.sno
+/home/claude/corpus/benchmarks/snobol4/pattern_bt.sno
+/home/claude/corpus/benchmarks/snobol4/roman.sno
+/home/claude/corpus/benchmarks/snobol4/string_concat.sno
+/home/claude/corpus/benchmarks/snobol4/string_manip.sno
+/home/claude/corpus/benchmarks/snobol4/string_pattern.sno
+/home/claude/corpus/benchmarks/snobol4/table_access.sno
+/home/claude/corpus/benchmarks/snobol4/var_access.sno

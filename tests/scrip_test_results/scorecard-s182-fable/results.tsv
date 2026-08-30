@@ -1,0 +1,122 @@
+csnobol4_suite	programs/csnobol4-suite/atn.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/alt2.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/any.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/a.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/alph.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/base.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/bench.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	
+csnobol4_suite	programs/csnobol4-suite/bal.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/alt1.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/8bit.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/cat.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/case1.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/breakx.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/char.sno	DIFF	DIFF	0	0	
+csnobol4_suite	programs/csnobol4-suite/case2.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/comment.sno	RC1	COMPILE_FAIL	0	0	
+csnobol4_suite	programs/csnobol4-suite/collect2.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/100func.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/crlf.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/diag1.sno	RC1	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/collect.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/conv2.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/contin.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/convert.sno	DIFF	DIFF	0	0	
+csnobol4_suite	programs/csnobol4-suite/digits.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/dump.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/float2.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/fact.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/err.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/factor.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/alis.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/float.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/file.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/fun1.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/genc.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/fun2.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/ftrace.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/func2.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/include2.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/include3.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/include4.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/include.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/function.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/json1.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/hello.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/hide.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/ind.sno	DIFF	DIFF	0	0	
+csnobol4_suite	programs/csnobol4-suite/intval.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/lexcmp.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	
+csnobol4_suite	programs/csnobol4-suite/labelcode.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/label.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/line2.sno	ORACLE_FAIL	ORACLE_FAIL	0	0	sbl rc=1
+csnobol4_suite	programs/csnobol4-suite/len.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/line.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/lgt.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/loaderr.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/longline.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/local.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/longrec.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/loop.sno	PASS	PASS	0	1	
+csnobol4_suite	programs/csnobol4-suite/match3.sno	PASS	PASS	0	1	
+csnobol4_suite	programs/csnobol4-suite/match2.sno	PASS	PASS	0	1	
+csnobol4_suite	programs/csnobol4-suite/match4.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/ndbm.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/matchloop.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/match.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/maxint.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/end.sno	SIG6	COMPILE_FAIL	1	0	
+csnobol4_suite	programs/csnobol4-suite/openo.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/ops.sno	DIFF	DIFF	0	0	
+csnobol4_suite	programs/csnobol4-suite/ord.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/pad.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/popen2.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/popen.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/pow.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/preload1.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/preload2.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/preload3.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/preload4.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/punch.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/random.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/repl.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/reverse.sno	DIFF	DIFF	0	0	
+csnobol4_suite	programs/csnobol4-suite/8bit2.sno	RC1	RC1	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/roman.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/diag2.sno	RC1	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/setexit2.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/setexit3.sno	DIFF	DIFF	0	0	
+csnobol4_suite	programs/csnobol4-suite/setexit4.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/setexit5.sno	RC1	RC1	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/keytrace.sno	RC1	RC1	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/setexit7.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/setexit.sno	RC1	RC1	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/noexec.sno	PASS	PASS	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/space2.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/space.sno	RC1	RC1	0	0	
+csnobol4_suite	programs/csnobol4-suite/spit.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/str.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/substr.sno	DIFF	DIFF	0	1	
+csnobol4_suite	programs/csnobol4-suite/sudoku.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/tab.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/time.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/trace1.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/trace2.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/trfunc.sno	DIFF	DIFF	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/trim0.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/trim1.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/t.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/uneval2.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/uneval.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/unsc.sno	PASS	PASS	0	0	
+csnobol4_suite	programs/csnobol4-suite/scanerr.sno	RC1	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/update.sno	RC1	RC1	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/vdiffer.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/words1.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/words.sno	PASS	PASS	0	0	pin!=live
+csnobol4_suite	programs/csnobol4-suite/setexit6.sno	RC1	RC1	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/sleep.sno	COMPILE_FAIL	COMPILE_FAIL	0	0	pin-only
+csnobol4_suite	programs/csnobol4-suite/nqueens.sno	SIG11	TIMEOUT	3	20	
+csnobol4_suite	programs/csnobol4-suite/openo2.sno	TIMEOUT	TIMEOUT	20	20	pin!=live
+csnobol4_suite	programs/csnobol4-suite/openi.sno	TIMEOUT	TIMEOUT	20	20	pin!=live
+csnobol4_suite	programs/csnobol4-suite/rewind1.sno	TIMEOUT	TIMEOUT	20	20	pin!=live

@@ -1,5 +1,0 @@
-*  RTX-FUNC-11 witness — runtime-created variables via indirect ($) assignment
-*  arriving through -INCLUDE.  Oracle: clean.  SCRIP m3/m4: SIGSEGV.
--INCLUDE 'rtx11_dynvar.inc'
-	OUTPUT = 'done'
-END

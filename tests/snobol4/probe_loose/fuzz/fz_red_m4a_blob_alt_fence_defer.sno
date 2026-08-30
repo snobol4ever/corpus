@@ -1,8 +1,0 @@
-*  s188 seat4 REDUCTION of fz_segv_09 (row fuzz-segv-batch).  MECHANISM: M4 BLOB-ROAD FENCE/DEFER ADJACENCY
-*  Necessary ingredients, each measured by ablation: the pattern must be reached through a STORED pattern *P + an ALT arm holding FENCE(...) adjacent to a defer. The IDENTICAL TEXT written inline in the match statement is GREEN; inlining the defer is GREEN; dropping the inner FENCE is GREEN; the outer FENCE is NOT needed.
-          G0            =  POS(0)
-          P             =  (FENCE(POS(2)) *G0 | LEN(3))
-          'a+a+a' POS(0) *P                          :S(OK)F(NO)
-OK        OUTPUT = 'match'                      :(END)
-NO        OUTPUT = 'nomatch'
-END

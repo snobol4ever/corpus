@@ -1,5 +1,0 @@
-        X = &FULLSCAN
-        &FULLSCAN = 1
-        Y = &TRIM
-        &TRIM = 0
-END

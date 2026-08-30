@@ -1,0 +1,14 @@
+probe_loose_callout_claws5_call	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_callout_claws5_cap	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_fwctx_fwctx_standalone_ctl	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
+probe_loose_table_nested_chain_incr_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_incr_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_incr_d3	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_read_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_read_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_read_d3	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_claws5_l1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_claws5_l2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_ident_guard_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_value_type_tbl	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+config_probe_loose_fwctx_fwctx_suite_malformed	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
