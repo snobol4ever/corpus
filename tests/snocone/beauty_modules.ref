@@ -1,0 +1,187 @@
+/*---------------------------------------------------------- 1 test_Gen XFAIL */
+PASS: 1 GetLevel initial
+PASS: 2 SetLevel/GetLevel
+PASS: 3 IncLevel default
+PASS: 4 IncLevel +3
+PASS: 5 DecLevel default
+PASS: 6 DecLevel -3
+hello
+PASS: 7 Gen flushed buffer
+PASS: 8 Gen buffers
+/*--------------------------------------------------------- 2 test_Qize XFAIL */
+PASS: 1 SQize basic
+PASS: 2 SQize empty
+PASS: 3 DQize basic
+PASS: 4 SqlSQize basic
+PASS: 5 SqlSQize doubles quote
+/*---------------------------------------------------------- 3 test_ReadWrite */
+PASS: 1 LineMap[0]=1
+PASS: 2 LineMap offset 6 = line 2
+PASS: 3 LineMap offset 11 = line 3
+PASS: 4 Read FRETURN on bad path
+PASS: 5 Write FRETURN on bad path
+PASS: 6 LineMap empty string creates table
+PASS: 7 LineMap single word no-nl
+PASS: 8 LineMap 2-line second offset
+/*-------------------------------------------------------- 4 test_ShiftReduce */
+PASS: 1 Shift leaf
+PASS: 2 Reduce 2 children
+PASS: 3 Reduce 0 children
+PASS: 4 Shift empty value
+PASS: 5 Reduce 3 children order
+/*-------------------------------------------------------- 5 test_TDump XFAIL */
+PASS: 1 TValue integer
+PASS: 2 TValue string
+PASS: 3 TLump null
+PASS: 4 TLump integer leaf
+PASS: 5 TLump fails on tight len
+PASS: 6 TLump tree
+/*-------------------------------------------------------------- 6 test_XDump */
+x = 42
+y = 'hello'
+a = ARRAY['1:3']
+/*-------------------------------------------------------- 7 test_arith XFAIL */
+PASS: 1 Fibonacci(10)=55
+PASS: 2 Fibonacci(0)=0
+PASS: 3 Fibonacci(1)=1
+PASS: 4 Fibonacci(20)=6765
+PASS: 5 GCD(48,18)=6
+PASS: 6 GCD(100,75)=25
+PASS: 7 GCD(7,13)=1
+PASS: 8 Factorial(5)=120
+PASS: 9 Factorial(0)=1
+PASS: 10 Factorial(10)
+PASS: 11 IsPrime(2)
+PASS: 12 IsPrime(17)
+PASS: 13 ~IsPrime(1)
+PASS: 14 ~IsPrime(15)
+PASS: 15 ~IsPrime(100)
+PASS: 16 Sieve(20)
+PASS: 17 ISqrt(15)=3
+PASS: 18 ISqrt(16)=4
+/*------------------------------------------------------------- 8 test_assign */
+PASS: 1 basic string assign
+PASS: 2 assign integer
+PASS: 3 reassign
+PASS: 4 assign returns null
+PASS: 5 assign empty string
+PASS: 6 indirect varname
+PASS: 7 chain assign
+/*--------------------------------------------------------- 9 test_case XFAIL */
+PASS: 1 lwr basic
+PASS: 2 lwr mixed
+PASS: 3 lwr already lower
+PASS: 4 upr basic
+PASS: 5 upr mixed
+PASS: 6 cap basic
+PASS: 7 cap from upper
+PASS: 8 cap mixed
+PASS: 9 icase null
+PASS: 10 icase matches lower
+PASS: 11 icase matches upper
+PASS: 12 icase matches mixed
+/*----------------------------------------------------------- 10 test_counter */
+PASS: 1 push/inc/top = 3
+PASS: 2 nested top = 1
+PASS: 3 pop restore = 3
+PASS: 4 empty pop fails
+PASS: 5 empty top fails
+/*------------------------------------------------------------- 11 test_fence */
+PASS: FENCE alt gamma
+FAIL: FENCE should not succeed as subject match
+/*------------------------------------------------------------ 12 test_global */
+PASS: nul
+PASS: bs
+PASS: ht
+PASS: tab
+PASS: nl
+PASS: lf
+PASS: vt
+PASS: ff
+PASS: cr
+PASS: fSlash
+PASS: semicolon
+PASS: bSlash
+PASS: TRUE
+PASS: FALSE
+PASS: digits
+PASS: UTF COPYRIGHT_SIGN
+PASS: UTF REGISTERED_SIGN
+PASS: UTF EM_DASH
+PASS: UTF indirect COPYRIGHT_SIGN
+PASS: UTF indirect EM_DASH
+/*------------------------------------------------------------- 13 test_match */
+PASS: 1 match ANY hit
+PASS: 2 match ANY miss
+PASS: 3 notmatch miss
+PASS: 4 notmatch hit
+PASS: 5 match SPAN
+PASS: 6 match LEN(0)
+PASS: 7 match RPOS(0)
+PASS: 8 word list hit
+PASS: 9 word list miss
+/*------------------------------------------------------------- 14 test_omega */
+PASS: 1 TY thin returns non-null
+PASS: 2 TZ thin returns non-null
+/*------------------------------------------------------- 15 test_roman XFAIL */
+PASS: 1 Roman(1)=I
+PASS: 2 Roman(4)=IV
+PASS: 3 Roman(9)=IX
+PASS: 4 Roman(14)=XIV
+PASS: 5 Roman(42)=XLII
+PASS: 6 Roman(400)=CD
+PASS: 7 Roman(1776)=MDCCLXXVI
+PASS: 8 Roman(1999)=MCMXCIX
+PASS: 9 Roman(2024)=MMXXIV
+PASS: 10 Roman(3999)=MMMCMXCIX
+/*---------------------------------------------------------- 16 test_semantic */
+PASS: 1 nPush=PATTERN
+PASS: 2 nInc=PATTERN
+PASS: 3 nPop=PATTERN
+PASS: 4 nPush match; nTop=0
+PASS: 5 nInc match; nTop=1
+PASS: 6 nInc x2; nTop=2
+PASS: 7 nested nPush; nTop=0
+PASS: 8 nTop INTEGER
+/*------------------------------------------------------------- 17 test_stack */
+PASS: 1 push/top = 42
+PASS: 2 top of 3 = 30
+PASS: 3 pop restores 20
+PASS: 4 Pop(var) = 99
+PASS: 5 empty pop fails
+PASS: 6 empty top fails
+PASS: 7 nested pop order a/b/c
+/*----------------------------------------------------- 18 test_strings XFAIL */
+PASS: 1 Reverse
+PASS: 2 Reverse empty
+PASS: 3 TrimLeft
+PASS: 4 TrimLeft noop
+PASS: 5 TrimLeft all
+PASS: 6 TrimRight
+PASS: 7 Trim
+PASS: 8 Trim all
+PASS: 9 StartsWith hit
+PASS: 10 StartsWith miss
+PASS: 11 EndsWith hit
+PASS: 12 EndsWith miss
+PASS: 13 Split
+PASS: 14 Join
+PASS: 15 Split no-sep
+/*------------------------------------------------------- 19 test_trace XFAIL */
+PASS: 1 T8Pos nil map=LPAD
+PASS: 2 T8Pos map line/col
+PASS: 3 T8Pos updates t8Max
+PASS: 4 T8Trace doDebug=0 returns STRING
+PASS: 5 T8Trace lvl>doDebug NRETURN
+PASS: 6 T8Trace ?-prefix doDebug=1 NRETURN
+PASS: 7 T8Trace t8MaxLine<621 NRETURN
+--- test 8 output follows ---
+       0? node
+PASS: 8 T8Trace doDebug=2 ?-expand output
+       0  upd
+PASS: 9 t8MaxLast updated to t8Max
+/*-------------------------------------------------------------- 20 test_tree */
+PASS: 1 MakeLeaf t/v/n
+PASS: 2 MakeNode with children
+PASS: 3 DIFFER guard
+PASS: 4 field update

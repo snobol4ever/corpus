@@ -1,6 +1,0 @@
-PASS: 1 TValue integer
-PASS: 2 TValue string
-PASS: 3 TLump null
-PASS: 4 TLump integer leaf
-PASS: 5 TLump fails on tight len
-PASS: 6 TLump tree
