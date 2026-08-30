@@ -33,6 +33,26 @@ sc3     i      = i + 1
         key    = key a<i>                   :(sc3)
 sc_ret  sort_chars = key                    :(RETURN)
 sort_chars_end
+*  r_sort(a,lo,hi): insertion-sort a 2-column (key,words) row array by
+*  column 1 (the key) -- CONVERT(table,'ARRAY') carries no ordering
+*  guarantee, so the anagram groups must be sorted explicitly to match
+*  the Icon/Prolog sections' own sort(t)/keysort before printing.
+        DEFINE('r_sort(a,lo,hi)j,k,v1,v2')  :(r_sort_end)
+r_sort  j      = lo
+r_s1    j      = j + 1
+        LE(j, hi)                           :F(RETURN)
+        k      = j
+        v1     = a<j,1>
+        v2     = a<j,2>
+r_s2    GT(k, lo)                           :F(r_s_place)
+        LGT(a<k - 1,1>, v1)                 :F(r_s_place)
+        a<k,1> = a<k - 1,1>
+        a<k,2> = a<k - 1,2>
+        k      = k - 1                      :(r_s2)
+r_s_place
+        a<k,1> = v1
+        a<k,2> = v2                         :(r_s1)
+r_sort_end
         t      = TABLE()
         word   = &LCASE &UCASE
         w_pat  = BREAK(word) SPAN(word) . w
@@ -44,6 +64,7 @@ w_loop  line   w_pat =                     :F(w_done)
 w_done  rows   = CONVERT(t, 'ARRAY')
         proto  = PROTOTYPE(rows)
         proto  BREAK(',') . n_rows  =
+        r_sort(rows, 1, +n_rows)
         i      = 0
 r_loop  i      = i + 1
         GT(i, +n_rows)                      :S(END)
