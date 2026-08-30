@@ -144,3 +144,18 @@ duplicate. Out of this row's scope to resolve further — flagged for whoever ne
 `bash -c` census (Section 1) — zero `UNACCOUNTED`, verified fresh this session, independent
 of the mint-time LEDGER claim. Provenance clause (this file, containing the string
 `swipl-devel-master/bench` per Section 3) — satisfied by this file's own existence.
+
+## 3. SWI-Prolog official benchmark suite — vendored 2026-08-30 (Lon direct: "Look at the SWI and GNU for benchmark programs. Place those in our corpus repo")
+
+The SWI bench submodule in `/home/resources/swipl-devel-master/bench/` is EMPTY (recorded in §2);
+the real suite lives in its own repository and was fetched this day:
+`https://github.com/SWI-Prolog/bench.git` @ `d74163e6` → drop at `/home/resources/swi-bench-master/`,
+programs vendored verbatim to `src/swi-bench/` (35 `.pl`, each defining `top/0`, driven upstream by
+`run.pl` with calibrated iteration factors — upstream README vendored beside them as
+`UPSTREAM-README.md`). ⚠ LICENSE: the upstream repo carries NO license file; the set descends from
+the public van Roy suite (UCB/CSD 89/50) that `vanroy/` already vendors 21 of, and is distributed
+publicly by the SWI-Prolog project. Vendored as REFERENCE COPIES, not graded: graded kernels stay in
+`bench/` under its own convention. `queens_clpfd.pl` needs library(clpfd) — reference-only by
+construction. The 14 programs new relative to `vanroy/`: boyer, browse, chat_parser, det, eval,
+fast_mu, flatten, moded_path, nand, perfect, pingpong, prover, simple_analyzer, unify (+ sieve,
+serialise variants).
