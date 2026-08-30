@@ -1,0 +1,47 @@
+# MODES.tsv -- declared grading mode per family (hq_C's FORMAT RULING: declared, never derived).
+# seat07 2026-08-30: parser is the AST-fixture family (--dump-ast); every other absorbed family
+# grades program OUTPUT via execution (m3,m4) -- verified against each family's own .ref content
+# (plain stdout text, not S-expression AST dumps) before declaring, never guessed from the name.
+corpus	m3,m4
+crosscheck_rungA01	m3,m4
+crosscheck_rungA02	m3,m4
+crosscheck_rungA03	m3,m4
+crosscheck_rungA04	m3,m4
+crosscheck_rungA05	m3,m4
+crosscheck_rungA06	m3,m4
+crosscheck_rungA07	m3,m4
+crosscheck_rungA08	m3,m4
+crosscheck_rungA09	m3,m4
+crosscheck_rungA10	m3,m4
+crosscheck_rungA11	m3,m4
+crosscheck_rungA12	m3,m4
+crosscheck_rungA13	m3,m4
+crosscheck_rungA14	m3,m4
+crosscheck_rungA15	m3,m4
+crosscheck_rungA16	m3,m4
+crosscheck_rungB01	m3,m4
+crosscheck_rungB02	m3,m4
+crosscheck_rungB03	m3,m4
+crosscheck_rungB04	m3,m4
+crosscheck_rungB05	m3,m4
+crosscheck_rungB06	m3,m4
+crosscheck_rungB07	m3,m4
+crosscheck_rungB08	m3,m4
+crosscheck_rungB09	m3,m4
+crosscheck_rungB10	m3,m4
+crosscheck_rungB11	m3,m4
+crosscheck_rungB12	m3,m4
+crosscheck_toplevel	m3,m4
+crosscheck_toplevel_xfail	m3,m4
+parser	ast
+probe_nested_while	m3,m4
+probe_nreturn_indirect	m3,m4
+fibonacci	m3,m4
+palindrome	m3,m4
+pattern_suite	m3,m4
+quicksort	m3,m4
+test_break_return	m3,m4
+test_for	m3,m4
+test_pattern	m3,m4
+test_while	m3,m4
+wordcount	m3,m4

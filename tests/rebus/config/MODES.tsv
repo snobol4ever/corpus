@@ -1,0 +1,36 @@
+# MODES.tsv -- declared grading mode per family (hq_C's FORMAT RULING: declared, never derived).
+# seat07 2026-08-30: every rebus family absorbed so far is graded via --dump-ast (LANG_CONFIGS default).
+parser	ast
+parser_augmented_assign	ast
+parser_capture_cond	ast
+parser_capture_imm	ast
+parser_case_basic	ast
+parser_case_default	ast
+parser_compound_if	ast
+parser_comprehensive	ast
+parser_exponent	ast
+parser_fib	ast
+parser_for_basic	ast
+parser_for_by	ast
+parser_if_else	ast
+parser_if_return	ast
+parser_local_initial	ast
+parser_modulo	ast
+parser_multi_func	ast
+parser_nested_case	ast
+parser_nested_if	ast
+parser_range_sub	ast
+parser_record_func	ast
+parser_repeat_id	ast
+parser_replace_basic	ast
+parser_repln_basic	ast
+parser_scmp_eq	ast
+parser_scmp_ne	ast
+parser_sub_assign	ast
+parser_subscript	ast
+parser_subscript_multi	ast
+parser_trailing_comma	ast
+parser_unary_dot	ast
+parser_unless_id	ast
+parser_until_id	ast
+parser_while_if	ast

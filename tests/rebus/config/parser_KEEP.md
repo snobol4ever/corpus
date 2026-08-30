@@ -1,26 +1,18 @@
-# KEEP.md — standalone-keep exceptions in corpus/tests/rebus/parser/
+# KEEP.md — standalone-keep exceptions in corpus/tests/rebus/ (parser_* files)
 
-81 files remain loose here after tests-consolidate-rebus converted the 15 clean pairs into
-`../parser.reb` / `../parser.ref` (corpus_suite_harness.py convert-blocks --lang rebus). Every
-name below was checked individually before being declared here — none is a guess or an allowance.
+⛔ UPDATED (seat07 2026-08-30, one-flat-suite cutover): the old `parser/` subdirectory this file
+used to describe is gone (hq_P's zero-subfolders flattening, SCRIP `dd79b54b` — every file here
+now sits flat in `corpus/tests/rebus/` with a `parser_` prefix, this KEEP.md moved to `config/`)
+AND the 33 AST-dump-drift stems this file used to keep loose are gone too: `util_build_master_suite.py`'s
+bannerless-dialect-program-as-ONE-entry fix (hq_P) let them absorb correctly into `ALL.reb` as
+their own single-entry families (`parser_fib`, `parser_case_basic`, ... — verified byte-equal
+against their loose originals before deletion, seat07). Only the 48 stems below — which were never
+absorbable in the first place, having no `.ref` at all — remain loose. This file no longer needs a
+"33 stems" section; do not re-add one without re-deriving why (their disposition changed, it was
+not an oversight).
 
-## 33 stems: AST-dump drift vs their committed .ref (independent sweep, seat01, 2026-08-27/28)
-
-`scrip --dump-ast` on the .reb does not byte-match the committed .ref today. Same systematic
-shape-drift class already found and written up for Snocone parser-fixtures (59/67 red) and Icon
-parser/ (153/153 red) — see FINDING-2026-08-27-seat08-parser-fixture-ast-oracles-drifted-....md.
-Not a per-fixture bug: one compiler AST-shape change plausibly explains a cluster this size, but
-that is a correctness call outside this row's standing (deciding whether the .ref is stale or the
-compiler regressed). Passed to `convert-blocks` as `--skip` with this same reason.
-
-augmented_assign.reb/.ref · capture_cond.reb/.ref · capture_imm.reb/.ref · case_basic.reb/.ref ·
-case_default.reb/.ref · compound_if.reb/.ref · comprehensive.reb/.ref · exponent.reb/.ref ·
-fib.reb/.ref · for_basic.reb/.ref · for_by.reb/.ref · if_else.reb/.ref · if_return.reb/.ref ·
-local_initial.reb/.ref · modulo.reb/.ref · multi_func.reb/.ref · nested_case.reb/.ref ·
-nested_if.reb/.ref · range_sub.reb/.ref · record_func.reb/.ref · repeat_id.reb/.ref ·
-replace_basic.reb/.ref · repln_basic.reb/.ref · scmp_eq.reb/.ref · scmp_ne.reb/.ref ·
-sub_assign.reb/.ref · subscript_multi.reb/.ref · subscript.reb/.ref · trailing_comma.reb/.ref ·
-unary_dot.reb/.ref · unless_id.reb/.ref · until_id.reb/.ref · while_if.reb/.ref
+48 files remain loose here. Every name below was checked individually before being declared here —
+none is a guess or an allowance.
 
 ## 48 stems: no committed .ref at all — needs an oracle written first, a different row
 
@@ -29,13 +21,17 @@ seat08·2026-08-27): never in scope for grading either way until someone writes 
 `--dump-ast` output. Listed here so the completeness gate has an honest declaration rather than
 silence.
 
-alt_assign_three.reb · alt_assign_two.reb · alt_body_three.reb · alt_body_two.reb ·
-alt_match_mixed.reb · alt_match_three.reb · alt_match_two.reb · arith_add.reb · arith_mixed.reb ·
-arith_mul.reb · assign_int.reb · assign_output.reb · assign_seq.reb · assign_str.reb ·
-assign_var.reb · atom_id.reb · atom_int.reb · atom_str.reb · call_expr.reb · call_with_args.reb ·
-cmp_eq.reb · cmp_ord.reb · func_args.reb · func_call.reb · func_call_seq.reb · func_one_arg.reb ·
-func_three.reb · func_two.reb · if_id.reb · if_output.reb · match_after_assign.reb ·
-match_id_id.reb · match_id_int.reb · match_id_str.reb · match_seq.reb · match_str_id.reb ·
-match_str_str.reb · paren.reb · rec_empty.reb · rec_one.reb · rec_three.reb · rec_two.reb ·
-rec_two_records.reb · rec_with_func.reb · strcat.reb · unary_neg.reb · while_id.reb ·
-while_output.reb
+parser_alt_assign_three.reb · parser_alt_assign_two.reb · parser_alt_body_three.reb ·
+parser_alt_body_two.reb · parser_alt_match_mixed.reb · parser_alt_match_three.reb ·
+parser_alt_match_two.reb · parser_arith_add.reb · parser_arith_mixed.reb · parser_arith_mul.reb ·
+parser_assign_int.reb · parser_assign_output.reb · parser_assign_seq.reb · parser_assign_str.reb ·
+parser_assign_var.reb · parser_atom_id.reb · parser_atom_int.reb · parser_atom_str.reb ·
+parser_call_expr.reb · parser_call_with_args.reb · parser_cmp_eq.reb · parser_cmp_ord.reb ·
+parser_func_args.reb · parser_func_call.reb · parser_func_call_seq.reb · parser_func_one_arg.reb ·
+parser_func_three.reb · parser_func_two.reb · parser_if_id.reb · parser_if_output.reb ·
+parser_match_after_assign.reb · parser_match_id_id.reb · parser_match_id_int.reb ·
+parser_match_id_str.reb · parser_match_seq.reb · parser_match_str_id.reb ·
+parser_match_str_str.reb · parser_paren.reb · parser_rec_empty.reb · parser_rec_one.reb ·
+parser_rec_three.reb · parser_rec_two.reb · parser_rec_two_records.reb ·
+parser_rec_with_func.reb · parser_strcat.reb · parser_unary_neg.reb · parser_while_id.reb ·
+parser_while_output.reb
