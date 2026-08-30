@@ -66,6 +66,33 @@ general — filed as
 next names a file it does not mean to declare; not fixed here (harness correctness shared by every
 language's row, not this session's to change unilaterally).
 
+## `rung10_programs_puzzle_05.pl` — needs a grading convention that does not exist yet, not a fix
+
+**Not blocked, not a defect — the one member of the `rung10_programs_puzzle_*` family that does not
+crash, and that is exactly why it cannot be absorbed by this task's inherited method.** `rc=1`, and
+**no `.ref` exists**. hq_C ruled (transcribed via seat03, `tests-consolidate-prolog-pz4-blocked-33`'s
+own `PENDING.md`) that `rc=1` is **correct**, not a bug: `main` takes the top-level-goal role for a
+failure-driven loop with no fallback clause, so a clean exit-1 is the designed behavior
+(ARCH-LANGUAGES.md § ENTRY-POINT CONVENTION), not a crash or a wrong answer.
+
+**Why the inherited absorption method cannot take it as-is:** every other suite entry in this master
+is graded by exact stdout match against a `.ref`, with `rc=0` implicit — there is no per-entry
+mechanism yet for declaring "stdout must match, AND rc must equal a specific non-zero value." Building
+one is real harness work (`corpus_suite_harness.py`'s grading contract), not a data fix to this one
+file, and is out of `tests-consolidate-prolog-pz4-blocked-33`'s own scope (that row converts files,
+it does not extend the suite format).
+
+**Its 19 `rung10_programs_puzzle_*` siblings** are separately deferred in `PENDING.md` under
+`tests-consolidate-prolog-pz4-blocked-33` — they still crash (rc=139), so they need
+`prolog-pz4-gamma-retain-activation-frames`'s fix first; once that lands, all 19 (plus this one) will
+need the same not-yet-built rc-expectation mechanism this entry names, not just a re-run.
+
+**Re-running this classification:** confirm no `.ref` has appeared and `rc=1` still holds
+(`./scrip --run corpus/tests/prolog/rung10_programs_puzzle_05.pl < /dev/null`); if a per-entry
+rc-expectation mechanism has since landed in the suite format, this file (and its 19 siblings, once
+PZ-4 clears) becomes absorbable and this entry should be deleted rather than updated, per the standing
+convention other entries in this file use.
+
 ## Re-running this classification
 
 `grep -rn "tests/prolog/plunit.pl\|CORPUS.*plunit" SCRIP/scripts/*.sh` before trusting "these three
