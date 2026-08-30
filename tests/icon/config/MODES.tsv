@@ -1,0 +1,205 @@
+#
+# EVIDENCE (hq_P 2026-08-29, second pass — family keys changed when the dialect plain-program absorption
+# was fixed, so this file was regenerated rather than edited):
+#   rung*   — SCRIP/scripts/test_icon_rung_suite.sh grades each rung in `run` (Mode 3, --run) and
+#             `compile` (Mode 4, --compile --target=x86 -> as -> link -> exec), per its header lines 9-12.
+#   parser* — declared `ast` on REF-CONTENT evidence, not on the family name: each parser fixture's .ref
+#             holds a parenthesised AST dump, e.g. tests/icon/parser/alt_arith.ref is
+#             `(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN ...))))`.
+#             A ref whose CONTENT is an AST cannot be graded by running the program, and the harness's
+#             own `ast` mode is what compares against it. ⛔ This is a property of the DATA; it would be a
+#             name guess if read off the `parser_` prefix, which is exactly what the format rule forbids.
+parser_alt_arith	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_alt_in_call	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_alt_str	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_alt_three	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_alt_two	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_alt_var	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_arith_add	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_arith_sub	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_assign_int	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_assign_mixed	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_assign_seq	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_assign_str	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_assign_var	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_atom_id	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_atom_int	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_atom_str	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_add	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_concat	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_cset_diff	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_cset_inter	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_cset_union	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_ge	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_gt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_le	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_lt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_mod	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_ne	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_numeq	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_pow	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_scan	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_sge	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_sgt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_sle	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_slt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_sne	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_str_concat	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_streq	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_augop_sub	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_bang_binary	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_bang_invoke	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_break_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_case_multi_clause	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_case_nodefault	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_case_simple	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_cmp_eq	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_cmp_lt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_compound_every_multi	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_compound_multi	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_compound_one	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_compound_two	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_concat_alt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_concat_cmp	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_concat_three	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_concat_two	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_conj_assign	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_conj_scan	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_conj_stmts	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_conj_three	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_conj_two	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_cset_compl_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_cset_lit	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_every_alt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_every_do	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_every_novar	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_every_simple	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_fail_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_fail_stmt	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_field_access	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_global_decl	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_global_multi	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_if_cmp	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_if_compound_else	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_if_compound_then	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_if_else	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_if_multiline	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_if_then	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_initial_block	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_kw_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_kw_fail	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_kw_null	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_lconcat_two	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_limit_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_list_ctor	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_local_decl	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_match_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_mod_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_multi_proc	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_multi_record	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_next_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_not_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_null_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_paren_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_paren_seq	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_pow_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_call_noargs	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_call_onearg	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_call_twoargs	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_local_swap	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_oneparam	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_return	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_simple	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_twoparam	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_proc_varargs	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_range_paren	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_range_to	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_range_to_by	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_real_exp	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_real_lit	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_record_decl	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_repeat_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_return_in_compound	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_return_suspended	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_return_with_value	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_scan_assign	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_scan_paren	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_scan_simple	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_scan_var	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_section_mcolon	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_section_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_section_pcolon	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_seq_in_expr	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_special_identical	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_special_notident	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_special_revassign	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_special_revswap	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_special_swap	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_static_decl	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_str_eq_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_str_ge_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_str_gt_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_str_le_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_str_lt_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_str_ne_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_subscript_field	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_subscript_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_suspend_do	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_suspend_every	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_suspend_simple	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_cset_compl	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_iterate	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_minus	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_nonnull	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_plus	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_random	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_size	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_unary_stacked	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_until_op	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_while_compound	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_while_do	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_write_arith	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_write_int	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_write_str	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+parser_write_var	ast	# .ref content is a TT_* AST dump; graded by the harness ast mode
+rung01_paper	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung02_all	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung03_suspend_fail	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung04_string	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung05_scan	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung06_cset	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung07_control	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung08_strbuiltins	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung09_loops	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung10_augop	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung11_bang_augconcat	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung12_strrelop_size	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung13_alt	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung13_repalt	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung13_table	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung14_limit	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung14_singletons	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung15_real_swap	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung16_subscript	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung17_real_arith	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung18_real_relop	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung19_pow_toby	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung20_section_seqexpr	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung21_global_initial	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung22_lists	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung23_table	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung24_records	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung25_global	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung26_pow	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung27_read	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung28_builtins_str	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung29_builtins_type	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung30_builtins_misc	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung31_sort	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung32_strretval	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung33_case	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung34_null_test	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung35_block_body	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung35_table_str	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung36_all	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+rung37_all	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
