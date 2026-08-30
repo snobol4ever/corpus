@@ -1,7 +1,20 @@
 % sendmore — SEND+MORE=MONEY cryptoaddition (van Roy suite). Arithmetic constraint search.
 % Source: SWI-Prolog/bench (sendmore). Prints the digit assignment.
 :- initialization(main).
-main :- (solve(S,E,N,D,M,O,R,Y) -> write([S,E,N,D,M,O,R,Y]) ; write(none)), nl.
+% ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+% Bracket encloses the WORK ONLY. Timestamps to user_error so stdout stays byte-comparable and
+% sendmore.expected still verifies. Both units: work_us is the real measurement, work_ms is kept because
+% the rival preludes are millisecond sources so the cross-engine floor genuinely is 1 ms.
+% ⛔ RESULT VARIABLE IS `Res`, NOT `R`: this kernel's own answer list is [S,E,N,D,M,O,R,Y] and R is one of
+% its solution variables -- reusing it would silently bind the answer to the wrong thing while still
+% printing something plausible. Naming it Res costs nothing and removes the whole class.
+main :-
+    wall_us(T0), wall_ms(M0),
+    ( solve(S,E,N,D,M,O,R,Y) -> Res = [S,E,N,D,M,O,R,Y] ; Res = none ),
+    wall_us(T1), wall_ms(M1),
+    write(Res), nl,
+    W is T1 - T0, WM is M1 - M0,
+    format(user_error, "BENCH kernel=sendmore work_us=~w work_ms=~w~n", [W, WM]).
 solve(S,E,N,D,M,O,R,Y):-
         digit(D), digit(E), D=\=E,
         sumdigit(0, D, E, Y, C1),

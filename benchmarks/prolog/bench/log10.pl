@@ -1,5 +1,19 @@
 :- initialization(main).
-main :- ( top -> write(ok) ; write(failed) ), nl.
+% ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+% Bracket encloses the WORK ONLY -- not startup, not the write. Multiples publish on work; startup/finish
+% OVERHEAD is a separate per-engine number the harness derives as (external total - work).
+% ⛔ Timestamps go to user_error so stdout stays BYTE-COMPARABLE and log10.expected still verifies.
+% ⭐ Both units: work_us is the real measurement (integer ms quantizes these kernels -- a 3 ms kernel is
+% three ticks); work_ms is kept because the rival preludes are millisecond sources, so the cross-engine
+% floor genuinely is 1 ms. Reporting both keeps a us numerator from being divided by a ms denominator
+% silently. Per-engine precision floors are stated in the basis line, never papered over.
+main :-
+    wall_us(T0), wall_ms(M0),
+    ( top -> Res = ok ; Res = failed ),
+    wall_us(T1), wall_ms(M1),
+    write(Res), nl,
+    W is T1 - T0, WM is M1 - M0,
+    format(user_error, "BENCH kernel=log10 work_us=~w work_ms=~w~n", [W, WM]).
 % generated: 25 October 1989
 % option(s):
 %
