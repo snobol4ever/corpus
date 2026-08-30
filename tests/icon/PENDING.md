@@ -1,46 +1,41 @@
 # PENDING.md — tests/icon/ (root-level loose files deferred to another row)
 
-ROW: icon-n2-generator-activation-frames
-
 Per `tests-consolidate-icon`. Modelled on `test_gate_suite_conversion_complete.sh`'s fourth bucket
 (hq_B 2026-08-29, mechanism landed SCRIP `a63cef7f`). This is NOT a KEEP.md: a keeper says "stays
-loose forever, on purpose"; these convert once the row named above lands. The gate resolves that row
-against the live queue on every run — re-run it with this file removed once the row goes DONE, and
-convert these then rather than re-pointing this file at a fresh row to stay quiet.
+loose forever, on purpose"; these convert once the row named in each section heading lands.
 
-## 2 files — root-caused to the icon-n2 activation-frame/value-path defect, re-verified fresh today
+⛔ **2026-08-30 (seat14) — RE-POINTED, NOT RE-CHARACTERIZED: the old shared `icon-n2-generator-
+activation-frames` deferral for these two files EXPIRED (that row is now `DONE` in `QUEUE.tsv`, per
+`tests-consolidate-icon`'s own gate) without curing either.** Re-verified both fresh against a
+pristine post-N-2 build before deciding anything (neither is a clean witness now, so neither
+converts; see each file's own `## DEFERRED <row>` section below for its current shape). Rather than
+move either to a generic re-deferral, pointed each at the row that ALREADY, explicitly claims that
+exact witness by name in its own GOAL text — a correction reflecting decisions already made
+elsewhere (ceo's own scan/scan2 re-scope, `tests-consolidate-icon` LEDGER 2026-08-30; and
+`icon-coexpression-support-design`'s GOAL naming `cxprimes` since its own mint), not a fresh
+re-deferral invented to keep this gate quiet. Full detail in each section and in
+`.github/FINDING-2026-08-30-seat14-icon-cxprimes-coexpression-reassignment-corrupts-state.md`.
 
-## DEFERRED
-- rung36_jcon_cxprimes.icn — SIGSEGV both modes (m3 rc=139, m4 rc=139), icon-n2 suspend_loop shape
-- rung36_jcon_scan2.icn — clean exit both modes, wrong output, icon-n2 value-path defect
+## DEFERRED icon-coexpression-support-design
+- rung36_jcon_cxprimes.icn — **SIGSEGV both modes, rc=134 (was rc=139 pre-N-2 — shape drift, not a
+  fix)**, `scrip_coexpr: activate of NULL coexpression (operand slot held garbage -- LOWER/driver
+  wiring bug)` (`rt_coexpr.c:183`). Isolated to a minimal trigger (not the sieve algorithm's own
+  specifics): reassigning a variable already holding a live coexpression to a NEW `create(...)`
+  result, inside a loop that keeps `@`-activating that variable, corrupts state and eventually
+  crashes. This row's own GOAL already names `cxprimes` as its witness (co-expressions are
+  unimplemented as real coroutines) — this is a repoint to the row that already claims this file,
+  not a new deferral target, and the isolation above is new information that row didn't have.
 
-⛔ **REFORMATTED 2026-08-29 (seat09) TO MATCH THE GATE'S HARDENED PARSER** — the two filenames above
-were previously stated as inert prose (a backtick-wrapped, space-separated pair with no `## DEFERRED`
-heading), which `test_gate_suite_conversion_complete.sh`'s own format-hardening (hq_B 2026-08-29,
-"A PENDING.md DECLARES ONLY WHAT IS LISTED UNDER `## DEFERRED`, AND PROSE ANYWHERE ELSE IS INERT")
-stopped recognizing — landed to fix hq_B's OWN first PENDING.md, which had the identical defect. This
-was pure re-declaration, not new analysis: same two files, same reasoning, now in the `- ` list form
-under `## DEFERRED` the parser (`pending_sections()`) actually reads. No re-verification of the
-underlying claims was needed for this specific fix, though see below for a fresh check anyway.
-
-`rung36_jcon_cxprimes.icn rung36_jcon_scan2.icn`
-
-Both were long documented in this directory's `KEEP.md` (rung36 section) as belonging to this row's
-scope, but never formally declared to this gate — that file's prose omits the `.icn` extension, so
-the gate's delimited-basename match never recognized them, and they sat as "loose-but-undeclared"
-despite being fully characterized. This file is the missing formal declaration, not new analysis.
-
-⭐ **Re-verified against today's pristine build (SCRIP `a63cef7f`+), not trusted from citation —
-one of the two has changed shape since `KEEP.md` was last edited:**
-- `cxprimes`: still **SIGSEGV, both modes** (m3 rc=139, m4 rc=139) — unchanged from `KEEP.md`'s
-  characterization. `sieve` suspends inside a `while` loop, the `icon-n2` "suspend_loop" shape.
-- `scan2`: **no longer crashes** — now clean exit (rc=0) with WRONG output, both modes (diffed
-  against `.expected`, both m3 and m4 identically short several lines). `KEEP.md`'s rung36 bullet
-  still calls this one "SIGSEGV" and is stale on this specific point; this session's own NEXT/LEDGER
-  entry has the correction. Root cause unchanged (icon-n2's value-path, not the activation-frame
-  crash) — this is the exact "crash → clean-exit-wrong-output" transition seat16's 2026-08-29
-  SUPERSEDED-NEXT already flagged for `scan2`/`recogn` after `SCRIP_ICN_GENFRAME2` went default-ON
-  (`0b35b5fc`); `KEEP.md`'s older prose simply predates that landing.
+## DEFERRED icon-scan-env-value-residue
+- rung36_jcon_scan2.icn — clean exit both modes (rc=0), WRONG output (both m3/m4 identically short
+  several lines vs `.expected`; the specific remaining diff matches this row's own "non-local"
+  hunk: `z`/`x`/`3`/`c` printed where `q`/`w` are expected). This row's own GOAL text already names
+  `rung36_jcon_scan2` as one of its three witnesses (scan1/scan2/scan), and its NEXT block precisely
+  describes the exact remaining mechanism (`foo()` suspending inside its own scan environment leaves
+  the CALLER's scan state stale — γ-SUSPEND must save Σ/δ/Δ into the activation state, β must
+  reinstate). `tests-consolidate-icon`'s own LEDGER (2026-08-30, ceo) already recorded this
+  ownership transfer from the old icon-n2 umbrella to this row specifically — this section just
+  makes the gate's own record match that already-made decision.
 
 ## DEFERRED icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps
 - rung36_jcon_proto.icn — V9GEN Icon-syntax stress test; 6 parser gaps (unary prefix `^`/REFRESH;
