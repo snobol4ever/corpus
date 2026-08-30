@@ -10505,7 +10505,7 @@ n537_call_prolog_α:     mov              r11, 220
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
-                                                                              jmp   main_ω
+                                                                              jmp   main_γ
 n537_call_prolog_β:     mov              r11, 220;                            jmp   main_ω
                         .size            n537_call_prolog_bx, .-n537_call_prolog_bx
 #-----------------------------------------------------------------------------------------------------------------------

@@ -9326,7 +9326,7 @@ n799_call_prolog_α:     mov              r11, 327
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                         cmp              al, 104;                             je    main_ω
-                                                                              jmp   main_ω
+                                                                              jmp   main_γ
 n799_call_prolog_β:     mov              r11, 327;                            jmp   main_ω
                         .size            n799_call_prolog_bx, .-n799_call_prolog_bx
 #-----------------------------------------------------------------------------------------------------------------------
