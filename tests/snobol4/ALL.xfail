@@ -20,8 +20,6 @@ exits rc=1, stdout does not match .ref. Not further diagnosed.
 exits rc=1, stdout does not match .ref. Not further diagnosed.
 *--------------------------------------------------------- 1506 keyword_19 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
-*------------------------------------------------ 1507 code_eval_replace_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *--------------------------------------------------- 1508 simple_output_62 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 *-------------------------------------------- 1509 user_function_replace_4 XFAIL
@@ -30,8 +28,6 @@ runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 *-------------------------------------------- 1511 user_function_replace_7 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
-*------------------------------------------------ 1512 code_eval_replace_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *-------------------------------------------------- 1513 keyword_replace_3 XFAIL
 exits rc=1, stdout does not match .ref. Not further diagnosed.
 *-------------------------------------------- 1514 user_function_replace_6 XFAIL
@@ -62,8 +58,6 @@ exits rc=1, stdout does not match .ref. Not further diagnosed.
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 *---------------------------------------- 1527 user_function_len_capture_1 XFAIL
 exits rc=1, stdout does not match .ref. Not further diagnosed.
-*------------------------------------ 1528 code_eval_eval_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *-------------------------------- 1529 user_function_len_capture_replace_1 XFAIL
 exits rc=1, stdout does not match .ref. Not further diagnosed.
 *------------------------------- 1530 user_function_array_replace_branch_1 XFAIL
