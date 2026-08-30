@@ -1,0 +1,6 @@
+trim=1
+[hello]
+size=5
+[world]
+size=5
+trim=0
