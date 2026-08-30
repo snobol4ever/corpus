@@ -104,7 +104,7 @@ green (byte-equal both directions, both modes, independently re-verified via a s
 after placement) → `rung36_all.icn`/`.ref` (+ `.in` stdin sidecar, 3 of the 32 use stdin). 43 refused
 as "original not green" and `--skip`ped, left loose. Breakdown of the 43:
 
-**29 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
+**28 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
 task's own prior pass, seat06 2026-08-29 — "zero stale markers"). Not re-characterized here.
 **Named individually below (seat09, 2026-08-29) because `test_gate_suite_conversion_complete.sh`'s
 "declared" check is a literal basename substring match against this file's own text — a count
@@ -119,11 +119,26 @@ named elsewhere in this file's own dependency note below — the other 28 were n
 `rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
 `rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
-`rung36_jcon_sets.icn` `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn` `rung36_jcon_toby.icn`
+`rung36_jcon_sets.icn` `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
 — reason for all 28, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
 re-verified against its own marker's claim (not merely inherited) by seat06's 2026-08-29 skeptical
 sweep of all 30 Icon `.xfail` files. No witness file touched by this declaration — it is a KEEP.md
-entry only, same as every other line in this file.
+entry only, same as every other line in this file. (`rung36_jcon_toby.icn` was in this bucket as of
+seat09's pass; moved to its own bullet below, 2026-08-30 — its `.xfail` reason is qualitatively
+different from "genuinely fails.")
+
+- `rung36_jcon_toby` — **UNGRADEABLE, not merely red (ruled by hq_P, 2026-08-30, on seat01's
+  measurement).** The oracle itself hangs on this program — confirmed via `capture-oracle-refs --lang
+  icon` (which runs a fresh live oracle invocation per stem) and independently by direct invocation.
+  A program whose oracle never terminates has no obtainable reference to grade against: this is not a
+  SCRIP defect and not gradable by any correctness measure this project has. ⛔ Do NOT synthesize a
+  ref from SCRIP's own output — that would be the regenerating-into-the-oracle move ceo ruled against
+  for `TT_PROC_DECL` (`FINDING-2026-08-29-hq_P-icon-dump-ast-drops-proc-name-...`), worse here because
+  there is no independent authority at all to fall back on. Its `.xfail` sidecar was previously empty
+  (0 bytes, since 2026-08-24) — populated 2026-08-30 with this reason, since the sidecar's whole
+  purpose is to carry it. **`lgint`'s hang stays in the 28-red bucket above, NOT here** — it is SCRIP
+  that hangs on `lgint`, not the oracle, per hq_P's explicit ruling: only an oracle-side hang qualifies
+  as ungradeable; a SCRIP-side hang is a real, live defect and must stay counted as red.
 
 **1 `.xfail` marker (`rung36_jcon_diffwrds`) was STALE — a genuine XPASS, found and fixed this
 pass.** It reads words via `read()` fed by its `.stdin` sidecar; manually re-running it without that
