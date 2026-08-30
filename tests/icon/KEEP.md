@@ -211,7 +211,15 @@ session could find.** Individually measured (not assumed), grouped by signature:
   same way its own `_use_zframe_install` already does), and split across a TEXT `snprintf` arm (easy)
   and a hand-encoded raw-byte BINARY arm (needs `as`-verified bytes per this project's own R10 rule,
   not attempted). Full detail: `FINDING-2026-08-30-seat01-icon-level-exact-fix-sites-located-
-  implementation-ready.md`.
+  implementation-ready.md`. **EXIT-SIDE HALF-CURE LANDED same day (seat01), SCRIP `41730a7f` — `&level`
+  is still WRONG end-to-end, entry side (the increment) is still not landed, do not treat this stem as
+  fixed.** First attempt at the exit-side alone caused a real regression (rung board FAIL 8→32,
+  register-preservation bug — the decrement's own scratch usage clobbered `AL` on the way out, which a
+  live call-site check reads as the success/fail tag); reverted, root-caused via asm-diff + direct
+  trace (not guessed), fixed by bracketing the block in `push rax`/`pop rax`, re-verified via an exact
+  FAIL-list diff against a freshly-built clean baseline (empty diff, not just a count match) before
+  landing. Full detail: `FINDING-2026-08-30-seat01-icon-level-half-cure-exit-side-landed-register-
+  preservation-bug-found-and-fixed.md`.
 - `rung36_jcon_var` — CRASH (signal 6, SIGABRT), NOT the generator class: a named, deliberate internal
   guard, `"FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
   !x/?x element-variable or s[i:j] section)"`, citing `GOAL-IR-IMMUTABLE-EMIT.md` (exists, 231KB) by
