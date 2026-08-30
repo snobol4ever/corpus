@@ -1,0 +1,18 @@
+*  KW-1 witness: &TRIM must actually TRIM (manual Ch.16 p.191 -- "Nonzero to
+*  strip trailing blanks and tab characters from lines read from files").
+*  SCRIP s146: the assignment lands in keywords.c's g_trim while the input
+*  path reads core.c's kw_trim, so the keyword READS BACK CORRECTLY and has
+*  NO EFFECT.  The spelled-twice split is a live defect, not just stale state.
+*  Input (kw_trim_effect.dat): "hello   " then "world<TAB>".
+	&TRIM = 1
+	OUTPUT = 'trim=' &TRIM
+	L = INPUT
+	OUTPUT = '[' L ']'
+	OUTPUT = 'size=' SIZE(L)
+	M = INPUT
+	OUTPUT = '[' M ']'
+	OUTPUT = 'size=' SIZE(M)
+*  turning it back off restores the trailing whitespace
+	&TRIM = 0
+	OUTPUT = 'trim=' &TRIM
+END

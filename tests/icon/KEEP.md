@@ -104,7 +104,7 @@ green (byte-equal both directions, both modes, independently re-verified via a s
 after placement) → `rung36_all.icn`/`.ref` (+ `.in` stdin sidecar, 3 of the 32 use stdin). 43 refused
 as "original not green" and `--skip`ped, left loose. Breakdown of the 43:
 
-**29 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
+**28 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
 task's own prior pass, seat06 2026-08-29 — "zero stale markers"). Not re-characterized here.
 **Named individually below (seat09, 2026-08-29) because `test_gate_suite_conversion_complete.sh`'s
 "declared" check is a literal basename substring match against this file's own text — a count
@@ -119,11 +119,26 @@ named elsewhere in this file's own dependency note below — the other 28 were n
 `rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
 `rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
-`rung36_jcon_sets.icn` `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn` `rung36_jcon_toby.icn`
+`rung36_jcon_sets.icn` `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
 — reason for all 28, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
 re-verified against its own marker's claim (not merely inherited) by seat06's 2026-08-29 skeptical
 sweep of all 30 Icon `.xfail` files. No witness file touched by this declaration — it is a KEEP.md
-entry only, same as every other line in this file.
+entry only, same as every other line in this file. (`rung36_jcon_toby.icn` was in this bucket as of
+seat09's pass; moved to its own bullet below, 2026-08-30 — its `.xfail` reason is qualitatively
+different from "genuinely fails.")
+
+- `rung36_jcon_toby` — **UNGRADEABLE, not merely red (ruled by hq_P, 2026-08-30, on seat01's
+  measurement).** The oracle itself hangs on this program — confirmed via `capture-oracle-refs --lang
+  icon` (which runs a fresh live oracle invocation per stem) and independently by direct invocation.
+  A program whose oracle never terminates has no obtainable reference to grade against: this is not a
+  SCRIP defect and not gradable by any correctness measure this project has. ⛔ Do NOT synthesize a
+  ref from SCRIP's own output — that would be the regenerating-into-the-oracle move ceo ruled against
+  for `TT_PROC_DECL` (`FINDING-2026-08-29-hq_P-icon-dump-ast-drops-proc-name-...`), worse here because
+  there is no independent authority at all to fall back on. Its `.xfail` sidecar was previously empty
+  (0 bytes, since 2026-08-24) — populated 2026-08-30 with this reason, since the sidecar's whole
+  purpose is to carry it. **`lgint`'s hang stays in the 28-red bucket above, NOT here** — it is SCRIP
+  that hangs on `lgint`, not the oracle, per hq_P's explicit ruling: only an oracle-side hang qualifies
+  as ungradeable; a SCRIP-side hang is a real, live defect and must stay counted as red.
 
 **1 `.xfail` marker (`rung36_jcon_diffwrds`) was STALE — a genuine XPASS, found and fixed this
 pass.** It reads words via `read()` fed by its `.stdin` sidecar; manually re-running it without that
@@ -169,18 +184,32 @@ session could find.** Individually measured (not assumed), grouped by signature:
   `icn-recogn-genqueen-suspend-shape.task.md` (currently `rc=1 ERROR 246 -- stack overflow` per that
   task's own latest measurement, not a SIGSEGV — re-check its own NEXT before trusting this summary,
   it moves fast).
-- `rung36_jcon_level` — **root-caused (2026-08-29, seat02), not unexplained any more.** `&level`
+- `rung36_jcon_level` — **root-caused (2026-08-29, seat02); FIX LOCATION CORRECTED (2026-08-30,
+  seat01) — re-verify before trusting "two-line fix" as a description of the work.** `&level`
   (`rt_k_level`) is only maintained by `bb_define_activate()` (`src/templates/bb/bb_define.cpp:54`,
-  the generator-capable procedure role) — `bb_define_sr()` (`:380`, the standard role used for
-  ordinary procedures) never touches it, so calling/returning from any non-`suspend` procedure never
-  moves `&level`. Repro needs no generator content at all: `procedure p(); write(&level); end` called
-  from `main` prints the SAME value before and after, not `+1`. Isolating this also surfaced a second,
-  separate defect (the crash after this file's 11th line of output) that reproduces without `&level`
-  and corroborates the already-open `icon-n2-generator-activation-frames` value-path item instead of
-  being new. Full detail, both parts: `FINDING-2026-08-29-seat02-icon-level-keyword-not-tracked-for-
-  non-generator-procedures.md`. Two-line-shaped fix (mirror `bb_define_activate`'s `enter_env`/
-  `leave_env` `rt_k_level` pair into `bb_define_sr`), not attempted here (out of this row's lane, same
-  as `scan1`/`proto`).
+  the generator-capable procedure role) — confirmed unchanged. Repro needs no generator content at
+  all: `procedure p(); write(&level); end` called from `main` prints the SAME value before and after,
+  not `+1`. ⛔ **seat02's proposed fix site (mirror the pair into `bb_define_sr`) is NOT on the code
+  path this witness executes** — traced the emitted `.s` directly: the plain call site (`call
+  p_dcα`) and the callee's own prologue/epilogue (`FN__p`/`p_γ`/`p_ω`) are generated by a *different,
+  shared, cross-language* mechanism (`emit.cpp:3418` + `xa_flat.cpp`'s "PL-DC" trampoline, also used by
+  Snocone's return convention) — `bb_define_sr` is never reached for this witness at all. Landing the
+  originally-described fix would very likely have compiled and changed nothing here. Full trace:
+  `FINDING-2026-08-30-seat01-icon-level-fix-location-in-seat02-finding-is-not-the-actual-call-path.md`.
+  Isolating the original bug also surfaced a second, separate defect (the crash after this file's 11th
+  line of output) that reproduces without `&level` and corroborates the already-open
+  `icon-n2-generator-activation-frames` value-path item instead of being new — that part of seat02's
+  FINDING is unaffected by this correction. Not attempted here either (out of this row's lane, same as
+  `scan1`/`proto`). **UPDATE, same day (seat01): both real emission sites now located precisely by
+  direct trace-matching, implementation-ready.** Exit side (`rt_k_level`/`kw_fnclevel` decrement):
+  `xa_flat.cpp`'s `xa_flat_zframe_epilogue_γ_str()`/`_ω_str()`, the arm already self-documented
+  "Guarded to the Icon (icn_cells_graph) case only" — low risk, pure `x86(...)` DSL, mirrors
+  `bb_define_activate`'s own pattern almost verbatim. Entry side (increment): `emit.cpp`'s
+  `flat_lcl_proc` branch (~line 2917-2961) — genuinely shared cross-language (gate any addition the
+  same way its own `_use_zframe_install` already does), and split across a TEXT `snprintf` arm (easy)
+  and a hand-encoded raw-byte BINARY arm (needs `as`-verified bytes per this project's own R10 rule,
+  not attempted). Full detail: `FINDING-2026-08-30-seat01-icon-level-exact-fix-sites-located-
+  implementation-ready.md`.
 - `rung36_jcon_var` — CRASH (signal 6, SIGABRT), NOT the generator class: a named, deliberate internal
   guard, `"FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
   !x/?x element-variable or s[i:j] section)"`, citing `GOAL-IR-IMMUTABLE-EMIT.md` (exists, 231KB) by

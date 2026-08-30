@@ -1,6 +1,0 @@
-%------------------------------------------------------- 1 rung50_between_errors
-type_error(integer,a)
-type_error(integer,b)
-instantiation_error
-instantiation_error
-type_error(integer,foo)

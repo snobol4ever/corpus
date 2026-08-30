@@ -5,16 +5,24 @@ on both m3 and m4 before it will convert it — this is deliberate, matching the
 `convert` path exactly (byte-equal-or-no-delete cannot prove anything about a file that is not
 green to begin with). 58 files stay loose for that reason, in three categories:
 
-## 1. Stdin-bearing tests (4 files: read1-4)
+## 1. Stdin-bearing tests (5 files: read1-4, pb35)
 
-`read1.pas`/`read2.pas`/`read3.pas`/`read4.pas` (each with a paired `.ref` and a `.in` stdin
-companion) read from standard input. The suite format has no stdin-input concept by deliberate,
+`read1.pas`/`read2.pas`/`read3.pas`/`read4.pas`/`pb35.pas` (each with a paired `.ref` and a `.in`
+stdin companion) read from standard input. The suite format has no stdin-input concept by deliberate,
 permanent ruling (hq_C, 2026-08-24, on the identical SNOBOL4-side case — `cross`/`word1-4`/
 `wordcount`): a one-line-per-entry encoding would need a fourth, nested, escaped format layer,
 and a truncated/mis-split input fails silently. **Every stdin-bearing test stays loose files
-PERMANENTLY, by ruling, not by omission.** These four continue to be graded exactly as before —
+PERMANENTLY, by ruling, not by omission.** These five continue to be graded exactly as before —
 `test_gate_pascal_m3.sh`/`test_gate_pascal_m4.sh`'s loose-file loop already reads `$name.in` as
 stdin when present.
+
+⭐ **Confirmed current as of the master consolidation (seat04, 2026-08-29/30):** `util_build_master_suite.py
+--lang pascal` independently reaches the same conclusion — all 5 are EXCLUDED LOUDLY (`ALL.excluded.txt`),
+never silently absorbed, matching this ruling exactly. `pb35` was added to this list after being found by a
+`read`/`readln`/`eof`/`eoln` sweep, not by its filename (unlike `read1`-`4`, its name gives no hint) — its
+`.ref` had also been silently captured against `/dev/null` rather than its own documented input; both the
+missing `.in` and the wrong `.ref` are fixed (corpus `979c8a006`). Worth re-sweeping by content, not name, if
+this list is ever revisited — a filename-based assumption is exactly what missed `pb35` the first time.
 
 ## 2. Intermittent SIGSEGV under m4 — ✅ NOW ROWED as `pascal-m4-intermittent-segv-layout-sensitive` (hq_C 2026-08-28); the set is LARGER than 2
 

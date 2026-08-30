@@ -3539,38 +3539,7 @@ procedure wr(s);
    writes(right(image(\s) | "---", 6));
    return;
 end
-#------------------------------------------ 409 procedure_suspend_scan_replace_1
-#SRC: V9SAM
-
-#
-#          C F L   R E C O G N I T I O N
-#
-
-#  This program takes strings from standard input and determines
-#  whether or not they are sentences in the language defined by <s>.
-
-procedure main();
-   local line;
-   while line := read() do
-      if recogn(s,line) then write("accepted") else write("rejected");
-end
-
-procedure recogn(goal,text);
-   return text ? (goal() & pos(0));
-end
-
-#  <s> ::= a <s> | <t> b | c
-
-procedure s();
-   suspend (="a" || s()) | (t() || ="b") | ="c";
-end
-
-#  <t> ::= d <s> d | e | f
-
-procedure t();
-   suspend (="d" || s() || ="d") | ="e" | ="f";
-end
-#-------------------------------------------- 410 procedure_every_scan_replace_1
+#-------------------------------------------- 409 procedure_every_scan_replace_1
 # WITNESS: the ROOT BLOCKER of 7 of 8 headline Icon benchmarks, minimized.
 # ipl options() does `x ? { if ="-" ... while c := move(1) ... find(c,optstring) }`.
 # The tab(match) carve corrupts the `optstring` PARAMETER to "" before find()
@@ -3590,7 +3559,7 @@ end
 procedure main();
    opts("-n10","n+");
 end
-#------------------------------------------- 411 procedure_every_scan_replace_12
+#------------------------------------------- 410 procedure_every_scan_replace_12
 #SRC: SCRIP-IJ9
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
@@ -3616,7 +3585,7 @@ procedure main();
    every write(("abc"|"abcdef") ? move(5));
    write();
 end
-#------------------------------------------ 412 procedure_record_every_replace_6
+#------------------------------------------ 411 procedure_record_every_replace_6
 #SRC: JCON
 
 record simple(f);
@@ -3660,7 +3629,7 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#-------------------------------------------- 413 procedure_every_scan_replace_7
+#-------------------------------------------- 412 procedure_every_scan_replace_7
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -3715,7 +3684,7 @@ procedure main();
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#-------------------------------------------- 414 procedure_every_scan_replace_8
+#-------------------------------------------- 413 procedure_every_scan_replace_8
 #SRC: JCON
 
 procedure main()
@@ -3798,7 +3767,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#----------------------------------------- 415 procedure_every_elemgen_replace_3
+#----------------------------------------- 414 procedure_every_elemgen_replace_3
 #SRC: V9SAM
 
 #
@@ -3821,7 +3790,7 @@ procedure main(args);
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#--------------------------------------------- 416 procedure_every_alt_replace_1
+#--------------------------------------------- 415 procedure_every_alt_replace_1
 # queens.icn — N-Queens via recursive backtracking
 # Icon idiom: every-driven search, global constraint arrays
 # Shows: recursive generators, every with if, global state, string mutation
@@ -3873,7 +3842,7 @@ procedure main(args);
     try_col(1);
     write(qcount, " solutions total.");
 end
-#------------------------------------------ 417 procedure_record_every_replace_5
+#------------------------------------------ 416 procedure_record_every_replace_5
 #SRC: JCON
 
 #  test of random selection
@@ -3933,7 +3902,7 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#-------------------------------------------- 418 procedure_every_scan_replace_2
+#-------------------------------------------- 417 procedure_every_scan_replace_2
 #SRC: JCON
 
 #  check coercion of operator arguments
@@ -4001,7 +3970,7 @@ procedure binop(o, i, r, c, s);
       right(o(s, c) | "---", 6));
    return;
 end
-#-------------------------------------------- 419 procedure_every_scan_replace_3
+#-------------------------------------------- 418 procedure_every_scan_replace_3
 #SRC: V9SAM
 
 #
@@ -4018,7 +3987,7 @@ procedure main();
          insert(words,tab(many(&letters)));
    every write(!sort(words));
 end
-#--------------------------------------------- 420 procedure_every_alt_replace_4
+#--------------------------------------------- 419 procedure_every_alt_replace_4
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
@@ -4103,7 +4072,7 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#----------------------------------------- 421 procedure_every_elemgen_replace_2
+#----------------------------------------- 420 procedure_every_elemgen_replace_2
 #SRC: V9SAM
 
 #
@@ -4129,7 +4098,7 @@ procedure roman(n);
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#-------------------------------------------- 422 procedure_scan_while_replace_1
+#-------------------------------------------- 421 procedure_scan_while_replace_1
 #SRC: V9SAM
 
 #
@@ -4165,7 +4134,7 @@ procedure meander(alpha,n)
        }
    return result;
 end
-#------------------------------------------- 423 procedure_every_scan_replace_10
+#------------------------------------------- 422 procedure_every_scan_replace_10
 #SRC: V9SAM
 
 #
@@ -4192,7 +4161,7 @@ procedure wordcount(n);
    every i := 1 to *x - 1 by 2 do
       write(left(x[ i ],n),x[ i + 1 ]);
 end
-#---------------------------------------------- 424 procedure_to_while_replace_1
+#---------------------------------------------- 423 procedure_to_while_replace_1
 #SRC: V9GEN
 
 procedure main()
@@ -4226,7 +4195,7 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2]);
       }
 end
-#------------------------------------------ 425 procedure_record_every_replace_4
+#------------------------------------------ 424 procedure_record_every_replace_4
 #SRC: IPL
 
 ############################################################################
@@ -4325,7 +4294,7 @@ procedure show()
       }
    write();
 end
-#------------------------------------------ 426 procedure_record_every_replace_2
+#------------------------------------------ 425 procedure_record_every_replace_2
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -4401,7 +4370,7 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#-------------------------------------------- 427 procedure_every_scan_replace_9
+#-------------------------------------------- 426 procedure_every_scan_replace_9
 #SRC: JCON
 
 # table test
@@ -4499,7 +4468,7 @@ procedure tdump(label, T);
    write();
    return;
 end
-#------------------------------------------ 428 procedure_record_every_replace_7
+#------------------------------------------ 427 procedure_record_every_replace_7
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -4631,7 +4600,7 @@ end
 
 global s;
 
-#------------------------------------------ 429 procedure_record_every_replace_1
+#------------------------------------------ 428 procedure_record_every_replace_1
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -4683,7 +4652,7 @@ procedure main();
    limit := 1000;
    gener("s");
 end
-#-------------------------------------------- 430 procedure_every_scan_replace_5
+#-------------------------------------------- 429 procedure_every_scan_replace_5
 #SRC: JCON
 
 procedure main();
@@ -4773,7 +4742,7 @@ procedure limage(label, lst);
    write();
    return;
 end
-#------------------------------------------ 431 procedure_record_every_replace_3
+#------------------------------------------ 430 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -4990,7 +4959,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#-------------------------------------------- 432 procedure_every_scan_replace_6
+#-------------------------------------------- 431 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -5107,7 +5076,7 @@ procedure newcolor()
 	if lum > 96 then return;
     }
     end
-#-------------------------------------------- 433 procedure_every_scan_replace_4
+#-------------------------------------------- 432 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -5258,7 +5227,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#------------------------------------------- 434 procedure_record_scan_replace_2
+#------------------------------------------- 433 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################
@@ -5577,7 +5546,7 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
-#---------------------------------------------- 435 procedure_scan_while_1 XFAIL
+#---------------------------------------------- 434 procedure_scan_while_1 XFAIL
 procedure main(args);
    local r;
    r := opt2(args);
