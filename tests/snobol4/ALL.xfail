@@ -1,0 +1,158 @@
+*--------------------------------------------------- 1495 simple_output_93 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------------- 1496 simple_output_186 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------- 1497 simple_program_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------- 1499 simple_output_67 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------- 1500 simple_output_61 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------- 1501 simple_output_64 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------- 1502 simple_output_68 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------- 1503 simple_output_70 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*---------------------------------------------------- 1504 array_replace_2 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*---------------------------------------------------- 1505 user_function_6 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------------------- 1506 keyword_19 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------------------ 1507 code_eval_replace_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*--------------------------------------------------- 1508 simple_output_62 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------- 1509 user_function_replace_4 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------------- 1510 keyword_replace_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------- 1511 user_function_replace_7 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------------------ 1512 code_eval_replace_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*-------------------------------------------------- 1513 keyword_replace_3 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------- 1514 user_function_replace_6 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------------- 1515 keyword_replace_2 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*----------------------------------------------------- 1516 span_replace_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*----------------------------------------------------- 1517 span_replace_2 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------------------- 1518 indirect_replace_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------------------------- 1519 eval_defer_3 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------- 1520 opsyn_replace_branch_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------------------------- 1521 array_replace_branch_2 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------------------- 1522 keyword_replace_branch_9 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------------------ 1523 keyword_replace_branch_10 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------------ 1524 keyword_replace_branch_11 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*----------------------------------- 1525 user_function_indirect_replace_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*----------------------------------- 1526 user_function_indirect_replace_2 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*---------------------------------------- 1527 user_function_len_capture_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------------ 1528 code_eval_eval_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*-------------------------------- 1529 user_function_len_capture_replace_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------- 1530 user_function_array_replace_branch_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*---------------------------------------- 1531 opsyn_any_capture_replace_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*--------------------------------- 1532 user_function_len_capture_branch_2 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------- 1533 fence_capture_imm_capture_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*-------------------------------------------- 1534 tab_trim_size_replace_2 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------------------------- 1535 tab_trim_size_replace_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*----------------------------- 1536 size_indirect_keyword_replace_branch_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*---------------------------------- 1537 trim_alt_keyword_replace_branch_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------------ 1540 fence_rpos_rem_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*---------------------------------- 1541 arbno_fence_rpos_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*----------------------------------------- 1542 user_function_arbno_rpos_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------ 1543 user_function_table_datatype_branch_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*---------------------------- 1544 user_function_convert_indirect_branch_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*------------------------------------------ 1545 break_len_array_replace_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------ 1546 arbno_arb_rpos_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*----------------------------------- 1547 fence_span_rpos_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*----------------------------------- 1548 arbno_fence_pos_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*----------------------------------- 1549 arbno_fence_tab_replace_branch_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------- 1550 fence_pos_len_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------- 1551 fence_pos_len_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------ 1552 fence_pos_rpos_replace_branch_3 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*--------------------- 1553 user_function_code_eval_array_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------------- 1554 arbno_pos_rpos_branch_81 XFAIL
+does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+*------------------------------------- 1555 arbno_bal_tab_replace_branch_1 XFAIL
+does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+*-------------------------------- 1556 arbno_fence_notany_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------ 1557 arbno_arb_rpos_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------ 1558 fence_arb_span_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------- 1559 fence_arb_tab_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------- 1560 fence_arb_tab_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------- 1561 user_function_code_eval_bal_branch_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*----------------------------------- 1562 arbno_fence_pos_replace_branch_4 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*----------------------------------- 1563 arbno_fence_pos_replace_branch_3 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*------------------------------------------ 1564 arbno_fence_pos_branch_22 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*----------------------------------- 1565 arbno_fence_bal_replace_branch_3 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*---------------------------------- 1566 arbno_fence_span_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*----------------------------------- 1567 arbno_fence_bal_replace_branch_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------------- 1568 arbno_fence_notany_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*---------------------------------- 1569 arbno_span_break_replace_branch_1 XFAIL
+does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+*------------------------------------ 1570 arbno_span_tab_replace_branch_1 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*----------------------------------- 1571 arbno_fence_bal_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*---------------------------------- 1572 arbno_fence_span_replace_branch_2 XFAIL
+does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+*------------------------------------ 1573 fence_arb_span_replace_branch_2 XFAIL
+crashes: SIGSEGV (rc=-11). Not further diagnosed.
+*------------------------------------ 1574 arbno_span_len_replace_branch_1 XFAIL
+exits rc=1, stdout does not match .ref. Not further diagnosed.
+*--------------------------- 1575 user_function_eval_span_replace_branch_1 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+*-------------------------- 1576 user_function_eval_arbno_replace_branch_2 XFAIL
+runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
