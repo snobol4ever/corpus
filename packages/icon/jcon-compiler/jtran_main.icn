@@ -42,17 +42,33 @@ procedure devnull(c);
     while @\c;
 end
 
-procedure main(L); 
-    local args, k, fn, c;
+procedure main(L);
+    local args, k, fn0, fn, c;
 
     while L[1] do {
         args := [];
         while k := pop(L) & k ~== ":" do {
             put(args, k)
         };
-        fn := pop(args);
-        fn := proc(fn) | stop("ERROR: unknown command-line procedure, ", fn);
-        c := create fn(c, args)
+        fn0 := pop(args);
+        fn := proc(fn0) | stop("ERROR: unknown command-line procedure, ", fn0);
+        # SCRIP deviation (ceo 2026-08-30): upstream says `c := create fn(c, args)`, but SCRIP's
+        # `create` through a proc-VARIABLE currently yields a dead co-expression (minimal witness:
+        # fn := stage; create fn(...) activates to immediate failure while create stage(...) is
+        # correct). Until that engine gap is cured, dispatch the known pipeline stages by direct
+        # name; the default arm keeps upstream's shape so an unlisted stage fails loudly there.
+        c := case fn0 of {
+            "preproc":  create preproc(c, args);
+            "yylex":    create yylex(c, args);
+            "parse":    create parse(c, args);
+            "ast2ir":   create ast2ir(c, args);
+            "bc_File":  create bc_File(c, args);
+            "cat":      create cat(c, args);
+            "tee":      create tee(c, args);
+            "stdout":   create stdout(c);
+            "devnull":  create devnull(c);
+            default:    create fn(c, args)
+        }
     };
     while @c;
 end
