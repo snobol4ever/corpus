@@ -1,0 +1,63 @@
+Testing LOC_REFERENCE...
+boolean->byte : value should be 1...          1
+boolean->byte : value should be 0...          0
+boolean->word : value should be 1...          1
+boolean->word : value should be 0...          0
+boolean->longint : value should be 1...          1
+boolean->longint : value should be 0...          0
+bytebool->byte : value should be 255...        255
+bytebool->byte : value should be 0...          0
+bytebool->word : value should be 65535...      65535
+bytebool->word : value should be 0...          0
+bytebool->longint : value should be -1...         -1
+bytebool->longint : value should be 0...          0
+wordbool->byte : value should be 255...        255
+wordbool->byte : value should be 0...          0
+wordbool->word : value should be 65535...      65535
+wordbool->word : value should be 0...          0
+wordbool->longint : value should be -1...         -1
+wordbool->longint : value should be 0...          0
+boolean->int64 : value should be 1...          1
+boolean->int64 : value should be 0...          0
+bytebool->int64 : value should be -1...         -1
+bytebool->int64 : value should be 0...          0
+wordbool->int64 : value should be -1...         -1
+wordbool->int64 : value should be 0...          0
+longbool->byte : value should be 255...        255
+longbool->byte : value should be 0...          0
+longbool->word : value should be 65535...      65535
+longbool->word : value should be 0...          0
+longbool->longint : value should be -1...         -1
+longbool->longint : value should be 0...          0
+wordbool->boolean : value should be TRUE... true
+wordbool->boolean : value should be FALSE...false
+longbool->boolean : value should be TRUE... true
+longbool->boolean : value should be FALSE...false
+wordbool->bytebool : value should be TRUE... true
+wordbool->bytebool : value should be FALSE...false
+longbool->bytebool : value should be TRUE... true
+longbool->bytebool : value should be FALSE...false
+boolean->longbool : value should be TRUE... true
+boolean->longbool : value should be FALSE...false
+bytebool->longbool : value should be TRUE... true
+bytebool->longbool : value should be FALSE...false
+Testing LOC_JUMP...
+value should be 0...          0
+value should be 1...          1
+value should be 0...          0
+value should be 1...          1
+value should be 0...          0
+value should be 1...          1
+value should be 0...          0
+value should be 1...          1
+Testing LOC_FLAGS...
+Value should be TRUE... true
+Value should be FALSE...false
+Value should be FALSE...false
+Value should be TRUE... true
+Value should be FALSE...false
+Value should be TRUE... true
+Value should be FALSE...false
+Value should be TRUE... true
+Value should be TRUE... true
+Value should be FALSE...false

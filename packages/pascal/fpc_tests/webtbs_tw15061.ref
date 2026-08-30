@@ -1,0 +1,6 @@
+SizeOf( patrec) = 10
+Offset of p: pattern = 2
+
+SizeOf( doublerec) = 10
+Offset of d: double = 2
+

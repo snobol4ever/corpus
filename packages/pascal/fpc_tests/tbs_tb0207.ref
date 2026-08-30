@@ -1,0 +1,5 @@
+first arg is           2
+second arg is           1
+third arg is           3
+fourth arg is           4 fifth arg is           5
+FPC does not follow PASCAL rules for parameter passing
