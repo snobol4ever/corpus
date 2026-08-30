@@ -23,7 +23,6 @@ that reads as a property of the program.
 
 - `coverage/coverage_net_gaps.pl` — rc=134
 - `queens.pl` — rc=139
-- `rung05_backtrack_backtrack.pl` — rc=134
 - `rung10_programs_puzzle_02.pl` — rc=139
 - `rung10_programs_puzzle_03.pl` — rc=139
 - `rung10_programs_puzzle_04.pl` — rc=139
@@ -44,14 +43,6 @@ that reads as a property of the program.
 - `rung10_programs_puzzle_20.pl` — rc=139
 - `rung11_findall_findall_arith.pl` — rc=139
 - `rung11_findall_findall_filter.pl` — rc=139
-- `rung30_dcg_generate.pl` — rc=134
-- `rung31_bridge_catch/05_var_goal_throw.pl` — rc=139
-- `rung34_bridge_setof/01_findall_var_goal.pl` — rc=132
-- `rung34_bridge_setof/02_findall_var_goal_arith.pl` — rc=132
-- `rung34_bridge_setof/04_findall_var_userpred.pl` — rc=132
-- `rung34_bridge_setof/05_findall_var_conj.pl` — rc=135
-- `rung56_ite_backtrack/rung56.pl` — rc=134
-- `rung57_forall/rung57.pl` — rc=134
 - `sentences.pl` — rc=139
 
 ## DEFERRED prolog-backtracking-yields-first-solution-only
@@ -67,8 +58,6 @@ reproduced their result on all 5 before being trusted on the rest, and 6 of the 
 - `rung14_retract_retract_basic.pl` — rc=1, arr_gen=1 lexprep2=1
 - `rung14_retract_retract_mixed.pl` — rc=1, arr_gen=1 lexprep2=1
 - `rung15_abolish_abolish_then_reassert.pl` — rc=1, arr_gen=1 lexprep2=1
-- `rung31_bridge_catch/04_var_goal_userpred.pl` — rc=1, arr_gen=1 lexprep2=1
-- `rung33_bridge_callN/04_call3_user_pred.pl` — rc=1, arr_gen=1 lexprep2=1
 - `rung44_setof_group.pl` — rc=1, arr_gen=1 lexprep2=2
 - `rung45_reflect_clause_facts.pl` — rc=0, arr_gen=2 lexprep2=3
 - `rung45_reflect_clause_findall.pl` — rc=0, arr_gen=2 lexprep2=3
@@ -83,7 +72,6 @@ reproduced their result on all 5 before being trusted on the rest, and 6 of the 
 it expects `caught_existence_error` and scrip prints `** Error 22 ... Undefined function called`, i.e. the
 existence_error is not catchable. Different defect, and it already has its own live row.
 
-- `rung38_iso_errors/03_existence_error.pl` — rc=1, arr_gen=0 lexprep2=0
 
 ## Genuinely convertible right now (4) — prose, inert to the gate
 
@@ -109,3 +97,33 @@ The sibling row's remembered "33 files that CRASH (rc=132/134/139)" is wrong thr
 it includes an rc=135 SIGBUS that definition excludes; and 12 further files are blocked WITHOUT crashing, so
 "crashes" was never the right definition of "blocked" — rc answers "did it crash", and the row asked it "is
 it blocked".
+
+## DEFERRED prolog-abolish-leaves-predicate-defined-but-empty
+
+ORACLE-DIFF, root-caused by seat06 2026-08-29 and not re-derived here: SCRIP's `abolish/1` should leave the
+predicate UNDEFINED, so the next call raises an existence_error -- both oracles agree on that, for different
+reasons. SCRIP instead leaves it defined-but-empty, so the call quietly fails. ⛔ The consequence for THIS
+row is the part that matters: every `.expected` in this group was pinned from SCRIP's own output, so they
+are SELF-REFERENTIAL, not oracle-grounded. Converting them would freeze the defect into the master as the
+expected answer -- the one outcome a consolidation must never produce.
+Re-measured 2026-08-30 (hq_B) to confirm the group is still red and still this shape.
+
+- `rung15_abolish_abolish_existing.pl` — scrip prints `gone` rc=0; oracle prints nothing rc=0
+- `rung15_abolish_abolish_one_of_two.pl` — scrip prints `cat_gone|tweety|polly` rc=1; oracle prints nothing rc=0
+- `rung15_abolish_abolish_then_query_fail.pl` — scrip prints `no` rc=0; oracle prints nothing rc=0
+
+## DEFERRED prolog-write-canonical-prints-dot-functor-form-for-lists
+
+Pure output-form divergence, measured 2026-08-30 (hq_B). Both sides terminate cleanly at rc=0; the entire
+difference is how a list is written. Nothing else stands between this witness and conversion.
+
+- `rung22_write_canonical_write_canonical_list.pl` — scrip `'.'(a,'.'(b,[]))` vs oracle `[a,b]`
+
+## DEFERRED prolog-failed-initialization-goal-exits-1-where-swipl-exits-0
+
+Measured 2026-08-30 (hq_B). BOTH implementations agree the initialization goal fails, and both print the
+solution line first; the whole diff is the warning wording plus the exit code (swipl rc=0, scrip rc=1).
+⭐ Deferred rather than kept because it is one rc away from converting -- a keeper would say "stays loose
+forever, on purpose", which is false of it.
+
+- `rung10_programs_puzzle_05.pl` — text agrees; swipl rc=0 vs scrip rc=1, warning worded differently
