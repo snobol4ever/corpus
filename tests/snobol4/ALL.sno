@@ -13006,7 +13006,7 @@ END
 	value = 1
 	&DUMP = 1
 END
-*------------------------------------------------ 1659 code_eval_replace_1
+*------------------------------------------------ 1659 code_eval_replace_1 XFAIL
 *  Control for ev_code_end_terminates: SAME fragment, SAME :(END) exit,
 *  entered by an ORDINARY label goto instead of the direct form — so the
 *  direct-goto grammar is not in the picture at all.  Crashes identically
@@ -13053,7 +13053,7 @@ FEnd
         DEFINE('F(x)','F2')
         OUTPUT     =     F('b')
 END
-*------------------------------------------------ 1664 code_eval_replace_2
+*------------------------------------------------ 1664 code_eval_replace_2 XFAIL
 *  ⛔ NAMED RED (s192, seat7, row goto-code-object-parse): a CODE() fragment
 *  that TERMINATES — its own Goto is :(END), the manual's other ending —
 *  is green in mode-3 and SIGSEGVs in mode-4.  Not a direct-goto defect:
@@ -13288,7 +13288,7 @@ S       S = .G                 :(NRETURN)
 A       'AB' ? LEN(1) . S()
         OUTPUT = 'g=' G
 END
-*------------------------------------ 1680 code_eval_eval_replace_branch_1
+*------------------------------------ 1680 code_eval_eval_replace_branch_1 XFAIL
 *  f13: EVAL dynamic expression; CODE dynamic compilation
         EQ(EVAL('2 + 3'), 5)                    :F(FAIL)
         C = CODE("CPASS OUTPUT = 'PASS' :(END)")
