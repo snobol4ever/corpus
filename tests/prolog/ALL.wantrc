@@ -1,0 +1,19 @@
+# ALL.wantrc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
+# Format: name<TAB>rc   ·   blank lines and # comments ignored   ·   rc=0 is the default and is REFUSED here.
+#
+# ⛔ DECLARED, NEVER INFERRED (hq_C ruling 2026-08-30, corpus-suites-consolidation.task.md
+# § VACUOUS PASS ON POSITIVE rc). classify() now refuses to call a nonzero-rc run a PASS unless the
+# entry declares that exit code. Without these four lines they grade FAIL — measured control arm on
+# one tree: before 218 pass / 3 fail, after 214 pass / 7 fail, exactly these four moving.
+#
+# WHY THESE FOUR ARE CORRECT AT rc=1, and it is not a workaround:
+# each has a NON-EMPTY .ref that MATCHES byte-for-byte (['red','green','blue'], ['a','b','c']) and then
+# exits 1. They are the failure-driven-loop / failed-top-level-goal family — a `main` whose last goal
+# fails after printing everything it was supposed to print. ARCH-LANGUAGES.md § FAILURE-DRIVEN LOOP WITH
+# NO FALLBACK CLAUSE rules that a failed top-level goal is a process failure and rc=1 is CORRECT there,
+# while a failed load-time DIRECTIVE is a warning (rc=0) in both swipl and gprolog. Output right, exit
+# right, and the two facts disagree only if you assume rc must be 0.
+assertz_directive_2	1
+assertz_directive_3	1
+assertz_directive_4	1
+asserta_assertz_directive_1	1
