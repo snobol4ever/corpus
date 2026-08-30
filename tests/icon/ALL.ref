@@ -2487,11 +2487,9 @@ xy
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#------------------------------------------ 409 procedure_suspend_scan_replace_1
-
-#-------------------------------------------- 410 procedure_every_scan_replace_1
+#-------------------------------------------- 409 procedure_every_scan_replace_1
 c="n" optstring="n+" find=1
-#------------------------------------------- 411 procedure_every_scan_replace_12
+#------------------------------------------- 410 procedure_every_scan_replace_12
 a
 c
 e
@@ -2503,7 +2501,7 @@ i
 3
 
 abcde
-#------------------------------------------ 412 procedure_record_every_replace_6
+#------------------------------------------ 411 procedure_record_every_replace_6
 1 2
 3 4
 5 6
@@ -2519,7 +2517,7 @@ abcde
 3
 7
  11 22 73 74 
-#-------------------------------------------- 413 procedure_every_scan_replace_7
+#-------------------------------------------- 412 procedure_every_scan_replace_7
 type string
 *s  5
 s:  abcde
@@ -2557,7 +2555,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#-------------------------------------------- 414 procedure_every_scan_replace_8
+#-------------------------------------------- 413 procedure_every_scan_replace_8
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -2620,9 +2618,9 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#----------------------------------------- 415 procedure_every_elemgen_replace_3
+#----------------------------------------- 414 procedure_every_elemgen_replace_3
 There are 168 primes in the first 1000 integers.
-#--------------------------------------------- 416 procedure_every_alt_replace_1
+#--------------------------------------------- 415 procedure_every_alt_replace_1
 6-Queens:
 solution 1:
   -------------------------
@@ -2681,7 +2679,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#------------------------------------------ 417 procedure_record_every_replace_5
+#------------------------------------------ 416 procedure_record_every_replace_5
 
          0  i  2114
  453816694  i  4124
@@ -2747,7 +2745,7 @@ solution 4:
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#-------------------------------------------- 418 procedure_every_scan_replace_2
+#-------------------------------------------- 417 procedure_every_scan_replace_2
 +x          1     2     3     9
 -x         -1    -2    -3    -9
 *x          1     1     1     1
@@ -2802,7 +2800,7 @@ x ** y      2     1     2     2           2     1           x     2     2     x
 
   12578  .13459  ainorz  
   12345  678.9  cnost  
-#-------------------------------------------- 419 procedure_every_scan_replace_3
+#-------------------------------------------- 418 procedure_every_scan_replace_3
 The
 There
 are
@@ -2829,7 +2827,7 @@ sort
 the
 to
 write
-#--------------------------------------------- 420 procedure_every_alt_replace_4
+#--------------------------------------------- 419 procedure_every_alt_replace_4
   &allocated: 0
   &allocated: 0
   &allocated: 0
@@ -2906,7 +2904,7 @@ write
      &window: &null
           &x: 0
           &y: 0
-#----------------------------------------- 421 procedure_every_elemgen_replace_2
+#----------------------------------------- 420 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -2915,11 +2913,11 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#-------------------------------------------- 422 procedure_scan_while_replace_1
+#-------------------------------------------- 421 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------- 423 procedure_every_scan_replace_10
+#------------------------------------------- 422 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -2973,7 +2971,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------- 424 procedure_to_while_replace_1
+#---------------------------------------------- 423 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -3102,7 +3100,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#------------------------------------------ 425 procedure_record_every_replace_4
+#------------------------------------------ 424 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -3163,7 +3161,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------ 426 procedure_record_every_replace_2
+#------------------------------------------ 425 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -3338,7 +3336,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#-------------------------------------------- 427 procedure_every_scan_replace_9
+#-------------------------------------------- 426 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -3357,7 +3355,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 428 procedure_record_every_replace_7
+#------------------------------------------ 427 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -3589,9 +3587,9 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#------------------------------------------ 429 procedure_record_every_replace_1
+#------------------------------------------ 428 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 430 procedure_every_scan_replace_5
+#-------------------------------------------- 429 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -3644,7 +3642,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#------------------------------------------ 431 procedure_record_every_replace_3
+#------------------------------------------ 430 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -4045,7 +4043,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#-------------------------------------------- 432 procedure_every_scan_replace_6
+#-------------------------------------------- 431 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -4115,7 +4113,7 @@ where:
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 433 procedure_every_scan_replace_4
+#-------------------------------------------- 432 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -4127,7 +4125,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#------------------------------------------- 434 procedure_record_scan_replace_2
+#------------------------------------------- 433 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
@@ -4202,6 +4200,6 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
-#---------------------------------------------- 435 procedure_scan_while_1 XFAIL
+#---------------------------------------------- 434 procedure_scan_while_1 XFAIL
 dash
 flist size=0

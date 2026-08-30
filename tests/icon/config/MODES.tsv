@@ -219,6 +219,5 @@ rung03_suspend_gen	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+
 rung03_suspend_gen_compose	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
 rung03_suspend_gen_filter	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
 rung03_suspend_return	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
-rung36_jcon_recogn	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
 rung37_proc_lookup	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
 rung37_subscript_genproc	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
