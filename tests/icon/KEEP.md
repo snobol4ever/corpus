@@ -129,6 +129,15 @@ entry only, same as every other line in this file. (`rung36_jcon_toby.icn` was i
 seat09's pass; moved to its own bullet below, 2026-08-30 — its `.xfail` reason is qualitatively
 different from "genuinely fails.")
 
+⭐ **`rung36_jcon_large` and `rung36_jcon_radix` are a DIFFERENT class from an ordinary bug, found
+2026-08-30 (seat01): they need arbitrary-precision (bignum) integer arithmetic, which does not exist
+anywhere in this runtime** (checked, not assumed — `grep -rl bignum\|BIGNUM\|bigint src/` finds nothing
+real; the one `str_to_mpn` hit is glibc's own internal symbol, unrelated). Both expect values far
+beyond 64-bit range (e.g. `106300512295600039567362168178520907819968174883825255684`); SCRIP produces
+wrapped/overflowed 64-bit results (`9223372036854775807 + 9223372036854775807 = -2`). **Not a Class-C
+bug to fix — a missing feature**, likely its own dedicated row if anyone picks it up, not something to
+attempt inside this row's characterization pass.
+
 - `rung36_jcon_toby` — **UNGRADEABLE, not merely red (ruled by hq_P, 2026-08-30, on seat01's
   measurement).** The oracle itself hangs on this program — confirmed via `capture-oracle-refs --lang
   icon` (which runs a fresh live oracle invocation per stem) and independently by direct invocation.
