@@ -568,7 +568,27 @@ n25_scan_α:             mov              r11, 26
                         mov              r13, qword ptr [rsp + 2176]
                         mov              r14, qword ptr [rsp + 2184]
                         mov              r15, qword ptr [rsp + 2192];         jmp   n4_var_α
-n25_scan_β:             mov              r11, 26;                             jmp   n4_var_α
+n25_scan_β:             mov              r11, 26
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_scan_reenter@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r13, rax
+                        mov              r15, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_scan_sync_in@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r14, rax;                            jmp   n23_disjunction_β
+                                                                              jmp   n4_var_α
                         .size            n25_scan_bx, .-n25_scan_bx
                         .type            n26_disjunction_bx, @function
 n26_disjunction_bx:
@@ -2731,9 +2751,31 @@ dofile_β:
 dofile_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 3392;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 dofile_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 3392;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 dofile_dcα:

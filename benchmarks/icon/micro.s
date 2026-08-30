@@ -463,9 +463,31 @@ report_β:
 report_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 720;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 report_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 720;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 report_dcα:
@@ -2426,9 +2448,31 @@ measure_β:
 measure_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 2000;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 measure_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 2000;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 measure_dcα:
@@ -2618,9 +2662,31 @@ nothing_β:
 nothing_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nothing_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nothing_dcα:
@@ -2798,9 +2864,31 @@ uplus_β:
 uplus_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 uplus_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 uplus_dcα:
@@ -2978,9 +3066,31 @@ uplusr_β:
 uplusr_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 uplusr_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 uplusr_dcα:
@@ -3197,9 +3307,31 @@ absf_β:
 absf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 absf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 absf_dcα:
@@ -3377,9 +3509,31 @@ intadd_β:
 intadd_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intadd_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intadd_dcα:
@@ -3630,9 +3784,31 @@ intcmp_β:
 intcmp_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intcmp_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intcmp_dcα:
@@ -3848,9 +4024,31 @@ intpow_β:
 intpow_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intpow_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intpow_dcα:
@@ -4069,9 +4267,31 @@ realcmp_β:
 realcmp_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 realcmp_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 realcmp_dcα:
@@ -4288,9 +4508,31 @@ cosf_β:
 cosf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cosf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cosf_dcα:
@@ -4507,9 +4749,31 @@ sqrtf_β:
 sqrtf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 sqrtf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 sqrtf_dcα:
@@ -4739,9 +5003,31 @@ logf_β:
 logf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 logf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 logf_dcα:
@@ -4956,9 +5242,31 @@ nullfunc_β:
 nullfunc_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nullfunc_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nullfunc_dcα:
@@ -5010,9 +5318,31 @@ nullf_β:
 nullf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 48;                             jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nullf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 48;                             jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nullf_dcα:
@@ -5396,9 +5726,31 @@ listcall_β:
 listcall_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 560;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 listcall_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 560;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 listcall_dcα:
@@ -5633,9 +5985,31 @@ addfunc_β:
 addfunc_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 addfunc_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 addfunc_dcα:
@@ -5813,9 +6187,31 @@ add_β:
 add_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 208;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 add_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 208;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 add_dcα:
@@ -6052,9 +6448,31 @@ rfact0_β:
 rfact0_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact0_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact0_dcα:
@@ -6279,9 +6697,31 @@ rfact10_β:
 rfact10_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact10_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact10_dcα:
@@ -6696,9 +7136,31 @@ rfact_β:
 rfact_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact_dcα:
@@ -6923,9 +7385,31 @@ rfib5_β:
 rfib5_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib5_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib5_dcα:
@@ -7459,9 +7943,31 @@ rfib_β:
 rfib_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib_dcα:
@@ -8157,9 +8663,31 @@ prslow_β:
 prslow_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 848;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 prslow_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 848;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 prslow_dcα:
@@ -8386,9 +8914,31 @@ if0_β:
 if0_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 if0_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 if0_dcα:
@@ -8855,9 +9405,31 @@ case3_β:
 case3_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 768;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 case3_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 768;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 case3_dcα:
@@ -9060,9 +9632,31 @@ nulltest_β:
 nulltest_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nulltest_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nulltest_dcα:
@@ -9286,9 +9880,31 @@ typef_β:
 typef_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 typef_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 typef_dcα:
@@ -9512,9 +10128,31 @@ imagef_β:
 imagef_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 imagef_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 imagef_dcα:
@@ -9854,9 +10492,31 @@ marshal_β:
 marshal_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 544;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 marshal_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 544;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 marshal_dcα:
@@ -10057,9 +10717,31 @@ conj5_β:
 conj5_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 conj5_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 conj5_dcα:
@@ -10346,9 +11028,31 @@ everyalt_β:
 everyalt_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 everyalt_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 everyalt_dcα:
@@ -10586,9 +11290,31 @@ everyto_β:
 everyto_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 everyto_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 everyto_dcα:
@@ -10833,9 +11559,31 @@ evsusp_β:
 evsusp_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 496;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 evsusp_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 496;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 evsusp_dcα:
@@ -11187,9 +11935,31 @@ intcoerce_β:
 intcoerce_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intcoerce_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intcoerce_dcα:
@@ -11428,9 +12198,31 @@ realcoerce_β:
 realcoerce_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 realcoerce_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 realcoerce_dcα:
@@ -11638,9 +12430,31 @@ strcoerce_β:
 strcoerce_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoerce_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoerce_dcα:
@@ -11848,9 +12662,31 @@ strcoercer_β:
 strcoercer_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoercer_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoercer_dcα:
@@ -12074,9 +12910,31 @@ tointeger_β:
 tointeger_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tointeger_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tointeger_dcα:
@@ -12300,9 +13158,31 @@ toreal_β:
 toreal_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 toreal_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 toreal_dcα:
@@ -12523,9 +13403,31 @@ tostring_β:
 tostring_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tostring_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tostring_dcα:
@@ -12746,9 +13648,31 @@ rtostring_β:
 rtostring_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rtostring_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rtostring_dcα:
@@ -12972,9 +13896,31 @@ tocset_β:
 tocset_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tocset_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tocset_dcα:
@@ -13195,9 +14141,31 @@ charf_β:
 charf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 charf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 charf_dcα:
@@ -13421,9 +14389,31 @@ ordf_β:
 ordf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 ordf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 ordf_dcα:
@@ -13634,9 +14624,31 @@ strsize_β:
 strsize_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strsize_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strsize_dcα:
@@ -13818,9 +14830,31 @@ concat_β:
 concat_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 concat_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 304;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 concat_dcα:
@@ -14050,9 +15084,31 @@ strpick_β:
 strpick_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strpick_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strpick_dcα:
@@ -14269,9 +15325,31 @@ strbang_β:
 strbang_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strbang_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strbang_dcα:
@@ -14512,9 +15590,31 @@ strsub_β:
 strsub_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strsub_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strsub_dcα:
@@ -14748,9 +15848,31 @@ substr_β:
 substr_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 substr_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 substr_dcα:
@@ -15032,9 +16154,31 @@ subsasg_β:
 subsasg_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 subsasg_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 subsasg_dcα:
@@ -15271,9 +16415,31 @@ strcmp_β:
 strcmp_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strcmp_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strcmp_dcα:
@@ -15502,9 +16668,31 @@ strident_β:
 strident_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strident_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strident_dcα:
@@ -15741,9 +16929,31 @@ replf_β:
 replf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 replf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 replf_dcα:
@@ -15967,9 +17177,31 @@ reversef_β:
 reversef_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 reversef_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 reversef_dcα:
@@ -16206,9 +17438,31 @@ leftf_β:
 leftf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 leftf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 leftf_dcα:
@@ -16445,9 +17699,31 @@ centerf_β:
 centerf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 centerf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 centerf_dcα:
@@ -16684,9 +17960,31 @@ rightf_β:
 rightf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rightf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rightf_dcα:
@@ -16910,9 +18208,31 @@ trimf_β:
 trimf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 trimf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 trimf_dcα:
@@ -17136,9 +18456,31 @@ entabf_β:
 entabf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 entabf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 entabf_dcα:
@@ -17362,9 +18704,31 @@ detabf_β:
 detabf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 detabf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 384;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 detabf_dcα:
@@ -17620,9 +18984,31 @@ mapf_β:
 mapf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 mapf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 mapf_dcα:
@@ -17878,9 +19264,31 @@ map1_β:
 map1_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 map1_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 map1_dcα:
@@ -18220,9 +19628,31 @@ map2_β:
 map2_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 672;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 map2_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 672;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 map2_dcα:
@@ -18741,9 +20171,31 @@ tablemap_β:
 tablemap_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 768;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tablemap_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 768;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tablemap_dcα:
@@ -19365,9 +20817,31 @@ listmap_β:
 listmap_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 944;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 listmap_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 944;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 listmap_dcα:
@@ -19614,9 +21088,31 @@ nullscan_β:
 nullscan_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 432;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nullscan_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 432;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nullscan_dcα:
@@ -19891,9 +21387,31 @@ movef_β:
 movef_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 movef_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 movef_dcα:
@@ -20219,9 +21737,31 @@ mov11_β:
 mov11_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 512;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 mov11_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 512;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 mov11_dcα:
@@ -20687,9 +22227,31 @@ pos11_β:
 pos11_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 608;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pos11_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 608;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 pos11_dcα:
@@ -20965,9 +22527,31 @@ tabf_β:
 tabf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tabf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tabf_dcα:
@@ -21243,9 +22827,31 @@ matchf_β:
 matchf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 matchf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 matchf_dcα:
@@ -21554,9 +23160,31 @@ tabmat_β:
 tabmat_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 496;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tabmat_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 496;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tabmat_dcα:
@@ -21817,9 +23445,31 @@ posf_β:
 posf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 432;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 posf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 432;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 posf_dcα:
@@ -22106,9 +23756,31 @@ anyf_β:
 anyf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 anyf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 anyf_dcα:
@@ -22400,9 +24072,31 @@ manyf_β:
 manyf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 manyf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 manyf_dcα:
@@ -22694,9 +24388,31 @@ uptof_β:
 uptof_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 uptof_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 uptof_dcα:
@@ -22965,9 +24681,31 @@ findf_β:
 findf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 findf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 findf_dcα:
@@ -23259,9 +24997,31 @@ balf_β:
 balf_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 balf_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 464;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 balf_dcα:
@@ -23486,9 +25246,31 @@ cssize_β:
 cssize_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cssize_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cssize_dcα:
@@ -23713,9 +25495,31 @@ cscompl_β:
 cscompl_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cscompl_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 352;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cscompl_dcα:
@@ -23949,9 +25753,31 @@ lcreate_β:
 lcreate_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lcreate_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lcreate_dcα:
@@ -24229,9 +26055,31 @@ lconst_β:
 lconst_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 528;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lconst_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 528;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lconst_dcα:
@@ -24633,9 +26481,31 @@ lcopy_β:
 lcopy_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 656;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lcopy_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 656;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lcopy_dcα:
@@ -25037,9 +26907,31 @@ lsort_β:
 lsort_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 656;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lsort_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 656;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lsort_dcα:
@@ -25428,9 +27320,31 @@ lsize_β:
 lsize_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lsize_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lsize_dcα:
@@ -25838,9 +27752,31 @@ lpick_β:
 lpick_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 640;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lpick_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 640;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lpick_dcα:
@@ -26259,9 +28195,31 @@ lsubscr_β:
 lsubscr_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 656;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lsubscr_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 656;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lsubscr_dcα:
@@ -26656,9 +28614,31 @@ lbang_β:
 lbang_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 640;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lbang_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 640;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lbang_dcα:
@@ -27038,9 +29018,31 @@ put1get1_β:
 put1get1_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put1get1_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put1get1_dcα:
@@ -27491,9 +29493,31 @@ put2get2_β:
 put2get2_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 704;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put2get2_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 704;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put2get2_dcα:
@@ -27996,9 +30020,31 @@ put3get3_β:
 put3get3_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 800;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put3get3_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 800;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put3get3_dcα:
@@ -28553,9 +30599,31 @@ put4get4_β:
 put4get4_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 896;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put4get4_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 896;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put4get4_dcα:
@@ -28935,9 +31003,31 @@ pushpop_β:
 pushpop_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop_dcα:
@@ -29473,9 +31563,31 @@ putget12_β:
 putget12_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 960;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 putget12_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 960;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 putget12_dcα:
@@ -30011,9 +32123,31 @@ pushpop12_β:
 pushpop12_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 960;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop12_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 960;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop12_dcα:
@@ -30221,9 +32355,31 @@ setcreate_β:
 setcreate_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setcreate_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setcreate_dcα:
@@ -30611,9 +32767,31 @@ setcopy_β:
 setcopy_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 592;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setcopy_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 592;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setcopy_dcα:
@@ -31014,9 +33192,31 @@ setinsert_β:
 setinsert_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsert_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsert_dcα:
@@ -31417,9 +33617,31 @@ setmember_β:
 setmember_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setmember_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setmember_dcα:
@@ -31821,9 +34043,31 @@ setinsdel_β:
 setinsdel_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsdel_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsdel_dcα:
@@ -32217,9 +34461,31 @@ setpick_β:
 setpick_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setpick_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setpick_dcα:
@@ -32644,9 +34910,31 @@ setbang_β:
 setbang_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setbang_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 624;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setbang_dcα:
@@ -32854,9 +35142,31 @@ tblcreate_β:
 tblcreate_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tblcreate_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tblcreate_dcα:
@@ -33288,9 +35598,31 @@ tblasgn_β:
 tblasgn_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 592;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tblasgn_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 592;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tblasgn_dcα:
@@ -33711,9 +36043,31 @@ tblsub_β:
 tblsub_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tblsub_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tblsub_dcα:
@@ -33947,9 +36301,31 @@ recconstr_β:
 recconstr_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 recconstr_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 400;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 recconstr_dcα:
@@ -34321,9 +36697,31 @@ reccopy_β:
 reccopy_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 reccopy_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 576;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 reccopy_dcα:
@@ -34686,9 +37084,31 @@ recfield_β:
 recfield_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 544;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 recfield_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 544;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 recfield_dcα:
@@ -35025,9 +37445,31 @@ bigfield_β:
 bigfield_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 bigfield_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 480;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 bigfield_dcα:
@@ -35227,9 +37669,31 @@ globasgn_β:
 globasgn_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 globasgn_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 globasgn_dcα:
@@ -35434,9 +37898,31 @@ loclasgn_β:
 loclasgn_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 loclasgn_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 368;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 loclasgn_dcα:
@@ -35636,9 +38122,31 @@ statasgn_β:
 statasgn_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 statasgn_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 336;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 statasgn_dcα:
@@ -36029,9 +38537,31 @@ readz_β:
 readz_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 640;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 readz_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 640;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 readz_dcα:
@@ -36268,9 +38798,31 @@ writecon_β:
 writecon_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 writecon_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 416;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 writecon_dcα:
@@ -36615,9 +39167,31 @@ writestr_β:
 writestr_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 544;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 writestr_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 544;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 writestr_dcα:
@@ -36885,9 +39459,31 @@ cxcreate_β:
 cxcreate_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cxcreate_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 448;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cxcreate_dcα:
@@ -37282,9 +39878,31 @@ cxget_β:
 cxget_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 592;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cxget_ω:
+                        push             rax
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rax
                         add              rsp, 592;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cxget_dcα:
