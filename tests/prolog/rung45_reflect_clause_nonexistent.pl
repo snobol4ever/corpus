@@ -1,2 +1,0 @@
-%-------------------------------------------------------------- 1 rung45_reflect_clause_nonexistent
-main :- ( clause(ghost(_), _) -> write(found) ; write(nofact) ), nl.

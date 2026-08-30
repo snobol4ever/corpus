@@ -1,3 +1,0 @@
-%---------------------------------------------------- 1 rung43_findall_fail_meta
-:- initialization(main).
-main :- findall(X, fail, Xs), write(Xs), nl.
