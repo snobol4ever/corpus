@@ -8,103 +8,103 @@ invocable "hello1"
 
 
 
-procedure main()
-   iconprocs()		# test separately compiled Icon procedures
-   javaprocs()		# test separately compiled Java procedures
-   genproc()		# generate, build, and test an Icon procedure
+procedure main();
+   iconprocs();		# test separately compiled Icon procedures
+   javaprocs();		# test separately compiled Java procedures
+   genproc();		# generate, build, and test an Icon procedure
 end
 
 
 
-procedure iconprocs()
-   local proc1a, proc1b, proc1c, proc2a, proc2b
+procedure iconprocs();
+   local proc1a, proc1b, proc1c, proc2a, proc2b;
 
-   proc1a := loadfunc("load1.zip", "proc1a")
-   proc2b := loadfunc("load2.zip", "proc2b")
-   proc2a := loadfunc("load2.zip", "proc2a")
-   proc1b := loadfunc("load1.zip", "proc1b")
-   proc1c := loadfunc("load1.zip", "proc1a")  # 1c is copy of 1a
+   proc1a := loadfunc("load1.zip", "proc1a");
+   proc2b := loadfunc("load2.zip", "proc2b");
+   proc2a := loadfunc("load2.zip", "proc2a");
+   proc1b := loadfunc("load1.zip", "proc1b");
+   proc1c := loadfunc("load1.zip", "proc1a");  # 1c is copy of 1a
 
-   hello2("from iconprocs")
-   every write(image(proc1a | proc1b | proc1c | proc2a | proc2b))
+   hello2("from iconprocs");
+   every write(image(proc1a | proc1b | proc1c | proc2a | proc2b));
 
    every n := 1000 | 2000 do {
-      write()
-      proc1a(n + 100)
-      proc2a(n + 200)
-      proc1b(n + 300)
-      proc1c(n + 400)
+      write();
+      proc1a(n + 100);
+      proc2a(n + 200);
+      proc1b(n + 300);
+      proc1c(n + 400);
       proc2b(n + 500)
-   }
+   };
 
 end
 
-procedure hello1(s)
-   write("hello1 ", s)
+procedure hello1(s);
+   write("hello1 ", s);
 end
 
-procedure hello2(s)
-   write("hello2 ", s)
+procedure hello2(s);
+   write("hello2 ", s);
 end
 
 
 
-procedure javaprocs()
-   local sum3, factors, threen, primes, f, i
+procedure javaprocs();
+   local sum3, factors, threen, primes, f, i;
 
-   sum3 := loadfunc("jfuncs.zip", "sum3")
-   factors := loadfunc("jfuncs.zip", "factors")
-   threen := loadfunc("jfuncs.zip", "threen")
-   primes := loadfunc(, "primes")
+   sum3 := loadfunc("jfuncs.zip", "sum3");
+   factors := loadfunc("jfuncs.zip", "factors");
+   threen := loadfunc("jfuncs.zip", "threen");
+   primes := loadfunc(, "primes");
 
-   write()
+   write();
    every f := sum3 | factors | threen do
-      write(image(f), " : ", args(f), " args")
+      write(image(f), " : ", args(f), " args");
 
-   write()
-   write("sum3: ", sum3(5, 8, 11), " ", sum3(12.0, 23.7, "45.8"))
+   write();
+   write("sum3: ", sum3(5, 8, 11), " ", sum3(12.0, 23.7, "45.8"));
 
-   write()
+   write();
    every i := 24 | 30 | 45 | 48 | 60 | 120 do {
-       writes("factors(", i, "): ")
-       every writes(" ", factors(i))
+       writes("factors(", i, "): ");
+       every writes(" ", factors(i));
        write()
-   }
+   };
 
-   write()
+   write();
    every i := 1 to 30 do {
-       writes("3n+1(", i, "): ")
-       every writes(" ", threen(i))
+       writes("3n+1(", i, "): ");
+       every writes(" ", threen(i));
        write()
-   }
+   };
 
-   write()
-   every writes(" ", "primes:" | primes(100) | "\n")
+   write();
+   every writes(" ", "primes:" | primes(100) | "\n");
 
-   return
+   return;
 end
 
 
 
-procedure genproc()
-   local f, p, i
+procedure genproc();
+   local f, p, i;
 
-   remove("tmp.icn")
-   remove("tmp.zip")
-   f := open("tmp.icn", "w") | stop("can't open tmp.icn")
-   wproc(f)
-   close(f)
-   system("../bin/jcont -s -c tmp")
-   p := loadfunc("tmp.zip", "inv")
+   remove("tmp.icn");
+   remove("tmp.zip");
+   f := open("tmp.icn", "w") | stop("can't open tmp.icn");
+   wproc(f);
+   close(f);
+   system("../bin/jcont -s -c tmp");
+   p := loadfunc("tmp.zip", "inv");
 
-   write()
+   write();
    every i := 1 to 25 do 
-      write("1/", i, " = ", p(i))
-   remove("tmp.zip")
-   remove("tmp.icn")
+      write("1/", i, " = ", p(i));
+   remove("tmp.zip");
+   remove("tmp.icn");
 end
 
-procedure wproc(f)
+procedure wproc(f);
    every write(f, ![
       "procedure inv(x)", 
       "   return adiv(-1.0, x)",

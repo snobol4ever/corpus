@@ -4,7 +4,7 @@
 # includes tpp1.icn, tpp2.icn, tpp3.icn
 
 # force out #lines to test that this file is called "stdin"
-$include "/dev/null"
+$include "/dev/null";
 
 # following should be legal
 #line 11 "a.b.c"
@@ -26,70 +26,70 @@ $include "/dev/null"
 #line 98 ""
 
 # following should be legal
-$line 11 "a.b.c"
-  $  line  22  defgh
-$line 33"ijklm"#comment
-$line 44
-$line 55xyzzy#comment
-$( digraphs for EBCDIC $)
+$line 11 "a.b.c";
+  $  line  22  defgh;
+$line 33"ijklm";#comment
+$line 44;
+$line 55xyzzy;#comment
+$( digraphs for EBCDIC $);
 
-$line 0 "bad.ppdirs"
+$line 0 "bad.ppdirs";
 # following should be illegal and diagnosed
-$line
-$line 91 not.quoted
-$line 92 extra stuff
-$line 93 "extra" stuff
+$line;
+$line 91 not.quoted;
+$line 92 extra stuff;
+$line 93 "extra" stuff;
 $line 94 extra+
 $line 96 "unterminated
 $line 97 "unterminated\
-$line 98""
-$unknown/preprocessing/directive
+$line 98"";
+$unknown/preprocessing/directive;
 
-$line 0 "include.tests"
+$line 0 "include.tests";
 =a=
-$include "/dev/null"
+$include "/dev/null";
 =b=
-    $ 	 include    "/dev/null"    		# comment
+    $ 	 include    "/dev/null";    		# comment
 =c=
-$include"abc\def\"ghi#jkl\#mno\\pqr stu"	# lots of escapes
+$include"abc\def\"ghi#jkl\#mno\\pqr stu";	# lots of escapes
 =d=
-$include					# no name (two ways)
+$include;					# no name (two ways)
 =e=
-$include			
+$include;			
 =f=
 $include "unterminated
 =g=
 $include "unterminated\
 =h=
-$include nonexistent
+$include nonexistent;
 =i=
 $include extra+
 =j=
-$include "more extra stuff" dafslkjasfd
+$include "more extra stuff" dafslkjasfd;
 =k=
-$include "tpp1.icn"	# should get circularity error
+$include "tpp1.icn";	# should get circularity error
 =l=
-$include"tpp3.icn"#likewise
+$include"tpp3.icn";#likewise
 =m=
 
-$line 0 "predef.tst"
+$line 0 "predef.tst";
 #== predef test ==
-should be defined as 1:  _ASCII  _PIPES  _SYSTEM_FUNCTION
-should not be defined:  _VMS  _EBCDIC  _DOS_FUNCTIONS
-it depends: _COMPILED _INTERPRETED
-$undef _PIPES
-$undef _ASCII
-$define _ASCII 128
-$define _EBCDIC 0
-bogus:  pipes:_PIPES  ascii:_ASCII  ebcdic:_EBCDIC
+should be defined as 1:  _ASCII  _PIPES  _SYSTEM_FUNCTION;
+should not be defined:  _VMS  _EBCDIC  _DOS_FUNCTIONS;
+it depends: _COMPILED _INTERPRETED;
+$undef _PIPES;
+$undef _ASCII;
+$define _ASCII 128;
+$define _EBCDIC 0;
+bogus:  pipes:_PIPES  ascii:_ASCII  ebcdic:_EBCDIC;
 
-$line 0 "define.tst"
+$line 0 "define.tst";
 #== define test ==
 
 #= illegal =
-$define
-$define 12
-$define "fred" 93
+$define;
+$define 12;
+$define "fred" 93;
 $define b1 "
 $define b2 'dsfkjlfasd\'
 $define f(x) (x^2+2*x+1)
