@@ -1,6 +1,0 @@
-parser_class_and_main	dialect read refused: family.ref is shorter than family.sno at seq 4 (seq4)
-parser_class_basic	dialect read refused: family.ref is shorter than family.sno at seq 2 (seq2)
-parser_class_fields	dialect read refused: family.ref is shorter than family.sno at seq 2 (seq2)
-parser_class_method_param	dialect read refused: family.ref is shorter than family.sno at seq 2 (seq2)
-parser_class_multi_method	dialect read refused: family.ref is shorter than family.sno at seq 7 (seq7)
-parser_class_twigil	dialect read refused: family.ref is shorter than family.sno at seq 2 (seq2)
