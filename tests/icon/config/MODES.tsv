@@ -203,3 +203,22 @@ rung35_block_body	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
 rung35_table_str	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
 rung36_all	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
 rung37_all	m3,m4	# test_icon_rung_suite.sh modes run(m3)+compile(m4)
+#
+# ⭐ ADDED 2026-08-30 hq_P (icon-rung-ladder-absorption, FLEET-16 all-hands): these 13 families had NO .ref
+# and were minted by `corpus_suite_harness.py capture-oracle-refs --lang icon` against the shared one-step
+# Icon oracle (lib_oracle_flags.sh icon_bin()). ⭐ Their mode is MEASURED, not cited: capture writes a ref
+# ONLY where scrip m3 AND m4 AND the oracle all agree on text and rc, so m3,m4 is the observed grading
+# behaviour of each of these entries, which is stronger evidence than naming a runner.
+hello	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+palindrome	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+queens	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+roman	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+sieve	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+wordcount	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung03_suspend_gen	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung03_suspend_gen_compose	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung03_suspend_gen_filter	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung03_suspend_return	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung36_jcon_recogn	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung37_proc_lookup	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
+rung37_subscript_genproc	m3,m4	# ref minted by capture-oracle-refs --lang icon; m3+m4+oracle agreed on text and rc
