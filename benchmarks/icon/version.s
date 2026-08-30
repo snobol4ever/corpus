@@ -13,10 +13,10 @@ main:
                                                                               jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 128
+                        sub              rsp, 144
                         mov              rdi, rsp
                         mov              esi, 0
-                        mov              edx, 0
+                        mov              edx, 1
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
                         .type            n0_kw_icon_bx, @function

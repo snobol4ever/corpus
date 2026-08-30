@@ -2,7 +2,7 @@
                         .text
 #-----------------------------------------------------------------------------------------------------------------------
 FN__dofile:
-                        sub              rsp, 3392
+                        sub              rsp, 3440
                         mov              rdi, rsp
                         add              rdi, 3056
                         xor              eax, eax
@@ -10,7 +10,7 @@ FN__dofile:
                         rep              stosb
                         mov              rdi, rsp
                         mov              esi, 2
-                        mov              edx, 8
+                        mov              edx, 11
                         call             rt_icn_zframe_args_install@PLT
 dofile_α_body:
                         .type            n0_make_list_bx, @function
@@ -2762,7 +2762,7 @@ dofile_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        add              rsp, 3392;                           jmp   qword ptr [rsp]
+                        add              rsp, 3440;                           jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 dofile_ω:
                         push             rax
@@ -2776,7 +2776,7 @@ dofile_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        add              rsp, 3392;                           jmp   qword ptr [rsp + 8]
+                        add              rsp, 3440;                           jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 dofile_dcα:
                         pop              r12
@@ -2838,7 +2838,7 @@ main:
                                                                               jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 896
+                        sub              rsp, 912
                         mov              rdi, rsp
                         add              rdi, 752
                         xor              eax, eax
@@ -2846,7 +2846,7 @@ main_α:
                         rep              stosb
                         mov              rdi, rsp
                         mov              esi, 1
-                        mov              edx, 2
+                        mov              edx, 3
                         call             rt_icn_zframe_args_install@PLT
 main_α_body:
                         .type            n00039_lit_string_bx, @function
