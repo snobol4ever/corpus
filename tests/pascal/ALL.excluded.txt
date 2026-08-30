@@ -1,0 +1,5 @@
+pb35	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
+read1	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
+read2	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
+read3	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
+read4	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
