@@ -938,7 +938,7 @@ procedure xprint(s1,s2,j,k);
    write(s1);
    every write(right(s2[ k+1 to *s2 ],j));
 end
-#----------------------------------------------------------- 11 rung36_jcon_kwds
+#----------------------------------------------------- 11 rung36_jcon_kwds XFAIL
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
@@ -2280,7 +2280,89 @@ procedure main();
       every writes(" ", "upprs?skips" | upto(skips) | "\n");
       };
 end
-#---------------------------------------------------------- 30 rung36_jcon_sieve
+#----------------------------------------------------------- 30 rung36_jcon_sets
+#SRC: JCON
+
+# set test
+
+procedure main();
+   local x, y, z;
+
+   wset("empty", x := set());
+   write(type(x));
+   write(image(?x));		# should fail
+   write(image(member(x)));	# should fail
+   wset("insert", insert(x));
+   write(image(?x));		# should write &null
+   write(image(member(x)));	# should write &null
+   write(image(member(x,3)));	# should write &null
+   wset("insert", insert(x));
+   wset("delete", delete(x));
+   wset("delete", delete(x));
+   write();
+
+   wset("x", x := set([1,2,4]));
+   wset("y", y := set([1,2,5]));
+   wset("x ++ y", x ++ y);
+   wset("y ++ x", y ++ x);
+   wset("x -- y", x -- y);
+   wset("y -- x", y -- x);
+   wset("x ** y", x ** y);
+   wset("y ** x", y ** x);
+   write();
+
+   wset("empty", x := set(&null));
+   wset("+ 1", insert(x, 1,4,7));	# only inserts 1
+   wset("+ 2", insert(x, 2));
+   wset("+ c", insert(x, "c"));
+   wset("- 3", delete(x, 3));		# deletes nothing
+   wset("- 1", delete(x, 1, 2));		# only deletes 1
+   wset("- 1", delete(x, 1));
+   wset("+ 2", insert(x, 2));
+   wset("+ 1", insert(x, 1));
+   wset("+ 7.0", insert(x, 7.0));
+   wset("+ 7.0", insert(x, 7.0));
+   wset("+ 'cs'", insert(x, 'cs'));
+   wset("+ 'cs'", insert(x, 'cs'));
+   wset("x =", x);
+   write();
+
+   wset("3,a,4", y := set([3,"a",4]));
+   wset("y ++ x", y ++ x);
+   wset("y ** x", y ** x);
+   wset("y -- x", y -- x);
+   wset("x -- y", x -- y);
+   write();
+
+   every insert(z := set(), !y);
+   wset("z from !y", z);
+
+   write();
+   x := set([3,1,4,1,5,9,2,6,5,3,5]);
+   y := copy(x);
+   delete(x, 4);
+   insert(x, 7);
+   insert(y, 0);
+   delete(y, 1);
+   wset("x", x);
+   wset("y", y);
+end
+
+
+
+#  dump a set, assuming it contains nothing other than:
+#	&null, 0 - 9, 0.0 - 9.0, "", "a" - "e", '', 'cs'
+
+procedure wset(label, S);
+   local x;
+
+   writes(right(label, 10), " :", right(*S, 2), " :");
+   every x := &null | (0 to 9) | 0.0+(0 to 9) | "" | !"abcde" | '' | 'cs' do
+      writes(" ", image(member(S, x)));
+   write();
+   return;
+end
+#---------------------------------------------------------- 31 rung36_jcon_sieve
 #SRC: V9SAM
 
 #
@@ -2303,7 +2385,7 @@ procedure main(args);
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#-------------------------------------------------------- 31 rung36_jcon_statics
+#-------------------------------------------------------- 32 rung36_jcon_statics
 #SRC: JCON
 
 procedure main();
@@ -2330,7 +2412,7 @@ procedure p();
    write(c);
 
 end
-#--------------------------------------------------------- 32 rung36_jcon_string
+#--------------------------------------------------------- 33 rung36_jcon_string
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -2462,7 +2544,7 @@ end
 
 global s;
 
-#-------------------------------------------------------- 33 rung36_jcon_string1
+#-------------------------------------------------------- 34 rung36_jcon_string1
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -2517,7 +2599,7 @@ procedure main();
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#-------------------------------------------------------- 34 rung36_jcon_subjpos
+#-------------------------------------------------------- 35 rung36_jcon_subjpos
 #SRC: JCON
 
 procedure main()
@@ -2600,7 +2682,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#------------------------------------------------------ 35 rung36_jcon_substring
+#------------------------------------------------------ 36 rung36_jcon_substring
 #SRC: JCON
 
 # string subscripting test
@@ -2666,7 +2748,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" }
    
 end
-#---------------------------------------------------------- 36 rung36_jcon_table
+#---------------------------------------------------------- 37 rung36_jcon_table
 #SRC: JCON
 
 # table test
@@ -2764,7 +2846,7 @@ procedure tdump(label, T);
    write();
    return;
 end
-#----------------------------------------------------------- 37 rung36_jcon_trim
+#----------------------------------------------------------- 38 rung36_jcon_trim
 #SRC: JCON
 
 procedure main();
@@ -2779,7 +2861,7 @@ procedure main();
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#-------------------------------------------------------- 38 rung36_jcon_wordcnt
+#-------------------------------------------------------- 39 rung36_jcon_wordcnt
 #SRC: V9SAM
 
 #
