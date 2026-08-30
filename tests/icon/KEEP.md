@@ -104,10 +104,10 @@ green (byte-equal both directions, both modes, independently re-verified via a s
 after placement) → `rung36_all.icn`/`.ref` (+ `.in` stdin sidecar, 3 of the 32 use stdin). 43 refused
 as "original not green" and `--skip`ped, left loose. Breakdown of the 43:
 
-**27 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
-task's own prior pass, seat06 2026-08-29 — "zero stale markers"; `every` REMOVED from this bucket
-2026-08-30, see its own bullet below — genuinely cured, not merely re-verified). Not re-characterized
-here otherwise. **Named individually below (seat09, 2026-08-29) because
+**26 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
+task's own prior pass, seat06 2026-08-29 — "zero stale markers"; `every` and `sets` REMOVED from this
+bucket 2026-08-30, see their own bullets below — genuinely cured, not merely re-verified). Not
+re-characterized here otherwise. **Named individually below (seat09, 2026-08-29) because
 `test_gate_suite_conversion_complete.sh`'s "declared" check is a literal basename substring match
 against this file's own text — a count ("29 already carried...") does not satisfy it, only the name
 does.** This was invisible until
@@ -121,7 +121,7 @@ named elsewhere in this file's own dependency note below — the other 28 were n
 `rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
 `rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
-`rung36_jcon_sets.icn` `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
+`rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
 — reason for all 28, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
 re-verified against its own marker's claim (not merely inherited) by seat06's 2026-08-29 skeptical
 sweep of all 30 Icon `.xfail` files. No witness file touched by this declaration — it is a KEEP.md
@@ -332,6 +332,19 @@ session could find.** Individually measured (not assumed), grouped by signature:
   DIFFERENT defect left over afterward. Marker deleted (not rewritten), matching this project's
   established XPASS-promotion convention. SCRIP `3a8168d2`. Full detail:
   `FINDING-2026-08-30-seat01-icon-bang-operator-coerces-numbers-now-cured.md`.
+- `rung36_jcon_sets` — **CURED (2026-08-30, seat01), no longer loose or red.** `insert(set, v1, v2,
+  v3)` stored `v2` as the element instead of ignoring everything past `v1` (Icon's documented
+  behavior). Root-caused: sets are tables with an `is_set` flag (membership tracked by key alone,
+  insert stores the element as both key and value); the dispatch's `nargs >= 3` check took priority
+  over `is_set`, so any set-insert with 3+ total arguments wrongly took the generic table branch
+  (`insert(T,k,v)`'s own correct shape) and stored `args[2]` instead of the key. One-line fix:
+  check `is_set` first. Verified broadly: `make pristine`, Icon smoke 14/14 both modes, Icon rung
+  suite board (XPASS, FAIL list byte-identical to baseline via exact-list diff), SNOBOL4 corpus
+  control arm 1669/1669 both modes FAIL=0 GATE OK — this control arm directly exercises the same
+  dispatch file's non-set table logic. Other 11 remaining Class-C candidates re-checked unchanged.
+  Its `.xfail` marker's stated reason was accurate (unlike `every`'s), straightforward promotion.
+  SCRIP `a03c8345`. Full detail:
+  `FINDING-2026-08-30-seat01-icon-set-insert-extra-args-value-mixup-cured.md`.
 
 **`util_zframe_ab.sh` hardcodes a path to `rung36_jcon_btrees.icn`** (one of its 5 fixed A/B
 witnesses) — `btrees` is one of the 29 still-red `.xfail` files above, stays loose, was NOT touched
