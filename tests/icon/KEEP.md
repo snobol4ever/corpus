@@ -104,18 +104,20 @@ green (byte-equal both directions, both modes, independently re-verified via a s
 after placement) → `rung36_all.icn`/`.ref` (+ `.in` stdin sidecar, 3 of the 32 use stdin). 43 refused
 as "original not green" and `--skip`ped, left loose. Breakdown of the 43:
 
-**28 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
-task's own prior pass, seat06 2026-08-29 — "zero stale markers"). Not re-characterized here.
-**Named individually below (seat09, 2026-08-29) because `test_gate_suite_conversion_complete.sh`'s
-"declared" check is a literal basename substring match against this file's own text — a count
-("29 already carried...") does not satisfy it, only the name does.** This was invisible until
+**27 already carried a `.xfail` marker and are still genuinely red** (re-verified same-day by this
+task's own prior pass, seat06 2026-08-29 — "zero stale markers"; `every` REMOVED from this bucket
+2026-08-30, see its own bullet below — genuinely cured, not merely re-verified). Not re-characterized
+here otherwise. **Named individually below (seat09, 2026-08-29) because
+`test_gate_suite_conversion_complete.sh`'s "declared" check is a literal basename substring match
+against this file's own text — a count ("29 already carried...") does not satisfy it, only the name
+does.** This was invisible until
 `FINDING-2026-08-29-hq_B-the-suite-conversion-gate-capped-its-list-at-20-and-hid-190-files-across-four-languages.md`
 surfaced that the gate's failure list itself was silently capped at 20, so nobody had seen these
 28 sitting in the "undeclared" count until now (`rung36_jcon_btrees.icn` was already an exception,
 named elsewhere in this file's own dependency note below — the other 28 were not named anywhere):
 `rung36_jcon_arith.icn` `rung36_jcon_case.icn` `rung36_jcon_checkfpx.icn` `rung36_jcon_ck.icn`
 `rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_errors.icn` `rung36_jcon_evalx.icn`
-`rung36_jcon_every.icn` `rung36_jcon_fncs.icn` `rung36_jcon_geddump.icn` `rung36_jcon_gener.icn`
+`rung36_jcon_fncs.icn` `rung36_jcon_geddump.icn` `rung36_jcon_gener.icn`
 `rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
 `rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
@@ -308,6 +310,20 @@ session could find.** Individually measured (not assumed), grouped by signature:
   string-literal-embedded-nul-truncates-to-empty.md` (`*skips` measures its full correct 18 members
   here, not truncated). Full detail: `FINDING-2026-08-29-seat09-icon-ascii-and-cset-keywords-are-built-
   off-by-one-chr0-wraps-to-the-end.md`. Two-line fix, not attempted here (out of this row's lane).
+- `rung36_jcon_every` — **CURED (2026-08-30, seat01), no longer loose or red.** `!<number>` (Icon's
+  element-generator operator applied to a numeric value) silently generated zero results instead of
+  coercing to the number's string form and generating its characters — root-caused to `list_bang_at`
+  (`rt_runtime.c`)'s fallback branch only ever handling an already-`DT_S` operand. Fixed with a
+  four-line, purely-additive coercion via `descr_to_str_fracdigit` (Icon's own established
+  real-number string convention, matching how `||` concatenation already upgrades to it). Verified
+  broadly: `make pristine`, Icon smoke 14/14 both modes, Icon rung suite board all 3 modes (this file
+  XPASS, nothing else moved), SNOBOL4 corpus control arm 1517/1517 both modes FAIL=0 GATE OK, other 12
+  Class-C candidates re-checked unchanged. Its `.xfail` marker's own text (`"crashes: SIGSEGV
+  (rc=139)"`) didn't even describe this bug — some earlier, untraced fix already cured that crash
+  (same "fix predates the marker" pattern as `diffwrds`/`fncs1` above); this session's fix cured the
+  DIFFERENT defect left over afterward. Marker deleted (not rewritten), matching this project's
+  established XPASS-promotion convention. SCRIP `3a8168d2`. Full detail:
+  `FINDING-2026-08-30-seat01-icon-bang-operator-coerces-numbers-now-cured.md`.
 
 **`util_zframe_ab.sh` hardcodes a path to `rung36_jcon_btrees.icn`** (one of its 5 fixed A/B
 witnesses) — `btrees` is one of the 29 still-red `.xfail` files above, stays loose, was NOT touched
