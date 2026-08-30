@@ -1,3 +1,0 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_VAR x))))
-(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
-(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))

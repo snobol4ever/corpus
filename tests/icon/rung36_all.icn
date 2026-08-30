@@ -2160,7 +2160,92 @@ procedure roman(n);
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#---------------------------------------------------------- 28 rung36_jcon_sieve
+#---------------------------------------------------------- 28 rung36_jcon_scan1
+#SRC: JCON
+
+procedure main();
+   local skips, vowels, uppers;
+
+   write(any('ab', "1234ab", 0, 7) | "fail");
+   write(any('ab', "1234ab", 7, 0) | "fail");
+   write(any('ab', "1234ab", 6, 0) | "fail");
+   write(any('ab', "1234ab", 6) | "fail");
+   write(any('ab', "1234ab") | "fail");
+   "1234ab" ? write(any('ab', "1234ab") | "fail");
+   "1234ab" ? write(any('ab') | "fail");
+   "1234ab" ? { &pos := 6 & write(any('ab') | "fail") };
+   write();
+
+   write(many('ab', "ababac") | "fail");
+   write(many('ab', "ababab") | "fail");
+   write(many('ab', "cababab") | "fail");
+   write();
+
+   write(match("ab", "ababab") | "fail");
+   write(match("ab", "bbabab") | "fail");
+   write(match("ab", "ab") | "fail");
+   write(match("ab", "a") | "fail");
+   write();
+
+   every write(find("ab", "ababab"|"ababa"|"ab"|"a"|"") | "done");
+   write();
+
+   every write(upto('ab', "abccab"|"cbabc"|"ab"|"a"|"") | "done");
+   write();
+
+   "123456" ? write(move(1), " ", move(2));
+   "123456" ? { write(move(1)); write(move(2)); write(move(3));
+		write(move(4)); write(move(-4))};
+   write();
+
+   "123456" ? write(tab(1), " ", tab(2));
+   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)); };
+   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)); };
+   write();
+
+   every write("-35" ? bal('-'));
+   every write("((2*x)+3)+(5*y)" ? bal('+'));
+   every write("[+,[2,3]],[*,[5,10]]" ? bal(',', '[', ']'));
+   write();
+
+   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail"); };
+   write();
+
+   "12345" ? { write(="123" | "fail") };
+   "12345" ? { tab(2); write(="123" | "fail") };
+   "12345" ? { tab(2); write(="23" | "fail") };
+
+   # test upto, including some chars with 8th bit set
+   write();
+   skips := '\x00\x0f\x1e-<KZix\x87\x96\xa5\xb4\xc3\xd2\xe1\xf0\xff';
+   vowels := 'aeoiuAEIOU';
+   uppers := &cset -- &ascii;
+   &ascii ? {
+      every writes(" ", "ascii?skips" | upto(skips) | "\n");
+      every writes(" ", "ascii?vowls" | upto(vowels) | "\n");
+      };
+   &letters ? {
+      every writes(" ", "letts?skips" | upto(skips) | "\n");
+      every writes(" ", "letts?vowls" | upto(vowels) | "\n");
+      };
+   vowels ? {
+      every writes(" ", "vowls?skips" | upto(skips) | "\n");
+      every writes(" ", "vowls?letts" | upto(&letters) | "\n");
+      every writes(" ", "vowls?ascii" | upto(&ascii) | "\n");
+      };
+   skips ? {
+      every writes(" ", "skips?vowls" | upto(vowels) | "\n");
+      every writes(" ", "skips?letts" | upto(&letters) | "\n");
+      every writes(" ", "skips?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "skips?upprs" | upto(uppers) | "\n");
+      every writes(" ", "skips?skips" | upto(skips) | "\n");
+      };
+   uppers ? {
+      every writes(" ", "upprs?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "upprs?skips" | upto(skips) | "\n");
+      };
+end
+#---------------------------------------------------------- 29 rung36_jcon_sieve
 #SRC: V9SAM
 
 #
@@ -2183,7 +2268,7 @@ procedure main(args);
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#-------------------------------------------------------- 29 rung36_jcon_statics
+#-------------------------------------------------------- 30 rung36_jcon_statics
 #SRC: JCON
 
 procedure main();
@@ -2210,7 +2295,7 @@ procedure p();
    write(c);
 
 end
-#--------------------------------------------------------- 30 rung36_jcon_string
+#--------------------------------------------------------- 31 rung36_jcon_string
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -2342,7 +2427,7 @@ end
 
 global s;
 
-#-------------------------------------------------------- 31 rung36_jcon_string1
+#-------------------------------------------------------- 32 rung36_jcon_string1
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -2397,7 +2482,7 @@ procedure main();
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#-------------------------------------------------------- 32 rung36_jcon_subjpos
+#-------------------------------------------------------- 33 rung36_jcon_subjpos
 #SRC: JCON
 
 procedure main()
@@ -2480,7 +2565,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#------------------------------------------------------ 33 rung36_jcon_substring
+#------------------------------------------------------ 34 rung36_jcon_substring
 #SRC: JCON
 
 # string subscripting test
@@ -2546,7 +2631,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" }
    
 end
-#---------------------------------------------------------- 34 rung36_jcon_table
+#---------------------------------------------------------- 35 rung36_jcon_table
 #SRC: JCON
 
 # table test
@@ -2644,7 +2729,7 @@ procedure tdump(label, T);
    write();
    return;
 end
-#----------------------------------------------------------- 35 rung36_jcon_trim
+#----------------------------------------------------------- 36 rung36_jcon_trim
 #SRC: JCON
 
 procedure main();
@@ -2659,7 +2744,7 @@ procedure main();
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#-------------------------------------------------------- 36 rung36_jcon_wordcnt
+#-------------------------------------------------------- 37 rung36_jcon_wordcnt
 #SRC: V9SAM
 
 #

@@ -1,2 +1,0 @@
-my $x = 2;
-if ($x == 1) { say "one"; } elsif ($x == 2) { say "two"; } else { say "other"; }
