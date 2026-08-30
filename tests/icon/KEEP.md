@@ -200,9 +200,16 @@ session could find.** Individually measured (not assumed), grouped by signature:
   line of output) that reproduces without `&level` and corroborates the already-open
   `icon-n2-generator-activation-frames` value-path item instead of being new — that part of seat02's
   FINDING is unaffected by this correction. Not attempted here either (out of this row's lane, same as
-  `scan1`/`proto`) — real next step is locating `FN__p`-shaped bodies' actual prologue/epilogue
-  emission (near `emit.cpp`'s `flat_dc_body_p`/`zframe_graph` logic, not yet read in full) and
-  confirming it can be Icon-scoped before touching shared plumbing.
+  `scan1`/`proto`). **UPDATE, same day (seat01): both real emission sites now located precisely by
+  direct trace-matching, implementation-ready.** Exit side (`rt_k_level`/`kw_fnclevel` decrement):
+  `xa_flat.cpp`'s `xa_flat_zframe_epilogue_γ_str()`/`_ω_str()`, the arm already self-documented
+  "Guarded to the Icon (icn_cells_graph) case only" — low risk, pure `x86(...)` DSL, mirrors
+  `bb_define_activate`'s own pattern almost verbatim. Entry side (increment): `emit.cpp`'s
+  `flat_lcl_proc` branch (~line 2917-2961) — genuinely shared cross-language (gate any addition the
+  same way its own `_use_zframe_install` already does), and split across a TEXT `snprintf` arm (easy)
+  and a hand-encoded raw-byte BINARY arm (needs `as`-verified bytes per this project's own R10 rule,
+  not attempted). Full detail: `FINDING-2026-08-30-seat01-icon-level-exact-fix-sites-located-
+  implementation-ready.md`.
 - `rung36_jcon_var` — CRASH (signal 6, SIGABRT), NOT the generator class: a named, deliberate internal
   guard, `"FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
   !x/?x element-variable or s[i:j] section)"`, citing `GOAL-IR-IMMUTABLE-EMIT.md` (exists, 231KB) by
