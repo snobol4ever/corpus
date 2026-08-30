@@ -4,139 +4,153 @@
 (STMT :subj (TT_FNC push (TT_VAR push) (TT_VAR a) (TT_ILIT 1)))
 #---------------------------------------------------------------------- 3 hash_1
 (STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_QLIT "foo")))
-#-------------------------------------------------------------------- 4 array_10
+#--------------------------------------------------------------------- 4 token_1
+foo bar
+#-------------------------------------------------------------------- 5 array_10 XFAIL
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_ILIT 1))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
-#--------------------------------------------------------------------- 5 array_4
+#--------------------------------------------------------------------- 6 array_4
 (STMT :subj (TT_SAY (TT_MAP (TT_ADD (TT_VAR _) (TT_ILIT 1)) (TT_VAR arr))))
-#--------------------------------------------------------------------- 6 array_7
+#--------------------------------------------------------------------- 7 array_7
 (STMT :subj (TT_ASSIGN (TT_VAR b) (TT_SORT (TT_VAR a))))
-#--------------------------------------------------------------------- 7 array_9
+#--------------------------------------------------------------------- 8 array_9 XFAIL
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_ILIT 1)) (TT_SUSPEND (TT_ILIT 2)) (TT_SUSPEND (TT_ILIT 3))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
-#---------------------------------------------------------------------- 8 say_12
+#---------------------------------------------------------------------- 9 say_12
 (STMT :subj (TT_UNTIL (TT_GT (TT_VAR x) (TT_ILIT 5)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
-#------------------------------------------------------------- 9 simple_assign_2
+#------------------------------------------------------------ 10 simple_assign_2
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_DIV (TT_ILIT 10) (TT_VAR n))))
-#----------------------------------------------------------- 10 simple_assign_20
+#----------------------------------------------------------- 11 simple_assign_20
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_MNS (TT_ILIT 5))))
-#----------------------------------------------------------- 11 simple_assign_21
+#----------------------------------------------------------- 12 simple_assign_21
 (STMT :subj (TT_ASSIGN (TT_VAR y) (TT_MNS (TT_VAR x))))
-#------------------------------------------------------------ 12 simple_assign_3
+#------------------------------------------------------------ 13 simple_assign_3
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_DIV (TT_VAR x) (TT_ILIT 3))))
-#------------------------------------------------------------ 13 simple_assign_7
+#------------------------------------------------------------ 14 simple_assign_7
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_VAR x) (TT_ILIT 3))))
-#------------------------------------------------------------ 14 simple_assign_8
+#------------------------------------------------------------ 15 simple_assign_8
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_MOD (TT_VAR x) (TT_VAR y)) (TT_ILIT 2))))
-#----------------------------------------------------------- 15 simple_assign_14
+#----------------------------------------------------------- 16 simple_assign_14
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "chars"))))
-#----------------------------------------------------------- 16 simple_assign_15
+#----------------------------------------------------------- 17 simple_assign_15
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "HELLO")))
 (STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "lc"))))
-#----------------------------------------------------------- 17 simple_assign_16
+#----------------------------------------------------------- 18 simple_assign_16
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world")))
 (STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "substr") (TT_ILIT 6) (TT_ILIT 5))))
-#----------------------------------------------------------- 18 simple_assign_17
+#----------------------------------------------------------- 19 simple_assign_17
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "  hi  ")))
 (STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "trim"))))
-#----------------------------------------------------------- 19 simple_assign_18
+#----------------------------------------------------------- 20 simple_assign_18
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_SAY (TT_METHCALL (TT_VAR s) (TT_QLIT "uc"))))
-#----------------------------------------------------------- 20 simple_assign_23
+#----------------------------------------------------------- 21 simple_assign_23 XFAIL
 (STMT :subj (TT_ASSIGN (TT_VAR d) (TT_NEW (TT_QLIT "Dog") (TT_QLIT "name") (TT_QLIT "Rex"))))
 (STMT :subj (TT_SAY (TT_FIELD name (TT_VAR d))))
-#------------------------------------------------------------ 21 simple_assign_4
+#------------------------------------------------------------ 22 simple_assign_4
 (STMT :subj (TT_ASSIGN (TT_VAR obj) (TT_NEW (TT_QLIT "Foo") (TT_QLIT "x") (TT_ILIT 1))))
 (STMT :subj (TT_ASSIGN (TT_FIELD x (TT_VAR obj)) (TT_ILIT 42)))
-#------------------------------------------------------------ 22 simple_assign_5
+#------------------------------------------------------------ 23 simple_assign_5
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FLIT 3.14)))
 (STMT :subj (TT_SAY (TT_VAR x)))
-#------------------------------------------------------------ 23 simple_assign_6
+#------------------------------------------------------------ 24 simple_assign_6
 (STMT :subj (TT_ASSIGN (TT_VAR q) (TT_DIV (TT_VAR x) (TT_VAR y))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_VAR x) (TT_VAR y))))
-#------------------------------------------------------------ 24 array_replace_1
+#------------------------------------------------------------ 25 array_replace_1
 (STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
 (STMT :subj (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99)))
 (STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))
-#------------------------------------------------------------- 25 hash_replace_1
+#------------------------------------------------------------- 26 hash_replace_1
 (STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
 (STMT :subj (TT_HASH_SET (TT_VAR h) (TT_QLIT "foo") (TT_QLIT "bar")))
 (STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_QLIT "foo"))))
-#----------------------------------------------------------- 26 simple_assign_19
+#----------------------------------------------------------- 27 simple_assign_19
 (STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR x) (TT_ILIT 5)))
 (STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR s)))
 (STMT :subj (TT_SAY (TT_VAR x)))
-#------------------------------------------------------------ 27 simple_assign_9
+#------------------------------------------------------------ 28 simple_assign_9
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
 (STMT :subj (TT_REPEAT (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_VAR x) (TT_ILIT 1))))))
 (STMT :subj (TT_SAY (TT_VAR x)))
-#------------------------------------------------------------------ 28 sub_say_3
+#------------------------------------------------------------------ 29 sub_say_3
 (STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_SAY (TT_QLIT "hello"))))
-#-------------------------------------------------------------------- 29 class_1
+#-------------------------------------------------------------------- 30 class_1 XFAIL
 (STMT :subj (TT_CLASS_DECL (TT_VAR Point) (TT_VAR x) (TT_VAR y)))
-#-------------------------------------------------------------------- 30 array_1
+#------------------------------------------------------------------ 31 sub_say_4
+3
+7
+20
+5
+14
+20
+1
+#-------------------------------------------------------------- 32 token_regex_1
+foo bar
+foobar
+foo   bar
+#-------------------------------------------------------------------- 33 array_1
 (STMT :subj (TT_ASSIGN (TT_VAR b) (TT_GREP (TT_GT (TT_VAR _) (TT_ILIT 0)) (TT_VAR a))))
-#-------------------------------------------------------------------- 31 array_2
+#-------------------------------------------------------------------- 34 array_2
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_GREP (TT_LEQ (TT_VAR _) (TT_QLIT "x")) (TT_VAR words))))
-#-------------------------------------------------------------------- 32 array_3
+#-------------------------------------------------------------------- 35 array_3
 (STMT :subj (TT_ASSIGN (TT_VAR b) (TT_MAP (TT_MUL (TT_VAR _) (TT_ILIT 2)) (TT_VAR a))))
-#-------------------------------------------------------------------- 33 array_5
+#-------------------------------------------------------------------- 36 array_5
 (STMT :subj (TT_ASSIGN (TT_VAR v) (TT_FNC pop (TT_VAR pop) (TT_VAR a))))
-#----------------------------------------------------------------- 34 hash_say_1
+#----------------------------------------------------------------- 37 hash_say_1
 (STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
-#----------------------------------------------------------------- 35 hash_say_2
+#----------------------------------------------------------------- 38 hash_say_2
 (STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
-#-------------------------------------------------------------------- 36 range_1
+#-------------------------------------------------------------------- 39 range_1
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_TO (TT_ILIT 1) (TT_ILIT 5))))
-#---------------------------------------------------------------------- 37 say_1
+#---------------------------------------------------------------------- 40 say_1
 (STMT :subj (TT_IF (TT_SEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
-#--------------------------------------------------------------------- 38 say_11
+#--------------------------------------------------------------------- 41 say_11
 (STMT :subj (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
-#---------------------------------------------------------------------- 39 say_2
+#---------------------------------------------------------------------- 42 say_2
 (STMT :subj (TT_IF (TT_SEQ (TT_SEQ (TT_VAR a) (TT_VAR b)) (TT_VAR c)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
-#---------------------------------------------------------------------- 40 say_3
+#---------------------------------------------------------------------- 43 say_3
 (STMT :subj (TT_IF (TT_NOT (TT_VAR done)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
-#---------------------------------------------------------------------- 41 say_4
+#---------------------------------------------------------------------- 44 say_4
 (STMT :subj (TT_IF (TT_ALT (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
-#---------------------------------------------------------------------- 42 say_5
+#---------------------------------------------------------------------- 45 say_5
 (STMT :subj (TT_IF (TT_ALT (TT_ALT (TT_VAR a) (TT_VAR b)) (TT_VAR c)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
-#---------------------------------------------------------------------- 43 say_8
+#---------------------------------------------------------------------- 46 say_8
 (STMT :subj (TT_SAY (TT_CAT (TT_VAR a) (TT_VAR b))))
-#---------------------------------------------------------------------- 44 say_9
+#---------------------------------------------------------------------- 47 say_9
 (STMT :subj (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
-#-------------------------------------------------------------- 45 say_replace_1
+#-------------------------------------------------------------- 48 say_replace_1
 (STMT :subj (TT_UNLESS (TT_EQ (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
-#-------------------------------------------------------------- 46 say_replace_2
+#-------------------------------------------------------------- 49 say_replace_2
 (STMT :subj (TT_UNLESS (TT_EQ (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x))) (TT_SEQ_EXPR (TT_SAY (TT_ILIT 0)))))
-#----------------------------------------------------------- 47 simple_assign_10
+#----------------------------------------------------------- 50 simple_assign_10
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_VAR a) (TT_VAR b))))
-#----------------------------------------------------------- 48 simple_assign_11
+#----------------------------------------------------------- 51 simple_assign_11
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_VAR a) (TT_VAR b)) (TT_VAR c))))
-#----------------------------------------------------------- 49 simple_assign_12
+#----------------------------------------------------------- 52 simple_assign_12
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_QLIT "hello") (TT_QLIT " ")) (TT_QLIT "world"))))
-#----------------------------------------------------------- 50 simple_assign_13
+#----------------------------------------------------------- 53 simple_assign_13
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_VAR a) (TT_QLIT "x")) (TT_VAR b))))
-#------------------------------------------------------------------- 51 array_11
+#------------------------------------------------------------------- 54 array_11 XFAIL
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_VAR x))))
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
-#---------------------------------------------------------------- 52 array_say_2
+#---------------------------------------------------------------- 55 array_say_2
 (STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums)))
 (STMT :subj (TT_SAY (TT_VAR nums)))
-#-------------------------------------------------------- 53 array_say_replace_1
+#-------------------------------------------------------- 56 array_say_replace_1
 (STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums) (TT_SORT (TT_VAR data))))
 (STMT :subj (TT_SAY (TT_VAR nums)))
-#--------------------------------------------------------------------- 54 hash_2
+#--------------------------------------------------------------------- 57 hash_2
 (STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "bar")))
 (STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_VAR k)))
-#--------------------------------------------------------- 55 hash_say_replace_1
+#--------------------------------------------------------- 58 hash_say_replace_1
 (STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR h) (TT_FNC raku_new_hash (TT_VAR raku_new_hash))))
 (STMT :subj (TT_SAY (TT_VAR h)))
-#--------------------------------------------------------------------- 56 say_10
+#--------------------------------------------------------------------- 59 say_10
 (STMT :subj (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
 (STMT :subj (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR b)))))
-#---------------------------------------------------------------------- 57 say_6
+#---------------------------------------------------------------------- 60 say_6
 (STMT :subj (TT_ASSIGN
   (TT_VAR r)
   (TT_METHCALL
@@ -147,63 +161,81 @@
   )
 ))
 (STMT :subj (TT_SAY (TT_VAR r)))
-#---------------------------------------------------------------------- 58 say_7
+#---------------------------------------------------------------------- 61 say_7
 (STMT :subj (TT_ASSIGN (TT_VAR d) (TT_NEW (TT_QLIT "Dog") (TT_QLIT "name") (TT_FNC get_name (TT_VAR get_name)))))
 (STMT :subj (TT_SAY (TT_VAR d)))
-#------------------------------------------------------------ 59 simple_assign_1
+#------------------------------------------------------------ 62 simple_assign_1
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
 (STMT :subj (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_DIE (TT_QLIT "zero")))))
-#---------------------------------------------------------------------- 60 sub_1
+#---------------------------------------------------------------------- 63 sub_1
 (STMT :subj (TT_SUB_DECL (TT_VAR f) (TT_RETURN)))
 (STMT :subj (TT_FNC f (TT_VAR f)))
-#-------------------------------------------------------------------- 61 array_8
+#-------------------------------------------------------------------- 64 array_8 XFAIL
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_VAR n))))
 (STMT :subj (TT_ASSIGN (TT_VAR n) (TT_ILIT 10)))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
 (STMT :subj (TT_SAY (TT_VAR r)))
-#------------------------------------------------------------- 62 hash_replace_2
+#------------------------------------------------------------- 65 hash_replace_2
 (STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
 (STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "foo")))
 (STMT :subj (TT_HASH_SET (TT_VAR h) (TT_VAR k) (TT_QLIT "baz")))
 (STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_VAR k))))
-#------------------------------------------------------------------ 63 sub_say_2
+#------------------------------------------------------------------ 66 sub_say_2
 (STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_VAR first) (TT_VAR last) (TT_SAY (TT_VAR first)) (TT_SAY (TT_VAR last))))
-#-------------------------------------------------------------- 64 while_array_1
+#----------------------------------------------------------- 67 simple_assign_24
+42
+hello
+3
+1
+50
+hello world
+ok
+#--------------------------------------------------------- 68 hash_say_replace_2
+1
+0
+x
+hello
+x:hello
+0
+0
+1
+2
+#-------------------------------------------------------------- 69 while_array_1 XFAIL
 (STMT :subj (TT_SUB_DECL
   (TT_VAR __gather_0)
   (TT_ASSIGN (TT_VAR i) (TT_ILIT 1))
   (TT_WHILE (TT_LT (TT_VAR i) (TT_ILIT 4)) (TT_SEQ_EXPR (TT_SUSPEND (TT_VAR i)) (TT_ASSIGN (TT_VAR i) (TT_ADD (TT_VAR i) (TT_ILIT 1)))))
 ))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
-#---------------------------------------------------------------- 65 array_say_1
+#---------------------------------------------------------------- 70 array_say_1
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))
 (STMT :subj (TT_SAY (TT_VAR x)))
-#---------------------------------------------------------------- 66 for_array_1
+#---------------------------------------------------------------- 71 for_array_1
 (STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
 (STMT :subj (TT_EVERY (TT_ITERATE (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "x")))))
-#----------------------------------------------------------------- 67 hash_say_3
+#----------------------------------------------------------------- 72 hash_say_3
 (STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR h) (TT_QLIT "x"))))
 (STMT :subj (TT_SAY (TT_VAR v)))
-#----------------------------------------------------------------- 68 hash_say_4
+#----------------------------------------------------------------- 73 hash_say_4
 (STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR h) (TT_QLIT "x"))))
 (STMT :subj (TT_SAY (TT_VAR v)))
-#----------------------------------------------------------- 69 simple_assign_22
+#----------------------------------------------------------- 74 simple_assign_22 XFAIL
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)))
 (STMT :subj (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 1)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one")))))
-#---------------------------------------------------------------------- 70 sub_4
+#---------------------------------------------------------------------- 75 sub_4
 (STMT :subj (TT_SUB_DECL (TT_VAR add) (TT_VAR a) (TT_VAR b) (TT_RETURN (TT_ADD (TT_VAR a) (TT_VAR b)))))
-#--------------------------------------------------------------- 71 given_when_4
+#--------------------------------------------------------------- 76 given_when_4
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
 (STMT :subj (TT_CASE (TT_VAR x) (TT_ILIT 1) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one")))))
-#--------------------------------------------------------------- 72 given_when_1
+#--------------------------------------------------------------- 77 given_when_1
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
 (STMT :subj (TT_CASE (TT_VAR x) (TT_ILIT 1) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one"))) (TT_ILIT 2) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "two")))))
-#------------------------------------------------------- 73 given_when_replace_1
+#------------------------------------------------------- 78 given_when_replace_1
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_QLIT "hello")))
 (STMT :subj (TT_CASE (TT_VAR x) (TT_QLIT "hello") (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes"))) (TT_NUL) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "no")))))
-#--------------------------------------------------------- 74 class_method_say_1
+#--------------------------------------------------------- 79 class_method_say_1 XFAIL
 (STMT :subj (TT_CLASS_DECL (TT_VAR Dog) (TT_VAR name) (TT_SUB_DECL (TT_VAR speak) (TT_SAY (TT_QLIT "woof")))))
-#--------------------------------------------------------------- 75 given_when_2
+#--------------------------------------------------------------- 80 given_when_2
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
 (STMT :subj (TT_CASE
   (TT_VAR x)
@@ -214,7 +246,7 @@
   (TT_NUL)
   (TT_SEQ_EXPR (TT_SAY (TT_QLIT "other")))
 ))
-#--------------------------------------------------------------- 76 given_when_3
+#--------------------------------------------------------------- 81 given_when_3
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))
 (STMT :subj (TT_CASE
   (TT_VAR x)
@@ -225,69 +257,299 @@
   (TT_ILIT 3)
   (TT_SEQ_EXPR (TT_SAY (TT_QLIT "three")))
 ))
-#--------------------------------------------------------- 77 class_method_say_4
+#--------------------------------------------------------- 82 class_method_say_4 XFAIL
 (STMT :subj (TT_CLASS_DECL (TT_VAR Point) (TT_VAR x) (TT_VAR y) (TT_SUB_DECL (TT_VAR sum) (TT_SAY (TT_TWIGIL_FIELD x)))))
-#------------------------------------------------------------ 78 for_array_say_1
+#--------------------------------------------------------- 83 hash_say_replace_3
+Alice
+30
+Portland
+1
+0
+31
+Raku
+6
+Raku
+#------------------------------------------------------------ 84 for_array_say_1
 (STMT :subj (TT_EVERY (TT_ITERATE x (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
-#------------------------------------------------------------ 79 for_array_say_2
+#------------------------------------------------------------ 85 for_array_say_2
 (STMT :subj (TT_EVERY (TT_ITERATE item (TT_VAR items)) (TT_SEQ_EXPR (TT_SAY (TT_VAR item)))))
-#------------------------------------------------------------ 80 for_range_say_1
+#------------------------------------------------------------ 86 for_range_say_1
 (STMT :subj (TT_FOR_RANGE (TT_VAR i) (TT_ILIT 1) (TT_ILIT 5) (TT_SEQ_EXPR (TT_SAY (TT_VAR i))) (TT_ILIT 0)))
-#------------------------------------------------------------ 81 for_range_say_2
+#------------------------------------------------------------ 87 for_range_say_2 XFAIL
 (STMT :subj (TT_FOR_RANGE (TT_VAR i) (TT_ILIT 1) (TT_ILIT 5) (TT_SEQ_EXPR (TT_SAY (TT_VAR i))) (TT_ILIT 1)))
-#----------------------------------------------------------- 82 smartmatch_say_1
+#----------------------------------------------------------- 88 smartmatch_say_1
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_SMATCH (TT_VAR s) (TT_QLIT "l\x01r\x01-") (TT_QLIT "subst")))
 (STMT :subj (TT_SAY (TT_VAR s)))
-#---------------------------------------------------------------------- 83 sub_2
+#---------------------------------------------------------------------- 89 sub_2
 (STMT :subj (TT_SUB_DECL (TT_VAR add) (TT_VAR a) (TT_VAR b) (TT_RETURN (TT_ADD (TT_VAR a) (TT_VAR b)))))
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_FNC add (TT_VAR add) (TT_ILIT 1) (TT_ILIT 2))))
-#---------------------------------------------------------------------- 84 sub_3
+#---------------------------------------------------------------------- 90 sub_3
 (STMT :subj (TT_SUB_DECL (TT_VAR add) (TT_VAR a) (TT_VAR b) (TT_ASSIGN (TT_VAR r) (TT_ADD (TT_VAR a) (TT_VAR b))) (TT_RETURN (TT_VAR r))))
-#--------------------------------------------------------- 85 class_method_say_2
+#--------------------------------------------------------- 91 class_method_say_2 XFAIL
 (STMT :subj (TT_CLASS_DECL (TT_VAR Greeter) (TT_VAR name) (TT_SUB_DECL (TT_VAR greet) (TT_VAR msg) (TT_SAY (TT_VAR msg)))))
-#--------------------------------------------------------- 86 class_method_say_3
+#-------------------------------------------------------------- 92 sub_for_say_1
+10
+20
+30
+done
+#--------------------------------------------------------- 93 class_method_say_3 XFAIL
 (STMT :subj (TT_CLASS_DECL
   (TT_VAR Counter)
   (TT_VAR count)
   (TT_SUB_DECL (TT_VAR get) (TT_SAY (TT_TWIGIL_FIELD count)))
   (TT_SUB_DECL (TT_VAR show) (TT_VAR x) (TT_SAY (TT_VAR x)))
 ))
-#--------------------------------------------------- 87 smartmatch_say_replace_1
+#---------------------------------------------------------- 94 sub_say_replace_1
+all-wraps-any
+any-wraps-all
+any-first-in-all
+#------------------------------------------------------------------ 95 sub_say_5
+10
+15
+30
+start!
+#---------------------------------------------------- 96 sub_range_say_replace_1
+language: Raku
+version: 6
+hello world
+Dr Jones
+no interp here
+prefix Raku suffix
+#------------------------------------------------------- 97 when_while_replace_1
+not ten
+five
+0
+1
+2
+done
+#---------------------------------------------------- 98 sub_array_say_replace_1
+3
+1
+3
+99
+3
+2
+hello
+world
+2
+#--------------------------------------------------- 99 smartmatch_say_replace_1
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "e(l+)(o)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_CAPTURE (TT_ILIT 1))))))
-#--------------------------------------------------- 88 smartmatch_say_replace_2
+#-------------------------------------------------- 100 smartmatch_say_replace_2
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "(?<word>\\w+)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_NAMED_CAPTURE (TT_QLIT "word"))))))
-#--------------------------------------------------- 89 smartmatch_say_replace_3
+#-------------------------------------------------- 101 smartmatch_say_replace_3
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "e(l+)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_CAPTURE (TT_ILIT 0))))))
-#--------------------------------------------------- 90 smartmatch_say_replace_4
+#-------------------------------------------------- 102 smartmatch_say_replace_4
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "x")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "^x$") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "anchor")))))
-#--------------------------------------------------- 91 smartmatch_say_replace_5
+#-------------------------------------------------- 103 smartmatch_say_replace_5
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "\\s+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "space")))))
-#--------------------------------------------------- 92 smartmatch_say_replace_6
+#-------------------------------------------------- 104 smartmatch_say_replace_6
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "anything")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT ".*") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "match")))))
-#--------------------------------------------------- 93 smartmatch_say_replace_7
+#-------------------------------------------------- 105 smartmatch_say_replace_7
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "ell") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "match")))))
-#----------------------------------------------------- 94 smartmatch_array_say_1
+#---------------------------------------------------- 106 smartmatch_array_say_1
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "aaa")))
 (STMT :subj (TT_ASSIGN (TT_VAR m) (TT_SMATCH (TT_VAR s) (TT_QLIT "a") (TT_QLIT "match_global"))))
 (STMT :subj (TT_SAY (TT_VAR m)))
-#--------------------------------------------------- 95 smartmatch_say_replace_8
+#-------------------------------------------------- 107 smartmatch_say_replace_8
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "abc123")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "\\d+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "digit")))))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "[a-z]+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "lower")))))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "a|b") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "alt")))))
-#------------------------------------------------------------------ 96 sub_say_1
+#----------------------------------------------------------------- 108 sub_say_1
 (STMT :subj (TT_SUB_DECL (TT_VAR double) (TT_VAR x) (TT_RETURN (TT_ADD (TT_VAR x) (TT_VAR x)))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC double (TT_VAR double) (TT_ILIT 3))))
 (STMT :subj (TT_SAY (TT_VAR r)))
-#------------------------------------------------- 97 class_method_say_replace_1
+#------------------------------------------------ 109 class_method_say_replace_1 XFAIL
 (STMT :subj (TT_CLASS_DECL (TT_VAR Dog) (TT_VAR name) (TT_SUB_DECL (TT_VAR speak) (TT_SAY (TT_QLIT "woof")))))
 (STMT :subj (TT_ASSIGN (TT_VAR d) (TT_NEW (TT_QLIT "Dog") (TT_QLIT "name") (TT_QLIT "Rex"))))
 (STMT :subj (TT_SAY (TT_FIELD name (TT_VAR d))))
+#--------------------------------------------------------- 110 sub_say_replace_2
+hello world
+eq literal ok
+ne vars ok
+helloworld
+concat eq ok
+#--------------------------------------------------- 111 sub_while_say_replace_1
+three
+not five
+1
+2
+3
+4
+gt one
+lt ten
+#------------------------------------------------ 112 sub_junction_say_replace_1
+unparen-any
+unparen-all
+var-roundtrip
+str-collapse
+mixed-nest
+none-nest
+#----------------------------------------------------- 113 sub_for_say_replace_1
+line one
+line two
+line three
+
+slurp fh ok
+line one
+line two
+line three
+rk_fileio38 ok
+#------------------------------------------------- 114 sub_junction_smartmatch_1
+digit match ok
+no digit ok
+lower match ok
+no lower ok
+alt a ok
+no alt ok
+dotstar empty ok
+dotstar str ok
+anchor ok
+anchor long ok
+anchor empty ok
+rk_re33 ok
+#----------------------------------------------------- 115 sub_say_try_replace_1
+42
+after swallowed die
+caught in handler
+7
+outer catch ok
+#--------------------------------------------------- 116 sub_for_range_replace_2
+1
+2
+3
+4
+5
+15
+#----------------------------------------------------------- 117 sub_for_array_1
+7
+5
+3
+40
+30
+20
+10
+99
+cherry
+banana
+apple
+#---------------------------------------------------- 118 class_method_replace_1
+3
+4
+7
+14
+Rex
+Woof from Rex
+#---------------------------------------------- 119 sub_smartmatch_say_replace_1
+John
+John
+Smith
+99
+no match ok
+rk_re34 ok
+#--------------------------------------------------- 120 sub_for_array_replace_1
+10
+20
+30
+60
+alpha
+beta
+gamma
+#---------------------------------------------- 121 sub_smartmatch_say_replace_2
+John
+John
+Smith
+99
+John
+Smith
+rk_re35 ok
+#-------------------------------------------- 122 multi_sub_smartmatch_replace_1
+nondigit ok
+digits not \D ok
+nonspace ok
+space not \S ok
+dash nonword ok
+underscore word ok
+multirange ok
+neg range ok
+all digit neg ok
+two ranges ok
+mixed cls ok
+no digit/space ok
+word+dash ok
+BOL ok
+not at BOL ok
+EOL ok
+not at EOL ok
+full anchor ok
+anchor mismatch ok
+empty anchor ok
+rk_re38 ok
+#---------------------------------------------------- 123 sub_when_for_replace_1
+10
+20
+30
+#--------------------------------------------------- 124 sub_for_while_replace_1
+1
+2
+3
+4
+5
+15
+#---------------------------------------------------- 125 sub_for_loop_replace_1
+2
+4
+6
+#--------------------------------------------------- 126 sub_for_range_replace_1
+1
+2
+3
+60
+3
+15
+42
+#-------------------------------------------------- 127 method_sub_for_replace_1
+3
+2
+1
+3
+3
+1
+1
+2
+3
+2
+5
+7
+9
+33
+==
+2
+1
+3
+3
+1
+#-------------------------------------------- 128 sub_regex_smartmatch_replace_1
+match World ok
+match Hello ok
+no match xyz ok
+var content match ok
+empty no match ok
+start match ok
+end match ok
+5
+#----------------------------------------------- 129 sub_when_junction_replace_1
+any-hit
+all-hit
+none-hit
+one-hit
+pipe-hit
+amp-hit
