@@ -1,39 +1,39 @@
-*----------------------------------------- 1120 arb_capture_alt_replace_branch_1
+*------------------------------------------ 928 arb_capture_alt_replace_branch_1
 She saw the cat of the hat sitting near the dog a bone.
 Nothing interesting on this line.
 I know the house of cards and the tower a bridge.
-*--------------------------------------- 1121 trim_size_keyword_replace_branch_1
+*---------------------------------------- 931 trim_size_keyword_replace_branch_1
 hello world
 foo bar baz
-*------------------------------------------ 1198 trim_dupl_size_replace_branch_1
+*------------------------------------------ 1098 trim_dupl_size_replace_branch_1
 alpha
 beta
 gamma
 delta
 epsilon
 epsilon
-*----------------------------------------- 1206 span_break_trim_replace_branch_1
+*----------------------------------------- 1107 span_break_trim_replace_branch_1
 it's a well-known fact that the quick brown fox
 jumped over the lazy dog
-*------------------------------------------ 1340 arb_span_break_replace_branch_2
+*------------------------------------------ 1389 arb_span_break_replace_branch_2
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1344 arb_tab_pos_replace_branch_1
+*--------------------------------------------- 1394 arb_tab_pos_replace_branch_1
 1769  Watt             : Steam Engine
 1876  Bell             : Telephone
 1903  Wright           : Airplane
 1928  Fleming          : Penicillin
-*------------------------------------------ 1401 arb_span_break_replace_branch_1
+*------------------------------------------ 1511 arb_span_break_replace_branch_1
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1445 any_pos_len_replace_branch_1
+*--------------------------------------------- 1574 any_pos_len_replace_branch_1
 SNOBOL
 OBJECT
-*--------------------------------- 1489 user_function_eval_span_replace_branch_2
+*--------------------------------- 1639 user_function_eval_span_replace_branch_2
 1+2*3
 (1+2)*3
 2.5e1+0.5
