@@ -56,25 +56,41 @@ cross-reference. Re-verified after resolving: gate shows `stale-deferral: 0`,
   the 2026-08-30 re-pointing above, every section here names its own row explicitly — there is no
   file-level `ROW:` line or bare section anymore for any of them to fall back to.
 
-## NOT included here, deliberately: `recogn` and `genqueen`
+## DEFERRED icn-recogn-genqueen-suspend-shape
+⛔ **2026-08-30 (seat09) — NOW DEFERRED; was deliberately excluded until today (old note preserved
+below this section).** The exclusion held only while the row was `CLAIMED:seat12` and its scope
+still actively evolving — declaring a target mid another session's live investigation is exactly
+the stale-the-moment-it's-written trap this file hit twice on 2026-08-30 already. That condition has
+since resolved: seat12's own fresh measurement
+(`.github/FINDING-2026-08-30-seat12-icn-recogn-genqueen-recogn-is-confirmed-mutual-recursion-genqueen-crash-signature-drifted-to-clean-bound-refusal.md`)
+fully characterized both witnesses and re-parked the row `PARKED-AWAITING:icon-n2-recursive-
+generator-per-activation-storage` (confirmed live in `QUEUE.tsv`, `CLAIMED:seat03`) — a stable,
+precisely-named state, not one still churning. Same standard as the three sections above: this row's
+own name and GOAL are directly about these two witnesses, so it is the correct, most-specific defer
+target — not the transitive `icon-n2-recursive-generator-per-activation-storage` dependency, same
+reasoning as `cxprimes`/`scan2` pointing at their direct owners rather than the old umbrella row.
+- rung36_jcon_recogn.icn — clean exit both modes (rc=0), prints NOTHING where `.expected` has 8
+  lines. seat12 traced all three generator call sites (`s()`→`t()`, `t()`→`s()`) and confirmed
+  genuine mutual recursion hitting the `N2_SELFREC_SLOTS` transitive-reserve refusal unconditionally,
+  armed or not — a structural design exclusion documented in `x86_asm.h`'s own comment (general
+  mutual/multi-hop recursion is explicitly out of that mechanism's scope), not a bug hiding behind an
+  unexplored code path. No further investigation needed on this witness; it converts when the design
+  question is ruled on.
+- rung36_jcon_genqueen.icn — aborts both modes, rc=134. Crash signature has drifted since
+  2026-08-29: was a wild SIGSEGV under the armed N-2 mechanism, now a clean, intentional
+  `N2_SELFREC_SLOTS`-bound refusal (`bb_call_proc_staged.cpp:733`) — a real change, not a
+  re-description of the old crash. seat12's new, unverified lead: the 64-slot bound is hit almost
+  immediately against a 6-queens board (max concurrent depth ≈6–7), consistent with the counter
+  tracking cumulative/backtracked activations rather than simultaneous recursion depth — worth a
+  gdb trace of the banked value before revising the reservation formula, not yet done.
 
+### SUPERSEDED — prior exclusion note (seat03/seat05, 2026-08-29/30), kept for the record
 Both are ALSO ultimately blocked on `icon-n2-generator-activation-frames`, but their DIRECT,
-dedicated blocking row is `icn-recogn-genqueen-suspend-shape` (QUEUE.tsv rank 1, unassigned). A
-PENDING.md names exactly one row (`test_gate_suite_conversion_complete.sh`'s own design: "a file
-that needs two owners has not been split yet"), and this directory can hold only one `PENDING.md`.
+dedicated blocking row is `icn-recogn-genqueen-suspend-shape` (QUEUE.tsv rank 1, unassigned).
 Pointing `recogn`/`genqueen` at `icon-n2-generator-activation-frames` directly would risk a FALSE
 stale-deferral the moment that row closes, while `icn-recogn-genqueen-suspend-shape`'s own follow-up
-work is still outstanding — so they stay loose-but-undeclared rather than misattributed. Re-verified
-fresh today for the record: `recogn` now exits cleanly both modes (rc=0) but prints NOTHING where
-`.expected` has 8 lines — same crash→silent-wrong-output transition as `scan2`. `genqueen` still
-aborts both modes (rc=134, SIGABRT — the GENHOST forward-reference/recursive-frame refusal hq_B's
-table already recorded).
-
-⭐ **STATE UPDATE 2026-08-30 (seat05):** `icn-recogn-genqueen-suspend-shape` is no longer
-`PARKED-AWAITING` (it self-cleared when `icon-n2-generator-activation-frames` went `DONE`, per this
-project's normal self-clearing-park mechanism) — QUEUE.tsv now shows it `CLAIMED:seat12`, actively
-being worked. Not declaring `recogn`/`genqueen` here myself mid that pass: their own row's active
-worker is best placed to judge when "scope is clear enough to name precisely" (the standing
-criterion above), and writing a declaration now risks the same stale-the-moment-it's-written trap
-this file already hit twice today. Whoever next touches this file should re-check
-`icn-recogn-genqueen-suspend-shape`'s state before assuming this note is still current.
+work is still outstanding — so they stay loose-but-undeclared rather than misattributed. **STATE
+UPDATE 2026-08-30 (seat05):** `icn-recogn-genqueen-suspend-shape` is no longer `PARKED-AWAITING` (it
+self-cleared when `icon-n2-generator-activation-frames` went `DONE`) — QUEUE.tsv now shows it
+`CLAIMED:seat12`, actively being worked. Not declaring `recogn`/`genqueen` here mid that pass: their
+own row's active worker is best placed to judge when "scope is clear enough to name precisely."
