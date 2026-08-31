@@ -2,4 +2,18 @@ corpus
 programs/csnobol4-suite/openo.tst
 programs/csnobol4-suite/B,U
 programs/gimpel/ASMTEMP
-tmp3
+# ⛔ ICON I/O-TEST SCRATCH (hq_B 2026-08-30, merging a concurrent same-hour cure). rung36_jcon_io.icn
+# and rung36_jcon_iobig.icn are legitimate file-I/O tests: they open tmp1/tmp2 ("w") and testio()
+# tmp3/tmp4 in the CWD, which is corpus/tests/icon when a rung grader runs them. They do not clean up,
+# so every Icon rung run re-creates them. tmp3 was committed by accident, ceo removed it (4bd836184)
+# on this seat's evidence, and the next `test_icon_all_rungs.sh` put it straight back as an UNTRACKED
+# file -- which reads to handoff_status.sh as "corpus: 1 uncommitted change(s)" and turns the handoff
+# banner red for a file no human touched. Measured live: deleted it, ran the grader, it was back.
+# ⭐ Another seat landed a bare `tmp3` line for the same symptom in the same hour (45908083). This
+# supersedes it rather than sitting beside it: the scratch set is tmp1..tmp4, not tmp3 alone, and an
+# unanchored `tmp3` would also ignore a file of that name ANYWHERE in the corpus -- including one
+# somebody deliberately adds later. The pattern below is scoped to the directory that actually
+# generates them and covers the whole class.
+# ⚠️ This does NOT untrack tmp1/tmp2/tmp4, which remain committed test litter (tmp4 is 403,609 bytes
+# of generated binary). Removing tracked content is ceo's call, not this seat's -- routed.
+tests/icon/tmp[0-9]*
