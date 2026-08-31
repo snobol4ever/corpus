@@ -1,0 +1,23 @@
+# triangulation TSV -- 20260831T001559Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_pascal.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+bubble	fpc	0	7976.26		UNPROVEN	0	0
+bubble	m3	0	NA		UNPROVEN	0	0
+bubble	m4	0	NA		UNPROVEN	0	0
+intmm	fpc	9115.87	8176.36	0.8969	DISAGREE	0	0
+intmm	m3	7.5872	7.6154	1.0037	AGREE	0	0
+intmm	m4	7.1314	9.0531	1.2695	DISAGREE	0	0
+perm	fpc	8212.21	9603.37	1.1694	DISAGREE	0	0
+perm	m3	4.8737	5.8613	1.2026	DISAGREE	0	0
+perm	m4	5.7044	5.4834	0.9613	AGREE	0	0
+queens	fpc	883982	750258	0.8487	DISAGREE	0	0
+queens	m3	358.915	304.329	0.8479	DISAGREE	0	0
+queens	m4	307.492	310.145	1.0086	AGREE	0	0
+quick	fpc	105449	110292	1.0459	AGREE	0	0
+quick	m3	65.2678	77.5069	1.1875	DISAGREE	0	0
+quick	m4	159.674	172.419	1.0798	AGREE	0	0
+sieve	fpc	39548.7	46513.4	1.1761	DISAGREE	0	0
+sieve	m3	NA	NA		UNPROVEN	0	0
+sieve	m4	NA	NA		UNPROVEN	0	0
+towers	fpc	3164.9	3880.5	1.2261	DISAGREE	0	0
+towers	m3	77.9677	91.2913	1.1709	DISAGREE	0	0
+towers	m4	74.8134	91.0718	1.2173	DISAGREE	0	0

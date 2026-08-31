@@ -1,0 +1,21 @@
+# triangulation TSV -- 20260831T001513Z -- TOL_PCT=10 (FLOOR only; the live per-row tolerance is 3*sqrt(cv1^2+cv2^2) from NOISE-FLOOR.tsv) -- never hand-edit, regenerate via bench_triangulate_snobol4.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+arith_loop	-	-	-	-	CHECK-FAIL	0	0
+array_sum	-	-	-	-	CHECK-FAIL	0	0
+eval_fixed	-	-	-	-	CHECK-FAIL	0	0
+fibonacci	-	-	-	-	CHECK-FAIL	0	0
+func_call	-	-	-	-	CHECK-FAIL	0	0
+ident_call1	-	-	-	-	CHECK-FAIL	0	0
+ident_call2	-	-	-	-	CHECK-FAIL	0	0
+indirect_dispatch	-	-	-	-	CHECK-FAIL	0	0
+mixed_workload	-	-	-	-	CHECK-FAIL	0	0
+name_indirection	-	-	-	-	CHECK-FAIL	0	0
+op_dispatch	-	-	-	-	CHECK-FAIL	0	0
+pattern_bt	-	-	-	-	CHECK-FAIL	0	0
+roman	-	-	-	-	CHECK-FAIL	0	0
+string_concat	-	-	-	-	CHECK-FAIL	0	0
+string_manip	-	-	-	-	CHECK-FAIL	0	0
+string_pattern	-	-	-	-	CHECK-FAIL	0	0
+table_access	-	-	-	-	CHECK-FAIL	0	0
+table_variety	-	-	-	-	CHECK-FAIL	0	0
+var_access	-	-	-	-	CHECK-FAIL	0	0
