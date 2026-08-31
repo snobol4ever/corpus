@@ -96,10 +96,6 @@ crashes: SIGSEGV (rc=-11). Not further diagnosed.
 crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *----------------------------------- 1549 arbno_fence_tab_replace_branch_1 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
-*------------------------------------- 1550 fence_pos_len_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
-*------------------------------------- 1551 fence_pos_len_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *------------------------------------ 1552 fence_pos_rpos_replace_branch_3 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 *--------------------- 1553 user_function_code_eval_array_replace_branch_1 XFAIL
@@ -108,8 +104,6 @@ crashes: SIGSEGV (rc=-11). Not further diagnosed.
 does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
 *------------------------------------- 1555 arbno_bal_tab_replace_branch_1 XFAIL
 does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
-*-------------------------------- 1556 arbno_fence_notany_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *------------------------------------ 1557 arbno_arb_rpos_replace_branch_2 XFAIL
 crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *------------------------------------ 1558 fence_arb_span_replace_branch_1 XFAIL
@@ -132,8 +126,6 @@ runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *----------------------------------- 1567 arbno_fence_bal_replace_branch_1 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
-*-------------------------------- 1568 arbno_fence_notany_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *---------------------------------- 1569 arbno_span_break_replace_branch_1 XFAIL
 does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
 *------------------------------------ 1570 arbno_span_tab_replace_branch_1 XFAIL
@@ -142,8 +134,6 @@ crashes: SIGSEGV (rc=-11). Not further diagnosed.
 crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *---------------------------------- 1572 arbno_fence_span_replace_branch_2 XFAIL
 does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
-*------------------------------------ 1573 fence_arb_span_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
 *------------------------------------ 1574 arbno_span_len_replace_branch_1 XFAIL
 exits rc=1, stdout does not match .ref. Not further diagnosed.
 *--------------------------- 1575 user_function_eval_span_replace_branch_1 XFAIL
