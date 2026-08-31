@@ -2,18 +2,19 @@ corpus
 programs/csnobol4-suite/openo.tst
 programs/csnobol4-suite/B,U
 programs/gimpel/ASMTEMP
-# ⛔ ICON I/O-TEST SCRATCH (hq_B 2026-08-30, merging a concurrent same-hour cure). rung36_jcon_io.icn
-# and rung36_jcon_iobig.icn are legitimate file-I/O tests: they open tmp1/tmp2 ("w") and testio()
-# tmp3/tmp4 in the CWD, which is corpus/tests/icon when a rung grader runs them. They do not clean up,
-# so every Icon rung run re-creates them. tmp3 was committed by accident, ceo removed it (4bd836184)
-# on this seat's evidence, and the next `test_icon_all_rungs.sh` put it straight back as an UNTRACKED
-# file -- which reads to handoff_status.sh as "corpus: 1 uncommitted change(s)" and turns the handoff
-# banner red for a file no human touched. Measured live: deleted it, ran the grader, it was back.
-# ⭐ Another seat landed a bare `tmp3` line for the same symptom in the same hour (45908083). This
-# supersedes it rather than sitting beside it: the scratch set is tmp1..tmp4, not tmp3 alone, and an
-# unanchored `tmp3` would also ignore a file of that name ANYWHERE in the corpus -- including one
-# somebody deliberately adds later. The pattern below is scoped to the directory that actually
-# generates them and covers the whole class.
-# ⚠️ This does NOT untrack tmp1/tmp2/tmp4, which remain committed test litter (tmp4 is 403,609 bytes
-# of generated binary). Removing tracked content is ceo's call, not this seat's -- routed.
+# ⛔ ICON I/O-TEST SCRATCH — A NET FOR THE UNFIXED PATHS, NOT THE CURE (hq_B 2026-08-30).
+# rung36_jcon_io.icn opens tmp1/tmp2 ("w") and rung36_jcon_iobig.icn testio()s tmp3/tmp4, all relative
+# to the CWD. ceo removed the accidentally-committed tests/icon/tmp3 (4bd836184) and the next
+# test_icon_all_rungs.sh run put it straight back as an untracked file, which handoff_status.sh reads
+# as a dirty corpus. ⭐ THE ACTUAL CURE IS THE WRITER, AND IT IS LANDED FOR THE MEASURED PATH:
+# test_icon_all_rungs.sh now runs every entry from a scratch cwd with the program passed absolute
+# (SCRIP-side commit), so what a test WRITES no longer lands in the source tree. A/B'd: totals
+# identical (PASS=262 FAIL=7 BADEXIT=1 XFAIL=27 TOTAL=297) and the corpus stays clean.
+# ⛔ THIS PATTERN REMAINS ONLY BECAUSE ~5 SIBLING GRADERS STILL RUN FROM THE CORPUS CWD AND ARE NOT
+# YET CONVERTED — test_icon_x64_all_rungs.sh documents its corpus cwd as DELIBERATE ("so relative
+# data-file reads resolve exactly as they do under --run"), so each needs its own A/B before moving.
+# Do not read this line as the class being closed: it is a net under an unfinished conversion, and
+# hq_C is right that an ignore rule left standing alone would silence a symptom while the writer lives.
+# ⚠️ Also does NOT untrack tmp1/tmp2/tmp4, still committed test litter (tmp4 = 403,609 bytes of
+# generated binary). Removing tracked content is ceo's call, not this seat's — routed.
 tests/icon/tmp[0-9]*
