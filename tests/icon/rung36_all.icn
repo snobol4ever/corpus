@@ -1,4 +1,101 @@
-#--------------------------------------------------------- 1 rung36_jcon_augment
+#------------------------------------------------------------ 1 rung36_jcon_args
+#SRC: JCON
+#
+#  test various numbers of args
+
+procedure main();
+   local plist, alist, e;
+
+   plist := [3, -2, "image", proc("~===", 2), 
+      p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
+
+   every write((!plist)());
+   every write((!plist)(1));
+   every write((!plist)(1, 2));
+   every write((!plist)(1, 2, 3));
+   every write((!plist)(1, 2, 3, 4));
+   every write((!plist)(1, 2, 3, 4, 5));
+   every write((!plist)(1, 2, 3, 4, 5, 6));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+
+   alist := [];
+   while *alist < 14 do {
+       every write((!plist) ! alist);
+       put(alist, *alist + 1);
+   };
+end
+
+
+
+#  p0 through p12 do their own output and then fail
+
+procedure p0();
+   note("p0");
+end
+
+procedure p1(a);
+   note("p1", a);
+end
+
+procedure p2(a, b);
+   note("p2", a, b);
+end
+
+procedure p3(a, b, c);
+   note("p3", a, b, c);
+end
+
+procedure p4(a, b, c, d);
+   note("p4", a, b, c, d);
+end
+
+procedure p5(a, b, c, d, e);
+   note("p5", a, b, c, d, e);
+end
+
+procedure p6(a, b, c, d, e, f);
+   note("p6", a, b, c, d, e, f);
+end
+
+procedure p7(a, b, c, d, e, f, g);
+   note("p7", a, b, c, d, e, f, g);
+end
+
+procedure p8(a, b, c, d, e, f, g, h);
+   note("p8", a, b, c, d, e, f, g, h);
+end
+
+procedure p9(a, b, c, d, e, f, g, h, i);
+   note("p9", a, b, c, d, e, f, g, h, i);
+end
+
+procedure p10(a, b, c, d, e, f, g, h, i, j);
+   note("p10", a, b, c, d, e, f, g, h, i, j);
+end
+
+procedure p11(a, b, c, d, e, f, g, h, i, j, k);
+   note("p11", a, b, c, d, e, f, g, h, i, j, k);
+end
+
+procedure p12(a, b, c, d, e, f, g, h, i, j, k, l);
+   note("p12", a, b, c, d, e, f, g, h, i, j, k, l);
+end
+
+
+
+procedure note(a[]);
+   local e;
+
+   every e := !a do writes(\e | "~", " ");
+   write();
+   return;
+end
+#--------------------------------------------------------- 2 rung36_jcon_augment
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -182,7 +279,7 @@ procedure main()
 end
 
 global i, s, c, one, two, x;
-#---------------------------------------------------------- 2 rung36_jcon_center
+#---------------------------------------------------------- 3 rung36_jcon_center
 #SRC: JCON
 
 procedure main();
@@ -205,7 +302,7 @@ procedure main();
     write(center("123",9,"<>"));
     write(center("12",9,"<>"));
 end
-#---------------------------------------------------------- 3 rung36_jcon_coerce
+#---------------------------------------------------------- 4 rung36_jcon_coerce
 #SRC: JCON
 
 #  check coercion of operator arguments
@@ -273,7 +370,7 @@ procedure binop(o, i, r, c, s);
       right(o(s, c) | "---", 6));
    return;
 end
-#--------------------------------------------------------- 4 rung36_jcon_concord
+#--------------------------------------------------------- 5 rung36_jcon_concord
 #SRC: V9GEN
 
 procedure main()
@@ -307,7 +404,7 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2]);
       }
 end
-#-------------------------------------------------------- 5 rung36_jcon_diffwrds
+#-------------------------------------------------------- 6 rung36_jcon_diffwrds
 #SRC: V9SAM
 
 #
@@ -324,7 +421,7 @@ procedure main();
          insert(words,tab(many(&letters)));
    every write(!sort(words));
 end
-#--------------------------------------------------------- 6 rung36_jcon_endetab
+#--------------------------------------------------------- 7 rung36_jcon_endetab
 #SRC: V9GEN
 #OPT: -fe
 
@@ -475,7 +572,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------------------------- 7 rung36_jcon_every
+#----------------------------------------------------------- 8 rung36_jcon_every
 #SRC: JCON
 
 procedure main();
@@ -510,7 +607,7 @@ end
 procedure f(n);
    suspend n | -n;
 end
-#----------------------------------------------------------- 8 rung36_jcon_fncs1
+#----------------------------------------------------------- 9 rung36_jcon_fncs1
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -586,7 +683,7 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#---------------------------------------------------------- 9 rung36_jcon_htprep
+#--------------------------------------------------------- 10 rung36_jcon_htprep
 #SRC: IPL
 
 ############################################################################
@@ -905,7 +1002,7 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
-#---------------------------------------------------------- 10 rung36_jcon_kross
+#---------------------------------------------------------- 11 rung36_jcon_kross
 #SRC: V9SAM
 
 #
@@ -938,7 +1035,7 @@ procedure xprint(s1,s2,j,k);
    write(s1);
    every write(right(s2[ k+1 to *s2 ],j));
 end
-#----------------------------------------------------- 11 rung36_jcon_kwds XFAIL
+#----------------------------------------------------- 12 rung36_jcon_kwds XFAIL
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
@@ -1023,7 +1120,7 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#----------------------------------------------------------- 12 rung36_jcon_left
+#----------------------------------------------------------- 13 rung36_jcon_left
 #SRC: JCON
 
 procedure main();
@@ -1055,7 +1152,7 @@ procedure main();
    write(left("stu", 5, "<>"));
    write(left("vwx", 6, "<>"));
 end
-#--------------------------------------------------------- 13 rung36_jcon_lexcmp
+#--------------------------------------------------------- 14 rung36_jcon_lexcmp
 #SRC: JCON
 
 # lexical comparison test
@@ -1083,7 +1180,7 @@ procedure wr(s);
    writes(right(image(\s) | "---", 6));
    return;
 end
-#---------------------------------------------------------- 14 rung36_jcon_lists
+#---------------------------------------------------------- 15 rung36_jcon_lists
 #SRC: JCON
 
 procedure main();
@@ -1173,7 +1270,7 @@ procedure limage(label, lst);
    write();
    return;
 end
-#------------------------------------------------------------ 15 rung36_jcon_map
+#------------------------------------------------------------ 16 rung36_jcon_map
 #SRC: JCON
 
 procedure main();
@@ -1188,7 +1285,7 @@ procedure main();
     write(map("", "abcdef", "!@#$%^"));
     write(map("abcdef", "aa", "bc"));
 end
-#------------------------------------------------------- 16 rung36_jcon_mathfunc
+#------------------------------------------------------- 17 rung36_jcon_mathfunc
 #SRC: JCON
 
 #  test math functions including argument coercion
@@ -1225,7 +1322,7 @@ procedure r(v)
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
-#-------------------------------------------------------- 17 rung36_jcon_meander
+#-------------------------------------------------------- 18 rung36_jcon_meander
 #SRC: V9SAM
 
 #
@@ -1261,7 +1358,7 @@ procedure meander(alpha,n)
        }
    return result;
 end
-#--------------------------------------------------------- 18 rung36_jcon_mffsol
+#--------------------------------------------------------- 19 rung36_jcon_mffsol
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -1378,7 +1475,7 @@ procedure newcolor()
 	if lum > 96 then return;
     }
     end
-#--------------------------------------------------------- 19 rung36_jcon_mindfa
+#--------------------------------------------------------- 20 rung36_jcon_mindfa
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -1595,7 +1692,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#-------------------------------------------------------- 20 rung36_jcon_numeric
+#-------------------------------------------------------- 21 rung36_jcon_numeric
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -1790,7 +1887,7 @@ procedure main()
    p21();
 end
 
-#---------------------------------------------------------- 21 rung36_jcon_parse
+#---------------------------------------------------------- 22 rung36_jcon_parse
 #SRC: JCON
 
 # test grouping of various operators
@@ -1812,7 +1909,7 @@ end
 procedure g(x);
 	return x+2;
 end
-#--------------------------------------------------------- 22 rung36_jcon_prepro
+#--------------------------------------------------------- 23 rung36_jcon_prepro
 #SRC: V9GEN
 
 # test various preprocessor features
@@ -1921,7 +2018,7 @@ procedure precheck (v, s, p)
 	 write ("no feature:    ", s);
       }
 end
-#--------------------------------------------------------- 23 rung36_jcon_primes
+#--------------------------------------------------------- 24 rung36_jcon_primes
 #SRC: JCON
 
 # a simple and slow prime number generator
@@ -1934,7 +2031,7 @@ procedure main();
       write(i);
    };
 end
-#--------------------------------------------------------- 24 rung36_jcon_queens
+#--------------------------------------------------------- 25 rung36_jcon_queens
 #SRC: IPL
 
 ############################################################################
@@ -2033,7 +2130,7 @@ procedure show()
       }
    write();
 end
-#--------------------------------------------------------- 25 rung36_jcon_random
+#--------------------------------------------------------- 26 rung36_jcon_random
 #SRC: JCON
 
 #  test of random selection
@@ -2093,7 +2190,7 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#--------------------------------------------------------- 26 rung36_jcon_record
+#--------------------------------------------------------- 27 rung36_jcon_record
 #SRC: JCON
 
 record simple(f);
@@ -2137,7 +2234,7 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#---------------------------------------------------------- 27 rung36_jcon_right
+#---------------------------------------------------------- 28 rung36_jcon_right
 #SRC: JCON
 
 procedure main();
@@ -2169,7 +2266,7 @@ procedure main();
    write(right("stu", 5, "<>"));
    write(right("vwx", 6, "<>"));
 end
-#---------------------------------------------------------- 28 rung36_jcon_roman
+#---------------------------------------------------------- 29 rung36_jcon_roman
 #SRC: V9SAM
 
 #
@@ -2195,7 +2292,7 @@ procedure roman(n);
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#---------------------------------------------------------- 29 rung36_jcon_scan1
+#---------------------------------------------------------- 30 rung36_jcon_scan1
 #SRC: JCON
 
 procedure main();
@@ -2280,7 +2377,7 @@ procedure main();
       every writes(" ", "upprs?skips" | upto(skips) | "\n");
       };
 end
-#----------------------------------------------------------- 30 rung36_jcon_sets
+#----------------------------------------------------------- 31 rung36_jcon_sets
 #SRC: JCON
 
 # set test
@@ -2362,7 +2459,7 @@ procedure wset(label, S);
    write();
    return;
 end
-#---------------------------------------------------------- 31 rung36_jcon_sieve
+#---------------------------------------------------------- 32 rung36_jcon_sieve
 #SRC: V9SAM
 
 #
@@ -2385,7 +2482,7 @@ procedure main(args);
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#-------------------------------------------------------- 32 rung36_jcon_statics
+#-------------------------------------------------------- 33 rung36_jcon_statics
 #SRC: JCON
 
 procedure main();
@@ -2412,7 +2509,7 @@ procedure p();
    write(c);
 
 end
-#--------------------------------------------------------- 33 rung36_jcon_string
+#--------------------------------------------------------- 34 rung36_jcon_string
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g);
@@ -2544,7 +2641,7 @@ end
 
 global s;
 
-#-------------------------------------------------------- 34 rung36_jcon_string1
+#-------------------------------------------------------- 35 rung36_jcon_string1
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -2599,7 +2696,7 @@ procedure main();
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#-------------------------------------------------------- 35 rung36_jcon_subjpos
+#-------------------------------------------------------- 36 rung36_jcon_subjpos
 #SRC: JCON
 
 procedure main()
@@ -2682,7 +2779,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#------------------------------------------------------ 36 rung36_jcon_substring
+#------------------------------------------------------ 37 rung36_jcon_substring
 #SRC: JCON
 
 # string subscripting test
@@ -2748,7 +2845,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" }
    
 end
-#---------------------------------------------------------- 37 rung36_jcon_table
+#---------------------------------------------------------- 38 rung36_jcon_table
 #SRC: JCON
 
 # table test
@@ -2846,7 +2943,7 @@ procedure tdump(label, T);
    write();
    return;
 end
-#----------------------------------------------------------- 38 rung36_jcon_trim
+#----------------------------------------------------------- 39 rung36_jcon_trim
 #SRC: JCON
 
 procedure main();
@@ -2861,7 +2958,7 @@ procedure main();
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#-------------------------------------------------------- 39 rung36_jcon_wordcnt
+#-------------------------------------------------------- 40 rung36_jcon_wordcnt
 #SRC: V9SAM
 
 #

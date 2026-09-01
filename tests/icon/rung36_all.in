@@ -1,4 +1,4 @@
-#--------------------------------------------------------- 4 rung36_jcon_concord
+#--------------------------------------------------------- 5 rung36_jcon_concord
 Order, Coleoptera, (Beetles). Many beetles are colored so as
 to resemble the surfaces which they habitually frequent, and they thus
 escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -16,7 +16,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#-------------------------------------------------------- 5 rung36_jcon_diffwrds
+#-------------------------------------------------------- 6 rung36_jcon_diffwrds
 procedure main()
    local limit, s, i
    limit := 100
@@ -29,7 +29,7 @@ procedure main()
    write("The primes are:")
    every write(right(!primes,*limit + 1))
 end
-#--------------------------------------------------------- 6 rung36_jcon_endetab
+#--------------------------------------------------------- 7 rung36_jcon_endetab
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -288,7 +288,7 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#---------------------------------------------------------- 9 rung36_jcon_htprep
+#--------------------------------------------------------- 10 rung36_jcon_htprep
 {html{head
     {title Off the Beaten Path}
 }{body bgcolor="#EEEEEE"
@@ -362,22 +362,22 @@ abc\b!.de\b!..fghij\b!...k
    {hr}
    {address {@http://www.cs.arizona.edu/~gmt Gregg Townsend}}
 }}
-#---------------------------------------------------------- 10 rung36_jcon_kross
+#---------------------------------------------------------- 11 rung36_jcon_kross
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#-------------------------------------------------------- 17 rung36_jcon_meander
+#-------------------------------------------------------- 18 rung36_jcon_meander
 abc:2
 1234:2
 ABC:4
-#--------------------------------------------------------- 18 rung36_jcon_mffsol
+#--------------------------------------------------------- 19 rung36_jcon_mffsol
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#--------------------------------------------------------- 19 rung36_jcon_mindfa
+#--------------------------------------------------------- 20 rung36_jcon_mindfa
 abcdefgh
 01
 d
@@ -398,7 +398,7 @@ f
 g
 g
 d
-#---------------------------------------------------------- 28 rung36_jcon_roman
+#---------------------------------------------------------- 29 rung36_jcon_roman
 13
 4
 6
@@ -407,7 +407,7 @@ d
 39
 3999
 4000
-#-------------------------------------------------------- 39 rung36_jcon_wordcnt
+#-------------------------------------------------------- 40 rung36_jcon_wordcnt
 #
 #	W O R D   T A B U L A T I O N
 #
