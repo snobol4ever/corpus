@@ -1,0 +1,33 @@
+record node(tag, sub)
+
+procedure findsub(r, f[]);
+   local tag, x;
+   tag := get(f) | fail;
+   every x := !r.sub do {
+      if x.tag == tag then
+         if *f > 0 then
+            suspend findsub ! push(f, x)
+         else
+            suspend x
+   };
+end
+
+procedure build(depth);
+   local kids;
+   kids := [];
+   if depth > 0 then {
+      put(kids, node("X", []));
+      put(kids, build(depth - 1));
+      put(kids, node("Y", []));
+   }
+   return node("T" || depth, kids);
+end
+
+procedure main();
+   local root, x, count, i;
+   root := build(3);
+   count := 0;
+   every i := 1 to 40 do
+      every x := findsub(root, "T2", "T1", "T0") do count +:= 1;
+   write("found=", count);
+end
