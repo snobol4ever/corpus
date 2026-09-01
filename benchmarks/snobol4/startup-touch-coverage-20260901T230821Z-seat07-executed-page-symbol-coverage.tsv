@@ -1,0 +1,123 @@
+# startup-touch executed-page symbol coverage -- 2026-09-01 seat07 -- row rtx-startup-touch-rewrites, ## NEXT item 1
+# THE DERIVATION THE ITEM CALLS "THE RUNG": the full startup-executed function list + the page span that
+#   sizes the linker-ordering lever. Supersedes the top-15 EXCERPT in FINDING-2026-08-28-seat03; that
+#   FINDING named 15 of them and estimated 65, this is the whole set, re-derived.
+# instrument: valgrind --tool=callgrind --collect-atstart=yes  (⛔ perf is NON-FUNCTIONAL in this container:
+#   /usr/bin/perf exists and linux-tools reports Installed, but the package ships no perf binary for
+#   6.17.0-1032-oem; perf record exits 2. Same substitution seat03 made and for the same reason.)
+#   x  nm -SC --defined-only  on the linked .so AND on each out/rt_pic-*/*.o for source attribution.
+#   SCRIP 14f384ed, RT_OPT=-O0 (NO -O2 BUILDS), make pristine, mode 3 (--run).
+# ⛔ TWO PARSING TRAPS, both hit and both cured here -- a hand-rolled reader gets a PLAUSIBLE WRONG LIST:
+#   (1) callgrind name compression: the spec says "a separate ID mapping for each position specification",
+#       but its OWN example defines ID 2 via `cfn=(2) func1` and resolves it via `fn=(2)`. The namespace is
+#       per ENTITY KIND (file/function/object), not per keyword. Keying by keyword drops every definition a
+#       call-side spec made: measured 741 of 753 rows came back object='???' before the fix, 0 after.
+#   (2) callgrind DEMANGLES C++ and nm does not (nm -C), and it appends a recursion-context suffix (fn'2)
+#       that is the SAME function. Unfixed, both inflate the "unresolved" bucket and undercount the list.
+# METRIC NOTE (hq_P's standing direction + seat01's 2026-09-01 lesson): pages-spanned is a STRUCTURAL metric
+#   and an UPPER BOUND -- Linux fault-around maps up to 16 pages per fault, and a function executing does not
+#   mean all its bytes were. The graded metric stays faults/RSS. Do not quote a page delta as a fault delta.
+#
+# measured m3 do-nothing floor, this tree, 5 runs: minflt 743,744,744,744,743  maxrss 8976-9104 kB
+#   (matches seat01's post-blob m3 figure of 742.2 -- the ~237 in this row's ## QA is the m4 arm, not m3)
+#
+metric	workload	value
+executed_so_functions	tiny	480
+src_runtime_functions	tiny	77
+all_pages_spanned	tiny	237
+all_cluster_floor_pages	tiny	144
+rt_pages_spanned	tiny	32
+rt_cluster_floor_pages	tiny	7
+executed_so_functions	tree	842
+src_runtime_functions	tree	155
+all_pages_spanned	tree	476
+all_cluster_floor_pages	tree	347
+rt_pages_spanned	tree	116
+rt_cluster_floor_pages	tree	72
+executed_so_functions	union	847
+src_runtime_functions	union	158
+all_pages_spanned	union	476
+all_cluster_floor_pages	union	348
+rt_pages_spanned	union	116
+rt_cluster_floor_pages	union	73
+m3_minflt_do_nothing	tiny	743.6 (mean of 5: 743,744,744,744,743)
+m3_maxrss_kb_do_nothing	tiny	8976-9104
+#
+# FULL STARTUP-TOUCHED src/runtime LIST (do-nothing witness) follows: function<TAB>source
+plw_poison_init	src/runtime/by_name_dispatch.c
+plw_poison_trap	src/runtime/by_name_dispatch.c
+DEFDAT_fn	src/runtime/core/core.c
+DEFINE_fn	src/runtime/core/core.c
+NV_CELL_IF_FASTSET_fn	src/runtime/core/core.c
+NV_SET_fn	src/runtime/core/core.c
+_func_hash	src/runtime/core/core.c
+_func_init	src/runtime/core/core.c
+_io_chan_find_by_var	src/runtime/core/core.c
+_io_chan_setup	src/runtime/core/core.c
+_parse_define_spec	src/runtime/core/core.c
+_var_bucket_find	src/runtime/core/core.c
+_var_hash	src/runtime/core/core.c
+_var_init	src/runtime/core/core.c
+c_VARVAL_fn	src/runtime/core/core.c
+comm_var	src/runtime/core/core.c
+core_lib_init	src/runtime/core/core.c
+core_set_label_exists_hook	src/runtime/core/core.c
+mon_name_is_internal	src/runtime/core/core.c
+mon_synth_name	src/runtime/core/core.c
+rt_dump_atexit_arm	src/runtime/core/core.c
+var_dump_at_exit	src/runtime/core/core.c
+output_val	src/runtime/io_format.c
+kwb_init_once	src/runtime/keywords.c
+rt_kw_seed_defaults	src/runtime/keywords.c
+global_register	src/runtime/name_binding.c
+is_global	src/runtime/name_binding.c
+dtp_new	src/runtime/pattern_match.c
+pat_abort	src/runtime/pattern_match.c
+pat_arb	src/runtime/pattern_match.c
+pat_bal	src/runtime/pattern_match.c
+pat_fail	src/runtime/pattern_match.c
+pat_fence	src/runtime/pattern_match.c
+pat_rem	src/runtime/pattern_match.c
+pat_succeed	src/runtime/pattern_match.c
+rcp_node	src/runtime/pattern_match.c
+register_fn	src/runtime/pattern_match.c
+rt_dcap_lazy_init	src/runtime/pattern_match.c
+rt_rspd_init	src/runtime/pattern_match.c
+rt_rspd_report	src/runtime/pattern_match.c
+bbprof_on	src/runtime/rt/bbprof.c
+bbprof_start	src/runtime/rt/bbprof.c
+c_rt_gcheap_alloc	src/runtime/rt/gc_heap.c
+c_rt_ws_alloc	src/runtime/rt/gc_heap.c
+gc_phdr_cb	src/runtime/rt/gc_heap.c
+gc_static_segs_init	src/runtime/rt/gc_heap.c
+rt_alloc_hist_init	src/runtime/rt/gc_heap.c
+rt_gc_root_range_add	src/runtime/rt/gc_heap.c
+rt_gc_root_range_add_seamsafe	src/runtime/rt/gc_heap.c
+rt_gcheap_carve	src/runtime/rt/gc_heap.c
+rt_gcheap_init	src/runtime/rt/gc_heap.c
+rt_gcheap_report	src/runtime/rt/gc_heap.c
+rt_gcheap_warmup	src/runtime/rt/gc_heap.c
+rt_ws_alloc_c	src/runtime/rt/gc_heap.c
+rt_ws_alloc_core	src/runtime/rt/gc_heap.c
+rt_ws_strdup	src/runtime/rt/gc_heap.c
+rt_ws_strdup_c	src/runtime/rt/gc_heap.c
+rt_wsi_init	src/runtime/rt/gc_heap.c
+pat_pool_ctor	src/runtime/rt/pat_pool.c
+pat_pool_init	src/runtime/rt/pat_pool.c
+rt_outer_call	src/runtime/rt/rt.c
+rt_pin_init	src/runtime/rt/rt.c
+rt_proc_cache_clear	src/runtime/rt/rt.c
+rt_proc_reset	src/runtime/rt/rt.c
+pick_klass	src/runtime/rt/rt_slab.c
+rt_slab_get	src/runtime/rt/rt_slab.c
+rt_slab_region	src/runtime/rt/rt_slab.c
+rt_stack_overflow_init	src/runtime/rt/rt_stack_overflow.c
+rtcc_gc_register	src/runtime/rtx/rtcc_init.c
+rtcc_init	src/runtime/rtx/rtcc_init.c
+rtcc_load_all	src/runtime/rtx/rtcc_init.c
+rt_gcheap_alloc	src/runtime/rtx/rtx_alloc.s
+rt_ws_alloc	src/runtime/rtx/rtx_alloc.s
+rtx_env_on	src/runtime/rtx/rtx_init.c
+rtx_gates_init	src/runtime/rtx/rtx_init.c
+rtx_mon_dflt	src/runtime/rtx/rtx_init.c
+VARVAL_fn	src/runtime/rtx/rtx_str.s
