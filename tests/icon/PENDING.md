@@ -94,3 +94,47 @@ UPDATE 2026-08-30 (seat05):** `icn-recogn-genqueen-suspend-shape` is no longer `
 self-cleared when `icon-n2-generator-activation-frames` went `DONE`) — QUEUE.tsv now shows it
 `CLAIMED:seat12`, actively being worked. Not declaring `recogn`/`genqueen` here mid that pass: their
 own row's active worker is best placed to judge when "scope is clear enough to name precisely."
+
+⛔ **2026-09-01 (seat06) — THREE SECTIONS ADDED (`level`, `scan`, `var`), closing this gate's last
+`loose-but-undeclared` files.** Same standard as every section above, applied deliberately rather
+than by analogy: each witness was **re-run fresh against a current build before being declared**
+(never a carried-forward disposition — this row's own `args` had been carried as blocked for
+several sessions and turned out to be already fixed, converted this session as `rung36_all` entry
+40), and each is pointed at the ONE live row whose **own GOAL text names that exact witness by
+name** — verified by grepping each candidate row for the witness stem, not by topical resemblance.
+All three target rows confirmed live in `QUEUE.tsv` (`FREE`, not `DONE`) at declaration time.
+⚠️ Two rows were REJECTED as targets despite looking apt, recorded so nobody re-derives it:
+`icon-rung-ladder-absorption` (`CLAIMED:hq_P`, working `level`'s entry-side half) and
+`icon-level-keyword-not-tracked-for-standard-role-procs` — **neither names any of these witnesses in
+its GOAL**, and pointing at a row on topical resemblance is how a false stale-deferral is minted.
+⭐ All three are **m3≡m4 identical** in their failure (verified, not assumed): none is a mode-
+divergence, so none needs a per-mode deferral note.
+
+## DEFERRED icon-level-keyword-not-tracked
+- rung36_jcon_level.icn — clean exit both modes (rc=0), 16 lines out for 16 expected, all values
+  wrong: prints `1 1 1 1 1 1 0 -1 -2 -3 -2 -2 -2 -2 -2 -3` where `.expected` has
+  `1 2 3 4 5 5 4 3 2 1 2 2 2 2 2 1`. ⭐ **The negative drift is the EXPECTED transitional shape, not
+  a new regression** — SCRIP `41730a7f` landed the EXIT side only (`xa_flat.cpp`'s Icon-scoped
+  epilogue-γ arm decrements `rt_k_level`/`kw_fnclevel`; the entry-side increment is explicitly NOT
+  yet landed, per that commit's own message), and decrement-without-increment predicts exactly this
+  monotonic slide below zero. Recorded here so nobody chases the stale `1 1 1 1 1 1 1 1` description
+  that predates the half-cure. Converts when the entry-side increment lands.
+
+## DEFERRED icon-scan-env-value-residue
+- rung36_jcon_scan.icn — clean exit both modes (rc=0), WRONG output: 115 lines against `.expected`'s
+  133, 20 differing lines. The gap is scan-environment values going missing mid-run (e.g. `a`/`ab`/
+  `abc` progression absent where a single stale `9` is printed instead) — the same residue mechanism
+  this row's GOAL already names, and this row already owns the sibling witnesses `scan1` (since
+  fixed and converted, SCRIP `9fd26a3e`) and `scan2` (declared above since 2026-08-30). `scan` is
+  the third of the three witnesses its GOAL names; this section just makes the gate's record match
+  an ownership that was already explicit.
+
+## DEFERRED icon-assign-nameless-emit-guard-var
+- rung36_jcon_var.icn — rc=134 both modes. ⭐ **NOT a crash — an INTENTIONAL guard, and reading it
+  as a crash is the trap here** (it aborts and dumps core, so `m4` presents as a compiler blow-up):
+  `FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer:
+  !x/?x element-variable or s[i:j] section) — LOWER's TT_ASSIGN terminal arm minted a placeholder;
+  not a missing template.` The guard's own message names its owning work — *"ASSIGN-LV rung,
+  GOAL-IR-IMMUTABLE-EMIT.md"* — and this row is named for that guard, so target and witness agree
+  by construction rather than by inference. Fires in BOTH modes at emit time, so there is no partial
+  m3 result to grade. Converts when the `TT_ASSIGN` terminal arm mints a real lvalue-producer assign.
