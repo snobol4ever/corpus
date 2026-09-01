@@ -1,0 +1,25 @@
+# perf-attribution TSV -- 2026-09-01 seat01 -- row rtx-startup-touch-rewrites, ## NEXT item 2
+# (x86_argroles: the 861 surviving R_X86_64_RELATIVE relocations left after the 2026-08-28 150->1 copy
+#  collapse. A pointer-to-string-literal is not a link-time constant in PIC, so each of the 123x7
+#  `const char *` fields was written at load time, dirtying its pages and pinning the table in
+#  .data.rel.ro. Fields are now 16-bit offsets into one x86_argrole_blob; table and blob are .rodata.)
+# instrument: /usr/bin/time -v, 5 runs/arm, mean reported; same box, same tree, `make pristine` BOTH arms.
+#   RT_OPT=-O0 (NO -O2 BUILDS). SCRIP bcb0ec1e. Witness = OUTPUT=1 (the do-nothing RT-load floor).
+# METRIC IS FAULTS + MAXRSS, NEVER WALL CLOCK -- per hq_P's standing direction for this lane: relocation
+#   PROCESSING was already measured cheap (~0.4% of the floor); the cost being graded is page-DIRTYING.
+# ARMS: baseline = SCRIP bcb0ec1e unmodified, pristine. blob = same tree + this rung, pristine.
+#   Runtime rows REPRODUCED across two independent pristine builds of the blob arm (m3 minflt 742.4 / 742.2;
+#   reloc count identical 5176 both) -- the reported blob numbers are from the final pristine tree.
+# SEPARATION: no run-range overlap on any runtime row (baseline m3 minflt 747-749 vs blob 741-744;
+#   baseline m4 755-757 vs blob 751-752), so the deltas are above run-to-run noise at n=5.
+# ⚠ STRUCTURAL rows (reloc, section bytes) are EXACT readings of the linked .so, not sampled means.
+metric	unit	arm_baseline	arm_blob	delta	pct	kind
+R_X86_64_RELATIVE	count	6037	5176	-861	-14.26	structural
+.data.rel.ro	bytes	102464	95552	-6912	-6.75	structural
+.rodata	bytes	1037021	1038749	+1728	+0.17	structural
+image_net	bytes	1139485	1134301	-5184	-0.45	structural
+writable_to_readonly	bytes	0	6912	+6912	n/a	structural
+m3_minflt	faults	748.0	742.2	-5.8	-0.78	runtime_mean_n5
+m3_maxrss	kB	9348.0	9092.0	-256.0	-2.74	runtime_mean_n5
+m4_minflt	faults	755.8	751.2	-4.6	-0.61	runtime_mean_n5
+m4_maxrss	kB	9403.2	9186.4	-216.8	-2.31	runtime_mean_n5
