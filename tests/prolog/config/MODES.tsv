@@ -6,3 +6,4 @@
 #
 # family	modes	(evidence)
 parser	ast	# SCRIP/scripts/test_prolog_parser_fixtures.sh grades parser.pl via `scrip --dump-ast`, diffed per entry
+ladder	m3,m4	# SCRIP/scripts/test_prolog_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 (scrip --run) and m4 (scrip --compile + as + gcc + run), stdout vs .ref and rc vs ALL.wantrc; the trace arm is test_gate_pl_port_trace.sh
