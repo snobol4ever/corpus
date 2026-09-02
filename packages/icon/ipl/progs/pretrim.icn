@@ -28,9 +28,9 @@ link options
 procedure main(args)
    local opts, i
 
-   opts := options(args, "n+")
+   opts := options(args, "n+");
 
-   i := \opts["n"] | 0
+   i := \opts["n"] | 0;
 
    every 1 to i do
       read()

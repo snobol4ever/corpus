@@ -136,7 +136,7 @@ end
 procedure htc_tag(f)
    local s
 
-   s := "<"
+   s := "<";
    repeat {
       if s ||:= tab(upto('>') + 1) then
          return s			# completed tag
@@ -149,7 +149,7 @@ end
 procedure htc_comment(f)
    local s
 
-   s := ""
+   s := "";
    repeat {
       if s ||:= tab(find("-->") + 3) then
          fail				# normal case: discard comment
@@ -164,7 +164,7 @@ end
 procedure htc_text(f)
    local s
 
-   s := ""
+   s := "";
    repeat {
       if s ||:= tab(upto('<')) then
          return s
@@ -180,30 +180,30 @@ procedure htrefs(f)			#: generate references from HTML file
    local tag, tagname, kwset, s
    static ttable
    initial {
-      ttable := table()
-      ttable["A"]	:= set(["HREF"])
-      ttable["APPLET"]	:= set(["CODEBASE"])
-      ttable["AREA"]	:= set(["HREF"])
-      ttable["BASE"]	:= set(["HREF"])
-      ttable["BLOCKQUOTE"] := set(["CITE"])
-      ttable["BODY"]	:= set(["BACKGROUND"])
-      ttable["DEL"]	:= set(["CITE"])
-      ttable["FORM"]	:= set(["ACTION"])
-      ttable["FRAME"]	:= set(["SRC", "LONGDESC"])
-      ttable["HEAD"]	:= set(["PROFILE"])
-      ttable["IFRAME"]	:= set(["SRC", "LONGDESC"])
-      ttable["IMG"]	:= set(["SRC", "LONGDESC", "USEMAP"])
-      ttable["INPUT"]	:= set(["SRC", "USEMAP"])
-      ttable["INS"]	:= set(["CITE"])
-      ttable["LINK"]	:= set(["HREF"])
-      ttable["OBJECT"]	:= set(["CLASSID","CODEBASE","DATA","ARCHIVE","USEMAP"])
-      ttable["Q"]	:= set(["CITE"])
+      ttable := table();
+      ttable["A"]	:= set(["HREF"]);
+      ttable["APPLET"]	:= set(["CODEBASE"]);
+      ttable["AREA"]	:= set(["HREF"]);
+      ttable["BASE"]	:= set(["HREF"]);
+      ttable["BLOCKQUOTE"] := set(["CITE"]);
+      ttable["BODY"]	:= set(["BACKGROUND"]);
+      ttable["DEL"]	:= set(["CITE"]);
+      ttable["FORM"]	:= set(["ACTION"]);
+      ttable["FRAME"]	:= set(["SRC", "LONGDESC"]);
+      ttable["HEAD"]	:= set(["PROFILE"]);
+      ttable["IFRAME"]	:= set(["SRC", "LONGDESC"]);
+      ttable["IMG"]	:= set(["SRC", "LONGDESC", "USEMAP"]);
+      ttable["INPUT"]	:= set(["SRC", "USEMAP"]);
+      ttable["INS"]	:= set(["CITE"]);
+      ttable["LINK"]	:= set(["HREF"]);
+      ttable["OBJECT"]	:= set(["CLASSID","CODEBASE","DATA","ARCHIVE","USEMAP"]);
+      ttable["Q"]	:= set(["CITE"]);
       ttable["SCRIPT"]	:= set(["SRC", "FOR"])
       }
 
    every tag := htchunks(f) do {
-      tagname := httag(tag) | next
-      kwset := \ttable[tagname] | next
+      tagname := httag(tag) | next;
+      kwset := \ttable[tagname] | next;
       every s := htvals(tag) do
          if member(kwset, s ? tab(upto(' '))) then
             suspend tagname || " " || s
@@ -217,14 +217,14 @@ end
 procedure httag(s)			#: extract name of HTML tag
    static idset, wset, lcase, ucase
    initial {
-      idset := &letters ++ &digits ++ '.-/'
-      wset := ' \t\r\n\v\f'
-      lcase := string(&lcase)
+      idset := &letters ++ &digits ++ '.-/';
+      wset := ' \t\r\n\v\f';
+      lcase := string(&lcase);
       ucase := string(&ucase)
    }
 
    s ? {
-      ="<" | fail
+      ="<" | fail;
       tab(many(wset))
       return map(tab(many(idset)), lcase, ucase)
    }
@@ -238,30 +238,30 @@ procedure htvals(s)			#: generate values in HTML tag
    local kw
    static idset, wset, qset, lcase, ucase
    initial {
-      idset := &letters ++ &digits ++ '.-/'
-      wset := ' \t\r\n\v\f'
-      qset := wset ++ '>'
-      lcase := string(&lcase)
+      idset := &letters ++ &digits ++ '.-/';
+      wset := ' \t\r\n\v\f';
+      qset := wset ++ '>';
+      lcase := string(&lcase);
       ucase := string(&ucase)
    }
 
    s ? {
-      ="<" | fail
-      tab(many(wset))
-      tab(many(idset)) | fail		# no name
+      ="<" | fail;
+      tab(many(wset));
+      tab(many(idset)) | fail;  # no name
       repeat {
-         tab(upto(idset)) | fail
-         kw := map(tab(many(idset)), lcase, ucase)
-         tab(many(wset))
+         tab(upto(idset)) | fail;
+         kw := map(tab(many(idset)), lcase, ucase);
+         tab(many(wset));
          if ="=" then {
-            tab(many(wset))
-            kw ||:= " "
+            tab(many(wset));
+            kw ||:= " ";
             if ="\"" then {
-               kw ||:= tab(upto('"') | 0)
+               kw ||:= tab(upto('"') | 0);
                tab(any('"'))
                }
             else if ="'" then {
-               kw ||:= tab(upto('\'') | 0)
+               kw ||:= tab(upto('\'') | 0);
                tab(any('\''))
                }
             else
@@ -285,8 +285,8 @@ procedure urlmerge(base, new)		#: merge URLs
       return new			# new is fully specified
 
    base ? {
-      protocol := (tab(many(&letters)) || =":") | ""
-      host := (="//" || tab(upto('/') | 0)) | ""
+      protocol := (tab(many(&letters)) || =":") | "";
+      host := (="//" || tab(upto('/') | 0)) | "";
       path := tab(upto('#') | 0)
       }
 
@@ -327,7 +327,7 @@ procedure canpath(path)			#: put path in canonical form
    while path ?:= (="./" & tab(0))
 
    # remove trailing "."
-   path ?:= if tab(-2) & ="/." then path[1:-1]
+   path ?:= if tab(-2) & ="/." then path[1:-1];
    path ?:= if ="." & pos(0) then ""
 
    return path

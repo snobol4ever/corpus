@@ -116,58 +116,58 @@ procedure optwindow(opts, args[])		#: open window with options
    (/opts["M"] := 0) | (if opts["M"] < 0 then opts["M"] := 10)
    \opts["G"] ? {
       if any(&digits) then {
-         opts["W"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("G")
-         tab(any('xX')) | Optw_Err("G")
+         opts["W"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("G");
+         tab(any('xX')) | Optw_Err("G");
          opts["H"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("G")
       }
       if not pos(0) then {
-         opts["X"] := integer(tab(any('+-'))||tab(many(&digits)))|Optw_Err("G")
+         opts["X"] := integer(tab(any('+-'))||tab(many(&digits)))|Optw_Err("G");
          opts["Y"] := integer(tab(any('+-'))||tab(many(&digits)))|Optw_Err("G")
       }
       if not pos(0) then
          Optw_Err("G")
    }
    \opts["P"] ? {
-      opts["X"] := integer(tab(many('+-0123456789'))) | Optw_Err("P")
-      move(1)
-      opts["Y"] := integer(tab(many('+-0123456789'))) | Optw_Err("P")
+      opts["X"] := integer(tab(many('+-0123456789'))) | Optw_Err("P");
+      move(1);
+      opts["Y"] := integer(tab(many('+-0123456789'))) | Optw_Err("P");
       if not pos(0) then
          Optw_Err("P")
    }
    \opts["S"] ? {
-      opts["W"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("S")
-      move(1)
-      opts["H"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("S")
+      opts["W"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("S");
+      move(1);
+      opts["H"] := integer(tab(many(&digits))) - 2*opts["M"] | Optw_Err("S");
       if not pos(0) then
          Optw_Err("S")
    }
    if \opts["X"] & \opts["Y"] then
       put(args, "pos=" || opts["X"] || "," || opts["Y"])
-   put(args, "display=" || \opts["D"])
-   put(args, "width=" || (opts["W"] + 2 * opts["M"]))
-   put(args, "height=" || (opts["H"] + 2 * opts["M"]))
-   put(args, "fg=" || opts["F"])
-   put(args, "bg=" || opts["B"])
-   push(args, "x")
-   push(args, opts["L"])
+   put(args, "display=" || \opts["D"]);
+   put(args, "width=" || (opts["W"] + 2 * opts["M"]));
+   put(args, "height=" || (opts["H"] + 2 * opts["M"]));
+   put(args, "fg=" || opts["F"]);
+   put(args, "bg=" || opts["B"]);
+   push(args, "x");
+   push(args, opts["L"]);
    if \opts["!"] then {
-      writes(&errout, "open(\"", args[1])
+      writes(&errout, "open(\"", args[1]);
       every writes(&errout, "\",\"", args[2 to *args])
       write(&errout, "\")")
       }
-   w := open ! args | stop(args[1], ": can't open window")
+   w := open ! args | stop(args[1], ": can't open window");
    if \opts["T"] then
       Font(w, opts["T"]) | stop(args[1], ": invalid font: ", opts["T"])
 
    # store actual values returned after window placement
    WAttrib(w, "pos") ? {
-      opts["X"] := integer(tab(many('+-0123456789')))
-      move(1)
+      opts["X"] := integer(tab(many('+-0123456789')));
+      move(1);
       opts["Y"] := integer(tab(many('+-0123456789')))
    }
-   opts["P"] := opts["X"] || "," || opts["Y"]
-   opts["W"] := WAttrib(w, "width") - 2 * opts["M"]
-   opts["H"] := WAttrib(w, "height") - 2 * opts["M"]
+   opts["P"] := opts["X"] || "," || opts["Y"];
+   opts["W"] := WAttrib(w, "width") - 2 * opts["M"];
+   opts["H"] := WAttrib(w, "height") - 2 * opts["M"];
    opts["S"] := WAttrib(w, "width") || "," || WAttrib(w, "height")
    return w
 end

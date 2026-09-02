@@ -36,10 +36,10 @@ procedure main()
    local width, offset, x, y
 
    WOpen("label=sierpinski", "size=300,300") |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   width := 256
-   offset := 30
+   width := 256;
+   offset := 30;
 
    every y := 0 to width - 1 do
       every x := 0 to width - 1 do

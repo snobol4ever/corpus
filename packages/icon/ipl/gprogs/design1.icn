@@ -32,21 +32,21 @@ link wopen
 procedure main(argl)
    local i, j, k, angle, incr, xpoint, ypoint, size, radius, xc, yc
 
-   i := integer(argl[1]) | 20
+   i := integer(argl[1]) | 20;
 
-   size := 300
-   radius := size / 4
-   xc := yc := size / 2
+   size := 300;
+   radius := size / 4;
+   xc := yc := size / 2;
 
    WOpen("label=design", "width=" || size, "height=" || size) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   angle := 0.0
-   incr := 2 * &pi / i
+   angle := 0.0;
+   incr := 2 * &pi / i;
 
    every j := 1 to i do {
       spokes(xc + radius * cos(angle), yc + radius * sin(angle),
-         radius, i, angle)
+         radius, i, angle);
       angle +:= incr
       }
 
@@ -57,10 +57,10 @@ end
 procedure spokes(x, y, r, i, angle)
    local incr, j
 
-   incr := 2 * &pi / i 
+   incr := 2 * &pi / i;
 
    every j := 1 to i do {
-      DrawLine(x, y, x + r * cos(angle), y + r * sin(angle))
+      DrawLine(x, y, x + r * cos(angle), y + r * sin(angle));
       angle +:= incr
       }
 

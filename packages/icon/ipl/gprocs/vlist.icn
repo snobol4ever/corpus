@@ -176,7 +176,7 @@ local datalist
    else _Vbomb("improper window parameter given to Vlist")
    if type(params[1]) == ("procedure" | "null") then cb := pop(params)
    else _Vbomb("improper callback parameter given to Vlist")
-   id := pop(params)
+   id := pop(params);
    if type(params[1]) == ("list" | "null") then dl := pop(params)
    else _Vbomb("improper list parameter given to Vlist")
    if type(params[1]) == ("integer" | "null") then c := pop(params)
@@ -195,38 +195,38 @@ local datalist
    }
 
    /mode := V_SELECT	## DEFAULT SELECT MODE IS SELECT ONE LINE ONLY
-   /dl := []		## DEFAULT LIST IS EMPTY LIST
+   /dl := [];  ## DEFAULT LIST IS EMPTY LIST
 
 
 ## CREATE THE VLIST ########################################################
 
-   self := Vframe_Vlist(win)
-   self.id := id
+   self := Vframe_Vlist(win);
+   self.id := id;
 
-   storage_Vlist(id, "write", "mode", mode)
+   storage_Vlist(id, "write", "mode", mode);
 
-   viewport := Vpane_Vlist(win, cb, id, "sunken", w - VSlider_DefWidth - 2, h)
-   VInsert(self, viewport, 0, 0)
+   viewport := Vpane_Vlist(win, cb, id, "sunken", w - VSlider_DefWidth - 2, h);
+   VInsert(self, viewport, 0, 0);
 
-   fh := WAttrib(viewport.win, "fheight")
-   window_sz := integer((h - 4) / fh) - 1
+   fh := WAttrib(viewport.win, "fheight");
+   window_sz := integer((h - 4) / fh) - 1;
 
-   cv := Vcoupler()
-   VAddClient(cv, coupler_Vlist, viewport)
+   cv := Vcoupler();
+   VAddClient(cv, coupler_Vlist, viewport);
 
    sb := Vvert_scrollbar(win, cv, id,
-      h, VSlider_DefWidth, *dl, 1, 1, window_sz, c)
+      h, VSlider_DefWidth, *dl, 1, 1, window_sz, c);
 
-   VInsert(self, sb, w - VSlider_DefWidth, 0)
-   VFormat(self)
+   VInsert(self, sb, w - VSlider_DefWidth, 0);
+   VFormat(self);
 
-   datalist := []
+   datalist := [];
    every line := !dl do put(datalist, "N" || line)
 
-   storage_Vlist(id, "write", "datalist", datalist)
-   storage_Vlist(id, "write", "top_line", 1)
-   storage_Vlist(id, "write", "selection", &null)
-   storage_Vlist(id, "write", "continuous", c)
+   storage_Vlist(id, "write", "datalist", datalist);
+   storage_Vlist(id, "write", "top_line", 1);
+   storage_Vlist(id, "write", "selection", &null);
+   storage_Vlist(id, "write", "continuous", c);
 
    if \ins then VInsert(frame, self, x, y)
    return self
@@ -285,7 +285,7 @@ static var_table
 
 initial var_table := table()
 
-   k := id || "@" || var
+   k := id || "@" || var;
 
    case op of {
       "read" : return var_table[k]
@@ -314,29 +314,29 @@ procedure set_items_Vlist(self, slist)
    local dl, tl, lv, sb, cv, c, s, window_sz
 
    # build new datalist
-   tl := 1
-   dl := []
+   tl := 1;
+   dl := [];
    every s := !slist do
       put(dl, "N" || string(s)) |
          _Vbomb("list entry for VSetItems() is not a string")
 
    # replace datalist and reset top_line
-   lv := self.lookup[1]
-   storage_Vlist(lv.id, "write", "datalist", dl)
-   storage_Vlist(lv.id, "write", "top_line", tl)
-   storage_Vlist(lv.id, "write", "selection", 0)
+   lv := self.lookup[1];
+   storage_Vlist(lv.id, "write", "datalist", dl);
+   storage_Vlist(lv.id, "write", "top_line", tl);
+   storage_Vlist(lv.id, "write", "selection", 0);
 
    # replace scrollbar with a new one
-   sb := self.lookup[2]
-   VRemove(self, sb)
-   cv := Vcoupler()
-   c := storage_Vlist(lv.id, "read", "continuous")
-   VAddClient(cv, coupler_Vlist, lv)
-   window_sz := integer(lv.uh / WAttrib(lv.win, "fheight")) - 1
+   sb := self.lookup[2];
+   VRemove(self, sb);
+   cv := Vcoupler();
+   c := storage_Vlist(lv.id, "read", "continuous");
+   VAddClient(cv, coupler_Vlist, lv);
+   window_sz := integer(lv.uh / WAttrib(lv.win, "fheight")) - 1;
    sb := Vvert_scrollbar(self.win, cv, self.id, self.ah, VSlider_DefWidth,
-                         *dl, 1, 1, window_sz, c)
-   VInsert(self, sb, self.aw - VSlider_DefWidth, 0)
-   VFormat(self)
+                         *dl, 1, 1, window_sz, c);
+   VInsert(self, sb, self.aw - VSlider_DefWidth, 0);
+   VFormat(self);
 
    # redraw everything
    VDraw(self)
@@ -361,9 +361,9 @@ end
 procedure get_items_Vlist(self)
    local lv, dl, items
 
-   lv := self.lookup[1]
-   dl := storage_Vlist(lv.id, "read", "datalist")
-   items := []
+   lv := self.lookup[1];
+   dl := storage_Vlist(lv.id, "read", "datalist");
+   items := [];
    every put(items, (!dl)[2:0])
    return items
 end
@@ -391,36 +391,36 @@ procedure set_value_Vlist(self, state)
 ## dl        - The list being displayed
 ## tl        - The line in the list which is at the top of the display
 
-   lv := self.lookup[1]
-   sb := self.lookup[2]
-   dl := storage_Vlist(lv.id, "read", "datalist")
-   mode := storage_Vlist(lv.id, "read", "mode")
-   window_sz := integer(lv.uh / WAttrib(lv.win, "fheight")) - 1
+   lv := self.lookup[1];
+   sb := self.lookup[2];
+   dl := storage_Vlist(lv.id, "read", "datalist");
+   mode := storage_Vlist(lv.id, "read", "mode");
+   window_sz := integer(lv.uh / WAttrib(lv.win, "fheight")) - 1;
 
    if type(state) ~== "list" then
       state := [state]
    tl := state[1] | &null
-   /tl := 1
-   tl := integer(tl) | _Vbomb("non-integer value in VSetState() of a list")
-   tl >:= *dl - window_sz
-   tl <:= 1
-   storage_Vlist(lv.id, "write", "top_line", tl)
-   VSetState(sb, tl)
+   /tl := 1;
+   tl := integer(tl) | _Vbomb("non-integer value in VSetState() of a list");
+   tl >:= *dl - window_sz;
+   tl <:= 1;
+   storage_Vlist(lv.id, "write", "top_line", tl);
+   VSetState(sb, tl);
 
    if *state > 1 & mode === V_READONLY then
       _Vbomb("VSetState() cannot select lines of read-only list")
    else if *state > 2 & mode ~=== V_MULTISELECT then
       _Vbomb("VSetState() cannot select multiple lines of this list")
 
-   val := list()			# list of values for callback
-   iset := set()			# make set of indices
+   val := list();  # list of values for callback
+   iset := set();  # make set of indices
    every i := state[2 to *state] do
       insert(iset, integer(i)) | 
          _Vbomb("non-integer value in VSetState() of a list")
 
    every i := 1 to *dl do {
       if member(iset, i) then {		# S is selected, N is not
-         c := "S"
+         c := "S";
          put(val, dl[i][2:0])
          }
       else
@@ -428,7 +428,7 @@ procedure set_value_Vlist(self, state)
       dl[i][1] ~==:= c	
       }
 
-   drawlist_Vlist(lv, dl, tl)	# redraw vidget
+   drawlist_Vlist(lv, dl, tl);  # redraw vidget
 
    case mode of {			# invoke callback
       V_SELECT: {
@@ -467,10 +467,10 @@ procedure get_value_Vlist(self)
 ## dl        - The list being displayed
 ## tl        - The line in the list which is at the top of the display
 
-   lv := self.lookup[1]
-   dl := storage_Vlist(lv.id, "read", "datalist")
-   tl := storage_Vlist(lv.id, "read", "top_line")
-   state := [tl]
+   lv := self.lookup[1];
+   dl := storage_Vlist(lv.id, "read", "datalist");
+   tl := storage_Vlist(lv.id, "read", "top_line");
+   state := [tl];
    every i := 1 to *dl do
       if dl[i] ? ="S" then
          put(state, i)
@@ -499,15 +499,15 @@ end
 procedure coupler_Vlist(self, val)
 local tl, dl, sl, dh, fh, fw
 
-   tl := storage_Vlist(self.id, "read", "top_line")
+   tl := storage_Vlist(self.id, "read", "top_line");
    if tl === val then fail
 
-   dl := storage_Vlist(self.id, "read", "datalist")
-   fh := WAttrib(self.win, "fheight")
-   fw := WAttrib(self.win, "fwidth")
+   dl := storage_Vlist(self.id, "read", "datalist");
+   fh := WAttrib(self.win, "fheight");
+   fw := WAttrib(self.win, "fwidth");
 
-   tl := val
-   storage_Vlist(self.id, "write", "top_line", tl)
+   tl := val;
+   storage_Vlist(self.id, "write", "top_line", tl);
 
    drawlist_Vlist(self, dl, tl)
 
@@ -540,52 +540,52 @@ local fh, fw, ds, z, col, rev, non, mode, margin
 ## rev - Draw with "reverse=on"
 ##
 
-   win := pane.win
-   x := pane.ux
-   y := pane.uy
-   w := pane.uw
-   h := pane.uh
+   win := pane.win;
+   x := pane.ux;
+   y := pane.uy;
+   w := pane.uw;
+   h := pane.uh;
 
-   fh := WAttrib(win, "fheight")
-   fw := WAttrib(win, "fwidth")
-   ds := WAttrib(win, "descent")
+   fh := WAttrib(win, "fheight");
+   fw := WAttrib(win, "fwidth");
+   ds := WAttrib(win, "descent");
 
    rev := Clone(win, "reverse=on", "clipx="||x, "clipy="||y,
-                                    "clipw="||w, "cliph="||h)
-   non := Clone(rev, "reverse=off")
+                                    "clipw="||w, "cliph="||h);
+   non := Clone(rev, "reverse=off");
 
    case storage_Vlist(pane.id, "read", "mode") of {
       V_READONLY:  {
-         margin := 4
+         margin := 4;
          EraseArea(non, x, y, margin, h)
          }
       V_SELECT:  {
-         margin := 8
-         EraseArea(non, x, y, margin, h)
+         margin := 8;
+         EraseArea(non, x, y, margin, h);
          DrawGroove(non, x + 4, y + 1, x + 4, y + h - 2)
          }
       V_MULTISELECT:  {
-         margin := 12
-         EraseArea(non, x, y, margin, h)
-         DrawGroove(non, x + 4, y + 1, x + 4, y + h - 2)
+         margin := 12;
+         EraseArea(non, x, y, margin, h);
+         DrawGroove(non, x + 4, y + 1, x + 4, y + h - 2);
          DrawGroove(non, x + 8, y + 1, x + 8, y + h - 2)
          }
       }
 
-   z := tl
-   h +:= (y - fh)
-   y -:= ds
-   col := integer((w - 2) / fw)
+   z := tl;
+   h +:= (y - fh);
+   y -:= ds;
+   col := integer((w - 2) / fw);
 
    while ((y < h) & (z <= *dl)) do
    {
-      GotoXY(win, x + margin, y + fh)
+      GotoXY(win, x + margin, y + fh);
       if dl[z][1] == "S" then
          WWrites(rev, left(dl[z][2:0], col))
       else
          WWrites(non, left(dl[z][2:0], col))
 
-      y +:= fh
+      y +:= fh;
       z +:= 1
    }
 
@@ -631,24 +631,24 @@ local self, procs, spec_procs, frame, x, y, ins
    procs := Vstd(event_Vframe, draw_Vframe, outline_listframe,
       resize_listframe, inrange_Vpane, init_Vframe,
       couplerset_Vpane, insert_Vframe, remove_Vframe,
-      lookup_Vframe, set_abs_Vframe, set_value_Vlist)
-   spec_procs := Vstd_dialog(, , format_Vframe)
+      lookup_Vframe, set_abs_Vframe, set_value_Vlist);
+   spec_procs := Vstd_dialog(, , format_Vframe);
  
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   self := Vframe_rec ! params[1:6|0]
-   Vwin_check(self.win, "Vframe()")
+   self := Vframe_rec ! params[1:6|0];
+   Vwin_check(self.win, "Vframe()");
    if (\self.aw, not numeric(self.aw)) then
       _Vbomb("invalid aw parameter to Vframe()")
    if (\self.ah, not numeric(self.ah)) then
       _Vbomb("invalid ah parameter to Vframe()")
  
-   self.uid := Vget_uid()
-   self.V := procs
-   self.F := spec_procs
-   self.P := Vstd_pos()
-   self.V.init(self)
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.F := spec_procs;
+   self.P := Vstd_pos();
+   self.V.init(self);
    if \ins then VInsert(frame, self, x, y)
    return self
 end
@@ -678,9 +678,9 @@ procedure resize_listframe(s, x, y, w, h)
    /x := s.ax
    /y := s.ay
    /w := s.aw
-   /h := s.ah
-   resize_Vidget(s, x, y, w, h)
-   VResize(s.draw[1], x, y, w - VSlider_DefWidth - 2, h)
+   /h := s.ah;
+   resize_Vidget(s, x, y, w, h);
+   VResize(s.draw[1], x, y, w - VSlider_DefWidth - 2, h);
    VResize(s.draw[2], x + w - VSlider_DefWidth, y, VSlider_DefWidth, h)
 end
 
@@ -724,8 +724,8 @@ static procs
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   self := Vpane_rec ! params[1:7|0]
-   Vwin_check(self.win, "Vpane()")
+   self := Vpane_rec ! params[1:7|0];
+   Vwin_check(self.win, "Vpane()");
    if (\self.aw, not numeric(self.aw)) then
       _Vbomb("invalid aw parameter to Vpane()")
    if (\self.ah, not numeric(self.ah)) then
@@ -738,9 +738,9 @@ static procs
       else
          self.style := "invisible"
 
-   self.uid := Vget_uid()
-   self.V := procs
-   self.P := Vstd_pos()
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.P := Vstd_pos();
    
    if \ins then VInsert(frame, self, x, y)
    return self
@@ -766,10 +766,10 @@ end
 procedure draw_Vpane_Vlist(self)
 local dl, tl
 
-   self.V.outline(self)
+   self.V.outline(self);
 
-   dl := storage_Vlist(self.id, "read", "datalist")
-   tl := storage_Vlist(self.id, "read", "top_line")
+   dl := storage_Vlist(self.id, "read", "datalist");
+   tl := storage_Vlist(self.id, "read", "top_line");
    drawlist_Vlist(self, dl, tl)
 
    return
@@ -808,38 +808,38 @@ procedure event_Vlist(self, e, x, y)
    if e ~=== &lpress then
       fail				# not our event
 
-   mode := storage_Vlist(self.id, "read", "mode")
+   mode := storage_Vlist(self.id, "read", "mode");
    if mode === V_READONLY then
       fail				# no events on read-only vidget
 
    cb := self.callback
-   /y := &y
-   dl := storage_Vlist(self.id, "read", "datalist")
-   tl := storage_Vlist(self.id, "read", "top_line")
-   sl := storage_Vlist(self.id, "read", "selection")
+   /y := &y;
+   dl := storage_Vlist(self.id, "read", "datalist");
+   tl := storage_Vlist(self.id, "read", "top_line");
+   sl := storage_Vlist(self.id, "read", "selection");
 
 ##### Dragging the mouse while holding                               #######
 ##### the mouse button down highlights or un-highlights lines        #######
 ##### depending on whether the first line clicked on was highlighted #######
 ##### or unhighlighted.                                              #######
 
-   selected := vlist_selection(self, y)
+   selected := vlist_selection(self, y);
 
 ##### Handle mouse events for V_SELECT mode.                         #######
 
    if mode === V_SELECT then {
 
-      /sl := 0
+      /sl := 0;
       if sl = selected then {
-         dl[selected][1] := "N"
+         dl[selected][1] := "N";
          sl := &null
          }
       else {
-         dl[selected][1] := "S"
-         dl[sl][1] := "N"
+         dl[selected][1] := "S";
+         dl[sl][1] := "N";
          sl := selected
          }
-      drawlist_Vlist(self, dl, tl)
+      drawlist_Vlist(self, dl, tl);
 
       while (e := Event(self.win)) ~=== &lrelease do {
 
@@ -848,19 +848,19 @@ procedure event_Vlist(self, e, x, y)
 
          selected := vlist_selection(self, &y)
 
-         /sl := 0
+         /sl := 0;
          if sl = selected then
             next
          else {
-            dl[selected][1] := "S"
-            dl[sl][1] := "N"
-            sl := selected
+            dl[selected][1] := "S";
+            dl[sl][1] := "N";
+            sl := selected;
             drawlist_Vlist(self, dl, tl)
             }
 
          }
 
-         storage_Vlist(self.id, "write", "selection", sl)
+         storage_Vlist(self.id, "write", "selection", sl);
 
          if find("coupler", type(\cb)) then {		# coupler
             if \self.callback.locked then fail
@@ -883,12 +883,12 @@ procedure event_Vlist(self, e, x, y)
       selectmode := "N"
    else
       selectmode := "S"
-   dl[selected][1] := selectmode
-   drawlist_Vlist(self, dl, tl)
+   dl[selected][1] := selectmode;
+   drawlist_Vlist(self, dl, tl);
 
    while (e := Event(self.win)) ~=== &lrelease do
       if e === &ldrag then {
-         dl[vlist_selection(self, &y)][1] := selectmode
+         dl[vlist_selection(self, &y)][1] := selectmode;
          drawlist_Vlist(self, dl, tl)
          }
 
@@ -898,11 +898,11 @@ procedure event_Vlist(self, e, x, y)
       }
 
    if type(\cb) == "procedure" then {		# procedure
-      cb_data := []
-      cb_items := []
+      cb_data := [];
+      cb_items := [];
       every i := 1 to *dl do
          if dl[i][1] == "S" then {
-	    put(cb_data, dl[i][2:0])
+	    put(cb_data, dl[i][2:0]);
 	    put(cb_items, i)
 	    }
       return cb(self, cb_data, cb_items) | &null
@@ -930,15 +930,15 @@ end
 procedure vlist_selection(self, y)
    local fh, tl, dl, window_sz, selected
 
-   fh := WAttrib(self.win, "fheight")
-   tl := storage_Vlist(self.id, "read", "top_line")
-   dl := storage_Vlist(self.id, "read", "datalist")
-   window_sz := integer(self.uh / fh) - 1
+   fh := WAttrib(self.win, "fheight");
+   tl := storage_Vlist(self.id, "read", "top_line");
+   dl := storage_Vlist(self.id, "read", "datalist");
+   window_sz := integer(self.uh / fh) - 1;
 
-   selected := tl - 1 + integer((y - self.uy + fh - 2) / fh)
-   selected >:= tl + window_sz
-   selected >:= *dl
-   selected <:= 1
+   selected := tl - 1 + integer((y - self.uy + fh - 2) / fh);
+   selected >:= tl + window_sz;
+   selected >:= *dl;
+   selected <:= 1;
    selected <:= tl
    return selected
 end

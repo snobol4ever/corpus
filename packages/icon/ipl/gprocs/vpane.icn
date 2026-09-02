@@ -43,8 +43,8 @@ procedure Vpane(params[])
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   self := Vpane_rec ! params[1:7|0]
-   Vwin_check(self.win, "Vpane()")
+   self := Vpane_rec ! params[1:7|0];
+   Vwin_check(self.win, "Vpane()");
    if (\self.aw, not numeric(self.aw) ) then
       _Vbomb("invalid aw parameter to Vpane()")
    if (\self.ah, not numeric(self.ah) ) then
@@ -57,9 +57,9 @@ procedure Vpane(params[])
       else
 	 self.style := "invisible"
 
-   self.uid := Vget_uid()
-   self.V := procs
-   self.P := Vstd_pos()
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.P := Vstd_pos();
    
    if \ins then VInsert(frame, self, x, y)
    return self
@@ -78,9 +78,9 @@ end
 #  Set the absolute position and size fields of a vidget.
 #
 procedure resize_Vidget(self, x, y, w, h)
-   self.ax := \x 
-   self.ay := \y
-   self.aw := \w
+   self.ax := \x;
+   self.ay := \y;
+   self.aw := \w;
    self.ah := \h
 end
 
@@ -90,14 +90,14 @@ end
 procedure resize_Vpane(self, x, y, w, h)
    local border
 
-   resize_Vidget(self, x, y, w, h)
+   resize_Vidget(self, x, y, w, h);
    if self.style == "invisible" then
       border := 0
    else
       border := 2
-   self.ux := self.ax + border
-   self.uy := self.ay + border
-   self.uw := self.aw - 2 * border
+   self.ux := self.ax + border;
+   self.uy := self.ay + border;
+   self.uw := self.aw - 2 * border;
    self.uh := self.ah - 2 * border
 end
 
@@ -136,7 +136,7 @@ procedure event_Vpane(self, e, x, y)
 
    cb := self.callback
    /x := &x
-   /y := &y
+   /y := &y;
    if type(\cb) == "procedure" then		# procedure
       return cb(self, e, x, y) | &null
    if find("coupler",type(\cb)) then {		# coupler

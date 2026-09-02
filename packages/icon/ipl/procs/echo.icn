@@ -212,7 +212,7 @@ procedure echo()			#: interpolate variables and print
 
    $define idchars 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_'
    while writes(tab(find("$")) ) do {
-      move(1)
+      move(1);
       writes( ="$" |
              variable(tab(many(idchars)) |
                       2( ="{", tab(find("}")), ="}" )

@@ -33,40 +33,40 @@ procedure main(args)
 
    every file := !args do {
       input := open(file) | {
-         write(&errout, "*** cannot open ", file)
+         write(&errout, "*** cannot open ", file);
          next
          }
-      name := basename(file, ".txt")
+      name := basename(file, ".txt");
       output := open(name || ".clr", "w") | {
-         write(&errout, "*** cannot open ", name, ".clr")
-         close(input)
+         write(&errout, "*** cannot open ", name, ".clr");
+         close(input);
          next
          }
       while line := map(read(input)) do {
          line ? {
-            ="r:" | next
-            tab(upto(&digits))
-            writes(output, 256 * tab(many(&digits)), ",")
+            ="r:" | next;
+            tab(upto(&digits));
+            writes(output, 256 * tab(many(&digits)), ",");
             tab(find("g:") + 2) | {
-               write(&errout, "*** invalid data in ", file)
-               write(&errout, line)
+               write(&errout, "*** invalid data in ", file);
+               write(&errout, line);
                next
                }
-            tab(upto(&digits))
-            writes(output, 256 * tab(many(&digits)), ",")
+            tab(upto(&digits));
+            writes(output, 256 * tab(many(&digits)), ",");
             tab(find("b:") + 2) | {
-               write(&errout, "*** invalid data in ", file)
-               write(&errout, line)
+               write(&errout, "*** invalid data in ", file);
+               write(&errout, line);
                next
                }
-            tab(upto(&digits))
-            writes(output, 256 * tab(many(&digits)))
-            tab(many(' \t'))
+            tab(upto(&digits));
+            writes(output, 256 * tab(many(&digits)));
+            tab(many(' \t'));
             if not pos(0) then write(output, "\t", tab(0))
             else write(output)
             }
          }
-     close(input)
+     close(input);
      close(output)
      }
 

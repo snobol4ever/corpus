@@ -162,25 +162,25 @@ record charset(chars)
 procedure main(args)
    local line, plist, s, opts
 					# procedures to try on input lines
-   plist := [define,generate,grammar,source,comment,prompter,error]
-   defs := table()			# table of definitions
-   defs["lb"] := [["<"]]		# built-in definitions
-   defs["rb"] := [[">"]]
-   defs["vb"] := [["|"]]
-   defs["nl"] := [["\n"]]
-   defs[""] := [[""]]
-   defs["&lcase"] := [[charset(&lcase)]]
-   defs["&ucase"] := [[charset(&ucase)]]
-   defs["&digit"] := [[charset(&digits)]]
+   plist := [define,generate,grammar,source,comment,prompter,error];
+   defs := table();  # table of definitions
+   defs["lb"] := [["<"]];  # built-in definitions
+   defs["rb"] := [[">"]];
+   defs["vb"] := [["|"]];
+   defs["nl"] := [["\n"]];
+   defs[""] := [[""]];
+   defs["&lcase"] := [[charset(&lcase)]];
+   defs["&ucase"] := [[charset(&ucase)]];
+   defs["&digit"] := [[charset(&digits)]];
 
-   opts := options(args,"tl+s+r")
-   limit := \opts["l"] | 1000
+   opts := options(args,"tl+s+r");
+   limit := \opts["l"] | 1000;
    tswitch := \opts["t"]
-   &random := \opts["s"]
+   &random := \opts["s"];
    if /opts["s"] & /opts["r"] then randomize()
 
-   ifile := [&input]			# stack of input files
-   prompt := ""
+   ifile := [&input];  # stack of input files
+   prompt := "";
    while in := pop(ifile) do {		# process all files
       repeat {
          if *prompt ~= 0 then writes(prompt)
@@ -196,7 +196,7 @@ end
 #
 procedure alts(defn)
    local alist
-   alist := []
+   alist := [];
    defn ? while put(alist,syms(tab(upto('|') | 0))) do move(1) | break
    return alist
 end

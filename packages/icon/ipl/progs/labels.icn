@@ -76,26 +76,26 @@ global lsize, repet, llength, ldepth, opts, selectors
 procedure main(args)
    local y, i, line
 
-   selectors := '#'
-   lsize := 9
-   ldepth := 8
-   llength := 40
-   repet := 1
-   i := 0
-   opts := options(args,"c+d+l+s:tw+")
-   selectors := cset(\opts["s"])
+   selectors := '#';
+   lsize := 9;
+   ldepth := 8;
+   llength := 40;
+   repet := 1;
+   i := 0;
+   opts := options(args,"c+d+l+s:tw+");
+   selectors := cset(\opts["s"]);
    if \opts["t"] then {
-      lsize := 12
+      lsize := 12;
       if ldepth > lsize then ldepth := lsize
       }
-   llength := nonneg("w")
+   llength := nonneg("w");
    if ldepth := nonneg("l") then {
       if lsize < ldepth then lsize := ldepth
       }
    if lsize := nonneg("d") then {
       if ldepth > lsize then ldepth := lsize
       }
-   repet := nonneg("c")
+   repet := nonneg("c");
 
    while line := Read() do
       line ? {
@@ -108,16 +108,16 @@ end
 #
 procedure nextlbl()
    local label, max, line
-   label := [Read()]
-   max := 0
+   label := [Read()];
+   max := 0;
    while line := Read() do {
       if line[1] == "*" then next
       if line[1] == "#" then {
-         PutBack(line)
+         PutBack(line);
          break
          }
-      put(label,line)
-      max <:= *line
+      put(label,line);
+      max <:= *line;
       if *label > ldepth then {
          error(label[1],1)
          return
@@ -134,8 +134,8 @@ end
 #
 procedure format(label,width)
    local j, indent
-   indent := repl(" ",(llength - width) / 2)
-   j := lsize - *label
+   indent := repl(" ",(llength - width) / 2);
+   j := lsize - *label;
    every 1 to j / 2 do write()
    every write(indent,!label)
    every 1 to (j + 1) / 2 do write()
@@ -150,7 +150,7 @@ procedure error(name,type)
       1:  badform[3] := "     **** too many lines"
       2:  badform[3] := "     **** line too long"
       }
-   badform[1] := name
+   badform[1] := name;
    every write(&errout,!badform)
 end
 

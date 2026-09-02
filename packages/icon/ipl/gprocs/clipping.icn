@@ -66,41 +66,41 @@ procedure ClipLine(win, L, x, y, w, h)	#: clip line for DrawSegment
       x -:= (w := -w)
    if h < 0 then
       y -:= (h := -h)
-   xmax := x + w
-   ymax := y + h
+   xmax := x + w;
+   ymax := y + h;
 
-   ret := []
-   x1 := L[1]
-   y1 := L[2]
+   ret := [];
+   x1 := L[1];
+   y1 := L[2];
 
    every i := 3 to *L by 2 do {
-      x0 := x1
-      y0 := y1
-      x1 := L[i]
-      y1 := L[i + 1]
-      tin := 0.0
-      tout := 1.0
+      x0 := x1;
+      y0 := y1;
+      x1 := L[i];
+      y1 := L[i + 1];
+      tin := 0.0;
+      tout := 1.0;
 
-      delx := real(x1 - x0)
+      delx := real(x1 - x0);
       if delx < 0.0 then {
-         tin <:= (xmax - x0) / delx
+         tin <:= (xmax - x0) / delx;
          tout >:= (x - x0) / delx
          }
       else if delx > 0.0 then {
-         tin <:= (x - x0) / delx
+         tin <:= (x - x0) / delx;
          tout >:= (xmax - x0) / delx
          }
       else
          x <= x0 <= xmax | next
       if tout < tin then next
    
-      dely := real(y1 - y0)
+      dely := real(y1 - y0);
       if dely < 0.0 then {
-         tin <:= (ymax - y0) / dely
+         tin <:= (ymax - y0) / dely;
          tout >:= (y - y0) / dely
          }
       else if dely > 0.0 then {
-         tin <:= (y - y0) / dely
+         tin <:= (y - y0) / dely;
          tout >:= (ymax - y0) / dely
          }
       else
@@ -122,10 +122,10 @@ end
 procedure Coalesce(L)			#: connect adjoining segments
    local i, all, seg, x1, y1, x2, y2
 
-   all := []
+   all := [];
    every i := 1 to *L by 4 do {
-      x1 := L[i]
-      y1 := L[i + 1]
+      x1 := L[i];
+      y1 := L[i + 1];
       if x1 ~=== x2 | y1 ~=== y2 then
          put(all, seg := [x1, y1])
       put(seg, x2 := L[i + 2], y2 := L[i + 3])

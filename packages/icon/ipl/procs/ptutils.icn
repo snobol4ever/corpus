@@ -34,13 +34,13 @@ end
 procedure coord2pt(c)			#: convert coordinate to path
    local p
 
-   p := Point()
+   p := Point();
 
    c ? {
-      p.x := tab(upto(' '))
-      move(1)
-      p.y := tab(upto(' '))
-      move(1)
+      p.x := tab(upto(' '));
+      move(1);
+      p.y := tab(upto(' '));
+      move(1);
       p.z := tab(0)
       }
 
@@ -63,9 +63,9 @@ end
 procedure getpts(s)			#: make point list from coordinate file
    local input, pts
 
-   input := open(s) | stop("*** cannot open ", image(s))
+   input := open(s) | stop("*** cannot open ", image(s));
 
-   pts := []
+   pts := [];
 
    while put(pts, coord2pt(read(input)))
 

@@ -25,7 +25,7 @@
 procedure ftype(file)
    
    read(open("file " || file, "p")) ? {
-      tab(upto('\t'))
+      tab(upto('\t'));
       tab(many('\t'))
       return tab(0)
       }

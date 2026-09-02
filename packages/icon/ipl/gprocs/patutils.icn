@@ -67,22 +67,22 @@ procedure DrawTile(win, xoff, yoff, pattern, magnif, mode)
    local x, y, row, pixel, dims, arglist
 
    if type(win) ~== "window" then {
-      win :=: xoff :=: yoff :=: pattern :=: mode
+      win :=: xoff :=: yoff :=: pattern :=: mode;
       win := &window
       }
 
-   /magnif := 1
+   /magnif := 1;
 
-   y := yoff
+   y := yoff;
 
    if \mode then {
-      dims := tiledim(pattern)
+      dims := tiledim(pattern);
       EraseArea(xoff, yoff, dims.w * magnif, dims.h * magnif)
       }
 
    every row := rowbits(pattern) do {		# draw a row
-      x := xoff
-      arglist := []
+      x := xoff;
+      arglist := [];
 
       if magnif = 1 then {
          every pixel := !row do {
@@ -113,20 +113,20 @@ procedure DrawRows(win, xoff, yoff, rows, magnif, mode)
    local x, y, row, pixel, arglist
 
    if type(win) ~== "window" then {
-      win :=: xoff :=: yoff :=: rows :=: magnif :=: mode
+      win :=: xoff :=: yoff :=: rows :=: magnif :=: mode;
       win := &window
       }
 
-   /magnif := 1
+   /magnif := 1;
 
-   y := yoff
+   y := yoff;
 
    if \mode then
       EraseArea(xoff, yoff, *rows[1] * magnif, *rows * magnif)
 
    every row := !rows do {		# draw a row
-      x := xoff
-      arglist := []
+      x := xoff;
+      arglist := [];
 
       if magnif = 1 then {
          every pixel := !row do {
@@ -158,26 +158,26 @@ procedure bits2hex(s)
    local hex
 
    initial {
-      bittab := table()
-      bittab["0000"] := "0"
-      bittab["1000"] := "1"
-      bittab["0100"] := "2"
-      bittab["1100"] := "3"
-      bittab["0010"] := "4"
-      bittab["1010"] := "5"
-      bittab["0110"] := "6"
-      bittab["1110"] := "7"
-      bittab["0001"] := "8"
-      bittab["1001"] := "9"
-      bittab["0101"] := "a"
-      bittab["1101"] := "b"
-      bittab["0011"] := "c"
-      bittab["1011"] := "d"
-      bittab["0111"] := "e"
+      bittab := table();
+      bittab["0000"] := "0";
+      bittab["1000"] := "1";
+      bittab["0100"] := "2";
+      bittab["1100"] := "3";
+      bittab["0010"] := "4";
+      bittab["1010"] := "5";
+      bittab["0110"] := "6";
+      bittab["1110"] := "7";
+      bittab["0001"] := "8";
+      bittab["1001"] := "9";
+      bittab["0101"] := "a";
+      bittab["1101"] := "b";
+      bittab["0011"] := "c";
+      bittab["1011"] := "d";
+      bittab["0111"] := "e";
       bittab["1111"] := "f"
       }
 
-   hex := ""
+   hex := "";
 
    s ? {
        while hex := bittab[move(4)] || hex
@@ -196,10 +196,10 @@ procedure decspec(pattern)
 
    pattern ? {
       if not upto("#") then return pattern
-      cols := tab(upto(','))
-      move(2)
-      chunk := (cols + 3) / 4
-      dec := cols || ","
+      cols := tab(upto(','));
+      move(2);
+      chunk := (cols + 3) / 4;
+      dec := cols || ",";
       while dec ||:= integer("16r" || move(chunk)) || ","
       }
 
@@ -239,9 +239,9 @@ end
 procedure getpattnote(line)
 
    line ? {
-      tab(many(' \t'))			# remove leading whitespace
-      tab(upto(' \t')) | return ""	# skip pattern
-      tab(upto('#')) | return ""	# get to annotation
+      tab(many(' \t'));  # remove leading whitespace
+      tab(upto(' \t')) | return "";  # skip pattern
+      tab(upto('#')) | return "";  # get to annotation
       tab(many('# \t'))			# get rid of leading junk
       return tab(0)			# annotation
       }
@@ -255,26 +255,26 @@ procedure hex2bits(s)
    local bits
 
    initial {
-      hextab := table()
-      hextab["0"] := "0000"
-      hextab["1"] := "0001"
-      hextab["2"] := "0010"
-      hextab["3"] := "0011"
-      hextab["4"] := "0100"
-      hextab["5"] := "0101"
-      hextab["6"] := "0110"
-      hextab["7"] := "0111"
-      hextab["8"] := "1000"
-      hextab["9"] := "1001"
-      hextab["a"] := "1010"
-      hextab["b"] := "1011"
-      hextab["c"] := "1100"
-      hextab["d"] := "1101"
-      hextab["e"] := "1110"
+      hextab := table();
+      hextab["0"] := "0000";
+      hextab["1"] := "0001";
+      hextab["2"] := "0010";
+      hextab["3"] := "0011";
+      hextab["4"] := "0100";
+      hextab["5"] := "0101";
+      hextab["6"] := "0110";
+      hextab["7"] := "0111";
+      hextab["8"] := "1000";
+      hextab["9"] := "1001";
+      hextab["a"] := "1010";
+      hextab["b"] := "1011";
+      hextab["c"] := "1100";
+      hextab["d"] := "1101";
+      hextab["e"] := "1110";
       hextab["f"] := "1111"
       }
 
-   bits := ""
+   bits := "";
 
    map(s) ? {
       while bits ||:= hextab[move(1)]
@@ -292,10 +292,10 @@ procedure hexspec(pattern)
 
    pattern ? {
       if find("#") then return pattern
-      cols := tab(upto(','))
-      move(1)
-      chunk := (cols + 3) / 4
-      hex := cols || ",#"
+      cols := tab(upto(','));
+      move(1);
+      chunk := (cols + 3) / 4;
+      hex := cols || ",#";
       while hex ||:= right(exbase10(tab(upto(',') | 0), 16), chunk, "0") do
          move(1) | break
       }
@@ -326,7 +326,7 @@ end
 procedure legaltile(tile)
 
    map(tile) ? {				# first check syntax
-      (tab(many(&digits)) & =",") | fail
+      (tab(many(&digits)) & =",") | fail;
       if ="#" then (tab(many('0123456789abcdef')) & pos(0)) | fail
       else {
          while tab(many(&digits)) do {
@@ -347,23 +347,23 @@ end
 procedure pat2xbm(pattern, name)
    local dims, chunk, row
 
-   /name := "noname"
+   /name := "noname";
 
-   dims := tiledim(pattern)
+   dims := tiledim(pattern);
 
 
-   write("#define ", name, "_width ", dims.w)
-   write("#define ", name, "_height ", dims.h)
-   write("static char ", name, "_bits[] = {")
+   write("#define ", name, "_width ", dims.w);
+   write("#define ", name, "_height ", dims.h);
+   write("static char ", name, "_bits[] = {");
 
-   chunk := (dims.w + 3) / 4
+   chunk := (dims.w + 3) / 4;
 
    pattern ? {
-      tab(upto('#') + 1)
+      tab(upto('#') + 1);
       while row := move(chunk) do {
          if *row % 2 ~= 0 then row := "0" || row
          row ? {
-            tab(0)
+            tab(0);
             while writes("0x", move(-2), ",")
             }
          write()
@@ -380,7 +380,7 @@ end
 procedure tilebits(rows)
    local bits
 
-   bits := 0
+   bits := 0;
 
    every bits +:= !!rows
 
@@ -395,10 +395,10 @@ procedure pdensity(pattern)
 
    local dark, dims
 
-   dims := tiledim(pattern)
+   dims := tiledim(pattern);
 
    hexspec(pattern) ? {
-      dark := 0
+      dark := 0;
       every rowbits(pattern) ? {
          every upto('1') do
             dark +:= 1
@@ -414,10 +414,10 @@ end
 procedure pix2pat(window, x, y, cols, rows)
    local c, j, tile, pattern, pixels, y0
 
-   pattern := ""
+   pattern := "";
 
    every y0 := 0 to rows - 1 do {
-      pixels := ""
+      pixels := "";
       every j := 0 to cols - 1 do
          every c := Pixel(window, x + j, y0 + y, 1, 1) do
             pixels ||:= (if c == "0,0,0" then "1" else "0")
@@ -472,12 +472,12 @@ end
 procedure rowbits(pattern)
    local row, dims, chunk, hex
 
-   dims := tiledim(pattern)
+   dims := tiledim(pattern);
 
    hexspec(pattern) ? {
-      tab(upto(',') + 2)
-      hex := tab(0)
-      chunk := *hex / dims.h
+      tab(upto(',') + 2);
+      hex := tab(0);
+      chunk := *hex / dims.h;
       hex ? {
          while row := right(hex2bits(move(chunk)), dims.w, "0") do
             suspend reverse(row)
@@ -492,7 +492,7 @@ end
 procedure pat2rows(pattern)
    local rlist
 
-   rlist := []
+   rlist := [];
 
    every put(rlist, rowbits(pattern))
 
@@ -506,7 +506,7 @@ end
 procedure rows2pat(rlist)
    local pattern
 
-   pattern := *rlist[1] || ",#"
+   pattern := *rlist[1] || ",#";
 
    every pattern ||:= bits2hex(!rlist)
 
@@ -547,30 +547,30 @@ end
 procedure xbm2rows(input)
    local image, bits, row, hex, width, height, chunks
 
-   image := ""
+   image := "";
 
    read(input) ? {
-      tab(find("width") + 6)
-      tab(upto(&digits))
+      tab(find("width") + 6);
+      tab(upto(&digits));
       width := integer(tab(many(&digits)))
       }
 
    read(input) ? {
-      tab(find("height") + 6)
-      tab(upto(&digits))
+      tab(find("height") + 6);
+      tab(upto(&digits));
       height := integer(tab(many(&digits)))
       }
 
-   chunks := (width / 8) + if (width % 8) > 0 then 1 else 0
+   chunks := (width / 8) + if (width % 8) > 0 then 1 else 0;
 
    while image ||:= reads(input, 500000)	# Boo! -- can do better
 
    image ? {
       every 1 to height do {
-         row := ""
+         row := "";
          every 1 to chunks do {
-            tab(find("0x") + 2)
-            hex := move(2)			# a bit of optimization
+            tab(find("0x") + 2);
+            hex := move(2);  # a bit of optimization
             row ||:= case hex of {
               "00":    "00000000"
               "ff":    "11111111"

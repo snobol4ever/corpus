@@ -52,27 +52,27 @@ $define Epsilon 1.e-16	# maximum precision (more risks overflow)
 procedure main(args)
    local v, t, x, y, a, d, i, j, ops, opts, limit
 
-   opts := options(args, "n.l+")
+   opts := options(args, "n.l+");
 
-   v := \opts["n"] | .6180339887498948482
-   limit := \opts["l"] | 100
+   v := \opts["n"] | .6180339887498948482;
+   limit := \opts["l"] | 100;
 
-   x := list(limit + 2)
-   y := list(limit + 2)
+   x := list(limit + 2);
+   y := list(limit + 2);
 
-   t := v
+   t := v;
 
    every i := 1 to limit do {
-      x[i + 1] := integer(t)
-      y[i + 1] := 1
-      y[i + 2] := 0
+      x[i + 1] := integer(t);
+      y[i + 1] := 1;
+      y[i + 2] := 0;
       every j := i - 1 to 0 by -1 do
          y[j + 1] := x[j + 2] * y[j + 2] + y[j + 3]
-      a := real(integer(y[1])) / integer(y[2])
+      a := real(integer(y[1])) / integer(y[2]);
       if a < 0 then exit()
-      write(integer(y[1]), " / ", integer(y[2]), " \t",  a)
+      write(integer(y[1]), " / ", integer(y[2]), " \t",  a);
       if abs(a - v) < Epsilon then exit()
-      d := t - integer(t)
+      d := t - integer(t);
       if d < Epsilon then exit()
       t := 1.0 / d
       }

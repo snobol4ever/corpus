@@ -25,11 +25,11 @@ procedure main(param)
 
   if find("p",map(param[1])) then ff := "\014"
                              else ff := "\e[2J\e[H"
-  chars   := &cset -- '\t '
-  program := list()
-  name    := &null
-  write("Basic Line Editor V1.3 by Tenaglia 910104.1700")
-  write(&host," ",&dateline,"\n")
+  chars   := &cset -- '\t ';
+  program := list();
+  name    := &null;
+  write("Basic Line Editor V1.3 by Tenaglia 910104.1700");
+  write(&host," ",&dateline,"\n");
 
   repeat
     {
@@ -37,16 +37,16 @@ procedure main(param)
     (cmd   := read()) | { quit() ; next }
     if cmd == "!!" then
       {
-      cmd := old
+      cmd := old;
       write("> ",cmd)
       }
-    token := parse(cmd)
+    token := parse(cmd);
     if integer(token[1]) then
       {
-      entry(token[1])
+      entry(token[1]);
       token[1] := ""
       }
-    old := cmd
+    old := cmd;
 #EJECT
     case map(token[1]) of
       {

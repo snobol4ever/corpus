@@ -36,27 +36,27 @@ link wopen
 procedure main(argl)
    local i, j, k, d, extent, points, x, y
 
-   i := integer(argl[1]) | 10
-   d := integer(argl[2]) | 40
+   i := integer(argl[1]) | 10;
+   d := integer(argl[2]) | 40;
 
-   extent := i * d
+   extent := i * d;
 
    WOpen("label=mandala", "width=" || extent, "height=" || extent) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   points := []
+   points := [];
 
    every x := 0 to extent by d do {	# x direction, with corners
-      put(points, Point(x, 0))		# top
+      put(points, Point(x, 0));  # top
       put(points, Point(x, extent))	# bottom
       }
 
    every y := d to extent - d by d do {	# y direction, without corners
-      put(points, Point(0, y))		# left side
+      put(points, Point(0, y));  # left side
       put(points, Point(extent, y))	# right side
       }
 
-   joinpair(points, points)
+   joinpair(points, points);
 
    Event()
 

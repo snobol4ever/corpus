@@ -25,15 +25,15 @@ procedure main(argl)
 
    if argl[1] == "-#" then number := 1
 
-   shortest := read() | exit()
-   count := 1
-   min := *shortest
+   shortest := read() | exit();
+   count := 1;
+   min := *shortest;
 
    every line := !&input do {
-      count +:= 1
+      count +:= 1;
       if *line <= min then {
-         min := *line
-         shortest := line
+         min := *line;
+         shortest := line;
          countl := count
          }
       }

@@ -63,8 +63,8 @@ global nchars			# characters allowed in a nonterminal name
 procedure main()
    local line			# a line of input
 
-   call := "_()"
-   nchars := &letters ++ '_'
+   call := "_()";
+   nchars := &letters ++ '_';
 
    while line := read() do {		# process lines of input
       line ? {
@@ -76,13 +76,13 @@ procedure main()
          }				# end scan
       }					# end while
 
-   write("procedure main()")		# write out the main procedure
-   write("   while line := read() do {")
-   write("      writes(image(line))")
-   write("      if line ? (",goal,call," & pos(0)) then ")
-   write("         write(\": accepted\")")
-   write("      else write(\": rejected\")")
-   write("      }")
+   write("procedure main()");  # write out the main procedure
+   write("   while line := read() do {");
+   write("      writes(image(line))");
+   write("      if line ? (",goal,call," & pos(0)) then ");
+   write("         write(\": accepted\")");
+   write("      else write(\": rejected\")");
+   write("      }");
    write("end")
 
 end
@@ -98,11 +98,11 @@ procedure transprod()
 					# begin the procedure declaration
       write("procedure ",sym := tab(many(nchars)),call) &
       =">::="				# skip definition symbols
-      } | error()				# catch syntactic error
-   write("   suspend {")		# begin the suspend expression
-   transalts()				# transform the alternatives
-   write("      }")			# end the suspend expression
-   write("end")				# end the procedure declaration
+      } | error();  # catch syntactic error
+   write("   suspend {");  # begin the suspend expression
+   transalts();  # transform the alternatives
+   write("      }");  # end the suspend expression
+   write("end");  # end the procedure declaration
    write()				# space between declarations
    /goal := sym				# first symbol is goal
 
@@ -114,14 +114,14 @@ end
 procedure transalts()
    local alt				# an alternative
 
-   writes("      ")			# write indentation
+   writes("      ");  # write indentation
    while alt := tab(upto('|') | 0) do {	# process alternatives
-      writes(" (")			# open parenthesis for alternative
-      alt ? transseq()			# transform the symbols
+      writes(" (");  # open parenthesis for alternative
+      alt ? transseq();  # transform the symbols
       if move(1) then writes(") |")	# if there's more, close the parentheses
 					# and add the alternation.
       else {
-         write(")")			# no more, so just close the parentheses
+         write(")");  # no more, so just close the parentheses
          break
          }				# end else
       }					# end while
@@ -134,7 +134,7 @@ end
 procedure transseq()
 
    repeat {
-      transsym()			# process a symbols
+      transsym();  # process a symbols
       if not pos(0) then writes(",")	# if there's more, provide concatenation
       else break			# else get out and return
       }					# end while

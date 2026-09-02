@@ -45,7 +45,7 @@ global colors
 procedure main()
    local vidgets
 
-   vidgets := ui()
+   vidgets := ui();
 
    GetEvents(vidgets["root"], , shortcuts)
 
@@ -78,11 +78,11 @@ procedure load_colors()
    repeat {
       if OpenDialog("Specify color list file:", file) == "Cancel" then fail
       clist := colrlist(dialog_value) | {
-         Notice("Cannot process color list " || image(dialog_value) || ".")
+         Notice("Cannot process color list " || image(dialog_value) || ".");
          next
          }
-      WClose(\colors)
-      colors := draw_colors(clist)
+      WClose(\colors);
+      colors := draw_colors(clist);
       Raise()
       return
       }

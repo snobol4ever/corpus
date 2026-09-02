@@ -65,15 +65,15 @@ procedure main(arg)
    #
    #  Initialize.
    #
-   defaultHelpFile := "ihelp.dat"
-   opts := options(arg,"f:")
-   fn := \opts["f"] | "" ~== getenv("HELPFILE") | defaultHelpFile
-   f := open(fn) | stop("Can't open help file \"",fn,"\"")
+   defaultHelpFile := "ihelp.dat";
+   opts := options(arg,"f:");
+   fn := \opts["f"] | "" ~== getenv("HELPFILE") | defaultHelpFile;
+   f := open(fn) | stop("Can't open help file \"",fn,"\"");
    #
    #  Look for the specified section, if one was.
    #
    if item := map(arg[1]) then {
-      line := ""
+      line := "";
       until item == map(line[1:*item + 1]) do {
 	 while read(f) ~== "-"
 	 line := read(f) | stop("No help for ",item)
@@ -82,11 +82,11 @@ procedure main(arg)
    #
    #  Output the section lines that contain the keywords.
    #
-   write(line)
-   keywords := arg[2:0] | []
+   write(line);
+   keywords := arg[2:0] | [];
    every i := 1 to *keywords do keywords[i] := map(keywords[i])
    while "-" ~== (line := read(f)) do {
-      lline := map(line)
+      lline := map(line);
       if not (every k := !keywords do if not find(k,lline) then break) then
 	    write(line)
       }

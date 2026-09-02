@@ -154,42 +154,42 @@ procedure main(args)
 
    # initialize data structures
 
-   prune := list()
-   todo := list()
-   done := table()
-   refto := table()
-   reffrom := table()
-   nscanned := 0
+   prune := list();
+   todo := list();
+   done := table();
+   refto := table();
+   reffrom := table();
+   nscanned := 0;
 
    # add arguments from the environment to the command line
 
-   tmp := list()
+   tmp := list();
    every put(tmp, words(getenv("WEBLINKS_INIT")))
    while push(args, pull(tmp))
 
    # process command line
 
-   opts := options(args, "b:p:r:h:iRstv")
-   invert := opts["i"]
-   recurse := opts["R"]
-   successes := opts["s"]
-   trace := opts["t"]
-   verbose := opts["v"]
+   opts := options(args, "b:p:r:h:iRstv");
+   invert := opts["i"];
+   recurse := opts["R"];
+   successes := opts["s"];
+   trace := opts["t"];
+   verbose := opts["v"];
 
    if *args = 0 then
       stop("usage: ", &progname, " [options] file ...")
 
-   setroot(\opts["r"] | "/")
-   sethome(\opts["h"] | "/usr/")
-   setbounds(\opts["b"] | urlmerge(args[-1], ""))
+   setroot(\opts["r"] | "/");
+   sethome(\opts["h"] | "/usr/");
+   setbounds(\opts["b"] | urlmerge(args[-1], ""));
    every setprune(words(\opts["p"], ' ,'))
-   setfrom()
+   setfrom();
 
-   register("initial:")
-   register("implicit:")
+   register("initial:");
+   register("implicit:");
    every addref("initial:", urlmerge("file:", !args))
 
-   wheader()
+   wheader();
 
    while url := get(todo) do
       try(url)
@@ -228,21 +228,21 @@ procedure setfrom()
    local user, host, f
 
    user := getenv("USER" | "LOGNAME")	| fail
-   *user > 0				| fail
-   f := open("uname -n", "rp")		| fail
-   host := read(f)
+   *user > 0				| fail;
+   f := open("uname -n", "rp")		| fail;
+   host := read(f);
    close(f)
-   *\host > 0				| fail
+   *\host > 0				| fail;
    vhttp_from := user || "@" || host
    return
 end
 
 
 procedure wheader()
-   write("From:\t", \vhttp_from | "[none]")
-   write("root:\t", root)
-   write("home:\t", home)
-   write("bounds:\t", bounds)
+   write("From:\t", \vhttp_from | "[none]");
+   write("root:\t", root);
+   write("home:\t", home);
+   write("bounds:\t", bounds);
    every write("start:\t", (!todo)[6:0])
    every write("prune:\t", !prune)
    write()
@@ -255,12 +255,12 @@ procedure try(url)
    (/done[url] := "[processing]") | return	# return if already checked
 
    if \trace then {
-      writes(pad(url, URLCOLS))
+      writes(pad(url, URLCOLS));
       flush(&output)
       }
 
-   result := check(url)
-   done[url] := result
+   result := check(url);
+   done[url] := result;
 
    if \trace then
       write("  ", result)
@@ -273,7 +273,7 @@ procedure check(url)
 
    url ? {
       protocol := map(tab(upto(':'))) | ""
-      =":"
+      =":";
       fspec := tab(0)
    }
 
@@ -313,22 +313,22 @@ procedure check(url)
    if (/recurse & not member(reffrom["initial:"], url)) |
    (fspec ? (not match(bounds)) | match(!prune)) | 
    (not find(".htm", map(url))) then {
-      close(f)
+      close(f);
       if close(open(fname || "/.")) then
          return "453 Is A Directory"
       else
          return "251 File Exists"
       }
 
-   base := url
+   base := url;
    every s := htrefs(f) do s ? {
       if ="BASE HREF " then {
          base := tab(0)
          }
       else {
-         tab(upto(' ') + 1)
-         tab(upto(' ') + 1)
-         ref := urlmerge(base, tab(0))
+         tab(upto(' ') + 1);
+         tab(upto(' ') + 1);
+         ref := urlmerge(base, tab(0));
          addref(url, ref)
          }
       if \verbose then
@@ -337,7 +337,7 @@ procedure check(url)
    if \verbose then
       writes("\n", repl(" ", URLCOLS))
 
-   close(f)
+   close(f);
    nscanned +:= 1
    return "252 File Scanned"
 end
@@ -345,16 +345,16 @@ end
 procedure report()
    local l, url, stat, s, t, u
 
-   l := sort(done, 4)
-   t := table()
+   l := sort(done, 4);
+   t := table();
    while (url := get(l)) & (stat := get(l)) do {
       if \successes | (any('3456789', stat) & stat ~== "302 Found") then {
-         s := pad(stat || ":", STATCOLS) || "  " || url
+         s := pad(stat || ":", STATCOLS) || "  " || url;
          if \invert then
             every u := !refto[url] do
                put(\t[u] | (t[u] := []), s)
          else {
-            write(s)
+            write(s);
             if \verbose | any('3456789', stat) then
                every write("   referenced by:\t", !sort(refto[url]))
             }
@@ -362,14 +362,14 @@ procedure report()
       }
 
    if \invert then {
-      l := sort(t, 3)
+      l := sort(t, 3);
       while (url := get(l)) & (stat := get(l)) do {
-         write(url)
+         write(url);
          every write("   ", !stat)
          }
       }
 
-   write()
+   write();
 
    if nscanned = 1 then
       write("1 file scanned")
@@ -385,10 +385,10 @@ procedure report()
 end
 
 procedure addref(src, dst)
-   dst := (dst ? tab(upto('#') | 0))
-   register(dst)
-   insert(refto[dst], src)
-   insert(reffrom[src], dst)
+   dst := (dst ? tab(upto('#') | 0));
+   register(dst);
+   insert(refto[dst], src);
+   insert(reffrom[src], dst);
    if /done[dst] then
       put(todo, dst)
    return

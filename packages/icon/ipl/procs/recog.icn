@@ -26,9 +26,9 @@
 procedure main()
    local line
 
-   init()
+   init();
    while line := read() do {
-      writes(image(line))
+      writes(image(line));
       if line ? (goal() & pos(0)) then 
          write(": accepted")
       else write(": rejected")

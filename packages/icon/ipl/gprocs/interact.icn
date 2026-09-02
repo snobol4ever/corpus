@@ -92,7 +92,7 @@ link lists
 procedure edit_file(name)			#: editor launch
    local editor
 
-   TextDialog("Edit:", , name, 30) == "Okay" | fail
+   TextDialog("Edit:", , name, 30) == "Okay" | fail;
 
    editor := getenv("EDITOR") | "vi"
 
@@ -105,11 +105,11 @@ procedure edit_list(lines)			#: edit lines dialog
    static add_tbl, labels, buttons
 
    initial {
-      add_tbl := table("")
-      add_tbl["number"] := 1
-      add_tbl["position"] := "after"
+      add_tbl := table("");
+      add_tbl["number"] := 1;
+      add_tbl["position"] := "after";
 
-      labels := []
+      labels := [];
       every put(labels, right(1 to 50, 2))
 
       buttons := ["Okay", "Cancel", "Add", "Delete"]
@@ -124,9 +124,9 @@ procedure edit_list(lines)			#: edit lines dialog
                case TextDialog("Delete lines:", , , 60) of {
                   "Cancel":   break next
                   "Okay":     {
-                     lines := ldelete(lines, dialog_value[1])
+                     lines := ldelete(lines, dialog_value[1]);
                      if *lines = 0 then {
-                        Notice("List empty; creating one line")
+                        Notice("List empty; creating one line");
                         lines := list(1)
                         }
                      break next
@@ -137,24 +137,24 @@ procedure edit_list(lines)			#: edit lines dialog
          "Add":      {
             repeat {
                add_tbl["location"] :=
-                  if add_tbl["position"] == "after" then *lines else 0
+                  if add_tbl["position"] == "after" then *lines else 0;
                case add_dialog(add_tbl) of {
                   "Cancel":   break next
                   "Okay":     {
                      bounds := (if add_tbl["position"] == "after" then 0 else 1)
                      (0 <= (n := integer(add_tbl["location"] - bounds)) <=
                         (*lines)) | {
-                           Notice("Invalid location")
+                           Notice("Invalid location");
                            add_tbl["location"] := if add_tbl["position"] ==
-                              "after" then *lines else 0
+                              "after" then *lines else 0;
                            next
                            }
                      (number := (0 <= integer(add_tbl["number"]))) | {
-                           Notice("Invalid number")
-                           add_tbl["number"] := 1
+                           Notice("Invalid number");
+                           add_tbl["number"] := 1;
                            next
                            }
-                     insert := list(number, add_tbl["value"])
+                     insert := list(number, add_tbl["value"]);
                      if n = 0 then lines := insert ||| lines
                      else if n = *lines then lines |||:= insert
                      else lines := lines[1:n] ||| insert ||| lines[n:0]
@@ -178,18 +178,18 @@ end
 procedure execute()				#: command-line launch
    local pipe, win, olist
 
-   OpenDialog("Command line:") == "Okay"  | fail
+   OpenDialog("Command line:") == "Okay"  | fail;
 
-   olist := []
-   pipe := open(dialog_value, "p")
+   olist := [];
+   pipe := open(dialog_value, "p");
 
    every put(olist, !pipe)
 
-   close(pipe)
+   close(pipe);
 
-   win := list_win(olist, "command") | fail
+   win := list_win(olist, "command") | fail;
 
-   Event(win)
+   Event(win);
 
    WClose(win)
 
@@ -201,9 +201,9 @@ procedure list_win(lst, label)			#: window for list of strings
    local win
 
    win := WOpen("canvas=hidden", "label=" || label, "lines=" || *lst + 2,
-      "columns=" || maxlen(lst) + 2) | fail
+      "columns=" || maxlen(lst) + 2) | fail;
 
-   WWrite(win)
+   WWrite(win);
    every WWrite(win, " ", !lst)
    WAttrib(win, "canvas=normal")
 
@@ -230,9 +230,9 @@ procedure load_file(caption, n)			#: load dialog
    local button
 
    repeat {
-      (button := OpenDialog(caption, n)) == "Okay" | return button
+      (button := OpenDialog(caption, n)) == "Okay" | return button;
       dialog_value := open(dialog_value) | {
-         Notice("Can't open " || dialog_value)
+         Notice("Can't open " || dialog_value);
          next
          }
       return button
@@ -244,11 +244,11 @@ procedure open_image(caption, atts[])		#: open image
    local button, win
 
    repeat {
-      (button := OpenDialog(caption)) == "Okay" | fail
-      put(atts, "image=" || dialog_value)
+      (button := OpenDialog(caption)) == "Okay" | fail;
+      put(atts, "image=" || dialog_value);
       win := (WOpen ! atts) | {
-         Notice("Can't open " || dialog_value)
-         pull(atts)
+         Notice("Can't open " || dialog_value);
+         pull(atts);
          next
          }
       return win
@@ -258,7 +258,7 @@ end
 
 procedure ExitNotice(s[])			#: notice dialog that fails
 
-   Notice ! s
+   Notice ! s;
 
    exit()
 
@@ -266,7 +266,7 @@ end
 
 procedure FailNotice(s[])			#: notice dialog that fails
 
-   Notice ! s
+   Notice ! s;
 
    fail
 
@@ -277,12 +277,12 @@ procedure save_as(caption, name, n)		#: save-as dialog
 
    repeat {
       if (button :=  SaveDialog(caption, name, n)) == "Yes" then {
-         file := dialog_value
+         file := dialog_value;
          if exists(file) then {
             if TextDialog("Overwrite existing file?") == "Cancel" then next
             }
          dialog_value := open(file, "w") | {
-            Notice("Can't write " || dialog_value)
+            Notice("Can't write " || dialog_value);
             next
             }
          }
@@ -294,7 +294,7 @@ end
 procedure save_file(caption, name, n)		#: save dialog
    local button
 
-   (button := SaveDialog(caption, name, n)) == "Yes" | return button
+   (button := SaveDialog(caption, name, n)) == "Yes" | return button;
    dialog_value := open(dialog_value, "w") | {
       Notice("Can't write file")
       return save_as("Save:", dialog_value, n)
@@ -307,7 +307,7 @@ end
 procedure save_list(caption, lst)		#: save list dialog
    local output
 
-   OpenDialog(caption, , 30) == "Okay" | fail
+   OpenDialog(caption, , 30) == "Okay" | fail;
    if dialog_value == "-" then output := &output	# "-" means &output
    else output := open(dialog_value, "w") |
       return FailNotice("Cannot open " || dialog_value)
@@ -331,7 +331,7 @@ procedure select_dialog(caption, lst, dflt)	#: select dialog for many items
    initial buttons := ["Okay", "More", "Cancel"]
 
    if *lst = 0 then {
-      Notice("No selections available")
+      Notice("No selections available");
       fail
       }
    until *lst <= Choices do {

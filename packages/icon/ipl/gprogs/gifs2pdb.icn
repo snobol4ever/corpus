@@ -39,14 +39,14 @@ procedure main(args)
 
    every file := !args do {
       win := WOpen("image=" || file, "canvas=hidden") | {
-          write(&errout, "*** cannot open image: ", image(file))
+          write(&errout, "*** cannot open image: ", image(file));
           next
           }
-      name := basename(file, ".gif")
-      colors := set()
+      name := basename(file, ".gif");
+      colors := set();
       every insert(colors, Pixel(win, 0, 0, WAttrib(win, "width"),
          WAttrib(win, "height")))
-      WClose(win)
+      WClose(win);
       makepalette(name, sort_colors(colors)) |
          write(&errout, "*** cannot make palette from ", image(file))
       }

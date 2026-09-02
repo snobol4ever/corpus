@@ -124,7 +124,7 @@
 procedure __Dijkstra_guard_index_set(exp)
    local result
 
-   result := set()
+   result := set();
    every insert(result, 1 to *exp by 2)
    return result
 
@@ -136,7 +136,7 @@ procedure do_od(exp)			#: Dijkstra's do_od construct
 
    local all_guards, curr_guard
 
-   all_guards := __Dijkstra_guard_index_set(exp)
+   all_guards := __Dijkstra_guard_index_set(exp);
 
    # Remember to use refreshed co-expressions so that they can be evaluated
    # more than once!
@@ -151,7 +151,7 @@ procedure if_fi(exp)			#: Dijkstra's if_fi construct
 
    local all_guards, curr_guard
 
-   all_guards := __Dijkstra_guard_index_set(exp)
+   all_guards := __Dijkstra_guard_index_set(exp);
 
    if @exp[ curr_guard := !all_guards ] then
       suspend | @exp[ curr_guard + 1 ]

@@ -38,7 +38,7 @@ link regexp
 procedure ReAssign( s )
 local s1, n
 
-s1 := ""
+s1 := "";
 
 s ?
 { 
@@ -47,8 +47,8 @@ s ?
          if s1 ||:= ="\\" then next
          if n := integer(tab(many(&digits))) then
          {
-            n := Re_ParenGroups[n]
-            s1 ||:= n 
+            n := Re_ParenGroups[n];
+            s1 ||:= n;
             if ( =".", tab(any(&digits)) ) then move(-1)
          }
    }

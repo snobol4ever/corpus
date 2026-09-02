@@ -67,7 +67,7 @@
 procedure anycl(c, s, i1, i2)	#:	Caseless version of any()
 
 	c := cset(map(cset(c)))
-	/i1 := (/s & &pos)
+	/i1 := (/s & &pos);
 	s := map(string(s) | (/s & &subject))
 
 	return any(c, s, i1, i2)
@@ -77,10 +77,10 @@ end
 
 procedure balcl(c1, c2, c3, s, i1, i2)	#:	Caseless version of bal()
 
-	c1 := cset(map(cset(c1)))
-	c2 := cset(map(cset(c2)))
+	c1 := cset(map(cset(c1)));
+	c2 := cset(map(cset(c2)));
 	c3 := cset(map(cset(c3)))
-	/i1 := (/s & &pos)
+	/i1 := (/s & &pos);
 	s := map(string(s) | (/s & &subject))
 
 	suspend bal(c1, c2, c3, s, i1, i2)
@@ -91,7 +91,7 @@ end
 procedure findcl(s1, s2, i1, i2)	#:	Caseless version of find()
 
 	s1 := map(string(s1))
-	/i1 := (/s2 & &pos)
+	/i1 := (/s2 & &pos);
 	s2 := map(string(s2) | (/s2 & &subject))
 
 	suspend find(s1, s2, i1, i2)
@@ -102,7 +102,7 @@ end
 procedure manycl(c, s, i1, i2)	#:	Caseless version of many()
 
 	c := cset(map(cset(c)))
-	/i1 := (/s & &pos)
+	/i1 := (/s & &pos);
 	s := map(string(s) | (/s & &subject))
 
 	return many(c, s, i1, i2)
@@ -113,7 +113,7 @@ end
 procedure matchcl(s1, s2, i1, i2)	#:	Caseless version of match()
 
 	s1 := map(string(s1))
-	/i1 := (/s2 & &pos)
+	/i1 := (/s2 & &pos);
 	s2 := map(string(s2) | (/s2 & &subject))
 
 	return match(s1, s2, i1, i2)
@@ -124,7 +124,7 @@ end
 procedure uptocl(c, s, i1, i2)	#:	Caseless version of upto()
 
 	c := cset(map(cset(c)))
-	/i1 := (/s & &pos)
+	/i1 := (/s & &pos);
 	s := map(string(s) | (/s & &subject))
 
 	suspend upto(c, s, i1, i2)

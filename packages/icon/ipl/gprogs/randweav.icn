@@ -80,23 +80,23 @@ $define PREFCOLORS "06NBCDFsHIJM?!"		# preferred colors
 
 procedure main(args)
 
-   randomize()
-   allcolors := PREFCOLORS || (PaletteChars(PALETTE) -- PREFCOLORS)
+   randomize();
+   allcolors := PREFCOLORS || (PaletteChars(PALETTE) -- PREFCOLORS);
 
-   Window ! put(ui_atts(), args)	# open window
-   vidgets := ui()			# set up vidgets
-   root := vidgets["root"]
-   region := vidgets["region"]
-   VSetState(vidgets["vcyclic"], 1)	# default "cycle warp" on
-   VSetState(vidgets["hcyclic"], 1)	# default "cycle weft" on
+   Window ! put(ui_atts(), args);  # open window
+   vidgets := ui();  # set up vidgets
+   root := vidgets["root"];
+   region := vidgets["region"];
+   VSetState(vidgets["vcyclic"], 1);  # default "cycle warp" on
+   VSetState(vidgets["hcyclic"], 1);  # default "cycle weft" on
 
    hidwin := WOpen("canvas=hidden",	# open hidden window
-      "width=" || region.uw, "height=" || region.uh)
+      "width=" || region.uw, "height=" || region.uh);
 
-   maxsiz := region.uw			# set maximum size
-   maxsiz >:= region.uh
+   maxsiz := region.uw;  # set maximum size
+   maxsiz >:= region.uh;
    
-   render()				# draw once without prompting
+   render();  # draw once without prompting
    GetEvents(root, , all)		# then wait for events
 end
 

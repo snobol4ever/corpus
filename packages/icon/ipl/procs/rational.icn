@@ -59,12 +59,12 @@ record rational(numer, denom, sign)
 procedure addrat(r1, r2)		#: sum of rationals
    local denom, numer, div
 
-   r1 := ratred(r1)
-   r2 := ratred(r2)
+   r1 := ratred(r1);
+   r2 := ratred(r2);
 
-   denom := r1.denom * r2.denom
+   denom := r1.denom * r2.denom;
    numer := r1.sign * r1.numer * r2.denom +
-      r2.sign * r2.numer * r1.denom
+      r2.sign * r2.numer * r1.denom;
 
    if numer = 0 then return rational (0, 1, 1)
 
@@ -76,7 +76,7 @@ end
 
 procedure divrat(r1, r2)		#: divide rationals.
 
-   r1 := ratred(r1)
+   r1 := ratred(r1);
    r2 := ratred(r2)
 
    return mpyrat(r1, reciprat(r2))
@@ -86,11 +86,11 @@ end
 procedure medrat(r1, r2)		#: form rational mediant
    local numer, denom, div
 
-   r1 := ratred(r1)
-   r2 := ratred(r2)
+   r1 := ratred(r1);
+   r2 := ratred(r2);
 
-   numer := r1.numer + r2.numer
-   denom := r1.denom + r2.denom
+   numer := r1.numer + r2.numer;
+   denom := r1.denom + r2.denom;
 
    div := gcd(numer, denom)
 
@@ -101,11 +101,11 @@ end
 procedure mpyrat(r1, r2)		#: multiply rationals
    local numer, denom, div
 
-   r1 := ratred(r1)
-   r2 := ratred(r2)
+   r1 := ratred(r1);
+   r2 := ratred(r2);
 
-   numer := r1.numer * r2.numer
-   denom := r1.denom * r2.denom
+   numer := r1.numer * r2.numer;
+   denom := r1.denom * r2.denom;
 
    div := gcd(numer, denom)
 
@@ -148,8 +148,8 @@ procedure ratred(r)		#: reduce rational to lowest terms
    if r.numer < 0 then r.sign *:= -1
    if r.denom < 0 then r.sign *:= -1
 
-   r.numer := abs(r.numer)
-   r.denom := abs(r.denom)
+   r.numer := abs(r.numer);
+   r.denom := abs(r.denom);
 
    div := gcd(r.numer, r.denom)
 
@@ -171,11 +171,11 @@ procedure real2rat(r, p)	#: convert to rational with precision p
    initial { x := list(MAXITER); y := list(MAXITER + 2) }
 
    t := abs(r)
-   /p := PRECISION
+   /p := PRECISION;
    every i := 1 to MAXITER do {
-      x[i] := integer(t)
-      y[i + 1] := 1
-      y[i + 2] := 0
+      x[i] := integer(t);
+      y[i + 1] := 1;
+      y[i + 2] := 0;
       every j := i to 1 by -1 do
          y[j] := x[j] * y[j + 1] + y[j + 2]
       if abs(y[1] / real(y[2]) - r) < p then break
@@ -212,7 +212,7 @@ end
 
 procedure subrat(r1, r2)		#: difference of rationals
 
-   r1 := ratred(r1)
+   r1 := ratred(r1);
    r2 := ratred(r2)
 
    return addrat(r1, negrat(r2))

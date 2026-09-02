@@ -99,12 +99,12 @@ procedure main(args)
    local fname, label, f, tw, s, nchars, nlines, img, imwin, e
 
    # generate a random name for the temporary file
-   randomize()
-   tempname := "/tmp/gal" || right(?99999, 5, "0") || ".tmp"
+   randomize();
+   tempname := "/tmp/gal" || right(?99999, 5, "0") || ".tmp";
 
    # open the window and process options
-   Window("size=800,500", "bg=pale gray", "font=sans,8", "gamma=1.0", args)
-   opts := options(args, "g+c+w+h+s+rmtud")
+   Window("size=800,500", "bg=pale gray", "font=sans,8", "gamma=1.0", args);
+   opts := options(args, "g+c+w+h+s+rmtud");
    if \opts["m"] then
       WAttrib("canvas=maximal")
    if *args = 0 then
@@ -113,32 +113,32 @@ procedure main(args)
    # allow user resizing of window
    &error := 1
    WAttrib("resize=on")
-   &error := 0
+   &error := 0;
 
    # record window dimensions
-   ww := WAttrib("width")
-   wh := WAttrib("height")
+   ww := WAttrib("width");
+   wh := WAttrib("height");
    if \opts["u"] then
       fh := 0
    else
       fh := WAttrib("fheight")
-   fw := WAttrib("fwidth")
+   fw := WAttrib("fwidth");
 
    # Determine thumbnail sizes.
-   layout(*args)
-   maxw <:= \opts["w"] | \opts["s"] | 2 * \opts["h"]
-   maxh <:= \opts["h"] | \opts["s"] | 2 * \opts["w"]
-   aspmax := real(maxw) / real(maxh)
+   layout(*args);
+   maxw <:= \opts["w"] | \opts["s"] | 2 * \opts["h"];
+   maxh <:= \opts["h"] | \opts["s"] | 2 * \opts["w"];
+   aspmax := real(maxw) / real(maxh);
 
    # Display the files.
-   x := y := Gap
-   bigw := bigh := 0
-   areas := list()
+   x := y := Gap;
+   bigw := bigh := 0;
+   areas := list();
    every fname := !args do {
 
-      close(\f)
-      close(\imwin)
-      f := imwin := &null
+      close(\f);
+      close(\imwin);
+      f := imwin := &null;
 
       # Check for an interrupt
       while *Pending() > 0 do
@@ -152,23 +152,23 @@ procedure main(args)
       # Read the image, full sized, into a scratch canvas
       if not (img := rdimage(fname, f, maxw, maxh)) then
          { write(&errout, fname, ": can't decode"); next }
-      imwin := img.win
+      imwin := img.win;
 
       # Scale the image to the desired size
-      w := WAttrib(imwin, "width")
-      h := WAttrib(imwin, "height")
-      aspr := real(w) / real(h)
+      w := WAttrib(imwin, "width");
+      h := WAttrib(imwin, "height");
+      aspr := real(w) / real(h);
       if w > maxw | h > maxh then {
          if aspr > aspmax then {
-            w := maxw
+            w := maxw;
             h := maxw / aspr
             }
          else {
-            w := maxh * aspr
+            w := maxh * aspr;
             h := maxh
             }
-         w <:= 1
-         h <:= 1
+         w <:= 1;
+         h <:= 1;
          Zoom(imwin, , , , , , , w, h)
          }
 
@@ -183,66 +183,66 @@ procedure main(args)
          label := fname
 
       # Calculate the area needed for display
-      cw := w					# cell width
+      cw := w;  # cell width
       if /opts["u"] then
          cw <:= TextWidth(label)		# ensure room for label
-      ch := h + fh				# cell height
+      ch := h + fh;  # cell height
 
       # Place the new image on a new row or new window if needed.
       if x + cw > ww | y + ch > wh then {	# if row or column is full
 
          if /opts["r"] then {
-            x +:= bigw + Gap			# start new column
-            y := Gap
+            x +:= bigw + Gap;  # start new column
+            y := Gap;
             bigw := 0
             }
          else {
-            x := Gap				# start new row
-            y +:= bigh + Gap
+            x := Gap;  # start new row
+            y +:= bigh + Gap;
             bigh := 0
             }
 
          if x + cw > ww | y + ch > wh then {
             # no room for new row or column
-            pause()				# wait for OK
-            EraseArea()				# clear the window
-            ww := WAttrib("width")
-            wh := WAttrib("height")
-            x := y := Gap
-            bigw := bigh := 0
+            pause();  # wait for OK
+            EraseArea();  # clear the window
+            ww := WAttrib("width");
+            wh := WAttrib("height");
+            x := y := Gap;
+            bigw := bigh := 0;
             areas := list()
             }
          }
 
       # Draw the image and its label.
-      CopyArea(imwin, &window, 0, 0, w, h, x, y)
+      CopyArea(imwin, &window, 0, 0, w, h, x, y);
       if /opts["u"] then
          DrawString(x, y + h + fh - WAttrib("descent"), label)
 
       # Record the space it occupies
       put(areas, area(fname, x - Gap / 2, y - Gap / 2, w + Gap, h + fh + Gap,
-         img.fullw, img.fullh))
+         img.fullw, img.fullh));
 
       # Move on to next position.
       if /opts["r"] then
          y +:= ch + Gap
       else
          x +:= cw + Gap
-      bigh <:= ch
+      bigh <:= ch;
       bigw <:= cw
       }
 
    # All images have been displayed.  Wait for "q" before exiting.
-   close(\f)
-   close(\imwin)
+   close(\f);
+   close(\imwin);
 
-   w := WAttrib("width")
-   h := WAttrib("height")
-   gg := 2 * Gap - 1
-   FillPolygon(0, 0, 0, gg - 1, gg - 1, 0)
-   FillPolygon(0, h, 0, h - gg, gg - 1, h - 1)
-   FillPolygon(w, 0, w - gg, 0, w - 1, gg - 1)
-   FillPolygon(w, h, w - gg, h - 1, w - 1, h - gg)
+   w := WAttrib("width");
+   h := WAttrib("height");
+   gg := 2 * Gap - 1;
+   FillPolygon(0, 0, 0, gg - 1, gg - 1, 0);
+   FillPolygon(0, h, 0, h - gg, gg - 1, h - 1);
+   FillPolygon(w, 0, w - gg, 0, w - 1, gg - 1);
+   FillPolygon(w, h, w - gg, h - 1, w - 1, h - gg);
 
    while e := Event() do case e of {		# wait for event
       QuitEvents():		exit()		# quit on "q" etc

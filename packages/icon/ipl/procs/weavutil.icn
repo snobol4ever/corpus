@@ -71,7 +71,7 @@ record isd(				# internal structure draft
 procedure readpfd(input)		# read PFD
    local draft
 
-   draft := pfd()
+   draft := pfd();
 
    draft.name := read(input) &
    draft.threading := read(input) &
@@ -82,8 +82,8 @@ procedure readpfd(input)		# read PFD
    draft.colors := read(input) &
    draft.shafts := read(input) &
    draft.treadles := read(input) &
-   draft.tieup := read(input)  | fail
-   draft.liftplan := read(input)			# may be missing
+   draft.tieup := read(input)  | fail;
+   draft.liftplan := read(input);  # may be missing
    draft.drawdown := read(input)			# may be missing
 
    return draft
@@ -92,16 +92,16 @@ end
 
 procedure writepfd(output, pfd)		#: write PFD
 
-   write(output, pfd.name)
-   write(output, pfd.threading)
-   write(output, pfd.treadling)
-   write(output, pfd.warp_colors)
-   write(output, pfd.weft_colors)
-   write(output, pfd.palette)
-   write(output, pfd.colors)
-   write(output, pfd.shafts)
-   write(output, pfd.treadles)
-   write(output, pfd.tieup)
+   write(output, pfd.name);
+   write(output, pfd.threading);
+   write(output, pfd.treadling);
+   write(output, pfd.warp_colors);
+   write(output, pfd.weft_colors);
+   write(output, pfd.palette);
+   write(output, pfd.colors);
+   write(output, pfd.shafts);
+   write(output, pfd.treadles);
+   write(output, pfd.tieup);
    if *\pfd.liftplan > 0 then write(pfd.liftplan) else write()
 
    return
@@ -110,14 +110,14 @@ end
 
 procedure expandpfd(pfd)		#: expand PFD
 
-   pfd := copy(pfd)
+   pfd := copy(pfd);
 
-   pfd.threading := pfl2str(pfd.threading)
-   pfd.treadling := pfl2str(pfd.treadling)
-   pfd.warp_colors := pfl2str(pfd.warp_colors)
-   pfd.weft_colors := pfl2str(pfd.weft_colors)
+   pfd.threading := pfl2str(pfd.threading);
+   pfd.treadling := pfl2str(pfd.treadling);
+   pfd.warp_colors := pfl2str(pfd.warp_colors);
+   pfd.weft_colors := pfl2str(pfd.weft_colors);
 
-   pfd.warp_colors := Extend(pfd.warp_colors, *pfd.threading)
+   pfd.warp_colors := Extend(pfd.warp_colors, *pfd.threading);
    pfd.weft_colors := Extend(pfd.weft_colors, *pfd.treadling)
 
    return pfd
@@ -134,32 +134,32 @@ procedure write_spec(name, spec, opt, mode)	#: write weaving include file
 
    /opt := "w"
 
-   output := open(name, opt) | fail
+   output := open(name, opt) | fail;
 
    if \mode == "drawdown" then write(output, "$define DrawDown")
 
    #  Literals are output with image().  Other definitions are
    #  Icon expressions, enclosed in parentheses.
 
-   write(output, "$define Comments ", image(spec.comments))
-   write(output, "$define Name ", image(spec.name))
-   write(output, "$define Palette ", image(spec.palette))
-   write(output, "$define WarpColors (", check(spec.warp_colors), ")")
-   write(output, "$define WeftColors (", check(spec.weft_colors), ")")
-   write(output, "$define Breadth (", spec.breadth, ")")
-   write(output, "$define Length (", spec.length, ")")
-   write(output, "$define Threading (", check(spec.threading), ")")
-   write(output, "$define Treadling (", check(spec.treadling), ")")
-   write(output, "$define Shafts (", spec.shafts, ")")
-   write(output, "$define Treadles (", spec.treadles, ")")
-   write(output, "$define Tieup ", image(spec.tieup))
-   write(output, "$define Threads ", spec.links[1])
-   write(output, "$define Treads ", spec.links[2])
+   write(output, "$define Comments ", image(spec.comments));
+   write(output, "$define Name ", image(spec.name));
+   write(output, "$define Palette ", image(spec.palette));
+   write(output, "$define WarpColors (", check(spec.warp_colors), ")");
+   write(output, "$define WeftColors (", check(spec.weft_colors), ")");
+   write(output, "$define Breadth (", spec.breadth, ")");
+   write(output, "$define Length (", spec.length, ")");
+   write(output, "$define Threading (", check(spec.threading), ")");
+   write(output, "$define Treadling (", check(spec.treadling), ")");
+   write(output, "$define Shafts (", spec.shafts, ")");
+   write(output, "$define Treadles (", spec.treadles, ")");
+   write(output, "$define Tieup ", image(spec.tieup));
+   write(output, "$define Threads ", spec.links[1]);
+   write(output, "$define Treads ", spec.links[2]);
    
    every n := !keylist(spec.defns) do
       write(output, "$define ", n, " ", spec.defns[n])
 
-   write(output, bar)
+   write(output, bar);
 
    close(output)
 
@@ -177,29 +177,29 @@ procedure write_spec1(name, spec, opt, mode, defns)	#: weaving include file
 
    /opt := "w"
 
-   output := open(name, opt) | fail
+   output := open(name, opt) | fail;
 
    if \mode == "drawdown" then write(output, "$define DrawDown")
 
    #  Literals are output with image().  Other definitions are
    #  Icon expressions, enclosed in parentheses.
 
-   write(output, "$define Comments ", image(spec.comments))
-   write(output, "$define Name ", image(spec.name))
-   write(output, "$define Palette ", image((\spec.palette).name))
+   write(output, "$define Comments ", image(spec.comments));
+   write(output, "$define Name ", image(spec.name));
+   write(output, "$define Palette ", image((\spec.palette).name));
 #  write(output, "$define WarpPalette ", image((\spec.warp_palette).name))
 #  write(output, "$define WeftPalette ", image((\spec.weft_palette).name))
-   write(output, "$define WarpColors (", check(spec.warp_colors), ")")
-   write(output, "$define WeftColors (", check(spec.weft_colors), ")")
-   write(output, "$define Breadth (", spec.breadth, ")")
-   write(output, "$define Length (", spec.length, ")")
-   write(output, "$define Threading (", check(spec.threading), ")")
-   write(output, "$define Treadling (", check(spec.treadling), ")")
-   write(output, "$define Shafts (", spec.shafts, ")")
-   write(output, "$define Treadles (", spec.treadles, ")")
-   write(output, "$define Tieup ", spec.tieup)
-   write(output, "$define Threads ", spec.links[1])
-   write(output, "$define Treads ", spec.links[2])
+   write(output, "$define WarpColors (", check(spec.warp_colors), ")");
+   write(output, "$define WeftColors (", check(spec.weft_colors), ")");
+   write(output, "$define Breadth (", spec.breadth, ")");
+   write(output, "$define Length (", spec.length, ")");
+   write(output, "$define Threading (", check(spec.threading), ")");
+   write(output, "$define Treadling (", check(spec.treadling), ")");
+   write(output, "$define Shafts (", spec.shafts, ")");
+   write(output, "$define Treadles (", spec.treadles, ")");
+   write(output, "$define Tieup ", spec.tieup);
+   write(output, "$define Threads ", spec.links[1]);
+   write(output, "$define Treads ", spec.links[2]);
    
    every n := !keylist(spec.defns) do
       write(output, "$define ", n, " ", spec.defns[n])
@@ -208,7 +208,7 @@ procedure write_spec1(name, spec, opt, mode, defns)	#: weaving include file
       every n := !keylist(defns) do
          write(output, "$define ", n, " ", defns[n])
 
-   write(output, bar)
+   write(output, bar);
 
    close(output)
 
@@ -226,29 +226,29 @@ procedure write_spec2(name, spec, opt, mode, defns)	#: weaving include file
 
    /opt := "w"
 
-   output := open(name, opt) | fail
+   output := open(name, opt) | fail;
 
    if \mode == "drawdown" then write(output, "$define DrawDown")
 
    #  Literals are output with image().  Other definitions are
    #  Icon expressions, enclosed in parentheses.
 
-   write(output, "$define Comments ", image(spec.comments))
-   write(output, "$define Name ", image(spec.name))
-   write(output, "$define Palette ", image((\spec.palette)))
-   write(output, "$define WarpPalette ", image((\spec.warp_palette)))
-   write(output, "$define WeftPalette ", image((\spec.weft_palette)))
-   write(output, "$define WarpColors (", spec.warp_colors, ")")
-   write(output, "$define WeftColors (", spec.weft_colors, ")")
-   write(output, "$define Breadth (", spec.breadth, ")")
-   write(output, "$define Length (", spec.length, ")")
-   write(output, "$define Threading (", spec.threading, ")")
-   write(output, "$define Treadling (", spec.treadling, ")")
-   write(output, "$define Shafts (", spec.shafts, ")")
-   write(output, "$define Treadles (", spec.treadles, ")")
-   write(output, "$define Tieup ", spec.tieup)
-   write(output, "$define Threads ", spec.links[1])
-   write(output, "$define Treads ", spec.links[2])
+   write(output, "$define Comments ", image(spec.comments));
+   write(output, "$define Name ", image(spec.name));
+   write(output, "$define Palette ", image((\spec.palette)));
+   write(output, "$define WarpPalette ", image((\spec.warp_palette)));
+   write(output, "$define WeftPalette ", image((\spec.weft_palette)));
+   write(output, "$define WarpColors (", spec.warp_colors, ")");
+   write(output, "$define WeftColors (", spec.weft_colors, ")");
+   write(output, "$define Breadth (", spec.breadth, ")");
+   write(output, "$define Length (", spec.length, ")");
+   write(output, "$define Threading (", spec.threading, ")");
+   write(output, "$define Treadling (", spec.treadling, ")");
+   write(output, "$define Shafts (", spec.shafts, ")");
+   write(output, "$define Treadles (", spec.treadles, ")");
+   write(output, "$define Tieup ", spec.tieup);
+   write(output, "$define Threads ", spec.links[1]);
+   write(output, "$define Treads ", spec.links[2]);
    
    every n := !keylist(spec.defns) do
       write(output, "$define ", n, " ", spec.defns[n])
@@ -257,7 +257,7 @@ procedure write_spec2(name, spec, opt, mode, defns)	#: weaving include file
       every n := !keylist(defns) do
          write(output, "$define ", n, " ", defns[n])
 
-   write(output, bar)
+   write(output, bar);
 
    close(output)
 
@@ -275,12 +275,12 @@ end
 
 procedure display(pfd)
 
-   write(&errout, "name=", pfd.name)
-   write(&errout, "threading=", pfd.threading)
-   write(&errout, "treadling=", pfd.treadling)
-   write(&errout, "warp colors=", pfd.warp_colors)
-   write(&errout, "weft colors=", pfd.weft_colors)
-   write(&errout, "tie up=", limage(pfd.tieup))
+   write(&errout, "name=", pfd.name);
+   write(&errout, "threading=", pfd.threading);
+   write(&errout, "treadling=", pfd.treadling);
+   write(&errout, "warp colors=", pfd.warp_colors);
+   write(&errout, "weft colors=", pfd.weft_colors);
+   write(&errout, "tie up=", limage(pfd.tieup));
    write(&errout, "palette=", pfd.palette)
 
    return
@@ -312,16 +312,16 @@ $define Different 2
 procedure tier2prodl(tier, name)
    local rows, row, count, unique, prodl, prod
 
-   unique := table()
-   rows := []
-   count := 0
+   unique := table();
+   rows := [];
+   count := 0;
 
    every row := !tier.matrix do {
       if /unique[row] then unique[row] := (count +:= 1)
       put(rows, unique[row])
       }
 
-   prod := name || "->"
+   prod := name || "->";
    every prod ||:= possym(!rows + Different)
 
    prodl := [
@@ -330,8 +330,8 @@ procedure tier2prodl(tier, name)
       "axiom:2",
       "gener:1",
       prod
-      ]
-   unique := sort(unique, 4)
+      ];
+   unique := sort(unique, 4);
 
    while row := get(unique) do
       put(prodl, possym(get(unique) + Different) || "->" || row)
@@ -345,16 +345,16 @@ end
 procedure analyze(drawdown)
    local sequence, rows, row, count, patterns
 
-   sequence := []
-   patterns := []
+   sequence := [];
+   patterns := [];
 
-   rows := table()
+   rows := table();
 
-   count := 0
+   count := 0;
 
    every row := !drawdown do {
       if /rows[row] then {
-         rows[row] := count +:= 1
+         rows[row] := count +:= 1;
          put(patterns, row)
          }
       put(sequence, rows[row])

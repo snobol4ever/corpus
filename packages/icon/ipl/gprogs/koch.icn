@@ -44,40 +44,40 @@ global Window, XMAX, YMAX
 procedure main (args)
     local arg, nextarg
 
-    XMAX := YMAX := 700                 # physical screen size
-    w := h := 1.0
+    XMAX := YMAX := 700;  # physical screen size
+    w := h := 1.0;
    
-    nextarg := create !args
+    nextarg := create !args;
     while arg := @nextarg do {
        if arg == ("-help"|"-h") then stop(helpmsg())
        }
 
-    win := WOpen("label=Koch Snowflake", "width="||XMAX, "height="||YMAX)
-    mono := WAttrib (win, "depth") == "1"
+    win := WOpen("label=Koch Snowflake", "width="||XMAX, "height="||YMAX);
+    mono := WAttrib (win, "depth") == "1";
     Window := set_window(win, point(0,0), point(w,h),
-                  viewport(point(0,0), point(XMAX, YMAX), win))
+                  viewport(point(0,0), point(XMAX, YMAX), win));
 
-    EraseArea(win)
+    EraseArea(win);
 
-    Fg(win, "black")
+    Fg(win, "black");
 
 #    koch_line(Window, point(0.25,0.25), point(0.75,0.25), 5)
 #    koch_line(Window, point(0.75,0.25), point(0.50,0.67), 5)
 #    koch_line(Window, point(0.50,0.67), point(0.25,0.25), 5)
 
-    koch_line(Window, point(0.00,0.67), point(0.50,0.67), 5)
-    koch_line(Window, point(0.50,0.67), point(0.25,0.25), 5)
-    koch_line(Window, point(0.25,0.25), point(0.00,0.67), 5)
+    koch_line(Window, point(0.00,0.67), point(0.50,0.67), 5);
+    koch_line(Window, point(0.50,0.67), point(0.25,0.25), 5);
+    koch_line(Window, point(0.25,0.25), point(0.00,0.67), 5);
 
-    koch_line(Window, point(0.25,0.25), point(0.50,0.67), 5)
-    koch_line(Window, point(0.50,0.67), point(0.75,0.25), 5)
-    koch_line(Window, point(0.75,0.25), point(0.25,0.25), 5)
+    koch_line(Window, point(0.25,0.25), point(0.50,0.67), 5);
+    koch_line(Window, point(0.50,0.67), point(0.75,0.25), 5);
+    koch_line(Window, point(0.75,0.25), point(0.25,0.25), 5);
 
-    koch_line(Window, point(0.50,0.67), point(1.00,0.67), 5)
-    koch_line(Window, point(1.00,0.67), point(0.75,0.25), 5)
-    koch_line(Window, point(0.75,0.25), point(0.50,0.67), 5)
+    koch_line(Window, point(0.50,0.67), point(1.00,0.67), 5);
+    koch_line(Window, point(1.00,0.67), point(0.75,0.25), 5);
+    koch_line(Window, point(0.75,0.25), point(0.50,0.67), 5);
 
-    Event(win)
+    Event(win);
     close(win)
 end
 

@@ -45,16 +45,16 @@ procedure main(args)
    else
       wanted := 1
 
-   llist := []
-   seen := 0
-   randomize()
+   llist := [];
+   seen := 0;
+   randomize();
 
    if *args = 0 then
       dofile(&input)
    else while fname := get(args) do
       dofile(open(fname)) | stop("cannot open ", fname)
 
-   llist := sortf(llist, 1)
+   llist := sortf(llist, 1);
    every write((!llist).text)
 end
 
@@ -62,7 +62,7 @@ procedure dofile(f)
    local line
 
    while line := read(f) do {
-      seen +:= 1
+      seen +:= 1;
       if seen <= wanted then
          put(llist, chosen(seen, line))
       else if ?0 < wanted / real(seen) then

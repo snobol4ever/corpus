@@ -57,15 +57,15 @@ procedure main(args)
 
    opts := options(args, winoptions())
    /opts["W"] := /opts["H"] := 500
-   &window := optwindow(opts)
+   &window := optwindow(opts);
 
-   randomize()
-   dlist := [walk, bush, poly, spiral, tile, radial]
-   msec := 0
-   event := "\r"
+   randomize();
+   dlist := [walk, bush, poly, spiral, tile, radial];
+   msec := 0;
+   event := "\r";
    repeat {
-      e := \event | Event()
-      event := &null
+      e := \event | Event();
+      event := &null;
       case e of {
          QuitEvents():				break
          "\n" | "\r" | "\t" | " ":		run(?dlist)

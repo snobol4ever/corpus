@@ -42,11 +42,11 @@ initial tri := [[1], [1, 1]]               # Start with first two rows stored
                                            # it statically to prevent having
                                            # to do so again.
     every row := *tri+1 to level do {
-      temp := [1]                          # First element of any row is 1.
+      temp := [1];  # First element of any row is 1.
       every elem := 2 to row-1 do          # Each of the next elements is
         put (temp, tri[row-1][elem-1] +    # the sum of the two above it.
              tri[row-1][elem])
-      put (temp, 1)                        # Last element of any row is 1.
+      put (temp, 1);  # Last element of any row is 1.
       put (tri, temp)                      # Attach this row to the triangle.
     }
   return tri[level]                        # Return the chosen level.

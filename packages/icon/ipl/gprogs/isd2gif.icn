@@ -38,19 +38,19 @@ link xcode
 procedure main(args)
    local draft, width, spacing, bg, opts
 
-   isd			# Hands off, linker.
+   isd;  # Hands off, linker.
 
-   opts := options(args, "n:")
+   opts := options(args, "n:");
 
-   width := 5
-   spacing := 0
-   bg := "black"
+   width := 5;
+   spacing := 0;
+   bg := "black";
 
-   push(args, "canvas=hidden")
+   push(args, "canvas=hidden");
 
-   draft := xdecode(&input) | stop("*** cannot decode isd")
+   draft := xdecode(&input) | stop("*** cannot decode isd");
 
-   draft.name := \opts["n"]		# override if given
+   draft.name := \opts["n"];  # override if given
 
    if /draft.name then draft.name := "untitled"
    /draft.width := *draft.threading

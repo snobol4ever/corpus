@@ -46,7 +46,7 @@ procedure open(args[])
    static realfunc
    initial realfunc := proc("open", 0)
 
-   f := (realfunc ! args) | fail
+   f := (realfunc ! args) | fail;
    if args[2] ? upto('gx') then
       PSEnable(f)
    return f

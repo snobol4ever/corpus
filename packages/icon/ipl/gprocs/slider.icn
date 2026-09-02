@@ -105,8 +105,8 @@ record Slider_Rec(win, proc, arg, x, y, w, h, lb, ub, n)
 procedure slider(win, proc, arg, x, y, w, h, lb, iv, ub)
    local r
 
-   r := Slider_Rec(win, proc, arg, x, y, w, h, lb, ub)
-   slidervalue(r, iv)
+   r := Slider_Rec(win, proc, arg, x, y, w, h, lb, ub);
+   slidervalue(r, iv);
    if h > w then 	# vertical slider
       sensor(win, &lpress, Exec_Vert_Slider, r, x, y - MARGIN, w, h + 2*MARGIN)
    else			# horizontal slider
@@ -117,13 +117,13 @@ end
 procedure slidervalue(r, v)
    local n
 
-   Erase_Slider_Bar(r)			# erase old handle
+   Erase_Slider_Bar(r);  # erase old handle
    if r.lb ~= r.ub then
       v := real(v - r.lb) / (r.ub - r.lb)
    else
       v := 0.0
-   v <:= 0.0
-   v >:= 1.0
+   v <:= 0.0;
+   v >:= 1.0;
    if r.h > r.w then			# if vertical
       n := r.y + integer((1.0 - v) * (r.h - 1) + 0.5)
    else
@@ -135,17 +135,17 @@ end
 procedure Set_Slider_Posn(r, n)
    local c
 
-   r.n := n
+   r.n := n;
    if r.h > r.w then {
-      c := r.x + r.w / 2
-      BevelRectangle(r.win, c - 2, r.y, 4, r.h, -2)	# vertical track
-      BevelRectangle(r.win, r.x, r.n - 3, r.w, 6)	# horizontal bar
+      c := r.x + r.w / 2;
+      BevelRectangle(r.win, c - 2, r.y, 4, r.h, -2);  # vertical track
+      BevelRectangle(r.win, r.x, r.n - 3, r.w, 6);  # horizontal bar
       FillRectangle(r.win, r.x + 2, r.n - 1, r.w - 4, 2)
       }
    else {
-      c := r.y + r.h / 2
-      BevelRectangle(r.win, r.x, c - 2, r.w, 4, -2)	# horizontal track
-      BevelRectangle(r.win, r.n - 3, r.y, 6, r.h)	# vertical bar
+      c := r.y + r.h / 2;
+      BevelRectangle(r.win, r.x, c - 2, r.w, 4, -2);  # horizontal track
+      BevelRectangle(r.win, r.n - 3, r.y, 6, r.h);  # vertical bar
       FillRectangle(r.win, r.n - 1, r.y + 2, 2, r.h - 4)
       }
    return
@@ -162,23 +162,23 @@ end
 procedure Exec_Vert_Slider(win, r, x, y)
    local e, h, u, args, a, v
 
-   e := &lpress
+   e := &lpress;
    repeat {
       if type(e) == "integer" then {	# if a mouse event
-         y <:= r.y
-         y >:= r.y + r.h - 1
+         y <:= r.y;
+         y >:= r.y + r.h - 1;
          if y ~= r.n then {
-            Erase_Slider_Bar(r)
-            Set_Slider_Posn(r, y)
-            flush(r.win)
-            v := real(r.y + r.h - y - 1) / real(r.h - 1)	# 0.0 to 1.0
-            v := v * (r.ub - r.lb) + r.lb			# user range
+            Erase_Slider_Bar(r);
+            Set_Slider_Posn(r, y);
+            flush(r.win);
+            v := real(r.y + r.h - y - 1) / real(r.h - 1);  # 0.0 to 1.0
+            v := v * (r.ub - r.lb) + r.lb;  # user range
             r.proc(win, r.arg, v)
             }
          if e = &lrelease then
             return
          }
-      e := Event(win)
+      e := Event(win);
       y := &y
       }
    return
@@ -187,23 +187,23 @@ end
 procedure Exec_Horiz_Slider(win, r, x, y)
    local e, h, u, args, a, v
 
-   e := &lpress
+   e := &lpress;
    repeat {
       if type(e) == "integer" then {	# if a mouse event
-         x <:= r.x
-         x >:= r.x + r.w - 1
+         x <:= r.x;
+         x >:= r.x + r.w - 1;
          if x ~= r.n then {
-            Erase_Slider_Bar(r)
-            Set_Slider_Posn(r, x)
-            flush(r.win)
-            v := real(x - r.x) / real(r.w - 1)		# 0.0 to 1.0
-            v := v * (r.ub - r.lb) + r.lb		# user range
+            Erase_Slider_Bar(r);
+            Set_Slider_Posn(r, x);
+            flush(r.win);
+            v := real(x - r.x) / real(r.w - 1);  # 0.0 to 1.0
+            v := v * (r.ub - r.lb) + r.lb;  # user range
             r.proc(win, r.arg, v)
             }
          if e = &lrelease then
             return
          }
-      e := Event(win)
+      e := Event(win);
       x := &x
       }
    return

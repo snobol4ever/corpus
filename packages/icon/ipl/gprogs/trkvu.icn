@@ -134,8 +134,8 @@ procedure main(args)
    local e, v, xywh
 
    Window("size=800,800", "resize=on", "canvas=hidden",
-      "linewidth=2", "font=sans,bold,12", args)
-   stdwin := Clone("bg=white")
+      "linewidth=2", "font=sans,bold,12", args);
+   stdwin := Clone("bg=white");
 
    viewlist := [
       # sequence here is followed by <SP> and <BS>
@@ -150,21 +150,21 @@ procedure main(args)
       view('Hh', "Hour", byhour, hourlegend),
       view('Mm', "Minute", byminute, minutelegend),
       view('Tt', "Time", bytime, timelegend),
-      ]
+      ];
    while /viewlist[-1] do pull(viewlist)
 
-   seglist := []		# init data structures
-   fnlist := []
-   fhlist := []
+   seglist := [];  # init data structures
+   fnlist := [];
+   fhlist := [];
 
    every load(!args)		# load data
-   survey()			# find extremes
-   fnlist := fnsimp(fnlist)	# simplify filename list
+   survey();  # find extremes
+   fnlist := fnsimp(fnlist);  # simplify filename list
 
-   WAttrib("canvas=normal")	# make display visible
-   hueinit()			# init color manager
-   layout()			# lay out display
-   mapinit(draw, , xmin, xmax, ymax, ymin, cos(dtor((ymin + ymax) / 2)))
+   WAttrib("canvas=normal");  # make display visible
+   hueinit();  # init color manager
+   layout();  # lay out display
+   mapinit(draw, , xmin, xmax, ymax, ymin, cos(dtor((ymin + ymax) / 2)));
 
    if *args > 1 then
       Enqueue("f")		# show initially by file
@@ -177,8 +177,8 @@ procedure main(args)
 
    while e := Event() do {
       if upto((v := \!viewlist).cs, e) then {	# if a view selector
-         curview := v
-         EraseArea()
+         curview := v;
+         EraseArea();
          mapgen()				# regenerate map
          }
       else case e of {

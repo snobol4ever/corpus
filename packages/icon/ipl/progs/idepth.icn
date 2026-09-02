@@ -22,11 +22,11 @@
 procedure main()
    local i, max
 
-   max := 0
+   max := 0;
 
    every !&input ? {
       tab(upto('(')) ? {
-         i := 0
+         i := 0;
          every find("| ") do
             i +:= 1
          max <:= i

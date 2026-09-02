@@ -42,18 +42,18 @@ global w, L, startcols, rows, theBackGround
 
 procedure drawit()
    local curcol, i, maxcol
-   curcol := 1
-   i := 0
-   startcols := [1]
-   maxcol := 0
+   curcol := 1;
+   i := 0;
+   startcols := [1];
+   maxcol := 0;
    every name := !L do {
-      maxcol <:= *name
-      GotoRC(i % rows + 1,curcol)
-      writes(&window,name)
-      i +:= 1
+      maxcol <:= *name;
+      GotoRC(i % rows + 1,curcol);
+      writes(&window,name);
+      i +:= 1;
       if (i>0) & (i % rows = 0) then {
-	 curcol +:= maxcol + 2
-	 maxcol := 0
+	 curcol +:= maxcol + 2;
+	 maxcol := 0;
 	 put(startcols,curcol)
 	 }
       }
@@ -63,9 +63,9 @@ end
 procedure doevents()
    local e, varcol, lastvarcol, lastrow
    repeat {
-      Active()
+      Active();
       while Pending()[1] do {
-	 e := Event()
+	 e := Event();
 	 case e of {
             "o":      write(ColorValue(\name))
 	    "q"|"\e": exit(0)

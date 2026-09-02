@@ -53,7 +53,7 @@ procedure longstr(l,s,i,j)
     # immediate garbage collection.
     #
     if (/l, /s) then {
-	l_table := table()
+	l_table := table();
 	collect()		# do it NOW
 	return			# return &null
     }
@@ -62,7 +62,7 @@ procedure longstr(l,s,i,j)
     # Is l a list, set, or table?
     #
     type(l) == ("list"|"set"|"table") |
-	stop("longstr:  list, set, or table expected (arg 1)")
+	stop("longstr:  list, set, or table expected (arg 1)");
 
     #
     # Sort l longest-to-shortest, and keep a copy of the resulting
@@ -70,10 +70,10 @@ procedure longstr(l,s,i,j)
     #
     if /l_table[l] := [] then {
 
-	tmp_table := table()
+	tmp_table := table();
 	# keys = lengths of elements, values = elements
 	every elem := !l do {
-	    /tmp_table[*elem] := []
+	    /tmp_table[*elem] := [];
 	    put(tmp_table[*elem], elem)
 	}
 	# sort by key; stuff values, in reverse order, into a list

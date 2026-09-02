@@ -25,7 +25,7 @@ end
 
 procedure c_find(s1,s2,i1,i2)
   local scanPos,endPos
-  scanPos := match("",s2,i1,i2)
+  scanPos := match("",s2,i1,i2);
   endPos := many(&cset,s2,i1,i2) | scanPos
   suspend scanPos - 1 + find(map(s1),
       map((if \s2 then s2 else &subject)[scanPos:endPos]))
@@ -37,7 +37,7 @@ end
 
 procedure c_match(s1,s2,i1,i2)
   local scanPos,endPos
-  scanPos := match("",s2,i1,i2)
+  scanPos := match("",s2,i1,i2);
   endPos := scanPos + *s1
   return (map(s1) == map((if \s2 then s2 else &subject)[scanPos:endPos]),endPos)
 end
@@ -49,7 +49,7 @@ end
 procedure c_cset(c)
   static lstring,ustring
   initial {
-    lstring := string(&lcase)
+    lstring := string(&lcase);
     ustring := string(&ucase)
   }
   return cset(map(c) || map(c,lstring,ustring))

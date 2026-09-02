@@ -31,21 +31,21 @@ procedure makelsys(lst)			#: make L-system from list
    local line, i, s, c, symbol, rewrite
    local allchars, rhs, value, spec, result
 
-   result := Lsys()
+   result := Lsys();
 
-   rewrite := table()
-   allchars := ''			# cset of all rhs characters
+   rewrite := table();
+   allchars := '';  # cset of all rhs characters
  
    while line := get(lst) do {
       line ? {
          if symbol := move(1) & ="->" then {
-            rhs := tab(0)
-            rewrite[symbol] := rhs
+            rhs := tab(0);
+            rewrite[symbol] := rhs;
             allchars ++:= rhs	# keep track of all characters
             }
          else if spec := tab(upto(':')) then {
-            move(1)
-            value := tab(0)
+            move(1);
+            value := tab(0);
             if spec == "axiom" then allchars ++:= value
             else if spec == "end" then break
             /result[spec] := value
@@ -69,7 +69,7 @@ end
 procedure readlsys(input)		#: make L-system from a file
    local result
 
-   result := []
+   result := [];
 
    while put(result, read(input))
 

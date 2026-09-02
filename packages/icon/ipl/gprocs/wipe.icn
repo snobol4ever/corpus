@@ -46,12 +46,12 @@ procedure wipe(window, color, direction, x1, y1, w, h)
    /x1 := 0
    /y1 := 0
    /w := WAttrib(window, "width")
-   /h := WAttrib(window, "height")
-   x2 := x1 + w
-   y2 := y1 + h
+   /h := WAttrib(window, "height");
+   x2 := x1 + w;
+   y2 := y1 + h;
 
-   fg := Fg(window)				# save present foreground color
-   Fg(window, color)				# set foreground for wiping
+   fg := Fg(window);  # save present foreground color
+   Fg(window, color);  # set foreground for wiping
 
    if not(integer(x1) & integer(x2) & integer(y1) & integer(y2)) |
       (x1 > x2) | (y1 > y2) then stop("*** illegal coordinates in wipe()")
@@ -69,17 +69,17 @@ procedure wipe(window, color, direction, x1, y1, w, h)
          }
       "left-right": {
          until (x2 < x1) do {
-           DrawLine(window, x1, y1, x1, y2)
-           DrawLine(window, x2, y1, x2, y2)
-           x1 +:= 1
+           DrawLine(window, x1, y1, x1, y2);
+           DrawLine(window, x2, y1, x2, y2);
+           x1 +:= 1;
            x2 -:= 1
            }
          }
       "up-down": {
           until y2 < y1 do {
-            DrawLine(window, x1, y1, x2, y1)
-            DrawLine(window, x1, y2, x2, y2)
-            y1 +:= 1
+            DrawLine(window, x1, y1, x2, y1);
+            DrawLine(window, x1, y2, x2, y2);
+            y1 +:= 1;
             y2 -:= 1
             }
          }
@@ -95,10 +95,10 @@ procedure wipe(window, color, direction, x1, y1, w, h)
          }
       "in": {
          until (x2 < x1) | (y2 < y1) do {
-            DrawLine(window, x1, y1, x1, y2, x2, y2, x2, y1, x1, y1)
-            x1 +:= 1
-            x2 -:= 1
-            y1 +:= 1
+            DrawLine(window, x1, y1, x1, y2, x2, y2, x2, y1, x1, y1);
+            x1 +:= 1;
+            x2 -:= 1;
+            y1 +:= 1;
             y2 -:= 1
             }
          }

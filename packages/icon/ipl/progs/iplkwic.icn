@@ -52,12 +52,12 @@ record pair(new, old)
 procedure main(args)
    local exceptfile, opts
 
-   opts := options(args, "c+h+")
-   width := \opts["c"] | 30
-   head := \opts["h"] | 20
+   opts := options(args, "c+h+");
+   width := \opts["c"] | 30;
+   head := \opts["h"] | 20;
 
    if exceptfile := open("except.wrd") then {
-      exceptions := set()
+      exceptions := set();
       every insert(exceptions, lcword(exceptfile))
       close(exceptfile)
       }
@@ -78,10 +78,10 @@ procedure kwic(file)
 #  for that word.  This method may use an impractically large
 #  amount of space for large input files.
 
-   index := table()
+   index := table();
    every word := lcword(file) do {
       if not member(exceptions,word) then {
-         /index[word] := []
+         /index[word] := [];
          index[word] := put(index[word],position())
          }
       }
@@ -91,7 +91,7 @@ procedure kwic(file)
 
 #  suspend !((!sort(index,1))[2])
 
-   index := sort(index,3)
+   index := sort(index,3);
    while get(index) do
       suspend !get(index)
 end
@@ -101,20 +101,20 @@ procedure lcword(file)
    static chars
 
    initial {
-      chars := &letters ++ &digits ++ '\''
+      chars := &letters ++ &digits ++ '\'';
       tag := table()
       }
 
    every line := !file do {
       line ?:= {
-         name := tab(find(": "))	# program name
-         move(2)			# skip trash
+         name := tab(find(": "));  # program name
+         move(2);  # skip trash
          tab(0)				# rest is now line
          }
-      tag[line] := name			# name for the line
+      tag[line] := name;  # name for the line
       line ? {
          while tab(loc := upto(chars)) do {
-            word := map(tab(many(chars)))
+            word := map(tab(many(chars)));
             if *word > 2 & not(any('(')) then suspend word
             }
           }
@@ -126,7 +126,7 @@ procedure position()
 
 #  Note that "line" and "loc" are global.
 
-   offset := width - loc
+   offset := width - loc;
    if offset >= 0 then return pair(repl(" ",offset) || line, line)
    else return pair(line[-offset + 1:0], line)
 end

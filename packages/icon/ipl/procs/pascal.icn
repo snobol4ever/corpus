@@ -35,9 +35,9 @@ link math
 procedure pascal(n)		#: Pascal triangle
    local i, j
 
-   /n := 16
+   /n := 16;
 
-   write("width=", n, " height=", n)	# carpet header
+   write("width=", n, " height=", n);  # carpet header
 
    every i := 0 to n - 1 do {
       every j := 0 to n - 1 do

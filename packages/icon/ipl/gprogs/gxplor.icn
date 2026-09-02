@@ -100,18 +100,18 @@ $define MaxErrors 100
 procedure main(args)
    local line, words, n, tm, ck, verb, p, s, w, r, atts, keywds, opts
 
-   atts := attnames()
-   keywds := kwnames()
-   Window(args)
-   opts := options(args, "s")
+   atts := attnames();
+   keywds := kwnames();
+   Window(args);
+   opts := options(args, "s");
 
    repeat {
 
       # read next line
-      writes("> ")
+      writes("> ");
       line := read() | break
       if \opts["s"] then
-         write(line)
+         write(line);
       words := crack(line)
 
       # set up for timing, if wanted

@@ -45,21 +45,21 @@ procedure main(args)
    local fname, f
 
    # Open the window and process options.
-   Window("size=100,20", args)
-   opts := options(args, "dg+c+")
-   pal := ("c" || \opts["c"]) | ("g" || \opts["g"]) | "c1"
-   PaletteChars(pal) | stop("invalid palette ", pal)
+   Window("size=100,20", args);
+   opts := options(args, "dg+c+");
+   pal := ("c" || \opts["c"]) | ("g" || \opts["g"]) | "c1";
+   PaletteChars(pal) | stop("invalid palette ", pal);
    ColorValue("navy") |
-      write(&errout, "warning: no X color names, conversion is risky")
+      write(&errout, "warning: no X color names, conversion is risky");
 
    # Convert the file.
-   nwritten := 0
+   nwritten := 0;
    if *args = 0 then
       dofile(&input, "[stdin]")
    else
       while fname := get(args) do
          if f := open(fname) then {
-            dofile(f, fname)
+            dofile(f, fname);
             close(f)
             }
          else {
@@ -84,15 +84,15 @@ procedure dofile(f, fname)
       write(",\n")
 
    # Write the image.
-   write("# xpmtoims -", pal, " ", fname)
-   imswrite(, s)
-   flush(&output)
+   write("# xpmtoims -", pal, " ", fname);
+   imswrite(, s);
+   flush(&output);
 
    # If requested, display the image.
    if \opts["d"] then {
-      WAttrib("width=" || imswidth(s), "height=" || imsheight(s))
-      EraseArea(0, 0)
-      DrawImage(0, 0, s)
+      WAttrib("width=" || imswidth(s), "height=" || imsheight(s));
+      EraseArea(0, 0);
+      DrawImage(0, 0, s);
       while e := Event() do case e of {
          QuitEvents():	exit()		# quit on "q" etc
          !" \t\r\n":	break		# continue on "\r" etc

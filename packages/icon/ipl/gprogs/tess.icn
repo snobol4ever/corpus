@@ -75,12 +75,12 @@ global vs, vt,  ne,  pi, twopi, vs2, vs3,   # view parameters
 # this is the main drawing loop
 #
 procedure main(stuff)
-  setup(stuff)
-  getview()
+  setup(stuff);
+  getview();
   repeat
     {
-    genview()
-    testkey(stuff)
+    genview();
+    testkey(stuff);
     changeview()
     }
   end
@@ -90,13 +90,13 @@ procedure main(stuff)
 #
 procedure setup(settings)
   local i
-  vs := real(settings[1] | 1024.0)
-  vs2:= vs * 5.0
-  vs3:= -vs* 4.0
-  vt := 16
-  ne := 48
-  pi := 3.1415927
-  twopi     := pi * 2.0
+  vs := real(settings[1] | 1024.0);
+  vs2:= vs * 5.0;
+  vs3:= -vs* 4.0;
+  vt := 16;
+  ne := 48;
+  pi := 3.1415927;
+  twopi     := pi * 2.0;
   tessarect := [ [ 1, 1,-1,-1 ],      # C
                  [ 1,-1,-1,-1 ],      # 8
                  [-1,-1,-1,-1 ],      # 0
@@ -112,18 +112,18 @@ procedure setup(settings)
                  [ 1, 1, 1, 1 ],      # F
                  [ 1,-1, 1, 1 ],      # B
                  [-1,-1, 1, 1 ],      # 3
-                 [-1, 1, 1, 1 ] ]     # 7
+                 [-1, 1, 1, 1 ] ];  # 7
   edges     :=  [ -1,  9, -2, 10, -3, 11, -4, 12,
                   -5, 13, -6, 14, -7, 15, -8, 16,
                   -1,  2,  3,  4,  1,  5,  6,  7,
                    8,  5, -2,  6, -3,  7, -4,  8,
                   -9, 10, 11, 12,  9, 13, 14, 15,
-                  16, 13,-10, 14,-11, 15,-12, 16 ]
-  colors  := []
+                  16, 13,-10, 14,-11, 15,-12, 16 ];
+  colors  := [];
   every i := 1 to 16 do put(colors,"yellow")
   every i := 1 to 16 do put(colors,"red")
   every i := 1 to 16 do put(colors,"cyan")
-  projtessarect := table(0)
+  projtessarect := table(0);
   oldproj       := table(0)
   end
 
@@ -134,16 +134,16 @@ procedure setup(settings)
 # set up other important windowing variables and constants
 #
 procedure getview()
-  ox      := vs / 2.0
-  oy      := vs / 2.0
-  lines   := integer(vs / 14.22 + 0.5)
-  columns := integer(vs /  5.69 + 0.5)
-  scale   := 5.0
-  ppux    := scale * 10.0 ; ppuy    := scale *  8.0
-  dv      := 2.0          ; dd      := 0.0          ; d       := 2.0
-  h       := pi / 4.0     ; dh      := 0.0040        ; xi      := 0.0
-  p       := 0.0          ; dp      := 0.0          ; yi      := 0.0
-  b       := 0.0          ; db      := 0.0
+  ox      := vs / 2.0;
+  oy      := vs / 2.0;
+  lines   := integer(vs / 14.22 + 0.5);
+  columns := integer(vs /  5.69 + 0.5);
+  scale   := 5.0;
+  ppux    := scale * 10.0 ; ppuy    := scale *  8.0;
+  dv      := 2.0          ; dd      := 0.0          ; d       := 2.0;
+  h       := pi / 4.0     ; dh      := 0.0040        ; xi      := 0.0;
+  p       := 0.0          ; dp      := 0.0          ; yi      := 0.0;
+  b       := 0.0          ; db      := 0.0;
   a       := 0.015        ; da      := 0.0
 #
 # configure the X-connection
@@ -154,13 +154,13 @@ procedure getview()
                    "bg=black","fg=white",
                    "lines=" || lines,"columns=" || columns)) |
     {
-    write("Can't open window. Press <RETURN>")
+    write("Can't open window. Press <RETURN>");
     stop("ABEND ANOX")
     }
-  WSync(xwindow)
+  WSync(xwindow);
 #  XSetStipple(xwindow,8,0)
-  WAttrib(xwindow,"drawop=xor")
-  GotoRC(xwindow,1,1)
+  WAttrib(xwindow,"drawop=xor");
+  GotoRC(xwindow,1,1);
   write(xwindow,"Tessarect Simulation\n")
 #  write(xwindow," x : move x-axis          | r : reset to original settings")
 #  write(xwindow," y : move y-axis          | o : move futher out")
@@ -177,22 +177,22 @@ procedure getview()
 # calculate points in 4 dimensions
 #
 procedure calcview()
-  sh := sin(h)    ; ch := cos(h)
-  sp := sin(p)    ; cp := cos(p)
-  sb := sin(b)    ; cb := cos(b)
-  sa := sin(a)    ; ca := cos(a)
-  vx := -dv * ca * cp * sh
-  vy := -dv * ca * cp * ch
-  vz := -dv * ca * sp
+  sh := sin(h)    ; ch := cos(h);
+  sp := sin(p)    ; cp := cos(p);
+  sb := sin(b)    ; cb := cos(b);
+  sa := sin(a)    ; ca := cos(a);
+  vx := -dv * ca * cp * sh;
+  vy := -dv * ca * cp * ch;
+  vz := -dv * ca * sp;
   vw := -dv * sa
   end
 #
 # run a display pass
 #
 procedure genview()
-  calcview()
-  project()
-  connect()
+  calcview();
+  project();
+  connect();
   oldproj := copy(projtessarect)
   end
 #
@@ -200,28 +200,28 @@ procedure genview()
 #
 procedure project()
   local i, q, xa, ya, za, tx, ty, tz
-  projtessarect := table(0)
+  projtessarect := table(0);
   every i := 1 to vt do
     {
-    x := tessarect[i][1] - vx
-    y := tessarect[i][2] - vy
-    z := tessarect[i][3] - vz
-    w := tessarect[i][4] - vw
-    q := w * sa
+    x := tessarect[i][1] - vx;
+    y := tessarect[i][2] - vy;
+    z := tessarect[i][3] - vz;
+    w := tessarect[i][4] - vw;
+    q := w * sa;
 
-    x := (x * ca - q) / w
-    y := (y * ca - q) / w
-    z := (z * ca - q) / w
+    x := (x * ca - q) / w;
+    y := (y * ca - q) / w;
+    z := (z * ca - q) / w;
 
-    xa:= ch * x - sh * y
-    ya:= sh * x + ch * y
-    za:= cp * z - sp * ya
+    xa:= ch * x - sh * y;
+    ya:= sh * x + ch * y;
+    za:= cp * z - sp * ya;
 
-    tx:= cb * xa + sb * za
-    ty:= cp * ya + sp * z
-    tz:= cb * za - sb * xa
+    tx:= cb * xa + sb * za;
+    ty:= cp * ya + sp * z;
+    tz:= cb * za - sb * xa;
 
-    projtessarect[i || "," || 1] := ox + ppux * d * tx / ty
+    projtessarect[i || "," || 1] := ox + ppux * d * tx / ty;
     projtessarect[i || "," || 2] := oy + ppuy * d * tz / ty
     }
   end
@@ -240,21 +240,21 @@ procedure changeview()
     {
     dv +:= dd
     } else {
-    dv -:= (2.0 * dd)
+    dv -:= (2.0 * dd);
     dd  := 0.0
     }
   if (ox > 0.0) & (ox < vs) then
     {
     ox +:= xi
     } else {
-    ox -:= (2.0 * xi)
+    ox -:= (2.0 * xi);
     xi  := 0.0
     }
   if (oy > 0.0) & (oy < vs) then
     {
     oy +:= yi
     } else {
-    oy -:= (2.0 * yi)
+    oy -:= (2.0 * yi);
     yi  := 0.0
     }
   end
@@ -269,17 +269,17 @@ procedure connect()
   every i := 1 to ne do
     {
     if i=(1|17|33) then WAttrib(xwindow,"fg=" || colors[i])
-    pt := abs(edges[i])
-    b1 := oldproj[pt || "," || 1]
-    b2 := oldproj[pt || "," || 2]
-    a1 := projtessarect[pt || "," || 1]
-    a2 := projtessarect[pt || "," || 2]
+    pt := abs(edges[i]);
+    b1 := oldproj[pt || "," || 1];
+    b2 := oldproj[pt || "," || 2];
+    a1 := projtessarect[pt || "," || 1];
+    a2 := projtessarect[pt || "," || 2];
     if edges[i] < 0 then
       {
-      oldx := a1
-      oldy := a2
-      oldxb:= b1
-      oldyb:= b2
+      oldx := a1;
+      oldy := a2;
+      oldxb:= b1;
+      oldyb:= b2;
       next
       }
 
@@ -295,9 +295,9 @@ procedure connect()
         (vs2 > a2   > vs3)) then
        DrawLine(xwindow,oldx,oldy,a1,a2)
 
-    oldx := a1
-    oldy := a2
-    oldxb:= b1
+    oldx := a1;
+    oldy := a2;
+    oldxb:= b1;
     oldyb:= b2
     }
   WSync(xwindow)
@@ -314,12 +314,12 @@ procedure testkey(window)
             xrotate,  yrotate,   zrotate,     arotate,
             closer,   further,   halt,        freeze,
             quit,     restart
-  initial { uparrow   := "65362" ; downarrow  := "65364"
-            leftarrow := "65361" ; rightarrow := "65363"
-            xrotate   := "x"     ; yrotate    := "y"
-            zrotate   := "z"     ; arotate    := "a"
-            closer    := "i"     ; further    := "o"
-            halt      := " "     ; freeze     := "f"
+  initial { uparrow   := "65362" ; downarrow  := "65364";
+            leftarrow := "65361" ; rightarrow := "65363";
+            xrotate   := "x"     ; yrotate    := "y";
+            zrotate   := "z"     ; arotate    := "a";
+            closer    := "i"     ; further    := "o";
+            halt      := " "     ; freeze     := "f";
             quit      := "q"     ; restart    := "r"
           }
   if (things := Pending(xwindow)) & (*things > 0) then

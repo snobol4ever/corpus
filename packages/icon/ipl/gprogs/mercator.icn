@@ -54,23 +54,23 @@ $define Size "500,300"			# default size
 procedure main(args)
    local ww, wh, p, x, y, h, l, dh, dl, hls, c
 
-   Window("size=" || Size, args)
-   ww := WAttrib("width")		# actual window width
-   wh := WAttrib("height")		# actual window height
-   dh := 360.0 / (ww - 1)		# change in hue per pixel
-   dl := 100.0 / (wh - 1)		# change in lightness per pixel
+   Window("size=" || Size, args);
+   ww := WAttrib("width");  # actual window width
+   wh := WAttrib("height");  # actual window height
+   dh := 360.0 / (ww - 1);  # change in hue per pixel
+   dl := 100.0 / (wh - 1);  # change in lightness per pixel
 
-   p := args[1] | Palette
+   p := args[1] | Palette;
    if p == "none" then p := &null
 
    every x := 0 to ww - 1 do {
-      h := integer(x * dh) || ":"
+      h := integer(x * dh) || ":";
       every y := 0 to wh - 1 do {
-         l := 100 - integer(y * dl)
-         hls := h || l || ":100"
-         c := HLSValue(hls)
-         c := PaletteColor(p, PaletteKey(\p, c))
-         Fg(c)
+         l := 100 - integer(y * dl);
+         hls := h || l || ":100";
+         c := HLSValue(hls);
+         c := PaletteColor(p, PaletteKey(\p, c));
+         Fg(c);
          DrawPoint(x, y)
          }
       }

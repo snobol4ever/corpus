@@ -56,13 +56,13 @@ procedure clear()
     # Clears the screen.  Tries several methods.
     local i
 
-    normal()
+    normal();
     if not iputs(getval("cl"))
     then iputs(igoto(getval("cm"),1,1) | getval("ho"))
     if not iputs(getval("cd"))
     then {
 	every i := 1 to getval("li") do {
-	    iputs(igoto(getval("cm"),1,i))
+	    iputs(igoto(getval("cm"),1,i));
 	    iputs(getval("ce"))
 	}
 	iputs(igoto(getval("cm"),1,1))
@@ -86,8 +86,8 @@ procedure boldface()
 	}
     }	    
  
-    normal()
-    iputs(\bold_str)
+    normal();
+    iputs(\bold_str);
     iputs(\cookie_str)
     return
 
@@ -109,8 +109,8 @@ procedure blink()
 	}
     }	    
  
-    normal()
-    iputs(\blink_str)
+    normal();
+    iputs(\blink_str);
     iputs(\cookie_str)
     return
 
@@ -132,8 +132,8 @@ procedure emphasize()
 	}
     }	    
  
-    normal()
-    iputs(\emph_str)
+    normal();
+    iputs(\emph_str);
     iputs(\cookie_str)
     return
 
@@ -149,8 +149,8 @@ procedure underline()
 	then cookie_str := repl(getval("le"|"bc") | "\b", getval("ug"))
     }
 
-    normal()
-    iputs(\underline_str)
+    normal();
+    iputs(\underline_str);
     iputs(\cookie_str)
     return
 
@@ -187,10 +187,10 @@ procedure normal(mode)
     }	    
     
     iputs("" ~== UN_emph_str) &
-	iputs(\emph_cookie_str)
+	iputs(\emph_cookie_str);
 
     iputs("" ~== UN_underline_str) &
-	iputs(\underline_cookie_str)
+	iputs(\underline_cookie_str);
 
     iputs("" ~== UN_bold_str) &
 	iputs(\bold_cookie_str)
@@ -214,8 +214,8 @@ procedure status_line(s,s2,p)
 
     local width
 
-    /s := ""; /s2 := ""; /p := "c"
-    width := getval("co")
+    /s := ""; /s2 := ""; /p := "c";
+    width := getval("co");
     if *s > width then {
 	(*s2 < width, s := s2) |
 	    er("status_line","Your terminal is too narrow.",4)
@@ -228,8 +228,8 @@ procedure status_line(s,s2,p)
 	default: stop("status_line:  Unknown option "||string(p),4)
     }
 
-    iputs(igoto(getval("cm"), 1, getval("li")-2))
-    emphasize(); writes(s)
+    iputs(igoto(getval("cm"), 1, getval("li")-2));
+    emphasize(); writes(s);
     normal()
     return
 
@@ -243,13 +243,13 @@ procedure message(s)
     # I hate to use the last line, due to all the problems with
     # automatic scrolling.
 
-    /s := ""
-    normal()
-    iputs(igoto(getval("cm"), 1, getval("li")))
-    iputs(getval("ce"))
-    normal()
-    iputs(igoto(getval("cm"), 1, getval("li")-1))
-    iputs(getval("ce"))
+    /s := "";
+    normal();
+    iputs(igoto(getval("cm"), 1, getval("li")));
+    iputs(getval("ce"));
+    normal();
+    iputs(igoto(getval("cm"), 1, getval("li")-1));
+    iputs(getval("ce"));
     writes(s[1:getval("co")] | s)
     return
 
@@ -265,17 +265,17 @@ procedure clear_underline()
 
     local i
 
-    underline()
-    iputs(igoto(getval("cm"),1,1))
+    underline();
+    iputs(igoto(getval("cm"),1,1));
     if getval("am") then {
-	underline()
+	underline();
         every 1 to (getval("li")-1) * getval("co") do
 	    writes(" ")
     }
     else {
 	every i := 1 to getval("li")-1 do {
-	    iputs(igoto(getval("cm"), 1, i))
-	    underline()
+	    iputs(igoto(getval("cm"), 1, i));
+	    underline();
 	    writes(repl(" ",getval("co")))
 	}
     }
@@ -293,17 +293,17 @@ procedure clear_emphasize()
 
     local i
 
-    emphasize()
-    iputs(igoto(getval("cm"),1,1))
+    emphasize();
+    iputs(igoto(getval("cm"),1,1));
     if getval("am") then {
-	emphasize()
+	emphasize();
         every 1 to (getval("li")-1) * getval("co") do
 	    writes(" ")
     }
     else {
 	every i := 1 to getval("li")-1 do {
-	    iputs(igoto(getval("cm"), 1, i))
-	    emphasize()
+	    iputs(igoto(getval("cm"), 1, i));
+	    emphasize();
 	    writes(repl(" ",getval("co")))
 	}
     }

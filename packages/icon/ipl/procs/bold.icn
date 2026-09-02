@@ -28,11 +28,11 @@ procedure bold(s)
    local c
    static labels, trans, max
    initial {
-      labels := "1"
-      trans := repl("1\b",4) || "1"
-      max := *labels
-      trans := bold(string(&lcase))
-      labels := string(&lcase)
+      labels := "1";
+      trans := repl("1\b",4) || "1";
+      max := *labels;
+      trans := bold(string(&lcase));
+      labels := string(&lcase);
       max := *labels
       }
    if *s <= max then
@@ -44,11 +44,11 @@ end
 procedure uscore(s)
    static labels, trans, max
    initial {
-      labels := "1"
-      trans := "_\b1"
-      max := *labels
-      trans := uscore(string(&lcase))
-      labels := string(&lcase)
+      labels := "1";
+      trans := "_\b1";
+      max := *labels;
+      trans := uscore(string(&lcase));
+      labels := string(&lcase);
       max := *labels
       }
    if *s <= max then

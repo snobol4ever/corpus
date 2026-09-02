@@ -76,9 +76,9 @@ procedure LB_line_clip(line, box)
    local nline, u, dx, dy
 
 			# initialize important parametric values
-   dx := line[2][1] - line[1][1]
-   dy := line[2][2] - line[2][2]
-   u := [0.0, 1.0]
+   dx := line[2][1] - line[1][1];
+   dy := line[2][2] - line[2][2];
+   u := [0.0, 1.0];
 
 			# do the clipping
    if clipcheck(-dx, line[1][1] - box[1][1], u) &
@@ -86,16 +86,16 @@ procedure LB_line_clip(line, box)
       clipcheck(-dy, line[1][2] - box[1][2], u) &
       clipcheck( dy, box[2][2] - line[1][1], u) then {
 			# return a modified copy of original line
-      nline := copy(line)
-      nline[1] := copy(line[1])
-      nline[2] := copy(line[2])
+      nline := copy(line);
+      nline[1] := copy(line[1]);
+      nline[2] := copy(line[2]);
 
       if u[2] < 1.0 then {
-         nline[2][1] := line[1][1] + (u[2]*dx)
+         nline[2][1] := line[1][1] + (u[2]*dx);
          nline[2][2] := line[1][2] + (u[2]*dy)
          }
       if u[1] < 1.0 then {
-         nline[1][1] := line[1][1] + (u[1]*dx)
+         nline[1][1] := line[1][1] + (u[1]*dx);
          nline[1][2] := line[1][2] + (u[1]*dy)
          }
       return nline
@@ -108,12 +108,12 @@ procedure clipcheck(p,q,u)
    local r
 
    if p < 0.0 then {
-      r := real(q)/p
+      r := real(q)/p;
       if r > u[2] then fail
       else if r > u[1] then u[1] := r
       }
    else if p > 0.0 then {
-      r := real(q)/p
+      r := real(q)/p;
       if r > u[1] then fail
       else if r > u[2] then u[2] := r
       }

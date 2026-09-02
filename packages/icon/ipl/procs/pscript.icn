@@ -81,42 +81,42 @@ procedure epsheader(f, x, y, w, h, flags)	#: write PostScript header
    if h < 0 then
       y -:= (h := -h)
 
-   xctr := integer(PSPoint * PageWidth / 2)	# PS center coordinates
-   yctr := integer(PSPoint * PageHeight / 2)
-   xsize := PSPoint * (PageWidth - HorzMargin)	# usable width
-   ysize := PSPoint * (PageHeight - VertMargin)	# usable height
+   xctr := integer(PSPoint * PageWidth / 2);  # PS center coordinates
+   yctr := integer(PSPoint * PageHeight / 2);
+   xsize := PSPoint * (PageWidth - HorzMargin);  # usable width
+   ysize := PSPoint * (PageHeight - VertMargin);  # usable height
    if w > h & upto('r', \flags) then
       xsize :=: ysize
 
-   xscale := xsize / w
-   yscale := ysize / h
-   xscale >:= yscale
-   yscale >:= xscale
+   xscale := xsize / w;
+   yscale := ysize / h;
+   xscale >:= yscale;
+   yscale >:= xscale;
 
-   dx := integer(xscale * w / 2 + 0.99999)
-   dy := integer(yscale * h / 2 + 0.99999)
+   dx := integer(xscale * w / 2 + 0.99999);
+   dy := integer(yscale * h / 2 + 0.99999);
    if xsize > ysize then
       dx :=: dy
 
-   write(f, "%!PS-Adobe-3.0 EPSF-3.0")
+   write(f, "%!PS-Adobe-3.0 EPSF-3.0");
    write(f, "%%BoundingBox: ",
-      xctr - dx, " ", yctr - dy, " ", xctr + dx, " ", yctr + dy)
-   write(f, "%%Creator: ", &progname)
-   write(f, "%%CreationDate: ", &dateline)
-   write(f, "%%EndComments")
-   write(f)
-   write(f, xctr, " ", yctr, " translate")
+      xctr - dx, " ", yctr - dy, " ", xctr + dx, " ", yctr + dy);
+   write(f, "%%Creator: ", &progname);
+   write(f, "%%CreationDate: ", &dateline);
+   write(f, "%%EndComments");
+   write(f);
+   write(f, xctr, " ", yctr, " translate");
    if xsize > ysize then
       write(f, "90 rotate \n", -dy, " ", -dx, " translate")
    else
       write(f, -dx, " ", -dy, " translate")
-   write(f, xscale, " ", yscale, " scale")
-   write(f, -x, " ", -y, " translate")
+   write(f, xscale, " ", yscale, " scale");
+   write(f, -x, " ", -y, " translate");
    write(f, x, " ", y, " moveto ", x, " ", y + h, " lineto ",
-	    x + w, " ", y + h, " lineto ", x + w, " ", y, " lineto ")
-   write(f, "closepath clip newpath")
-   write(f, "/inch { ", 72 / xscale, " mul } bind def")
-   write(f, "1 72 div inch setlinewidth")
+	    x + w, " ", y + h, " lineto ", x + w, " ", y, " lineto ");
+   write(f, "closepath clip newpath");
+   write(f, "/inch { ", 72 / xscale, " mul } bind def");
+   write(f, "1 72 div inch setlinewidth");
    write(f)
    return
 end
@@ -125,9 +125,9 @@ procedure psprotect(s)			#: escape special PostScript characters
    local t 
 
    s ? {
-      t := ""
+      t := "";
       while t ||:= tab(upto('()\\\n\r\t\b\f')) do {
-         t ||:= "\\"
+         t ||:= "\\";
          t ||:= map(move(1), "()\\\n\r\t\b\f", "()\\nrtbf")
          }
       return t ||:= tab(0)

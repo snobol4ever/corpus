@@ -39,8 +39,8 @@ link factors
 
 procedure binocoef(n, k)	#: binomial coefficient
 
-   k := integer(k) | fail
-   n := integer(n) | fail
+   k := integer(k) | fail;
+   n := integer(n) | fail;
 
    if (k = 0) | (n = k) then return 1
 

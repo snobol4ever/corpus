@@ -52,7 +52,7 @@ procedure main()
       line ? {
          char := move(1) | {error(line); next}
          image := tab(find(char)) | {error(line); next}
-         move(1)
+         move(1);
          object := tab(find(char)) | {error(line); next}
          }
       write("g/",xform(image),"/s//",xform(object),"/g")

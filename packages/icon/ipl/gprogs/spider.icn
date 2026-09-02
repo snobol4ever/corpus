@@ -94,11 +94,11 @@ global histfile         # appendable history file, if any, else null
 procedure main(args)
     local fromPile,maxCards,e,p
 
-    initialize(args)
-    newgame()
+    initialize(args);
+    newgame();
     repeat case e := Event() of {
 	!"qQ": {
-            report()
+            report();
 	    exit()
 	}
 	"d": {
@@ -111,25 +111,25 @@ procedure main(args)
 	   message(hiddenNames(1+(&x-xmargin+xgap/2)/(cardw+xgap)))
 	}
 	"n": {
-            report()
+            report();
 	    newgame()
 	}
 	"u": {
 	    undo() | beep()
 	}
 	"r": {
-            report()
-	    readingGame := 1
-	    WAttrib("bg=pale gray","fg=black")
+            report();
+	    readingGame := 1;
+	    WAttrib("bg=pale gray","fg=black");
 	    if readFile() then
 		startTime := &null	# unknown original start time
-	    readingGame := 0
-	    WAttrib("bg=deep moderate green","fg=white")
+	    readingGame := 0;
+	    WAttrib("bg=deep moderate green","fg=white");
 	    drawBoard()
 	}
 	"s": {
-	    WAttrib("bg=pale gray","fg=black")
-	    saveFile()
+	    WAttrib("bg=pale gray","fg=black");
+	    saveFile();
 	    WAttrib("bg=deep moderate green","fg=white")
 	}
 	!(NUM_LABELS | LTR_LABELS): {

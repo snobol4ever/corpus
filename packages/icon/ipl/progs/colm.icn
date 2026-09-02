@@ -76,7 +76,7 @@ procedure main(arg)
    usage := "_
    Usage:\tcolm [-w line_width] [-s space_between] [-m min_width]\n_
 	    \t\t[-t tab_width] [-x] [file ...]\n_
-	    \tcolm -h  for help"
+	    \tcolm -h  for help";
    help := "_
 	    \tline_width:\tthe maximum width allowed for output lines\n_
 				    \t\t\t(default: 80).\n_
@@ -88,30 +88,30 @@ procedure main(arg)
 				    \t\t\t(default: no tabs).\n_
 	    \t-x\t\tprint items in row-wise order rather than\n_
 				    \t\t\tcolumn-wise.\n_
-	    \t-d (distribute)\tdistribute columns throughout available width."
+	    \t-d (distribute)\tdistribute columns throughout available width.";
    #
    #  Process command line options.
    #
-   opt := options(arg,"hxdw+s+m+t+")
+   opt := options(arg,"hxdw+s+m+t+");
    if \opt["h"] then write(usage,"\n\n",help) & exit()
-   rowwise := opt["x"]
-   distribute := opt["d"]
-   maxcols := \opt["w"] | 80
-   space := \opt["s"] | 2
-   minwidth := \opt["m"] | 0
-   tabwidth := (\opt["t"] | 0) + 1
+   rowwise := opt["x"];
+   distribute := opt["d"];
+   maxcols := \opt["w"] | 80;
+   space := \opt["s"] | 2;
+   minwidth := \opt["m"] | 0;
+   tabwidth := (\opt["t"] | 0) + 1;
    if tabwidth = 1 then entab := 1
    if *arg = 0 then arg := [&input]
    #
    #  Loop to process input files.
    #
    while f := get(arg) do {
-      f := (&input === f) | open(f) | stop("Can't open ",f)
+      f := (&input === f) | open(f) | stop("Can't open ",f);
       #
       #  Loop to process input groups (separated by empty lines).
       #
       repeat {
-	 entries := []
+	 entries := [];
 	 #
 	 #  Loop to build a list of non-empty lines of an input file.
 	 #
@@ -125,7 +125,7 @@ procedure main(arg)
 	       rowwise,distribute),tabwidth))
 	 write("\n",read(f)) | break       # print the title line, if any
 	 }
-      close(f)
+      close(f);
       write()
       }
 end

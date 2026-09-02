@@ -37,26 +37,26 @@ link wopen
 procedure main()
    local extent, x, y, i
 
-   extent := 300
+   extent := 300;
 
    WOpen("label=sier", "height=" || extent, "width=" || extent) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   x := 20			# The results do not depend on these values
-   y := 150
+   x := 20;  # The results do not depend on these values
+   y := 150;
 
    every i := 1 to 100000 do {
       case ?3 of {		# Decide what to do at random
          1: {
-            x /:= 2
+            x /:= 2;
             y /:= 2
             }
          2: {
-            x /:= 2
+            x /:= 2;
             y := (extent + y) / 2
             }
          3: {
-            x := (extent + x) / 2
+            x := (extent + x) / 2;
             y := (extent + y) / 2
             }
          }

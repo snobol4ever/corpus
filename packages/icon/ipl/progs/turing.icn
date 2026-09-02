@@ -77,19 +77,19 @@ global cycle, tape, posn, state, video
 procedure main(args)
    local opts
 
-   opts := options(args, "v")
-   video := \opts["v"]
+   opts := options(args, "v");
+   video := \opts["v"];
 
-   rdmach(&input)			# read machine description
+   rdmach(&input);  # read machine description
    if errs > 0 then stop("[execution suppressed]")
-   lns := **machine			# initialize turing machine
-   tape := "0"
-   posn := 1
-   cycle := 0
-   state := 1
+   lns := **machine;  # initialize turing machine
+   tape := "0";
+   posn := 1;
+   cycle := 0;
+   state := 1;
    while state > 0 do {		# execute
-      dumptape()
-      transit(machine[state][tape[posn]+1])
+      dumptape();
+      transit(machine[state][tape[posn]+1]);
       cycle +:= 1
    }
    dumptape()
@@ -99,10 +99,10 @@ end
 
 procedure dumptape()
    if cycle < 10 then writes(" ")
-   writes(cycle, ". [", right(state, lns), "] ", tape[1:posn])
+   writes(cycle, ". [", right(state, lns), "] ", tape[1:posn]);
    if \video then write("\e[7m", tape[posn], "\e[m", tape[posn + 1:0])
    else {
-      write(tape[posn:0])
+      write(tape[posn:0]);
       write(repl(" ", 6 + *state + posn), "^")
       }
 end
@@ -111,9 +111,9 @@ end
 #  transit (act) - transit to the next state performing the given action
 
 procedure transit(act)
-   tape[posn] := act.wrt
+   tape[posn] := act.wrt;
    if act.mov == "R" then {
-      posn +:= 1
+      posn +:= 1;
       if posn > *tape then tape ||:= "0"
       }
    else if act.mov == "L" then {
@@ -129,27 +129,27 @@ end
 procedure rdmach(f)
    local nstates, line, a0, a1, n
 
-   machine := list()
-   nstates := 0
-   lno := 0
-   errs := 0
+   machine := list();
+   nstates := 0;
+   lno := 0;
+   errs := 0;
    while line := trim(read(f), ' \t') do {
-      lno +:= 1
+      lno +:= 1;
       if *line > 0 & line[1] ~== "#"
          then line ? {
-            tab(many(' \t'))
-            n := tab(many(&digits)) | 0
+            tab(many(' \t'));
+            n := tab(many(&digits)) | 0;
             if n ~= nstates + 1 then warn("sequence error")
-            nstates := n
-            tab(many('. \t'))
-            a0 := tab(many('01LRHlrh23456789')) | ""
-            tab(many(' \t'))
-            a1 := tab(many('01LRHlrh23456789')) | ""
-            pos(0) | (warn("syntax error") & next)
+            nstates := n;
+            tab(many('. \t'));
+            a0 := tab(many('01LRHlrh23456789')) | "";
+            tab(many(' \t'));
+            a1 := tab(many('01LRHlrh23456789')) | "";
+            pos(0) | (warn("syntax error") & next);
             put(machine, [mkact(a0), mkact(a1)])
             }
    }
-   lno := "<EOF>"
+   lno := "<EOF>";
    if *machine = errs = 0 then warn("no machine!")
    return
 end
@@ -159,9 +159,9 @@ end
 procedure mkact(a)
    local w, m, n
 
-   w := a[1] | "9"
+   w := a[1] | "9";
    m := map(a[2], &lcase, &ucase) | "X"
-   (any('01', w) & any('LRH', m)) | warn("syntax error")
+   (any('01', w) & any('LRH', m)) | warn("syntax error");
    n := integer(a[3:0]) | (warn("bad nextstate"), 0)
    return action (w, m, n)
 end
@@ -169,7 +169,7 @@ end
 #  warn (msg) - report an error in the machine description
 
 procedure warn(msg)
-   write(&errout, "line ", lno, ": ", msg)
+   write(&errout, "line ", lno, ": ", msg);
    errs +:= 1
    return
 end

@@ -30,7 +30,7 @@ procedure sortt(T, i)
 
    if not(integer(i) = (1 | 2)) then runerr(205, i)
 
-   result := []
+   result := [];
 
    every put(result, element(k := key(T), T[k]))
 

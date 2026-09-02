@@ -45,11 +45,11 @@ link patutils
 procedure main(args)
    local file, input, i, hitlist, patlist, spec, lo, hi, subspec
 
-   file := args[1] | stop("*** no pattern list specified")
+   file := args[1] | stop("*** no pattern list specified");
 
-   input := open(file) | stop(" *** cannot open input file")
+   input := open(file) | stop(" *** cannot open input file");
  
-   hitlist := set()			# construct set of indices to remove
+   hitlist := set();  # construct set of indices to remove
 
    while spec := read() do {
       spec ? {
@@ -64,7 +64,7 @@ procedure main(args)
                   ="-" &
                   hi := tab(many(&digits)) &
                   lo <= hi &
-                  pos(0) | write(&errout, "*** bad specification")
+                  pos(0) | write(&errout, "*** bad specification");
                   every insert(hitlist, 0 < integer(lo to hi))
                   }
                move(1) | break
@@ -74,7 +74,7 @@ procedure main(args)
          }
       }
 
-   patlist := []			# read in list of patterns
+   patlist := [];  # read in list of patterns
 
    while put(patlist, readpatt(input))
    

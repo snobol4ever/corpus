@@ -44,20 +44,20 @@ link strings
 procedure main(args)
    local isyms, osyms, line, defs, axiom, i, opts, symbols, done
 
-   opts := options(args, "i:s:a")
+   opts := options(args, "i:s:a");
 
    if /opts["a"] then {
-      isyms := \opts["i"] | &ucase
-      osyms := \opts["o"] | &ucase
+      isyms := \opts["i"] | &ucase;
+      osyms := \opts["o"] | &ucase;
       if *isyms ~= *osyms then
          stop("*** input and output strings not of equal length")
       }
 
-   defs := []
-   symbols := ''
+   defs := [];
+   symbols := '';
 
    while line := read() do {
-      put(defs, line)
+      put(defs, line);
       line ? {
          if ="axiom:" then {
             if not(/axiom := move(1)) then	# not first axiom
@@ -68,9 +68,9 @@ procedure main(args)
          }
       }
 
-   isyms := deletec(isyms, &cset -- symbols)
-   isyms := ochars(isyms)
-   osyms := csort(isyms)
+   isyms := deletec(isyms, &cset -- symbols);
+   isyms := ochars(isyms);
+   osyms := csort(isyms);
 
    every i := 1 to *defs do {
       defs[i] ?:= {

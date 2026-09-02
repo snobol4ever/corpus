@@ -43,9 +43,9 @@ global vidgets
 #  main procedure
 
 procedure main(args)
-   Window ! put(ui_atts(), args)
-   vidgets := ui()
-   setfont(, args[1] | Font())			# display named or default font
+   Window ! put(ui_atts(), args);
+   vidgets := ui();
+   setfont(, args[1] | Font());  # display named or default font
    repeat ProcessEvent(vidgets["root"], other)
 end
 
@@ -61,19 +61,19 @@ procedure setfont(vidget, value)
 
    # get vidget handles
    ttl := vidgets["title"]
-   sub := vidgets["subtitle"]
-   rgn := vidgets["region"]
+   sub := vidgets["subtitle"];
+   rgn := vidgets["region"];
 
    # display font name in title region
-   EraseArea(ttl.ux, ttl.uy, ttl.uw, ttl.uh)
-   EraseArea(sub.ux, sub.uy, sub.uw, sub.uh)
-   CenterString(ttl.ux + ttl.uw / 2, ttl.uy + ttl.uh / 2, value)
+   EraseArea(ttl.ux, ttl.uy, ttl.uw, ttl.uh);
+   EraseArea(sub.ux, sub.uy, sub.uw, sub.uh);
+   CenterString(ttl.ux + ttl.uw / 2, ttl.uy + ttl.uh / 2, value);
 
    # open and display the font
-   EraseArea(rgn.ux, rgn.uy, rgn.uw, rgn.uh)
+   EraseArea(rgn.ux, rgn.uy, rgn.uw, rgn.uh);
    if win := Clone("font=" || value) then {
-      dumpfont(win, rgn.ux, rgn.uy, rgn.uw, rgn.uh)
-      fontname := Font(win)
+      dumpfont(win, rgn.ux, rgn.uy, rgn.uw, rgn.uh);
+      fontname := Font(win);
       if fontname ~== value then
          CenterString(sub.ux + sub.uw / 2, sub.uy + sub.uh / 2, fontname)
       }
@@ -94,25 +94,25 @@ procedure dumpfont(win, x, y, w, h)
    local dx, dy, x1, x2, y1, y2, i, j
 
    # calculate size of cells
-   dx := (w - 1.001) / 16.0
-   dy := (h - 1.001) / 16.0
+   dx := (w - 1.001) / 16.0;
+   dy := (h - 1.001) / 16.0;
 
    # draw light gray lines to delimit character cells
-   Fg("light gray")
+   Fg("light gray");
    every x1 := x + integer(dx * (1 to 15)) do
       DrawLine(x1, y, x1, y + h - 1)
    every y1 := y + integer(dy * (1 to 15)) do
       DrawLine(x, y1, x + w - 1, y1)
-   Fg("black")
+   Fg("black");
 
    # display characters, one per cell
    every i := 0 to 15 do {
-      y1 := integer(y + i * dy)
-      y2 := integer(y + (i + 1) * dy)
+      y1 := integer(y + i * dy);
+      y2 := integer(y + (i + 1) * dy);
       every j := 0 to 15 do {
-         x1 := integer(x + j * dx)
-         x2 := integer(x + (j + 1) * dx)
-         Clip(win, x1 + 1, y1 + 1, x2 - x1 - 1, y2 - y1 - 1)
+         x1 := integer(x + j * dx);
+         x2 := integer(x + (j + 1) * dx);
+         Clip(win, x1 + 1, y1 + 1, x2 - x1 - 1, y2 - y1 - 1);
          CenterString(win, (x1 + x2) / 2, (y1 + y2) / 2, char(16 * i + j))
          }
       }

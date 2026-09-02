@@ -139,23 +139,23 @@ global pack_short,pack_long,
 procedure pack(template,values[])	#: pack values into a string
    local result,t,n,c,v,spliced_values
    initial if /pack_short then pack_big_endian()
-   spliced_values := []
+   spliced_values := [];
    every v := !values do {
       if type(v) == "list" then spliced_values |||:= v
       else put(spliced_values,v)
       }
-   values := spliced_values
-   result := ""
+   values := spliced_values;
+   result := "";
    every t := pack_parse_template(template) do {
-      n := t.count
-      c := t.conversion
+      n := t.count;
+      c := t.conversion;
       case c of {
      !"aAbBhH": {
 	#
 	# Handle string.
 	#
 	v := string(get(values)) | break
-	if n == "*" then n := *v
+	if n == "*" then n := *v;
 	result ||:= (case c of {
 	   !"aA": if integer(n) then left(v,n,if c == "A" then " "
 		 else "\0") else v

@@ -64,14 +64,14 @@ global cyr,jyr,days_in_jyr,current_molad,current_day,infolist
 procedure main(cmd)
   local n, p
 
-  clear()
-  banner("PERPETUAL JEWISH/CIVIL CALENDAR","","by","","ALAN D. CORRE")
+  clear();
+  banner("PERPETUAL JEWISH/CIVIL CALENDAR","","by","","ALAN D. CORRE");
   if *cmd = 0 then {
 #putting an asterisk indicates that user might need help
     n := 1; put(cmd,"*")} else
     n := *cmd
     every p := 1 to n do {
-  initialize(cmd[p])
+  initialize(cmd[p]);
   process()}
 end
 
@@ -81,21 +81,21 @@ procedure banner(l[])
 #such as " " or "-"
 #Does not work well if your screen has variable spacing.
 local n
-  write();write();write()
-  writes(char(201)) #top left right angle
-  writes(repl(char(205),78)) #straight line
-  writes(char(187)) #top right right angle
-  writes(char(186)) #upright line at left
-  writes(right(char(186),79)) #upright line at right
+  write();write();write();
+  writes(char(201));  #top left right angle
+  writes(repl(char(205),78));  #straight line
+  writes(char(187));  #top right right angle
+  writes(char(186));  #upright line at left
+  writes(right(char(186),79));  #upright line at right
   every n := 1 to *l do {
-    writes(char(186)) #upright line at left
-    writes(center(l[n],78),char(186)) #string centered followed by upright line
-    writes(char(186)) #upright line at left
+    writes(char(186));  #upright line at left
+    writes(center(l[n],78),char(186));  #string centered followed by upright line
+    writes(char(186));  #upright line at left
     writes(right(char(186),79)) #upright line at right
 }
-  writes(char(200)) #bottom left right angle
-  writes(repl(char(205),78)) #straight line
-  write(char(188)) #bottom right right angle
+  writes(char(200));  #bottom left right angle
+  writes(repl(char(205),78));  #straight line
+  write(char(188));  #bottom right right angle
   write()
 return
 end
@@ -103,20 +103,20 @@ end
 procedure instructions(filename)
 #Gives user access to a help file which is printed out in chunks.
 local filvar,counter,line
-  writes("Do you need instructions? y/n ")
+  writes("Do you need instructions? y/n ");
   if upto('yY',read()) then {
 #The following if-statement fails if the file is not available
-  counter := 0
+  counter := 0;
   if filvar := dopen(filename) then
 #Read the help file. 
     while line := read(filvar) do {
 #Write out a line and increment the counter
-      write(line)
-      counter +:= 1
+      write(line);
+      counter +:= 1;
 #Now we have a screenful; ask if we should continue
       if counter >22 then {
-        write()
-        writes ("More? y/n ")
+        write();
+        writes ("More? y/n ");
 #User has had enough; break out of loop
         if upto('nN',read()) then break  else
 #User wants more; reset counter and continue
@@ -124,7 +124,7 @@ local filvar,counter,line
 #This else goes with the second if-statement; the attempt to open the
 #help file failed:
       write("Sorry, instructions not available.")}
-    write ("Press return to continue.")
+    write ("Press return to continue.");
     read()
 #Close the file if it existed and was opened. If it was never opened
 #the value of filvar will be null. This check has to be made because
@@ -141,7 +141,7 @@ end
 procedure initialize_list()
 #while user views banner, put info of hebcalen.dat into a global list
 local infile,n
-  infolist := list(301)
+  infolist := list(301);
   if not (infile := dopen("hebcalen.dat")) then
     stop("This program must have the file hebcalend.dat line in order to _
           function properly.")    
@@ -154,24 +154,24 @@ end
 procedure initialize_variables()
 #get the closest previous year in the table
 local line,quotient
-  quotient := jyr.yr / 20 + 1
+  quotient := jyr.yr / 20 + 1;
 #only 301 entries. Figure from last if necessary.
   if quotient > 301 then quotient := 301
 #pull the appropriate info, put into global variables
-  line := infolist[quotient]
-  line ? { current_molad.day := tab(upto('%'))
-         move(1)
-	 current_molad.halaqim := tab(upto('%'))
-	 move(1)
-	 cyr.mth := tab(upto('%'))
-	 move(1)
-	 cyr.day := tab(upto('%'))
-	 move(1)
-	 cyr.yr := tab(upto('%'))
+  line := infolist[quotient];
+  line ? { current_molad.day := tab(upto('%'));
+         move(1);
+	 current_molad.halaqim := tab(upto('%'));
+	 move(1);
+	 cyr.mth := tab(upto('%'));
+	 move(1);
+	 cyr.day := tab(upto('%'));
+	 move(1);
+	 cyr.yr := tab(upto('%'));
 	 days_in_jyr := line[-3:0]
 	 }
 #begin at rosh hashana
-  jyr.day := 1
+  jyr.day := 1;
   jyr.mth := 7
 return
 end
@@ -179,23 +179,23 @@ end
 procedure initialize(yr)
 local year
 #initialize global variables
-initial {  cyr := date(0,0,0)
-  jyr := date(0,0,0)
-  current_molad := molad(0,0)
+initial {  cyr := date(0,0,0);
+  jyr := date(0,0,0);
+  current_molad := molad(0,0);
   initialize_list()}
-  clear()
+  clear();
 #user may need help
   if yr == "*" then {
-  instructions("hebcalen.hlp")
-  clear()
+  instructions("hebcalen.hlp");
+  clear();
   writes("Please enter the year. If you are entering a CIVIL year, precede _
-         by + for \ncurrent era, - (the minus sign) for before current era. ")
+         by + for \ncurrent era, - (the minus sign) for before current era. ");
   year := read()} else
   year := yr
   while not (jyr.yr := cleanup(year)) do {
-    writes("I do not understand ",year,". Please try again ")
+    writes("I do not understand ",year,". Please try again ");
     year := read()}
-  clear()
+  clear();
   initialize_variables()
 return
 end
@@ -211,7 +211,7 @@ end
 procedure checkstr(s)
 #does preliminary work on string before cleanup() cleans it up
 local letter,n,newstr
-  newstr := ""
+  newstr := "";
   every n := 1 to *s do
     if integer(s[n]) then
       newstr ||:= s[n]
@@ -229,41 +229,41 @@ local limit,dj,dc
 #The previous line should read 6019. Code has been corrected to erase
 #this mistake. 
   if jyr.yr <= 6019 then {
-    limit := jyr.yr % 20 
+    limit := jyr.yr % 20;
     jyr.yr := ((jyr.yr / 20) * 20)} else {
 #otherwise figure from 6020 and good luck
 #This has been corrected to 6000
-    limit := jyr.yr - 6000
+    limit := jyr.yr - 6000;
     jyr.yr := 6000}
-  ans := "y"
-  establish_jyr()
+  ans := "y";
+  establish_jyr();
   every 1 to limit do {
 #tell user something is going on
-    writes(" .")
+    writes(" .");
 #increment the years, establish the type of Jewish year
-    cyr_augment()
-    jyr_augment()
+    cyr_augment();
+    jyr_augment();
     establish_jyr()}
-  clear() 
+  clear();
   while upto('Yy',ans) do {
-  yj := jyr.yr
-  dj := days_in_jyr
+  yj := jyr.yr;
+  dj := days_in_jyr;
   every n := 1 to 4 do {
-    clear()
+    clear();
     every 1 to 3 do
       write_a_month()
-    write("Press the space bar to continue")
-    write()
-    writes(status_line(yj,dj))
+    write("Press the space bar to continue");
+    write();
+    writes(status_line(yj,dj));
 #be sure that your version of Icon recognises the function getch()
     getch()}
     if jyr.mth = 6 then {
-      clear()
-      write_a_month()
+      clear();
+      write_a_month();
       every 1 to 15 do write()
       write(status_line(yj,dj))}
-    write()
-    writes("Do you wish to continue? Enter y<es> or n<o>. ")
+    write();
+    writes("Do you wish to continue? Enter y<es> or n<o>. ");
 #be sure that your version of Icon recognises the function getch()
     ans := getch()}
 return
@@ -279,16 +279,16 @@ local days,newmonth,newday
  if cyr.mth = 10 then
    days := 61 else
  stop("Error in cyr_augment")
-  writes(" .")
-  days := (days + cyr.day-365+days_in_jyr)
+  writes(" .");
+  days := (days + cyr.day-365+days_in_jyr);
   if isleap(cyr.yr + 1) then days -:= 1
 #cos it takes longer to get there
   if days <= 31 then {newmonth := 8; newday := days} else
   if days <= 61 then {newmonth := 9; newday := days-31} else
   {newmonth := 10; newday := days-61} 
-  cyr.mth := newmonth
-  cyr.day := newday
-  cyr.yr +:= 1
+  cyr.mth := newmonth;
+  cyr.day := newday;
+  cyr.yr +:= 1;
   if cyr.yr = 0 then cyr.yr := 1
 return
 end
@@ -305,7 +305,7 @@ end
 
 procedure write_a_month()
 #writes a month on the screen
-  header()
+  header();
   every 1 to 5 do 
     write(make_a_line())
   if jyr.day ~= 1 then
@@ -317,9 +317,9 @@ end
 procedure status_line(a,b)
 #create the status line at the bottom of screen
 local sline,c,d
-  c := cyr.yr
+  c := cyr.yr;
   if (cyr.day = 1) & (cyr.mth = 1) then c -:= 1
-  d := 365
+  d := 365;
   if isleap(c) then d := 366
 #if ANSI not available omit "\e[7m" and "|| "\e[0m""
   sline := ("\e[7mYear of Creation: " || a || "  Days in year: " || b ||
@@ -333,33 +333,33 @@ local line,blanks1,blanks2,start_point,end_point,flag,fm
 
 #consider the first line of the month
   if jyr.day = 1 then {
-    line := mth_table(jyr.mth,1)
+    line := mth_table(jyr.mth,1);
 #setting flag means insert civil month at end of line    
     flag := 1 } else
     line := repl(" ",3)
 #consider the case where first day of civil month is on Sunday    
   if (cyr.day = 1) & (current_day = 1) then flag := 1
 #space between month name and beginning of calendar
-  line ||:= repl(" ",2)
+  line ||:= repl(" ",2);
 #measure indentation for first line
-  line ||:= blanks1 := repl(" ",3*(current_day-1))
+  line ||:= blanks1 := repl(" ",3*(current_day-1));
 #establish start point for Hebrew loop
-  start_point := current_day
+  start_point := current_day;
 #establish end point for Hebrew loop and run civil loop
   every end_point := start_point to 7 do {
-    line ||:= right(jyr.day,3)
+    line ||:= right(jyr.day,3);
     if not j_augment() then {jyr_augment(); establish_jyr(); current_day -:= 1; if current_day = 0 then current_day := 7}
-    d_augment()
+    d_augment();
     if jyr.day = 1 then break }
 #measure indentation for last line
-  blanks2 := repl(" ",3*(7-end_point))
-  line ||:= blanks2; line ||:= repl(" ",25); line ||:= blanks1
+  blanks2 := repl(" ",3*(7-end_point));
+  line ||:= blanks2; line ||:= repl(" ",25); line ||:= blanks1;
   every start_point to end_point do {
-    line ||:= right(cyr.day,3)
+    line ||:= right(cyr.day,3);
     if (cyr.day = 1) then flag := 1 
     augment()}
-  line ||:= blanks2 ||:= repl(" ",3)
-  fm := cyr.mth
+  line ||:= blanks2 ||:= repl(" ",3);
+  fm := cyr.mth;
   if cyr.day = 1 then
     if cyr.mth = 1 then fm := 12 else fm := cyr.mth - 1
   if \flag then line ||:= mth_table(fm,2) else
@@ -381,7 +381,7 @@ end
 
 procedure d_augment()
 #increment the day of the week
-  current_day +:= 1
+  current_day +:= 1;
   if current_day = 8 then current_day := 1
 return
 end
@@ -394,23 +394,23 @@ procedure augment()
   if cyr.day = 28 then {
     if (cyr.mth ~= 2) | ((cyr.mth = 2) & isleap(cyr.yr)) then
       cyr.day := 29 else {
-        cyr.mth := 3
+        cyr.mth := 3;
 	cyr.day  := 1}} else
   if cyr.day = 29 then {
     if cyr.mth ~= 2 then
       cyr.day := 30 else {
-      cyr.mth := 3
+      cyr.mth := 3;
       cyr.day := 1}} else
   if cyr.day = 30 then {
     if is_31(cyr.mth) then
       cyr.day := 31 else {
-      cyr.mth +:= 1
+      cyr.mth +:= 1;
       cyr.day := 1}} else {
-      cyr.day := 1
+      cyr.day := 1;
       if cyr.mth ~= 12 then
         cyr.mth +:= 1 else {
-        cyr.mth := 1
-        cyr.yr +:= 1
+        cyr.mth := 1;
+        cyr.yr +:= 1;
         if cyr.yr = 0
 	  then cyr.yr := 1}}
 return
@@ -454,23 +454,23 @@ procedure jyr_augment()
 #of 1/1080 of an hour. lunation of tishri determines type of year. allows
 #for leap year. halaqim = parts of the hour
 local days, halaqim
-  days := current_molad.day + 4
+  days := current_molad.day + 4;
   if days_in_jyr <= 355 then {
-    halaqim :=  current_molad.halaqim + 9516
-    days := ((days +:= halaqim / 25920) % 7)
+    halaqim :=  current_molad.halaqim + 9516;
+    days := ((days +:= halaqim / 25920) % 7);
     if days = 0 then days := 7
     halaqim := halaqim % 25920} else {
-    days +:= 1
-    halaqim := current_molad.halaqim + 23269
-    days := ((days +:= halaqim / 25920) % 7)
+    days +:= 1;
+    halaqim := current_molad.halaqim + 23269;
+    days := ((days +:= halaqim / 25920) % 7);
     if days = 0 then days := 7
     halaqim := halaqim % 25920}
-  current_molad.day := days
-  current_molad.halaqim := halaqim
+  current_molad.day := days;
+  current_molad.halaqim := halaqim;
 #reset the global variable which holds the current jewish date
-  jyr.yr +:= 1 #increment year
-  jyr.day := 1
-  jyr.mth := 7
+  jyr.yr +:= 1;  #increment year
+  jyr.day := 1;
+  jyr.mth := 7;
   establish_jyr()
 return
 end
@@ -478,8 +478,8 @@ end
 procedure establish_jyr()
 #establish the jewish year from get_rh
 local res
-  res := get_rh(current_molad.day,current_molad.halaqim,no_lunar_yr(jyr.yr))
-  days_in_jyr := res[2]
+  res := get_rh(current_molad.day,current_molad.halaqim,no_lunar_yr(jyr.yr));
+  days_in_jyr := res[2];
   current_day := res[1]
 return
 end    
@@ -520,10 +520,10 @@ procedure get_rh(d,h,yr)
 #of the hour. return result in a list where 1 is day of rosh hashana and
 #2 is length of jewish year
 local c,result
-  c := no_lunar_yr(yr)
-  result := list(2)
+  c := no_lunar_yr(yr);
+  result := list(2);
   if d = 1 then {
-  		result[1] := 2
+  		result[1] := 2;
                 if (h < 9924) & isin4(c) then result[2] := 353 else
 		if (h < 22091) & isin3(c) then result[2] := 383 else
 		if (h > 9923) & (isin1(c) | isin2(c)) then result[2] := 355 else
@@ -532,66 +532,66 @@ local c,result
   if d = 2 then {
   		if ((h < 16789) & isin1(c)) |
 		   ((h < 19440) & isin2(c)) then {
-				                 result[1] := 2
+				                 result[1] := 2;
 					         result[2] := 355
 					         } else
 		if (h < 19440) & isin3(c) then  {
-				                 result[1] := 2
+				                 result[1] := 2;
 					         result[2] := 385
 					         } else
   		if ((h > 16788) & isin1(c)) |
 		   ((h > 19439) & isin2(c)) then {
-				                 result[1] := 3
+				                 result[1] := 3;
 					         result[2] := 354
 					         } else
                 if (h > 19439) & isin3(c) then  {
-				                 result[1] := 3
+				                 result[1] := 3;
 					         result[2] := 384
 					         }
 		} else
   if d = 3 then {
   		if (h < 9924) & (isin1(c) | isin2(c)) then {
-							   result[1] := 3
+							   result[1] := 3;
 							   result[2] := 354
 							   } else
 		if (h < 19440) & isin3(c) then {
-					       result[1] := 3
+					       result[1] := 3;
 					       result[2] := 384
 					       } else
 		if (h > 9923) & isin4(c) then {
-					      result[1] := 5
+					      result[1] := 5;
 					      result[2] := 354
 					      } else
 		if (h > 19439) & isin3(c) then {
-					       result[1] := 5
+					       result[1] := 5;
 					       result[2] := 383}
 		} else
   if d = 4 then {
-  		result[1] := 5
+  		result[1] := 5;
 		if isin4(c) then result[2] := 354 else
 		if h < 12575 then result[2] := 383 else
 		result[2] := 385
 		} else
   if d = 5 then {
                 if (h < 9924) & isin4(c) then {
-					      result[1] := 5
+					      result[1] := 5;
 					      result[2] := 354} else
 		if (h < 19440) & isin3(c) then {
-					       result[1] := 5
+					       result[1] := 5;
 					       result[2] := 385
 					       } else
 		if (9923 < h < 19440) & isin4(c) then {
-						      result[1] := 5
+						      result[1] := 5;
 						      result[2] := 355
 						      } else
 		if h > 19439 then {
-		  		  result[1] := 7
+		  		  result[1] := 7;
                 		  if isin3(c) then result[2] := 383 else
 		                    result[2] := 353
 				  }
 		} else
   if d = 6 then {
-	        result[1] := 7
+	        result[1] := 7;
 	        if ((h < 408) & isin5(c)) | ((h < 9924) & isin6(c)) then
 	      					result[2] := 353 else
 	        if ((h < 22091) & isin3(c)) then result[2] := 383 else
@@ -600,14 +600,14 @@ local c,result
 	        if (h > 22090) & isin3(c) then result[2] := 385
 	        } else
   if d = 7 then	if (h < 19440) & (isin5(c) | isin6(c)) then {
-							  result[1] := 7
+							  result[1] := 7;
 							  result[2] := 355
 							  } else
 		if (h < 19440) & isin3(c) then {
-					       result[1] := 7
+					       result[1] := 7;
 					       result[2] := 385
 					       } else {
-					              result[1] := 2
+					              result[1] := 2;
 						      if isin4(c) then
 						        result[2] := 353 else
 							result[2] := 383}

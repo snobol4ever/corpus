@@ -45,11 +45,11 @@ procedure Vradio_entry(params[])
    initial procs := Vstd(event_Vradio_entry, draw_Vradio_entry,
       outline_radio_pane, resize_Vidget, inrange_Vpane, init_Vradio_entry,
                         couplerset_Vradio_entry)
-   self := Vradio_entry_rec ! params
-   self.uid := Vget_uid()
-   Vset_style(self, self.style)
-   self.V := procs
-   self.P := Vstd_pos()
+   self := Vradio_entry_rec ! params;
+   self.uid := Vget_uid();
+   Vset_style(self, self.style);
+   self.V := procs;
+   self.P := Vstd_pos();
    self.V.init(self)
    return self
 end
@@ -76,11 +76,11 @@ end
 #
 procedure draw_Vradio_entry(self)
    if self.callback.value === self.id then {
-      self.D.draw_on(self)
+      self.D.draw_on(self);
       self.don := 1
       }
    else {
-      self.D.draw_off(self)
+      self.D.draw_off(self);
       self.don := &null
       }
 end
@@ -89,7 +89,7 @@ end
 #  The coupler notified us, turn "off".
 #
 procedure couplerset_Vradio_entry(self)
-   self.D.draw_off(self)
+   self.D.draw_off(self);
    self.don := &null
 end
 
@@ -100,8 +100,8 @@ end
 procedure event_Vradio_entry(self, e)
 
    if self.callback.value ~=== self.id | /self.don then {
-      self.callback.V.set(self.callback, self, self.id)
-      self.D.draw_on(self)
+      self.callback.V.set(self.callback, self, self.id);
+      self.D.draw_on(self);
       self.don := 1
       }
    if \e === (&lrelease|&mrelease|&rrelease) then 
@@ -130,13 +130,13 @@ procedure Vradio_frame(params[])
                    lookup_Vframe, set_abs_Vframe, set_value_Vradio_frame)
    }
 
-   self := Vradio_frame_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
-   self.P := Vstd_pos()
-   self.V.init(self)
-   p := \self.callback
-   self.callback := Vcoupler()
+   self := Vradio_frame_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.P := Vstd_pos();
+   self.V.init(self);
+   p := \self.callback;
+   self.callback := Vcoupler();
    add_clients_Vinit(self.callback, p, self)
    
    return self
@@ -153,15 +153,15 @@ procedure event_Vradio_frame(self, e, x, y)
    if \self.callback.locked then fail
    if e ~=== &lpress & e ~=== &mpress & e ~=== &rpress then fail
    focus := self.V.lookup(self, x, y)
-   (\focus).V.event(focus, e)
+   (\focus).V.event(focus, e);
    repeat {
-      e := Event(self.win)
+      e := Event(self.win);
       if e === "\^s" then
          until Event(self.win) === (&lpress|&mpress|&rpress) ;
       if self.V.inrange(self, &x, &y) then 
          focus := self.V.lookup(self, &x, &y)
       if rv := (\focus).V.event(focus, e) then {
-         self.data := rv.s
+         self.data := rv.s;
          self.callback.V.set(self.callback, rv, rv.s)
          return rv.s
       }
@@ -176,27 +176,27 @@ procedure set_value_Vradio_frame(self, value)
    local old, kid, id, s, k
 
    if (/value | *value = 0 | value === V_DUMMY_ID) then {
-      kid := &null
-      id := V_DUMMY_ID
+      kid := &null;
+      id := V_DUMMY_ID;
       s := ""
       }
    else {
-      kid := self.cv.curr_id
-      id := self.cv.value
-      s := self.data
+      kid := self.cv.curr_id;
+      id := self.cv.value;
+      s := self.data;
       every (k := !self.lookup | fail) do 
          if value === k.s then {
-            id := k.id
-            kid := k
-            s := value
+            id := k.id;
+            kid := k;
+            s := value;
             break
             }
       }
 
-   old := self.cv.curr_id
-   self.cv.curr_id := kid
-   self.cv.value := id
-   self.data := s
+   old := self.cv.curr_id;
+   self.cv.curr_id := kid;
+   self.cv.value := id;
+   self.data := s;
 
    self.callback.V.set(self.callback, self, self.data)
 
@@ -230,20 +230,20 @@ procedure Vvert_radio_buttons(params[])
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   win := params[1]
-   s := params[2]
-   callback := params[3]
-   id := params[4]
-   style := params[5]
-   uncentered := params[6]
+   win := params[1];
+   s := params[2];
+   callback := params[3];
+   id := params[4];
+   style := params[5];
+   uncentered := params[6];
 
-   Vwin_check(win, "Vradio_buttons()")
+   Vwin_check(win, "Vradio_buttons()");
    if type(s) ~== "list" then 
       _Vbomb("data parameter to Vradio_buttons must be a list of strings") 
-   cv := Vmenu_coupler()
-   rb_frame := Vradio_frame(win, cv, callback, id)
+   cv := Vmenu_coupler();
+   rb_frame := Vradio_frame(win, cv, callback, id);
    if /uncentered then {
-      max := 0
+      max := 0;
       every i := !s do max <:= TextWidth(win, i)
       max +:= 8
       }
@@ -251,12 +251,12 @@ procedure Vvert_radio_buttons(params[])
 	 V_CHECK_NO | V_CIRCLE_NO | V_DIAMOND_NO) then
       max +:= 4 + WAttrib(win, "fheight")
    every i := 1 to *s do {
-      rb := Vradio_entry(win, s[i], cv, i, style, max)
+      rb := Vradio_entry(win, s[i], cv, i, style, max);
       VInsert(rb_frame, rb, 0, (i-1)*rb.ah)
    }
 
-   init_format_Vrb(rb_frame)
-   format_Vradio_frame(rb_frame)
+   init_format_Vrb(rb_frame);
+   format_Vradio_frame(rb_frame);
 
    if \ins then VInsert(frame, rb_frame, x, y)
    return rb_frame
@@ -272,27 +272,27 @@ procedure Vhoriz_radio_buttons(params[])
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   win := params[1]
-   s := params[2]
-   callback := params[3]
-   id := params[4]
-   style := params[5]
+   win := params[1];
+   s := params[2];
+   callback := params[3];
+   id := params[4];
+   style := params[5];
 
-   Vwin_check(win, "Vradio_buttons()")
+   Vwin_check(win, "Vradio_buttons()");
    if type(s) ~== "list" then
       _Vbomb("data parameter to Vradio_buttons must be a list of strings")
-   cv := Vmenu_coupler()
-   rb_frame := Vradio_frame(win, cv, callback, id)
-   hpos := 0
+   cv := Vmenu_coupler();
+   rb_frame := Vradio_frame(win, cv, callback, id);
+   hpos := 0;
    every i := 1 to *s do {
-      rb := Vradio_entry(win, s[i], cv, i, style)
-      VInsert(rb_frame, rb, hpos, 0)
+      rb := Vradio_entry(win, s[i], cv, i, style);
+      VInsert(rb_frame, rb, hpos, 0);
       hpos +:= rb.aw
    }
 
-   init_format_Vrb(rb_frame)
+   init_format_Vrb(rb_frame);
    rb_frame.V.resize(rb_frame, 0, 0, Vmin_frame_width(rb_frame), 
-      Vmin_frame_height(rb_frame))
+      Vmin_frame_height(rb_frame));
 
    if \ins then VInsert(frame, rb_frame, x, y)
    return rb_frame
@@ -303,8 +303,8 @@ end
 #	
 procedure init_format_Vrb(rb_frame)
 
-   rb_frame.cv.value :=  V_DUMMY_ID
-   rb_frame.cv.curr_id := &null
+   rb_frame.cv.value :=  V_DUMMY_ID;
+   rb_frame.cv.curr_id := &null;
    rb_frame.data := ""
 end
 
@@ -314,7 +314,7 @@ end
 procedure format_Vradio_frame(self, width)
 local maxwidth, child
 
-   maxwidth := \width | Vmin_frame_width(self) + 4
+   maxwidth := \width | Vmin_frame_width(self) + 4;
    every child := !self.lookup do {
       child.P.w := maxwidth
    }

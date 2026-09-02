@@ -136,10 +136,10 @@ link strings
 procedure adp(i)		#: additive digital persistence
    local j
 
-   j := 0
+   j := 0;
 
    until *i = 1 do {
-      i := digsum(i)
+      i := digsum(i);
       j +:= 1
       }
 
@@ -161,7 +161,7 @@ procedure amean(L[])		#: arithmetic mean
 
    if *L = 0 then fail
 
-   m := 0.0
+   m := 0.0;
    every m +:= !L
 
    return m / *L
@@ -191,9 +191,9 @@ procedure commas(s)		#: insert commas in number
       not pos(0) & s2 := "." || tab(0)
       }
 
-   /s2 := ""
+   /s2 := "";
    integer(s) ? {
-      tab(0)
+      tab(0);
       while s2 := "," || move(-3) || s2
       if pos(1)
       then s2 ?:= (move(1), tab(0))
@@ -207,18 +207,18 @@ end
 procedure decimal(i, j)		#: decimal expansion of rational
    local head, tail, numers, count
 
-   head := (i / j) || "."
-   tail := ""
-   numers := table()
+   head := (i / j) || ".";
+   tail := "";
+   numers := table();
 
-   i %:= j
-   count := 0
+   i %:= j;
+   count := 0;
 
    while i > 0 do {
-      numers[i] := count
-      i *:= 10
-      tail ||:= i / j
-      i %:= j
+      numers[i] := count;
+      i *:= 10;
+      tail ||:= i / j;
+      i %:= j;
       if \numers[i] then	# been here; done that
 	 return head || (tail ? (move(numers[i]) || "[" || tab(0) || "]"))
       count +:= 1
@@ -232,15 +232,15 @@ procedure decipos(r, i, j)	#: position decimal point
    local head, tail
 
    /i := 3
-   /j := 5
+   /j := 5;
 
-   r := real(r) | stop("*** non-numeric in decipos()")
+   r := real(r) | stop("*** non-numeric in decipos()");
 
    if i < 1 then fail
 
    r ? {
-      head := tab(upto('.eE')) | fail
-      move(1)
+      head := tab(upto('.eE')) | fail;
+      move(1);
       tail := tab(0)
       return left(right(head, i - 1) || "." || tail, j)
       }
@@ -281,12 +281,12 @@ end
 procedure digsum(i)		#: sum of digits
    local j
 
-   i := integer(i) | fail
+   i := integer(i) | fail;
 
    repeat {
-      j := 0
+      j := 0;
       every j +:= !i
-      suspend j
+      suspend j;
       if *j > 1 then i := j else fail
       }
 
@@ -299,22 +299,22 @@ end
 procedure distseq(low, high)		#: generate low to high nonsequentially
    local n, start, incr, range
 
-   low := integer(low) | runerr(101, low)
-   high := integer(high) | runerr(101, high)
+   low := integer(low) | runerr(101, low);
+   high := integer(high) | runerr(101, high);
    if low > high then fail
-   range := high - low + 1
+   range := high - low + 1;
    start := n := range / 2
 
-   suspend low + n
+   suspend low + n;
 
-   incr := integer(range / &phi ^ 2 + 0.5)
+   incr := integer(range / &phi ^ 2 + 0.5);
    if incr <= 1 then 
       incr := 1
    else while gcd(incr, range) > 1 do
       incr +:= 1
 
    repeat {
-      n := (n + incr) % range
+      n := (n + incr) % range;
       if n = start then fail
       suspend low + n
       }
@@ -332,24 +332,24 @@ procedure fix(i, j, w, d)	#: format real number
 
    /j := 1
    /w := 8
-   /d := 3
+   /d := 3;
    if j = 0 then fail
-   w <:= 3
-   d <:= 1
-   r := real(i) / j
+   w <:= 3;
+   d <:= 1;
+   r := real(i) / j;
    if r < 0 then {
-      r  := -r
+      r  := -r;
       sign := "-"
       }
    else sign:=""
 
-   int := dec := "0"  # prepare for small number
+   int := dec := "0";  # prepare for small number
 
    if not(r < ("0." || repl("0", d - 1) || "1")) then { # formats as zero
       string(r) ? {
          if upto('eE') then fail # can't format
          if int := tab(find(".")) then {
-            move(1)
+            move(1);
             dec := tab(0)
             }
          }
@@ -373,14 +373,14 @@ procedure frn(r, w, d)		#: format real number
    initial every put(mlist := list(), 10.0 ^ (0 to MAXDECIMALS))
 
    r := real(r) | runerr(102, r)
-   (/d := 0) | (d >:= MAXDECIMALS)
+   (/d := 0) | (d >:= MAXDECIMALS);
    if r >= 0.0 then {
-      s := string(integer(r * mlist[d + 1] + 0.5))
+      s := string(integer(r * mlist[d + 1] + 0.5));
       s := right(s, *s < d + 1, "0")
       }
    else {
-      s := string(integer(-r * mlist[d + 1] + 0.5))
-      s := right(s, *s < d + 1, "0")
+      s := string(integer(-r * mlist[d + 1] + 0.5));
+      s := right(s, *s < d + 1, "0");
       s := "-" || s
       }
    s := right(s, *s < (\w - 1))
@@ -392,15 +392,15 @@ end
 procedure gcd(i, j)		#: greatest common divisor
    local r
 
-   i <:= -i			# ensure positive arguments
-   j <:= -j
+   i <:= -i;  # ensure positive arguments
+   j <:= -j;
    if i = 0 then if j ~= 0 then return j else runerr(202)
    if j = 0 then if i ~= 0 then return i else runerr(202)
 
    repeat {
-      r := i % j
+      r := i % j;
       if r = 0 then return j
-      i := j
+      i := j;
       j := r
       }
 end
@@ -408,7 +408,7 @@ end
 procedure gcdl(L[])		#: greatest common divisor of list
    local i, j
 
-   i := get(L) | fail
+   i := get(L) | fail;
 
    while j := get(L) do
       i := gcd(i, j)
@@ -422,9 +422,9 @@ procedure gmean(L[])		#: geometric mean
 
    if *L = 0 then fail
 
-   m := 1.0
+   m := 1.0;
    every m *:= !L
-   m := abs(m)
+   m := abs(m);
    if m > 0.0 then
       return exp (log(m) / *L)
    else
@@ -436,7 +436,7 @@ procedure hmean(L[])		#: harmonic mean
 
    if *L = 0 then fail
 
-   m := 0.0
+   m := 0.0;
 
    every r := !L do {
       if r = 0.0 then fail
@@ -456,8 +456,8 @@ end
 procedure large(i)		#: detect large integers
    local mem
 
-   mem := &allocated
-   i +:= 0
+   mem := &allocated;
+   i +:= 0;
    if &allocated > mem then return i
    else fail
 
@@ -474,7 +474,7 @@ end
 procedure lcml(L[])		#: least common multiple of list
    local i, j
 
-   i := get(L) | fail
+   i := get(L) | fail;
 
    while j := get(L) do
       i := lcm(i, j)
@@ -486,21 +486,21 @@ end
 procedure mantissa(r)		#: mantissa (fractional part)
    local fpart
 
-   r := real(r)
+   r := real(r);
 
-   fpart := r - floor(r)
+   fpart := r - floor(r);
 
    fpart ?:= {
-      tab(upto('.') + 1)
+      tab(upto('.') + 1);
       tab(0)
       }
 
    fpart ? {
       if fpart := tab(upto('Ee')) then {
-         move(1)
+         move(1);
          if = "+" then fpart := "0"
          else {
-            move(1)
+            move(1);
             fpart := repl("0", tab(0) - 1) || fpart
             }
          }
@@ -513,7 +513,7 @@ end
 procedure max(values[])		#: maximum value
    local maximum
 
-   maximum := get(values) | fail
+   maximum := get(values) | fail;
    every maximum <:= !values
 
    return maximum
@@ -523,10 +523,10 @@ end
 procedure mdp(i)		#: multiplicative digital persistence
    local j
 
-   j := 0
+   j := 0;
 
    until *i = 1 do {
-      i := digprod(i)
+      i := digprod(i);
       j +:= 1
       }
 
@@ -546,7 +546,7 @@ end
 procedure min(values[])		#: minimum value
    local minimum
 
-   minimum := get(values) | fail
+   minimum := get(values) | fail;
    every minimum >:= !values
 
    return minimum
@@ -555,7 +555,7 @@ end
 
 procedure mod1(i, m)		#: modulus for 1-based integers
 
-   i %:= m
+   i %:= m;
 
    if i < 1 then i +:= m
 
@@ -575,16 +575,16 @@ procedure qmean(L[])			#: quadratic mean
    local m
 
    if *L = 0 then fail
-   m := 0.0
+   m := 0.0;
    every m +:= !L ^ 2
    return sqrt(m / *L)
 end
 
 procedure residue(i, m, j)		#: residue for j-based integers
 
-   /j := 0
+   /j := 0;
 
-   i %:= m
+   i %:= m;
 
    if i < j then i +:= m
 
@@ -600,8 +600,8 @@ procedure roman(n)		#: convert integer to Roman numeral
 
    initial equiv := ["","I","II","III","IV","V","VI","VII","VIII","IX"]
 
-   integer(n) > 0 | fail
-   result := ""
+   integer(n) > 0 | fail;
+   result := "";
    every arabic := !n do
       result := map(result,"IVXLCDM","XLCDM**") || equiv[arabic + 1]
    if find("*",result) then fail else return result
@@ -635,20 +635,20 @@ procedure spell(n)		#: spell integer in American English
    static scale 
    initial {
       scale := [ "thousand", "million", "billion", "trillion", "quadrillion",
-         "quintillion", "sextillion", "septillion"]  
+         "quintillion", "sextillion", "septillion"];
       every scale[i := 1 to *scale ] :=
          [ integer(repl("999", i + 1)), -3 * i, " " || scale[i] ]
       push(scale, [999, 2, " hundred"])
       }
 
-   n := integer(n) | stop(image(n), " is not an integer")
+   n := integer(n) | stop(image(n), " is not an integer");
    if n < 0 then
       return "negative " || spell(-n)
    if n <= 14 then return {
       "0zero,1one,2two,3three,4four,5five,6six,7seven,8eight,_
          9nine,10ten,11eleven,12twelve,13thirteen,14fourteen," ? {
-            tab(find(n))
-            move(*n)
+            tab(find(n));
+            move(*n);
             tab(find(","))
             }
       }
@@ -657,8 +657,8 @@ procedure spell(n)		#: spell integer in American English
       }
    else if n <= 99 then return {
       "2twen,3thir,4for,5fif,6six,7seven,8eigh,9nine," ? {
-         tab(find(n[1]))
-         move(1)
+         tab(find(n[1]));
+         move(1);
          tab(find(",")) || "ty" ||
             (if n[2] ~= 0 then "-" || spell(n[2]) else "")
          }
@@ -674,7 +674,7 @@ end
 procedure sum(values[])		#: sum of numbers
    local result
 
-   result := 0
+   result := 0;
 
    every result +:= !values
 
@@ -691,7 +691,7 @@ end
 procedure unroman(s)		#: convert Roman numeral to integer
    local nbr,lastVal,val
 
-   nbr := lastVal := 0
+   nbr := lastVal := 0;
 
    s ? {
       while val := case map(move(1)) of {
@@ -703,7 +703,7 @@ procedure unroman(s)		#: convert Roman numeral to integer
 	 "v": 5
 	 "i": 1
 	 } do {
-	 nbr +:= if val <= lastVal then val else val - 2 * lastVal
+	 nbr +:= if val <= lastVal then val else val - 2 * lastVal;
 	 lastVal := val
 	 }
       }

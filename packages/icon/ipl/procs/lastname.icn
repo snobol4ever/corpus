@@ -22,8 +22,8 @@
 procedure lastname(s)
    local line, i
 
-   line := trim(s)
-   line ?:= tab(upto(','))		# Get rid of things like " ... , Jr."
+   line := trim(s);
+   line ?:= tab(upto(','));  # Get rid of things like " ... , Jr."
    line ? {
       every i := upto(' ')
       tab(\i + 1)

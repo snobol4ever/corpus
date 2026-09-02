@@ -73,7 +73,7 @@ $define SliderMin	1.0
 
 procedure main()
 
-   init()
+   init();
 
    kaleidoscope()
 
@@ -82,41 +82,41 @@ end
 procedure init()
    local s
 
-   randomize()
+   randomize();
 
-   vidgets := ui()
+   vidgets := ui();
 
-   root := vidgets["root"]
-   size := vidgets["region"].uw
+   root := vidgets["root"];
+   size := vidgets["region"].uw;
    if vidgets["region"].uh ~= size then stop("*** improper interface layout")
 
-   delay := 0.5
-   density := DensityMax / 2.0
-   max_radius := SliderMax			# scaled later
-   min_radius := SliderMin
-   scale_radius := (size / 4) / SliderMax
+   delay := 0.5;
+   density := DensityMax / 2.0;
+   max_radius := SliderMax;  # scaled later
+   min_radius := SliderMin;
+   scale_radius := (size / 4) / SliderMax;
 
-   draw_proc := FillCircle
+   draw_proc := FillCircle;
 
-   colors := []
-   s := PaletteChars("c3") -- PaletteGrays("c3")
+   colors := [];
+   s := PaletteChars("c3") -- PaletteGrays("c3");
    every put(colors, PaletteColor("c3", !s))
 
-   pause := vidgets["pause"]
+   pause := vidgets["pause"];
 
-   VSetState(pause, 1)
-   VSetState(vidgets["density"], (density / DensityMax) * SliderMax)
-   VSetState(vidgets["delay"], delay)
-   VSetState(vidgets["min_radius"], min_radius * 2)
-   VSetState(vidgets["max_radius"], max_radius / 2)
-   VSetState(vidgets["shape"], "discs")
+   VSetState(pause, 1);
+   VSetState(vidgets["density"], (density / DensityMax) * SliderMax);
+   VSetState(vidgets["delay"], delay);
+   VSetState(vidgets["min_radius"], min_radius * 2);
+   VSetState(vidgets["max_radius"], max_radius / 2);
+   VSetState(vidgets["shape"], "discs");
 
 #  Get graphics context for drawing.
 
-   half := size / 2
+   half := size / 2;
 
    pane := Clone("bg=black", "dx=" || (vidgets["region"].ux + half),
-      "dy=" || (vidgets["region"].uy + half), "drawop=reverse")
+      "dy=" || (vidgets["region"].uy + half), "drawop=reverse");
    Clip(pane, -half, -half, size, size)
 
    return
@@ -130,20 +130,20 @@ procedure kaleidoscope()
 
    repeat {
 
-      EraseArea(pane, -half, -half, size, size)	# clear display
-      draw_list := []				# new drawing list
-      reset := &null
+      EraseArea(pane, -half, -half, size, size);  # clear display
+      draw_list := [];  # new drawing list
+      reset := &null;
 
       #  In this loop a new circle is drawn and an old one erased, once the
       #  specified density has been reached.  This maintains a steady state.
 
       repeat {
          while (*Pending() > 0) | \VGetState(pause) do {
-            ProcessEvent(root, , shortcuts)
+            ProcessEvent(root, , shortcuts);
             if \reset then break break next
             }
-         putcircle()
-         WDelay(delay)
+         putcircle();
+         WDelay(delay);
 
          #  Don't start clearing circles until the specified density has
          #  reached. (The drawing list has four elements for each circle.)
@@ -159,14 +159,14 @@ procedure putcircle()
 
    # get a random center point and radius
 
-   off1 := ?size % half
-   off2 := ?size % half
-   radius := ((max_radius - min_radius) * ?0 + min_radius) * scale_radius
-   radius <:= 1			# don't let them vanish
+   off1 := ?size % half;
+   off2 := ?size % half;
+   radius := ((max_radius - min_radius) * ?0 + min_radius) * scale_radius;
+   radius <:= 1;  # don't let them vanish
 
-   color := ?colors
+   color := ?colors;
    
-   put(draw_list, circle(off1, off2, radius, color))
+   put(draw_list, circle(off1, off2, radius, color));
 
    outcircle(off1, off2, radius, color)
 
@@ -177,7 +177,7 @@ end
 procedure clrcircle()
    local circle
 
-   circle := get(draw_list)
+   circle := get(draw_list);
 
    outcircle(
      circle.off1,
@@ -192,17 +192,17 @@ end
 
 procedure outcircle(off1, off2, radius, color)
 
-   Fg(pane, color)
+   Fg(pane, color);
 
    # Draw in symmetric positions.
 
-   draw_proc(pane, off1, off2, radius)
-   draw_proc(pane, off1, -off2, radius)
-   draw_proc(pane, -off1, off2, radius)
-   draw_proc(pane, -off1,-off2, radius)
-   draw_proc(pane, off2, off1, radius)
-   draw_proc(pane, off2, -off1, radius)
-   draw_proc(pane, -off2, off1, radius)
+   draw_proc(pane, off1, off2, radius);
+   draw_proc(pane, off1, -off2, radius);
+   draw_proc(pane, -off1, off2, radius);
+   draw_proc(pane, -off1,-off2, radius);
+   draw_proc(pane, off2, off1, radius);
+   draw_proc(pane, off2, -off1, radius);
+   draw_proc(pane, -off2, off1, radius);
    draw_proc(pane, -off2,-off1, radius)
 
    return
@@ -211,8 +211,8 @@ end
 
 procedure density_cb(vidget, value)
 
-   density := (value / SliderMax) * DensityMax
-   density <:= 1
+   density := (value / SliderMax) * DensityMax;
+   density <:= 1;
 
    reset := 1
 
@@ -239,10 +239,10 @@ end
 
 procedure max_radius_cb(vidget, value)
 
-   max_radius := value
+   max_radius := value;
 
    if max_radius < min_radius then {	# if max < min lower min
-      min_radius := max_radius
+      min_radius := max_radius;
       VSetState(vidgets["min_radius"], min_radius)
       }
 
@@ -254,10 +254,10 @@ end
 
 procedure min_radius_cb(vidget, value)
 
-   min_radius := value
+   min_radius := value;
 
    if min_radius > max_radius then {	# if min > max raise max
-      max_radius := min_radius
+      max_radius := min_radius;
       VSetState(vidgets["max_radius"], max_radius)
       }
 

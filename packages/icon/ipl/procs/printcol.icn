@@ -94,19 +94,19 @@ procedure printcol(items,fields,title,pagelength,linelength,auxdata)
 	hfield
   /linelength := 80
   /pagelength := 30000
-  /title := ""
+  /title := "";
 #
 #  Compute the maximum field width (so we know the column spacing) and
 #  the maximum header width (so we know how much space to leave on the
 #  left for headings.
 #
-  maxwidth := maxhead := -1 
-  cont := ""
+  maxwidth := maxhead := -1;
+  cont := "";
   every maxwidth <:= (!fields)("width",auxdata)
-  hfield := get(fields)
+  hfield := get(fields);
   every maxhead <:= *(!fields)("header",auxdata)
-  columns := (linelength - maxhead) / (maxwidth + 1)
-  groups := pagelength / (6 + *fields)
+  columns := (linelength - maxhead) / (maxwidth + 1);
+  groups := pagelength / (6 + *fields);
 #
 #  Loop to print groups of data.
 #
@@ -120,26 +120,26 @@ procedure printcol(items,fields,title,pagelength,linelength,auxdata)
 #  Collect the items to be output in this group.  A group is the number
 #  of columns that can fit across the page.
 #
-      itemlist := []
+      itemlist := [];
       every 1 to columns do put(itemlist,@items) | break
       if *itemlist = 0 then break break
 #
 #  Print a title and the column headings.
 #
       write(repl("=",*write("\n",title || cont)))
-      cont := " (continued)"
-      writes(underline := left("",maxhead))
+      cont := " (continued)";
+      writes(underline := left("",maxhead));
       every f := hfield(!itemlist,auxdata) do {
-	p := if *f < maxwidth then center else left
-	writes(" ",p(f,maxwidth))
+	p := if *f < maxwidth then center else left;
+	writes(" ",p(f,maxwidth));
 	underline ||:= " " || p(repl("-",*f),maxwidth)
       }
-      write("\n",underline)
+      write("\n",underline);
 #
 #  Print the fields.
 #
       every f := !fields do {
-	writes(right(f("header",auxdata),maxhead))
+	writes(right(f("header",auxdata),maxhead));
 	every writes(" ",center(f(!itemlist,auxdata),maxwidth))
 	write()
       }

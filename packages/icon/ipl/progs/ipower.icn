@@ -37,13 +37,13 @@ link options
 procedure main(args)
    local opts, limit, start, stop, incr, i, base
 
-   opts := options(args, "v+b+e+i+l+")
+   opts := options(args, "v+b+e+i+l+");
 
-   limit := \opts["l"] | (2 ^ 32)		# good enough
-   base := \opts["v"] | 2
-   start := \opts["b"] | 1
-   stop := \opts["e"] | (2 ^ 64)		# sort of good enough
-   incr := \opts["i"] | 1
+   limit := \opts["l"] | (2 ^ 32);  # good enough
+   base := \opts["v"] | 2;
+   start := \opts["b"] | 1;
+   stop := \opts["e"] | (2 ^ 64);  # sort of good enough
+   incr := \opts["i"] | 1;
 
    every i := seq(start, incr) \ limit do
       if i > stop then exit()

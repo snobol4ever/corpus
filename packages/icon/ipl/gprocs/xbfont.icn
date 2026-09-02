@@ -118,20 +118,20 @@ procedure RankFonts(w, args[])		#: generate scores for X fonts
    local tokens, cklist, sclist, fspec, ranks, r
 
    if type(w) ~== "window" & type(w) ~== "list" then {
-      push(args, w)
+      push(args, w);
       w := &window
       }
-   XBF_defaults()			# set default values
-   XBF_wantsize := XFW_defsize		# set target size to default
-   tokens := XBF_tokenlist(args)	# break args into list of tokens
-   cklist := XBF_weights(tokens)	# get list of (substring,weight)s
-   XBF_sizval := XBF_sizes(XBF_wantsize) # build array for scoring sizes
+   XBF_defaults();  # set default values
+   XBF_wantsize := XFW_defsize;  # set target size to default
+   tokens := XBF_tokenlist(args);  # break args into list of tokens
+   cklist := XBF_weights(tokens);  # get list of (substring,weight)s
+   XBF_sizval := XBF_sizes(XBF_wantsize);  # build array for scoring sizes
 
    # make a list of (fontname,score) tuples, and sort it
-   sclist := []
+   sclist := [];
    every fspec := XBF_fontlist(w) do
       put(sclist, XBF_rec(fspec, XBF_eval(fspec, cklist)))
-   ranks := sortf(sclist, 2)
+   ranks := sortf(sclist, 2);
 
    # generate results from hightest to lowest rank
    while r := pull(ranks) do
@@ -173,9 +173,9 @@ end
 procedure XBF_tokenlist(args)
    local tokens
 
-   tokens := []
+   tokens := [];
    every map(trim(!args)) ? repeat {
-      tab(many(' \t,'))
+      tab(many(' \t,'));
       if pos(0) then
          break
       put(tokens, tab(upto(' \t,') | 0))
@@ -191,11 +191,11 @@ end
 procedure XBF_weights(tokens)
    local cklist, tk, pf
 
-   cklist := []
-   pf := *tokens * XFW_posn
+   cklist := [];
+   pf := *tokens * XFW_posn;
    every tk := !tokens do {
       if not (XBF_wantsize := integer(tk)) then {
-         pf -:= XFW_posn
+         pf -:= XFW_posn;
          case tk of {
             "m" | "mono" | "monospaced":
                every put(cklist, XBF_rec("-m-" | "-c-", XFW_spacing + pf))
@@ -204,11 +204,11 @@ procedure XBF_weights(tokens)
             "r" | "roman":
                put(cklist, XBF_rec("-r-", XFW_slant + pf))
             "i" | "italic": {
-               put(cklist, XBF_rec("-i-", XFW_slant + pf))
+               put(cklist, XBF_rec("-i-", XFW_slant + pf));
                put(cklist, XBF_rec("-o-", XFW_aslant + pf))
                }
             "o" | "oblique": {
-               put(cklist, XBF_rec("-o-", XFW_slant + pf))
+               put(cklist, XBF_rec("-o-", XFW_slant + pf));
                put(cklist, XBF_rec("-i-", XFW_aslant + pf))
                }
             "s" | "sans" | "sans-serif" | "sansserif":
@@ -228,23 +228,23 @@ end
 procedure XBF_sizes(wantsize)
    local l, sz, diff, score, maxunder, maxover
 
-   l := [XFW_scaled]			# initial entry scores scaled fonts
+   l := [XFW_scaled];  # initial entry scores scaled fonts
 
    # set scores for undersized fonts
-   maxunder := (XFW_maxunder / 100.0) * wantsize
+   maxunder := (XFW_maxunder / 100.0) * wantsize;
    every sz := 1 to wantsize-1 do {
-      diff := wantsize - sz
-      score := integer(XFW_size * (1 - diff / maxunder))
-      score <:= 0
+      diff := wantsize - sz;
+      score := integer(XFW_size * (1 - diff / maxunder));
+      score <:= 0;
       put(l, score)
       }
 
    # set scores for correct and oversized fonts
-   maxover := (XFW_maxover / 100.0) * wantsize
+   maxover := (XFW_maxover / 100.0) * wantsize;
    repeat {
-      sz +:= 1
-      diff := sz - wantsize
-      score := integer(XFW_size * (1 - diff / maxover))
+      sz +:= 1;
+      diff := sz - wantsize;
+      score := integer(XFW_size * (1 - diff / maxover));
       if score <= 0 then
          break			# quit when too big to be useful
       put(l, score)
@@ -264,8 +264,8 @@ procedure XBF_fontlist(w)
       suspend !w
    else {
       if /fontlist then {
-         fontlist := []
-         pipe := open("xlsfonts", "rp") | stop("can't open xlsfonts pipe")
+         fontlist := [];
+         pipe := open("xlsfonts", "rp") | stop("can't open xlsfonts pipe");
          while put(fontlist, trim(read(pipe)))
          close(pipe)
          }
@@ -305,17 +305,17 @@ procedure XBF_spec(fontname, size)
    local s
 
    fontname ? {
-      s := tab(find("-0-0-")) | return fontname	# return if not scalable
-      move(5)					# skip pixel size, point size
-      tab(upto('-')) & move(1)			# skip x-resolution
-      tab(upto('-')) & move(1)			# skip y-resolution
-      s ||:= "-"
-      s ||:= size				# spec pixel size
-      s ||:= "-*-*-*-"				# wildcard ptsize & resolutions
-      s ||:= tab(upto('-'))			# copy spacing field
-      s ||:= move(1)
-      tab(upto('-'))				# skip average width
-      s ||:= "*"
+      s := tab(find("-0-0-")) | return fontname;  # return if not scalable
+      move(5);  # skip pixel size, point size
+      tab(upto('-')) & move(1);  # skip x-resolution
+      tab(upto('-')) & move(1);  # skip y-resolution
+      s ||:= "-";
+      s ||:= size;  # spec pixel size
+      s ||:= "-*-*-*-";  # wildcard ptsize & resolutions
+      s ||:= tab(upto('-'));  # copy spacing field
+      s ||:= move(1);
+      tab(upto('-'));  # skip average width
+      s ||:= "*";
       s ||:= tab(0)				# copy the rest
       }
    return s

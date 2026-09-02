@@ -97,23 +97,23 @@ global pagelines,tabsize,lines,page,datetime,title,subtitle,pagestatus,blanks,
 procedure main(arg)
   local files,x
   &dateline ? {tab(find(",")) ; move(2) ; datetime := tab(0)}
-  files := []
-  pagelines := 60
-  tabsize := 8
-  gpat := "end"
-  comment := "#"
+  files := [];
+  pagelines := 60;
+  tabsize := 8;
+  gpat := "end";
+  comment := "#";
 
   while x := get(arg) do {
     if match("-",x) then {	# Arg is an option
       case x[2] of {
 	"n": numbers := "yes"
 	"p": {
-	  pagelines := ("" ~== x[3:0]) | get(arg)
+	  pagelines := ("" ~== x[3:0]) | get(arg);
 	  if not (pagelines := integer(pagelines)) then
 		stop("Invalid -p parameter: ",pagelines)
 	}
 	"t": {
-	  tabsize := ("" ~== x[3:0]) | get(arg)
+	  tabsize := ("" ~== x[3:0]) | get(arg);
 	  if not (tabsize := integer(tabsize)) then
 		stop("Invalid -t parameter: ",tabsize)
 	}
@@ -150,30 +150,30 @@ end
 
 procedure expand(fn)
   local f,line,cmd,linenbr,fname
-  f := open(fn) | stop("Can't open ",fn)
+  f := open(fn) | stop("Can't open ",fn);
   fn ? {
     while tab(find("/")) & move(1)
     fname := tab(0)
   }
-  hstuff := fname || "  " || datetime || "  page "
-  title := subtitle := &null
-  lines := pagelines
-  page := 0 ; linenbr := 0
-  group := []
+  hstuff := fname || "  " || datetime || "  page ";
+  title := subtitle := &null;
+  lines := pagelines;
+  page := 0 ; linenbr := 0;
+  group := [];
   while line := trim(read(f)) do {
     if \ignore_ff then while match("\f",line) do line[1] := ""
-    linenbr +:= 1
+    linenbr +:= 1;
     if match("\f",line) then {
-      dumpgroup()
-      lines := pagelines
+      dumpgroup();
+      lines := pagelines;
       repeat {
-	line[1] := ""
+	line[1] := "";
 	if not match("\f",line) then break
       }
     }
     line ? {
       if =comment & cmd := =("eject" | "title" | "subtitle") then {
-	dumpgroup()
+	dumpgroup();
 	case cmd of {		# Command line
 	  "title": (move(1) & title := trim(tab(find(comment_end)))) |
 		(title := &null)
@@ -184,15 +184,15 @@ procedure expand(fn)
       }
       else {	# Ordinary (non-command) line
 	if not (*group = 0 & *line = 0) then {
-	  put(group,line)
+	  put(group,line);
 	  if \numbers then put(group,linenbr)
 	}
 	if endgroup(line) then dumpgroup()
       }
     }
   }
-  dumpgroup()
-  close(f)
+  dumpgroup();
+  close(f);
   lines := pagelines
 end
 
@@ -212,10 +212,10 @@ procedure dumpgroup()
 	next
       }
       every 1 to blanks do write()
-      blanks := 0
-      pagestatus := "not empty"
+      blanks := 0;
+      pagestatus := "not empty";
       if \numbers then writes(right(linenbr,5)," ")
-      write(detab(line))
+      write(detab(line));
       lines +:= 1
     }
   }
@@ -228,27 +228,27 @@ end
 
 procedure printhead()
   static ff,pg
-  writes(ff) ; ff := "\f"
-  lines := 0
-  pg := string(page +:= 1)
+  writes(ff) ; ff := "\f";
+  lines := 0;
+  pg := string(page +:= 1);
   if /noheaders then {
     if \laser then write("\n\n")
-    write(left(\title | "",79 - *hstuff - *pg),hstuff,pg)
-    lines +:= 2
-    write(\subtitle) & lines +:= 1
+    write(left(\title | "",79 - *hstuff - *pg),hstuff,pg);
+    lines +:= 2;
+    write(\subtitle) & lines +:= 1;
     write()
   }
-  pagestatus := "empty"
+  pagestatus := "empty";
   blanks := 0
   return
 end
 
 procedure detab(s)
   local t
-  t := ""
+  t := "";
   s ? {
     while t ||:= tab(find("\t")) do {
-      t ||:= repl(" ",tabsize - *t % tabsize)
+      t ||:= repl(" ",tabsize - *t % tabsize);
       move(1)
     }
     t ||:= tab(0)

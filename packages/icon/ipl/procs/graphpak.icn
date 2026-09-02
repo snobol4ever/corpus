@@ -44,26 +44,26 @@ record graph(nodes, lookup)
 procedure read_graph(f)		#: read graph
    local node, nodes, node_list, lookup, arc, from_name, to_name
 
-   nodes := []				# list of the graph nodes
-   lookup := table()			# two-way table of names and nodes
+   nodes := [];  # list of the graph nodes
+   lookup := table();  # two-way table of names and nodes
 
-   node_list := read(f) | stop("*** empty specification file")
+   node_list := read(f) | stop("*** empty specification file");
 
    node_list ? {			# process list of node names
       while name := tab(upto('\t ') | 0) do {
-         node := set()			# create a new node
-         put(nodes, node)		# add node to the list
-         lookup[name] := node		# name to node
-         lookup[node] := name		# node to name
+         node := set();  # create a new node
+         put(nodes, node);  # add node to the list
+         lookup[name] := node;  # name to node
+         lookup[node] := name;  # node to name
          tab(many(' \t')) | break
          }
       }
 
    while arc := read(f) do {		# process arcs
       arc ? {
-         from_name := tab(find("->")) | stop("*** bad arc specification")
-         move(2)
-         to_name := tab(0)
+         from_name := tab(find("->")) | stop("*** bad arc specification");
+         move(2);
+         to_name := tab(0);
          insert(\lookup[from_name], \lookup[to_name]) |
             stop("*** non-existent node")
          }
@@ -79,12 +79,12 @@ end
 procedure write_graph(g, f)	#: write graph
    local name_list, node
 
-   name_list := ""			# initialize
+   name_list := "";  # initialize
 
    every node := !g.nodes do		# construct the list of names
       name_list ||:= g.lookup[node] || " "
 
-   write(f, name_list[1:-1])
+   write(f, name_list[1:-1]);
    
    every node := !g.nodes do		# write the arc specifications
       every write(f, g.lookup[node], "->", g.lookup[!node])
@@ -98,9 +98,9 @@ end
 procedure closure(node, close)	#: transitive closure of graph
    local n
 
-   /close := set()			# initialize closure
+   /close := set();  # initialize closure
 
-   insert(close, node)			# add the node itself
+   insert(close, node);  # add the node itself
 
    every n := !node do			# process all the arcs
 					# if not member, recurse

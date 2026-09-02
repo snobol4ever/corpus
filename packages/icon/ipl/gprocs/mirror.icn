@@ -36,24 +36,24 @@ procedure mirror(win, x, y, w, h)	# mirror with p2mm symmetry
    /x := 0
    /y := 0
    /w := WAttrib(win, "width")
-   /h := WAttrib(win, "height")
+   /h := WAttrib(win, "height");
 
    if w < 0 then {
-      w := -w
+      w := -w;
       x -:= w
       }
 
    if h < 0 then {
-      h := -h
+      h := -h;
       y -:= h
       }
 
-   width := 2 * w
-   height := 2 * h
+   width := 2 * w;
+   height := 2 * h;
 
-   sym := WOpen("canvas=hidden", "size=" || width || "," || height) | fail
+   sym := WOpen("canvas=hidden", "size=" || width || "," || height) | fail;
 
-   CopyArea(win, sym, x, y, w, h)
+   CopyArea(win, sym, x, y, w, h);
 
    every x := 0 to w - 1 do 
       CopyArea(sym, sym, x, 0, 1, h, width - x - 1, 0)

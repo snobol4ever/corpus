@@ -107,73 +107,73 @@ procedure main(args)
 
 #  Initial state
 
-   mdigits := '-' ++ &digits
-   mode := 1					# initially pattern mode
-   zoom := 1					# initially 1:1
-   symmetries := 0				# initially no symmetries
-   allxform := &null				# initially not all xforms
+   mdigits := '-' ++ &digits;
+   mode := 1;  # initially pattern mode
+   zoom := 1;  # initially 1:1
+   symmetries := 0;  # initially no symmetries
+   allxform := &null;  # initially not all xforms
 
    sym_state := [				# initially no symmetries
       [1, -1, -1, -1],
       [-1, -1, -1, -1]
-      ]
+      ];
 
-   blank_pat := "8,#0000000000000000"		# 8x8 blank tile
+   blank_pat := "8,#0000000000000000";  # 8x8 blank tile
 
-   list_touched := &null			# pristine state
-   tile_touched := &null
+   list_touched := &null;  # pristine state
+   tile_touched := &null;
 
 #  Conservative assumption that only X can handle tiles up to 32 wide
 
-   MaxPatt := if &features == "X Windows" then 32 else 8
+   MaxPatt := if &features == "X Windows" then 32 else 8;
 
 #  Set up initial pattern list
 
    if loadname := args[1] then {
-      input := open(loadname) | stop("*** cannot open ", loadname)
+      input := open(loadname) | stop("*** cannot open ", loadname);
       if load_file(input) then old_pat := rows2pat(rows)
       else stop("*** no patterns in ", loadname)
       }
    else {
-      loadname := "untitled.tle"
-      rows := pat2rows(blank_pat)
-      old_pat := rows2pat(rows)
-      plist := [pattrec(rows2pat(rows), "")]
+      loadname := "untitled.tle";
+      rows := pat2rows(blank_pat);
+      old_pat := rows2pat(rows);
+      plist := [pattrec(rows2pat(rows), "")];
       pindex := 1
       }
 
 #  Set up vidgets
 
-   vidgets := ui(, vecho)
+   vidgets := ui(, vecho);
 
-   WAttrib("label=" || loadname)
+   WAttrib("label=" || loadname);
 
 #  Set up graphic contexts
 
-   pattgc := XBind(&window, "fillstyle=textured")	# for patterns
-   bordergc := XBind(&window, "fg=red")			# for border
-   viewgc := XBind(&window) 				# for tile view
-   Clip(viewgc, PattXoff, PattYoff, PattWidth, PattHeight)
-   Clip(bordergc, PattXoff - 1, PattYoff - 1, PattWidth + 2, PattHeight + 2)
+   pattgc := XBind(&window, "fillstyle=textured");  # for patterns
+   bordergc := XBind(&window, "fg=red");  # for border
+   viewgc := XBind(&window);  # for tile view
+   Clip(viewgc, PattXoff, PattYoff, PattWidth, PattHeight);
+   Clip(bordergc, PattXoff - 1, PattYoff - 1, PattWidth + 2, PattHeight + 2);
 
 #  Assign and draw the icons
 
-   icons()
+   icons();
 
 #  Initial and toggled editing images
 
    sym_image_next := [
       [ident, hi_rot_90, hi_rot_m90, hi_rot_180],
       [hi_right, hi_left, hi_vert, hi_horiz]
-      ]
+      ];
    sym_image_current := [
       [hi_ident, rotate_90, rotate_m90, rotate_180],
       [flip_right, flip_left, flip_vert, flip_horiz]
-      ]
+      ];
 
 #  Initial setup of grid and view areas
 
-   setup() | stop("*** cannot set up pattern")
+   setup() | stop("*** cannot set up pattern");
 
 #  Enter event loop
 
@@ -210,8 +210,8 @@ procedure grid_cb(vidget, e)
    local x, y, i, j
 
    if e === (&lpress | &rpress | &ldrag | &rdrag) then {
-      j := (&x - GridXoff) / cellsize
-      i := (&y - GridYoff) / cellsize
+      j := (&x - GridXoff) / cellsize;
+      i := (&y - GridYoff) / cellsize;
       if j < 0 | j >= hbits | i < 0 | i >= vbits then return
       if e === (&lpress | &ldrag) then setbit(i, j, "1")
       else setbit(i, j, "0")
@@ -236,7 +236,7 @@ procedure list_cb(vidget, value)
             plist[i] :=: plist[-i]
          }
       "sort"     :  {
-         refresh_tile()
+         refresh_tile();
          plist := isort(plist, case value[2] of {
             "by size":    tile_size
             "by bits":    tile_bits
@@ -245,10 +245,10 @@ procedure list_cb(vidget, value)
          }
       }
 
-   pindex := 1
+   pindex := 1;
 
-   rows := pat2rows(plist[1].tile)
-   old_pat := rows2pat(rows)
+   rows := pat2rows(plist[1].tile);
+   old_pat := rows2pat(rows);
 
    list_touched := 1
 
@@ -288,13 +288,13 @@ procedure symmet_cb(vidget, e)
    local col, row, symcount
 
    if e === (&lpress | &rpress | &mpress) then {
-      col := (&x - SymmetXoff) / IconSize + 1
-      row := (&y - SymmetYoff) / IconSize + 1
-      sym_state[row, col] *:= -1
-      sym_image_current[row, col] :=: sym_image_next[row, col]
+      col := (&x - SymmetXoff) / IconSize + 1;
+      row := (&y - SymmetYoff) / IconSize + 1;
+      sym_state[row, col] *:= -1;
+      sym_image_current[row, col] :=: sym_image_next[row, col];
       place(SymmetXoff, SymmetYoff, col - 1, row - 1,
-         sym_image_current[row, col])
-      symcount := 0
+         sym_image_current[row, col]);
+      symcount := 0;
       every symcount +:= !!sym_state
       if symcount = -8 then
          Notice("No drawing mode enabled; pattern cannot be edited")
@@ -318,16 +318,16 @@ procedure tile_cb(vidget, value)
       "previous @P"  :  previous_tile()
       "goto     @G"  :  goto_tile()
       "first"        :  {
-         refresh_tile()
-         pindex := 1
-         rows := pat2rows(plist[pindex].tile)
+         refresh_tile();
+         pindex := 1;
+         rows := pat2rows(plist[pindex].tile);
          tile_touched := 1
          return setup()
          }
       "last"         :  {
-         refresh_tile()
-         pindex := *plist
-         rows := pat2rows(plist[pindex].tile)
+         refresh_tile();
+         pindex := *plist;
+         rows := pat2rows(plist[pindex].tile);
          tile_touched := 1
          return setup()
          }
@@ -342,11 +342,11 @@ procedure tile_cb(vidget, value)
             ["Okay", "Cancel"]) of {
                "Cancel"  :  fail
                "Okay"    :   {
-                  icheck(dialog_value) | fail
-                  refresh_tile()
-                  rows := list(dialog_value[2], repl("0", dialog_value[1]))
-                  put(plist, pattrec(rows2pat(rows), ""))
-                  pindex := *plist
+                  icheck(dialog_value) | fail;
+                  refresh_tile();
+                  rows := list(dialog_value[2], repl("0", dialog_value[1]));
+                  put(plist, pattrec(rows2pat(rows), ""));
+                  pindex := *plist;
                   tile_touched := 1
                   return setup()
                   }
@@ -364,14 +364,14 @@ end
 procedure view_cb(vidget, value)
    static old_mode, old_zoom
 
-   old_mode := mode
-   old_zoom := zoom
+   old_mode := mode;
+   old_zoom := zoom;
 
    case value[1] of {
       "pattern"    :  mode := 1
       "tile"       :  mode := &null
       "tile zoom"  :  {
-         mode := &null
+         mode := &null;
          case value[2] of {
             "1:1"  :  zoom := 1
             "2:1"  :  zoom := 2
@@ -383,7 +383,7 @@ procedure view_cb(vidget, value)
 
    if (mode ~=== old_mode) | (zoom ~=== old_zoom) then {
       DrawRectangle(bordergc, PattXoff - 1, PattYoff - 1,
-         PattWidth + 1, PattHeight + 1)
+         PattWidth + 1, PattHeight + 1);
       EraseArea(PattXoff - 1, PattYoff - 1, PattWidth + 1, PattHeight + 1)
       return setup()
       }
@@ -398,22 +398,22 @@ procedure xform_cb(vidget, e)
    local col, row, save_pindex
 
    if e === (&lpress | &rpress | &mpress) then {
-      old_pat := rows2pat(rows)
-      col := (&x - XformXoff) / IconSize
-      row := (&y - XformYoff) / IconSize
+      old_pat := rows2pat(rows);
+      col := (&x - XformXoff) / IconSize;
+      row := (&y - XformYoff) / IconSize;
 
       if &shift then {
-         refresh_tile()
-         save_pindex := pindex
+         refresh_tile();
+         save_pindex := pindex;
          every pindex := 1 to *plist do {
-            rows := pat2rows((plist[pindex]).tile)
+            rows := pat2rows((plist[pindex]).tile);
             rows := xform(col, row)  
-            (plist[pindex]).tile := rows2pat(rows)
+            (plist[pindex]).tile := rows2pat(rows);
             allxform := 1				# all being done
             }
-         allxform := &null				# one being done
-         list_touched := 1
-         pindex := save_pindex
+         allxform := &null;  # one being done
+         list_touched := 1;
+         pindex := save_pindex;
          rows := pat2rows(plist[pindex].tile)
          }
       else rows := xform(col, row) | fail
@@ -434,9 +434,9 @@ end
 
 procedure clear_tile()
 
-   rows := list(vbits, repl("0", hbits))
+   rows := list(vbits, repl("0", hbits));
 
-   grid()
+   grid();
 
    drawpat()
 
@@ -448,10 +448,10 @@ end
 
 procedure copy_tile()
 
-   refresh_tile()
-   put(plist, pattrec(old_pat := rows2pat(rows), ""))
-   rows := pat2rows(old_pat)
-   pindex := *plist
+   refresh_tile();
+   put(plist, pattrec(old_pat := rows2pat(rows), ""));
+   rows := pat2rows(old_pat);
+   pindex := *plist;
 
    list_touched := 1
 
@@ -465,11 +465,11 @@ procedure delete_tile()
 						# should ask confirmation
    if *plist = 1 then plist := [pattrec(blank_pat, "")]
    else {
-      plist := plist[1 : pindex] ||| plist[pindex + 1 : 0]
+      plist := plist[1 : pindex] ||| plist[pindex + 1 : 0];
       if pindex > *plist then pindex := *plist
       }
 
-   rows := pat2rows((plist[pindex]).tile)
+   rows := pat2rows((plist[pindex]).tile);
 
    list_touched := 1
 
@@ -483,14 +483,14 @@ procedure drawpat()
 
    if \mode then {				# draw pattern
       DrawRectangle(bordergc, PattXoff - 1, PattYoff - 1,
-         PattWidth + 1, PattHeight + 1) 
-      Pattern(pattgc, rows2pat(rows))
+         PattWidth + 1, PattHeight + 1);
+      Pattern(pattgc, rows2pat(rows));
       FillRectangle(pattgc, PattXoff, PattYoff, PattWidth, PattHeight)
       }
    else {					# draw tile
-      EraseArea(PattXoff - 1, PattYoff - 1, PattWidth + 2, PattHeight + 2)
+      EraseArea(PattXoff - 1, PattYoff - 1, PattWidth + 2, PattHeight + 2);
       DrawRectangle(bordergc, PattXoff - 1, PattYoff - 1, 
-         (*rows[1] * zoom) + 1, (*rows * zoom) + 1)
+         (*rows[1] * zoom) + 1, (*rows * zoom) + 1);
       DrawRows(viewgc, PattXoff, PattYoff, rows, zoom)
       }
    return
@@ -506,7 +506,7 @@ procedure edit_tile()
       ["Okay", "Cancel"]) of {
          "Cancel":  fail
          "Okay":  {
-            plist[pindex].note := dialog_value[1] || " "
+            plist[pindex].note := dialog_value[1] || " ";
             list_touched := 1
             }
       }
@@ -523,11 +523,11 @@ procedure find_tile()
    case Dialog("Find:", "note",  "", 80, ["Okay", "Cancel"]) of {
       "Cancel":  fail
       "Okay":  {
-         note := dialog_value[1] || " "
+         note := dialog_value[1] || " ";
          every i := ((pindex + 1 to *plist) | (1 to *pindex)) do
             plist[i].note ? {
                if find(note) then {
-                  pindex := i
+                  pindex := i;
                   rows := pat2rows(plist[pindex].tile)
                   return setup()
                   }
@@ -535,7 +535,7 @@ procedure find_tile()
          }
       }
 
-   Notice("Not found")
+   Notice("Not found");
    
    fail
 
@@ -549,20 +549,20 @@ procedure goto_tile()
    case Dialog("Go to:","#", 1, 5, ["Okay", "Cancel"]) of {
       "Cancel":  fail
       "Okay":    i := integer(dialog_value[1]) | {
-          Notice("Invalid specification")
+          Notice("Invalid specification");
           fail
           }
       }
-   refresh_tile()
+   refresh_tile();
    if i <= 0 then i +:= *plist + 1
    if i <= i <= *plist + 1 then {
-      pindex := i
-      old_pat := rows2pat(rows)
+      pindex := i;
+      old_pat := rows2pat(rows);
       rows := pat2rows(plist[pindex].tile)
       return setup()
       }
    else {
-      Notice("Index out of bounds")
+      Notice("Index out of bounds");
       fail
       }
 
@@ -573,7 +573,7 @@ end
 procedure grid()
    local x, y
 
-   EraseArea(GridXoff, GridYoff, GridSize - 15, GridSize - 15)
+   EraseArea(GridXoff, GridYoff, GridSize - 15, GridSize - 15);
 
    every x := 0 to hbits * cellsize by cellsize do
       DrawLine(GridXoff + x, GridYoff, GridXoff + x,
@@ -593,7 +593,7 @@ procedure icheck(values)
 
    every i := !values do
       if not(integer(i)) | (i < 0) then {
-         Notice("Invalid value")
+         Notice("Invalid value");
          fail
          }
 
@@ -607,14 +607,14 @@ procedure icons()
    local shift_up, shift_left, shift_right, shift_down, pixmap
    local clear, invert, scramble, trim, enlarge, resize, crop
 
-   pixmap := XBind(, , "width=32", "height=32", "fillstyle=masked")
+   pixmap := XBind(, , "width=32", "height=32", "fillstyle=masked");
 
    Pattern(pixmap, "32,#7fffffff421f843f421f843f421f843f421f843f7fffff_
       ff421084214210842142108421421084217fffffff4210fc21_
       4210fc214210fc214210fc217fffffff421087e1421087e142_
       1087e1421087e17fffffff7e10fc217e10fc217e10fc217e10_
       fc217fffffff7e10843f7e10843f7e10843f7e10843f7fffff_
-      ff00000000")					# Penelope logo
+      ff00000000")					# Penelope logo;
 
    FillRectangle(pixmap, 0, 0, 32, 32)
 

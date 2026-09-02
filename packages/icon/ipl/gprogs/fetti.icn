@@ -36,14 +36,14 @@ global vidgets, root, region, rwin
 
 procedure main(args)
 
-   Window ! put(ui_atts(), args)
-   vidgets := ui()				# set up vidgets
-   root := vidgets["root"]
-   region := vidgets["region"]
-   rwin := SubWindow(region.ax, region.ay, region.aw, region.ah)
-   Bg(rwin, "white")
+   Window ! put(ui_atts(), args);
+   vidgets := ui();  # set up vidgets
+   root := vidgets["root"];
+   region := vidgets["region"];
+   rwin := SubWindow(region.ax, region.ay, region.aw, region.ah);
+   Bg(rwin, "white");
    
-   render()
+   render();
    GetEvents(root, , all)
 end
 

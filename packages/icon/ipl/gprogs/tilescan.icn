@@ -104,14 +104,14 @@ global vidgets		# table of interface vidgets
 procedure main()
    local atts, x1, y1
 
-   atts := ui_atts()
-   put(atts,  "posx=10", "posy=10")
+   atts := ui_atts();
+   put(atts,  "posx=10", "posy=10");
 
-   controls := (WOpen ! atts) | ExitNotice("Cannot open control window.")
+   controls := (WOpen ! atts) | ExitNotice("Cannot open control window.");
 
-   vidgets := ui()
+   vidgets := ui();
 
-   init()
+   init();
 
    repeat {
       while *Pending(controls) > 0 do
@@ -140,16 +140,16 @@ procedure dimens_cb(vidget, value)
       "w = 1":  current.w := 1
       "h = 1":  current.h := 1
       "full":   {
-         current.h := hmax
-         current.w := wmax
-         current.x := 0
+         current.h := hmax;
+         current.w := wmax;
+         current.x := 0;
          current.y := 0
          }
       "w / 2":    check(current.w <- current.w / 2)
       "h / 2":    check(current.h <- current.h / 2)
       "w * 2":    check(current.w <- current.w * 2)
       "h * 2":    check(current.h <- current.h * 2)
-      } | fail
+      } | fail;
 
    show()
 
@@ -160,11 +160,11 @@ end
 procedure draw_marquee()
    local x1, y1
 
-   current.x := &x
-   current.y := &y
-   current.h := current.w := 0
+   current.x := &x;
+   current.y := &y;
+   current.h := current.w := 0;
 
-   update()
+   update();
 
    repeat {
       case Event(screen) of {

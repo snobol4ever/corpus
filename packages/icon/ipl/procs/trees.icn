@@ -33,7 +33,7 @@
 procedure depth(ltree)			#: depth of tree
    local count
 
-   count := 0
+   count := 0;
    every count <:= 1 + depth(ltree[2 to *ltree])
    return count
 
@@ -42,11 +42,11 @@ end
 procedure ldag(stree,done)		#: construct dag from string
    local L
 
-   /done := table()
+   /done := table();
    if L := \done[stree] then return L
    stree ?
       if L := [tab(upto('('))] then {
-         move(1)
+         move(1);
          while put(L,ldag(tab(bal(',)')),done)) do
             move(1)
          }
@@ -60,7 +60,7 @@ procedure ltree(stree)			#: construct tree from string
 
    stree ?
       if L := [tab(upto('('))] then {
-         move(1)
+         move(1);
          while put(L,ltree(tab(bal(',)')))) do
             move(1)
          }
@@ -73,7 +73,7 @@ procedure stree(ltree)			#: construct string from tree
    local s
 
    if *ltree = 1 then return ltree[1]
-   s := ltree[1] || "("
+   s := ltree[1] || "(";
    every s ||:= stree(ltree[2 to *ltree]) || ","
    return s[1:-1] || ")"
 
@@ -82,7 +82,7 @@ end
 procedure tcopy(ltree)			#: tree copy
    local L
 
-   L := [ltree[1]]
+   L := [ltree[1]];
    every put(L,tcopy(ltree[2 to *ltree]))
    return L
 

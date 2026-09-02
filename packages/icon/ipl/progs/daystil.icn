@@ -75,7 +75,7 @@ procedure NumberOfDays(sMonth, iDay, iYear)
 			"october",
 			"november",
 			"december"
-		]
+		];
 
 		LDays := [
 			31,
@@ -92,22 +92,22 @@ procedure NumberOfDays(sMonth, iDay, iYear)
 		]
 
 		&dateline ? {
-			&pos := find(" ") + 1
+			&pos := find(" ") + 1;
 			sThisMonth := tab(find(" "))
-			&pos +:= 1
+			&pos +:= 1;
 			iThisDay := integer(tab(find(",")))
-			&pos +:= 2
+			&pos +:= 2;
 			iThisYear := integer(move(4))
 		}
 	}
 
 	/sMonth := sThisMonth
 	/iDay := iThisDay
-	/iYear := iThisYear
+	/iYear := iThisYear;
 
-	sMonth := string(sMonth) | fail
-	iDay := integer(iDay) | fail
-	iYear := integer(iYear) | fail
+	sMonth := string(sMonth) | fail;
+	iDay := integer(iDay) | fail;
+	iYear := integer(iYear) | fail;
 
 	if 0 ~= iYear % 4 then {
 		LDays[2] := 28
@@ -115,7 +115,7 @@ procedure NumberOfDays(sMonth, iDay, iYear)
 		LDays[2] := 29
 	}
 
-	iDays := iDay
+	iDays := iDay;
 	every i := 1 to *LMonths do {
 		if CaselessMatch(sMonth, LMonths[i]) then {
 			return iDays
@@ -150,7 +150,7 @@ end
 procedure CaselessMatch(s1, s2, i1, i2)
 
 	s1 := map(string(s1))
-	/i1 := (/s2 & &pos)
+	/i1 := (/s2 & &pos);
 	s2 := map(string(s2) | (/s2 & &subject))
 
 	return match(s1, s2, i1, i2)
@@ -174,10 +174,10 @@ end
 
 procedure Usage(fErrout, iStatus)
 
-	/fErrout := &errout
-	iStatus := (integer(iStatus) | 1)
+	/fErrout := &errout;
+	iStatus := (integer(iStatus) | 1);
 
-	write(fErrout, "Usage: DaysTil sMonth iDay")
+	write(fErrout, "Usage: DaysTil sMonth iDay");
 	exit(iStatus)
 
 end
@@ -218,8 +218,8 @@ procedure main(LArguments)
 		Usage()
 	}
 	
-	iToday := NumberOfDays()
-	iNumberOfDays := NumberOfDays(sMonth, iDay) | Usage()
+	iToday := NumberOfDays();
+	iNumberOfDays := NumberOfDays(sMonth, iDay) | Usage();
 	if iNumberOfDays < iToday then {
 		iNumberOfDays := NumberOfDays("december", 31) + NumberOfDays(sMonth, iDay, integer(&date[1+:4]) + 1)
 	}

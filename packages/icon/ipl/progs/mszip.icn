@@ -72,27 +72,27 @@ procedure main(args)
    local nmproc
 
    # process options
-   opts := options(args, "nvi")
-   verbose := opts["v"]
+   opts := options(args, "nvi");
+   verbose := opts["v"];
    if \opts["i"] then
       nmproc := isoname
    else
       nmproc := msname
 
-   root := args[1] | stop("usage: ", &progname, " ", USAGE)
+   root := args[1] | stop("usage: ", &progname, " ", USAGE);
 
    # get current directory name and prepend to zip file if necessary
    if /opts["n"] then {
-      zipname := args[2] | stop("usage: ", &progname, USAGE)
-      pipe := popen("pwd")
-      pwd := read(pipe) | stop("can't read current directory")
-      close(pipe)
+      zipname := args[2] | stop("usage: ", &progname, USAGE);
+      pipe := popen("pwd");
+      pwd := read(pipe) | stop("can't read current directory");
+      close(pipe);
       if not zipname ? ="/" then
          zipname := pwd || "/" || zipname
    }
 
    # change to source directory
-   chdir(root) | stop("can't change to directory: ", root)
+   chdir(root) | stop("can't change to directory: ", root);
 
    # verify that zip file is writable
    if \zipname then {
@@ -102,51 +102,51 @@ procedure main(args)
       }
 
    # initialize
-   errorcount := 0
-   extns := table("")
-   allfiles := []
-   binlist := []
-   txtlist := []
+   errorcount := 0;
+   extns := table("");
+   allfiles := [];
+   binlist := [];
+   txtlist := [];
 
    # check for "bad" files: symlinks, fifos, etc.
-   write(&errout, "finding files...")
-   pipe := popen("find . ! -type d ! -type f -print | sort")
+   write(&errout, "finding files...");
+   pipe := popen("find . ! -type d ! -type f -print | sort");
    while report(read(pipe), "bad file type")
-   close(pipe)
+   close(pipe);
 
    # get list of the rest
-   pipe := popen("find . -type f -print | sort")
+   pipe := popen("find . -type f -print | sort");
    while fname := read(pipe) do {
-      put(allfiles, fname)
+      put(allfiles, fname);
       if not nmproc(fname) then
          report(fname, "illegal filename")
       }
-   close(pipe)
+   close(pipe);
 
    # inspect files
-   write(&errout, "inspecting files...")
+   write(&errout, "inspecting files...");
    while inspect(get(allfiles))
 
    # summarize file types by extension
-   summary()
+   summary();
 
    # write zip file, if -n was not specified
    if \zipname then {
 
-      zipopts := ZIPOPTS
+      zipopts := ZIPOPTS;
       if /verbose then
          zipopts := ZIPOPTS || " -q"
 
       # create zip file and fill with text files
-      write(&errout, "storing text files...")
-      pipe := popen("zip -l " || zipopts || " " || zipname || " -@", "w")
+      write(&errout, "storing text files...");
+      pipe := popen("zip -l " || zipopts || " " || zipname || " -@", "w");
       every write(pipe, !txtlist)
-      close(pipe)
+      close(pipe);
 
       # add binary files to zip file
-      write()
-      write(&errout, "storing binary files...")
-      pipe := popen("zip -g " || zipopts || " " || zipname || " -@", "w")
+      write();
+      write(&errout, "storing binary files...");
+      pipe := popen("zip -g " || zipopts || " " || zipname || " -@", "w");
       every write(pipe, !binlist)
       close(pipe)
       }
@@ -165,7 +165,7 @@ end
 procedure popen(cmd, mode)
    local f
 
-   mode := "p" || (\mode | "r")
+   mode := "p" || (\mode | "r");
    f := open(cmd, mode) | stop("can't open pipe: ", cmd)
    return f
 end
@@ -179,8 +179,8 @@ end
 procedure census(s, c, lim)
    local n
 
-   /lim := *s
-   n := 0
+   /lim := *s;
+   n := 0;
    s ? {
       while n < lim & tab(upto(c)) do
          n +:= *tab(many(c))
@@ -203,12 +203,12 @@ procedure msname(fname)
       while dir := tab(upto('/') + 1) do 
          if *dir > 9 then fail			# dir component too long
       if base := tab(upto('.')) then {
-         move(1)
+         move(1);
          if upto('.') then fail			# two periods
          ext := tab(0)
          }
       else {
-         base := tab(0)
+         base := tab(0);
          ext := ""
          }
       if (*base > 8) | (*ext > 3) then fail	# component too long
@@ -228,7 +228,7 @@ procedure isoname(fname)
 
    fname ? {
       while tab(upto('/') + 1)
-      tab(many(legal))
+      tab(many(legal));
       if pos(0) then
          return msname(fname)
       else
@@ -248,8 +248,8 @@ procedure inspect(fname)
          fname := tab(0)
    }
 
-   c := ftype(fname)
-   count(fname, c)
+   c := ftype(fname);
+   count(fname, c);
    if \verbose then write(c, " ", fname)
 
    if c == "x" then {
@@ -276,12 +276,12 @@ procedure ftype(fname)
       '\0\1\2\3\4\5\6\16\17\20\21\22\23\24\25\26\27\30\31\33\34\35\36\37' ++
       &cset[128+:33]
 
-   f := open(fname, "ru") | return "x"
-   s := reads(f, BUFSIZ)
-   close(f)
+   f := open(fname, "ru") | return "x";
+   s := reads(f, BUFSIZ);
+   close(f);
 
    if /s | (*s = 0) then return "e"
-   lim := BTHRESH * *s
+   lim := BTHRESH * *s;
    if census(s, bset, lim) >= lim then return "b"
    else if census(s, '\l') > census(s, '\r') then return "n"
    else return "c"
@@ -312,7 +312,7 @@ end
 #  report(fname, errmsg) -- report error
 
 procedure report(fname, errmsg)
-   write(&errout, "\t", errmsg, ": ", fname)
+   write(&errout, "\t", errmsg, ": ", fname);
    errorcount +:= 1
    return
 end
@@ -324,23 +324,23 @@ end
 procedure summary()
    local tlist, ext, s, b, c, e, n, x, tb, tc, te, tn, tx
 
-   write()
-   write(" unrd empty bin crlf newln  extension")
-   tb := tc := te := tn := tx := 0
+   write();
+   write(" unrd empty bin crlf newln  extension");
+   tb := tc := te := tn := tx := 0;
 
-   tlist := sort(extns, 3)
+   tlist := sort(extns, 3);
    while ext := get(tlist) do {
-      s := get(tlist)
-      tb +:= (b := census(s, 'b'))
-      tc +:= (c := census(s, 'c'))
-      te +:= (e := census(s, 'e'))
-      tn +:= (n := census(s, 'n'))
-      tx +:= (x := census(s, 'x'))
+      s := get(tlist);
+      tb +:= (b := census(s, 'b'));
+      tc +:= (c := census(s, 'c'));
+      te +:= (e := census(s, 'e'));
+      tn +:= (n := census(s, 'n'));
+      tx +:= (x := census(s, 'x'));
       write(r5(x), r5(e), r5(b), r5(c), r5(n), "   .", ext)
       }
 
-   write()
-   write(r5(tx), r5(te), r5(tb), r5(tc), r5(tn), "   TOTAL: ", tx+te+tb+tc+tn)
+   write();
+   write(r5(tx), r5(te), r5(tb), r5(tc), r5(tn), "   TOTAL: ", tx+te+tb+tc+tn);
    write()
    return
 end
@@ -353,7 +353,7 @@ procedure r5(n)
    local s
 
    if n = 0 then return "     "
-   s := integer(n)
+   s := integer(n);
    if *s < 5 then
       return right(s, 5)
    else

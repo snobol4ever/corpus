@@ -32,10 +32,10 @@ procedure main(args)
    local in, name
 
    every name := !args do {
-      close(\in)
-      in := open(name) | stop("cannot open input file: ",name)
-      write("##########")
-      write(name)
+      close(\in);
+      in := open(name) | stop("cannot open input file: ",name);
+      write("##########");
+      write(name);
       while write(read(in))
       }
 

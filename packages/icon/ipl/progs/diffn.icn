@@ -43,25 +43,25 @@ procedure main(arg)
   #  some initial display lines.
   #
   if *arg < 2 then stop("usage: diffn file file ...")
-  f := list(*arg)
+  f := list(*arg);
   every i := 1 to *arg do
     	f[i] := dfile(open(arg[i]) | stop("Can't open ",arg[i]),0)
-  files := list(*arg)
+  files := list(*arg);
   every i := 1 to *arg do {
-    write("File ",i,": ",arg[i])
+    write("File ",i,": ",arg[i]);
     files[i] := diff_proc(myread,f[i])
   }
   #
   #  Invoke dif() and display its generated results.
   #
   every drec := dif(files) do {
-    status := "diffs"
-    write("==================================")
+    status := "diffs";
+    write("==================================");
     every i := 1 to *drec do {
       write("---- File ",i,", ",
       		 (drec[i].pos > f[i].linenbr & "end of file") |
 		 "line " || drec[i].pos,
-		 " ---- (",arg[i],")")
+		 " ---- (",arg[i],")");
       listrange(drec[i].diffs,drec[i].pos)
     }
   }

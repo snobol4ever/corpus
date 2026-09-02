@@ -100,10 +100,10 @@ case type(p) of
    {
       #  Internal use, support for (write|writes|stop)_capture_ procedures
       
-      runerr(/f & 500)                    # ensure capture(f) called first
+      runerr(/f & 500);  # ensure capture(f) called first
 
-      keepxi := 1                         # default is to keep elements
-      y := []                             # list for captured elements
+      keepxi := 1;  # default is to keep elements
+      y := [];  # list for captured elements
 
       every xi := !x do 
       {      
@@ -144,8 +144,8 @@ case type(p) of
 
       if /f then                          # swap procedures first time only
       {
-         write  :=: write_capture_
-         writes :=: writes_capture_
+         write  :=: write_capture_;
+         writes :=: writes_capture_;
          stop   :=: stop_capture_
       }
       return f := p                       # save file for future use
@@ -159,7 +159,7 @@ end
 procedure write_capture_(x[])
 local tr
 
-tr := &trace ; &trace := 0                   # suspend tracing
+tr := &trace ; &trace := 0;  # suspend tracing
 capture(write_capture_,x)
 return 1( write_capture_!x, &trace := tr )
 end
@@ -167,7 +167,7 @@ end
 procedure writes_capture_(x[])
 local tr
 
-tr := &trace ; &trace := 0                   # suspend tracing
+tr := &trace ; &trace := 0;  # suspend tracing
 capture(writes_capture_,x)
 return 1( writes_capture_!x, &trace := tr )
 end
@@ -175,7 +175,7 @@ end
 procedure stop_capture_(x[])
 local tr
 
-tr := &trace ; &trace := 0                   # suspend tracing
+tr := &trace ; &trace := 0;  # suspend tracing
 capture(write_capture_,x)                    # write, otherwise we stop too soon
 return 1( stop_capture_!x, &trace := tr )    # restore trace just in case 'stop' is changed
 end

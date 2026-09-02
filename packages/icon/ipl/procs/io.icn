@@ -274,15 +274,15 @@ procedure DOS_FileParts(filename)	#: parse DOSfile name
 local dev, path, name, ext, p, d
 
 filename   ? { 
-               dev := 1( tab( upto(':') ), move(1) ) | ""
-               d := &pos - 1
+               dev := 1( tab( upto(':') ), move(1) ) | "";
+               d := &pos - 1;
                tab(0) 
          } ? {
-               p := 1 
-               path := tab( ( every p := upto('\\') + 1 ) |  p ) 
+               p := 1;
+               path := tab( ( every p := upto('\\') + 1 ) |  p );
                tab(0)
          } ? {
-               name := 1( tab( upto('.') ), move(1) ) | tab(0)
+               name := 1( tab( upto('.') ), move(1) ) | tab(0);
                ext := tab(0) 
          }
 
@@ -334,7 +334,7 @@ procedure ReadAhead(n)			#: read ahead
 
    while *buffer_in < n do
       put(buffer_in,read()) | {
-         Eof := 1
+         Eof := 1;
          fail
          }
 
@@ -354,14 +354,14 @@ end
 
 procedure components(s,separator)	#: get components of file name
    local x,head
-   /separator := "/"
+   /separator := "/";
    x := tail(s,separator)
    return case head := x[1] of {
       separator: [separator]
       "": []
 # C. Shartsis:  4/23/95 - fix for MS-DOS
 #      default: components(head)
-      default: components(head, separator)
+      default: components(head, separator);
       } ||| ([&null ~=== x[2]] | [])
 end
 

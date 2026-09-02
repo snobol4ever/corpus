@@ -232,8 +232,8 @@ end
 
 procedure xencode_1(data,x)
    local tp,wr,f,im
-   wr := data.ioProc
-   f := data.file
+   wr := data.ioProc;
+   f := data.file;
    #
    #  Special case for &null.
    #
@@ -253,10 +253,10 @@ procedure xencode_1(data,x)
    #  a keyword (special files and csets).  If so, just use the keyword
    #  in the output.
    #
-   im := image(x)
+   im := image(x);
    if match("integer(", im) then im := string(x)
    else if match("&",im) then {
-      wr(f,im)
+      wr(f,im);
       data.done[x] := data.nextTag +:= 1
       return f
       }
@@ -285,7 +285,7 @@ procedure xencode_1(data,x)
       #  as a string object.
       #
       "p": {
-	 wr(f,tp)
+	 wr(f,tp);
 	 im ? {
 	    while tab(find(" ") + 1)
 	    xencode_1(data,tab(0))

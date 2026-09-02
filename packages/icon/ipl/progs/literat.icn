@@ -135,25 +135,25 @@
 	procedure newkey()
 
    local code, n_keys
-		n_keys := list(9)
+		n_keys := list(9);
 # arrow left (cursor left)
-		n_keys[1] := char(27) || "[0;77;1p"
+		n_keys[1] := char(27) || "[0;77;1p";
 # arrow right (cursor right)
-		n_keys[2] := char(27) || "[0;75;2p"
+		n_keys[2] := char(27) || "[0;75;2p";
 # arrow up (quit, decreasing line_number)
-		n_keys[3] := char(27) || "[0;72;14p"
+		n_keys[3] := char(27) || "[0;72;14p";
 # arrow down (quit, increasing line_number)
-		n_keys[4] := char(27) || "[0;80;21p"
+		n_keys[4] := char(27) || "[0;80;21p";
 # ctrl/left
-		n_keys[5] := char(27) || "[0;116;8p"
+		n_keys[5] := char(27) || "[0;116;8p";
 # ctrl/right
-		n_keys[6] := char(27) || "[0;115;9p"
+		n_keys[6] := char(27) || "[0;115;9p";
 # home
-		n_keys[7] := char(27) || "[0;71;4p"
+		n_keys[7] := char(27) || "[0;71;4p";
 # end
-		n_keys[8] := char(27) || "[0;79;5p"
+		n_keys[8] := char(27) || "[0;79;5p";
 # deL
-		n_keys[9] := char(27) || "[0;83;6p"
+		n_keys[9] := char(27) || "[0;83;6p";
 #
 # activate codes
 	while code := get(n_keys) do {
@@ -167,7 +167,7 @@ end
 
    local cursor
 
-		cursor := char(27) || "[" || row || ";" || col || "H"
+		cursor := char(27) || "[" || row || ";" || col || "H";
 		writes(cursor)
 end
 #
@@ -177,8 +177,8 @@ end
 
    local a, r_string, rpos
 
-		r_string := reverse(string)
-		rpos := find(byte,r_string)
+		r_string := reverse(string);
+		rpos := find(byte,r_string);
 		a := (*string - rpos)
 		return a
 end
@@ -193,9 +193,9 @@ end
 # if acol points to a blank just remove the blank
 		if string[acol + 1] == " " then {
 		    string ? {
-			string_a := tab(acol + 1)
-			move(1)
-			string_b := tab(0)
+			string_a := tab(acol + 1);
+			move(1);
+			string_b := tab(0);
 			string := string_a || string_b
 			return string
 		    }
@@ -204,12 +204,12 @@ end
 		if acol = 0 then acol := 1
 # crack string into two parts
 		string ? {
-		    string_a := tab(acol + 1)
+		    string_a := tab(acol + 1);
 		    string_b := tab(0)
 		}
 # check string_a for the last blank if any
 		if find(" ",string_a) then {
-			blank := last(" ",string_a)
+			blank := last(" ",string_a);
 			string_a := string_a[1:blank + 1]
 		}
 		else string_a := ""
@@ -220,7 +220,7 @@ end
 		else string_b := ""
 # build string out of string_a ending at its last and string_b
 # beginning at its first blank.
-		string := string_a || string_b
+		string := string_a || string_b;
 		if string[1] == " " then string[1] := ""
 		return string
 end
@@ -228,7 +228,7 @@ end
 # stat_line: function to display a status line with the actual row
 # and column
 	procedure stat_line(column)
-	    locate(24,1)
+	    locate(24,1);
 	    writes("LINE: ",lin_nm," COL: ",column,"  ","TIME: ",&clock,"    ")
 end
 #
@@ -309,28 +309,28 @@ end
 #	quit / wraP
 #
 # Characters permitted in the edited field
-    n_blank := &ucase ++ &lcase ++ &digits ++ '„”Ž™šá?.,;!'
-    byte_input := n_blank ++ ' '
+    n_blank := &ucase ++ &lcase ++ &digits ++ '„”Ž™šá?.,;!';
+    byte_input := n_blank ++ ' ';
 # Characters for the editing functions
-    e1 := set([char(1),char(2),char(4),char(5),char(6),char(7),char(8)])
-    e2 := set([char(27),char(11)])
-    editing := e1 ++ e2
+    e1 := set([char(1),char(2),char(4),char(5),char(6),char(7),char(8)]);
+    e2 := set([char(27),char(11)]);
+    editing := e1 ++ e2;
 # Characters to end editing
-    quit := set([char(13),char(30),char(14),char(21)])
+    quit := set([char(13),char(30),char(14),char(21)]);
 #
 # List to return result
-    fieldl := list()
+    fieldl := list();
 # Initialize field_a/b for a concatenation, if scanning field
 # fails
-   field_a := ""
-   field_b := ""
+   field_a := "";
+   field_b := "";
 # Initialize r_field (variable to store completely deleted field
 # to keep it recoverable)
-   r_field := ""
+   r_field := "";
 # Codes to highlight screen output and to return to normal
 # screen outpuT
-   highl := char(27) || "[7m"
-   normal := char(27) || "[0m"
+   highl := char(27) || "[7m";
+   normal := char(27) || "[0m";
 #
 # Remove single initial blank if any
 	    if field[1] == " " then {
@@ -339,16 +339,16 @@ end
 #
 # Display field when beginning the editing process, place
 # cursor behind the end of field
-		locate(row,1)
-		writes(comment,field,repl(" ",(bnumber-*field)))
+		locate(row,1);
+		writes(comment,field,repl(" ",(bnumber-*field)));
 # If status is set to 1 display line_number and col2 after the
 # initial printing of line
 		if status == 1 then stat_line(*field+1)
 # col: absolute cursor position (comment and field)
 # col2: relative position in field
-		col := (*comment + *field) + 1
-		col2 := *field + 1
-		locate(row,col)
+		col := (*comment + *field) + 1;
+		col2 := *field + 1;
+		locate(row,col);
 #
 # Editing loop: continue until end character appears
 		while byte := getch() & not member(quit,byte) do {
@@ -357,14 +357,14 @@ end
 # it into field at cursor position.
 #
 			    field ? {
-				field_a := tab(col2)
+				field_a := tab(col2);
 				field_b := tab(0)
 			    }
-			    field := field_a || byte || field_b
-			    locate(row,1)
-			    writes(comment,field)
-			    col +:= 1
-			    col2 +:= 1
+			    field := field_a || byte || field_b;
+			    locate(row,1);
+			    writes(comment,field);
+			    col +:= 1;
+			    col2 +:= 1;
 			    if status == 1 then stat_line(col2)
 			    locate(row,col)
 		    }
@@ -373,29 +373,29 @@ end
 			    case byte of {
 # backspace (ctrl/B)
 				char(2) : if col2 > 1 then {
-				    col -:= 1
-				    col2 -:= 1
+				    col -:= 1;
+				    col2 -:= 1;
 				    if status == 1 then stat_line(col2)
 				    locate(row,col)
 				}
 # byte forward (ctrl/A)
 				char(1) : if col2 <= *field then {
-				    col +:= 1
-				    col2 +:= 1
+				    col +:= 1;
+				    col2 +:= 1;
 				    if status == 1 then stat_line(col2)
 				    locate(row,col)
 				}
 # goto beginning of line (ctrl/D)
 				char(4) : {
-				    col2 := 1
-				    col := *comment + col2
+				    col2 := 1;
+				    col := *comment + col2;
 				    if status == 1 then stat_line(col2)
 				    locate(row,col)
 				}
 # goto end of line  (ctrl/E)
 				char(5) : {
-				    col2 := (*field + 1)
-				    col := *comment + col2
+				    col2 := (*field + 1);
+				    col := *comment + col2;
 				    if status == 1 then stat_line(col2)
 				    locate(row,col)
 				}
@@ -403,28 +403,28 @@ end
 				char(6) : {
 				    if col2 <= *field then {
 					field ? {
-					    beg := tab(col2)
+					    beg := tab(col2);
 					    rest := tab(0)
 
 					}
-				     rest[1] := ""
-				     field := beg || rest
-				     locate(row,1)
-				     writes(comment,field," ")
+				     rest[1] := "";
+				     field := beg || rest;
+				     locate(row,1);
+				     writes(comment,field," ");
 				     locate(row,col)
 				     }
 				}
 #
 # delete the actual word (ctrl/G)
 			   char(7) : {
-				field2 := remword(field,col2 - 1)
-				blanks := *field - *field2
-				field := field2
-				col2 := col2 - blanks
+				field2 := remword(field,col2 - 1);
+				blanks := *field - *field2;
+				field := field2;
+				col2 := col2 - blanks;
 				if col2 <= 0 then col2 := 1
-				col := *comment + col2
-				locate(row,1)
-				writes(comment,field,repl(" ",blanks))
+				col := *comment + col2;
+				locate(row,1);
+				writes(comment,field,repl(" ",blanks));
 				if status == 1 then stat_line(col2)
 				locate(row,col)
 			   }
@@ -432,10 +432,10 @@ end
 # move to the beginning of the following word (ctrl/H)
 				char(8) : {
 				    if find(" ",field[col2:*field]) then {
-					string := field[col2:*field]
-					blank := find(" ",string)
-					col2 := col2 + blank
-					col := *comment + col2
+					string := field[col2:*field];
+					blank := find(" ",string);
+					col2 := col2 + blank;
+					col := *comment + col2;
 					if status == 1 then stat_line(col2)
 					locate(row,col)
 				    }
@@ -447,13 +447,13 @@ end
 				  if col2 = 1 then locate(row,col)
 				  else {
 				    if find(" ",field[1:(col2 - 2)]) then {
-					string := field[1:(col2 - 2)]
+					string := field[1:(col2 - 2)];
 					col2 := (last(" ",string) + 2)
 				     }
 				     else {
 					col2 := 1
 				     }
-				   col := *comment + col2
+				   col := *comment + col2;
 				   if status == 1 then stat_line(col2)
 				   locate(row,col)
 				  }
@@ -462,13 +462,13 @@ end
 # Delete complete line, deleted line is assigned to r_field
 # to be recoverable
 				char(27) : {
-					lg := *field
-					r_field := field
-					field := ""
-					col2 := 1
-					col := *comment + col2
-					locate(row,1)
-					writes(comment,repl(" ",lg))
+					lg := *field;
+					r_field := field;
+					field := "";
+					col2 := 1;
+					col := *comment + col2;
+					locate(row,1);
+					writes(comment,repl(" ",lg));
 					if status == 1 then stat_line(col2)
 					locate(row,col)
 				}
@@ -476,12 +476,12 @@ end
 # to r_field)
 			      char(11) : {
 				  if *r_field >= 1 then {
-				      field :=: r_field
-				      col2 := *field + 1
-				      col := *comment + col2
-				      locate(row,1)
-				      blanks := bnumber - *field
-				      writes(comment,field,repl(" ",blanks))
+				      field :=: r_field;
+				      col2 := *field + 1;
+				      col := *comment + col2;
+				      locate(row,1);
+				      blanks := bnumber - *field;
+				      writes(comment,field,repl(" ",blanks));
 				      if status == 1 then stat_line(col2)
 				      locate(row,col)
 				  }
@@ -489,8 +489,8 @@ end
 
 # Perform block operation
 			      char(12) : {
-				  mark := ""
-				  dec_bytes := ""
+				  mark := "";
+				  dec_bytes := "";
 				  while nb := getch() & nb ~== char(13) do {
 					mark ||:= nb
 				  }
@@ -498,20 +498,20 @@ end
 # Place cursor to field's beginning if it points to its end
 				  if col2 >= *field then col2 := 1
 				  field ? {
-					fa := tab(col2)
-					block := move(mark)
+					fa := tab(col2);
+					block := move(mark);
 					fb := tab(0)
 				  }
-				  locate(row,1)
-				  writes(comment,fa,highl,block,normal,fb)
-				  dec_byte := getch()
+				  locate(row,1);
+				  writes(comment,fa,highl,block,normal,fb);
+				  dec_byte := getch();
 				  if dec_byte == ("r" | "R") then {
-				      field := fa || fb
-				      locate(row,1)
-				      writes(comment,field,repl(" ",*block + 1))
-				      col2 := col2 - *block
+				      field := fa || fb;
+				      locate(row,1);
+				      writes(comment,field,repl(" ",*block + 1));
+				      col2 := col2 - *block;
 				      if col2 < 1 then col2 := 1
-				      col := *comment + col2
+				      col := *comment + col2;
 				      if status == 1 then stat_line(col2)
 				      locate(row,col)
 				  }
@@ -520,11 +520,11 @@ end
 					   field := block || fa || fb
 				       }
 				       if dec_byte == ("e" | "E") then {
-					   field := fa || fb || block
+					   field := fa || fb || block;
 					   locate(row,1)
 					   }
-					locate(row,1)
-					writes(comment,field)
+					locate(row,1);
+					writes(comment,field);
 					locate(row,col)
 				  }
 			      }
@@ -543,13 +543,13 @@ end
 # first part to the first element of list result, the second
 # part to the second element.
 	  if byte == char(30) & find(" ",field) then {
-	      blank := last(" ",field)
-	      field_1 := field[1:(blank + 1)]
-	      field_2 := field[(blank + 2):(*field + 1)]
-	      locate(row,(*comment + 1))
-	      writes(field_1,repl(" ",*field_2))
-	      put(fieldl,field_1)
-	      put(fieldl,field_2)
+	      blank := last(" ",field);
+	      field_1 := field[1:(blank + 1)];
+	      field_2 := field[(blank + 2):(*field + 1)];
+	      locate(row,(*comment + 1));
+	      writes(field_1,repl(" ",*field_2));
+	      put(fieldl,field_1);
+	      put(fieldl,field_2);
 # Increase lnumber by 1
 	      line_number := 1
 # Return list with main part and wrapped part as its elements
@@ -558,16 +558,16 @@ end
 #
 # normal termination by <ret> or <arrow down>
 	if byte == (char(13) | char(21)) then {
-	      put(fieldl,field)
-	      put(fieldl,"")
+	      put(fieldl,field);
+	      put(fieldl,"");
 	      line_number := 1
 	      return fieldl
 	}
 # normal termination by alt/e
 	else {
 	    if byte == char(14) then {
-		  put(fieldl,field)
-		  put(fieldl,"")
+		  put(fieldl,field);
+		  put(fieldl,"");
 		  line_number := -1
 		  return fieldl
 	    }
@@ -605,48 +605,48 @@ end
 # Fail if "editing beyond the end of screen" is tried or byte_n is
 # too big
 	    if {(lnumber + startline > 24)  | (byte_n > 77)} then {
-		write("ERROR: ILLEGAL ARGUMENT!")
+		write("ERROR: ILLEGAL ARGUMENT!");
 		fail
 	    }
-	    n := 1
+	    n := 1;
 # Initialize feld as a list to contain string's contents
-	    feld := list(lnumber,"")
+	    feld := list(lnumber,"");
 # Crack apart string into byte_n-byte items.
 	    while lin := string[1:byte_n] do {
 # Assign every item's substring upto the last " " to field[n]
-		feld[n] := lin[1:last(" ",lin)+1]
+		feld[n] := lin[1:last(" ",lin)+1];
 # Assign the rest to rest
-		rest := lin[(last(" ",lin)+2):*lin+1]
+		rest := lin[(last(" ",lin)+2):*lin+1];
 # Delete the first byte_n bytes, then concatenate rest and string
-		string[1:byte_n] := ""
-		string := rest || string
+		string[1:byte_n] := "";
+		string := rest || string;
 		n +:= 1
 	    }
-	    feld[n] := string
+	    feld[n] := string;
 # Display field's contents
-	    n := 1
-	    locate(startline-1,1)
-	    writes(center(label,(byte_n-5)," "))
+	    n := 1;
+	    locate(startline-1,1);
+	    writes(center(label,(byte_n-5)," "));
 	    while n <= lnumber do {
-		locate(startline-1+n,1)
-		writes(feld[n])
+		locate(startline-1+n,1);
+		writes(feld[n]);
 		n +:= 1
 	    }
 # Begin editing process
-	line_number := 1
-	lin_nm := 1
+	line_number := 1;
+	lin_nm := 1;
 # Stop if access to non permitted line number (0,>lnumber) is
 # tried.
 	while lin_nm >= 1 & lin_nm <= lnumber do {
 #	    locate(23,40)
 #	    write("ZEILENTYP: ",type(startline))
 #	    read()
-	    liste := line(startline,byte_n,1,"Ü ",feld[lin_nm])
-	    feld[lin_nm] := liste[1]
-	    locate(startline,1)
-	    writes(feld[lin_nm],repl(" ",byte_n-*feld[lin_nm]+1))
-	    startline +:= line_number
-	    lin_nm +:= line_number
+	    liste := line(startline,byte_n,1,"Ü ",feld[lin_nm]);
+	    feld[lin_nm] := liste[1];
+	    locate(startline,1);
+	    writes(feld[lin_nm],repl(" ",byte_n-*feld[lin_nm]+1));
+	    startline +:= line_number;
+	    lin_nm +:= line_number;
 # If wrap demanded and the following line is capable to contain
 # the wrapped rest of the line before and its original content,
 # perform wrap.
@@ -659,7 +659,7 @@ end
 	if lin_nm <= 1 then field_flag := -1
 	if lin_nm >= lnumber then field_flag := 1
 # Put the string to be returned together of feld's elements.
-	res := ""
+	res := "";
 	while item := pop(feld) do {
 		res := res || " " || item
 	}
@@ -673,25 +673,25 @@ end
    local feld, lin, n, rest
 
 	    if {(lnumber + startline > 24)  | (byte_n > 77)} then {
-		write("ERROR: ILLEGAL ARGUMENT!")
+		write("ERROR: ILLEGAL ARGUMENT!");
 		fail
 	    }
-	    n := 1
-	    feld := list(lnumber,"")
+	    n := 1;
+	    feld := list(lnumber,"");
 	    while lin := string[1:byte_n] do {
-		feld[n] := lin[1:last(" ",lin)+1]
-		rest := lin[(last(" ",lin)+2):*lin+1]
-		string[1:byte_n] := ""
-		string := rest || string
+		feld[n] := lin[1:last(" ",lin)+1];
+		rest := lin[(last(" ",lin)+2):*lin+1];
+		string[1:byte_n] := "";
+		string := rest || string;
 		n +:= 1
 	    }
-	    feld[n] := string
-	    n := 1
-	    locate(startline-1,1)
-	    writes(center(label,(byte_n-5)," "))
+	    feld[n] := string;
+	    n := 1;
+	    locate(startline-1,1);
+	    writes(center(label,(byte_n-5)," "));
 	    while n <= lnumber do {
-		locate(startline-1+n,1)
-		writes(feld[n])
+		locate(startline-1+n,1);
+		writes(feld[n]);
 		n +:= 1
 	    }
 end
@@ -713,36 +713,36 @@ end
 
    local ct, feld, felder, felder2, item2, labels, lin_e, n, zeile
 
-	    felder := list()
-	    felder2 := list()
-	    labels := ["AUTHOR","TITLE","YEAR","TYPE","COMMENT1","COMMENT2"]
+	    felder := list();
+	    felder2 := list();
+	    labels := ["AUTHOR","TITLE","YEAR","TYPE","COMMENT1","COMMENT2"];
 	    item ? {
 		while feld := tab(upto("#")) do {
-		    move(1)
-		    put(felder,feld)
+		    move(1);
+		    put(felder,feld);
 		    put(felder2,feld)
 		}
 	    }
-	    zeile := 2
+	    zeile := 2;
 # Display the fields
-	    n := 1
+	    n := 1;
 	    while feld := get(felder) do {
-		show_field(zeile,2,70,labels[n],feld)
-		n +:= 1
+		show_field(zeile,2,70,labels[n],feld);
+		n +:= 1;
 		zeile +:= 4
 	    }
 # Start editing process
-	ct := 1
-	zeile := 2
+	ct := 1;
+	zeile := 2;
 	while zeile >= 2 & zeile <= 22 do {
-	    felder2[ct] := edit_field(zeile,2,70,labels[ct],trim(felder2[ct]))
-	    ct +:= field_flag
+	    felder2[ct] := edit_field(zeile,2,70,labels[ct],trim(felder2[ct]));
+	    ct +:= field_flag;
 	    if field_flag = 1 then zeile +:= 4 else zeile -:= 4
 	}
 # Indicate the direction in which item has been quitted using
 # global variable item_flag
 	if zeile < 2 then item_flag := -1 else item_flag := 1
-	item2 := ""
+	item2 := "";
 # Format result: item's fields are brought up to a standard length
 # of 140 bytes using blanks.
 	while lin_e := get(felder2) do {
@@ -756,8 +756,8 @@ end
 
    local highl, normal
 
-		highl := char(27) || "[7m"
-		normal := char(27) || "[0m"
+		highl := char(27) || "[7m";
+		normal := char(27) || "[0m";
 		writes(highl,string,normal)
 end
 #
@@ -767,7 +767,7 @@ end
 
    local n
 
-	n := 1
+	n := 1;
 	while n <= *wlist do {
 	    if wlist[n] == item then return n
 	    n +:= 1
@@ -786,17 +786,17 @@ end
 
    local add, byte, n
 
-		locate(4,10)
-		writes(header)
-		n := 5
+		locate(4,10);
+		writes(header);
+		n := 5;
 		while (n - 4) <= *wlist do {
-		    locate(n,10)
-		    writes(wlist[n-4])
+		    locate(n,10);
+		    writes(wlist[n-4]);
 		    n +:= 1
 		}
-		n := 5
-		locate(n,10)
-		brightwrite(wlist[n-4])
+		n := 5;
+		locate(n,10);
+		brightwrite(wlist[n-4]);
 		while byte := getch() & {
 		     byte == (char(21) | char(14)) | findlist(klist,byte)
 		 }
@@ -804,22 +804,22 @@ end
 # If byte Is element of klist (shorthandkey) the element number
 # within the list + 4 indicates option.
 		    if add := findlist(klist,byte) then {
-			locate(n,10)
-			writes(wlist[n-4])
-			n := 4 + add
-			locate(n,10)
+			locate(n,10);
+			writes(wlist[n-4]);
+			n := 4 + add;
+			locate(n,10);
 			brightwrite(wlist[n-4])
 		    }
 # else increase/decrease actual element by one.
 		    else {
 			if byte == char(14) then add := -1
 			if byte == char(21) then add := 1
-			locate(n,10)
-			writes(wlist[n-4])
-			n +:= add
+			locate(n,10);
+			writes(wlist[n-4]);
+			n +:= add;
 			if (n - 4) < 1 then n +:= 1
 			if (n - 4) > *wlist then n -:= 1
-			locate(n,10)
+			locate(n,10);
 			brightwrite(wlist[n-4])
 		    }
 		}
@@ -833,22 +833,22 @@ end
 
    local answer, count, items, itnum, out_item
 
-		item_flag := 1
-		items := list(200,"######")
-		itnum := 0
+		item_flag := 1;
+		items := list(200,"######");
+		itnum := 0;
 		repeat {
-		     itnum +:= item_flag
+		     itnum +:= item_flag;
 		     if itnum < 1 then itnum := 1
-		     items[itnum] := edit_item(items[itnum])
-		     writes(char(27),"[2J")
-		     write("NEW ITEM? Yy/Nn!")
-		     answer := getch()
+		     items[itnum] := edit_item(items[itnum]);
+		     writes(char(27),"[2J");
+		     write("NEW ITEM? Yy/Nn!");
+		     answer := getch();
 		     if answer == ("n" | "N") then break
 		}
-		count := 1
-		out_item := open("literat.fil","a")
+		count := 1;
+		out_item := open("literat.fil","a");
 		while items[count] ~== "######" do {
-		    writes(out_item,items[count])
+		    writes(out_item,items[count]);
 		    count +:= 1
 		}
 		close(out_item)
@@ -859,22 +859,22 @@ end
 
    local answer, in_item, it, out_item
 
-		in_item := open("literat.fil","r")
-		out_item := open("literat2.fil","w")
+		in_item := open("literat.fil","r");
+		out_item := open("literat2.fil","w");
 		repeat {
-		    it := reads(in_item,846)
-		    it := edit_item(it)
-		    writes(out_item,it)
-		    writes(char(27),"[2J")
-		    write("NEW ITEM? Yy/Nn!")
-		    answer := getch()
+		    it := reads(in_item,846);
+		    it := edit_item(it);
+		    writes(out_item,it);
+		    writes(char(27),"[2J");
+		    write("NEW ITEM? Yy/Nn!");
+		    answer := getch();
 		    if answer == ("n" | "N") then break
 # If item_flag is -1 seek -1692 (2 items) to access the beginning of the
 # previous item because the internal file pointer points to the end of
 # the actual item.
 		    if item_flag == -1 then seek(in_item,where(in_item)-1692)
 		}
-		close(in_item)
+		close(in_item);
 		close(out_item)
 end
 #
@@ -883,29 +883,29 @@ end
 
    local fil, in_item, itm, n, num, out_item
 
-	    writes(char(27),"[2J")
-	    write("NUMBER OF ITEM TO BE REMOVED?")
-	    num := read()
-	    write("READING...")
-	    fil := list()
-	    in_item := open("literat.fil","r")
+	    writes(char(27),"[2J");
+	    write("NUMBER OF ITEM TO BE REMOVED?");
+	    num := read();
+	    write("READING...");
+	    fil := list();
+	    in_item := open("literat.fil","r");
 	    while itm := reads(in_item,846) do {
 		put(fil,itm)
 	    }
-	    close(in_item)
-	    write("START OVERWRITE PROCESS...")
-	    n := num
+	    close(in_item);
+	    write("START OVERWRITE PROCESS...");
+	    n := num;
 	    while n < *fil do {
-		fil[n] := fil[n+1]
+		fil[n] := fil[n+1];
 		n +:= 1
 	    }
-	    fil[*fil] := ""
-	    out_item := open("literat2.fil","w")
-	    write("WRITING...")
+	    fil[*fil] := "";
+	    out_item := open("literat2.fil","w");
+	    write("WRITING...");
 	    while itm := get(fil) & itm ~== "" do {
 		writes(out_item,itm)
 	    }
-	    close(out_item)
+	    close(out_item);
 	    write("DONE...")
 end
 #
@@ -914,22 +914,22 @@ end
 
    local fil, in_item, itm, out_item
 
-	writes(char(27),"[2J")
-	write("READING...")
-	fil := list()
-	in_item := open("literat.fil","r")
+	writes(char(27),"[2J");
+	write("READING...");
+	fil := list();
+	in_item := open("literat.fil","r");
 	while itm := reads(in_item,846) do {
 	    put(fil,itm)
 	}
-	close(in_item)
-	write("ARRANGING DATA IN ALPHABETICAL ORDER...")
-	fil := sort(fil)
-	write("WRITING...")
-	out_item := open("literat2.fil","w")
+	close(in_item);
+	write("ARRANGING DATA IN ALPHABETICAL ORDER...");
+	fil := sort(fil);
+	write("WRITING...");
+	out_item := open("literat2.fil","w");
 	while itm := get(fil) & itm ~== "" do {
 	    writes(out_item,itm)
 	}
-	close(out_item)
+	close(out_item);
 	write("DONE...")
 end
 #
@@ -942,34 +942,34 @@ end
 
    local a, adr, b, in_item, item, m, n, out_adr, out_line, wlist, wlist_2
 
-		out_line := ""
-		adr := edit_field(4,10,70,"FORMAT: <WORD>;<WORD>;ETC.","")
-		writes(char(27),"[2J")
-		write("GENERATING WORD LIST...")
-		wlist := list()
-		n := 1
+		out_line := "";
+		adr := edit_field(4,10,70,"FORMAT: <WORD>;<WORD>;ETC.","");
+		writes(char(27),"[2J");
+		write("GENERATING WORD LIST...");
+		wlist := list();
+		n := 1;
 		adr ? {
 		    while put(wlist,tab(upto(";"))) do {
-			move(1)
-			write("ACTUAL WORD: ",wlist[n])
+			move(1);
+			write("ACTUAL WORD: ",wlist[n]);
 			n +:= 1
 		    }
 		}
-		in_item := open("literat.fil","r")
-		n := 1
+		in_item := open("literat.fil","r");
+		n := 1;
 
-		wlist_2 := copy(wlist)
+		wlist_2 := copy(wlist);
 # Insert ; between word in wlist_2 and seqence of record numbers
 # to be found out later.
 		while n <= *wlist_2 do {
-		    wlist_2[n] ||:= ";"
+		    wlist_2[n] ||:= ";";
 		     n +:= 1
 		}
-		n := 1
+		n := 1;
 		while n <= *wlist do {
-		    write("COMPARING WORD NUMBER: ",n,".")
+		    write("COMPARING WORD NUMBER: ",n,".");
 # counter m: indicates record number
-		    m := 1
+		    m := 1;
 		    while item := reads(in_item,846) do {
 			if find(wlist[n],item) then {
 			    wlist_2[n] ||:= m || ";"
@@ -977,26 +977,26 @@ end
 			m +:= 1
 		    }
 		    wlist_2[n] ? {
-			a := tab(upto(";"))
+			a := tab(upto(";"));
 			b := tab(0)
 		    }
 		    if b == ";" then b := ";0"
-		    wlist_2[n] := a || b
-		    out_line ||:= wlist_2[n] || ":"
+		    wlist_2[n] := a || b;
+		    out_line ||:= wlist_2[n] || ":";
 # When every item has been compared with wlist[n], move file
 # pointer to the beginning of in_item and increase n by 1.
-		    seek(in_item,1)
+		    seek(in_item,1);
 		    n +:= 1
 		}
-		close(in_item)
+		close(in_item);
 # Remove trailing blank if any
 		if out_line[1] := " " then {
 		    out_line := out_line[2:(*out_line+1)]
 		}
-		write("WRITING ADRESS FILE")
-		out_adr := open("adress.fil","a")
-		writes(out_adr,out_line)
-		close(out_adr)
+		write("WRITING ADRESS FILE");
+		out_adr := open("adress.fil","a");
+		writes(out_adr,out_line);
+		close(out_adr);
 		write("OK")
 end
 #
@@ -1006,44 +1006,44 @@ end
 
    local byte, in_item, in_line, in_query, it_key, kkey, out_item, word, wrd
 
-	    writes(char(27),"[2J")
-	    in_query := open("adress.fil","r")
-	    in_line := read(in_query)
-	    close(in_query)
-	    in_item := open("literat.fil","r")
-	    out_item := open("literat2.fil","a")
-	    wrd := line(10,20,0,"TYPE WORD TO BE LOOKED FOR: ","")
-	    word := wrd[1]
+	    writes(char(27),"[2J");
+	    in_query := open("adress.fil","r");
+	    in_line := read(in_query);
+	    close(in_query);
+	    in_item := open("literat.fil","r");
+	    out_item := open("literat2.fil","a");
+	    wrd := line(10,20,0,"TYPE WORD TO BE LOOKED FOR: ","");
+	    word := wrd[1];
 	    if byte := find(word,in_line) then {
 		in_line ? {
-		    move(byte)
+		    move(byte);
 		    it_key := tab(upto(":"))
 		}
 	     }
 	     else {
-		 locate(10,25)
-		 writes("ERROR: UNKNOWN WORD! PRESS KEY!")
-		 getch()
+		 locate(10,25);
+		 writes("ERROR: UNKNOWN WORD! PRESS KEY!");
+		 getch();
 		 fail
 	     }
 # place internal cursor behind the first ; to get the first
 # number:
-	     it_key := it_key[find(";",it_key)+1:*it_key+1]
+	     it_key := it_key[find(";",it_key)+1:*it_key+1];
 	     it_key ? {
 		 while kkey := tab(upto(";")) do {
 		     if kkey <= 0 then {
-			locate(10,25)
-			writes("ERROR: UNKNOWN WORD! PRESS KEY!")
-			getch()
+			locate(10,25);
+			writes("ERROR: UNKNOWN WORD! PRESS KEY!");
+			getch();
 			fail
 		     }
-		     seek(in_item,(kkey-1)*846)
-		     writes(out_item,edit_item(reads(in_item,846)))
+		     seek(in_item,(kkey-1)*846);
+		     writes(out_item,edit_item(reads(in_item,846)));
 		     move(1)
 		 }
 	     }
-	     close(in_item)
-	     close(out_item)
+	     close(in_item);
+	     close(out_item);
 	     write("OK")
 end
 #
@@ -1055,21 +1055,21 @@ end
 
     local alist, blist, opt
 
-    newkey()
+    newkey();
     alist := {
 	["iNPUT","tURN OVER ITEMS","aDRESS FILE","qUERY","dEL","AlPHA","eND"]
     }
-    blist := ["i","t","a","q","d","l","e"]
+    blist := ["i","t","a","q","d","l","e"];
     repeat {
       repeat {
-	writes(char(27),"[2J")
-	locate(1,10)
-	write("LITERAT:    EASY DATABASE SYSTEM")
-	locate(2,10)
-	write("WRITTEN BY: MATTHIAS HEESCH 1992")
+	writes(char(27),"[2J");
+	locate(1,10);
+	write("LITERAT:    EASY DATABASE SYSTEM");
+	locate(2,10);
+	write("WRITTEN BY: MATTHIAS HEESCH 1992");
 	if opt := menue("MENUE",alist,blist) then break
       }
-      writes(char(27),"[2J")
+      writes(char(27),"[2J");
       case opt of {
 	"iNPUT" : in_itemm()
 	"tURN OVER ITEMS" : turn_over()

@@ -92,27 +92,27 @@ global glossary		# list of explanations
 procedure main(args)
    local v, r, c, gc
 
-   randomize()				# set irreproducible mode
+   randomize();  # set irreproducible mode
 
-   v := ui(args)			# open window, set up vib-built vidgets
-   r := v["root"]
-   glossary := []
-   addbutton(r, "BF", bestfit, "Best Fit", "picks the fullest possible bin")
-   addbutton(r, "WF", worstfit, "Worst Fit", "picks the emptiest bin")
-   addbutton(r, "AWF",nearworst,"Almost Worst Fit", "picks second-emptiest bin")
-   addbutton(r, "FF", firstfit, "First Fit", "picks the oldest possible bin")
-   addbutton(r, "LF", lastfit, "Last Fit", "picks the newest possible bin")
-   addbutton(r, "NF", nextfit, "Next Fit", "tries only the current bin")
-   addbutton(r, "N(k)", nextk, "Next-k Fit", "tries the k newest bins")
+   v := ui(args);  # open window, set up vib-built vidgets
+   r := v["root"];
+   glossary := [];
+   addbutton(r, "BF", bestfit, "Best Fit", "picks the fullest possible bin");
+   addbutton(r, "WF", worstfit, "Worst Fit", "picks the emptiest bin");
+   addbutton(r, "AWF",nearworst,"Almost Worst Fit", "picks second-emptiest bin");
+   addbutton(r, "FF", firstfit, "First Fit", "picks the oldest possible bin");
+   addbutton(r, "LF", lastfit, "Last Fit", "picks the newest possible bin");
+   addbutton(r, "NF", nextfit, "Next Fit", "tries only the current bin");
+   addbutton(r, "N(k)", nextk, "Next-k Fit", "tries the k newest bins");
    addbutton(r, "H(k)", harmonic, "Harmonic Algorithm",
-      "classifies into {1/1,1/2,...,1/k}")
-   addbutton(r, "G(k)", gxfit, "Group-X Fit", "groups into k equal classes")
-   VResize(r)
+      "classifies into {1/1,1/2,...,1/k}");
+   addbutton(r, "G(k)", gxfit, "Group-X Fit", "groups into k equal classes");
+   VResize(r);
 
    # workaround freeing of gray highlight color seen with "binpack -Bwhite"
-   BevelReset()				# work around color freeing bug
+   BevelReset();  # work around color freeing bug
 
-   color := []
+   color := [];
    if WAttrib("depth") = 1 then
       put(color, &window)
    else {
@@ -121,26 +121,26 @@ procedure main(args)
       every c := Blend(
             "black", 1, "deep purple-magenta", 10, "cyan-blue",
             1, "reddish-yellow", 11, "orange-red") do {
-         gc := Clone(&window)
-         Shade(gc, c)
+         gc := Clone(&window);
+         Shade(gc, c);
          put(color, gc)
          }
       color := copy(color)		# ensure contiguous
       }
 
    # keep the following initializations in sync with initial slider positionm
-   setmax(v["max"], 20)			# set maximum bin value
-   setbins(v["bins"], -100)		# set number of bins
-   setk(v["kval"], -10)			# set constant `k' value
+   setmax(v["max"], 20);  # set maximum bin value
+   setbins(v["bins"], -100);  # set number of bins
+   setk(v["kval"], -10);  # set constant `k' value
 
-   reload()				# initialize random bins
+   reload();  # initialize random bins
    status("")				# display bin count
 
-   &error := 1
+   &error := 1;
    WAttrib("resize=on")
-   &error := 0
+   &error := 0;
 
-   r.V.event := 1			# disable screen erase on resize
+   r.V.event := 1;  # disable screen erase on resize
    GetEvents(r, leftover)		# enter event loop
 end
 
@@ -152,9 +152,9 @@ procedure addbutton(r, label, proc, name, defn)
    static yoff
    initial yoff := 0
 
-   y := yoff +:= BSPACE
+   y := yoff +:= BSPACE;
    while (y +:= DY) < WAttrib("height") do {
-      Vbutton(r, BX1, y, r.win, label, pack, proc, V_RECT, BWIDTH, BHEIGHT)
+      Vbutton(r, BX1, y, r.win, label, pack, proc, V_RECT, BWIDTH, BHEIGHT);
       Vbutton(r, BX2, y, r.win, label||"D", pack, proc, V_RECT, BWIDTH, BHEIGHT)
       }
    put(glossary, left(label, 6) || left(name, 20) || defn)
@@ -176,8 +176,8 @@ procedure setk(v, n)
       n := integer(MAXK ^ ((n / 100.0) ^ 0.70))	# convert nonlinearly
    else
       n := -n					# initial call
-   kvalue := roundoff(n)
-   GotoXY(v.ax, v.ay + v.ah + 14)
+   kvalue := roundoff(n);
+   GotoXY(v.ax, v.ay + v.ah + 14);
    WWrites(left("k=" || kvalue, 8))
    return
 end
@@ -188,9 +188,9 @@ end
 procedure setmax(v, n)
    local fract
 
-   fract := n / 20.0
-   maxsize := integer(fract * FULL)
-   GotoXY(v.ax, v.ay + v.ah + 14)
+   fract := n / 20.0;
+   maxsize := integer(fract * FULL);
+   GotoXY(v.ax, v.ay + v.ah + 14);
    WWrites(" max size ", ((fract || "00") ? move(4)))
    return
 end
@@ -201,7 +201,7 @@ end
 procedure setbins(v, n)
    local s, max
 
-   max := WAttrib("width") - 40 - X0		# max that will fit on screen
+   max := WAttrib("width") - 40 - X0;  # max that will fit on screen
    if &shift then				# allow more if shifted
       max /:= 1.1 * (maxsize / (2.0 * FULL))
 
@@ -209,12 +209,12 @@ procedure setbins(v, n)
       n := integer(max ^ ((n / 100.0) ^ 0.40))	# convert nonlinearly
    else
       n := -n					# initial call
-   n <:= 5
-   n := roundoff(n, 5)				# convert to round number
+   n <:= 5;
+   n := roundoff(n, 5);  # convert to round number
 
-   nreload := n
-   s := center(nreload, 5)
-   GotoXY(v.ax + (v.aw - TextWidth(s)) / 2, v.ay + v.ah + 17)
+   nreload := n;
+   s := center(nreload, 5);
+   GotoXY(v.ax + (v.aw - TextWidth(s)) / 2, v.ay + v.ah + 17);
    WWrites(s)
    return
 end
@@ -239,7 +239,7 @@ procedure roundoff(n, m)
       d := 10
    else if n > 50 then
       d := 5
-   n -:= n % \d
+   n -:= n % \d;
    n -:= n % \m
    return n
 end
@@ -251,11 +251,11 @@ end
 #  empty(n) -- empty shelf n
 
 procedure empty(n)
-   bin := list(*pieces, 0)
-   nfilled := 0
-   xll := X0
-   yll := n * DY
-   EraseArea(xll, yll - DY + 1, , DY)
+   bin := list(*pieces, 0);
+   nfilled := 0;
+   xll := X0;
+   yll := n * DY;
+   EraseArea(xll, yll - DY + 1, , DY);
    width := WAttrib("width")
    return
 end
@@ -268,14 +268,14 @@ procedure place(p, b)
    static invfull
    initial invfull := 1.0 / FULL
 
-   o := bin[b] | fail
+   o := bin[b] | fail;
    if (t := o + p) > FULL then
       fail
-   bin[b] := t
-   nfilled <:= b
+   bin[b] := t;
+   nfilled <:= b;
    if (x := xll + (b - 1) * dx) < width then {
-      y0 := integer(yll - YSCALE * o * invfull)
-      y1 := integer(yll - YSCALE * t * invfull) + 1
+      y0 := integer(yll - YSCALE * o * invfull);
+      y1 := integer(yll - YSCALE * t * invfull) + 1;
       FillRectangle(color[p / cdiv + 1], x, y1, bwidth, 0 < (y0 - y1))
       }
    return
@@ -287,11 +287,11 @@ end
 procedure status(s)
    local x
 
-   x := xll + nfilled * dx + 4
-   x >:= width - 40
-   GotoXY(x, yll - 15)
-   WWrites(s)
-   GotoXY(x, yll)
+   x := xll + nfilled * dx + 4;
+   x >:= width - 40;
+   GotoXY(x, yll - 15);
+   WWrites(s);
+   GotoXY(x, yll);
    WWrites(nfilled)
    return
 end
@@ -306,14 +306,14 @@ end
 procedure reload()
    local i, j, z, p
 
-   pieces := list(nreload)
-   empty(1)
-   dx := (width - 40 - X0) / nreload
-   dx <:= 1
-   dx >:= 20
-   bwidth := 4 * dx / 5
-   bwidth <:= 1
-   cdiv := (maxsize + *color - 1) / *color
+   pieces := list(nreload);
+   empty(1);
+   dx := (width - 40 - X0) / nreload;
+   dx <:= 1;
+   dx >:= 20;
+   bwidth := 4 * dx / 5;
+   bwidth <:= 1;
+   cdiv := (maxsize + *color - 1) / *color;
    every place(pieces[i := 1 to *pieces] := ?maxsize, i)
    status("new")
    return
@@ -328,12 +328,12 @@ procedure mix()
    local i, n, p
 
    if &shift then {
-      n := integer(*pieces / &phi + 1)
+      n := integer(*pieces / &phi + 1);
       while gcd(*pieces, n) > 1 do
          n -:= 1
-      i := 0
+      i := 0;
       every p := !sort(pieces) do {
-         i := (i + n) % *pieces
+         i := (i + n) % *pieces;
          pieces[i + 1] := p
          }
       }
@@ -341,7 +341,7 @@ procedure mix()
       every i := *pieces to 2 by -1 do
          pieces[?i] :=: pieces[i]
 
-   empty(1)
+   empty(1);
    every place(pieces[i := 1 to *pieces], i)
    status("mix")
    return
@@ -356,12 +356,12 @@ end
 procedure order()
    local i
 
-   pieces := sort(pieces)
+   pieces := sort(pieces);
    if not &shift then
       every i := 1 to *pieces / 2 do	# change from ascending to descending
          pieces[i] :=: pieces[-i]
 
-   empty(1)
+   empty(1);
    every place(pieces[i := 1 to *pieces], i)
    status("sort")
    return
@@ -379,17 +379,17 @@ procedure pack(x, v)
    local l, n, s, i
 
    if x.ax = BX2 then {
-      l := sort(pieces)			# if second-column button, sort first
+      l := sort(pieces);  # if second-column button, sort first
       every i := 1 to *l/2 do		# change from ascending to descending
          l[i] :=: l[-i]
       }
    else
       l := copy(pieces)
 
-   n := x.ay / DY + 1			# compute shelf number
-   empty(n)				# clear the shelf
+   n := x.ay / DY + 1;  # compute shelf number
+   empty(n);  # clear the shelf
 
-   s := x.id(l)				# call packing algorithm
+   s := x.id(l);  # call packing algorithm
    status(\s | x.s)			# display status
    return
 end
@@ -448,9 +448,9 @@ procedure bestfit(l)
    local p, b, i, max, found
 
    every p := !l do {
-      max := FULL - p			# fullest acceptable bin size
-      found := 0			# size of best bin found so far
-      b := nfilled + 1			# index of where found
+      max := FULL - p;  # fullest acceptable bin size
+      found := 0;  # size of best bin found so far
+      b := nfilled + 1;  # index of where found
       every i := 1 to nfilled do
          if found <:= (max >= bin[i]) then
             b := i
@@ -466,8 +466,8 @@ procedure worstfit(l, n)
    local p, b, i, found
 
    every p := !l do {
-      found := FULL - p			# size of best bin found so far
-      b := nfilled + 1			# index of where found
+      found := FULL - p;  # size of best bin found so far
+      b := nfilled + 1;  # index of where found
       every i := 1 to nfilled do
          if found >:= bin[i] then
             b := i
@@ -483,11 +483,11 @@ procedure nearworst(l, n)
    local p, a, b, i, found
 
    every p := !l do {
-      found := FULL - p			# size of best bin found so far
-      a := b := &null
+      found := FULL - p;  # size of best bin found so far
+      a := b := &null;
       every i := 1 to nfilled do
          if found >:= bin[i] then {
-            a := b
+            a := b;
             b := i
             }
       place(p, \a | \b | (nfilled + 1))	# place in second-best bin found
@@ -501,14 +501,14 @@ end
 procedure harmonic(l, n)
    local curr, maxv, i, p, b
 
-   curr := list(kvalue)			# current bin for each class
-   maxv := list(kvalue)			# maximum for each class
+   curr := list(kvalue);  # current bin for each class
+   maxv := list(kvalue);  # maximum for each class
    every i := 1 to kvalue do
       maxv[i] := FULL / (kvalue - i + 1)
 
    every p := !l do {
-      p <= maxv[i := 1 to kvalue]	# find class index i
-      b := curr[i]
+      p <= maxv[i := 1 to kvalue];  # find class index i
+      b := curr[i];
       if /b | (bin[b] + p > FULL) then
          place(p, curr[i] := nfilled + 1)
       else
@@ -523,21 +523,21 @@ end
 procedure gxfit(l, n)
    local stk, maxv, i, s, p, b, d
 
-   stk := []				# stacks of bins, one for each group
-   maxv := []				# maximum for each group
+   stk := [];  # stacks of bins, one for each group
+   maxv := [];  # maximum for each group
 
    # make k equally sized groups
-   d := FULL / kvalue
+   d := FULL / kvalue;
    every i := 1 to kvalue do {
-      put(stk, [])
+      put(stk, []);
       put(maxv, i * d - 1)
       }
 
    every p := !l do {
       # find group index i for piece
-      (p <= maxv[i := (1 to kvalue) | 0]) & (*stk[i] > 0)
-      b := pop(stk[i]) | (nfilled + 1)
-      place(p, b)
+      (p <= maxv[i := (1 to kvalue) | 0]) & (*stk[i] > 0);
+      b := pop(stk[i]) | (nfilled + 1);
+      place(p, b);
       # now put bin back on a stack, if not too full
       if (FULL - bin[b]) >= maxv[i := (kvalue - 1 to 1 by -1)] then
          push(stk[i], b)

@@ -26,11 +26,11 @@
 procedure statemap()
    local state_list, state_map, i
 
-   state_map := table()
+   state_map := table();
 
    every state_list := __list1() | __list2() do
       every i := 1 to *state_list - 1 by 2 do {
-         insert(state_map, state_list[i], state_list[i + 1])
+         insert(state_map, state_list[i], state_list[i + 1]);
          insert(state_map, state_list[i + 1], state_list[i])
          }
 

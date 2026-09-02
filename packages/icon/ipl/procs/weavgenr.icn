@@ -27,9 +27,9 @@ link random
 procedure shaftmap(s)			#: produce shaft map for characters
    local j, map_table
 
-   map_table := table()
+   map_table := table();
 
-   j := 0
+   j := 0;
 
    every /map_table[!s] := (j +:= 1)
 

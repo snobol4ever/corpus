@@ -45,14 +45,14 @@ procedure main(args)
    local line, x, i, proctable, proclist, comments, gfile, gname, ofile
    local opts
 
-   comments := []
+   comments := [];
  
-   opts := options(args,"g:")
+   opts := options(args,"g:");
    if gname := \opts["g"] then {
       gfile := open(gname,"w") | stop("*** cannot open ",gname)
       }
 
-   proctable := table()
+   proctable := table();
    while line := read() do {
       if line ? {
          ="procedure" &			#  procedure declaration
@@ -60,10 +60,10 @@ procedure main(args)
          proctable[tab(upto('('))] := x := []
          } then {
             while put(x,get(comments))	#  save it
-            put(x,line)
-            i := 1
+            put(x,line);
+            i := 1;
             while line := read() do {
-               put(x,line)
+               put(x,line);
                if line == "end" then break
                }
             }
@@ -76,9 +76,9 @@ procedure main(args)
          else put(comments,line)
          }
    while write(\gfile,get(comments))
-   proclist := sort(proctable,3)	#  sort procedures
+   proclist := sort(proctable,3);  #  sort procedures
    while x := get(proclist) do {	#  output procedures
-      ofile := open(x || ".icn","w") | stop("cannot write ",x,".icn")
+      ofile := open(x || ".icn","w") | stop("cannot write ",x,".icn");
       every write(ofile,!get(proclist))
       close(ofile)
       }

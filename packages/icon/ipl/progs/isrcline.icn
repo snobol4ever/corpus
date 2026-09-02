@@ -30,22 +30,22 @@ link numbers
 procedure main()
    local total, chaff, code, line
 
-   total := chaff := 0
+   total := chaff := 0;
 
    while line := read() do {
-      total +:= 1
+      total +:= 1;
       line ? {
-         tab(many(' \t'))
+         tab(many(' \t'));
          if ="#" | pos(0) then chaff +:= 1
          }
       }
 
-   code := total - chaff
+   code := total - chaff;
 
-   write(left("total lines:", 17), right(total, 6))
-   write(left("code lines:", 17), right(code, 6))
-   write(left("non-code lines:", 17), right(chaff, 6))
-   write()
+   write(left("total lines:", 17), right(total, 6));
+   write(left("code lines:", 17), right(code, 6));
+   write(left("non-code lines:", 17), right(chaff, 6));
+   write();
    write(left("percentage code:", 17), fix(100 * code, total, 7, 2))
 
 end

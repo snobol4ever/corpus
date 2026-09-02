@@ -36,15 +36,15 @@ procedure exbase10(i, j)	#: convert base 10 to arbitrary base
    if i = 0 then return 0
 
    if i < 0 then {
-      sign := "-"
+      sign := "-";
       i := -i
       }
    else sign := ""
-   s := ""
+   s := "";
    while i > 0 do {
-      d := i % j
+      d := i % j;
       if d > 9 then d := digits[d + 1]
-      s := d || s
+      s := d || s;
       i /:= j
       }
 

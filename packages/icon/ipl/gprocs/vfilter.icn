@@ -27,7 +27,7 @@
 procedure VSetFilter(vidget, value)	#: filter mode of slider/scrollbar
    local t
 
-   t := type(vidget)
+   t := type(vidget);
 
    case t of {
       "Vscrollbar_frame_rec" :  vidget.callback.callers[2].discont := value

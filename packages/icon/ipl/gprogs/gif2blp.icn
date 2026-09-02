@@ -33,15 +33,15 @@ procedure main(args)
    local width, height, row, p, y, rows
 
    WOpen("image=" || args[1], "canvas=hidden") |
-      stop("*** cannot open image")
+      stop("*** cannot open image");
 
-   width := WAttrib("width")
-   height := WAttrib("height")
+   width := WAttrib("width");
+   height := WAttrib("height");
 
-   rows := []
+   rows := [];
 
    every y := 0 to height - 1 do {
-      row := ""
+      row := "";
       every p := Pixel(0, y, width, 1) do
          if ColorValue(p) == "0,0,0" then row ||:= "1"
             else row ||:= "0"

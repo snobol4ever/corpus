@@ -242,16 +242,16 @@ record Cal_TimeZoneData(dstOffset,startYear,
 procedure Cal_Init(initialTimeZone)		#: initialize calendar globals
    local tzTbl
    initial {
-      Cal_SecPerMin := 60
-      Cal_SecPerHour := Cal_SecPerMin * 60
-      Cal_SecPerDay := Cal_SecPerHour * 24
-      Cal_SecPerWeek := Cal_SecPerDay * 7
+      Cal_SecPerMin := 60;
+      Cal_SecPerHour := Cal_SecPerMin * 60;
+      Cal_SecPerDay := Cal_SecPerHour * 24;
+      Cal_SecPerWeek := Cal_SecPerDay * 7;
       Cal_MonthNames := ["January","February","March","April","May","June",
-	    "July","August","September","October","November","December"]
+	    "July","August","September","October","November","December"];
       Cal_DayNames := ["Sunday","Monday","Tuesday","Wednesday","Thursday",
 	    "Friday","Saturday"]
-      /Cal_DateBaseYear := integer(getenv("Cal_DateBaseYear")) | 1970
-      tzTbl := Cal_GetTimeZoneTable()
+      /Cal_DateBaseYear := integer(getenv("Cal_DateBaseYear")) | 1970;
+      tzTbl := Cal_GetTimeZoneTable();
       Cal_TimeZoneGMT := tzTbl["GMT"]
       /Cal_CurrentTimeZone := \initialTimeZone |
 	    tzTbl["" ~== getenv("Cal_TimeZone")] | Cal_TimeZoneGMT
@@ -267,21 +267,21 @@ procedure Cal_SecToRec(seconds,timeZone)
    local day,hour,min,month,secs,weekday,year
    static secPerYear
    initial {
-      Cal_Init()
+      Cal_Init();
       secPerYear := 365 * Cal_SecPerDay
       }
    seconds := integer(seconds) | runerr(101,seconds)
-   /timeZone := Cal_CurrentTimeZone
-   seconds := Cal_GMTToLocalSec(seconds,timeZone)
-   weekday := (seconds / Cal_SecPerDay % 7 + 4) % 7 + 1
-   year := Cal_DateBaseYear + seconds / secPerYear
+   /timeZone := Cal_CurrentTimeZone;
+   seconds := Cal_GMTToLocalSec(seconds,timeZone);
+   weekday := (seconds / Cal_SecPerDay % 7 + 4) % 7 + 1;
+   year := Cal_DateBaseYear + seconds / secPerYear;
    seconds -:= (year - Cal_DateBaseYear) * secPerYear +
-	 Cal_LeapYearsBetween(Cal_DateBaseYear,year) * Cal_SecPerDay
+	 Cal_LeapYearsBetween(Cal_DateBaseYear,year) * Cal_SecPerDay;
    while seconds < 0 do {
-      year -:= 1
+      year -:= 1;
       seconds +:= if Cal_IsLeapYear(year) then 31622400 else 31536000
       }
-   month := 1
+   month := 1;
    every secs :=
 	 2678400 |
 	 (if Cal_IsLeapYear(year) then 2505600 else 2419200) |
@@ -299,11 +299,11 @@ procedure Cal_SecToRec(seconds,timeZone)
       month +:= 1
       seconds -:= secs
       }
-   day := seconds / Cal_SecPerDay + 1
-   seconds %:= Cal_SecPerDay
-   hour := seconds / Cal_SecPerHour
-   seconds %:= Cal_SecPerHour
-   min := seconds / Cal_SecPerMin
+   day := seconds / Cal_SecPerDay + 1;
+   seconds %:= Cal_SecPerDay;
+   hour := seconds / Cal_SecPerHour;
+   seconds %:= Cal_SecPerHour;
+   min := seconds / Cal_SecPerMin;
    seconds %:= Cal_SecPerMin
    return Cal_Rec(year,month,day,hour,min,seconds,weekday)
 end
@@ -315,7 +315,7 @@ procedure Cal_RecToSec(calRec,timeZone)
    local day,hour,min,month,sec,seconds,year
    static days
    initial {
-      Cal_Init()
+      Cal_Init();
       days := [
 	 0,
 	 2678400,
@@ -330,16 +330,16 @@ procedure Cal_RecToSec(calRec,timeZone)
 	 26265600,
 	 28857600]
       }
-   /timeZone := Cal_CurrentTimeZone
-   year := \calRec.year | +&date[1+:4]
-   month := \calRec.month | +&date[6+:2]
-   day := \calRec.day | +&date[9+:2]
-   hour := \calRec.hour | 0
-   min := \calRec.min | 0
-   sec := \calRec.sec | 0
+   /timeZone := Cal_CurrentTimeZone;
+   year := \calRec.year | +&date[1+:4];
+   month := \calRec.month | +&date[6+:2];
+   day := \calRec.day | +&date[9+:2];
+   hour := \calRec.hour | 0;
+   min := \calRec.min | 0;
+   sec := \calRec.sec | 0;
    seconds := ((year - Cal_DateBaseYear) * 365 +
-	 Cal_LeapYearsBetween(Cal_DateBaseYear,year)) * Cal_SecPerDay
-   month > 2 & seconds +:= Cal_IsLeapYear(year)
+	 Cal_LeapYearsBetween(Cal_DateBaseYear,year)) * Cal_SecPerDay;
+   month > 2 & seconds +:= Cal_IsLeapYear(year);
    seconds +:= days[month] + (day - 1) * Cal_SecPerDay +
 	 hour * Cal_SecPerHour + min * Cal_SecPerMin + sec
    return Cal_LocalToGMTSec(seconds,timeZone)
@@ -359,7 +359,7 @@ end
 procedure Cal_GetTimeZoneTable()
    local tzTbl,x
    return \Cal_TimeZoneTable | {
-      tzTbl := table()
+      tzTbl := table();
       every x := !Cal_GetTimeZoneList() do
 	 tzTbl[x.id] := x
       Cal_TimeZoneTable := tzTbl
@@ -376,7 +376,7 @@ end
 procedure Cal_LocalToGMTSec(seconds,timeZone)
    initial Cal_Init()
    /timeZone := Cal_CurrentTimeZone
-   seconds -:= Cal_IsDST(seconds,timeZone) * Cal_SecPerHour
+   seconds -:= Cal_IsDST(seconds,timeZone) * Cal_SecPerHour;
    seconds -:= timeZone.hoursFromGMT * Cal_SecPerHour
    return integer(seconds)
 end
@@ -384,7 +384,7 @@ end
 procedure Cal_GMTToLocalSec(seconds,timeZone)
    initial Cal_Init()
    /timeZone := Cal_CurrentTimeZone
-   seconds +:= timeZone.hoursFromGMT * Cal_SecPerHour
+   seconds +:= timeZone.hoursFromGMT * Cal_SecPerHour;
    seconds +:= Cal_IsDST(seconds,timeZone) * Cal_SecPerHour
    return integer(seconds)
 end
@@ -415,14 +415,14 @@ end
 #
 procedure Cal_IsDST(seconds,timeZone)	#: determines if seconds (local) is DST
    local data,calRec,year,month,startMonth,endMonth,dstOffset,result
-   /timeZone := Cal_CurrentTimeZone
+   /timeZone := Cal_CurrentTimeZone;
    if not (data := \timeZone.data) then fail
-   dstOffset := data.dstOffset
-   calRec := Cal_SecToRec(seconds,Cal_TimeZoneGMT)
-   year := calRec.year
+   dstOffset := data.dstOffset;
+   calRec := Cal_SecToRec(seconds,Cal_TimeZoneGMT);
+   year := calRec.year;
    if year < data.startYear then fail
-   month := calRec.month
-   startMonth := data.startMonth
+   month := calRec.month;
+   startMonth := data.startMonth;
    endMonth := data.endMonth
    return {
       if startMonth < endMonth then
@@ -461,8 +461,8 @@ end
 #
 procedure Cal_NthWeekdayToSec(year,month,weekday,n,fromDay)   #: gets seconds of nth specified weekday of month
    local startOfMonth,endOfMonth,lastDay
-   startOfMonth := Cal_RecToSec(Cal_Rec(year,month,1),Cal_TimeZoneGMT)
-   endOfMonth := Cal_RecToSec(Cal_Rec(year,month + 1,1),Cal_TimeZoneGMT)
+   startOfMonth := Cal_RecToSec(Cal_Rec(year,month,1),Cal_TimeZoneGMT);
+   endOfMonth := Cal_RecToSec(Cal_Rec(year,month + 1,1),Cal_TimeZoneGMT);
    if \fromDay then
       if fromDay > 0 then
 	 startOfMonth +:= (fromDay - 1) * Cal_SecPerDay
@@ -475,7 +475,7 @@ procedure Cal_NthWeekdayToSec(year,month,weekday,n,fromDay)   #: gets seconds of
 	       Cal_SecPerDay + (n - 1) * Cal_SecPerWeek)
 	 }
       else if n < 0 then {
-	 lastDay := endOfMonth - Cal_SecPerDay
+	 lastDay := endOfMonth - Cal_SecPerDay;
 	 startOfMonth <= (lastDay -
 	       ((Cal_SecToRec(lastDay,Cal_TimeZoneGMT).weekday +
 	       7 - weekday) % 7) * Cal_SecPerDay + (n + 1) * Cal_SecPerWeek)
@@ -490,26 +490,26 @@ procedure Cal_DateLineToSec(dateline,timeZone)	#: convert &dateline to seconds
    local day,halfday,hour,min,month,sec,year
    static months
    initial {
-      Cal_Init()
-      months := table()
-      months["jan"] := 1
-      months["feb"] := 2
-      months["mar"] := 3
-      months["apr"] := 4
-      months["may"] := 5
-      months["jun"] := 6
-      months["jul"] := 7
-      months["aug"] := 8
-      months["sep"] := 9
-      months["oct"] := 10
-      months["nov"] := 11
+      Cal_Init();
+      months := table();
+      months["jan"] := 1;
+      months["feb"] := 2;
+      months["mar"] := 3;
+      months["apr"] := 4;
+      months["may"] := 5;
+      months["jun"] := 6;
+      months["jul"] := 7;
+      months["aug"] := 8;
+      months["sep"] := 9;
+      months["oct"] := 10;
+      months["nov"] := 11;
       months["dec"] := 12
       }
    map(dateline) ? {
       tab(many(' \t'))
       =("sun" | "mon" | "tue" | "wed" | "thu" | "fri" | "sat") &
-	    tab(many(&letters)) | &null & tab(many(' \t,')) | &null
-      month := 1(tab(many(&letters)),tab(many('  \t')) | &null)
+	    tab(many(&letters)) | &null & tab(many(' \t,')) | &null;
+      month := 1(tab(many(&letters)),tab(many('  \t')) | &null);
       day <- integer(1(tab(many(&digits)),tab(many(' \t,')) | &null)) | &null &
       year <- integer(1(tab(many(&digits)),tab(many(' \t')) | &null)) | &null &
       (hour <- integer(tab(many(&digits))) &
@@ -518,7 +518,7 @@ procedure Cal_DateLineToSec(dateline,timeZone)	#: convert &dateline to seconds
 	    tab(many(' \t')) | &null & halfday := =("am" | "pm") | &null &
 	    tab(many(' \t')) | &null) | &null & pos(0)
       }
-   \month :=  \months[month[1+:3]] | fail
+   \month :=  \months[month[1+:3]] | fail;
    if not /(halfday | hour) then {
       if hour = 12 then hour := 0
       if halfday == "pm" then
@@ -552,12 +552,12 @@ end
 #
 procedure Cal_SecToDateLine(seconds,timeZone) #: convert seconds to &dateline
    local d,hour,halfday
-   d := Cal_SecToRec(seconds,timeZone)
+   d := Cal_SecToRec(seconds,timeZone);
    if (hour := d.hour) < 12 then {
       halfday := "am"
       }
    else {
-      halfday := "pm"
+      halfday := "pm";
       hour -:= 12
       }
    if hour = 0 then hour := 12
@@ -592,7 +592,7 @@ end
 #
 procedure Cal_SecToClock(seconds)		#: convert seconds to &clock
    local sec
-   sec := seconds % 60
+   sec := seconds % 60;
    seconds /:= 60
    return right(seconds / 60,2,"0") || ":" || right(seconds % 60,2,"0") ||
 	 ":" || right(sec,2,"0")

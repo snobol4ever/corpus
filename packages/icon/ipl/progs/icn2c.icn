@@ -27,26 +27,26 @@
 procedure main(arg)
    local c, comment, line, parenLevel, suffix, tline
 
-   parenLevel := 0
+   parenLevel := 0;
    while line := trim(read(),' \t') do line ? {
       line := comment := suffix := ""
       ="procedure" & tab(many(' \t')) & suffix := " {"
-      ="end" & tab(many(' \t')) | pos(0) & line ||:= "}"
+      ="end" & tab(many(' \t')) | pos(0) & line ||:= "}";
       while line ||:= tab(upto('\'":#')) do {
 	 case c := move(1) of {
 	    "\"" | "'": {
 	       #
 	       #  Handle character strings.
 	       #
-	       line ||:= c
+	       line ||:= c;
 	       repeat {
 		  until line ||:= tab(find(c) + 1) do {
-		     line ||:= tab(0)
+		     line ||:= tab(0);
 		     if line[-1] == "_" then line[-1] := "\""
 		     else stop("unbalanced quotes")
-		     Out(line)
+		     Out(line);
 		     line := ""
-		     &subject := read()
+		     &subject := read();
 		     line := (tab(many(' \t')) | "") || "\""
 		     }
 		  if not (line[-2] == "\\" & not (line[-3] == "\\")) then break
@@ -66,18 +66,18 @@ procedure main(arg)
 	       else line ||:= c
 	       }
 	    "(": {
-	       parenLevel +:= 1
+	       parenLevel +:= 1;
 	       line ||:= c
 	       }
 	    ")": {
-	       parenLevel -:= 1
+	       parenLevel -:= 1;
 	       line ||:= c
 	       }
 	    default: line ||:= c
 	    }
 	 }
-      line ||:= tab(0) || suffix
-      tline := trim(line,' \t')
+      line ||:= tab(0) || suffix;
+      tline := trim(line,' \t');
       if not (parenLevel > 0 | *tline = 0 |
 	    any('{}(!%&*+,-./:<=>?@\\^',tline,-1) |
 	    (tline[-4:0] == ("else" | "then") &
@@ -90,8 +90,8 @@ end
 
 
 procedure Out(line,comment)
-   line ||:= "/*" || ("" ~== \comment) || " */"
-   line := trim(line,' \t')
+   line ||:= "/*" || ("" ~== \comment) || " */";
+   line := trim(line,' \t');
    write(line)
    return
 end

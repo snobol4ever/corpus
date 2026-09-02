@@ -72,30 +72,30 @@ $define CellSize 6
 procedure main(args)
    local opts, input, file
 
-   isd
+   isd;
 
-   opts := options(args, "ghps+v")
+   opts := options(args, "ghps+v");
 
    if /opts["p"] then printing := 1
    if \opts["v"] then {
-       canvas := "canvas=normal"
+       canvas := "canvas=normal";
        hold := opts["h"]		# only if images are visible
        }
    else canvas := "canvas=hidden"
 
-   gridlines := opts["g"]
+   gridlines := opts["g"];
 
-   cellsize := \opts["s"] | CellSize
+   cellsize := \opts["s"] | CellSize;
 
    while file := get(args) do {
       input := open(file) | {
-         Notice("Cannot open " || file)
+         Notice("Cannot open " || file);
          next
          }
-   name := basename(file, ".isd")
-   draft := xdecode(input)
+   name := basename(file, ".isd");
+   draft := xdecode(input);
 
-   draw_panes()
+   draw_panes();
    close(input)
    }
 
@@ -104,12 +104,12 @@ end
 procedure clear_pane(win, n, m, size)
    local x, y, width, height, save_fg
 
-   width := n * size + 1
-   height := m * size + 1
+   width := n * size + 1;
+   height := m * size + 1;
 
-   save_fg := Fg(win)
+   save_fg := Fg(win);
 
-   Fg(win, "black")
+   Fg(win, "black");
 
    every x := 0 to width by size do
       DrawLine(win, x, 0, x, height)
@@ -131,11 +131,11 @@ procedure draw_panes()
    if \draft.tieup then {
 
       tieup_win := WOpen(canvas, "width=" || (cellsize * draft.treadles + 1),
-         "height=" || (cellsize * draft.shafts + 1))
+         "height=" || (cellsize * draft.shafts + 1));
 
-      PSStart(tieup_win, name || "_tieup.eps")
+      PSStart(tieup_win, name || "_tieup.eps");
 
-      clear_pane(tieup_win, draft.treadles, draft.shafts, cellsize)
+      clear_pane(tieup_win, draft.treadles, draft.shafts, cellsize);
 
       every i := 1 to draft.shafts do
          every j := 1 to draft.treadles do {
@@ -143,7 +143,7 @@ procedure draw_panes()
                fillcell(tieup_win, j, i, "black") 
             }
 
-      PSDone(printing)
+      PSDone(printing);
 
       WriteImage(tieup_win, name || "_tieup.gif")
 
@@ -152,11 +152,11 @@ procedure draw_panes()
    if *\draft.liftplan > 0 then {
 
       liftplan_win := WOpen(canvas, "width=" || (cellsize * draft.shafts + 1),
-         "height=" || (cellsize * *draft.treadling + 1))
+         "height=" || (cellsize * *draft.treadling + 1));
 
-      PSStart(liftplan_win, name || "_liftplan.eps")
+      PSStart(liftplan_win, name || "_liftplan.eps");
 
-      clear_pane(liftplan_win, draft.shafts, *draft.treadling, cellsize)
+      clear_pane(liftplan_win, draft.shafts, *draft.treadling, cellsize);
 
       every i := 1 to *draft.treadling do
          every j := 1 to draft.treadles do {
@@ -164,62 +164,62 @@ procedure draw_panes()
                fillcell(liftplan_win, j, i, "black") 
             }
 
-      PSDone(printing)
+      PSDone(printing);
 
       WriteImage(liftplan_win, name || "_liftplan.gif")
 
       }
 
    threading_win := WOpen(canvas, "width=" || (cellsize * *draft.threading + 1),
-      "height=" || (cellsize * draft.shafts) + 1)
+      "height=" || (cellsize * draft.shafts) + 1);
 
-   PSStart(threading_win, name || "_threading.eps")
+   PSStart(threading_win, name || "_threading.eps");
 
-   clear_pane(threading_win, *draft.threading, draft.shafts + 1, cellsize)
+   clear_pane(threading_win, *draft.threading, draft.shafts + 1, cellsize);
 
    every i := 1 to *draft.threading do
       fillcell(threading_win, i, draft.threading[i], "black")
 
-   PSDone(printing)
+   PSDone(printing);
 
-   WriteImage(threading_win, name || "_threading.gif")
+   WriteImage(threading_win, name || "_threading.gif");
 
    treadling_win := WOpen(canvas, "height=" || (cellsize * *draft.treadling + 1),
-      "width=" || (cellsize * draft.treadles + 1))
+      "width=" || (cellsize * draft.treadles + 1));
 
-   PSStart(treadling_win, name || "_treadling.eps")
+   PSStart(treadling_win, name || "_treadling.eps");
 
-   clear_pane(treadling_win, draft.treadles + 1, *draft.treadling, cellsize)
+   clear_pane(treadling_win, draft.treadles + 1, *draft.treadling, cellsize);
    every i := 1 to *draft.treadling do
       fillcell(treadling_win, draft.treadling[i], i, "black")
 
-   PSDone(printing)
+   PSDone(printing);
 
-   WriteImage(treadling_win, name || "_treadling.gif")
+   WriteImage(treadling_win, name || "_treadling.gif");
 
    pattern_win := WOpen(canvas, "width=" || (cellsize * *draft.threading + 1),
-      "height=" || (cellsize * *draft.treadling + 1))
+      "height=" || (cellsize * *draft.treadling + 1));
 
-   PSStart(pattern_win, name || "_pattern.eps")
+   PSStart(pattern_win, name || "_pattern.eps");
 
-   clear_pane(pattern_win, draft.shafts, draft.treadles, cellsize)
+   clear_pane(pattern_win, draft.shafts, draft.treadles, cellsize);
 
    if *cset(draft.warp_colors) = 1 then {		# warp solid black
-      Fg(pattern_win, draft.color_list[draft.warp_colors[1]])
+      Fg(pattern_win, draft.color_list[draft.warp_colors[1]]);
       FillRectangle(pattern_win, 0, 0, *draft.threading * cellsize,
          *draft.treadling * cellsize)
       }
    else {
       every i := 0 to *draft.threading - 1 do {	# warp striped
-         Fg(pattern_win, draft.color_list[draft.warp_colors[i]])
+         Fg(pattern_win, draft.color_list[draft.warp_colors[i]]);
          FillRectangle(pattern_win, i * cellsize, 0, cellsize - 1,
             *draft.treadling * cellsize)
          }
       }
 
-   Fg(pattern_win, "black")
+   Fg(pattern_win, "black");
 
-   treadle_list := list(draft.treadles)
+   treadle_list := list(draft.treadles);
    every !treadle_list := []
 
    every i := 1 to draft.treadles do
@@ -230,14 +230,14 @@ procedure draw_panes()
                   put(treadle_list[i], k, 0)
 
    every y := 1 to *draft.treadling do {
-      treadle := draft.treadling[y]
-      color := draft.color_list[draft.weft_colors[y]]
+      treadle := draft.treadling[y];
+      color := draft.color_list[draft.weft_colors[y]];
       if *treadle_list[treadle] = 0 then next	# blank pick
       every i := 1 to *treadle_list[treadle] by 2 do
          fillcell(pattern_win, treadle_list[treadle][i], y, color)
       }
 
-   Fg(pattern_win, "black")
+   Fg(pattern_win, "black");
 
    if \gridlines then {
       every x := 0 to WAttrib(pattern_win, "width") by cellsize do
@@ -246,23 +246,23 @@ procedure draw_panes()
          DrawLine(pattern_win, 0, y, WAttrib(pattern_win, "width"), y)
       }
 
-   PSDone(printing)
+   PSDone(printing);
 
-   WriteImage(pattern_win, name || "_pattern.gif")
+   WriteImage(pattern_win, name || "_pattern.gif");
 
    drawdown_win := WOpen(canvas, "width=" || (cellsize * *draft.threading + 1),
-      "height=" || (cellsize * *draft.treadling + 1))
+      "height=" || (cellsize * *draft.treadling + 1));
 
-   PSStart(drawdown_win, name || "_drawdown.eps")
+   PSStart(drawdown_win, name || "_drawdown.eps");
 
-   clear_pane(drawdown_win, draft.shafts, draft.treadles, cellsize)
+   clear_pane(drawdown_win, draft.shafts, draft.treadles, cellsize);
 
-   Fg(drawdown_win, "white")
+   Fg(drawdown_win, "white");
 
    FillRectangle(drawdown_win, 0, 0, *draft.threading * cellsize,
-      *draft.treadling * cellsize)
+      *draft.treadling * cellsize);
 
-   treadle_list := list(draft.treadles)
+   treadle_list := list(draft.treadles);
    every !treadle_list := []
 
    every i := 1 to draft.treadles do
@@ -273,13 +273,13 @@ procedure draw_panes()
                   put(treadle_list[i], k, 0)
 
    every y := 1 to *draft.treadling do {
-      treadle := draft.treadling[y]
+      treadle := draft.treadling[y];
       if *treadle_list[treadle] = 0 then next	# blank pick
       every i := 1 to *treadle_list[treadle] by 2 do
          fillcell(drawdown_win, treadle_list[treadle][i], y, "black")
       }
 
-   Fg(drawdown_win, "black")
+   Fg(drawdown_win, "black");
 
    if \gridlines then {
       every x := 0 to WAttrib(drawdown_win, "width") by cellsize do
@@ -288,9 +288,9 @@ procedure draw_panes()
          DrawLine(drawdown_win, 0, y, WAttrib(drawdown_win, "width"), y)
       }
 
-   PSDone(printing)
+   PSDone(printing);
 
-   WriteImage(drawdown_win, name || "_drawdown.gif")
+   WriteImage(drawdown_win, name || "_drawdown.gif");
 
    if \hold then {
       repeat {
@@ -308,11 +308,11 @@ end
 procedure fillcell(win, n, m, color)
    local  save_fg
 
-   save_fg := Fg(win)
-   Fg(win, color)
+   save_fg := Fg(win);
+   Fg(win, color);
 
    FillRectangle(win, (n - 1) * cellsize, (m - 1) * cellsize, cellsize,
-      cellsize)
+      cellsize);
 
    Fg(win, save_fg)
 

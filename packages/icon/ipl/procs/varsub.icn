@@ -38,9 +38,9 @@ procedure varsub(s,varProc)
    initial nameChar := &letters ++ &digits ++ "_"
    /varProc := getenv
    s ? {
-      s := ""
+      s := "";
       while s ||:= tab(upto('$~')) do {
-     p := &pos
+     p := &pos;
      s ||:= case move(1) of {
         "$": {
            if c := tab(any('{(')) then var := tab(find(map(c,"{(","})"))) & 
@@ -52,11 +52,11 @@ move(1)
            if user := tab(many(nameChar)) || ":" then {
           if pw := open("/etc/passwd") then {
              (while line := read(pw) do 
-               if match(user,line) then break) | (line := &null)
-             close(pw)
+               if match(user,line) then break) | (line := &null);
+             close(pw);
              if \line then {
             every i := find(":",line)\5
-            i +:= 1
+            i +:= 1;
             line[i:find(":",line,i)]
             }
              else &subject[p:&pos]

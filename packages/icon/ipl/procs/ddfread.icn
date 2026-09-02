@@ -124,10 +124,10 @@ procedure ddfopen(fname)		#: open DDF file
    else
       f := open(fname, "ru")	| fail
 
-   h := ddf_rhdr(f)		| fail
-   p := ddf_rdata(f, h)		| fail
-   l := dda_list(p)		| fail
-   t := table()
+   h := ddf_rhdr(f)		| fail;
+   p := ddf_rdata(f, h)		| fail;
+   l := dda_list(p)		| fail;
+   t := table();
    every e := !l do
       t[e.tag] := e
    return ddf_info(f, h, l, t)
@@ -164,19 +164,19 @@ end
 procedure ddfread(handle)		#: read DDF record
    local h, p, dlist, code, data, drec, sublist, e, n
 
-   h := handle.header
+   h := handle.header;
    if h.hcode ~== "R" then
       h := handle.header := ddf_rhdr(handle.file) | fail
-   p := ddf_rdata(handle.file, h) | fail
-   dlist := list()
+   p := ddf_rdata(handle.file, h) | fail;
+   dlist := list();
    while code := get(p) do {
-      data := get(p)
-      drec := \handle.dtable[code] | next	# ignore unregistered code
-      put(dlist, sublist := [code])
+      data := get(p);
+      drec := \handle.dtable[code] | next;  # ignore unregistered code
+      put(dlist, sublist := [code]);
       data ? {
-	 n := -1
+	 n := -1;
          while *sublist > n do {		# bail out when no more progress
-	    n := *sublist
+	    n := *sublist;
             every e := !drec.dlist do		# crack according to format
                every put(sublist, e.proc(e.arg))
             if pos(-1) then
@@ -194,7 +194,7 @@ end
 #  ddfclose(handle) -- close DDF file
 
 procedure ddfclose(handle)		#: close DDF file
-   close(\handle.file)
+   close(\handle.file);
    every !handle := &null
    return
 end
@@ -211,17 +211,17 @@ procedure ddf_rhdr(f)
    local s, t, tlen, hcode, off, nl, np, nx, nt, ddata
 
    s := reads(f, 24)				| fail
-   *s = 24					| fail
+   *s = 24					| fail;
    s ? {
-      tlen := integer(move(5))			| fail
-      move(1)
-      hcode := move(1)
-      move(5)
-      off := integer(move(5))			| fail
-      move(3)					| fail
-      nl := integer(move(1))			| fail
-      np := integer(move(1))			| fail
-      nx := move(1)				| fail
+      tlen := integer(move(5))			| fail;
+      move(1);
+      hcode := move(1);
+      move(5);
+      off := integer(move(5))			| fail;
+      move(3)					| fail;
+      nl := integer(move(1))			| fail;
+      np := integer(move(1))			| fail;
+      nx := move(1)				| fail;
       nt := integer(move(1))			| fail
    }
    ddata := reads(f, off - 24)			| fail
@@ -237,15 +237,15 @@ end
 procedure ddf_rdata(f, h)
    local tag, len, posn, data, a, d
 
-   d := reads(f, h.dlen)			| fail
+   d := reads(f, h.dlen)			| fail;
    if *d < h.dlen then fail
-   a := list()
+   a := list();
    h.ddata ? while not pos(0) do {
       if =RecSep then break
       tag := move(h.tsize)			| fail
-      len := move(h.lsize)			| fail
-      posn := move(h.psize)			| fail
-      data := d[posn + 1 +: len]		| fail
+      len := move(h.lsize)			| fail;
+      posn := move(h.psize)			| fail;
+      data := d[posn + 1 +: len]		| fail;
       put(a, tag, data)
       }
    return a
@@ -258,25 +258,25 @@ end
 procedure dda_list(p)
    local l, labels, tag, spec, control, name, format, d, rep
 
-   l := list()
+   l := list();
    while tag := get(p) do {
-      labels := list()
-      spec := get(p)				| fail
+      labels := list();
+      spec := get(p)				| fail;
       spec ? {
-         control := move(6)			| fail
-         name := tab(upto(EitherSep) | 0)
-         move(1)
-         rep := ="*"
+         control := move(6)			| fail;
+         name := tab(upto(EitherSep) | 0);
+         move(1);
+         rep := ="*";
          while put(labels, tab(upto(AnySep))) do {
             if =LabelSep then next
-            move(1)
+            move(1);
             break
             }
-         format := tab(upto(EitherSep) | 0)
-         move(1)
+         format := tab(upto(EitherSep) | 0);
+         move(1);
          pos(0)					| fail
          }
-      d := ddf_dtree(format)			| fail
+      d := ddf_dtree(format)			| fail;
       put(l, ddf_dde(tag, control, name, rep, labels, format, d))
       }
 
@@ -292,7 +292,7 @@ end
 procedure ddf_dtree(format)
    static dcache
    initial {
-      dcache := table()
+      dcache := table();
       dcache[""] := [ddf_decoder(ddf_str, EitherSep)]
       }
 
@@ -307,7 +307,7 @@ end
 procedure ddf_fcrack(s)
    local dlist, n, d
 
-   dlist := list()
+   dlist := list();
    s ? while not pos(0) do {
 
       if (any(&digits)) then
@@ -315,7 +315,7 @@ procedure ddf_fcrack(s)
       else
          n := 1
 
-      d := &null
+      d := &null;
       d := case move(1) of {
          ",":	next
          "A":	ddf_oneof(ddf_str, ddf_strn)
@@ -342,9 +342,9 @@ procedure ddf_oneof(tabproc, moveproc, quantum)
       return ddf_decoder(tabproc, EitherSep)
 
    if any(&digits) then {
-      /quantum := 1
-      n := integer(tab(many(&digits)))
-      n % quantum = 0					| fail
+      /quantum := 1;
+      n := integer(tab(many(&digits)));
+      n % quantum = 0					| fail;
       d := ddf_decoder(moveproc, n / quantum)
       }
    else {
@@ -371,7 +371,7 @@ end
 
 procedure ddf_int(cs)			# delimited integer
    local s
-   s := tab(upto(cs))
+   s := tab(upto(cs));
    move(1)
    return integer(s) | 0
 end
@@ -384,7 +384,7 @@ end
 
 procedure ddf_real(cs)			# delimited real
    local s
-   s := tab(upto(cs))
+   s := tab(upto(cs));
    move(1)
    return real(s) | 0.0
 end
@@ -397,7 +397,7 @@ end
 
 procedure ddf_binn(n)			# binary value of n bytes
    local v, c
-   v := c := ord(move(1))
+   v := c := ord(move(1));
    every 2 to n do
       v := 256 * v + ord(move(1))
    if c < 128 then	# if sign bit unset in first byte

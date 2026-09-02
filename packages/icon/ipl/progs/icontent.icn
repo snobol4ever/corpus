@@ -35,12 +35,12 @@ procedure main(arg)
    #
    #  Process command line options and file names.
    #
-   opt := options(arg,"sl")
-   linear := opt["l"]
-   Colmize := if \opt["l"] then proc("!",1) else colmize
-   Sort := if \opt["s"] then sort else 1
+   opt := options(arg,"sl");
+   linear := opt["l"];
+   Colmize := if \opt["l"] then proc("!",1) else colmize;
+   Sort := if \opt["s"] then sort else 1;
    if *arg = 0 then arg := ["-"] # if no arguments, standard input
-   namechar := &letters ++ &digits ++ "_"
+   namechar := &letters ++ &digits ++ "_";
    #
    #  Loop to process files.
    #
@@ -49,9 +49,9 @@ procedure main(arg)
 	 if not (fn[-4:0] == ".icn") then fn ||:= ".icn"
 	 open(fn) | stop("Can't open input file \"",fn,"\"")
          }
-      names := []
+      names := [];
       write("#  Procedures and Records",
-	  if f === &input then "" else " in " || fn,":")
+	  if f === &input then "" else " in " || fn,":");
       #
       #  Loop to process lines of file (in string scanning mode).
       #
@@ -66,7 +66,7 @@ procedure main(arg)
       #
       #  Close this file.
       #
-      close(&input ~=== f)
+      close(&input ~=== f);
       every write("#    ",Colmize(Sort(names),71))
       }
    #

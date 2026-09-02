@@ -62,24 +62,24 @@ $define ColorCols	16	# number of palette columns
 procedure main()
    local atts, vidgets
 
-   atts := ui_atts()
+   atts := ui_atts();
    put(atts, "posx=0", "posy=0")
 
-   (WOpen ! atts) | stop("*** cannot open application window")
+   (WOpen ! atts) | stop("*** cannot open application window");
 
-   vidgets := ui()
+   vidgets := ui();
 
-   x_pos := WAttrib("width") + 3 * WAttrib("posx")
-   y_pos := WAttrib("posy")
+   x_pos := WAttrib("width") + 3 * WAttrib("posx");
+   y_pos := WAttrib("posy");
 
-   palette := vidgets["palette"]
+   palette := vidgets["palette"];
 
-   cellsize := palette.uw / ColorCols
+   cellsize := palette.uw / ColorCols;
 
-   panel := Clone("bg=black", "dx=" || palette.ux, "dy=" || palette.uy)
-   Clip(panel, 0, 0,  palette.uw, palette.uh)
+   panel := Clone("bg=black", "dx=" || palette.ux, "dy=" || palette.uy);
+   Clip(panel, 0, 0,  palette.uw, palette.uh);
 
-   clear_palette()
+   clear_palette();
 
    GetEvents(vidgets["root"], , shortcuts)
 
@@ -90,17 +90,17 @@ end
 procedure clear_palette()
    local x, y
 
-   Fg(panel, "black")
-   EraseArea(panel)
-   WAttrib(panel, "fillstyle=textured")
-   Pattern(panel, "checkers")
-   Bg(panel, "very dark gray")
+   Fg(panel, "black");
+   EraseArea(panel);
+   WAttrib(panel, "fillstyle=textured");
+   Pattern(panel, "checkers");
+   Bg(panel, "very dark gray");
 
    every x := 1 + (0 to ColorCols) * cellsize do
       every y := 1 + (0 to ColorRows) * cellsize do
          FillRectangle(panel, x, y, cellsize - 1, cellsize - 1)
 
-   WAttrib(panel, "fillstyle=solid")
+   WAttrib(panel, "fillstyle=solid");
    Bg(panel, "black")
 
    return
@@ -127,26 +127,26 @@ end
 procedure image_open()
    local i, x, y
 
-   WClose(\image_window)
+   WClose(\image_window);
 
    repeat {
       if OpenDialog("Open image:") == "Cancel" then fail
       image_window := WOpen("canvas=hidden", "image=" || dialog_value) | {
-         Notice("Cannot open image.")
+         Notice("Cannot open image.");
          next
          }
       break
       }
 
-   mutate(image_window) | fail
+   mutate(image_window) | fail;
 
-   Raise()			# bring application window to front
+   Raise();  # bring application window to front
 
-   colors := vallist(copy(orig_colors))
+   colors := vallist(copy(orig_colors));
 
-   clear_palette()
+   clear_palette();
 
-   i := 0
+   i := 0;
 
    every y := 1 + (0 to ColorRows - 1) * cellsize do
       every x := 1 + (0 to ColorCols - 1) * cellsize do {
@@ -174,7 +174,7 @@ procedure image_revert()
    local old, color
 
    every old := key(orig_colors) do {
-      color := orig_colors[old]
+      color := orig_colors[old];
       Color(panel, color, old)
       }
 
@@ -187,35 +187,35 @@ end
 procedure mutate()
    local c, width, height, n, x, y
 
-   WClose(\mutant)
+   WClose(\mutant);
 
-   orig_colors := table()
-   count := table(0)
+   orig_colors := table();
+   count := table(0);
 
-   width := WAttrib(image_window, "width")
-   height := WAttrib(image_window, "height")
+   width := WAttrib(image_window, "width");
+   height := WAttrib(image_window, "height");
 
-   pixels := width * height
+   pixels := width * height;
 
    mutant := WOpen("width=" || width, "height=" || height,
       "posx=" || x_pos, "posy=" || y_pos) | {
-         Notice("Cannot open image_window for mutant colors.")
+         Notice("Cannot open image_window for mutant colors.");
          fail
          }
 
    every y := 0 to height - 1 do {
-      x := 0
+      x := 0;
       every c := Pixel(image_window, 0, y, width, 1) do {
          if not(n := \orig_colors[c]) then {
             orig_colors[c] := n := NewColor(c) | {
-               Notice("Cannot get mutable color.")
-               WClose(mutant)
+               Notice("Cannot get mutable color.");
+               WClose(mutant);
                fail
                }
             }
-         count[n] +:= 1
-         Fg(mutant, n)
-         DrawPoint(mutant, x, y)
+         count[n] +:= 1;
+         Fg(mutant, n);
+         DrawPoint(mutant, x, y);
          x +:= 1
          }
       }
@@ -230,9 +230,9 @@ procedure palette_cb(vidget, e, x, y)
    local color, new
 
    if e === (&lpress | &mpress | &rpress) then {
-      color := Pixel(x, y, 1, 1)		# get pixel color
+      color := Pixel(x, y, 1, 1);  # get pixel color
       if not integer(color) then fail		# not a mutable color
-      new := Color(panel, color)		# get color specification
+      new := Color(panel, color);  # get color specification
       if ColorDialog(
          "Adjust color (" || count[color] || " pixels, " ||
             frn((100.0 * count[color]) / pixels, , 2) || "%):",
@@ -240,7 +240,7 @@ procedure palette_cb(vidget, e, x, y)
           track,
           color
           ) == "Okay" then new := dialog_value
-      Color(panel, color, new)
+      Color(panel, color, new);
       Color(mutant, color, new)
       }
 
@@ -252,7 +252,7 @@ end
 
 procedure quit()
 
-   snapshot(\mutant)
+   snapshot(\mutant);
 
    exit()
 

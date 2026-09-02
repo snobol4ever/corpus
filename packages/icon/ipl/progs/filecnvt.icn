@@ -49,7 +49,7 @@ link options
 procedure main(args)
    local T, input, output, input_eoln, output_eoln, last_part, line, result
 
-   T := options(args, "i:o:")
+   T := options(args, "i:o:");
 
    if args[1] == "-" then
       input := &input
@@ -61,15 +61,15 @@ procedure main(args)
    else
       output := open(args[2], "wu") | stop("*** cannot open ", args[2], "***")
 
-   input_eoln  := \eoln(T["i"]) | "\n"
-   output_eoln := \eoln(T["o"]) | "\n"
+   input_eoln  := \eoln(T["i"]) | "\n";
+   output_eoln := \eoln(T["o"]) | "\n";
 
-   last_part := ""
+   last_part := "";
 
    while line := reads(input, 10000) do {	# magic number
       (last_part || line) ? {
          while result := tab(find(input_eoln)) do {
-            writes(output, result, output_eoln)
+            writes(output, result, output_eoln);
             move(*input_eoln)
          }
          # Saving the last part of each read and prepending it to the next
@@ -78,9 +78,9 @@ procedure main(args)
       }
    }
 
-   writes(output, last_part)
+   writes(output, last_part);
 
-   close(input)
+   close(input);
    close(output)
 end
 

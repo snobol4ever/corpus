@@ -45,7 +45,7 @@
 procedure everycat(args[])
    local arg
 
-   arg := get(args) | fail
+   arg := get(args) | fail;
 
    if *args = 0 then
       suspend !arg

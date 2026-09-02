@@ -22,8 +22,8 @@
 
 procedure soundex(name)
    local first, c, i
-   name := map(name,string(&lcase),string(&ucase)) # Convert to uppercase..
-   first := name[1]
+   name := map(name,string(&lcase),string(&ucase));  # Convert to uppercase..
+   first := name[1];
 
 # Retain the first letter of the name, and convert all
 # occurrences of A,E,H,I,O,U,W,Y in other positions to "."
@@ -36,7 +36,7 @@ procedure soundex(name)
 # D,T => 3		   R => 6
 
    name := map(name,"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-		    ".123.12..22455.12623.1.2.2")
+		    ".123.12..22455.12623.1.2.2");
 
 # If two or more letters with the same code were adjacent
 # in the original name, omit all but the first
@@ -44,7 +44,7 @@ procedure soundex(name)
    every c := !"123456" do
        while i := find(c||c,name) do
 	   name[i+:2] := c
-   name[1] := first
+   name[1] := first;
 
 # Now delete our place holder ('.')
 

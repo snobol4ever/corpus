@@ -37,17 +37,17 @@ link wopen
 procedure main()
    local extent, c, i, j, m, x
 
-   extent := 360
+   extent := 360;
 
    WOpen("label=orbit", "height=" || extent, "width=" || extent) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
    every i := -320 to 40 do {
-      x := 0.0
-      c := i / 160.0
-      m := 160 * (c + 2)
+      x := 0.0;
+      c := i / 160.0;
+      m := 160 * (c + 2);
       every j := 0 to extent do {
-         x := x ^ 2 + c
+         x := x ^ 2 + c;
          if j < 50 then next		# wait for things to take hold
          DrawPoint(m,  75 * (2 - x))
          }

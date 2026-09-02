@@ -33,15 +33,15 @@ $define MAXFILES 50
 procedure main(args)
    local opts, maxfiles, f, line, mods, fname, files, text, s
 
-   opts := options(args, "n+")
-   maxfiles := \opts["n"] | MAXFILES
+   opts := options(args, "n+");
+   maxfiles := \opts["n"] | MAXFILES;
 
    if *args = 0 then
       f := &input
    else
       f := open(args[1]) | stop("cannot open ", args[1])
 
-   mods := table()
+   mods := table();
 
    while line := read(f) do line ? {
 
@@ -49,13 +49,13 @@ procedure main(args)
       if ="Working file: " then		# save working file name
          fname := tab(0)
       ="date: "			| next
-      tab(find("author: ") + 8)	| next
-      tab(upto(';') + 1)	| next
+      tab(find("author: ") + 8)	| next;
+      tab(upto(';') + 1)	| next;
 
       # this is the "date:" line
       # save as first part of description
-      s := tab(1)
-      s[23+:3] := ""			# remove seconds from clock reading
+      s := tab(1);
+      s[23+:3] := "";  # remove seconds from clock reading
 
       # read description of modification
       while line := read(f) do {
@@ -66,18 +66,18 @@ procedure main(args)
 
       # have reached end of this entry
       # add to table, indexed by text
-      files := mods[s]
+      files := mods[s];
       if /files then
          files := mods[s] := []
       put(files, fname)
       }
 
    # sort mods by timestamp, which is first part of text
-   mods := sort(mods, 3)
+   mods := sort(mods, 3);
 
    # output the mods in order, giving affected files first
    while text := get(mods) do {
-      files := get(mods)
+      files := get(mods);
       if same(text, mods[1]) then {
          # this entry differs from the next one only in timestamp details,
          # so combine this entry with the next one
@@ -85,12 +85,12 @@ procedure main(args)
          }
       else {
          # this is a unique entry
-         write()
+         write();
          if *files >= maxfiles then
             write("file: [", *files, " files]")
          else
             every write("file: ", !sort(files))
-         write(text)
+         write(text);
          write()
          }
       }

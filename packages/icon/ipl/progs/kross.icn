@@ -35,8 +35,8 @@ procedure kross(s1,s2)
 end
 
 procedure xprint(s1,s2,j,k)
-   write()
+   write();
    every write(right(s2[1 to k-1],j))
-   write(s1)
+   write(s1);
    every write(right(s2[k+1 to *s2],j))
 end

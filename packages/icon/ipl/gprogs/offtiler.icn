@@ -39,10 +39,10 @@ global width
 
 procedure main()
 
-   vidgets := ui()
+   vidgets := ui();
 
-   direction := "vertical"
-   factor := 1
+   direction := "vertical";
+   factor := 1;
 
    GetEvents(vidgets["root"], , shortcuts)
 
@@ -75,25 +75,25 @@ procedure tile_cb()
    local incr, i, j, offset
 
    if /subject then {
-      Notice("No subject image.")
+      Notice("No subject image.");
       fail
       }
       
-   WClose(\target)
+   WClose(\target);
 
    target := WOpen("label=offset tile", "size=" || (width * factor) || "," ||
       (height * factor)) | {
-         Notice("Cannot open target window.")
+         Notice("Cannot open target window.");
          fail
          }
 
-   Raise()
+   Raise();
 
    case direction of {
       "vertical"    :  {
-         incr := height / factor
+         incr := height / factor;
          every i := -1 to factor do {		# columns
-            offset := i * incr
+            offset := i * incr;
             every j := -1 to factor do {	# rows
                CopyArea(subject, target, 0, 0, width, height, i * width,
                   j * height + offset)
@@ -101,9 +101,9 @@ procedure tile_cb()
             }
          }
       "horizontal"  :  {
-         incr := width / factor
+         incr := width / factor;
          every i := -1 to factor do {		# rows
-            offset := i * incr
+            offset := i * incr;
             every j := -1 to factor do {	# columns
                CopyArea(subject, target, 0, 0, width, height,
                   j * width + offset, i * height)
@@ -121,7 +121,7 @@ procedure set_direction()
    repeat {
       if SelectDialog("Direction", ["vertical", "horizontal"], direction) ==
          "Cancel" then fail
-      direction := dialog_value
+      direction := dialog_value;
       check_parameters() | next
       return
       }
@@ -133,7 +133,7 @@ procedure set_factor()
    repeat {
       if TextDialog("Offset factor", , factor) == "Cancel" then fail
       factor := (0 < integer(dialog_value[1])) | {
-         Notice("Invalid factor specification.")
+         Notice("Invalid factor specification.");
          next
          }
       check_parameters() | next
@@ -147,21 +147,21 @@ procedure check_parameters()
    case direction of {
       "vertical"    :  {
          if (height % factor) ~= 0 then {
-            Notice("Factor does not evenly divide height.")
+            Notice("Factor does not evenly divide height.");
             fail
             }
          if factor >= height then {
-            Notice("Factor too large.")
+            Notice("Factor too large.");
             fail
             }
          }
       "horizontal"  :  {
          if (width % factor) ~= 0 then {
-            Notice("Factor does not evenly divide width.")
+            Notice("Factor does not evenly divide width.");
             fail
             }
          if factor >= width then {
-            Notice("Factor too large.")
+            Notice("Factor too large.");
             fail
             }
          }
@@ -190,14 +190,14 @@ procedure open_image()
 
    repeat {
       if OpenDialog("Open image:") == "Cancel" then fail
-      WClose(\subject)
+      WClose(\subject);
       subject := WOpen("label=" || dialog_value, "image=" || dialog_value) | {
-         Notice("Cannot open image.") 
+         Notice("Cannot open image.");
          next
          }
-      width := WAttrib(subject, "width")
-      height := WAttrib(subject, "height")
-      factor := 1
+      width := WAttrib(subject, "width");
+      height := WAttrib(subject, "height");
+      factor := 1;
       Raise()
       return
       }
@@ -209,12 +209,12 @@ procedure save_tile()
 
    repeat {
       if SaveDialog("Save tile:") ~== "Yes" then fail
-      file := dialog_value
+      file := dialog_value;
       if exists(file) then {
          if TextDialog("Overwrite existing file?") == "Cancel" then next
          }
       WriteImage(target, file) | {
-         Notice("Cannot write image.")
+         Notice("Cannot write image.");
          next
          }
       return

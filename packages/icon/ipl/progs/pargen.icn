@@ -85,9 +85,9 @@ global sym			# current nonterminal symbol
 procedure main(args)
    local line			# a line of input
 
-   declend := "__"
-   procend := "_()"
-   nchars := &letters ++ &digits ++ '_'
+   declend := "__";
+   procend := "_()";
+   nchars := &letters ++ &digits ++ '_';
 
    while line := read() do {		# process lines of input
       line ? {
@@ -100,12 +100,12 @@ procedure main(args)
          }				# end scan
       }					# end while
 
-   write("link ",args[1] | "recog")	# link main procedure
-   write("link matchlib")		# link built-in symbols
-   write("global goal\n")		# write out global declaration
-   write("procedure init()")		# write out initialization procedure
-   write("   goal := ",goal,"_")
-   write("   return")
+   write("link ",args[1] | "recog");  # link main procedure
+   write("link matchlib");  # link built-in symbols
+   write("global goal\n");  # write out global declaration
+   write("procedure init()");  # write out initialization procedure
+   write("   goal := ",goal,"_");
+   write("   return");
    write("end")
 
 end
@@ -119,15 +119,15 @@ procedure transprod()
    {
       sym := tab(many(nchars)) &	# get the nonterminal name
       =">::=" 
-      } | error()			# catch syntactic error
-   write("record ",sym,declend,"(alts)")# record declaration
-   write("procedure ",sym,procend)	# procedure header
-   write("   suspend {")		# begin the suspend expression
-   writes("      ",sym,declend,"(")	# write indentation
-   transalts()				# transform the alternatives
-   write(")")
-   write("      }")			# end the suspend expression
-   write("end")				# end the procedure declaration
+      } | error();  # catch syntactic error
+   write("record ",sym,declend,"(alts)");  # record declaration
+   write("procedure ",sym,procend);  # procedure header
+   write("   suspend {");  # begin the suspend expression
+   writes("      ",sym,declend,"(");  # write indentation
+   transalts();  # transform the alternatives
+   write(")");
+   write("      }");  # end the suspend expression
+   write("end");  # end the procedure declaration
    write()				# space between declarations
    /goal := sym				# first symbol is goal
 
@@ -140,12 +140,12 @@ procedure transalts()
    local alt				# an alternative
 
    while alt := tab(bal('|') | 0) do {	# process alternatives
-      writes("[")		# record for alternative
-      alt ? transseq()			# transform the symbols
+      writes("[");  # record for alternative
+      alt ? transseq();  # transform the symbols
       if move(1) then writes("] | ")	# if more, close the parentheses
 					# and add the alternation.
       else {
-         writes("]")			# no more, so just close the parentheses
+         writes("]");  # no more, so just close the parentheses
          break
          }				# end else
       }					# end while
@@ -158,7 +158,7 @@ end
 procedure transseq()
 
    repeat {
-      transsym()			# process a symbols
+      transsym();  # process a symbols
       if not pos(0) then writes(" , ")	# if there's more, provide concatenation
       else break			# else get out and return
       }					# end while
@@ -181,10 +181,10 @@ procedure transsym()
       }					# end then
 
    else if ="(" then {			# if it's a parenthesis, pass it
-      writes("(")			# along and call transseq()
-      group := tab(bal(')')) | error()
-      group ? transalts()
-      writes(")")
+      writes("(");  # along and call transseq()
+      group := tab(bal(')')) | error();
+      group ? transalts();
+      writes(")");
       move(1)
       }
 					# else transform nonterminal string

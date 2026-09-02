@@ -41,16 +41,16 @@ record dim(w, h)
 procedure main(args)
    local name, opts, title, dim, align, names
 
-   opts := options(args, "t:a:n")
-   title := \opts["t"] | "untitled"
-   align := \opts["a"] | "bottom"
-   names := opts["n"]
+   opts := options(args, "t:a:n");
+   title := \opts["t"] | "untitled";
+   align := \opts["a"] | "bottom";
+   names := opts["n"];
 
-   write("<html><head><title>", title, "</title></head><body>")
+   write("<html><head><title>", title, "</title></head><body>");
 
    every name := !args do {
       dim := image_size(name) | {
-         write(&errout, "*** cannot open image file ", image(name))
+         write(&errout, "*** cannot open image file ", image(name));
          next
          }
       write(
@@ -73,9 +73,9 @@ end
 procedure image_size(name)			#: size of GIF file
    local win, size
 
-   win := WOpen("canvas=hidden", "image=" || name) | fail
+   win := WOpen("canvas=hidden", "image=" || name) | fail;
 
-   size := dim(WAttrib(win, "width"), WAttrib(win, "height"))
+   size := dim(WAttrib(win, "width"), WAttrib(win, "height"));
 
    WClose(win)
 

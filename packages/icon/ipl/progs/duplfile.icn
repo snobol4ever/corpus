@@ -29,12 +29,12 @@
 procedure main(args)
    local ext, posit, files, names, name, dir, temp, dirs
 
-   ext := args[1] | ""
-   posit := -*ext
+   ext := args[1] | "";
+   posit := -*ext;
 
-   names := table()
+   names := table();
 
-   files := open("ls -R", "p")
+   files := open("ls -R", "p");
 
    while name := read(files) do
       name ? {
@@ -42,18 +42,18 @@ procedure main(args)
             next
             }
          else if tab(posit) & =ext then {
-            /names[name] := []
+            /names[name] := [];
             put(names[name], dir)
             }
          }
 
-   names := sort(names, 3)
+   names := sort(names, 3);
 
    while name := get(names) do {
-      dirs := get(names)
+      dirs := get(names);
       if *name = 0 then next
       if *dirs > 1 then {
-         write("file: ", image(name), " occurs in the following directories")
+         write("file: ", image(name), " occurs in the following directories");
          every write("\t", image(fix(!sort(dirs))))
          write()
          }

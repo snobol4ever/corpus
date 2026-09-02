@@ -34,7 +34,7 @@
 #
 
 procedure Usage(s)
-  write(&errout,\s)
+  write(&errout,\s);
   stop(
        "Usage: ChkHTML -options file..._
       \n  -u     supress warnings for unreferenced anchor names_
@@ -47,13 +47,13 @@ global SupressUnrefNames,SupressOpenQuot,SupressOpenGT,HTMLLevel
 
 procedure Init(arg)
   local opt,f
-  ListTypes := ["UL","OL","MENU","DIR"]
+  ListTypes := ["UL","OL","MENU","DIR"];
 
-  opt := options(arg,"uqgl+",Usage)
+  opt := options(arg,"uqgl+",Usage);
   if *arg = 0 then Usage()
-  SupressUnrefNames := opt["u"]
-  SupressOpenQuot := opt["q"]
-  SupressOpenGT := opt["g"]
+  SupressUnrefNames := opt["u"];
+  SupressOpenQuot := opt["q"];
+  SupressOpenGT := opt["g"];
   HTMLLevel := \opt["l"] | 2
   return opt
 end
@@ -64,8 +64,8 @@ global FileName,LineNbr,TagStack,HRefList,NameSet,NameRefSet,ErrorCount,
     SeenSet,PlainText,Tagless,Msg,ListTypes
 
 procedure main(arg)
-  SetMsg()
-  Init(arg)
+  SetMsg();
+  Init(arg);
   every CheckHTML(!arg)
 end
 
@@ -73,29 +73,29 @@ procedure CheckHTML(fn)
   local f,line,c
   static badChars,scanChars
   initial {
-    badChars := ~(&cset[33:128] ++ '\t')
+    badChars := ~(&cset[33:128] ++ '\t');
     scanChars := '<>"&' ++ badChars
   }
   #
   # Open the input file.
   #
   f := open(fn) | {
-    write(&errout,"Can't open \"",fn,"\"")
+    write(&errout,"Can't open \"",fn,"\"");
     fail
   }
-  FileName := fn
-  write(&errout)
-  Msg("Checking HTML format...")
-  ErrorCount := 0
-  LineNbr := 0
-  TagStack := []
-  NameSet := set()
-  NameRefSet := set()
-  HRefList := []
-  SeenSet := set()
-  PlainText := &null
+  FileName := fn;
+  write(&errout);
+  Msg("Checking HTML format...");
+  ErrorCount := 0;
+  LineNbr := 0;
+  TagStack := [];
+  NameSet := set();
+  NameRefSet := set();
+  HRefList := [];
+  SeenSet := set();
+  PlainText := &null;
   while line := read(f) do line ? {
-    LineNbr +:= 1
+    LineNbr +:= 1;
     while tab(upto(scanChars)) do {
       case c := move(1) of {
 	"<": ProcessTag(f) | break

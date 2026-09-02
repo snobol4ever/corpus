@@ -29,25 +29,25 @@ procedure main(param)
 #
 # initial set up : x=20, y=20 by default
 #
-  width  := param[1] | 20
-  height := param[2] | 20
-  words  := []
+  width  := param[1] | 20;
+  height := param[2] | 20;
+  words  := [];
 #
 # load words to place in a space delimited
 # file. more than one word per line is ok.
 #
   while line := map(read()) do
     {
-    tokens := parse(line,' \t')
+    tokens := parse(line,' \t');
     while put(words,pop(tokens))
     }
 #
 # get ready for main processing
 #
-  matrix    := table(" ")
-  pass      := 0
+  matrix    := table(" ");
+  pass      := 0;
   completed := 0
-  &random:= map(&clock,":","0")
+  &random:= map(&clock,":","0");
 #
 # here's the actual word placement rouinte
 #
@@ -62,8 +62,8 @@ procedure main(param)
 #
 # output results (for the test giver, words are lcase, noise is ucase)
 #
-  write(completed," words inserted out of ",*words," words.\n")
-  write("\nNow for the puzzle you've been waiting for! (ANSWER)\n")
+  write(completed," words inserted out of ",*words," words.\n");
+  write("\nNow for the puzzle you've been waiting for! (ANSWER)\n");
   every i := 1 to height do
     {
     every j := 1 to width do writes(matrix[i||","||j]," ")
@@ -72,7 +72,7 @@ procedure main(param)
 #
 # output results (for the test taker, everything is upper case
 #
-  write("\fNow for the puzzle you've been waiting for! (PUZZLE)\n")
+  write("\fNow for the puzzle you've been waiting for! (PUZZLE)\n");
   every i := 1 to height do
     {
     every j := 1 to width do writes(map(matrix[i||","||j],&lcase,&ucase)," ")
@@ -90,20 +90,20 @@ procedure place(str)
   static xstep,ystep
 
   initial {
-          xstep := [0,1,1,1,0,-1,-1,-1]
+          xstep := [0,1,1,1,0,-1,-1,-1];
           ystep := [-1,-1,0,1,1,1,0,-1]
           }
-  pass := 0
+  pass := 0;
 
   repeat  {
   if (pass +:= 1) > 20 then
     { 
-    write("skipping ",str)
+    write("skipping ",str);
     fail
     }
-  direction := ?8
-  xinc      := integer(xstep[direction])
-  yinc      := integer(ystep[direction])
+  direction := ?8;
+  xinc      := integer(xstep[direction]);
+  yinc      := integer(ystep[direction]);
 
   if xinc < 0 then x := *str + ?(width - *str)
   if xinc = 0 then x := ?height
@@ -115,18 +115,18 @@ procedure place(str)
 
   if (x < 1) | (y < 1) then stop(str," too long.")
 
-  construct := copy(matrix)
-  item      := str
-  write("placing ",item)
+  construct := copy(matrix);
+  item      := str;
+  write("placing ",item);
   every byte := !item do
     {
     if (construct[x||","||y] ~== " ")  &
        (construct[x||","||y] ~== byte) then break next
-    construct[x||","||y] := byte
-    x +:= xinc
+    construct[x||","||y] := byte;
+    x +:= xinc;
     y +:= yinc
     }
-  matrix     := copy(construct)
+  matrix     := copy(construct);
   completed +:= 1
   return "ok"
   } # end repeat
@@ -140,8 +140,8 @@ procedure parse(line,delims)
   local tokens
   static chars
 
-  chars  := &cset -- delims
-  tokens := []
+  chars  := &cset -- delims;
+  tokens := [];
   line ? while tab(upto(chars)) do put(tokens,tab(many(chars)))
   return tokens
   end

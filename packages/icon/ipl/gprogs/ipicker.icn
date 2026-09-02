@@ -35,9 +35,9 @@ procedure main(args)
    local name
 
    every name := !args do {
-      WClose(\&window)
+      WClose(\&window);
       WOpen("image=" || name) | {
-         write(&errout, "Can't open image ", image(name))
+         write(&errout, "Can't open image ", image(name));
          next
          }
       case WReads(, 1) of {

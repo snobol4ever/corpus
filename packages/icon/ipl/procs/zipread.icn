@@ -52,8 +52,8 @@
 procedure iszip(fname)		#: check for ZIP archive
    local f, s
 
-   f := open(fname, "ru") | fail
-   s := reads(f, 4)
+   f := open(fname, "ru") | fail;
+   s := reads(f, 4);
    close(f)
    return s === "PK\03\04"
 end

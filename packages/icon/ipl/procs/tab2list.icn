@@ -30,7 +30,7 @@
 procedure tab2list(s)
    local L
 
-   L := []
+   L := [];
 
    s ? {
       while put(L, map(tab(upto('\t') | 0), "\v", "\n")) do

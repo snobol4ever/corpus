@@ -50,47 +50,47 @@ procedure main(args)
    local height, window_height, y, window_width, numbers, opts, scale
    local number, gap, bar, name
 
-   opts := options(args, "s.w+g+m")
+   opts := options(args, "s.w+g+m");
 
-   scale := \opts["s"] | 1
-   bar := \opts["w"] | 5
-   gap := \opts["g"] | 1
+   scale := \opts["s"] | 1;
+   bar := \opts["w"] | 5;
+   gap := \opts["g"] | 1;
    if \opts["m"] then {
-      bar := 1
+      bar := 1;
       gap := 0
       }
-   name := \opts["n"] | "untitled"
+   name := \opts["n"] | "untitled";
    
-   height := bar + gap
+   height := bar + gap;
 
-   numbers := []
+   numbers := [];
 
    while number := read() do {
-      number := numeric(number) | stop("*** nonnumeric data")
-      number <:= 0		# clamp negative number to 0
+      number := numeric(number) | stop("*** nonnumeric data");
+      number <:= 0;  # clamp negative number to 0
       put(numbers, number)
       }
 
    if *numbers = 0 then stop("*** no data")
 
-   window_height := *numbers * height + gap
+   window_height := *numbers * height + gap;
 
-   window_width := integer(scale * (max ! numbers) + 10)
+   window_width := integer(scale * (max ! numbers) + 10);
 
    WOpen("canvas=hidden", "label=Histogram",
       "size=" || window_width || "," || window_height) |
-         stop("*** cannot open window")
+         stop("*** cannot open window");
 
-   y := 0
+   y := 0;
 
    while FillRectangle(0, y + gap, scale * get(numbers), height - gap) do
       y +:= height
 
-   WAttrib("canvas=normal")
+   WAttrib("canvas=normal");
 
    until WQuit()
 
-   WriteImage(name || ".gif")
+   WriteImage(name || ".gif");
 
    WClose()
 

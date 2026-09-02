@@ -39,13 +39,13 @@ procedure linddraw(		#: draw L-system
    /x := (WAttrib(\&window, "width") / 2) | 250
    /y := (WAttrib(\&window, "height") / 2) | 250
    /length := 5
-   /delta := 90
+   /delta := 90;
 
-   TReset()
-   TGoto(x, y)
+   TReset();
+   TGoto(x, y);
 
    every c := lindgen(!axiom, rewrite, gener) do {
-      WDelay(delay)
+      WDelay(delay);
       case c of {
          "F":   TDraw(length)			# draw forward
          "f":   TSkip(length)			# skip forward

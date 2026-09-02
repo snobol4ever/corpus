@@ -58,15 +58,15 @@ end
 procedure filemode(args)
    local fname, limit, f, fontlist, request, a
 
-   fname := args[1]
-   limit := integer(args[2]) | 20
-   f := open(fname) | stop("can't open ", fname)
+   fname := args[1];
+   limit := integer(args[2]) | 20;
+   f := open(fname) | stop("can't open ", fname);
    every put(fontlist := [], !f)
    repeat {
-      writes("> ")
+      writes("> ");
       request := trim(read()) | return
       if *request = 0 then
-         next
+         next;
       every a := RankFonts(fontlist, request) \ limit do
          write(right(a.val, 5), "\t", a.str)
       write()

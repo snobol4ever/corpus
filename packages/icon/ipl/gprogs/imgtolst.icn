@@ -38,19 +38,19 @@ procedure main(args)
    local file, name, output
 
    every file := !args do {
-      name := basename(file, ".gif")
+      name := basename(file, ".gif");
       output := open(name || ".lst", "w") | {
-         write(&errout, "*** cannot open ", name, ".lst")
+         write(&errout, "*** cannot open ", name, ".lst");
          next
          }
       WOpen("canvas=hidden", "image=" || file) | {
-         write(&errout, "*** cannot open ", file)
+         write(&errout, "*** cannot open ", file);
          next
          }
-      write(output, "width=", Width(), " height=", Height())
+      write(output, "width=", Width(), " height=", Height());
       every write(output, Pixel())
       WClose()
-      &window := &null
+      &window := &null;
       close(output)
       }
 

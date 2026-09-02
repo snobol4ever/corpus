@@ -30,16 +30,16 @@ link random
 procedure main(args)
    local data, fname, f
 
-   randomize()
-   data := []
+   randomize();
+   data := [];
    if *args = 0 then
       while put(data, read())
    else
       every fname := !args do {
-         f := open(fname, "u") | stop("cannot open ", fname)
+         f := open(fname, "u") | stop("cannot open ", fname);
          while put(data, read(f))
          close(f)
       }
-   shuffle(data)
+   shuffle(data);
    every write(!data)
 end

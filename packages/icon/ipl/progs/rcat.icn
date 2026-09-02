@@ -32,16 +32,16 @@ procedure main(args)
 
    every fname := !args do {
 
-      lines := []
-      leftover := ""
-      f := open(fname, "u") | stop("cannot open ", fname)
-      len := where(seek(f, 0)) - 1 | stop("cannot seek ", fname)
-      nseg := (len + BUFSIZE - 1) / BUFSIZE
+      lines := [];
+      leftover := "";
+      f := open(fname, "u") | stop("cannot open ", fname);
+      len := where(seek(f, 0)) - 1 | stop("cannot seek ", fname);
+      nseg := (len + BUFSIZE - 1) / BUFSIZE;
 
       every i := nseg - 1 to 0 by -1 do {
          seek(f, 1 + BUFSIZE * i)
          (reads(f, BUFSIZE) || leftover) ? {
-            leftover := tab(upto('\n') + 1 | 0)
+            leftover := tab(upto('\n') + 1 | 0);
             while push(lines, tab(upto('\n') + 1))
             if not pos(0) then
                push(lines, tab(0))

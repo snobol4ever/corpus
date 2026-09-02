@@ -35,7 +35,7 @@ procedure main(arglist)
 
    if opts := options(arglist, "-ipl:", errorproc) then {
       source := opts["ipl"]
-      /source := getenv("IPL")
+      /source := getenv("IPL");
       if /source then errorproc()
       }
    else errorproc()
@@ -59,68 +59,68 @@ procedure Build_HTML_Files(source_dir, dest)
    local directory, dir_index_file, dir, dirlist, file_index_file,
        prev_dir, full_path, file, file_info_file, source_file
 
-   directory := ["/gprogs", "/gprocs", "/progs", "/procs"]
+   directory := ["/gprogs", "/gprocs", "/progs", "/procs"];
 
-   system("mkdir " || dest)
+   system("mkdir " || dest);
 
-   dir_index_file := open(dest || "/dirindex.html", "w")
+   dir_index_file := open(dest || "/dirindex.html", "w");
 
-   Init_Dir_Index(dir_index_file)
+   Init_Dir_Index(dir_index_file);
 
    every dir := !directory do {
-      dirlist := open("ls " || source_dir || dir || "/*.icn", "p")
+      dirlist := open("ls " || source_dir || dir || "/*.icn", "p");
 
-      file_index_file := &null
-      prev_dir := ""
+      file_index_file := &null;
+      prev_dir := "";
 
       while full_path := read(dirlist) do {
-	 write(full_path)
+	 write(full_path);
 
-	 file := strip_file(full_path)
+	 file := strip_file(full_path);
 
 	 if not (dir == prev_dir) then {
             #Prev Dir
 	    if not /file_index_file then {
-	       Close_File_Index(file_index_file)
+	       Close_File_Index(file_index_file);
 
 	       close(file_index_file)
 	       }
 
 	    # Next Dir
-	    Index_Dir(dir_index_file, dir)
+	    Index_Dir(dir_index_file, dir);
 
-	    system("mkdir " || dest || dir)
+	    system("mkdir " || dest || dir);
 
-	    file_index_file := open(dest || dir || "/fileindex.html", "w")
+	    file_index_file := open(dest || dir || "/fileindex.html", "w");
 
 	    Init_File_Index(file_index_file, dir)
 	    }
 
-	 Index_File(file_index_file, file)
+	 Index_File(file_index_file, file);
 
-	 file_info_file := open(dest || dir || file || ".html", "w")
+	 file_info_file := open(dest || dir || file || ".html", "w");
 
-	 source_file := open(full_path)
+	 source_file := open(full_path);
 
-	 ProcessFileInfo(file_info_file, source_file)
+	 ProcessFileInfo(file_info_file, source_file);
 
-	 close(source_file)
+	 close(source_file);
 
-	 close(file_info_file)
+	 close(file_info_file);
 
 	 prev_dir := dir
          }
 
       close(file_index_file)
       }
-   Close_Dir_Index(dir_index_file)
+   Close_Dir_Index(dir_index_file);
    close(dir_index_file)
 end
 
 procedure Init_Dir_Index(file)
-   write(file, "<TITLE>IPL: The Icon Program Library Comment Documentaion</TITLE>")
-   write(file, "<H1>The Icon Program Library</H1><P>")
-   write(file, "<H2>Source Directorys</H2><P>")
+   write(file, "<TITLE>IPL: The Icon Program Library Comment Documentaion</TITLE>");
+   write(file, "<H1>The Icon Program Library</H1><P>");
+   write(file, "<H2>Source Directorys</H2><P>");
    write(file, "<UL>")
 end
 
@@ -133,9 +133,9 @@ procedure Close_Dir_Index(file)
 end
 
 procedure Init_File_Index(file, dir)
-   write(file, "<TITLE>IPL: The Icon Program Library Comment Documentation</TITLE>")
-   write(file, "<H1>The Icon Program Library</H1><P>")
-   write(file, "<H2>The " || dir[2:0] || " directory listing</H2><P>")
+   write(file, "<TITLE>IPL: The Icon Program Library Comment Documentation</TITLE>");
+   write(file, "<H1>The Icon Program Library</H1><P>");
+   write(file, "<H2>The " || dir[2:0] || " directory listing</H2><P>");
    write(file, "<UL>")
 end
 
@@ -150,9 +150,9 @@ end
 procedure ProcessFileInfo(file, source)
    local line, keywd, text
 
-   write(file, "<TITLE>IPL: The Icon Program Library Comment Domumentaion</TITLE>")
+   write(file, "<TITLE>IPL: The Icon Program Library Comment Domumentaion</TITLE>");
 
-   write(file, "<H1>The Icon Program Libary</H1><P>")
+   write(file, "<H1>The Icon Program Libary</H1><P>");
 
    while line := read(source) do line ? {
       if not pos(0) then {

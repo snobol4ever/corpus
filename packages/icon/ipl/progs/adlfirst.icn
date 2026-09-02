@@ -28,7 +28,7 @@
 procedure main(arg)
    local s, line
 
-   s := cset(arg[1]) | &cset
+   s := cset(arg[1]) | &cset;
 
    while line := read() do
       line ? {
@@ -36,7 +36,7 @@ procedure main(arg)
             while line := read() | exit() do
                if line[1] == ("*" | "#" ) then next
                else {
-                  write(line)
+                  write(line);
                   break
                   }
             }

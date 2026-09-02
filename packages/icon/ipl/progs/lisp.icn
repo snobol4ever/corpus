@@ -59,16 +59,16 @@ record prop(v,f)  # abbreviated propery list
 #
 procedure main(f) 
 local sexpr, source
-   initialize()
+   initialize();
    if f[1] == ("-C" | "/C") then pop(f)  # run-command-then-terminate mode
    else if not (!f=="-") then put(f, "-")   # append "-" by default
    while source := pop(f) do {
       if not (infile := (if source == "-" then &input else open(source))) then
 	 stop("wtLisp can't open ", image(source))
       if source ~== "-" then write("Reading: ", image(source))
-      writes("> ")
+      writes("> ");
       every sexpr := bstol(getbs()) do  {
-	 PRINT([EVAL([sexpr])])
+	 PRINT([EVAL([sexpr])]);
 	 writes("> ")
 	 }
       }
@@ -78,7 +78,7 @@ end
 #
 procedure EVAL(l)
 local fn, arglist, arg
-   l := l[1]
+   l := l[1];
    if T === ATOM([l]) then {                 # it's an atom
       if T === l then return .T
       if EQ([NIL,l]) === T then return .NIL
@@ -105,9 +105,9 @@ end
 
 procedure apply(l)
 local fn, arglist, arg, value, fcn
-   fn := l[1]
+   fn := l[1];
    if member(trace_set, string(fn)) then {
-      write("Arguments of ",fn)
+      write("Arguments of ",fn);
       PRINT(l[2:0])
       }
    if value := case string(fn) of {
@@ -124,17 +124,17 @@ local fn, arglist, arg, value, fcn
       "UNTRACE" : UNTRACE(l[2]) | NIL
       } then {
          if member(trace_set, string(fn)) then {
-            write("value of ",fn)
+            write("value of ",fn);
             PRINT(value)
             }
          return value
          }
-   fcn := (\words[fn]).f | return NIL
+   fcn := (\words[fn]).f | return NIL;
    if type(fcn) == "list" then
       if fcn[1] == "LAMBDA" then {
-         value :=  lambda(l[2:0],fcn[2],fcn[3])
+         value :=  lambda(l[2:0],fcn[2],fcn[3]);
          if member(trace_set, string(fn)) then {
-            write("value of ",fn)
+            write("value of ",fn);
             PRINT(value)
             }
          return value
@@ -148,7 +148,7 @@ end
 #
 procedure evlis(l)
 local arglist, arg
-   arglist := []
+   arglist := [];
    every arg := !l do
       put(arglist,EVAL([arg])) | fail
    return arglist
@@ -160,9 +160,9 @@ end
 ## initialize() - set up global values
 #
 procedure initialize()
-   words := table()
-   trace_set := set()
-   T     := "T"
+   words := table();
+   trace_set := set();
+   T     := "T";
    NIL   := []
 end
 
@@ -190,7 +190,7 @@ end
 #
 procedure SET(l)
    (T === ATOM([l[1]])& l[2]) | return NIL
-   /words[l[1]] := prop()
+   /words[l[1]] := prop();
    if type(l[2]) == "prop" then
       return .(words[l[1]].v := l[2].v)
    else
@@ -278,7 +278,7 @@ end
 procedure DEFINE(l)
    local fn_def, fn_list
 
-   fn_list := []
+   fn_list := [];
    every fn_def := !l do {
       put(fn_list, define_fn(fn_def))
       }
@@ -289,7 +289,7 @@ end
 ## Define a single function (called by 'DEFINE')
 #
 procedure define_fn(fn_def)
-   /words[fn_def[1]] := prop(NIL)
+   /words[fn_def[1]] := prop(NIL);
    words[fn_def[1]].f := fn_def[2]
    return fn_def[1]
 end
@@ -298,12 +298,12 @@ end
 #
 procedure lambda(actuals, formals, def)
 local save, act, form, pair, result, arg, i
-   save := table()
+   save := table();
    every arg := !formals do
       save[arg] := \words[arg] | prop(NIL)
-   i := 0
+   i := 0;
    every words[!formals] := (prop(actuals[i+:=1]|NIL)\1)
-   result := EVAL([def])
+   result := EVAL([def]);
    every pair := !sort(save) do
       words[pair[1]] := pair[2]
    return result
@@ -320,7 +320,7 @@ static tmp
          if more(')','(',tmp) then break
          tmp ||:= (("" ~== |Map(read(infile))) || " ") | break
          }
-      suspend balstr(tmp)
+      suspend balstr(tmp);
       tmp := (("" ~== |Map(read(infile))) || " ") | fail
       }
 end
@@ -338,10 +338,10 @@ end
 #
 procedure more(c1,c2,s)
 local cnt
-   cnt := 0
+   cnt := 0;
    s ? while (cnt <= 0) & not pos(0) do {
          (any(c1) & cnt +:= 1) |
-         (any(c2) & cnt -:= 1)
+         (any(c2) & cnt -:= 1);
          move(1)
          }
    return cnt >= 0
@@ -358,10 +358,10 @@ procedure balstr(s)
 static blanks
    initial blanks := ' \t'
    (s||" ") ? repeat {
-          tab(many(blanks))
+          tab(many(blanks));
           if pos(0) then break
           suspend (tab(bal(blanks))\1 |
-                  {write(&errout,"ill-formed expression")
+                  {write(&errout,"ill-formed expression");
                     fail}
                   ) \ 1
           }
@@ -374,7 +374,7 @@ procedure bstol(s)
 static blanks
 local l
    initial blanks := ' \t'
-   (s||" ") ? {tab(many(blanks))
+   (s||" ") ? {tab(many(blanks));
                l := if not ="(" then s else []
               }
    if not string(l) then
@@ -390,7 +390,7 @@ procedure ltos(l)
 
    if type(l) ~== "list" then return l
    if *l = 0 then return "NIL"
-   tmp := "("
+   tmp := "(";
    every tmp ||:= ltos(!l) || " "
    tmp[-1] := ")"
    return tmp

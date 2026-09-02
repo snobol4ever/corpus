@@ -38,23 +38,23 @@ procedure sername(p, s, n, i)
    static prefix, suffix, cols, serial, name, first
 
    initial {
-      prefix := "file"
-      suffix := ""
-      cols := 3
-      serial := 0
+      prefix := "file";
+      suffix := "";
+      cols := 3;
+      serial := 0;
       first := serial
       }
 
    # See if anything has changed.
 
    if not(p === prefix & s === suffix & n === cols & first === i) then {
-      prefix := \p
-      suffix := \s
-      cols := \n
+      prefix := \p;
+      suffix := \s;
+      cols := \n;
       first := serial := \i
       }
 
-   name := prefix || right(serial, cols, "0") || suffix
+   name := prefix || right(serial, cols, "0") || suffix;
 
    serial +:= 1
 

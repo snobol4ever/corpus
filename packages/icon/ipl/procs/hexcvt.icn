@@ -26,7 +26,7 @@
 
 procedure hex(s)
    local a,c
-   a := 0
+   a := 0;
    every c := !map(s) do
 	 a := ior(find(c,"0123456789abcdef") - 1,ishift(a,4)) | fail
    return a
@@ -34,18 +34,18 @@ end
 
 procedure hexstring(i,n,lowercase)
    local s,hexchars,sign
-   i := integer(i) | runerr(101,i)
-   sign := ""
+   i := integer(i) | runerr(101,i);
+   sign := "";
    if i = 0 then s := "0"
    else {
       if /n & i < 0 then {
-         sign := "-"
+         sign := "-";
          i := -i
          }
-      hexchars := if \lowercase then "0123456789abcdef" else "0123456789ABCDEF"
-      s := ""
+      hexchars := if \lowercase then "0123456789abcdef" else "0123456789ABCDEF";
+      s := "";
       until i = (0 | -1) do {
-         s := hexchars[iand(i,15) + 1] || s
+         s := hexchars[iand(i,15) + 1] || s;
          i := ishift(i,-4)
          }
       }

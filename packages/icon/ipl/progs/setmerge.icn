@@ -47,19 +47,19 @@
 procedure main(args)
    local items, a, op, f, s
 
-   items := set()
-   op := "+"
+   items := set();
+   op := "+";
    every a := !args do {
       if *a = 1 & any('+-*', a) then {
          op := a
          }
       else {
-         f := open(a) | stop("can't open ", a)
+         f := open(a) | stop("can't open ", a);
          case op of {
             "+": every insert(items, !f)
             "-": every delete(items, !f)
             "*": {
-               s := set()
+               s := set();
                every insert(s, member(items, !f))
                items := s
                }

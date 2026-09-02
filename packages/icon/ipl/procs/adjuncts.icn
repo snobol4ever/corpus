@@ -37,25 +37,25 @@ global _slash, _baselen, _delimiter, _OS_offset, firstline
 procedure Set_OS()                   #: set global OS features
 
       # delimiter for indexed values      
-      _delimiter := char(255)
+      _delimiter := char(255);
 
       # Initialize filename and line termination conventions.
       # _baselen:   number of characters in filename base.
       # _OS_offset: number of characters marking newline.
 
       if find("UNIX"|"Amiga", &features) then {
-         _slash := "/"
-         _baselen := 10
+         _slash := "/";
+         _baselen := 10;
          _OS_offset := 1
          }
       else if find("MS-DOS"|"MS-DOS/386"|"OS/2"|"MS Windows NT", &features) then {
-         _slash := "\\"
-         _baselen := 8
+         _slash := "\\";
+         _baselen := 8;
          _OS_offset := 2
          }
       else if find("Macintosh", &features) then {
-         _slash := ":"
-         _baselen := 15
+         _slash := ":";
+         _baselen := 15;
          _OS_offset := 1
          }
       else stop("gettext:  OS not supported")
@@ -77,7 +77,7 @@ procedure Pathname(s)                  #: obtain path of filename
    local s2
    # global _slash
 
-   s2 := ""
+   s2 := "";
    s ? {
       while s2 ||:= tab(find(_slash)+1)
       return s2
@@ -102,7 +102,7 @@ procedure Strip(s,c)                   #: remove chars from string
 
    local s2
 
-   s2 := ""
+   s2 := "";
    s ? {
       while s2 ||:= tab(upto(c))
          do tab(many(c))

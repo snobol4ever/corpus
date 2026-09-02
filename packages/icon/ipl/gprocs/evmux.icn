@@ -104,13 +104,13 @@ procedure sensor(win, ev, proc, arg, x, y, w, h)
    local evlist, r, e
 
    /EvMux_Windows := table()
-   /EvMux_Windows[win] := list()
+   /EvMux_Windows[win] := list();
    evlist := EvMux_Windows[win]
 
    /x := -WAttrib(win, "dx")
    /y := -WAttrib(win, "dy")
    /w := WAttrib(win, "width") - (x + WAttrib(win, "dx"))
-   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"))
+   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"));
 
    if w < 0 then
       x -:= (w := -w)
@@ -131,7 +131,7 @@ end
 procedure delsensor(win, x)
    local t
 
-   t := \EvMux_Windows[win] | fail
+   t := \EvMux_Windows[win] | fail;
 
    if /x then {
       delete(EvMux_Windows, win)	# delete whole set of sensors
@@ -142,7 +142,7 @@ procedure delsensor(win, x)
       fail				# not registered in this window
 
    # Sensor is registered for this window.  Disable it.
-   x.ev := ''
+   x.ev := '';
 
    # Remove disabled sensors from list, if possible.
    while *t[1].ev = 0 do

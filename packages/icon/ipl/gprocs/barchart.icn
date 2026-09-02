@@ -85,9 +85,9 @@ record BC_rec(win, x, y, dx, dy, sf, n, l, w, b, len, val, round)
 
 procedure barchart(win, x, y, dx, dy, sf, n, l, w, b)	#: draw barchart
    local bc
-   bc := BC_rec(win, x, y, dx, dy, sf, n, l, w, b)
-   bc.len := list(n, 0)
-   bc.val := list(n)
+   bc := BC_rec(win, x, y, dx, dy, sf, n, l, w, b);
+   bc.len := list(n, 0);
+   bc.val := list(n);
    if sf > 0 then
       bc.round := 0.99999
    else
@@ -104,9 +104,9 @@ end
 procedure setbar(bc, n, v)			#: set bar value on barchart
    local x, y, o, oldlen, newlen, incr
 
-   v := log(v, \bc.b)
-   oldlen := bc.len[n] | fail
-   newlen := integer(v * bc.sf + bc.round)
+   v := log(v, \bc.b);
+   oldlen := bc.len[n] | fail;
+   newlen := integer(v * bc.sf + bc.round);
 
    if abs(newlen) > bc.l then {
       # need to rescale first
@@ -119,8 +119,8 @@ procedure setbar(bc, n, v)			#: set bar value on barchart
       if bc.dx ~= 0 then {
 
          # horizontal baseline
-         x := bc.x + (n - 1) * bc.dx
-         y := bc.y + oldlen
+         x := bc.x + (n - 1) * bc.dx;
+         y := bc.y + oldlen;
          if incr < 0 then
             FillRectangle(bc.win, x, y + incr, bc.w, -incr)
          else
@@ -130,14 +130,14 @@ procedure setbar(bc, n, v)			#: set bar value on barchart
       else {
 
          # vertical baseline
-         x := bc.x + oldlen
-         y := bc.y + (n - 1) * bc.dy
+         x := bc.x + oldlen;
+         y := bc.y + (n - 1) * bc.dy;
          if incr < 0 then
             FillRectangle(bc.win, x + incr, y, -incr, bc.w)
          else
             FillRectangle(bc.win, x, y, incr, bc.w)
          }
-      bc.len[n] := newlen
+      bc.len[n] := newlen;
       bc.val[n] := v
       }
    return
@@ -155,31 +155,31 @@ procedure rebar(bc, sf)				#: redraw barchart
       l := bc.l
    else
       l := -bc.l
-   x := bc.x
-   y := bc.y
+   x := bc.x;
+   y := bc.y;
 
    if bc.dx ~= 0 then {
-      dx := bc.n * bc.dx
+      dx := bc.n * bc.dx;
       dy := l
       }
    else {
-      dx := l
+      dx := l;
       dy := bc.n * bc.dy
       }
 
    # force all values positive (negative is wrong, but works under OpenWindows!)
    if dx < 0 then {
-      x +:= dx
+      x +:= dx;
       dx := -dx
       }
    if dy < 0 then {
-      y +:= dy
+      y +:= dy;
       dy := -dy
       }
-   EraseArea(bc.win, x, y, dx, dy)
+   EraseArea(bc.win, x, y, dx, dy);
 
-   bc.len := list(bc.n, 0)
-   bc.sf := sf
+   bc.len := list(bc.n, 0);
+   bc.sf := sf;
    every i := 1 to *bc.len do
       setbar(bc, i, \bc.val[i])
    return

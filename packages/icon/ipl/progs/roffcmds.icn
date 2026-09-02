@@ -34,13 +34,13 @@
 procedure main()
    local line, con, mac, y, nonpuncs, i, inname, infile, outname, outfile
 
-   nonpuncs := ~'. \t\\'
+   nonpuncs := ~'. \t\\';
 
-   con := table(0)
-   mac := table(0)
+   con := table(0);
+   mac := table(0);
    while line := read() do {
       line ? if tab(any('.\'')) then
-         con[tab(any(nonpuncs)) || (tab(upto(' ') | 0))] +:= 1
+         con[tab(any(nonpuncs)) || (tab(upto(' ') | 0))] +:= 1;
       line ? while tab((i := find("\\")) + 1) do {
       case move(1) of {
       "(":   move(2)

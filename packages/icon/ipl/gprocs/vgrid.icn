@@ -33,8 +33,8 @@ procedure Vgrid(params[])
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   self := Vgrid_rec ! params[1:8|0]
-   Vwin_check(self.win, "Vgrid()")
+   self := Vgrid_rec ! params[1:8|0];
+   Vwin_check(self.win, "Vgrid()");
    if (\self.aw, not numeric(self.aw) ) then
       _Vbomb("invalid aw parameter to Vgrid()")
    if (\self.ah, not numeric(self.ah) ) then
@@ -44,11 +44,11 @@ procedure Vgrid(params[])
    if (\self.cols, not numeric(self.cols) ) then
       _Vbomb("invalid cols parameter to Vgrid()")
 
-   self.V := procs
-   self.P := Vstd_pos()
-   self.uid := Vget_uid()
+   self.V := procs;
+   self.P := Vstd_pos();
+   self.uid := Vget_uid();
  
-   self.V.init(self)
+   self.V.init(self);
    if \ins then VInsert(frame, self, x, y)
    return self
 end
@@ -56,15 +56,15 @@ end
 procedure init_Vgrid(self)
    local p
 
-   self.Hpos := table()
+   self.Hpos := table();
    self.Vpos := table()
    /self.aw := 100
    /self.ah := 100
    /self.rows := 10
-   /self.cols := 10
+   /self.cols := 10;
 
-   p := \self.callback
-   self.callback := Vcoupler()
+   p := \self.callback;
+   self.callback := Vcoupler();
    add_clients_Vinit(self.callback, p, self)
    return self
 end
@@ -87,7 +87,7 @@ procedure event_Vgrid(self, e)
    local row, col
 
    if \self.callback.locked then fail
-   col := VGetCol(self, &x)
+   col := VGetCol(self, &x);
    row := VGetRow(self, &y)
    return self.callback.V.set(self.callback, self, [row, col, e])
 end
@@ -95,10 +95,10 @@ end
 procedure resize_Vgrid(self, x, y, w, h)
    local i
 
-   resize_Vidget(self, x, y, w, h)
+   resize_Vidget(self, x, y, w, h);
 
-   self.hpad := 1 <= self.aw / real(self.cols) | 1
-   self.vpad := 1 <= self.ah / real(self.rows) | 1
+   self.hpad := 1 <= self.aw / real(self.cols) | 1;
+   self.vpad := 1 <= self.ah / real(self.rows) | 1;
 
    every i := 0 to self.cols do
       self.Hpos[i] := integer (i * self.hpad )
@@ -128,7 +128,7 @@ end
 procedure VGetRow(self, y)
    local row
 
-   row := integer( (y - self.ay) / real(self.vpad) )
+   row := integer( (y - self.ay) / real(self.vpad) );
    row := row < 0 | row > self.rows - 1
    return row
 end
@@ -136,7 +136,7 @@ end
 procedure VGetCol(self, x)
    local col
 
-   col := integer( (x - self.ax) / real(self.hpad) )
+   col := integer( (x - self.ax) / real(self.hpad) );
    col := col < 0 | col > self.cols - 1
    return col
 end

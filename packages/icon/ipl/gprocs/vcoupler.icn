@@ -50,9 +50,9 @@ procedure Vcoupler(params[])
 			init_Vcoupler, null_proc, null_proc,
                         null_proc)
 
-   self := Vcoupler_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
+   self := Vcoupler_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
    self.V.init(self)
    return self
 end
@@ -65,7 +65,7 @@ procedure call_clients_Vcoupler(s, caller, val)
    initial type := proc("type", 0)	# protect attractive name
 
    every i := 1 to *s.clients do {
-      c := s.clients[i]
+      c := s.clients[i];
       if type(c) == "procedure" then c(s.callers[i], val)
       else if type(c) ? find("coupler") then c.V.set(c, caller, val)
       else if type(c) == !Vrecset then {
@@ -79,7 +79,7 @@ end
 
 procedure set_Vcoupler(s, caller, val, call_clients)
    if \s.locked then fail
-   s.value := val
+   s.value := val;
    if /call_clients then
       call_clients_Vcoupler(s, caller, val)
    return val
@@ -98,13 +98,13 @@ static image
    image(client) ? { if ="function" then
       _Vbomb("Icon function" || tab(0) || "() not allowed as callback")
    }
-   put (s.clients, client)
+   put (s.clients, client);
    put (s.callers, caller)
 end
 
 procedure init_Vcoupler(s)
   /s.clients := []
-  /s.callers := []
+  /s.callers := [];
   s.id := V_COUPLER
 end
 
@@ -126,9 +126,9 @@ procedure Vrange_coupler(params[])
 			init_Vrange_coupler, null_proc,
                         null_proc, null_proc)
 
-   self := Vrange_coupler_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
+   self := Vrange_coupler_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
    self.V.init(self)
    return self
 end
@@ -143,9 +143,9 @@ procedure set_Vrange_coupler(s, caller, val, call_clients)
 
    if \s.locked then fail
    theMax := numeric(s.max) | (type(s.max) == !Vcoupler_recset, s.max.value) |
-     _Vbomb("illegal value in Vrange_coupler set")
-   val := (s.min > val, s.min) | (theMax < val, theMax)
-   s.value := val
+     _Vbomb("illegal value in Vrange_coupler set");
+   val := (s.min > val, s.min) | (theMax < val, theMax);
+   s.value := val;
    if /s.real then val := integer(val)
    if /call_clients then
       call_clients_Vcoupler(s, caller, val)
@@ -157,13 +157,13 @@ procedure init_Vrange_coupler(s)
 
    initial type := proc("type", 0)	# protect attractive name
 
-   /s.min := 0; /s.max := 1.0
+   /s.min := 0; /s.max := 1.0;
    if \s.value < s.min | \s.value > s.max then s.value := s.min
 
    /s.value := \ s.min
    s.real := (type(s.min|s.max) == "real", 1)
   
-   /s.inc := 0.1*(s.max-s.min) 
+   /s.inc := 0.1*(s.max-s.min);
    if /s.real then s.inc := integer(s.inc)
    init_Vcoupler(s)
 end
@@ -181,9 +181,9 @@ procedure Vstrset_coupler(params[])
 			init_Vstrset_coupler, null_proc,
                         null_proc, null_proc)
 
-   self := Vcoupler_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
+   self := Vcoupler_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
    self.V.init(self)
    return self
 end
@@ -195,7 +195,7 @@ procedure set_Vstrset_coupler(s, id, val)
 end
 
 procedure init_Vstrset_coupler(s)
-  /s.allowed := []
+  /s.allowed := [];
   init_Vcoupler(s)
 end
 
@@ -212,9 +212,9 @@ procedure Vbool_coupler(params[])
 			init_Vcoupler, unset_Vbool_coupler,
 			toggle_Vbool_coupler, eval_Vbool_coupler)
 
-   self := Vcoupler_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
+   self := Vcoupler_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
    self.V.init(self)
    return self
 end
@@ -225,13 +225,13 @@ end
 
 procedure set_Vbool_coupler(s, caller)
    if \s.locked then fail
-   s.value := 1
+   s.value := 1;
    call_clients_Vcoupler(s, caller, 1)
    return s.value
 end
 
 procedure unset_Vbool_coupler(s, caller)
-   s.value := &null
+   s.value := &null;
    call_clients_Vcoupler(s, caller, &null)
    return s.value
 end
@@ -256,20 +256,20 @@ procedure Vtable_coupler(params[])
 			init_Vtable_coupler, null_proc,
                         null_proc, null_proc)
 
-   self := Vcoupler_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
+   self := Vcoupler_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
    self.V.init(self)
    return self
 end
 
 procedure set_Vtable_coupler(s, id, key, val)
-   s.value[key] := val
+   s.value[key] := val;
    call_clients_Vcoupler(s, id, val)
 end
 
 procedure init_Vtable_coupler(s) 
-  s.value := table()
+  s.value := table();
   init_Vcoupler(s)
 end
 
@@ -286,9 +286,9 @@ procedure Vmenu_coupler(params[])
 			null_proc, null_proc,
                         null_proc, null_proc)
 
-   self := Vcoupler_rec ! params
-   self.uid := Vget_uid()
-   self.V := procs
+   self := Vcoupler_rec ! params;
+   self.uid := Vget_uid();
+   self.V := procs;
    self.V.init(self)
    return self
 end
@@ -296,8 +296,8 @@ end
 
 procedure set_Vmenu_coupler(s, id, val)
    if \s.locked then fail
-   s.old_id := s.curr_id
-   s.curr_id := id
+   s.old_id := s.curr_id;
+   s.curr_id := id;
    s.value := val
    (\s.old_id).V.couplerset(s.old_id, , val)
    return val

@@ -40,16 +40,16 @@ link wopen
 procedure main(argl)
    local opts, n, size, points, p
 
-   opts := options(argl, "p+s+r")
+   opts := options(argl, "p+s+r");
 
-   n := \opts["p"] | 10
-   size := \opts["s"] | 300
+   n := \opts["p"] | 10;
+   size := \opts["s"] | 300;
    if \opts["r"] then randomize()
 
    WOpen("label=rolypoly", "size=" || size || "," || size) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
    
-   points := []			# list of x,y coordinates
+   points := [];  # list of x,y coordinates
 
    every p := random_points(size, size) \ n do
       every put(points, \!p)	# z coordinate is null

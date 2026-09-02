@@ -22,7 +22,7 @@
 procedure main()
    local chars
 
-   chars := ''
+   chars := '';
 
    while chars ++:= read()
 

@@ -34,10 +34,10 @@ link ebcdic
 procedure escape(s)
    local ns, c
 
-   ns := ""
+   ns := "";
    s ? {
       while ns ||:= tab(upto('\\')) do {
-         move(1)
+         move(1);
          ns ||:= case map(c := move(1)) | fail of {	# trailing \ illegal
             "b":  "\b"
             "d":  "\d"

@@ -34,11 +34,11 @@ global horse1, horse2, horse3,                 # horses are global
 procedure main()
    local winner
  
-banner()
+banner();
 if ready() == "no" then stop("Game Over.")     # ask if ready
-players := get_players()                       # get player name list
-money   := table(100)                          # everyone starts w/$100
-randomize()
+players := get_players();  # get player name list
+money   := table(100);  # everyone starts w/$100
+randomize();
  
 repeat
   {
@@ -46,16 +46,16 @@ repeat
   writes("\e[2J\e[H")                          # clear old junk off screen
   repeat                                       # choose 3 fresh horses
     {
-    horse1  := get_horse()                     # get first horse list
-    horse2  := get_horse()                     # get second horse list
-    horse3  := get_horse()                     # get third horse list
+    horse1  := get_horse();  # get first horse list
+    horse2  := get_horse();  # get second horse list
+    horse3  := get_horse();  # get third horse list
     if horse1[1] == horse2[1] |                # disallow duplicates
        horse2[1] == horse3[1] |                # because a horse can't
        horse3[1] == horse1[1] then next        # race against himself
     break                                      # continue...
     }
-  bets   := get_bet()                          # bets initially 0
-  winner := race()                             # race the horses, get winner
+  bets   := get_bet();  # bets initially 0
+  winner := race();  # race the horses, get winner
   pay(winner)                                  # pay winner(s) if any
   }
 done()
@@ -68,28 +68,28 @@ procedure ready()
   local answer
   static  pass,sh
   initial {
-          pass := 0                # initialize pass counter
+          pass := 0;  # initialize pass counter
           sh   := "\e[1;7m \e[0;1;33;44m"   # initialize a shadow for box
           }
   if (pass +:= 1) = 1 then
     {
-    writes("\e[0;1;33;44m\e[2J\e[H")
-    write(" +----------------------------------------------------------+")
-    write(" |          WELCOME TO ICON PARK VIRTUAL RACE TRACK         |",sh)
-    write(" |                                                          |",sh)
-    write(" |   The following game allow one or more players to bet on |",sh)
-    write(" |   three Cyberspace steeds that will run on an ANSI VT100 |",sh)
-    write(" |   dirt track. Of course the bets are Cyberspace dollars, |",sh)
-    write(" |   which have no real world value. We use only the oldest |",sh)
-    write(" |   escape sequences to condition the track surface, which |",sh)
-    write(" |   may not appeal  to TEK crowds,  and I'm sure some fans |",sh)
-    write(" |   will hurl curses. C'est la vie!                        |",sh)
-    write(" |                                                          |",sh)
-    write(" +----------------------------------------------------------+",sh)
-    write("  \e[1;7m                                                            \e[0;1;33;44m")
-    write("")
-    write("    Are we ready to enter our names, and begin?")
-    answer := map(input("Enter yes or no:"))
+    writes("\e[0;1;33;44m\e[2J\e[H");
+    write(" +----------------------------------------------------------+");
+    write(" |          WELCOME TO ICON PARK VIRTUAL RACE TRACK         |",sh);
+    write(" |                                                          |",sh);
+    write(" |   The following game allow one or more players to bet on |",sh);
+    write(" |   three Cyberspace steeds that will run on an ANSI VT100 |",sh);
+    write(" |   dirt track. Of course the bets are Cyberspace dollars, |",sh);
+    write(" |   which have no real world value. We use only the oldest |",sh);
+    write(" |   escape sequences to condition the track surface, which |",sh);
+    write(" |   may not appeal  to TEK crowds,  and I'm sure some fans |",sh);
+    write(" |   will hurl curses. C'est la vie!                        |",sh);
+    write(" |                                                          |",sh);
+    write(" +----------------------------------------------------------+",sh);
+    write("  \e[1;7m                                                            \e[0;1;33;44m");
+    write("");
+    write("    Are we ready to enter our names, and begin?");
+    answer := map(input("Enter yes or no:"));
     if answer[1] == "n" then return "no" else return "yes"
     }
   end
@@ -99,14 +99,14 @@ procedure ready()
 #
 procedure get_players()
   local counter, people, who
-  people  := []
-  counter := 1
-  write("\nEnter Player Names. Enter blank when done.")
+  people  := [];
+  counter := 1;
+  write("\nEnter Player Names. Enter blank when done.");
   repeat
     {
     (who := input("  Player #" || counter || ":")) | break
     if trim(who) == "" then break
-    put(people,who)
+    put(people,who);
     counter +:= 1
     }
   if *people < 1 then stop("Not enough players. Need at least one.")

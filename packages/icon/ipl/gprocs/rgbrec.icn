@@ -29,15 +29,15 @@ record rgb(r, g, b)
 procedure rgbrec(s)
    local result
 
-   s := ColorValue(s) | fail
+   s := ColorValue(s) | fail;
 
-   result := rgb()
+   result := rgb();
 
    s ? {
-      result.r := tab(upto(','))
-      move(1)
-      result.g := tab(upto(','))
-      move(1)
+      result.r := tab(upto(','));
+      move(1);
+      result.g := tab(upto(','));
+      move(1);
       result.b := tab(0)
       }
 

@@ -58,7 +58,7 @@
 procedure tblunion(T1, T2)			#: table union
    local T3, x
 
-   T3 := copy(T1)
+   T3 := copy(T1);
 
    every x := key(T2) do
       insert(T3, x, T2[x])
@@ -70,7 +70,7 @@ end
 procedure tblinter(T1, T2)			#: table intersection
    local T3, x
 
-   T3 := table(tbldflt(T1))
+   T3 := table(tbldflt(T1));
 
    every x := key(T1) do
       if member(T2, x) then insert(T3, x, T1[x])
@@ -82,7 +82,7 @@ end
 procedure tbldiff(T1, T2)			#: table difference
    local T3, x
 
-   T3 := copy(T1)
+   T3 := copy(T1);
 
    every x := key(T2) do
       delete(T3, x)
@@ -94,7 +94,7 @@ end
 procedure tblinvrt(T)				#: table inversion
    local T1, x
 
-   T1 := table(tbldflt(T))
+   T1 := table(tbldflt(T));
 
    every x := key(T) do
       insert(T1, T[x], x)
@@ -115,7 +115,7 @@ end
 procedure twt(T)				#: two-way table
    local T1, x
 
-   T1 := copy(T)
+   T1 := copy(T);
 
    every x := key(T) do
       insert(T1, T[x], x)
@@ -127,7 +127,7 @@ end
 procedure keylist(tbl)			#: list of keys in table
    local lst
 
-   lst := []
+   lst := [];
    every put(lst, key(tbl))
    return sort(lst)
 
@@ -136,7 +136,7 @@ end
 procedure kvallist(T)
    local result
 
-   result := []
+   result := [];
    
    every put(result, T[!keylist(T)])
 
@@ -162,7 +162,7 @@ end
 procedure vallist(tbl)		#: list of table values
    local list1
 
-   list1 := []
+   list1 := [];
    every put(list1, !tbl)
    return sort(list1)
 
@@ -171,7 +171,7 @@ end
 procedure valset(tbl)		#: set of table values
    local set1
 
-   set1 := set()
+   set1 := set();
    every insert(set1, !tbl)
    return set1
 

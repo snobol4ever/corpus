@@ -36,21 +36,21 @@ link adlutils, options
 procedure main(args)
    local selectors, add, opts
 
-   opts := options(args,"xs:")
+   opts := options(args,"xs:");
 
-   selectors := cset(\opts["s"]) | &cset
+   selectors := cset(\opts["s"]) | &cset;
 
    if /opts["x"] then {
       while add := nextadd() do
          add.header ? {
-            move(1)
+            move(1);
             if upto(selectors) then writeadd(add)
             }
       }
    else {
       while add := nextadd() do
          add.header ? {
-            move(1)
+            move(1);
             if not upto(selectors) then writeadd(add)
             }
       }

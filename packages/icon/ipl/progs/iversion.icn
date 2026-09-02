@@ -29,24 +29,24 @@ procedure main()
    local name, file, icode, okay
 
    while name := read() do {
-      writes(name, ": ")
+      writes(name, ": ");
       file := open(name,"u") | {
-         write("cannot open")
+         write("cannot open");
          next
          }
-      okay := &null
+      okay := &null;
       while icode := reads(file,30000) do	# enough for most UNIX headers
          icode ? {
             while tab(upto('I') + 1) do {
                if any('5678') then {
-                  write(tab(upto('\0')))
-                  okay := 1
+                  write(tab(upto('\0')));
+                  okay := 1;
                   exit()			# one is enough ...
                   }
                }
             }
       if /okay then {
-         write("no version")
+         write("no version");
          write("may have shell header or not be icode file")
          }
       close(file)

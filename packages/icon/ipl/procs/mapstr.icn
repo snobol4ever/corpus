@@ -55,14 +55,14 @@ procedure mapstrs(s, l1, l2)
     if /l1 | *l1 = 0 then return s
 
     if not (last_l1 === l1, last_l2 === l2) then {
-	cs := ''
+	cs := '';
 	every cs ++:= (!l1)[1]
-	tbl := table()
+	tbl := table();
 	every i := 1 to *l1 do
 	    insert(tbl, l1[i], (\l2)[i] | "")
     }
 
-    s2 := ""
+    s2 := "";
     s ? {
 	while s2 ||:= tab(upto(cs)) do
 	    s2 ||:= tbl[tab(longstr(l1))] | move(1)

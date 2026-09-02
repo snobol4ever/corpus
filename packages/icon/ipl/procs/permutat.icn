@@ -24,15 +24,15 @@ link seqops
 procedure multireduce(i, j)		#: multi-reduction permutation
    local indexes, result, parts
 
-   /j := 2
+   /j := 2;
 
-   indexes := []
+   indexes := [];
 
    every put(indexes, 1 to j)
 
-   parts := ldecollate(indexes, srun(1, i))
+   parts := ldecollate(indexes, srun(1, i));
 
-   result := []
+   result := [];
 
    every result |||:= !parts
 
@@ -43,7 +43,7 @@ end
 procedure permperiod(p)			#: period of permutation
    local lengths
 
-   lengths := []
+   lengths := [];
 
    every put(lengths, *!cycles(p))
 
@@ -54,20 +54,20 @@ end
 procedure cycles(p)			#: permutation cycles
    local indices, cycle, cycles, i
 
-   cycles := []		# list of cycles
+   cycles := [];  # list of cycles
 
-   indices := set()
+   indices := set();
 
    every insert(indices, 1 to *p)
 
    repeat {
       i := !indices | break
-      delete(indices, i)
-      cycle := set()
-      insert(cycle, i)
+      delete(indices, i);
+      cycle := set();
+      insert(cycle, i);
       repeat {
-         i := integer(p[i])
-         delete(indices, i)
+         i := integer(p[i]);
+         delete(indices, i);
          if member(cycle, i) then break	# done with cycle
          else insert(cycle, i)		# new member of cycle
          }
@@ -81,7 +81,7 @@ end
 procedure mutate(seq, mutation)		#: mutate sequence
    local result
 
-   result := []
+   result := [];
 
    every put(result, seq[!mutation])
 

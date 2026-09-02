@@ -57,32 +57,32 @@ procedure main(args)
    else
       f := &input
 
-   flist := list()			# list of profiled files in order seen
-   ftable := table()			# table of bucket lists, indexed by file
+   flist := list();  # list of profiled files in order seen
+   ftable := table();  # table of bucket lists, indexed by file
 
    # read profile data into memory
    while line := read(f) do {
-      b := parse(line) | stop("bad profile input")
-      a := ftable[b.fname]
+      b := parse(line) | stop("bad profile input");
+      a := ftable[b.fname];
       if /a then
          put(flist, a := ftable[b.fname] := list())
       put(a, b)
       }
-   close(f)
+   close(f);
 
    # count the total number of ticks
-   tticks := 0
+   tticks := 0;
    every tticks +:= (!!flist).ticks
 
    # list one file at a time, in the order first seen
    every a := !flist do {
-      fname := (!a).fname
-      write()
-      write()
-      write(map(INDENT, " ", "="), center(" " || fname || " ", 79, "="))
-      write()
+      fname := (!a).fname;
+      write();
+      write();
+      write(map(INDENT, " ", "="), center(" " || fname || " ", 79, "="));
+      write();
       if f := open(fname) then {
-         listfile(f, a)
+         listfile(f, a);
          close(f)
          }
       else
@@ -95,13 +95,13 @@ procedure parse(line)			#: parse a profile line, failing on err
    local ticks, visits, fname, lnum
 
    line ? {
-      tab(many(' \t'))
-      ticks := integer(tab(many(&digits)))		| fail
-      tab(many(' \t'))					| fail
-      visits := integer(tab(many(&digits)))		| fail
-      tab(many(' \t'))					| fail	
-      fname := tab(upto(' '))				| fail
-      tab(many(' \t'))					| fail	
+      tab(many(' \t'));
+      ticks := integer(tab(many(&digits)))		| fail;
+      tab(many(' \t'))					| fail;
+      visits := integer(tab(many(&digits)))		| fail;
+      tab(many(' \t'))					| fail;
+      fname := tab(upto(' '))				| fail;
+      tab(many(' \t'))					| fail;
       lnum := integer(tab(many(&digits)))		| fail
       return bucket(ticks, visits, fname, lnum)
       }
@@ -110,9 +110,9 @@ end
 procedure nofile(blist)			#: summarize a file not found
    local b, t, v
 
-   t := v := 0
+   t := v := 0;
    every b := !blist do {
-      t +:= b.ticks
+      t +:= b.ticks;
       v +:= b.visits
       }
    showline(t, v, "[total over all lines]")
@@ -122,7 +122,7 @@ end
 procedure listfile(f, blist)		#: list a file with annotations
    local n, b, t
 
-   n := 0
+   n := 0;
    every b := !sortf(blist, fieldnum(bucket(), "lnum")) do {
       if b.lnum <= n then			# if out of order line
          showline(b.ticks, b.visits, "[" || b.lnum - n - 1 || "]")
@@ -140,8 +140,8 @@ procedure showline(t, v, s)		#: show ticks and visits with one line
    if t = 0 then
       t := "   "			# blank if no ticks
    else {
-      t := 1000.0 * t / tticks + 0.5	# else per-mille value
-      t >:= 999				# (changing 1000 to 999 to fit 3 chars)
+      t := 1000.0 * t / tticks + 0.5;  # else per-mille value
+      t >:= 999;  # (changing 1000 to 999 to fit 3 chars)
       t := right(integer(t), 3)
       }
 

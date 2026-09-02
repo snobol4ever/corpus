@@ -23,10 +23,10 @@
 procedure jumpque(queue, y)
    local x
 
-   queue := copy(queue)
+   queue := copy(queue);
 
    every 1 to *queue do {		# delete y from queue if it's there
-      x := get(queue)
+      x := get(queue);
       if x ~=== y then put(queue, x)
       }
 

@@ -47,38 +47,38 @@ link wopen
 procedure main(args)
    local count, ims, image, w, h, s, opts, pattern, prefix
 
-   count := 0
+   count := 0;
 
    opts := options(args, "n:c+f+p")
-   /opts["c"] := 4
+   /opts["c"] := 4;
 
-   seq_init(opts)
-   pattern := opts["p"]
+   seq_init(opts);
+   pattern := opts["p"];
 
    while ims := read() do {
-      count +:= 1
-      w := imswidth(ims)
-      h := imsheight(ims)
+      count +:= 1;
+      w := imswidth(ims);
+      h := imsheight(ims);
       if (w | h) = 0 then {
-         write(&errout, "line ", count, ": bad image string")
+         write(&errout, "line ", count, ": bad image string");
          next
          }
       if \pattern then w := h := max(w,h)
       image := WOpen("canvas=hidden", "size=" || w || "," || h) | {
-         write(&errout, "line ", count, ": cannot open window")
+         write(&errout, "line ", count, ": cannot open window");
          next
          }
       if \pattern then {
-         WAttrib(image, "fillstyle=opaquepatterned")
-         Pattern(image, ims)
+         WAttrib(image, "fillstyle=opaquepatterned");
+         Pattern(image, ims);
          FillRectangle(image)
          }
       else DrawImage(image, 0, 0, ims) | {
-         write(&errout, "line ", count, ":  cannot draw image")
-         WClose(image)
+         write(&errout, "line ", count, ":  cannot draw image");
+         WClose(image);
          next
          }
-      save_image(image)
+      save_image(image);
       WClose(image)
       }
 

@@ -60,14 +60,14 @@ procedure outbits(i, len)
     local old_part, new_part, window, old_byte_mask
     static old_i, old_len, byte_length, byte_mask
     initial {
-	old_i := old_len := 0
-	byte_length := 8
+	old_i := old_len := 0;
+	byte_length := 8;
 	byte_mask := (2^byte_length)-1
     }
 
-    old_byte_mask := (0 < 2^old_len - 1) | 0
-    window := byte_length - old_len
-    old_part := ishift(iand(old_i, old_byte_mask), window)
+    old_byte_mask := (0 < 2^old_len - 1) | 0;
+    window := byte_length - old_len;
+    old_part := ishift(iand(old_i, old_byte_mask), window);
 
     # If we have a no-arg invocation, then flush buffer (old_i).
     if /i then {
@@ -75,14 +75,14 @@ procedure outbits(i, len)
 	    old_i := old_len := 0
 	    return char(old_part)
 	} else {
-	    old_i := old_len := 0
+	    old_i := old_len := 0;
 	    fail
 	}
     } else {
-	new_part := ishift(i, window-len)
+	new_part := ishift(i, window-len);
 	len -:= (len >= window) | {
-	    old_len +:= len
-	    old_i := ior(ishift(old_part, len-window), i)
+	    old_len +:= len;
+	    old_i := ior(ishift(old_part, len-window), i);
 	    fail
 	}
 #	For debugging purposes.
@@ -95,12 +95,12 @@ procedure outbits(i, len)
     }
 
     until len < byte_length do {
-	suspend char(iand(ishift(i, byte_length-len), byte_mask))
+	suspend char(iand(ishift(i, byte_length-len), byte_mask));
 	len -:= byte_length
     }
 
-    old_len := len
-    old_i := i
+    old_len := len;
+    old_i := i;
     fail
 
 end

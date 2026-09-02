@@ -48,7 +48,7 @@ procedure lsmap(s1,T)
    if type(T) ~== "table" then
       stop("lsmap() - second argument not a table!")
 
-   s := ""
+   s := "";
    s1 ? while s ||:= (\T[move(1)] | move(1))
 
    return s
@@ -59,7 +59,7 @@ end
 procedure mk_map(L)
    local a, t
 
-   t := table()
+   t := table();
    every a := !L do {
       t[a[1]] := a[2]
       }
@@ -79,10 +79,10 @@ end
 procedure read_Lsystem(f)
    local ls, line, next_token
 
-   ls := Lsys(0,10,90,"",table())
+   ls := Lsys(0,10,90,"",table());
 
    while line := read(f) do {
-      next_token := create gen_tokens(line)
+      next_token := create gen_tokens(line);
 
       case map(@next_token) of {
          "order:": ls.order := integer(@next_token)
@@ -100,11 +100,11 @@ end
 # write_Lsystem(ls) - display L-system ls (for debugging, mainly)
 #
 procedure  write_Lsystem(ls)
-   write("L-system:")
-   write("\torder: ",ls.order)
-   write("\t dist: ",ls.dist)
-   write("\tdelta: ",ls.delta)
-   write("\taxiom: ",ls.axiom)
+   write("L-system:");
+   write("\torder: ",ls.order);
+   write("\t dist: ",ls.dist);
+   write("\tdelta: ",ls.delta);
+   write("\taxiom: ",ls.axiom);
    every key := key(ls.rewrite) do
        write("\t  map: ",key," -> ",ls.rewrite[key])
    return
@@ -117,7 +117,7 @@ end
 procedure build_cmd(ls)
    local s
 
-   s := ls.axiom
+   s := ls.axiom;
    every 1 to ls.order do
       s := lsmap(s, ls.rewrite)
    return s
@@ -172,8 +172,8 @@ end
 procedure gen_tokens(s, ws)
    local nws
    
-   /ws := ' \t'
-   nws := ~ws
+   /ws := ' \t';
+   nws := ~ws;
 
    s ? while tab(upto(nws)) do
           suspend tab(many(nws)) \ 1

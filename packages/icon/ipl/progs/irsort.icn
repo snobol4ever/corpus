@@ -38,8 +38,8 @@
 procedure main(args)
    local line, x, i, recordtable, recordlist, comments, recordname 
 
-   comments := []			# list of comment lines
-   recordtable := table()		# table of record declarations
+   comments := [];  # list of comment lines
+   recordtable := table();  # table of record declarations
 
    while line := read() do {
      line ? {
@@ -47,10 +47,10 @@ procedure main(args)
            tab(many('\t ')) &
            recordname := tab(upto('(')) | stop("*** bad syntax: ",line)
         then {				# if main, force sorting order
-           recordtable[recordname] := x := []
-           put(x, line)
+           recordtable[recordname] := x := [];
+           put(x, line);
            if upto(')', line) then next else while line := read() do {
-              put(x, line)
+              put(x, line);
               if upto(')', line) then break next
               }
            }
@@ -66,7 +66,7 @@ procedure main(args)
 
    while write(get(comments))
 
-   recordlist := sort(recordtable, 3)		#  sort record
+   recordlist := sort(recordtable, 3);  #  sort record
 
    while get(recordlist) do
       every write(!get(recordlist))

@@ -31,16 +31,16 @@ link colmize
 procedure main(arg)
    local lst, c, s
    if *arg = 0 then {
-      lst := []
+      lst := [];
       every c := !(&ucase || "    " || &digits) do {
 	 put(lst,c || " " || morse(c))
 	 }
       every write(colmize(lst))
       }
    else {
-      s := ""
+      s := "";
       every s ||:= !arg || " "
-      s := trim(s)
+      s := trim(s);
       write((if any('.-',s) then unmorse else morse)(s))
       }
 end
@@ -58,16 +58,16 @@ procedure morse(s)
 
    initial {
       morsemeander :=
-      "....------.----..---.-.---...--.--.-..--..-.--....-.-.-...-..-....."
+      "....------.----..---.-.---...--.--.-..--..-.--....-.-.-...-..-.....";
       morseindex :=
       "TMOT09TTT1T8TT2GQTTTJTZ7T3NKYTTCTTTTDXTTWPTB64EARTTLTVTIUFTSH5"
       }
 
-   x := ""
+   x := "";
    every c := !map(s,&lcase,&ucase) do
       if not(i := find(c,morseindex)) then x ||:= "    "
       else {
-	 t := morsemeander[i+:6]
+	 t := morsemeander[i+:6];
 	 x ||:= t[find("-",t)+1:0] || " "
 	 }
    return x
@@ -83,11 +83,11 @@ end
 
 procedure unmorse(s)
    local x, t, c
-   x := ""
+   x := "";
    s ? {
       until pos(0) do {
-	 tab(many(' \t'))
-	 t := tab(upto(' \t') | 0)
+	 tab(many(' \t'));
+	 t := tab(upto(' \t') | 0);
 	 if t == "" then next
 	 x ||:= (every c := !(&ucase || &digits) do {
 	    if trim(morse(c)) == t then break c

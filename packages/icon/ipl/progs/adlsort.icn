@@ -38,33 +38,33 @@ procedure main(args)
    local item, item_lists, opts, sort_method, get_item, add, names, prefixes
    local prefix
 
-   item_lists := table()
+   item_lists := table();
 
-   sort_method := "n"			# The default is sorting by name.
-   get_item := get_lastname
+   sort_method := "n";  # The default is sorting by name.
+   get_item := get_lastname;
 
-   opts := options(args,"cnz")
+   opts := options(args,"cnz");
 
    if \opts["c"] then {			# If more than one given, last applies.
-      sort_method := "c"
+      sort_method := "c";
       get_item := get_country
       }
    if \opts["z"] then {
-      sort_method := "z"
+      sort_method := "z";
       get_item := get_zipcode
       }
    if \opts["n"] then {
-      sort_method := "n"
+      sort_method := "n";
       get_item := get_lastname
       }
 
    while add := nextadd() do {
       item := get_item(add)
-      /item_lists[item] := []
+      /item_lists[item] := [];
       put(item_lists[item],add)
       }
        
-   item_lists := sort(item_lists,3)
+   item_lists := sort(item_lists,3);
 
    if sort_method == ("c" | "z") then {
       while get(item_lists) do
@@ -73,16 +73,16 @@ procedure main(args)
 
    else if sort_method == "n" then {
       while get(item_lists) do {
-         names := get(item_lists)
+         names := get(item_lists);
          if *names = 1 then writeadd(names[1])	# avoid flap for common case
          else {
-            prefixes := table()
+            prefixes := table();
             every add := !names do {
                prefix := namepfx(add.text)
-               /prefixes[prefix] := []
+               /prefixes[prefix] := [];
                put(prefixes[prefix],add)
                }
-            prefixes := sort(prefixes,3)
+            prefixes := sort(prefixes,3);
             while get(prefixes) do
                every writeadd(!get(prefixes))
             }

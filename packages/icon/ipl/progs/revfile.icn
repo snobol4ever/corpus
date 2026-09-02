@@ -22,7 +22,7 @@
 procedure main()
    local lines
 
-   lines := []
+   lines := [];
 
    every push(lines, !&input)
 

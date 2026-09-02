@@ -51,11 +51,11 @@ procedure sentence(intext)
     local sentence, get_line, line, tmp_s, end_part, whole_thing
     static inits, punct
     initial {
-	inits := &ucase ++ &digits
+	inits := &ucase ++ &digits;
 	punct := ".\"'!?)]"
     }
-    sentence := ""
-    get_line := create read_line(intext)
+    sentence := "";
+    get_line := create read_line(intext);
 
     while line := @get_line do {
 
@@ -66,8 +66,8 @@ procedure sentence(intext)
 	# these all indicate major, sentence-like divisions in the
 	# text).
 	if line == "" then {
-	    suspend sentence
-	    sentence := ""
+	    suspend sentence;
+	    sentence := "";
 	    next
 	}
 
@@ -96,13 +96,13 @@ procedure sentence(intext)
 		then {
 
 		    # Don't bother with little two-letter hunks.
-		    whole_thing := sentence || tmp_s || end_part
+		    whole_thing := sentence || tmp_s || end_part;
 		    if *whole_thing > 3 | find(" ",whole_thing)
 		    then suspend whole_thing
 
-		    tab(many(' '))
-		    line := tab(0)
-		    sentence := ""
+		    tab(many(' '));
+		    line := tab(0);
+		    sentence := "";
 		    next
 		}
 		else break
@@ -124,7 +124,7 @@ procedure read_line(intext)
 
     local new_line, ilevel, junk_count, space_count, line
     static last_ilevel, blank_flag
-    last_ilevel := 0
+    last_ilevel := 0;
 
     while line := trim(!intext,'\t ') do {
 
@@ -139,16 +139,16 @@ procedure read_line(intext)
 
 	line ? {
 
-	    tab(many('\t '))
+	    tab(many('\t '));
 
 	    # Signal the calling procedure if there is a change in the
 	    # indentation level by suspending a blank line.
 	    if (ilevel > last_ilevel) | (ilevel < last_ilevel, \blank_flag)
 	    then suspend ""
-	    last_ilevel := ilevel
+	    last_ilevel := ilevel;
 
 	    # Put a space on the end of line, unless it ends in a dash.
-	    new_line := tab(-1) || (="-" | (move(1) || " "))
+	    new_line := tab(-1) || (="-" | (move(1) || " "));
 	    # Make sure the flag that indicates blank lines is unset.
 	    blank_flag := &null
 	}

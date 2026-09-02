@@ -26,17 +26,17 @@
 procedure divide(i, j, k)		# long division
    local q, pad
 
-   /k := 5
+   /k := 5;
 
-   q := ""
+   q := "";
 
-   pad := 20
+   pad := 20;
 
-   i ||:= repl("0", pad)
+   i ||:= repl("0", pad);
 
    every 1 to k do {
-      q ||:= i / j
-      i %:= j
+      q ||:= i / j;
+      i %:= j;
       if i = 0 then break
       }
 

@@ -28,11 +28,11 @@ link options
 procedure main(args)
    local opts, tabulation
 
-   tabulation := table(0)
+   tabulation := table(0);
 
    while tabulation[read()] +:= 1
 
-   tabulation := sort(tabulation, 3)
+   tabulation := sort(tabulation, 3);
 
    while write(get(tabulation), "  ", right(get(tabulation), 6))
 

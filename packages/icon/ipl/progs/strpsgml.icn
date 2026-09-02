@@ -63,17 +63,17 @@ procedure main(a)
     local usage, _arg, L, R, map_file, t, readtbl, line, stripunb, last_k
 
     usage:=
-     "usage:  stripsgml [-f map-file] [left-delimiter(s) [right-delimiter(s)]]"
+     "usage:  stripsgml [-f map-file] [left-delimiter(s) [right-delimiter(s)]]";
 
-    L := '<'; R := '>'
+    L := '<'; R := '>';
     while _arg := get(a) do {
         if _arg == "-f" then {
             map_file := open(get(a)) |
-                stop("stripsgml:  can't open map_file\n",usage)
+                stop("stripsgml:  can't open map_file\n",usage);
             t := readtbl(map_file)
         }
         else {
-            L := _arg
+            L := _arg;
             R := cset(get(a))
         }
     }

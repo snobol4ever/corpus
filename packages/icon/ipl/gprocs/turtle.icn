@@ -205,7 +205,7 @@ global T_win			# current window
 #  TWindow(win) -- set turtle window
 
 procedure TWindow(win)		#: set turtle window
-   /win := &window
+   /win := &window;
    if type(win) ~== "window" then
       runerr(140, win)
    T_win := win
@@ -215,14 +215,14 @@ end
 #  TInit() -- initialize turtle system, opening window if needed
 
 procedure TInit()		#: initialize turtle system
-   TInit := 1			# suppress any subsequent calls
+   TInit := 1;  # suppress any subsequent calls
    if /T_win then {
       /&window := open("turtle", "g", "width=500", "height=500") |
-         stop("can't open window")
+         stop("can't open window");
       T_win := &window
       }
-   T_stack := []
-   T_scale := 1.0
+   T_stack := [];
+   T_scale := 1.0;
    TGoto(, , -90.0)
    return
 end
@@ -231,8 +231,8 @@ end
 
 procedure TReset()		#: reset turtle system
    initial TInit()
-   T_stack := []
-   EraseArea(T_win, -WAttrib(T_win, "dx"), -WAttrib(T_win, "dy"))
+   T_stack := [];
+   EraseArea(T_win, -WAttrib(T_win, "dx"), -WAttrib(T_win, "dy"));
    T_scale := 1.0
    return TGoto(, , -90.0)
 end
@@ -301,7 +301,7 @@ procedure TDraw(n)		#: draw with turtle
    initial TInit()
 
    /n := 1.0
-   rad := dtor(T_deg)
+   rad := dtor(T_deg);
    DrawLine(T_win, .T_x, .T_y,
       T_x +:= T_scale * cos(rad) * n, T_y +:= T_scale * sin(rad) * n)
    return
@@ -314,8 +314,8 @@ procedure TSkip(n)		#: skip with turtle
    initial TInit()
 
    /n := 1.0
-   rad := dtor(T_deg)
-   T_x +:= T_scale * cos(rad) * n
+   rad := dtor(T_deg);
+   T_x +:= T_scale * cos(rad) * n;
    T_y +:= T_scale * sin(rad) * n
    return
 end
@@ -324,8 +324,8 @@ end
 
 procedure TGoto(x, y, a)	#: go to with turtle
    initial TInit()
-   T_x := \x | WAttrib(T_win, "width") / 2 + 0.5
-   T_y := \y | WAttrib(T_win, "height") / 2 + 0.5
+   T_x := \x | WAttrib(T_win, "width") / 2 + 0.5;
+   T_y := \y | WAttrib(T_win, "height") / 2 + 0.5;
    THeading(\a)
    return
 end
@@ -338,7 +338,7 @@ procedure TDrawto(x, y, a)	#: draw to with turtle
    /y := WAttrib(T_win, "height") / 2 + 0.5
    if /a then
       TFace(x, y)
-   DrawLine(T_win, .T_x, .T_y, T_x := x, T_y := y)
+   DrawLine(T_win, .T_x, .T_y, T_x := x, T_y := y);
    THeading(\a)
    return
 end
@@ -355,7 +355,7 @@ end
 
 procedure TRestore()		#: restore turtle state
    initial TInit()
-   T_win := pop(T_stack)
+   T_win := pop(T_stack);
    T_scale := pop(T_stack)
    return TGoto(pop(T_stack), pop(T_stack), pop(T_stack))
 end
@@ -383,16 +383,16 @@ procedure T_rectangle(h, w, xcall)
    local l
 
    /h := 1.0
-   /w := h
-   l := [T_win]
-   TSkip(h / 2.0);  TRight()
-   TSkip(w / 2.0);  put(l, TX(), TY());  TRight()
-   TSkip(h);        put(l, TX(), TY());  TRight()
-   TSkip(w);        put(l, TX(), TY());  TRight()
-   TSkip(h);        put(l, TX(), TY());  TRight()
-   TSkip(w / 2.0);  put(l, TX(), TY());  TLeft()
-   TSkip(-h / 2.0)
-   put(l, l[2], l[3])
+   /w := h;
+   l := [T_win];
+   TSkip(h / 2.0);  TRight();
+   TSkip(w / 2.0);  put(l, TX(), TY());  TRight();
+   TSkip(h);        put(l, TX(), TY());  TRight();
+   TSkip(w);        put(l, TX(), TY());  TRight();
+   TSkip(h);        put(l, TX(), TY());  TRight();
+   TSkip(w / 2.0);  put(l, TX(), TY());  TLeft();
+   TSkip(-h / 2.0);
+   put(l, l[2], l[3]);
    xcall ! l
    return
 end
@@ -402,16 +402,16 @@ end
 
 procedure TCircle(d)		#: draw circle centered at turtle
    local r
-   d := TScale() * (abs(\d) | 1.0)
-   r := d / 2.0
+   d := TScale() * (abs(\d) | 1.0);
+   r := d / 2.0;
    DrawArc(T_win, TX() - r, TY() - r, d, d)
    return
 end
 
 procedure TFCircle(d)		#: draw filled circle centered at turtle
    local r
-   d := TScale() * (abs(\d) | 1.0)
-   r := d / 2.0
+   d := TScale() * (abs(\d) | 1.0);
+   r := d / 2.0;
    FillArc(T_win, TX() - r, TY() - r, d, d)
    return
 end
@@ -429,16 +429,16 @@ end
 
 procedure T_polygon(d, n, xcall)
    local r, a, da, cx, cy, x, y, l
-   r := TScale() * ((\d / 3.0) | 1.0)
-   n := abs(integer(\n + 0.5)) | 3.0
-   n <:= 2.0
-   da := dtor(360.0 / n)
-   a := dtor(THeading() + 180.0) + da / 2.0
-   x := (cx := TX()) + r * cos(a)
-   y := (cy := TY()) + r * sin(a)
-   l := [T_win, x, y]
+   r := TScale() * ((\d / 3.0) | 1.0);
+   n := abs(integer(\n + 0.5)) | 3.0;
+   n <:= 2.0;
+   da := dtor(360.0 / n);
+   a := dtor(THeading() + 180.0) + da / 2.0;
+   x := (cx := TX()) + r * cos(a);
+   y := (cy := TY()) + r * sin(a);
+   l := [T_win, x, y];
    every 1 to n do {
-      put(l, x := cx + r * cos(a+:=da))
+      put(l, x := cx + r * cos(a+:=da));
       put(l, y := cy + r * sin(a))
       }
    xcall ! l

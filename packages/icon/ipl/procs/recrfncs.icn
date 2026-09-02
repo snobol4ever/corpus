@@ -57,7 +57,7 @@ procedure g(k, n)
 
    if n = 0 then return 0
 
-   value := 0
+   value := 0;
 
    value +:= floor(psi * floor((seq(0) \ k + n) / real(k)) + psi)
 

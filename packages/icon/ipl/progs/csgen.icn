@@ -101,25 +101,25 @@ global xlist
 procedure main(args)
    local line, goal, count, s, opts
 
-   opts := options(args, "g+")
+   opts := options(args, "g+");
 
-   randomize()
+   randomize();
 
    while line := read() do		#  read in grammar
       if line[1] == "#" then next
       else if xpairs(line) then next
       else {
-         line ? (goal := move(1),move(1),count := (1 < integer(tab(0))))
+         line ? (goal := move(1),move(1),count := (1 < integer(tab(0))));
          break
          }
 
    if /count then stop("no goal specification")
 
-   count := \opts["g"]
+   count := \opts["g"];
    if count < 1 then stop("*** invalid number of derivations specified")
 
    every 1 to count do {		#  generate sentences
-      s := goal
+      s := goal;
       repeat {
          if not upto(&ucase,s) then break	# text for nonterminal
 					#  quit on deadlock

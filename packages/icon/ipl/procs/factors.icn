@@ -77,7 +77,7 @@ link numbers
 procedure divisors(n)			#: generate the divisors of n
    local d, dlist
 
-   dlist := []
+   dlist := [];
    every d := seq() do {
       if d * d >= n then
          break
@@ -101,11 +101,11 @@ end
 procedure factorial(n)			#: return n! (n factorial)
    local i
 
-   n := integer(n) | runerr(101, n)
+   n := integer(n) | runerr(101, n);
 
    if n < 0 then fail
 
-   i := 1
+   i := 1;
 
    every i *:= 1 to n
 
@@ -125,12 +125,12 @@ procedure genfactors(i, j)		#: generate prime factors of integer
    local p
 
    i := integer(i) | runerr(101, i)
-   /j := i
+   /j := i;
 
    every p := prime() do {
       if p > j | p * p > i then break
       while i % p = 0 do {
-         suspend p
+         suspend p;
          i /:= p
          }
       if i = 1 then break
@@ -142,16 +142,16 @@ end
 procedure gfactorial(n, i)		#: generalized factorial
    local j
 
-   n := integer(n) | runerr(101, n)
-   i := integer(i) | 1
+   n := integer(n) | runerr(101, n);
+   i := integer(i) | 1;
 
    if n < 0 then fail
    if i < 1 then fail
 
-   j := n
+   j := n;
 
    while n > i do {
-      n -:= i
+      n -:= i;
       j *:= n
       } 
 
@@ -162,12 +162,12 @@ end
 procedure pfactors(i)			#: primes that divide integer
    local facts, p
 
-   i := integer(i) | runerr(101, i)
-   facts := []
+   i := integer(i) | runerr(101, i);
+   facts := [];
    every p := prime() do {
       if p > i then break
       if i % p = 0 then {
-         put(facts, p)
+         put(facts, p);
          while i % p = 0 do
             i /:= p
          }
@@ -180,7 +180,7 @@ end
 procedure ispower(i, j)			#: test for integer power
    local k, n
 
-   k := (n := round(i ^ (1.0 / j))) ^ j
+   k := (n := round(i ^ (1.0 / j))) ^ j;
    if k = i then return n else fail
 
 end
@@ -192,7 +192,7 @@ end
 procedure isprime(n)			#: test for primality
    local p
 
-   n := integer(n) | runerr(101, n)
+   n := integer(n) | runerr(101, n);
    if n <= 1 then fail		# 1 is not a prime
    every p := prime() do {
       if p * p > n then return n
@@ -206,16 +206,16 @@ procedure nxtprime(n)			#: next prime beyond n
    static step, div
 
    initial {
-      step := [1,6,5,4,3,2,1,4,3,2,1,2,1,4,3,2,1,2,1,4,3,2,1,6,5,4,3,2,1,2]
+      step := [1,6,5,4,3,2,1,4,3,2,1,2,1,4,3,2,1,2,1,4,3,2,1,6,5,4,3,2,1,2];
       div := [7]			# list of known primes
       }
 
-   n := integer(n) | runerr(101, n)
+   n := integer(n) | runerr(101, n);
    if n < 7 then			# handle small primes specially
       return n < (2 | 3 | 5 | 7)
 
    repeat {
-      n +:= step[n % 30 + 1]		# step past multiples of 2, 3, 5
+      n +:= step[n % 30 + 1];  # step past multiples of 2, 3, 5
       every (d := !div) | |put(div, d := nxtprime(d)) do {  # get test divisors
          if n % d = 0 then		# if composite, try a larger candidate
             break
@@ -229,14 +229,14 @@ end
 procedure prdecomp(i)			#: prime decomposition
    local decomp, count, p
 
-   decomp := []
+   decomp := [];
    every p := prime() do {
-      count := 0
+      count := 0;
       while i % p = 0 do {
-         count +:= 1
+         count +:= 1;
          i /:= p
          }
-      put(decomp, count)
+      put(decomp, count);
       if i = 1 then break
       }
 
@@ -264,16 +264,16 @@ end
 procedure primorial(i, j)		#: product of primes
    local m, k, mark
 
-   /j := 1
+   /j := 1;
 
-   m := 1
-   mark := &null			# to check for completeness
+   m := 1;
+   mark := &null;  # to check for completeness
 
    every k := primel() do {		# limited by prime list
       if k <= j then next
       if k <= i then m *:= k
       else {
-         mark := 1
+         mark := 1;
          break
          }
       }
@@ -285,19 +285,19 @@ end
 procedure sfactors(i, j)		#: return factors in string form
    local facts, result, term, nterm, count
 
-   facts := factors(i, j)
+   facts := factors(i, j);
 
-   result := ""
+   result := "";
 
-   term := get(facts)			# will be at least one
-   count := 1
+   term := get(facts);  # will be at least one
+   count := 1;
    
    while nterm := get(facts) do {
       if term = nterm then count +:= 1
       else {
          if count > 1 then result ||:= " " || term || "^" || count
          else result ||:= " " || term
-         count := 1
+         count := 1;
          term := nterm
          }
       }
@@ -312,7 +312,7 @@ end
 procedure squarefree(n)			#: test for square-free number
    local facts
 
-   facts := factors(n)
+   facts := factors(n);
 
    if *facts = *set(facts) then return n else fail
 

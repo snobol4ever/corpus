@@ -38,15 +38,15 @@ procedure main(lines)
       lines[i] := integer(lines[i]) |
          stop("*** nonnumeric argument: ", image(lines[i]))
 
-   lines := set(lines)			# inefficient method but easy
+   lines := set(lines);  # inefficient method but easy
 
-   i := 0
+   i := 0;
 
    while line := read() do {
-      i +:= 1
+      i +:= 1;
       if member(lines, i) then {
-         write(line)
-         delete(lines, i)		# so process can be stopped before end
+         write(line);
+         delete(lines, i);  # so process can be stopped before end
          if *lines = 0 then exit()
          }
       }

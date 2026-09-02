@@ -23,5 +23,5 @@
 
 global x
 
-procedure main();x:="procedure main();x:= \nx[21]:=image(x);write(x);end"
+procedure main();x:="procedure main();x:= \nx[21]:=image(x);write(x);end";
 x[21]:=image(x);write(x);end

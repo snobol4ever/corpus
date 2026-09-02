@@ -23,7 +23,7 @@ link gpxop
 link gpxlib
 
 procedure Quit(win)
-   /win := &window
+   /win := &window;
    while *Pending(win) > 0 do
       if Event(win) === QuitEvents() then
          return win
@@ -31,7 +31,7 @@ procedure Quit(win)
 end
 
 procedure Done(win)
-   /win := &window
+   /win := &window;
    until Event(win) === QuitEvents()
    exit()
 end

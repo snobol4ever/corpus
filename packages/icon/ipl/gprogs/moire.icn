@@ -48,31 +48,31 @@ procedure main(args)
    local extent, size, colors, ncolors, k, x, i, y, j, c, palette
    local opts, init, incr, limit, run
 
-   opts := options(args, "gs+p:i+k+l+")
+   opts := options(args, "gs+p:i+k+l+");
 
-   palette := \opts["p"] | "c2"
-   extent := \opts["s"] | 256
-   init := \opts["i"] | 50
-   incr := \opts["k"] | 1
-   limit := \opts["l"] | (2 ^ 10)
-   run := opts["g"]
+   palette := \opts["p"] | "c2";
+   extent := \opts["s"] | 256;
+   init := \opts["i"] | 50;
+   incr := \opts["k"] | 1;
+   limit := \opts["l"] | (2 ^ 10);
+   run := opts["g"];
 
-   size := extent / 2
+   size := extent / 2;
 
    WOpen("label=moire", "height=" || extent, "width=" || extent,
       "dx=" ||  size, "dy=" || size, "bg=light gray") |
-         ExitNotice("Cannot open window.")
+         ExitNotice("Cannot open window.");
 
-   colors := colrplte(palette) | ExitNotice("Invalid palette.")
-   ncolors := *colors
+   colors := colrplte(palette) | ExitNotice("Invalid palette.");
+   ncolors := *colors;
 
    every k := seq(init, incr) \ limit do {
-      x := k
+      x := k;
       every i := 0 to size do {
-         y := x
+         y := x;
          every j := i to size do {
-            c := colors[?ncolors]
-            Fg(c)
+            c := colors[?ncolors];
+            Fg(c);
             DrawPoint(
                i, j,
                j, i,
@@ -82,12 +82,12 @@ procedure main(args)
                -j, -i,
                -j, i,
                -i, j
-               )
+               );
             y +:= k
             }
          x +:= k
          }
-      Fg("black")
+      Fg("black");
       if /run then repeat case Event() of {
          "q":   exit()
          "s":   snapshot()

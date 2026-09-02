@@ -57,7 +57,7 @@ global size
 
 procedure main(argl)
 
-   size := integer(argl[1]) | 600
+   size := integer(argl[1]) | 600;
 
    drawlab(rstar, rstartbl, "regular stars")
 

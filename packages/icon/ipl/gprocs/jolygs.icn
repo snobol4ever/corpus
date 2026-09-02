@@ -35,20 +35,20 @@ link gobject
 procedure jolyg(x, y, extent, n, angle, ratio, lfact, yfact)
    local xpos, ypos, i, offset, length
 
-   angle := dtor(angle)
-   offset := 0
-   length := extent * lfact
+   angle := dtor(angle);
+   offset := 0;
+   length := extent * lfact;
 
-   xpos := (extent - length) / 2
+   xpos := (extent - length) / 2;
    ypos := (extent - length) / 2
 
-   suspend Point(x + xpos, y + ypos)	# initial point
+   suspend Point(x + xpos, y + ypos);  # initial point
 
    every i := 0 to n do {
-      xpos +:= length * cos(offset)
+      xpos +:= length * cos(offset);
       ypos +:= length * sin(offset)
-      suspend Point(x + xpos, y + yfact * ypos)
-      offset +:= angle
+      suspend Point(x + xpos, y + yfact * ypos);
+      offset +:= angle;
       length *:= ratio
       }
 

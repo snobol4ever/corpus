@@ -37,22 +37,22 @@ procedure lindterp(x, y, lsys, gener, length, color, fnc)
 
    /size := 500
    /x := size / 2
-   /y := size / 2
-   rewrite := lsys.rewrite
-   axiom := lsys.axiom
+   /y := size / 2;
+   rewrite := lsys.rewrite;
+   axiom := lsys.axiom;
    delta := lsys.delta
    /gener := lsys.gener
-   /length := lsys.length
+   /length := lsys.length;
 
 #  The table symbols contains definitions for other symbols as
 #  string of other characters.  It remains to be seen how this
 #  will be represented.  Note also there is a potential for
 #  circularity and unbounded recursion.
 
-   symbols := table()				# table of defined symbols
+   symbols := table();  # table of defined symbols
 
-   TReset()
-   TGoto(x, y)
+   TReset();
+   TGoto(x, y);
 
    every c := lindgen(!axiom, rewrite, gener) do
       case c of {

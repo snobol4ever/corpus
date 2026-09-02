@@ -27,7 +27,7 @@ procedure kmap(s)		#: map letter with modifier key to lowercase
 
    initial {
       in := "\^A\^B\^C\^D\^E\^F\^G\^H\^I\^J\^K\^L\^M\^N\^O\^P_
-         \^Q\^R\^S\^T\^U\^V\^W\^X\^Y\^Z" || &ucase
+         \^Q\^R\^S\^T\^U\^V\^W\^X\^Y\^Z" || &ucase;
       out := &lcase || &lcase
       }
 

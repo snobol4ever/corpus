@@ -43,18 +43,18 @@ link options
 procedure main(args)
    local opts, req, url, host, port, path, f
 
-   opts := options(args, "hb")
+   opts := options(args, "hb");
    if \opts["h"] then
       req := "HEAD"
    else
       req := "GET"
 
-   url := \args[1] | stop("usage: ", &progname, " [-h] url")
+   url := \args[1] | stop("usage: ", &progname, " [-h] url");
 
    url ? {
-      ="http:" | ="HTTP:"			# skip optional http:
-      tab(many('/'))				# skip optional //
-      host := tab(upto(':/') | 0)
+      ="http:" | ="HTTP:";  # skip optional http:
+      tab(many('/'));  # skip optional //
+      host := tab(upto(':/') | 0);
       if *host = 0 then
 	 host := "localhost"
       if not (=":" & (port := integer(tab(upto('/'))))) then
@@ -68,11 +68,11 @@ procedure main(args)
    if not (f := tconnect(host, port)) then
        stop ("cannot connect to ", host, ":", port)
 
-   writes(f, req, " ", path, " HTTP/1.0\r\n")
-   writes(f, "Host: ", host, "\r\n")
-   writes(f, "\r\n")
-   flush(f)
-   seek(f, 1)
+   writes(f, req, " ", path, " HTTP/1.0\r\n");
+   writes(f, "Host: ", host, "\r\n");
+   writes(f, "\r\n");
+   flush(f);
+   seek(f, 1);
 
    if \opts["b"] then {
       while *read(f) > 0

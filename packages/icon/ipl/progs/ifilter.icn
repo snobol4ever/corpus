@@ -61,9 +61,9 @@ link strings
 procedure main(args)
    local op, opts, i, interp, limit
 
-   opts := options(args, "a+o+l+")
-   i := \opts["a"] | 1
-   limit := \opts["l"] | 1
+   opts := options(args, "a+o+l+");
+   i := \opts["a"] | 1;
+   limit := \opts["l"] | 1;
    if limit < 1 then limit := 2 ^ 31
 
    if opts["o"] === (&null | 2) then {
@@ -76,9 +76,9 @@ procedure main(args)
       }
    else stop("*** invalid -o option")
 
-   lextend(args, i - 1)				# be sure list is long enough
+   lextend(args, i - 1);  # be sure list is long enough
 
-   args := args[1:i] ||| [&null] ||| args[i:0]	# make room for input argument
+   args := args[1:i] ||| [&null] ||| args[i:0];  # make room for input argument
 
    while args[i] := read() do
       every write(op ! args) \ limit

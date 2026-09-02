@@ -62,9 +62,9 @@ global wif
 procedure main(args)
    local opts, title, palette
 
-   opts := options(args, "n:")
+   opts := options(args, "n:");
 
-   title := \opts["n"] | "untitled"
+   title := \opts["n"] | "untitled";
 
    wif2isd(&input, title)
 

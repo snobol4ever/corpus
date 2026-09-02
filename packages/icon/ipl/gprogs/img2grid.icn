@@ -38,24 +38,24 @@ link wopen
 procedure main(args)
    local x, y, width, height, c, panel, opts, cellsize, prefix
 
-   opts := options(args, "s+p:")
+   opts := options(args, "s+p:");
 
-   cellsize := \opts["s"] | 4
-   prefix := \opts["p"] | "img2grid"
+   cellsize := \opts["s"] | 4;
+   prefix := \opts["p"] | "img2grid";
 
-   WOpen("image=" || args[1], "canvas=hidden") | stop("*** cannot open image")
+   WOpen("image=" || args[1], "canvas=hidden") | stop("*** cannot open image");
 
-   width := WAttrib("width")
-   height := WAttrib("height")
+   width := WAttrib("width");
+   height := WAttrib("height");
 
-   panel := makepanel(width, height, cellsize)
+   panel := makepanel(width, height, cellsize);
 
-   WAttrib(panel.window, "canvas=normal")
+   WAttrib(panel.window, "canvas=normal");
 
    every y := 0 to height - 1 do {
-      x := 0
+      x := 0;
       every c := Pixel(0, y, width, 1) do {
-         colorcell(panel, x + 1, y + 1, c)
+         colorcell(panel, x + 1, y + 1, c);
          x +:= 1
          }
       }

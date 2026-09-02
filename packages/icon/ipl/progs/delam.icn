@@ -67,12 +67,12 @@ procedure main(a)
       ranges := fldecode(a[1])
    else
       {
-      write(&errout,"Bad argument to delam: ",a[1])
+      write(&errout,"Bad argument to delam: ",a[1]);
       Usage("delam fieldlist {outputfile | -} ...")
       }
    if not a[2] then
       Usage("delam fieldlist {outputfile | -} ...")
-   fylist := doutfyls(a,2)
+   fylist := doutfyls(a,2);
    if *fylist ~= *ranges then
       stop("Unequal number of field args and output files")
    delamr(ranges,fylist)
@@ -84,11 +84,11 @@ procedure delamr(ranges,fylist)
    local i, j, k, line
    while line := read() do
       {
-      i := 1
+      i := 1;
       while i <= *fylist do
          {
-         j := ranges[i][1]
-         k := ranges[i][2]
+         j := ranges[i][1];
+         k := ranges[i][2];
          if k > 0 then
             write(fylist[i][2],line[j+:k] | line[j:0] | "")
          i +:= 1
@@ -100,7 +100,7 @@ end
 #
 procedure doutfyls(a,i)
    local lst, x
-   lst := []
+   lst := [];
    while \a[i] do
       {
       if x := llu(a[i],lst) then		# already in list
@@ -123,8 +123,8 @@ end
 #
 procedure fldecode(fldlst)
    local fld, flst, poslst, m, n, x
-   poslst := []
-   flst := str2lst(fldlst,':,')
+   poslst := [];
+   flst := str2lst(fldlst,':,');
    every fld := !flst do
       {
       if x := upto('-+',fld) then
@@ -155,7 +155,7 @@ end
 #
 procedure llu(str,lst)
    local i
-   i := 1
+   i := 1;
    while \lst[i] do
       {
       if \lst[i][1] == str then
@@ -168,11 +168,11 @@ end
 #
 procedure str2lst(str,delim)
    local lst, f
-   lst := []
+   lst := [];
    str ? {
       while f := (tab(upto(delim))) do
       {
-      lst |||:= [f]
+      lst |||:= [f];
       move(1)
       }
         if "" ~== (f := tab(0)) then

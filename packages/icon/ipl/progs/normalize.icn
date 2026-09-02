@@ -28,17 +28,17 @@ link numbers
 procedure main()
    local numbers, colors, line, i, largest
 
-   numbers := []
+   numbers := [];
 
-   colors := []
+   colors := [];
    while line := read() do {
       line ? {
-         put(numbers, i := tab(upto(' \t') | 0))
+         put(numbers, i := tab(upto(' \t') | 0));
          put(colors, tab(0))
          }
       }
 
-   largest := real(max ! numbers)
+   largest := real(max ! numbers);
 
    every i := 1 to *numbers do
       write(numbers[i] / largest, colors[i])

@@ -87,11 +87,11 @@ procedure copy_tile()
    local output
 
    output := open("/tmp/tieclip", "w") | {
-      Notice("Cannot copy tile.")
+      Notice("Cannot copy tile.");
       fail
       }
 
-   write(output, rows2pat(grid_rows))
+   write(output, rows2pat(grid_rows));
 
    close(output)
 
@@ -104,7 +104,7 @@ end
 procedure grid()
    local x, y
 
-   EraseArea(grid_pane)
+   EraseArea(grid_pane);
    every x := 0 to hbits * cellsize by cellsize do
       DrawLine(grid_pane, x, 0, x, vbits * cellsize)
    every y := 0 to vbits * cellsize by cellsize do
@@ -121,13 +121,13 @@ procedure grid_cb(vidget, e)
    static xpos, ypos
 
    initial {
-      xpos := grid_vidgets["grid"].ax
+      xpos := grid_vidgets["grid"].ax;
       ypos := grid_vidgets["grid"].ay
       }
 
    if e === (&lpress | &rpress | &ldrag | &rdrag) then {
-      j := (&x - xpos) / cellsize
-      i := (&y - ypos) / cellsize
+      j := (&x - xpos) / cellsize;
+      i := (&y - ypos) / cellsize;
       if j < 0 | j >= hbits | i < 0 | i >= vbits then return
 
       if e === (&lpress | &ldrag) then setbit(i, j, "1")
@@ -153,7 +153,7 @@ procedure grid_file_cb(vidget, menu)
       "paste @P"  :  paste_tile()
       "quit  @Q"  :  return_tile()
       "save  @S"  :  save_image()
-      }
+      };
 
    return
 
@@ -164,137 +164,137 @@ procedure grid_init()
    local shift_up, shift_left, shift_right, shift_down, pixmap
    local clear, invert, scramble, trim, enlarge, resize, crop
 
-   symmetries := 0				# initially no symmetries
+   symmetries := 0;  # initially no symmetries
 
    sym_state := [				# initially no symmetries
       [1, -1, -1, -1],
       [-1, -1, -1, -1]
-      ]
+      ];
 
-   tile_touched := &null
+   tile_touched := &null;
 
 #  Set up vidgets
 
    window_save := &window		# save current subject window
-   &window := &null			# clear for new subject
-   atts := grid_ui_atts()
+   &window := &null;  # clear for new subject
+   atts := grid_ui_atts();
    put(atts, "canvas=hidden")
-   (WOpen ! atts) | stop("*** can't open drawdown editor window")
-   grid_vidgets := grid_ui()
+   (WOpen ! atts) | stop("*** can't open drawdown editor window");
+   grid_vidgets := grid_ui();
    grid_window := &window
-   &window := window_save 		# restore previous subject window
+   &window := window_save;  # restore previous subject window
 
-   grid_root := grid_vidgets["root"]
+   grid_root := grid_vidgets["root"];
 
-   xform_xpos := grid_vidgets["xform"].ux
-   xform_ypos := grid_vidgets["xform"].uy
-   grid_width := grid_vidgets["grid"].uw
-   grid_height := grid_vidgets["grid"].uh
-   maxsize := grid_width / 3
+   xform_xpos := grid_vidgets["xform"].ux;
+   xform_ypos := grid_vidgets["xform"].uy;
+   grid_width := grid_vidgets["grid"].uw;
+   grid_height := grid_vidgets["grid"].uh;
+   maxsize := grid_width / 3;
 
    grid_pane := Clone(grid_window, "bg=white", "dx=" || grid_vidgets["grid"].ax,
-      "dy=" || grid_vidgets["grid"].ay)
+      "dy=" || grid_vidgets["grid"].ay);
 
-   Clip(grid_pane, 0, 0, grid_width, grid_height)
+   Clip(grid_pane, 0, 0, grid_width, grid_height);
 
-   symmet_xpos := grid_vidgets["symregion"].ux
-   symmet_yoff := grid_vidgets["symregion"].uy
+   symmet_xpos := grid_vidgets["symregion"].ux;
+   symmet_yoff := grid_vidgets["symregion"].uy;
 
    shift_up := "16,#3ffe6003408141c143e140814081408140814081408140_
-      81408160033ffe0000"
+      81408160033ffe0000";
    shift_left := "16,#3ffe6003400140014001401140195ffd40194011400140_
-      01400160033ffe0000"
+      01400160033ffe0000";
    shift_right := "16,#3ffe600340014001400144014c015ffd4c014401400140_
-      01400160033ffe0000"
+      01400160033ffe0000";
    shift_down := "16,#3ffe60034081408140814081408140814081408143e141_
-      c1408160033ffe0000"
+      c1408160033ffe0000";
    flip_left := "16,#3ffe600340014079403940394049408149014e014e014f_
-      01400160033ffe0000"
+      01400160033ffe0000";
    flip_right := "16,#3ffe600340014f014e014e014901408140494039403940_
-      79400160033ffe0000"
+      79400160033ffe0000";
    flip_vert := "16,#3ffe6003408141c143e14081408140814081408143e141_
-      c1408160033ffe0000"
+      c1408160033ffe0000";
    flip_horiz := "16,#3ffe600340014001400144114c195ffd4c194411400140_
-      01400160033ffe0000"
+      01400160033ffe0000";
    rotate_90 := "16,#3ffe6003400140f141014201420142014f814701420140_
-      01400160033ffe0000"
+      01400160033ffe0000";
    rotate_m90 := "16,#3ffe600340014781404140214021402140f94071402140_
-      01400160033ffe0000"
+      01400160033ffe0000";
    rotate_180 := "16,#3ffe6003400141c140214011401140114111432147c143_
-      01410160033ffe0000"
+      01410160033ffe0000";
    clear := "16,#3ffe600340014001400140014001400140014001400140_
-      01400160033ffe0000"
+      01400160033ffe0000";
    invert := "16,#3ffe60ff40ff40ff40ff40ff40ff7fff7f817f817f817f_
-      817f817f833ffe0000"
+      817f817f833ffe0000";
    scramble := "16,#3ffe60034c014c0d418d41814001403159b1598140194c_
-      194c0160033ffe0000"
+      194c0160033ffe0000";
    trim := "16,#3ffe60134011407d40394011400140fd48854c857e854c_
-      8548fd60033ffe0000"
+      8548fd60033ffe0000";
    enlarge := "16,#3ffe6083418143fd418148815c017efd48854885488548_
-      8548fd60033ffe0000"
+      8548fd60033ffe0000";
    resize := "16,#3ffe6093419943fd419948915c017efd488548857e855c_
-      8548fd60033ffe0000"
+      8548fd60033ffe0000";
    crop := "16,#3ffe60034011401147fd441144114411441144115ff144_
-      01440160033ffe0000"
+      01440160033ffe0000";
 
    ident := "16,#3ffe6003400140014001400141c141c141c14001400140_
-      01400160033ffe0000"
+      01400160033ffe0000";
 
    hi_ident := "16,#00001ffc3ffe3ffe3ffe3ffe3e3e3e3e3e3e3ffe3ffe3f_
-      fe3ffe1ffc00000000"
+      fe3ffe1ffc00000000";
    hi_rot_90 := "16,#00001ffc3ffe3f0e3efe3dfe3dfe3dfe307e38fe3dfe3f_
-      fe3ffe1ffc00000000"
+      fe3ffe1ffc00000000";
    hi_rot_m90 := "16,#00001ffc3ffe387e3fbe3fde3fde3fde3f063f8e3fde3f_
-      fe3ffe1ffc00000000"
+      fe3ffe1ffc00000000";
    hi_rot_180 := "16,#00001ffc3ffe3e3e3fde3fee3fee3fee3eee3cde383e3c_
-      fe3efe1ffc00000000"
+      fe3efe1ffc00000000";
    hi_right := "16,#00001ffc3ffe30fe31fe31fe36fe3f7e3fb63fc63fc63f_
-      863ffe1ffc00000000"
+      863ffe1ffc00000000";
    hi_left := "16,#00001ffc3ffe3f863fc63fc63fb63f7e36fe31fe31fe30_
-      fe3ffe1ffc00000000"
+      fe3ffe1ffc00000000";
    hi_vert := "16,#00001ffc3f7e3e3e3c1e3f7e3f7e3f7e3f7e3f7e3c1e3e_
-      3e3f7e1ffc00000000"
+      3e3f7e1ffc00000000";
    hi_horiz := "16,#00001ffc3ffe3ffe3ffe3bee33e6200233e63bee3ffe3f_
-      fe3ffe1ffc00000000"
+      fe3ffe1ffc00000000";
 
    sym_image_next := [
       [ident, hi_rot_90, hi_rot_m90, hi_rot_180],
       [hi_right, hi_left, hi_vert, hi_horiz]
-      ]
+      ];
    sym_image_current := [
       [hi_ident, rotate_90, rotate_m90, rotate_180],
       [flip_right, flip_left, flip_vert, flip_horiz]
-      ]
+      ];
 
 #  now place the images
 
-   place(xform_xpos, xform_ypos, 1, 0, shift_up)
-   place(xform_xpos, xform_ypos, 0, 1, shift_left)
-   place(xform_xpos, xform_ypos, 2, 1, shift_right)
-   place(xform_xpos, xform_ypos, 1, 2, shift_down)
-   place(xform_xpos, xform_ypos, 0, 4, flip_right)
-   place(xform_xpos, xform_ypos, 0, 5, flip_left)
-   place(xform_xpos, xform_ypos, 1, 4, flip_vert)
-   place(xform_xpos, xform_ypos, 1, 5, flip_horiz)
-   place(xform_xpos, xform_ypos, 0, 7, rotate_90)
-   place(xform_xpos, xform_ypos, 0, 8, rotate_m90)
-   place(xform_xpos, xform_ypos, 1, 7, rotate_180)
-   place(xform_xpos, xform_ypos, 0, 10, clear)
-   place(xform_xpos, xform_ypos, 1, 10, invert)
-   place(xform_xpos, xform_ypos, 2, 10, scramble)
-   place(xform_xpos, xform_ypos, 0, 12, trim)
-   place(xform_xpos, xform_ypos, 1, 12, enlarge)
-   place(xform_xpos, xform_ypos, 2, 12, resize)
-   place(xform_xpos, xform_ypos, 0, 14, crop)
+   place(xform_xpos, xform_ypos, 1, 0, shift_up);
+   place(xform_xpos, xform_ypos, 0, 1, shift_left);
+   place(xform_xpos, xform_ypos, 2, 1, shift_right);
+   place(xform_xpos, xform_ypos, 1, 2, shift_down);
+   place(xform_xpos, xform_ypos, 0, 4, flip_right);
+   place(xform_xpos, xform_ypos, 0, 5, flip_left);
+   place(xform_xpos, xform_ypos, 1, 4, flip_vert);
+   place(xform_xpos, xform_ypos, 1, 5, flip_horiz);
+   place(xform_xpos, xform_ypos, 0, 7, rotate_90);
+   place(xform_xpos, xform_ypos, 0, 8, rotate_m90);
+   place(xform_xpos, xform_ypos, 1, 7, rotate_180);
+   place(xform_xpos, xform_ypos, 0, 10, clear);
+   place(xform_xpos, xform_ypos, 1, 10, invert);
+   place(xform_xpos, xform_ypos, 2, 10, scramble);
+   place(xform_xpos, xform_ypos, 0, 12, trim);
+   place(xform_xpos, xform_ypos, 1, 12, enlarge);
+   place(xform_xpos, xform_ypos, 2, 12, resize);
+   place(xform_xpos, xform_ypos, 0, 14, crop);
 
-   place(symmet_xpos, symmet_yoff, 0, 0, hi_ident)
-   place(symmet_xpos, symmet_yoff, 1, 0, rotate_90)
-   place(symmet_xpos, symmet_yoff, 2, 0, rotate_m90)
-   place(symmet_xpos, symmet_yoff, 3, 0, rotate_180)
-   place(symmet_xpos, symmet_yoff, 0, 1, flip_right)
-   place(symmet_xpos, symmet_yoff, 1, 1, flip_left)
-   place(symmet_xpos, symmet_yoff, 2, 1, flip_vert)
-   place(symmet_xpos, symmet_yoff, 3, 1, flip_horiz)
+   place(symmet_xpos, symmet_yoff, 0, 0, hi_ident);
+   place(symmet_xpos, symmet_yoff, 1, 0, rotate_90);
+   place(symmet_xpos, symmet_yoff, 2, 0, rotate_m90);
+   place(symmet_xpos, symmet_yoff, 3, 0, rotate_180);
+   place(symmet_xpos, symmet_yoff, 0, 1, flip_right);
+   place(symmet_xpos, symmet_yoff, 1, 1, flip_left);
+   place(symmet_xpos, symmet_yoff, 2, 1, flip_vert);
+   place(symmet_xpos, symmet_yoff, 3, 1, flip_horiz);
 
    VSetState(grid_vidgets["symstate"], "none ")
 
@@ -335,7 +335,7 @@ procedure icheck(values)
 
    every i := !values do
       if not(integer(i)) | (i < 0) then {
-         Notice("Invalid value")
+         Notice("Invalid value");
          fail
          }
 
@@ -349,8 +349,8 @@ procedure new_tile()
       ["Okay", "Cancel"]) of {
          "Cancel"  :  fail
          "Okay"    :   {
-            icheck(dialog_value) | fail
-            grid_rows := list(dialog_value[1], repl("0", dialog_value[2]))
+            icheck(dialog_value) | fail;
+            grid_rows := list(dialog_value[1], repl("0", dialog_value[2]));
             tile_touched := 1
             return setup()
             }
@@ -366,11 +366,11 @@ procedure open_gif()
    repeat {
       if OpenDialog("Open image:") == "Cancel" then fail
       win := WOpen("canvas=hidden", "image=" || dialog_value) | {
-         Notice("Cannot open image.")
+         Notice("Cannot open image.");
          next
          }
-      ims := Capture(win, "g2")
-      WClose(win)
+      ims := Capture(win, "g2");
+      WClose(win);
       setup_ims(ims)
       return
       }
@@ -383,11 +383,11 @@ procedure open_ims()
    repeat {
       if OpenDialog("Open ims:") == "Cancel" then fail
       input := open(dialog_value) | {
-         Notice("Cannot open ims file.")
+         Notice("Cannot open ims file.");
          next
          }
-      ims := read(input)
-      close(input)
+      ims := read(input);
+      close(input);
       setup_ims(ims)
       return
       }
@@ -397,10 +397,10 @@ end
 procedure setup_ims(ims)
    local width
 
-   grid_rows := []
+   grid_rows := [];
 
    ims ? {
-      width := tab(upto(','))
+      width := tab(upto(','));
       while tab(upto(',') + 1)
 #     while put(grid_rows, map(move(width), "01", "10"))
       while put(grid_rows, move(width))
@@ -416,17 +416,17 @@ procedure paste_tile()
    local input, tile
 
    input := open("/tmp/tieclip") | {
-         Notice("Cannot paste tie-up file.")
+         Notice("Cannot paste tie-up file.");
          fail
          }
 
    tile := read_pattern(input) | {
-      Notice("Cannot process matrix.")
-      close(input)
+      Notice("Cannot process matrix.");
+      close(input);
       fail
       }
 
-   close(input)
+   close(input);
 
    grid_rows := pat2rows(tile.tile)
 
@@ -468,23 +468,23 @@ procedure read_tile()
       if TextDialog("Read tile:", ["file", "line"], [file, line], [60, 4]) ==
          "Cancel" then fail
       input := open(dialog_value[1]) | {
-         Notice("Cannot open file.")
+         Notice("Cannot open file.");
          next
          }
-      file := dialog_value[1]
-      line := (0 < integer(dialog_value[2]))
+      file := dialog_value[1];
+      line := (0 < integer(dialog_value[2]));
       every 1 to line - 1 do
          read(input) | {
-            Notice("Not that many lines in file.")
-            close(input)
+            Notice("Not that many lines in file.");
+            close(input);
             next
             }
       tile := read_pattern(input) | {
-         Notice("Cannot process matrix.")
-         close(input)
+         Notice("Cannot process matrix.");
+         close(input);
          next
          }
-      close(input)
+      close(input);
       grid_rows := pat2rows(tile.tile)
       return setup()
       }
@@ -500,11 +500,11 @@ procedure read_rows()
    repeat {
       if OpenDialog("Read rows:") == "Cancel" then fail
       input := open(dialog_value) | {
-         Notice("Cannot open file.")
+         Notice("Cannot open file.");
          next
          }
-      file := dialog_value
-      grid_rows := []
+      file := dialog_value;
+      grid_rows := [];
       while put(grid_rows, read(input))
       close(input)
       return setup()
@@ -535,29 +535,29 @@ procedure setbit(i, j, c)
    static xpos, ypos
 
    initial {
-      xpos := grid_vidgets["grid"].ax
+      xpos := grid_vidgets["grid"].ax;
       ypos := grid_vidgets["grid"].ay
       }
 
    if (symmetries = 0) & (grid_rows[i + 1, j + 1] == c) then return	# optimization
 
    x := j * cellsize + 1		# the selected cell itself
-   y := i * cellsize + 1
-   xt := i * cellsize + 1
-   yt := j * cellsize + 1
+   y := i * cellsize + 1;
+   xt := i * cellsize + 1;
+   yt := j * cellsize + 1;
 
-   i +:= 1				# computational convenience
-   j +:= 1
+   i +:= 1;  # computational convenience
+   j +:= 1;
 
-   xu := (hbits - j) * cellsize + 1	# opposite cells
-   yu := (vbits - i) * cellsize + 1
-   xv := (hbits - i) * cellsize + 1
-   yv := (vbits - j) * cellsize + 1
+   xu := (hbits - j) * cellsize + 1;  # opposite cells
+   yu := (vbits - i) * cellsize + 1;
+   xv := (hbits - i) * cellsize + 1;
+   yv := (vbits - j) * cellsize + 1;
 
-   action := if c = 1 then FillRectangle else EraseArea
+   action := if c = 1 then FillRectangle else EraseArea;
 
    if sym_state[1, 1] = 1 then {		# cell itself
-      grid_rows[i, j] := c
+      grid_rows[i, j] := c;
       action(grid_pane, x, y, cellsize - 1, cellsize - 1)
       }
    if sym_state[1, 2] = 1 then {		# 90 degrees
@@ -569,7 +569,7 @@ procedure setbit(i, j, c)
          action(grid_pane, xt, yv, cellsize - 1, cellsize - 1)
       }
    if sym_state[1, 4] = 1 then {		# 180 degrees
-      grid_rows[-i, -j] := c
+      grid_rows[-i, -j] := c;
       action(grid_pane, xu, yu, cellsize - 1, cellsize - 1)
       }
    if sym_state[2, 1] = 1 then {		# left diagonal
@@ -581,11 +581,11 @@ procedure setbit(i, j, c)
       action(grid_pane, xv, yv, cellsize - 1, cellsize - 1)
       }
    if sym_state[2, 3] = 1 then {		# vertical
-      grid_rows[-i, j] := c
+      grid_rows[-i, j] := c;
       action(grid_pane, x, yu, cellsize - 1, cellsize - 1)
       }
    if sym_state[2, 4] = 1 then {		# horizontal
-      grid_rows[i, -j] := c
+      grid_rows[i, -j] := c;
       action(grid_pane, xu, y, cellsize - 1, cellsize - 1)
       }
 
@@ -598,21 +598,21 @@ end
 procedure setup()
    local i, j
 
-   hbits := *grid_rows[1]
-   vbits := *grid_rows
+   hbits := *grid_rows[1];
+   vbits := *grid_rows;
 
    if (hbits | vbits) > maxsize then {		# based on cell size >= 3
-      Notice("Dimensions too large.")
+      Notice("Dimensions too large.");
       fail
       }
 
    if hbits > MaxPatt then mode := &null	# too large for pattern
 
-   cellsize := MaxCell				# cell size on window
-   cellsize >:= grid_width / (vbits + 4)
-   cellsize >:= grid_height / (hbits + 4)
+   cellsize := MaxCell;  # cell size on window
+   cellsize >:= grid_width / (vbits + 4);
+   cellsize >:= grid_height / (hbits + 4);
 
-   grid()
+   grid();
 
    every i := 1 to hbits do
       every j := 1 to vbits do
@@ -638,11 +638,11 @@ procedure symstate_cb(vidget, value)
    sym_image_next := [
       [ident, hi_rot_90, hi_rot_m90, hi_rot_180],
       [hi_right, hi_left, hi_vert, hi_horiz]
-      ]
+      ];
    sym_image_current := [
       [hi_ident, rotate_90, rotate_m90, rotate_180],
       [flip_right, flip_left, flip_vert, flip_horiz]
-      ]
+      ];
 
    if value == "all  " then sym_image_next :=: sym_image_current
 
@@ -660,13 +660,13 @@ procedure symmet_cb(vidget, e)
    local col, row, symcount
 
    if e === (&lpress | &rpress | &mpress) then {
-      col := (&x - symmet_xpos) / IconSize + 1
-      row := (&y - symmet_yoff) / IconSize + 1
-      sym_state[row, col] *:= -1
-      sym_image_current[row, col] :=: sym_image_next[row, col]
+      col := (&x - symmet_xpos) / IconSize + 1;
+      row := (&y - symmet_yoff) / IconSize + 1;
+      sym_state[row, col] *:= -1;
+      sym_image_current[row, col] :=: sym_image_next[row, col];
       place(symmet_xpos, symmet_yoff, col - 1, row - 1,
-         sym_image_current[row, col])
-      symcount := 0
+         sym_image_current[row, col]);
+      symcount := 0;
       every symcount +:= !!sym_state
       if symcount = -8 then
          Notice("No drawing mode enabled; pattern cannot be edited")
@@ -699,14 +699,14 @@ end
 procedure tile_info()
    local line1, line2, pattern, bits, density
 
-   pattern := rows2pat(grid_rows)
-   bits := tilebits(grid_rows)
-   density := left(bits / real(*grid_rows[1] * *grid_rows), 6)
+   pattern := rows2pat(grid_rows);
+   bits := tilebits(grid_rows);
+   density := left(bits / real(*grid_rows[1] * *grid_rows), 6);
 
    line1 := left(*grid_rows[1] || "x" || *grid_rows || " b=" || bits || " d=" ||
-      density, InfoLength)
+      density, InfoLength);
    line2 := if *pattern > InfoLength then pattern[1+:(InfoLength - 3)] ||
-      "..." else left(pattern, InfoLength)
+      "..." else left(pattern, InfoLength);
 
    Notice(line1, line2)
 
@@ -732,10 +732,10 @@ procedure write_tile()
    repeat {
       if SaveDialog("Write pattern") == "Cancel" then fail
       output := open(dialog_value, "w") | {
-         Notice("Cannot open file for writing.")
+         Notice("Cannot open file for writing.");
          next
          }
-      write(output, rows2pat(grid_rows))
+      write(output, rows2pat(grid_rows));
       close(output)
       return
       }
@@ -750,7 +750,7 @@ procedure write_rows()
    repeat {
       if SaveDialog("Write rows") == "Cancel" then fail
       output := open(dialog_value, "w") | {
-         Notice("Cannot open file for writing.")
+         Notice("Cannot open file for writing.");
          next
          }
       every write(output, !grid_rows)
@@ -782,9 +782,9 @@ procedure xform(col, row)
               0, 3, ["Okay", "Cancel"]) of {
                  "Cancel":   fail
                   "Okay": {
-                     icheck(dialog_value) | fail
-                     result := copy(params := dialog_value)
-                     push(result, grid_rows)
+                     icheck(dialog_value) | fail;
+                     result := copy(params := dialog_value);
+                     push(result, grid_rows);
                      pcrop ! result
                      }
                  }
@@ -803,9 +803,9 @@ procedure xform(col, row)
                   0, 3, ["Okay", "Cancel"]) of {
                      "Cancel":  fail
                      "Okay":  {
-                        icheck(dialog_value) | fail
-                        result := copy(params := dialog_value)
-                        push(result, grid_rows)
+                        icheck(dialog_value) | fail;
+                        result := copy(params := dialog_value);
+                        push(result, grid_rows);
                         pborder ! result
                         }
                     }
@@ -820,9 +820,9 @@ procedure xform(col, row)
                3, ["Okay", "Cancel"]) of {
                "Cancel":  fail
                "Okay": {
-                  icheck(dialog_value) | fail
-                  result := copy(params := dialog_value)
-                  push(result, grid_rows)
+                  icheck(dialog_value) | fail;
+                  result := copy(params := dialog_value);
+                  push(result, grid_rows);
                   pcenter ! result
                     }
                  }
@@ -840,9 +840,9 @@ procedure xform_cb(vidget, e)
    local col, row
 
    if e === (&lpress | &rpress | &mpress) then {
-      old_pat := rows2pat(grid_rows)
-      col := (&x - xform_xpos) / IconSize
-      row := (&y - xform_ypos) / IconSize
+      old_pat := rows2pat(grid_rows);
+      col := (&x - xform_xpos) / IconSize;
+      row := (&y - xform_ypos) / IconSize;
       grid_rows := xform(col, row) | fail
       return setup()
       }

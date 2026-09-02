@@ -38,17 +38,17 @@ procedure main(args)
 
    every file := !args do {
       WOpen("canvas=hidden", "image=" || file) | {
-         write(&errout, "*** cannot open image file ", file)
+         write(&errout, "*** cannot open image file ", file);
          next
          }
-     colors := imgcolor()
-     WClose()
-     name := basename(file, ".gif")
+     colors := imgcolor();
+     WClose();
+     name := basename(file, ".gif");
      output := open(name || ".clr", "w") | {
-        write("*** cannot open ", name, ".clr")
+        write("*** cannot open ", name, ".clr");
         next
         }
-      colors := sort(colors, 4)
+      colors := sort(colors, 4);
       while pull(colors) do
          write(output, pull(colors))
       close(output)

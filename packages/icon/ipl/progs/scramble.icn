@@ -34,29 +34,29 @@ global vocab,index
 procedure main()
   local line, i, n, word, follows
 
-  vocab:= []
-  index:= table([])
+  vocab:= [];
+  index:= table([]);
   while line := read() do
     {
     vocab |||:= parse(line,' ')
     }
 
   every i := 1 to *vocab-2 do index[vocab[i]] |||:= [i]
-  index[vocab[-2]] |||:= [-2]    # wrap end to front in order to
-  index[vocab[-1]] |||:= [-1]    # prevent stuck loop if last word chosen
+  index[vocab[-2]] |||:= [-2];  # wrap end to front in order to
+  index[vocab[-1]] |||:= [-1];  # prevent stuck loop if last word chosen
 
   n := -1 ;
-  randomize()
-  line := ""
+  randomize();
+  line := "";
   every 1 to *vocab/2 do
     {
-    (n > 1) | (n := ?(*vocab-2))
-    word    := vocab[n]
-    follows := vocab[(?(index[word]))+1]
-    n       := (?(index[follows])) + 1
+    (n > 1) | (n := ?(*vocab-2));
+    word    := vocab[n];
+    follows := vocab[(?(index[word]))+1];
+    n       := (?(index[follows])) + 1;
     if (*line + *word + *follows + 2) > 80 then
       {
-      write(line)
+      write(line);
       line := ""
       }
     line ||:= word || " " || follows || " "
@@ -76,8 +76,8 @@ procedure parse(line,delims)
   local tokens
   static chars
 
-  chars  := &cset -- delims
-  tokens := []
+  chars  := &cset -- delims;
+  tokens := [];
   line ? while tab(upto(chars)) do put(tokens,tab(many(chars)))
   return tokens
   end

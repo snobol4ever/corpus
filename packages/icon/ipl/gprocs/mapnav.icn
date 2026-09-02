@@ -147,13 +147,13 @@ procedure mapinit(win,p,a,xleft,xright,ytop,ybottom,m)	#: initialize navigator
       return mapinit((\&window | runerr(140)),
          win, p, a, xleft, xright, ytop, ybottom)
 
-   mnv_proc := p
-   mnv_arg := a
-   mnv_aspr := \m | 1.0
+   mnv_proc := p;
+   mnv_arg := a;
+   mnv_aspr := \m | 1.0;
 
-   mnv_mleft := mnv_vleft := xleft
-   mnv_mright := mnv_vright := xright
-   mnv_mtop := mnv_vtop := ytop
+   mnv_mleft := mnv_vleft := xleft;
+   mnv_mright := mnv_vright := xright;
+   mnv_mtop := mnv_vtop := ytop;
    mnv_mbottom := mnv_vbottom := ybottom
 
    return
@@ -162,7 +162,7 @@ end
 procedure mapgen(win, proc, arg)	#: invoke callback to redraw the map
 
    if type(win) ~== "window" then {	# handle missing optional win argument
-      win :=: proc :=: arg
+      win :=: proc :=: arg;
       win := \&window | runerr(140)
       }
 
@@ -174,25 +174,25 @@ end
 procedure mapproj(win)			#: compute map projection
    local l, r, t, b, d, nx, ny, xmul, ymul
 
-   /win := \&window | runerr(140)	# handle missing optional win argument
+   /win := \&window | runerr(140);  # handle missing optional win argument
 
-   l := \WAttrib(win, "clipx") | 0
-   t := \WAttrib(win, "clipy") | 0
-   r := l + \WAttrib(win, "clipw" | "width")
-   b := t + \WAttrib(win, "cliph" | "height")
-   nx := MARGIN
-   ny := MARGIN
+   l := \WAttrib(win, "clipx") | 0;
+   t := \WAttrib(win, "clipy") | 0;
+   r := l + \WAttrib(win, "clipw" | "width");
+   b := t + \WAttrib(win, "cliph" | "height");
+   nx := MARGIN;
+   ny := MARGIN;
 
-   xmul := real(r - l - 2 * nx) / (mnv_vright - mnv_vleft)
-   ymul := real(b - t - 2 * ny) / (mnv_vbottom - mnv_vtop)
+   xmul := real(r - l - 2 * nx) / (mnv_vright - mnv_vleft);
+   ymul := real(b - t - 2 * ny) / (mnv_vbottom - mnv_vtop);
 
-   d := abs(xmul / (ymul * mnv_aspr))
+   d := abs(xmul / (ymul * mnv_aspr));
    if d > 1.0 then {
-      xmul /:= d
+      xmul /:= d;
       nx := (r - l - xmul * (mnv_vright - mnv_vleft)) / 2
       }
    else {
-      ymul *:= d
+      ymul *:= d;
       ny := (b - t - ymul * (mnv_vbottom - mnv_vtop)) / 2
       }
 
@@ -204,14 +204,14 @@ procedure mapevent(win, e)		#: navigate map as directed by action e
    local win2, xywh, ltrb
 
    if type(win) ~== "window" then {	# handle missing optional win argument
-      e := win
+      e := win;
       win := \&window | runerr(140)
       }
 
    case e of {
 
       &resize: {
-         EraseArea(win)
+         EraseArea(win);
          mapgen(win)
          }
 

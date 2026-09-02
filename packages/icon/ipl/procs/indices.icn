@@ -41,7 +41,7 @@ procedure indices(spec, last)		#: generate indices
 
    if \last then last := (0 < integer(last)) | fail
 
-   result := set()
+   result := set();
 
    spec ? {
       while item := tab(upto(',') | 0) do {
@@ -52,11 +52,11 @@ procedure indices(spec, last)		#: generate indices
              next
              }
          else item ? {
-            (lo := (0 < integer(tab(upto('-')))) | fail)
-            move(1)
+            (lo := (0 < integer(tab(upto('-')))) | fail);
+            move(1);
             hi := (if pos(0) then last else
                ((0 < integer(tab(0)) | fail)))
-            /hi := lo
+            /hi := lo;
             if lo > hi then lo :=: hi
             every insert(result, lo to hi)
             }

@@ -22,8 +22,8 @@
 procedure main()
    local letter, words, text
 
-   letter := &letters
-   words := set()
+   letter := &letters;
+   words := set();
    while text := read() do
       text ? while tab(upto(letter)) do
          insert(words,tab(many(letter)))

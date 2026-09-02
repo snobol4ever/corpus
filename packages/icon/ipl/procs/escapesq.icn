@@ -35,7 +35,7 @@ procedure escapeseq() # s
 #
    static oct,hex
    initial {
-      oct := '01234567'
+      oct := '01234567';
       hex := '0123456789ABCDEFabcdef'
       }
    return (
@@ -71,7 +71,7 @@ procedure escchar(s1) # s2
      "^": char(ord(move(1)) % 32) | &fail  # control code
      default: {                # either octal code or non-escaped character
         if any('01234567',c) then {     # if octal digit
-           move(-1)
+           move(-1);
            escchar_convert(8,3)
            }
         else c                          # else return escaped character
@@ -89,12 +89,12 @@ procedure escchar_convert(r,max)
 #  consume a maximum of "max" characters.
 #
    local n,d,i,c
-   d := "0123456789abcdef"[1:r + 1]
-   n := 0
+   d := "0123456789abcdef"[1:r + 1];
+   n := 0;
    every 1 to max do {
       c := move(1) | break
       if not (i := find(map(c),d) - 1) then {
-     move(-1)
+     move(-1);
      break
      }
       n := n * r + i
@@ -110,7 +110,7 @@ procedure escape(s1) # s2
 #
    local esc
    s1 ? {
-      s1 := ""
+      s1 := "";
       while s1 ||:= tab(find("\\")) do {
      if esc := escapeseq() then s1 ||:= escchar(esc)
      else move(1)

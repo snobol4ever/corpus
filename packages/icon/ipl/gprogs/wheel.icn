@@ -36,15 +36,15 @@ $define WindowMargin 10
 procedure main(args)
    local win, gc, w, h, m, a, da, n, ov, i, t
 
-   win := Window("size=400,400", args)
-   n := integer(args[1]) | 18
+   win := Window("size=400,400", args);
+   n := integer(args[1]) | 18;
 
-   m := WindowMargin
-   w := WAttrib("width") - 2 * m
-   h := WAttrib("height") - 2 * m
-   randomize()
+   m := WindowMargin;
+   w := WAttrib("width") - 2 * m;
+   h := WAttrib("height") - 2 * m;
+   randomize();
 
-   gc := []
+   gc := [];
    every 1 to n do
       put(gc, Shade(Clone(win), ?65535 || "," || ?65535 || "," || ?65535))
    if *gc = 0 then
@@ -52,9 +52,9 @@ procedure main(args)
    if n >:= *gc then
       write(&errout, "using only ", n, " colors")
 
-   da := 2 * &pi / n			# change in angle
-   a := -&pi / 2 - da			# current angle
-   ov := &pi / 1000			# small overlap
+   da := 2 * &pi / n;  # change in angle
+   a := -&pi / 2 - da;  # current angle
+   ov := &pi / 1000;  # small overlap
 
    every i := 1 to n do
       FillArc(gc[i], m, m, w, h, a +:= da, da + ov)

@@ -181,24 +181,24 @@ procedure getmail(folder_name)
     local folder, line, message, ws, item_tag, first_item_value, tag_field
     local time, message_text, unfolded_line
     
-    ws := ' \t'
+    ws := ' \t';
     
     if type(folder_name) == "file" then
         folder := folder_name
     else
         folder := open(folder_name, "r") |
             stop("Could not open ", folder_name)
-    line := read(folder) | &null
+    line := read(folder) | &null;
 
     # body ITR UNTIL EOF
     until /line do {
         # message SEQ
-            message := message_record()
+            message := message_record();
             every !message := &null
             # header SEQ
                 # from-line SEQ
-                    message.all := []
-                    put(message.all, line)
+                    message.all := [];
+                    put(message.all, line);
                     line ? (
                         ="From" & tab(many(ws)) &
                         message.sender <- tab(many(~ws)) & tab(many(ws)) &
@@ -208,31 +208,31 @@ procedure getmail(folder_name)
                         message.time <- match_time() & tab(many(ws)) &
                         message.year <- match_year()
                     ) |
-                    stop("Invalid first message header line:\n", line)
-                    line := read(folder) | &null
+                    stop("Invalid first message header line:\n", line);
+                    line := read(folder) | &null;
                 # from-line END
                 # header-fields ITR UNTIL EOF or blank-line or From line
                 until /line | line == "" | is_From_line(line) do {
                     # header-field SEQ
                         # first-line SEQ
-                            put(message.all, line)
+                            put(message.all, line);
                             # process quoted EOL character
                             if line[-1] == "\\" then
                                 line[-1] := "\n"
-                            unfolded_line := line
-                            line := read(folder) | &null
+                            unfolded_line := line;
+                            line := read(folder) | &null;
                         # first-line END
                         # after-lines ITR UNTIL EOF or line doesn't start with ws or 
                         #               blank-line or From line
                         until /line | not any(ws, line) | line == "" | is_From_line(line) do {
                             # after-line SEQ
-                                put(message.all, line)
+                                put(message.all, line);
                                 # process quoted EOL character
                                 if line[-1] == "\\" then
                                     line[-1] := "\n"
                                 if unfolded_line[-1]  == "\n" then
                                     line[1] := ""
-                                unfolded_line ||:= line
+                                unfolded_line ||:= line;
                                 line := read(folder) | &null
                             # after-line END
                         # after-lines END
@@ -246,15 +246,15 @@ procedure getmail(folder_name)
             if line == "" then {
                 # optional-message-text SEQ
                     # blank-line SEQ
-                        put(message.all, line)
-                        line := read(folder) | &null
+                        put(message.all, line);
+                        line := read(folder) | &null;
                     # blank-line END
                     # message-text ITR UNTIL EOF or From line
                     until /line | is_From_line(line) do {
                         # message-text-line SEQ
                             put(message.all, line)
-                            /message.message_text := []
-                            put(message.message_text, line)
+                            /message.message_text := [];
+                            put(message.message_text, line);
                             line := read(folder) | &null
                         # message-text-line END
                     # message-text END
@@ -316,7 +316,7 @@ procedure mfield_to_rfield_name(mfield_name)
     static mapfrom, mapto
     
     initial {
-        mapfrom := &ucase || "-"
+        mapfrom := &ucase || "-";
         mapto := &lcase || "_"
     }
 
@@ -335,7 +335,7 @@ procedure process_header_field(message, field)
     
     # header field name can have ASCII 33 through 126 except for colon
     initial {
-        field_chars := cset(string(&ascii)[34:-1]) -- ':'
+        field_chars := cset(string(&ascii)[34:-1]) -- ':';
         ws := ' \t'
     }
     
@@ -344,8 +344,8 @@ procedure process_header_field(message, field)
         (tab(many(ws)) | "") &
         field_body <- tab(0)
     ) |
-    stop("Invalid header field:\n", field)
-    record_field_name := mfield_to_rfield_name(header_field_name)
+    stop("Invalid header field:\n", field);
+    record_field_name := mfield_to_rfield_name(header_field_name);
     
     # This is one of the selected fields
     if message[record_field_name] then {
@@ -353,7 +353,7 @@ procedure process_header_field(message, field)
         # Its a "Received" field
         if record_field_name == "_received" then {
             # Append whole field to received field list
-            /message._received := []
+            /message._received := [];
             put(message._received, field)
         
         # Not a "Received" field
@@ -367,7 +367,7 @@ procedure process_header_field(message, field)
             # Subsequent occurrence in header of selected field
             } else {
                 # Append whole field to other field list
-                /message.other := []
+                /message.other := [];
                 put(message.other, field)
             }
         }
@@ -375,7 +375,7 @@ procedure process_header_field(message, field)
     # Not a selected field
     } else {
                 # Append whole field to other field list
-                /message.other := []
+                /message.other := [];
                 put(message.other, field)
     }
     

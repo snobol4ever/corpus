@@ -48,16 +48,16 @@ link wopen
 procedure main(args)
    local file, hidden, count, prefix, opts, w, h, v, x, y
 
-   opts := options(args, "d:w+p:x+y+")
-   prefix := \opts["p"] | "stripes_"
-   w := \opts["w"] | 1
-   x := \opts["x"] | 0
-   y := \opts["y"] | 0
+   opts := options(args, "d:w+p:x+y+");
+   prefix := \opts["p"] | "stripes_";
+   w := \opts["w"] | 1;
+   x := \opts["x"] | 0;
+   y := \opts["y"] | 0;
    case opts["d"] of {
       "h":   h := 1
       "v":   v := 1
       "b":   {
-         h := 1
+         h := 1;
          v := 1
          }
       &null: h := 1

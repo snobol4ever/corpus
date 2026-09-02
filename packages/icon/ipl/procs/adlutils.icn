@@ -44,28 +44,28 @@ procedure nextadd()
       while line := Read() do
          line ? {
             if ="#" then {
-               PutBack(line)
+               PutBack(line);
                break
                }
             }
       }
 
-   header := Read() | fail
+   header := Read() | fail;
 
-   comments := text := ""
+   comments := text := "";
 
    while line := Read() do
       line ? {
          if pos(0) then next	# Skip empty lines.
          else if ="*" then comments ||:= "\n" || line
          else if ="#" then {	# Header for next label.
-            PutBack(line)
+            PutBack(line);
             break		# Done with current label.
             }
          else text ||:= "\n" || line
          }
    every text | comments ?:= {	# Strip off leading newline, if any.
-      move(1)
+      move(1);
       tab(0)
       }
 
@@ -89,7 +89,7 @@ procedure get_country(add)
    trim(add.text) ? {
       while tab(upto('\n')) do move(1)
       if tab(0) ? {
-         tab(-1)
+         tab(-1);
          any(&digits)
          } then return "U.S.A."
       else return tab(0)
@@ -111,10 +111,10 @@ end
 procedure get_city(add)		# only works for U.S. addresses
    local result
 
-   result := ""
+   result := "";
    trim(add.text) ? {
       while tab(upto('\n')) do move(1)
-      result := ="APO"
+      result := ="APO";
       result ||:= tab(upto(','))
       return result
       }
@@ -129,7 +129,7 @@ procedure get_zipcode(add)
    trim(add.text) ? {
       while tab(upto('\n')) do move(1)		# get to last line
       while tab(upto(' ')) do tab(many(' '))	# get to last field
-      zip := tab(0)
+      zip := tab(0);
       if *zip = 5 & integer(zip) then return zip
       else if *zip = 10 & zip ? {
          integer(move(5)) & ="-" & integer(tab(0))
@@ -161,10 +161,10 @@ end
 procedure format_country(s)
    local t, word
 
-   s := map(s)
-   t := ""
+   s := map(s);
+   t := "";
    s ? while tab(upto(&lcase)) do {
-      word := tab(many(&lcase))
+      word := tab(many(&lcase));
       if word == "of" then t ||:= word
       else t ||:= {
          word ? {

@@ -25,14 +25,14 @@
 procedure main()
    local fncset, fnctab, line, count, name, total
 
-   fncset := set()			# set for the names of all functions
-   fnctab := table(0)			# table to tabulate function count
+   fncset := set();  # set for the names of all functions
+   fnctab := table(0);  # table to tabulate function count
 
-   total := 0
+   total := 0;
 
    every insert(fncset, function())
-   delete(fncset, "args")		# ad hoc -- usual not used as functions
-   delete(fncset, "name")
+   delete(fncset, "args");  # ad hoc -- usual not used as functions
+   delete(fncset, "name");
 
    while line := read() | stop("*** didn't find variable references") do {
       line ? {
@@ -44,24 +44,24 @@ procedure main()
    while line := trim(read()) do {
       line ? {
          if tab(upto(&digits)) then {
-            count := tab(many(&digits))
-            tab(upto(&letters))
-            name := tab(0)
+            count := tab(many(&digits));
+            tab(upto(&letters));
+            name := tab(0);
             if name == "" then break
             if member(fncset, name) then {
-               fnctab[name] +:= count
+               fnctab[name] +:= count;
                total +:= count
                }
             }
          }
       }
 
-   fnctab := sort(fnctab, 4)
+   fnctab := sort(fnctab, 4);
 
    while count := pull(fnctab) do
       write(left(pull(fnctab), 14), right(count, 8))
 
-   write()
+   write();
    write("total         ", right(total, 8))
 
 end

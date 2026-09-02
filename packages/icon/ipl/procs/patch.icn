@@ -39,27 +39,27 @@ procedure patch(from, diff, rev)
   local c_diff, c_from, cnte, cnti, i, item, ldr, o
 
   initial {
-    i := 1
-    o := 2
+    i := 1;
+    o := 2;
     if \rev then
       i :=: o
       
-    c_diff := create !diff
-    c_from := create !from
+    c_diff := create !diff;
+    c_from := create !from;
 
-    cnti := item := 0
-    ldr  := @c_diff
+    cnti := item := 0;
+    ldr  := @c_diff;
     cnte := ldr[i].pos
   }
 
   repeat {
 
     while /ldr | cnti < cnte-1 do {		# copy old items
-      cnti +:= 1
+      cnti +:= 1;
       if item := @c_from then
         suspend item
       else {
-        item := &null
+        item := &null;
         break
       }
     }
@@ -87,6 +87,6 @@ end
 
 
 procedure zot_patch(msg)			# exit w/ message
-  write(&errout, "patch: ", msg)
+  write(&errout, "patch: ", msg);
   exit(1)
 end

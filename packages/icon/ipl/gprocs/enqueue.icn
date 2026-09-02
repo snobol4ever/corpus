@@ -80,12 +80,12 @@
 procedure pack_intrvl(n)			#: encode event interval
    local e
 
-   n := integer(n) | runerr(101, n)	# ensure integer
-   n <:= 0				# ensure nonnegative
-   e := 0				# assume exponent of 0
+   n := integer(n) | runerr(101, n);  # ensure integer
+   n <:= 0;  # ensure nonnegative
+   e := 0;  # assume exponent of 0
 
    while n >= 16r1000 do {		# if too big
-      n := ishift(n, -4)		# reduce significance
+      n := ishift(n, -4);  # reduce significance
       e +:= 16r1000			# increase exponent
    }
    return ishift(e + n, 16)		# return shifted result
@@ -97,8 +97,8 @@ end
 procedure unpack_intrvl(n)			#: decode event interval
    local e
 
-   n := integer(n) | runerr(101, n)	# ensure integer
-   e := iand(ishift(n, -28), 7)		# exponent
+   n := integer(n) | runerr(101, n);  # ensure integer
+   e := iand(ishift(n, -28), 7);  # exponent
    n := iand(ishift(n, -16), 16rFFF)	# mantissa
    return ishift(n, 4 * e)
 end
@@ -109,8 +109,8 @@ end
 procedure pack_modkeys(s)			#: encode modifier keys
    local b, c
 
-   b := 0
-   s := string(s) | runerr(103, s)		# ensure string value
+   b := 0;
+   s := string(s) | runerr(103, s);  # ensure string value
    every c := !s do case c of {			# set bit for each flag
       "c":	b := ior(b, 16r10000)
       "m":	b := ior(b, 16r20000)
@@ -126,8 +126,8 @@ end
 procedure unpack_modkeys(n)			#: decode modifier keys
    local s
 
-   n := integer(n) | runerr(101, n)		# ensure integer
-   s := ""
+   n := integer(n) | runerr(101, n);  # ensure integer
+   s := "";
    if iand(n, 16r10000) ~= 0 then s ||:= "c"	# check each bit
    if iand(n, 16r20000) ~= 0 then s ||:= "m"
    if iand(n, 16r40000) ~= 0 then s ||:= "s"
@@ -143,12 +143,12 @@ procedure Enqueue(win, eventcode, x, y, modkeys, interval)	#: enqueue event
    initial type := proc("type", 0)	# protect attractive name
 
    if type(win) ~== "window" then {
-      win :=: eventcode :=: x :=: y :=: modkeys :=: interval
+      win :=: eventcode :=: x :=: y :=: modkeys :=: interval;
       win := &window
       }
    /x := 0
-   /y := 0
-   x +:= WAttrib(win, "dx")
+   /y := 0;
+   x +:= WAttrib(win, "dx");
    y +:= WAttrib(win, "dy")
    return put(Pending(win),
       eventcode,

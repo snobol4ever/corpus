@@ -21,11 +21,11 @@
 procedure main(args)
    local in1, in2, one, two
 
-   in1 := open(args[1]) | stop("*** cannot open file 1")
-   in2 := open(args[2]) | stop("*** cannot open file 2")
+   in1 := open(args[1]) | stop("*** cannot open file 1");
+   in2 := open(args[2]) | stop("*** cannot open file 2");
 
-   one := set()
-   two := set()
+   one := set();
+   two := set();
 
    every insert(one, !in1)
    every insert(two, !in2)

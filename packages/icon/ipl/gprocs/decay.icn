@@ -75,7 +75,7 @@ end
 
 procedure decay(dp, i)				#: mark entry for later decay
    local j
-   j := get(dp.pipe)
+   j := get(dp.pipe);
    if (dp.tab[\i] +:= 1) = 1 then
       dp.proc(dp.gc1, i)
    if (dp.tab[\j] -:= 1) = 0 then

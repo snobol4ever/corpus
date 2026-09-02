@@ -30,58 +30,58 @@ global mark,row,routes,route
 procedure main()
   local again, index, path, play, square, tmp, victory, your_last_move
 
-  init()
-  play := true
+  init();
+  play := true;
   while play == true do
     {
-    me      := set()      # computer is me
-    you     := set()      # player   is you
-    victory := ""         # nobodys' won yet
-    winner  := ""         # winner flag
-    pass    := 0          # start flag
-    taken   := table(false)    # taken position table (rather than set?)
-    display()
+    me      := set();  # computer is me
+    you     := set();  # player   is you
+    victory := "";  # nobodys' won yet
+    winner  := "";  # winner flag
+    pass    := 0;  # start flag
+    taken   := table(false);  # taken position table (rather than set?)
+    display();
 #
 # computer makes first move
 #
-    insert(me,1)
-    taken[1] := true
-    display()
+    insert(me,1);
+    taken[1] := true;
+    display();
 #
 # player follows
 #
-    insert(you,(tmp := integer(get_your_move())))
-    taken[integer(tmp)] := true
-    display()
-    path := routes[tmp]              # players' move determines strategy
-    index := 2                       # points at 2nd move just happened
+    insert(you,(tmp := integer(get_your_move())));
+    taken[integer(tmp)] := true;
+    display();
+    path := routes[tmp];  # players' move determines strategy
+    index := 2;  # points at 2nd move just happened
 
 #
 # computers' next move determined from strategy list
 #
-    insert(me,(tmp := integer(path[(index+:=1)])))
-    taken[tmp] := true
-    display()
+    insert(me,(tmp := integer(path[(index+:=1)])));
+    taken[tmp] := true;
+    display();
 #
 # player follows
 #
-    insert(you,(tmp := integer(get_your_move())))
-    taken[integer(tmp)] := true
-    your_last_move := tmp
-    display()
+    insert(you,(tmp := integer(get_your_move())));
+    taken[integer(tmp)] := true;
+    your_last_move := tmp;
+    display();
 #
 # if didn't take position dictated, loss ensues
 #
     if your_last_move ~= (tmp := integer(path[(index+:=1)])) then
       {
-      winner := "me"
-      insert(me,tmp)
-      taken[tmp] := true
-      display()
-      done_yet()
-      write(at(1,22),chop(&host)," Wins, You Loose!")
+      winner := "me";
+      insert(me,tmp);
+      taken[tmp] := true;
+      display();
+      done_yet();
+      write(at(1,22),chop(&host)," Wins, You Loose!");
       every square := !row do writes(pointer[square],mark)
-      again := map(input(at(1,23) || "Another game? Y/N :"))[1]
+      again := map(input(at(1,23) || "Another game? Y/N :"))[1];
       if again=="y" then next
       stop(at(1,23),"Game Over.",chop())
       }
@@ -89,30 +89,30 @@ procedure main()
 #
 # user made a good move, continue (computer plays now)
 #
-    insert(me,(tmp := integer(path[(index+:=1)])))
-    taken[tmp] := true
-    display()
+    insert(me,(tmp := integer(path[(index+:=1)])));
+    taken[tmp] := true;
+    display();
 #
 # player follows
 #
-    insert(you,(tmp := integer(get_your_move())))
-    taken[integer(tmp)] := true
-    your_last_move := tmp
-    display()
+    insert(you,(tmp := integer(get_your_move())));
+    taken[integer(tmp)] := true;
+    your_last_move := tmp;
+    display();
 
 #
 # if didn't take position dictated, loss ensues
 #
     if your_last_move ~= (tmp := integer(path[(index+:=1)])) then
       {
-      winner := "me"
-      insert(me,tmp)
-      taken[tmp] := true
-      display()
-      done_yet()
-      write(at(1,22),chop(&host)," Wins, You Loose!")
+      winner := "me";
+      insert(me,tmp);
+      taken[tmp] := true;
+      display();
+      done_yet();
+      write(at(1,22),chop(&host)," Wins, You Loose!");
       every square := !row do writes(pointer[square],mark)
-      again := map(input(at(1,23) || "Another game? Y/N :"))[1]
+      again := map(input(at(1,23) || "Another game? Y/N :"))[1];
       if again=="y" then next
       stop(at(1,23),"Game Over.",chop())
       }
@@ -121,15 +121,15 @@ procedure main()
 #
     if integer(path[2]) ~= 5 then
       {
-      tmp := integer(path[(index+:=1)])
-      winner := "me"
-      insert(me,tmp)
-      taken[tmp] := true
-      display()
-      done_yet()
-      write(at(1,22),chop(&host)," Wins, You Loose!")
+      tmp := integer(path[(index+:=1)]);
+      winner := "me";
+      insert(me,tmp);
+      taken[tmp] := true;
+      display();
+      done_yet();
+      write(at(1,22),chop(&host)," Wins, You Loose!");
       every square := !row do writes(pointer[square],mark)
-      again := map(input(at(1,23) || "Another game? Y/N :"))[1]
+      again := map(input(at(1,23) || "Another game? Y/N :"))[1];
       if again=="y" then next
       stop(at(1,23),"Game Over.",chop())
       }
@@ -137,11 +137,11 @@ procedure main()
 #
 # user made a good move, continue (computer plays now)
 #
-    insert(me,(tmp := integer(path[(index+:=1)])))
-    taken[tmp] := true
-    display()
-    write(at(1,22),chop(),"Game was a draw.")
-    again := map(input(at(1,23) || "Another game? Y/N :"))[1]
+    insert(me,(tmp := integer(path[(index+:=1)])));
+    taken[tmp] := true;
+    display();
+    write(at(1,22),chop(),"Game was a draw.");
+    again := map(input(at(1,23) || "Another game? Y/N :"))[1];
     if again=="y" then next
     stop(at(1,23),"Game Over.",chop())
     }
@@ -154,14 +154,14 @@ procedure display()
 
   if (pass +:= 1) = 1 then
     {
-    write(cls(),uhalf(),"          T I C - T A C - T O E")
-    write(lhalf(),"          T I C - T A C - T O E")
-    write(trim(center("Computer is 'O' and you are 'X'",80)))
-    line := repl("q",60) ; line[21] := "n" ; line[41] := "n"
+    write(cls(),uhalf(),"          T I C - T A C - T O E");
+    write(lhalf(),"          T I C - T A C - T O E");
+    write(trim(center("Computer is 'O' and you are 'X'",80)));
+    line := repl("q",60) ; line[21] := "n" ; line[41] := "n";
     every y := 5 to 20 do writes(at(30,y),graf("x"))
     every y := 5 to 20 do writes(at(50,y),graf("x"))
-    writes(at(10,10),graf(line))
-    writes(at(10,15),graf(line))
+    writes(at(10,10),graf(line));
+    writes(at(10,15),graf(line));
     every x := 1 to 9  do writes(pointer[x],dim(x))
     }
   every writes(pointer[!me],high("O"))
@@ -174,22 +174,22 @@ procedure display()
 procedure get_your_move()
   local yours,all_moves
   repeat {
-  writes(at(5,22))
-  yours := input("Enter block # (1-9) :")
-  writes(at(5,23),chop())
+  writes(at(5,22));
+  yours := input("Enter block # (1-9) :");
+  writes(at(5,23),chop());
   if not(integer(yours)) then
     {
-    writes(at(5,23),beep(),"Invalid Input! Choose 1-9.")
+    writes(at(5,23),beep(),"Invalid Input! Choose 1-9.");
     next
     }
   if (1 > yours) | (yours > 9) then
     {
-    writes(at(5,23),beep(),"Value out of range! Choose 1-9.")
+    writes(at(5,23),beep(),"Value out of range! Choose 1-9.");
     next
     }
   if taken[integer(yours)] == true then
     {
-    writes(at(5,23),beep(),"That position is already taken! Try again.")
+    writes(at(5,23),beep(),"That position is already taken! Try again.");
     next
     }
   break }
@@ -204,26 +204,26 @@ procedure done_yet()
 
   every outcome := !wins do
     {
-    test := 0
+    test := 0;
     every part := !outcome do
       if member(you,part) then test +:= 1
     if test = 3 then
       {
-      winner := "you"
-      row    := outcome
+      winner := "you";
+      row    := outcome;
       mark   := high(blink("X"))
       return true
       }
     }
   every outcome := !wins do
     {
-    test := 0
+    test := 0;
     every part := !outcome do
       if member(me,part) then test +:= 1
     if test = 3 then
       {
-      winner := "me"
-      row    := outcome
+      winner := "me";
+      row    := outcome;
       mark   := high(blink("O"))
       return true
       }             
@@ -300,14 +300,14 @@ procedure beep()
 # procedure to init useful global variables for later use
 #
 procedure init()
-  true    := "y"
-  false   := "n"
-  draw    := "?"
-  randomize()
+  true    := "y";
+  false   := "n";
+  draw    := "?";
+  randomize();
   routes  := ["-","1274958","1374958","1432956","1547328",
-                  "1632745","1732956","1874352","1974352"]
+                  "1632745","1732956","1874352","1974352"];
   wins    := [set([1,5,9]),set([3,5,7]),set([1,2,3]),set([4,5,6]),
-              set([7,8,9]),set([1,4,7]),set([2,5,8]),set([3,6,9])]
+              set([7,8,9]),set([1,4,7]),set([2,5,8]),set([3,6,9])];
   pointer := [at(17,7), at(37,7), at(57,7),
               at(17,12),at(37,12),at(57,12),
               at(17,17),at(37,17),at(57,17)]

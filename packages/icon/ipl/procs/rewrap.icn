@@ -91,7 +91,7 @@ procedure rewrap(s,i)
     /i := 70
     # Flush buffer on null first argument.
     if /s then {
-	extra_bit := old_line
+	extra_bit := old_line;
 	old_line := ""
 	return "" ~== extra_bit
     }
@@ -107,7 +107,7 @@ procedure rewrap(s,i)
 	# While it is possible to find places to break s, do so.
 	while any(' -',line := EndToFront(i),-1) do {
 	    # Clean up and suspend the last piece of s tabbed over.
-	    line ?:= (tab(many(' ')), trim(tab(0)))
+	    line ?:= (tab(many(' ')), trim(tab(0)));
             if *&subject - &pos + *line > i
 	    then suspend line
 	    else {
@@ -117,7 +117,7 @@ procedure rewrap(s,i)
 	}
 
 	# Keep the extra section of s in a buffer.
-	old_line := tab(0)
+	old_line := tab(0);
 
 	# If the reason the remaining section of s was unrewrapable was
 	# that it was too long, and couldn't be broken up, then just return

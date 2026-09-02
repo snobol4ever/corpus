@@ -22,8 +22,8 @@
 
 procedure main(arg)
   local linkSet,doneSet,fn,f,line,linkName,libSet,a
-  libSet := set()
-  linkSet := set()
+  libSet := set();
+  linkSet := set();
   while a := get(arg) do {
     if match("-I",a) then {
       insert(libSet,"" ~== a[3:0] | get(arg))
@@ -31,12 +31,12 @@ procedure main(arg)
     else insert(linkSet,a)
   }
   every insert(libSet,PathDirs())
-  doneSet := set()
+  doneSet := set();
   while fn := !linkSet do {
-    delete(linkSet,fn)
-    insert(doneSet,fn)
+    delete(linkSet,fn);
+    insert(doneSet,fn);
     f := open(("" | !libSet) || fn || ".icn") | {
-      write(&errout,"Can't find \"",fn,"\"")
+      write(&errout,"Can't find \"",fn,"\"");
       next
     }
     while line := read(f) do line ? {
@@ -62,24 +62,24 @@ procedure PathDirs(s)
   static pathSep,fileSep
   initial {
     if match("MS-DOS" | "OS/2",&features) then {
-      pathSep := ";"
+      pathSep := ";";
       fileSep := "\\"
     }
     else if match("Macintosh",&features) then {
-      pathSep := ","
+      pathSep := ",";
       fileSep := ":"
     }
     else if match("UNIX",&features) then {
-      pathSep := ":"
+      pathSep := ":";
       fileSep := "/"
     }
   }
   /s := getenv("LPATH")
   \s ? {
     until pos(0) do {
-      pathDir := tab(find(pathSep) | 0)
+      pathDir := tab(find(pathSep) | 0);
       if not match(fileSep,pathDir,-1) then pathDir ||:= fileSep
-      suspend "" ~== pathDir
+      suspend "" ~== pathDir;
       move(*pathSep)
     }
   }

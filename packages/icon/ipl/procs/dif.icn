@@ -103,13 +103,13 @@ procedure dif(stream,compare,eof,group)
   #  Provide default arguments and initialize data.
   #
   /compare := proc("===",2)
-  /group := groupfactor
-  f := []
+  /group := groupfactor;
+  f := [];
   every put(f,diff_file(!stream,[]))
-  linenbr := list(*stream,0)
-  line := list(*stream)
-  test := list(*stream)
-  difflist := list(*stream)
+  linenbr := list(*stream,0);
+  line := list(*stream);
+  test := list(*stream);
+  difflist := list(*stream);
   every !difflist := []
   #
   #  Loop to process all records of all input streams.
@@ -144,7 +144,7 @@ procedure dif(stream,compare,eof,group)
       #
       every i := 1 to *stream do
         put(difflist[i],diffread(f[i]) | eof)
-      gf := group(*difflist[1])
+      gf := group(*difflist[1]);
       every i := 1 to *stream do
         test[i] := difflist[i][-gf:0]
       #
@@ -154,12 +154,12 @@ procedure dif(stream,compare,eof,group)
       #  achieved between the two streams.  Another list is created to
       #  keep track of how many syncs have been achieved for each stream.
       #
-      j := *difflist[1] - gf + 1
-      synclist := list(*stream)
+      j := *difflist[1] - gf + 1;
+      synclist := list(*stream);
       every !synclist := list(*stream)
       every k := 1 to *stream do
         synclist[k][k] := j
-      nsyncs := list(*stream,1)
+      nsyncs := list(*stream,1);
       #
       #  Loop through positions to start comparing lines.  This set of
       #  nested loops will be exited when a stream achieves sync with
@@ -182,11 +182,11 @@ procedure dif(stream,compare,eof,group)
               #  of streams sync'd to this stream.  If all streams are in
 	      #  sync, exit all loops but the outer one.
 	      #
-	      m := i - 1
+	      m := i - 1;
 	      if not every n := 1 to gf do {
 	        if not compare(test[k][n],difflist[l][m +:= 1]) then break
 	      } then {
-	        synclist[k][l] := i	# store current position
+	        synclist[k][l] := i;  # store current position
 	        if (nsyncs[k] +:= 1) = *stream then break break break break
 	      }
 	    }
@@ -199,14 +199,14 @@ procedure dif(stream,compare,eof,group)
     #  the point of synchronization, we must queue those lines before their
     #  input streams. 
     #
-    synclist := synclist[k]
-    result := list(*stream)
+    synclist := synclist[k];
+    result := list(*stream);
     every i := 1 to *stream do {
-      j := synclist[i]
+      j := synclist[i];
       while difflist[i][j -:= 1] === eof	# trim past eof
-      result[i] := diff_rec(linenbr[i],difflist[i][1:j + 1])
-      f[i].queue := difflist[i][synclist[i] + gf:0] ||| f[i].queue
-      linenbr[i] +:= synclist[i] + gf - 2
+      result[i] := diff_rec(linenbr[i],difflist[i][1:j + 1]);
+      f[i].queue := difflist[i][synclist[i] + gf:0] ||| f[i].queue;
+      linenbr[i] +:= synclist[i] + gf - 2;
       difflist[i] := []
     }
     suspend result

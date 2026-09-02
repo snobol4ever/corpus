@@ -107,7 +107,7 @@ procedure main(args)
       "list"	: fyls := exec(arglist)
       default	: stop("Main: bad type -can't happen")
       }
-   fyls := sort(fyls)
+   fyls := sort(fyls);
    every write(!fyls," ")
 end
 
@@ -196,10 +196,10 @@ end
 
 procedure str2set(str,delim)	# convert delimited string into a set
    local fset, f
-   fset := set()
+   fset := set();
    str ? {
       while f := (tab(upto(delim))) do {
-         insert(fset,f)
+         insert(fset,f);
          move(1)
          }
       if "" ~== (f := tab(0)) then

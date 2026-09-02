@@ -61,24 +61,24 @@ procedure Vframe(params[])
    procs := Vstd(event_Vframe, draw_Vframe, outline_Vidget,
       resize_Vframe, inrange_Vpane, init_Vframe,
       couplerset_Vpane, insert_Vframe, remove_Vframe,
-      lookup_Vframe, set_abs_Vframe)
-   spec_procs := Vstd_dialog( , , format_Vframe)
+      lookup_Vframe, set_abs_Vframe);
+   spec_procs := Vstd_dialog( , , format_Vframe);
 
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   self := Vframe_rec ! params[1:6|0]
-   Vwin_check(self.win, "Vframe()")
+   self := Vframe_rec ! params[1:6|0];
+   Vwin_check(self.win, "Vframe()");
    if (\self.aw, not numeric(self.aw) ) then
       _Vbomb("invalid aw parameter to Vframe()")
    if (\self.ah, not numeric(self.ah) ) then
       _Vbomb("invalid ah parameter to Vframe()")
 
-   self.uid := Vget_uid()
-   self.V := procs
-   self.F := spec_procs
-   self.P := Vstd_pos()
-   self.V.init(self)
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.F := spec_procs;
+   self.P := Vstd_pos();
+   self.V.init(self);
    if \ins then VInsert(frame, self, x, y)
    return self
 end
@@ -87,7 +87,7 @@ end
 #  Initialize procedure for Vframe.  Other frame types call this.
 #
 procedure init_Vframe(s)
-   s.lookup := []
+   s.lookup := [];
    s.draw := []
 end
 
@@ -117,7 +117,7 @@ procedure resize_Vframe(s, x,y,wid,h)
 
    initial type := proc("type", 0)	# protect attractive name
 
-   resize_Vidget(s, x, y, wid, h)
+   resize_Vidget(s, x, y, wid, h);
    every w := !s.draw do {
       if (type(w) == "Vline_rec") then
          w.V.resize(s, w)
@@ -139,25 +139,25 @@ local ax,ay,aw,ah, a, b, w, h, vx, vy, vw, vh
 
    initial type := proc("type", 0)	# protect attractive name
 
-   w := s.aw; h := s.ah
-   vx := vid.P.x; vy := vid.P.y
-   vw := vid.P.w; vh := vid.P.h
+   w := s.aw; h := s.ah;
+   vx := vid.P.x; vy := vid.P.y;
+   vw := vid.P.w; vh := vid.P.h;
 
    ax := s.ax + ( (vx <= -1, w + vx - (\vid.aw | 0)) |
       (type(vx) == "real",
       (-1 <= vx < 0, w - vx*w) |
-      (0 < vx <= 1, vx*w) ) | vx )
+      (0 < vx <= 1, vx*w) ) | vx );
    ay := s.ay + ( (vy <= -1, h + vy - (\vid.ah | 0)) |
       (type(vy) == "real",
       (-1 <= vy < 0, h - vy*h) |
-      (0 < vy <= 1, vy*h) ) | vy )
+      (0 < vy <= 1, vy*h) ) | vy );
 
    aw := (\vw, (type(vw) == "real", 0 < vw <= 1, vw*w) |
-      vw) | \vid.aw | w
+      vw) | \vid.aw | w;
    ah := (\vh, (type(vh) == "real", 0 < vh <= 1, vh*h) |
-      vh) | \vid.ah | h
-   aw := integer(aw)
-   ah := integer(ah)
+      vh) | \vid.ah | h;
+   aw := integer(aw);
+   ah := integer(ah);
 
 ## don't let kid be bigger than the frame.
    if (a := aw + ax) > (b := s.aw + s.ax) then aw -:= (a-b)
@@ -171,12 +171,12 @@ end
 procedure remove_Vframe(s, pane, erase)
 local new, k
 
-   new := []
+   new := [];
    every k := !s.lookup do if k ~=== pane then put(new,k)
-   s.lookup := new
-   new := []
+   s.lookup := new;
+   new := [];
    every k := !s.draw do if k ~=== pane then put(new,k)
-   s.draw := new
+   s.draw := new;
 
    if /erase then VErase(pane)
 end
@@ -195,11 +195,11 @@ static image
    /y := 0
    /w := \pane.aw
    /h := \pane.ah
-   pane.P.x := x
-   pane.P.y := y
-   pane.P.w := w
-   pane.P.h := h
-   put(s.draw, pane)
+   pane.P.x := x;
+   pane.P.y := y;
+   pane.P.w := w;
+   pane.P.h := h;
+   put(s.draw, pane);
    if not (image(pane.V.event) ? find("null_proc") ) then
       put(s.lookup, pane)
    if (\s.ax, \s.ay, \s.aw, s.ah) then { # is this frame sized yet
@@ -258,24 +258,24 @@ procedure Vroot_frame(params[])
       procs := Vstd(event_Vroot_frame, draw_Vframe, null_proc,
                    resize_Vroot_frame, inrange_Vpane, init_Vroot_frame,
                    couplerset_Vpane, insert_Vframe, remove_Vframe,
-                   lookup_Vframe, set_abs_Vframe)
-      spec_procs := Vstd_dialog( , , format_Vframe)
+                   lookup_Vframe, set_abs_Vframe);
+      spec_procs := Vstd_dialog( , , format_Vframe);
 
       VInit()
    }
 
-   self := Vframe_rec ! params[1:2|0]
-   Vwin_check(self.win, "Vroot_frame()")
-   self.uid := Vget_uid()
-   self.V := procs
-   self.F := spec_procs
-   self.P := Vstd_pos()
+   self := Vframe_rec ! params[1:2|0];
+   Vwin_check(self.win, "Vroot_frame()");
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.F := spec_procs;
+   self.P := Vstd_pos();
    self.V.init(self)
    return self
 end
 
 procedure init_Vroot_frame(s)
-   s.ax := s.ay := 0
+   s.ax := s.ay := 0;
    init_Vframe(s)
 end
 
@@ -304,9 +304,9 @@ end
 #
 procedure resize_Vroot_frame(s)
 
-   s.aw := WAttrib(s.win, "width")
-   s.ah := WAttrib(s.win, "height")
-   resize_Vframe(s, s.ax, s.ay, s.aw, s.ah)
+   s.aw := WAttrib(s.win, "width");
+   s.ah := WAttrib(s.win, "height");
+   resize_Vframe(s, s.ax, s.ay, s.aw, s.ah);
    s.V.draw(s)
 end
 
@@ -326,7 +326,7 @@ procedure Vmin_frame_width(s)
 
    initial type := proc("type", 0)	# protect attractive name
 
-   max := 2
+   max := 2;
    every vid := (!s.draw) do
       if (type(vid) ~== "Vline_rec") then {
          if type(vid.P.x) == "real" | type(vid.P.w) == "real" |
@@ -343,7 +343,7 @@ procedure Vmin_frame_height(s)
 
    initial type := proc("type", 0)	# protect attractive name
 
-   max := 2
+   max := 2;
    every vid := (!s.draw) do
       if (type(vid) ~== "Vline_rec") then {
          if type(vid.P.y) == "real" | type(vid.P.h) == "real" |

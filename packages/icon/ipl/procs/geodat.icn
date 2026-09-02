@@ -143,9 +143,9 @@ record gdt_nadcon_grid(		# information about a .loa and .laa file
 procedure nadcon(f, t)		#: define NAD data conversion
    local d, ft
 
-   ft := (gdt_nadcon_datum(f) || "-" || gdt_nadcon_datum(t)) | fail
-   d := gdt_nadcon()
-   d.inv := gdt_nadcon_inv
+   ft := (gdt_nadcon_datum(f) || "-" || gdt_nadcon_datum(t)) | fail;
+   d := gdt_nadcon();
+   d.inv := gdt_nadcon_inv;
    case ft of {
       "NAD27-NAD83"|"NAD83-NAD27":
          # more specific grids should precede less specific ones
@@ -177,7 +177,7 @@ end
 procedure gdt_nadcon_fwd(p, L)
    local i, a
 
-   a := []
+   a := [];
    every i := 1 to *L by 2 do {
       gdt_nadcon_fwdPoint(p, a, L[i], L[i+1]) | fail
       }
@@ -187,7 +187,7 @@ end
 procedure gdt_nadcon_bck(p, L)
    local i, a
     
-   a := []
+   a := [];
    every i := 1 to *L by 2 do {
       gdt_nadcon_bckPoint(p, a, L[i], L[i+1]) | fail
       }
@@ -201,7 +201,7 @@ end
 procedure gdt_nadcon_inv(p)
    local q
 
-   q := copy(p)
+   q := copy(p);
    case p.proj of {
       gdt_nadcon_bck :	q.proj := gdt_nadcon_fwd
       gdt_nadcon_fwd :	q.proj := gdt_nadcon_bck
@@ -222,52 +222,52 @@ end
 procedure gdt_nadcon_initGrids(names)
    local grids, latf, lonf, a1, a2, b1, b2, g
 
-   grids := []
+   grids := [];
    every name := !names do {
-      close(\lonf)
-      close(\latf)
+      close(\lonf);
+      close(\latf);
 
-      g := gdt_nadcon_grid()
-      g.name := name
+      g := gdt_nadcon_grid();
+      g.name := name;
 
-      lonf := dopen(name || ".loa") | &null
-      latf := dopen(name || ".laa") | &null
+      lonf := dopen(name || ".loa") | &null;
+      latf := dopen(name || ".laa") | &null;
 
       if /lonf | /latf then next		# filename unreadable
 
-      a1 := read(lonf) | &null
-      a2 := read(lonf) | &null
-      b1 := read(latf) | &null
-      b2 := read(latf) | &null
+      a1 := read(lonf) | &null;
+      a2 := read(lonf) | &null;
+      b1 := read(latf) | &null;
+      b2 := read(latf) | &null;
       if /a1 | /a2 | /b1 | /b2 | a1 ~== b1 | a2 ~== b2 then {
-         write(&errout, g.name, " incompatible or corrupt files.")
+         write(&errout, g.name, " incompatible or corrupt files.");
          next
          }
-      g.offset := where(lonf)
+      g.offset := where(lonf);
 
       if g.offset = 141 then
          g.termLen := 2
       else
          g.termLen := 1
       a2 ? {
-         g.nc := integer(move(4))
-         g.nr := integer(move(4))
-         g.nz := integer(move(4))
-         g.xmin := real(move(12))
-         g.dx := real(move(12))
-         g.xmax := g.xmin + (g.nc - 1) * g.dx
-         g.ymin := real(move(12))
-         g.dy := real(move(12))
-         g.ymax := g.ymin + (g.nr - 1) * g.dy
-         g.angle := real(move(12))
+         g.nc := integer(move(4));
+         g.nr := integer(move(4));
+         g.nz := integer(move(4));
+         g.xmin := real(move(12));
+         g.dx := real(move(12));
+         g.xmax := g.xmin + (g.nc - 1) * g.dx;
+         g.ymin := real(move(12));
+         g.dy := real(move(12));
+         g.ymax := g.ymin + (g.nr - 1) * g.dy;
+         g.angle := real(move(12));
          put(grids, g)
          }
       }
-   close(\lonf)
-   close(\latf)
+   close(\lonf);
+   close(\latf);
 
    if *grids = 0 then {
-      write(&errout, "No valid NADCON conversion files found.")
+      write(&errout, "No valid NADCON conversion files found.");
       fail
       }
    return grids
@@ -290,19 +290,19 @@ procedure gdt_nadcon_box(f, g, xcol, yrow)
 #	2) each number is 12 chars long,
    local charsPerRow, pos, t1, t2, t3, t4
 
-   charsPerRow := (72 + g.termLen) * integer(g.nc / 6)
+   charsPerRow := (72 + g.termLen) * integer(g.nc / 6);
    if (g.nc % 6) > 0 then
       charsPerRow +:= g.termLen + 12 * (g.nc % 6)
 
    pos := g.offset + charsPerRow * (yrow - 1) +
-      (72 + g.termLen) * integer((xcol - 1) / 6) + 12 * ((xcol - 1) % 6)
+      (72 + g.termLen) * integer((xcol - 1) / 6) + 12 * ((xcol - 1) % 6);
 
-   seek(f, pos)
-   t1 := reads(f, 12)
+   seek(f, pos);
+   t1 := reads(f, 12);
    if (xcol % 6 = 0) then reads(f, g.termLen)	# line termination
-   t3 := reads(f, 12)
-   seek(f, pos + 12 * g.nc + g.termLen * ceil(g.nc / 6.0))
-   t2 := reads(f, 12)
+   t3 := reads(f, 12);
+   seek(f, pos + 12 * g.nc + g.termLen * ceil(g.nc / 6.0));
+   t2 := reads(f, 12);
    if (xcol % 6 = 0) then reads(f, g.termLen)	# line termination
    t4 := reads(f, 12)
 
@@ -314,27 +314,27 @@ procedure gdt_nadcon_fwdPoint(p, a, xpt, ypt)
    local g, latf, lonf, xgrid, ygrid, xcol, yrow, t, dlas, dlos
 
    if not(g := gdt_nadcon_findGrid(p.grids, xpt, ypt)) then {
-      runerr(205, [xpt, ypt])		# point not in available areas
+      runerr(205, [xpt, ypt]);  # point not in available areas
       fail
       }
-   lonf := dopen(g.name || ".loa")
-   latf := dopen(g.name || ".laa")
+   lonf := dopen(g.name || ".loa");
+   latf := dopen(g.name || ".laa");
 
-   xgrid := (xpt - g.xmin) / g.dx + 1.0
-   ygrid := (ypt - g.ymin) / g.dy + 1.0
-   xcol := integer(xgrid)
-   yrow := integer(ygrid)
+   xgrid := (xpt - g.xmin) / g.dx + 1.0;
+   ygrid := (ypt - g.ymin) / g.dy + 1.0;
+   xcol := integer(xgrid);
+   yrow := integer(ygrid);
 
-   t := gdt_nadcon_box(lonf, g, xcol, yrow)
+   t := gdt_nadcon_box(lonf, g, xcol, yrow);
    dlos := t[1] + (t[3]-t[1]) * (xgrid-xcol) + (t[2]-t[1]) * (ygrid-yrow) +
-         (t[4]-t[3]-t[2]+t[1]) * (xgrid-xcol) * (ygrid-yrow)
+         (t[4]-t[3]-t[2]+t[1]) * (xgrid-xcol) * (ygrid-yrow);
     
-   t := gdt_nadcon_box(latf, g, xcol, yrow)
+   t := gdt_nadcon_box(latf, g, xcol, yrow);
    dlas := t[1] + (t[3]-t[1]) * (xgrid-xcol) + (t[2]-t[1]) * (ygrid-yrow) +
-         (t[4]-t[3]-t[2]+t[1]) * (xgrid-xcol) * (ygrid-yrow)
+         (t[4]-t[3]-t[2]+t[1]) * (xgrid-xcol) * (ygrid-yrow);
     
-   close(lonf)
-   close(latf)
+   close(lonf);
+   close(latf);
 
    # Why is the range specified in +east and the correction in +west?
    put(a, xpt - dlos / 3600.0, ypt + dlas / 3600.0)
@@ -346,13 +346,13 @@ $define CTG_NADCON_SMALL 0.000000001	# close enough for NADCON inverse
 procedure gdt_nadcon_bckPoint(p, a, xpt, ypt)
    local xguess, yguess, b, i, dx, dy
 
-   xguess := xpt
-   yguess := ypt
-   b := []
+   xguess := xpt;
+   yguess := ypt;
+   b := [];
    every i:= 1 to 10 do {
-      gdt_nadcon_fwdPoint(p, b, xguess, yguess) | fail
-      dx := xpt - get(b)
-      dy := ypt - get(b)
+      gdt_nadcon_fwdPoint(p, b, xguess, yguess) | fail;
+      dx := xpt - get(b);
+      dy := ypt - get(b);
       if abs(dx) > CTG_NADCON_SMALL then xguess +:= dx
       if abs(dy) > CTG_NADCON_SMALL then yguess +:= dy
       if abs(dx) <= CTG_NADCON_SMALL & abs(dy) <= CTG_NADCON_SMALL then {
@@ -360,7 +360,7 @@ procedure gdt_nadcon_bckPoint(p, a, xpt, ypt)
          return
          }
       }
-   write(&errout, "Maximum iterations exceeded!!")
+   write(&errout, "Maximum iterations exceeded!!");
    fail
 end
 
@@ -395,24 +395,24 @@ procedure molodensky(dx,dy,dz,ain,fin,aout,fout) #: define geodetic conversion
 
    if /dx | /dy then fail
    if /dz then {
-      din := gdt_datum_params(dx) | fail
-      ein := ellipsoid(din.eps) | fail
-      dout := gdt_datum_params(dy) | fail
-      eout := ellipsoid(dout.eps) | fail
-      a := []
-      put(a, din.dx - dout.dx, din.dy - dout.dy, din.dz - dout.dz)
+      din := gdt_datum_params(dx) | fail;
+      ein := ellipsoid(din.eps) | fail;
+      dout := gdt_datum_params(dy) | fail;
+      eout := ellipsoid(dout.eps) | fail;
+      a := [];
+      put(a, din.dx - dout.dx, din.dy - dout.dy, din.dz - dout.dz);
       put(a, ein[1], ein[2], eout[1], eout[2])
       return molodensky ! a
       }
-   p := gdt_molo()
-   p.proj := gdt_molo_proj
-   p.inv := gdt_molo_inv
-   p.dx := dx
-   p.dy := dy
-   p.dz := dz
-   p.ain := ain
-   p.fin := fin
-   p.aout := aout
+   p := gdt_molo();
+   p.proj := gdt_molo_proj;
+   p.inv := gdt_molo_inv;
+   p.dx := dx;
+   p.dy := dy;
+   p.dz := dz;
+   p.ain := ain;
+   p.fin := fin;
+   p.aout := aout;
    p.fout := fout
    return p
 end
@@ -421,24 +421,24 @@ procedure gdt_molo_proj(p, L)
    local e2, slam, clam, sphi, cphi, Rm, Rn, dlam, dphi
    local i, bbya, da, df, lam, phi, lllist
 
-   da := p.aout - p.ain
-   df := p.fout - p.fin
-   e2 := p.fin * (2 - p.fin)
-   bbya := 1. - p.fin
-   lllist := []
+   da := p.aout - p.ain;
+   df := p.fout - p.fin;
+   e2 := p.fin * (2 - p.fin);
+   bbya := 1. - p.fin;
+   lllist := [];
    every i := 1 to *L by 2 do {
-      lam := dtor(L[i])
-      slam := sin(lam)
-      clam := cos(lam)
-      phi := dtor(L[i+1])
-      sphi := sin(phi)
-      cphi := cos(phi)
-      Rm := p.ain * (1 - e2) / (1 - e2 * sphi ^ 2) ^ (1.5)
-      Rn := p.ain / sqrt(1 - e2 * sphi ^ 2)
-      dlam := (-p.dx * slam + p.dy * clam) / (Rn * cphi)
+      lam := dtor(L[i]);
+      slam := sin(lam);
+      clam := cos(lam);
+      phi := dtor(L[i+1]);
+      sphi := sin(phi);
+      cphi := cos(phi);
+      Rm := p.ain * (1 - e2) / (1 - e2 * sphi ^ 2) ^ (1.5);
+      Rn := p.ain / sqrt(1 - e2 * sphi ^ 2);
+      dlam := (-p.dx * slam + p.dy * clam) / (Rn * cphi);
       dphi := (-p.dx * sphi * clam - p.dy * sphi * slam + p.dz * cphi +
                da * (Rn * e2 * sphi * cphi) / p.ain +
-               df * (Rm / bbya + Rn * bbya) * sphi * cphi) / Rm
+               df * (Rm / bbya + Rn * bbya) * sphi * cphi) / Rm;
       put(lllist, rtod(lam + dlam), rtod(phi + dphi))
       }
    return lllist
@@ -447,15 +447,15 @@ end
 procedure gdt_molo_inv(p)
    local q
 
-   q := gdt_molo()
-   q.proj := gdt_molo_proj
-   q.inv := gdt_molo_inv
-   q.dx := -p.dx
-   q.dy := -p.dy
-   q.dz := -p.dz
-   q.ain := p.aout
-   q.fin := p.fout
-   q.aout := p.ain
+   q := gdt_molo();
+   q.proj := gdt_molo_proj;
+   q.inv := gdt_molo_inv;
+   q.dx := -p.dx;
+   q.dy := -p.dy;
+   q.dz := -p.dz;
+   q.ain := p.aout;
+   q.fin := p.fout;
+   q.aout := p.ain;
    q.fout := p.fin
    return q
 end
@@ -531,7 +531,7 @@ end
 procedure gdt_datum_init()
    gdt_datum_ptab := table()
 
-$define add gdt_datum_add
+$define add gdt_datum_add;
 
 # ----------------- AFRICA --------------------------------
 add("ADI-M", "Africa",

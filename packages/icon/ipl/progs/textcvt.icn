@@ -37,7 +37,7 @@ link io
 link options
 
 procedure Usage(s)
-  write(&errout,\s)
+  write(&errout,\s);
   stop("Usage: textcvt [-options] -<output format> textfile..._
        \n  options:_
        \n    f <file name>  output file name if different from input_
@@ -51,13 +51,13 @@ end
 
 procedure Options(arg)
   local opt
-  opt := options(arg,"udmo:f:c",Usage)
+  opt := options(arg,"udmo:f:c",Usage);
   OutEnder :=
       if \opt["u"] then "\x0a"
       else if \opt["d"] then "\x0d\x0a"
       else if \opt["m"] then "\x0d"
-      else Usage()
-  OutDir := opt["o"]
+      else Usage();
+  OutDir := opt["o"];
   if OutFile := \opt["f"] then {
     if *arg > 1 then Usage("Only one input file allowed with -f")
   }
@@ -73,42 +73,42 @@ global OutEnder,OutDir,OutFile
 
 procedure main(arg)
   local oldName,old,newName,tmp,notInPlace,tmpName
-  Options(arg)
-  notInPlace := \(OutFile | OutDir)
+  Options(arg);
+  notInPlace := \(OutFile | OutDir);
   every oldName := !arg do {
     old := open(oldName,"ru") | {
-      write(&errout,"Can't open ",oldName)
+      write(&errout,"Can't open ",oldName);
       next
     }
     if \notInPlace then {
-      tmpName := (\OutDir | "") || (\OutFile | tail(oldName)[2])
+      tmpName := (\OutDir | "") || (\OutFile | tail(oldName)[2]);
       tmp := open(tmpName,"wu") | {
-        write(&errout,"Can't open output file ",tmpName)
-    close(old)
+        write(&errout,"Can't open output file ",tmpName);
+    close(old);
     next
       }
       writes(&errout,"Converting ",oldName," -> ",tmpName," -- ")
     }
     else {
       tmpName := if match("MS_DOS",&host) then suffix(oldName)[1] || ".tmp"
-          else oldName || ".temp"
+          else oldName || ".temp";
       tmp := open(tmpName,"wu") | {
-        write(&errout,"Can't open work file ",tmpName)
-    close(old)
+        write(&errout,"Can't open work file ",tmpName);
+    close(old);
     next
       }
       writes(&errout,"Converting ",oldName," -- ")
     }
-    flush(&errout)
-    ConvertText(old,tmp)
-    close(tmp)
-    close(old)
+    flush(&errout);
+    ConvertText(old,tmp);
+    close(tmp);
+    close(old);
     if \notInPlace then {
       write(&errout,"done.")
     }
     else {
       (fcopy(tmpName,oldName) & write(&errout,"done.")) |
-          write(&errout,"done.")
+          write(&errout,"done.");
       remove(tmpName)
     }
   }
@@ -120,7 +120,7 @@ procedure ConvertText(old,new)
     if buf[-1] == "\x0d" then buf ||:= reads(old)
     buf ? {
       while writes(new,tab(upto('\x0a\x0d')),OutEnder) do {
-        c := move(1)
+        c := move(1);
     if c == "\x0d" then ="\x0a"
       }
       writes(new,trail := tab(0))

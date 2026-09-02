@@ -75,25 +75,25 @@ procedure main(args)
    local c, n, e, f, newg, dlogwin
 
    # initialize globals
-   depth := DEPTH
-   savename := DEFNAME
-   randomize()
+   depth := DEPTH;
+   savename := DEFNAME;
+   randomize();
 
    # initialize graphics
-   Window("size=800,640", "resize=on", args) # open the main window
-   dlogwin := Clone("font=sans,bold,12") # make a separate GC for dialog use
-   layout()				# configure the game window
+   Window("size=800,640", "resize=on", args);  # open the main window
+   dlogwin := Clone("font=sans,bold,12");  # make a separate GC for dialog use
+   layout();  # configure the game window
 
    # load game if passed a filename argument, or set up a new name
    if *args > 0 then {
-      f := open(args[1])	| stop("cannot open ", args[1])
-      game := load(f)		| stop("cannot load game from ", args[1])
+      f := open(args[1])	| stop("cannot open ", args[1]);
+      game := load(f)		| stop("cannot load game from ", args[1]);
       close(f)
       }
    else
       game := newgame()
 
-   redisplay(game)			# show initial game state on display
+   redisplay(game);  # show initial game state on display
 
    # main loop
    while e := Event() do case e of {

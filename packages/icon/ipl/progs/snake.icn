@@ -61,30 +61,30 @@ procedure main(a)
 
     local snake, limit, sl, sw, CM, x, r, leftbehind
 
-    randomize()
+    randomize();
 
     if not (getval("so"),  CM := getval("cm"))
     then stop("snake:  Your terminal is too stupid to run me.  Sorry.")
-    clear(); Kludge() # if your term likes it, use emphasize(); clear()
+    clear(); Kludge();  # if your term likes it, use emphasize(); clear()
     # Decide how much space we have to operate in.
-    max_l := getval("li")-2             # global
-    max_w := getval("co")-1             # global
+    max_l := getval("li")-2;  # global
+    max_w := getval("co")-1;  # global
     # Determine the character that will be used to represent the snake.
-    snake_char := (\a[1])[1] | "o"
+    snake_char := (\a[1])[1] | "o";
 
     # Make the head.
-    snake := []; put(snake,[?(max_l-1)+1, ?(max_w-1)+1])
+    snake := []; put(snake,[?(max_l-1)+1, ?(max_w-1)+1]);
     # Make the body, displaying it as it grows.
     every x := 2 to 25 do {
-	display(,snake)
+	display(,snake);
 	put(snake,findnext(snake[x-1],snake))
     }
 
     # Begin "eating" all the standout mode spaces on the screen.
     repeat {
-	r := makenew(snake)
-	leftbehind := r.poop
-	snake := r.body
+	r := makenew(snake);
+	leftbehind := r.poop;
+	snake := r.body;
 	display(leftbehind,snake) | break
     }
 
@@ -92,7 +92,7 @@ procedure main(a)
     while leftbehind := get(snake)
     do display(leftbehind,snake)
 
-    iputs(igoto(getval("cm"), 1, getval("li")-1))
+    iputs(igoto(getval("cm"), 1, getval("li")-1));
     normal()
     
 end 
@@ -108,7 +108,7 @@ procedure findnext(L, snake)
     }
     # global max_l, max_w
 
-    i := L[1]; j := L[2]	# for clarity, use i, j (not l[i|j])
+    i := L[1]; j := L[2];  # for clarity, use i, j (not l[i|j])
 
     # L is the last snake segment; find k and l, such that k and l are
     # valid line and column numbers differing from l[1] and l[2] by no
@@ -150,14 +150,14 @@ procedure display(lb,snake)
 
     # Change the mode of the square just "vacated" by the moving snake.
     if *snake = 0 | different(\lb,snake) then {
-	iputs(igoto(CM, lb[2], lb[1]))
-	normal()
+	iputs(igoto(CM, lb[2], lb[1]));
+	normal();
 	writes(" ")
     }
 
     if last_segment := (0 ~= *snake) then {
 	# Write the last segment (which turns out to be the snakes head!).
-	iputs(igoto(CM, snake[last_segment][2], snake[last_segment][1]))
+	iputs(igoto(CM, snake[last_segment][2], snake[last_segment][1]));
 	emphasize(); writes(snake_char)  # snake_char is global
     }
 

@@ -56,7 +56,7 @@ procedure main(args)
    local gamma
 
    if *args = 0 then {
-      WOpen("canvas=hidden", "size=200,100") | stop("can't open window")
+      WOpen("canvas=hidden", "size=200,100") | stop("can't open window");
       write(left(WAttrib("gamma") + 0.005, 4))
       return
       }
@@ -66,14 +66,14 @@ procedure main(args)
       return
       }
 
-   gamma := real(args[1]) | 2.5
-   ofile := open("xcmsdb", "wp") | stop("can't open pipe to xcmsdb")
+   gamma := real(args[1]) | 2.5;
+   ofile := open("xcmsdb", "wp") | stop("can't open pipe to xcmsdb");
 
-   write(ofile, "SCREENDATA_BEGIN        0.3")
-   header()
-   matrices()
-   ramps(gamma)
-   write(ofile, )
+   write(ofile, "SCREENDATA_BEGIN        0.3");
+   header();
+   matrices();
+   ramps(gamma);
+   write(ofile, );
    write(ofile, "SCREENDATA_END")
 end
 
@@ -110,7 +110,7 @@ end
 
 
 procedure ramps(gamma)
-   write(ofile, "    INTENSITY_PROFILE_BEGIN 0 3")
+   write(ofile, "    INTENSITY_PROFILE_BEGIN 0 3");
    every hue("RED" | "GREEN" | "BLUE", gamma)
    write(ofile, "    INTENSITY_PROFILE_END")
 end
@@ -121,10 +121,10 @@ procedure hue(c, gamma)
    static hextab
    initial every put((hextab := []), !"0123456789abcdef" || !"0123456789abcdef")
 
-   write(ofile, "    INTENSITY_TBL_BEGIN    ", c, "    256")
+   write(ofile, "    INTENSITY_TBL_BEGIN    ", c, "    256");
    every i := 0 to 255 do {
-      x := hextab[i + 1]
-      v := (i / 255.0) ^ gamma
+      x := hextab[i + 1];
+      v := (i / 255.0) ^ gamma;
       if v < 0.0001 then		# avoid "e" notation
          v := 0.0
       write(ofile, "            0x", x, x, " ", left(v, 8, "0"))

@@ -48,8 +48,8 @@
 procedure soundex(name)
 local coded_name, new_name
 
-    coded_name := encode(strip(name))
-    new_name := name[1]
+    coded_name := encode(strip(name));
+    new_name := name[1];
     every pos := 2 to *coded_name do {
         if coded_name[pos] ~== "*" then
             new_name := new_name || coded_name[pos]
@@ -61,9 +61,9 @@ end
 
 procedure encode(name)
 
-    name := map(name, &ucase, &lcase)
+    name := map(name, &ucase, &lcase);
     name := map(name, "aehiouwybfpvcgjkqsxzdtlmnr",
-        "********111122222222334556")
+        "********111122222222334556");
     every pos := *name to 2 by -1 do
         if name[pos - 1] == name[pos] then
             name[pos] := "*"
@@ -77,7 +77,7 @@ static alphabet
 
 initial alphabet := string(&letters)
 
-    result := ""
+    result := "";
     every ch := !name do
         if find(ch, alphabet) then
             result ||:= ch

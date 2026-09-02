@@ -32,11 +32,11 @@ link random
 procedure main()
    local buf, cs
 
-   collect(2, 2 * BUFSIZE)		# ensure large memory region
-   randomize()				# different results every time
+   collect(2, 2 * BUFSIZE);  # ensure large memory region
+   randomize();  # different results every time
 
-   buf := ""
-   cs := string(&cset)
+   buf := "";
+   cs := string(&cset);
    every 1 to BUFSIZE do
       buf ||:= ?cs			# initialize buffer randomly
 

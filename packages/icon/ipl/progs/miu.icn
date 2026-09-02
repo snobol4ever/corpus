@@ -29,11 +29,11 @@
 procedure main(arg)
    local count, gen, limit
 
-   limit := integer(arg[1]) | 7
-   gen := set(["MI"])
+   limit := integer(arg[1]) | 7;
+   gen := set(["MI"]);
 
    every count := 1 to limit do {
-      gen := nextgen(gen)
+      gen := nextgen(gen);
       show(count,gen)
       }
 
@@ -43,7 +43,7 @@ end
 
 procedure show(count,gen)
 
-   write("Generation #",count,", ",*gen," strings")
+   write("Generation #",count,", ",*gen," strings");
    every write("   ",image(!sort(gen)))
    write()
 
@@ -54,7 +54,7 @@ end
 procedure nextgen(gen)
    local new
 
-   new := set()
+   new := set();
    every insert(new,apply(!gen))
    return new
 
@@ -69,10 +69,10 @@ procedure apply(s)
 
    s ? {
      if ="M" then suspend s || tab(0)
-     tab(-1)			# to last character
+     tab(-1);  # to last character
      if ="I" then suspend s || "U"
      tab(1)			# back to the beginning
-     suspend tab(find("III")) || (move(3) & "U") || tab(0)
+     suspend tab(find("III")) || (move(3) & "U") || tab(0);
      tab(1)			# back to the beginning
      suspend tab(find("UU")) || (move(2) & tab(0))
      }

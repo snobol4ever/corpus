@@ -48,20 +48,20 @@ $define Offset 401			# offset to the first expression
 procedure main(args)
    local hex, tieup, i, binary, expr, name, namechars, tartans_list
 
-   namechars := &letters ++ &digits ++ ' -&'
+   namechars := &letters ++ &digits ++ ' -&';
 
-   tartans_list := []
+   tartans_list := [];
 
-   binary := ""
+   binary := "";
 
    while binary ||:= reads(, 10000)		# read the whole file
 
    #  Get names.
 
    binary ? {
-      tab(find("FSWI") + 4)			# find names
+      tab(find("FSWI") + 4);  # find names
       while tab(upto(namechars)) do {		# not robust
-         name := tab(many(namechars))
+         name := tab(many(namechars));
          if (*name > 3) | (name == "Op") then	# "heuristic"
             put(tartans_list, name)
          tab(upto(namechars)) | break
@@ -70,54 +70,54 @@ procedure main(args)
       }
 
    binary ? {
-      move(400) | stop("delta move error")
-      hex := move(4400) | stop("short file")
-      write(get(tartans_list)) | stop("short name list")
+      move(400) | stop("delta move error");
+      hex := move(4400) | stop("short file");
+      write(get(tartans_list)) | stop("short name list");
       hex ? {				# get the four expressions
          every i := (0 to 3) do {
-            tab(i * 2 ^ 10 + 1)
-            expr := tab(upto('\x00')) | stop("no null character")
+            tab(i * 2 ^ 10 + 1);
+            expr := tab(upto('\x00')) | stop("no null character");
             if *expr = 0 then stop("no expression")	# no expression
             write(expr)
             }
-         tieup := ""
-         tab(4101)				# now the tie-up
+         tieup := "";
+         tab(4101);  # now the tie-up
          every 1 to 8 do {
-            tieup ||:= map(move(8), "\x0\x1", "01")
+            tieup ||:= map(move(8), "\x0\x1", "01");
             move(24)
             }
-         write(decol(tieup))
+         write(decol(tieup));
          write()
          }
       }
 
    binary ? {
       while tab(find(".KWROYL")) do {
-         move(4908) | stop("delta move error")
+         move(4908) | stop("delta move error");
          hex := move(4400) | break
-         write(get(tartans_list)) | stop("short name list")
+         write(get(tartans_list)) | stop("short name list");
          hex ? {				# get the four expressions
             every i := (0 to 3) do {
-               tab(i * 2 ^ 10 + 1)
-               expr := tab(upto('\x00')) | stop("no null character")
+               tab(i * 2 ^ 10 + 1);
+               expr := tab(upto('\x00')) | stop("no null character");
                if *expr = 0 then break break	# no expression
                write(expr)
                }
-            tieup := ""
-            tab(4101)				# now the tie-up
+            tieup := "";
+            tab(4101);  # now the tie-up
             every 1 to 8 do {
-               tieup ||:= map(move(8), "\x0\x1", "01")
+               tieup ||:= map(move(8), "\x0\x1", "01");
                move(24)
                }
-            write(decol(tieup))
+            write(decol(tieup));
             write()
             }
          }
       }	
 
    if *tartans_list > 0 then {
-      write("Unresolved tartans:")
-      write()
+      write("Unresolved tartans:");
+      write();
       while write(get(tartans_list))
       }
 
@@ -126,7 +126,7 @@ end
 procedure decol(s)
    local parts, j, form
 
-   parts := list(8, "")
+   parts := list(8, "");
 
    s ? {
       repeat {
@@ -136,7 +136,7 @@ procedure decol(s)
          }
       }
 
-   form := ""
+   form := "";
 
    every form ||:= !parts
 

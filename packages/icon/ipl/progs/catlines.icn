@@ -22,7 +22,7 @@
 procedure main()
    local line
 
-   line := ""
+   line := "";
 
    while line ||:= read()
 

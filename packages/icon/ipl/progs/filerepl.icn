@@ -25,7 +25,7 @@
 procedure main(args)
    local file
 
-   file := []
+   file := [];
 
    while put(file, read())
 

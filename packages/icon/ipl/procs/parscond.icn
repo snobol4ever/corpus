@@ -29,7 +29,7 @@
 procedure parscond(R)
    local result, x
 
-   result := ""
+   result := "";
 
    every x := !(R.alts) do
      result ||:= string(x) | parscond(x)

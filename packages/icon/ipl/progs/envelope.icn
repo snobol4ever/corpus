@@ -63,7 +63,7 @@ procedure main(arg)
 	    "\t-y | -yorigin yorigin  [Postscript only]",
 	    "\t-r | -rotate rotation  [Postscript only]",
 	    "\t-hpinit string  [hplj only]",
-	    "\t-hppos  string  [hplj only]" ]
+	    "\t-hppos  string  [hplj only]" ];
   psprefix := ["%! Postscript",
                "/adline { 10 y moveto show /y y 13 sub def } def",
                "/barcode {",
@@ -74,50 +74,50 @@ procedure main(arg)
                "  /S { next 0 5 rlineto stroke } def",
                "  /L { next 0 12 rlineto stroke } def } def",
                "/newenvelope {",
-               "  /y 80 def" ]
-  optstr := "hpl:f:r+i:c:x+y+s:?"
-  optstr ||:= "-help!-printer:-hpinit:-hppos:-postscript!:-font:-hplj!"
-  optstr ||:= "-rotate+-xorigin+-yorigin+-init:-clear:-separator:"
+               "  /y 80 def" ];
+  optstr := "hpl:f:r+i:c:x+y+s:?";
+  optstr ||:= "-help!-printer:-hpinit:-hppos:-postscript!:-font:-hplj!";
+  optstr ||:= "-rotate+-xorigin+-yorigin+-init:-clear:-separator:";
   opts := options(arg, optstr)
   \opts["?"|"help"] | arg[1] == "?" & { 
     every write (!usage)
     exit (-1)
   }
 					# change defaults below as needed
-  Printertype := 				"hplj"
-  lp := \opts["l"|"printer"] |			"lpr"
-  separator := \opts["s"|"separator"] |		"#"
-  printerinit := \opts["i"|"init"] |	      	""
-  printerclear := \opts["c"|"clear"] |		""
+  Printertype := 				"hplj";
+  lp := \opts["l"|"printer"] |			"lpr";
+  separator := \opts["s"|"separator"] |		"#";
+  printerinit := \opts["i"|"init"] |	      	"";
+  printerclear := \opts["c"|"clear"] |		"";
 					# the next four are Postscript-only
-  xorigin := \opts["x"|"xorigin"] |		200	       
-  yorigin := \opts["y"|"yorigin"] |		400
-  rotate := \opts["r"|"rotate"] |		90
-  font := \opts["f"|"font"] |			"Palatino-Bold"
+  xorigin := \opts["x"|"xorigin"] |		200;
+  yorigin := \opts["y"|"yorigin"] |		400;
+  rotate := \opts["r"|"rotate"] |		90;
+  font := \opts["f"|"font"] |			"Palatino-Bold";
 					# these two are hplj-only
 					# comm. env., manual feed, landscape
-  hpinit := \opts["hpinit"] |			"\33&k2G\33&l81a3h1O"
+  hpinit := \opts["hpinit"] |			"\33&k2G\33&l81a3h1O";
   hppos := \opts["hppos"] |			"\33&a40L\33*p550Y"
 
   \opts["h"|"hplj"] & Printertype := "hplj"
-  \opts["p"|"postscript"] & Printertype := "postscript"
+  \opts["p"|"postscript"] & Printertype := "postscript";
   if "pipes" == &features then prn := open(lp, "pw")
   else if "MS-DOS" == &features then prn := open ("PRN", "w")
   else stop ("envelope: please configure printer")
-  writes(prn, printerinit)
+  writes(prn, printerinit);
 
   if map(Printertype) == "postscript" then {
     every write(prn, !psprefix)
-    write(prn, "  ", xorigin, " ", yorigin, " translate ", rotate, " rotate")
-    write(prn, "  /", font, " findfont 12 scalefont setfont } def")
+    write(prn, "  ", xorigin, " ", yorigin, " translate ", rotate, " rotate");
+    write(prn, "  /", font, " findfont 12 scalefont setfont } def");
     preface := "newenvelope\n"
   }
   else preface := hpinit || hppos
-  addr := []
+  addr := [];
   every !&input ? {
 				# filter troff junk
     =(".DE" | ".fi") & break
-    if =(".DS" | ".nf") then tab(0)
+    if =(".DS" | ".nf") then tab(0);
 				# multiple addresses with separators
     if =separator then {
       (*addr > 0) & address(addr, prn, preface) 

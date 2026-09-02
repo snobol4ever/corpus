@@ -58,52 +58,52 @@ global brushwin, brushproc		# current drawing window and procedure
 
 procedure main(args)
 
-   nw := 16	# number of squares wide
-   nh := 16	# number of squares high
-   s := 32	# square size
-   m := 4	# margin (gap)
-   bw := 68	# button width
-   bh := 20	# button height
+   nw := 16;  # number of squares wide
+   nh := 16;  # number of squares high
+   s := 32;  # square size
+   m := 4;  # margin (gap)
+   bw := 68;  # button width
+   bh := 20;  # button height
 
    opts := options(args, winoptions())
    /opts["W"] := nw * (m + s) + bw
    /opts["H"] := nh * (m + s) - m
-   /opts["M"] := m
-   win := optwindow(opts, "cursor=off", "echo=off")
-   m := opts["M"]			# get obtained window dimensions
-   h := opts["H"]
-   w := opts["W"]
-   s := (w - bw - nw * m) / nw		# calc size of each square
-   s <:= (h - (nh - 1) * m) / nh
+   /opts["M"] := m;
+   win := optwindow(opts, "cursor=off", "echo=off");
+   m := opts["M"];  # get obtained window dimensions
+   h := opts["H"];
+   w := opts["W"];
+   s := (w - bw - nw * m) / nw;  # calc size of each square
+   s <:= (h - (nh - 1) * m) / nh;
 
-   quitsensor(win)			# set up sensors
-   sensor(win, &lpress, dobrush)
-   sensor(win, &ldrag, dobrush)
-   sensor(win, 'f', fixc, 1)
-   sensor(win, 'F', fixc, 8)
-   sensor(win, 'm', mutc, 1)
-   sensor(win, 'M', mutc, 8)
-   sensor(win, 'Aa', mutall)
+   quitsensor(win);  # set up sensors
+   sensor(win, &lpress, dobrush);
+   sensor(win, &ldrag, dobrush);
+   sensor(win, 'f', fixc, 1);
+   sensor(win, 'F', fixc, 8);
+   sensor(win, 'm', mutc, 1);
+   sensor(win, 'M', mutc, 8);
+   sensor(win, 'Aa', mutall);
    buttonrow(win, m, m, bw, bh, 0, m + bh,
       "1 fixed", fixc, 1,
       "8 fixed", fixc, 8,
       "32 fixed", fixc, 32,
-      )
+      );
    buttonrow(win, m, m + 4 * (bh + m), bw, bh, 0, m + bh,
       "1 mutable", mutc, 1,
       "8 mutable", mutc, 8,
       "32 mutable", mutc, 32,
-      )
+      );
    buttonrow(win, m, m + 8 * (bh + m), bw, bh, 0, m + bh,
       "mutate all", mutall, 0,
       "quit", argless, exit,
-      )
+      );
 
-   sq := []				# init square list and procs
-   brushwin := win
-   brushproc := DrawRectangle
+   sq := [];  # init square list and procs
+   brushwin := win;
+   brushproc := DrawRectangle;
 
-   randomize()
+   randomize();
    evmux(win)				# loop processing events
 end
 
@@ -114,10 +114,10 @@ end
 procedure fixc(w, n)
    local q
    every 1 to n do {
-      q := newsquare(w, FillRectangle) | fail
+      q := newsquare(w, FillRectangle) | fail;
       Fg(q.w, ?65535 || "," || ?65535 || "," || ?65535) | {pull(sq); fail}
-      FillRectangle(q.w, q.x, q.y, s, s)	# interior (random new color)
-      DrawRectangle(win, q.x, q.y, s, s)	# outline (standard)
+      FillRectangle(q.w, q.x, q.y, s, s);  # interior (random new color)
+      DrawRectangle(win, q.x, q.y, s, s);  # outline (standard)
       sensor(win, &lpress, setbrush, q, q.x, q.y, s, s)
       }
    return
@@ -130,13 +130,13 @@ end
 procedure mutc(w, n)
    local q
    every 1 to n do {
-      q := newsquare(w, FillArc) | fail
+      q := newsquare(w, FillArc) | fail;
       q.n := NewColor(q.w, ?65535 || "," || ?65535 || "," || ?65535) |
          {pull(sq); fail}
-      Fg(q.w, q.n)
-      FillArc(q.w, q.x, q.y, s, s)
-      DrawArc(win, q.x, q.y, s, s)
-      sensor(win, &lpress, setbrush, q, q.x, q.y, s, s)
+      Fg(q.w, q.n);
+      FillArc(q.w, q.x, q.y, s, s);
+      DrawArc(win, q.x, q.y, s, s);
+      sensor(win, &lpress, setbrush, q, q.x, q.y, s, s);
       sensor(win, &rpress, randmut, q, q.x, q.y, s, s)
       }
    return
@@ -147,10 +147,10 @@ end
 
 procedure newsquare(w, p)
    local x, y, q
-   *sq < nw * nh | fail
-   x := m + bw + m + (m + s) * (*sq % nw)
-   y := m + (m + s) * (*sq / nw)
-   q := square(x, y, Clone(w), p) | fail
+   *sq < nw * nh | fail;
+   x := m + bw + m + (m + s) * (*sq % nw);
+   y := m + (m + s) * (*sq / nw);
+   q := square(x, y, Clone(w), p) | fail;
    put(sq, q)
    return q
 end
@@ -168,7 +168,7 @@ end
 
 procedure mutall(w)
    local args
-   args := [w]
+   args := [w];
    every put(args, \(!sq).n) do
       put(args, ?65535 || "," || ?65535 || "," || ?65535)
    if *args > 1 then
@@ -179,7 +179,7 @@ end
 #  setbrush(w, q) -- set the paintbrush to the values for square q
 
 procedure setbrush(w, q)
-   brushwin := q.w
+   brushwin := q.w;
    brushproc := q.p
    return
 end

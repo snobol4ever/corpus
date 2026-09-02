@@ -57,7 +57,7 @@ procedure str2toks(c, s, i, j)
 
     local token, default_val
 
-    /c := ~(&letters ++ &digits)
+    /c := ~(&letters ++ &digits);
 
     if /s := &subject
     then default_val := &pos
@@ -76,9 +76,9 @@ procedure str2toks(c, s, i, j)
     else j := *s+1
 
     s[i:j] ? {
-	tab(many(c))
+	tab(many(c));
 	while token := tab(upto(c)) do {
-	    suspend token
+	    suspend token;
 	    tab(many(c))
 	}
 	suspend "" ~== tab(0)

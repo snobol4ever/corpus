@@ -22,15 +22,15 @@
 procedure _Initialize(limit)
    local itime, t1, t3
    
-   itime := &time
+   itime := &time;
 
    every 1 to limit do {
       &null
       }
 
-   t1 := (&time - itime)
+   t1 := (&time - itime);
 
-   itime := &time
+   itime := &time;
 
    every 1 to limit do {
       &null & &null

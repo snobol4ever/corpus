@@ -102,9 +102,9 @@ procedure check_features()
 
     initial {
 	find("unix",map(&features)) |
-	    er("check_features","unix system required",1)
+	    er("check_features","unix system required",1);
 	find("o-expres",&features) |
-	    er("check_features","co-expressions not implemented - &$#!",1)
+	    er("check_features","co-expressions not implemented - &$#!",1);
 	system("/bin/stty tabs") |
 	    er("check_features","can't set tabs option",1)
     }
@@ -127,9 +127,9 @@ procedure setname(name)
 
     #tc_table is global
     
-    check_features()
+    check_features();
 
-    tc_table := table()
+    tc_table := table();
     tc_table := maketc_table(getentry(name)) | fail
     # er("setname","no termcap entry found for "||name,3)
     return "successfully reset for terminal " || name
@@ -148,12 +148,12 @@ procedure getname()
 
     local term, tset_output
 
-    check_features()
+    check_features();
 
     if not (term := getenv("TERM")) then {
 	tset_output := open("/bin/tset -","pr") |
-	    er("getname","can't find tset command",1)
-	term := !tset_output
+	    er("getname","can't find tset command",1);
+	term := !tset_output;
 	close(tset_output)
     }
     return \term |
@@ -166,7 +166,7 @@ end
 procedure er(func,msg,errnum)
 
     # short error processing utility
-    write(&errout,func,":  ",msg)
+    write(&errout,func,":  ",msg);
     exit(errnum)
 
 end
@@ -193,7 +193,7 @@ procedure getentry(name, termcap_string)
     # ling it with a second argument - the name of the termcap file
     # to use instead of the regular one, or the one specified in the
     # termcap environment variable.
-    /termcap_string := getenv("TERMCAP")
+    /termcap_string := getenv("TERMCAP");
 
     if \termcap_string ? (not match("/"), pos(1) | tab(find("|")+1), =name)
     then {
@@ -219,15 +219,15 @@ procedure getentry(name, termcap_string)
 	    open("infocmp -C " || getenv("TERM"), "p") |
 	    er("getentry","I can't access your /etc/termcap file",1)
 
-	getline := create read_file(f)
+	getline := create read_file(f);
     
 	while line := @getline do {
 	    if line ? (pos(1) | tab(find("|")+1), =name, any(':|')) then {
-		entry := ""
+		entry := "";
 		while (\line | @getline) ? {
 		    if entry ||:= 1(tab(find(":")+1), pos(0))
 		    then {
-			close(f)
+			close(f);
 			# if entry ends in tc= then add in the named tc entry
 			entry ?:= tab(find("tc=")) ||
 			    # recursively fetch the new termcap entry
@@ -237,7 +237,7 @@ procedure getentry(name, termcap_string)
 			return entry
 		    }
 		    else {
-			\line := &null # must precede the next line
+			\line := &null;  # must precede the next line
 			entry ||:= trim(trim(tab(0),'\\'),':')
 		    }
 		}
@@ -245,7 +245,7 @@ procedure getentry(name, termcap_string)
 	}
     }
 
-    close(f)
+    close(f);
     er("getentry","can't find and/or process your termcap entry",3)
  
 end
@@ -260,9 +260,9 @@ procedure read_file(f)
 
     local line
 
-    \f | er("read_tcap_file","no valid termcap file found",3)
+    \f | er("read_tcap_file","no valid termcap file found",3);
     while line := read(f) do {
-	match("#",line) & next
+	match("#",line) & next;
 	line ?:= (tab(many('\t ')) | &null, tab(0))
 	suspend line
     }
@@ -282,17 +282,17 @@ procedure maketc_table(entry)
 
     local k, v, decoded_value
 
-    /entry & er("maketc_table","no entry given",8)
+    /entry & er("maketc_table","no entry given",8);
     if entry[-1] ~== ":" then entry ||:= ":"
     
     /tc_table := table()
 
     entry ? {
 
-	tab(find(":")+1)	# tab past initial (name) field
+	tab(find(":")+1);  # tab past initial (name) field
 
 	while tab((find(":")+1) \ 1) ? {
-	    &subject == "" & next
+	    &subject == "" & next;
 	    if k := 1(move(2), ="=")
 	    then decoded_value := Decode(tab(find(":")))
 	    else if k := 1(move(2), ="#")
@@ -329,12 +329,12 @@ procedure Decode(s)
     # Does things like turn ^ plus a letter into a genuine control
     # character.
 
-    new_s := ""
+    new_s := "";
 
     s ? {
 
 	while new_s ||:= tab(upto('\\^')) do {
-	    chr := move(1)
+	    chr := move(1);
 	    if chr == "\\" then {
 		new_s ||:= {
 		    case chr2 := move(1) of {
@@ -372,18 +372,18 @@ procedure igoto(cm,col,line)
     local colline, range, increment, padding, str, outstr, chr, x, y
 
     if \col > (tc_table["co"]) | \line > (tc_table["li"]) then {
-	colline := string(\col) || "," || string(\line) | string(\col|line)
-	range := "(" || tc_table["co"]-1 || "," || tc_table["li"]-1 || ")"
+	colline := string(\col) || "," || string(\line) | string(\col|line);
+	range := "(" || tc_table["co"]-1 || "," || tc_table["li"]-1 || ")";
 	er("igoto",colline || " out of range " || (\range|""),9)
     } 
 
     # Use the Iconish 1;1 upper left corner & not the C-ish 0 offsets
-    increment := -1
-    outstr := ""
+    increment := -1;
+    outstr := "";
     
     cm ? {
 	while outstr ||:= tab(find("%")) do {
-	    tab(match("%"))
+	    tab(match("%"));
 	    if padding := integer(tab(any('23')))
 	    then chr := (="d" | "d")
 	    else chr := move(1)
@@ -391,7 +391,7 @@ procedure igoto(cm,col,line)
 		"." :  outstr ||:= char(line + increment)
 		"+" :  outstr ||:= char(line + ord(move(1)) + increment)
 		"d" :  {
-		    str := string(line + increment)
+		    str := string(line + increment);
 		    outstr ||:= right(str, \padding, "0") | str
 		}
 	    }
@@ -404,7 +404,7 @@ procedure igoto(cm,col,line)
 		    "%" :  outstr ||:= "%"
 		    "B" :  line := ior(ishift(line / 10, 4), line % 10)
 		    ">" :  {
-			x := move(1); y := move(1)
+			x := move(1); y := move(1);
 			line > ord(x) & line +:= ord(y)
 			&null
 		    }
@@ -426,21 +426,21 @@ procedure iputs(cp, affcnt)
     # global tty_speed
 
     initial {
-	num_chars := &digits ++ '.'
-	char_times := table()
+	num_chars := &digits ++ '.';
+	char_times := table();
 	# Baud rates in decimal, not octal (as in termio.h)
-	baud_rates := [0,7,8,9,10,11,12,13,14,15,16]
-	char_rates := [0,333,166,83,55,41,20,10,10,10,10]
+	baud_rates := [0,7,8,9,10,11,12,13,14,15,16];
+	char_rates := [0,333,166,83,55,41,20,10,10,10,10];
 	every i := 1 to *baud_rates do {
 	    char_times[baud_rates[i]] := char_rates[i]
 	}
     }
 
     type(cp) == "string" |
-	er("iputs","you can't iputs() a non-string value!",10)
+	er("iputs","you can't iputs() a non-string value!",10);
 
     cp ? {
-	delay := tab(many(num_chars))
+	delay := tab(many(num_chars));
 	if ="*" then {
 	    delay *:= \affcnt |
 		er("iputs","affected line count missing",6)
@@ -449,11 +449,11 @@ procedure iputs(cp, affcnt)
     }
 
     if (\delay, tty_speed ~= 0) then {
-	minimum_padding_speed := getval("pb")
+	minimum_padding_speed := getval("pb");
 	if /minimum_padding_speed | tty_speed >= minimum_padding_speed then {
-	    PC := tc_table["pc"] | "\000"
-	    char_time := char_times[tty_speed] | (return "speed error")
-	    delay := (delay * char_time) + (char_time / 2)
+	    PC := tc_table["pc"] | "\000";
+	    char_time := char_times[tty_speed] | (return "speed error");
+	    delay := (delay * char_time) + (char_time / 2);
 	    every 1 to delay by 10
 	    do writes(PC)
 	}
@@ -470,15 +470,15 @@ procedure getspeed()
     local stty_g, stty_output, c_cflag, o_speed
 
     stty_g := open("/bin/stty -g 2>&1","pr") |
-	er("getspeed","Can't access your stty command.",4)
-    stty_output := !stty_g
+	er("getspeed","Can't access your stty command.",4);
+    stty_output := !stty_g;
     close(stty_g)
 
     \stty_output ? {
 	# tab to the third field of the output of the stty -g cmd
         tab(find(":")+1) & tab(find(":")+1) &
 	c_cflag := integer("16r"||tab(find(":")))
-    } | er("getspeed","Unable to unwind your stty -g output.",4)
+    } | er("getspeed","Unable to unwind your stty -g output.",4);
 
     o_speed := iand(15,c_cflag)
     return o_speed

@@ -37,7 +37,7 @@ procedure main(arg)
    #
    #  Process command line options and file names.
    #
-   opt := options(arg,"l+c:")
+   opt := options(arg,"l+c:");
    if *arg = 0 then stop("Usage: findstr -options file..._
       \n_
       \n-l length\tminimum string size to be printed (default 3)_
@@ -47,22 +47,22 @@ procedure main(arg)
    #
    #  Define minimum string size to print.
    #
-   min_string_size := \opt["l"] | 3	# default min string size = 3
+   min_string_size := \opt["l"] | 3;  # default min string size = 3
    #
    #  Define characters that can be in strings.
    #
-   okchars := cset(&ascii[33:-1])	# normal ASCII printable characters
-   okchars ++:= istring(\opt["c"])	# additional chars supplied by user
+   okchars := cset(&ascii[33:-1]);  # normal ASCII printable characters
+   okchars ++:= istring(\opt["c"]);  # additional chars supplied by user
    #
    #  Loop to process files.
    #
    every fn := !arg do {
-      f := open(fn,"u") | stop("Can't open input file \"",fn,"\"")
+      f := open(fn,"u") | stop("Can't open input file \"",fn,"\"");
       #
       #  Now find and print the strings.
       #
-      header := if *arg > 1 then fn || ": " else ""
-      s := ""
+      header := if *arg > 1 then fn || ": " else "";
+      s := "";
       while c := reads(f) do {
 	 if any(okchars,c) then s ||:= c
 	 else {

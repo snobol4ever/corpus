@@ -236,14 +236,14 @@ end
 procedure AllparAER(L)		#: PDAE for parallel evaluation with repeats
    local i, L1, done
 
-   L1 := list(*L)
+   L1 := list(*L);
 
-   done := list(*L,1)
+   done := list(*L,1);
 
    every i := 1 to *L do L1[i] := @L[i] | fail
 
    repeat {
-      suspend L1[1] ! L1[2:0]
+      suspend L1[1] ! L1[2:0];
       every i := 1 to *L do
          if done[i] = 1 then ((L1[i] := @L[i]) | (done[i] := 0))
       if not(!done = 1) then fail
@@ -253,7 +253,7 @@ end
 
 procedure AltPDCO(L)		#: PDCO to model alternation
 
-   suspend |@L[1]
+   suspend |@L[1];
    suspend |@L[2]
 
 end
@@ -262,7 +262,7 @@ procedure BinopPDCO(L)		#: PDCO to apply binary operation to sequences
    local op, x, y
 
    repeat {
-      op := @L[1]
+      op := @L[1];
       op := proc(op, 2) | fail
       (x := @L[2] & y := @L[3]) | fail
       suspend op(x, y)
@@ -273,17 +273,17 @@ end
 procedure CFapproxPDCO(L)	#: PDCO for continued-fraction approximations
   local prev_n, prev_m, n, m, t
 
-  prev_n := [1]
-  prev_m := [0, 1]
+  prev_n := [1];
+  prev_m := [0, 1];
 
-  put(prev_n, (@L[1]).denom) | fail
+  put(prev_n, (@L[1]).denom) | fail;
 
   while t := @L[1] do {
-     n := t.denom * get(prev_n) + t.numer * prev_n[1]
+     n := t.denom * get(prev_n) + t.numer * prev_n[1];
      m := t.denom * get(prev_m) + t.numer * prev_m[1]
-     suspend rational(n, m, 1)
-     put(prev_n, n)
-     put(prev_m, m)
+     suspend rational(n, m, 1);
+     put(prev_n, n);
+     put(prev_m, m);
      if t.denom ~= 0 then {		# renormalize
         every !prev_n /:= t.denom
         every !prev_m /:= t.denom

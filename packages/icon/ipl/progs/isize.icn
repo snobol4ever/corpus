@@ -38,45 +38,45 @@ $define Col 15
 procedure main(args)
    local chaff, code, line, cbytes, nbytes, input, tokens, opts, format
 
-   opts := options(args, "t")
-   format := opts["t"]
+   opts := options(args, "t");
+   format := opts["t"];
 
-   input := open(args[1]) | stop("*** cannot open file")
+   input := open(args[1]) | stop("*** cannot open file");
 
-   cbytes := nbytes := code := chaff := 0
+   cbytes := nbytes := code := chaff := 0;
 
    while line := read(input) do {
       line ? {
-         tab(many(' \t'))
+         tab(many(' \t'));
          if ="#" | pos(0) then {
-            chaff +:= 1
+            chaff +:= 1;
             nbytes +:= *line + 1
             }
          else {
-            code +:= 1
+            code +:= 1;
             cbytes +:= *line + 1
             }
          }
       }
 
-   input := open("itokens " || args[1], "p")
-   tokens := read(input)
+   input := open("itokens " || args[1], "p");
+   tokens := read(input);
 
    if /format then {
-      write(left("bytes:", Col), right(cbytes + nbytes, 6))
-      write(left("lines:", Col), right(code + chaff, 6))
-      write(left("tokens:", Col), right(tokens, 6))
-      write(left("% code lines", Col + 2), fix(100 * code, code + chaff, 7, 2))
-      write(left("bytes/token:", Col + 2), fix(cbytes, tokens, 7, 2))
+      write(left("bytes:", Col), right(cbytes + nbytes, 6));
+      write(left("lines:", Col), right(code + chaff, 6));
+      write(left("tokens:", Col), right(tokens, 6));
+      write(left("% code lines", Col + 2), fix(100 * code, code + chaff, 7, 2));
+      write(left("bytes/token:", Col + 2), fix(cbytes, tokens, 7, 2));
       write(left("tokens/code line:", Col + 2), fix(tokens, code, 7, 2))
       }
    else {
-      writes(cbytes + nbytes, "\t")
-      writes(code + chaff, "\t")
-      writes(tokens, "\t")
-      writes(fix(100 * code, code + chaff, 7, 2), "\t")
-      writes(fix(cbytes, tokens, 7, 2), "\t")
-      writes(fix(tokens, code, 7, 2))
+      writes(cbytes + nbytes, "\t");
+      writes(code + chaff, "\t");
+      writes(tokens, "\t");
+      writes(fix(100 * code, code + chaff, 7, 2), "\t");
+      writes(fix(cbytes, tokens, 7, 2), "\t");
+      writes(fix(tokens, code, 7, 2));
       write()
       }
 

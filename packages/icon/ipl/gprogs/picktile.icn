@@ -54,24 +54,24 @@ procedure main(args)
    local pixmap, wix, hix, c, x, y, event, opts, base, magnif, cols, rows
    local arglist, state, x0, x1, y0, y1, pattern
 
-   opts := options(args, "tz+w+h+If")
-   magnif := \opts["z"] | 1
-   cols := \opts["w"] | 32
-   rows := \opts["h"] | cols
+   opts := options(args, "tz+w+h+If");
+   magnif := \opts["z"] | 1;
+   cols := \opts["w"] | 32;
+   rows := \opts["h"] | cols;
 
    if \opts["I"] then {
-      magnif := 2
-      cols := rows := 38
+      magnif := 2;
+      cols := rows := 38;
       opts["f"] := 1
       }
 
    pixmap := XBind(, , ,"image=" || args[1]) |
-      stop("*** cannot open image file")
+      stop("*** cannot open image file");
 
-   wix := WAttrib(pixmap, "width")
-   hix := WAttrib(pixmap, "height")
+   wix := WAttrib(pixmap, "width");
+   hix := WAttrib(pixmap, "height");
 
-   win(magnif * wix, magnif * hix)
+   win(magnif * wix, magnif * hix);
 
 #  Build the magnified image.
 
@@ -82,10 +82,10 @@ procedure main(args)
 
    else {
       every y := 0 to hix - 1 do {
-         arglist := []
+         arglist := [];
 
          every x := 0 to wix - 1 do {
-            c := Pixel(pixmap, x, y, 1, 1)
+            c := Pixel(pixmap, x, y, 1, 1);
             if c == "0,0,0" then {
                every put(arglist, (magnif * x) | (magnif * y) | magnif | magnif)
                }

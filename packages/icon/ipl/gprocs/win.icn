@@ -38,7 +38,7 @@ procedure win(width, height)
    /height := 500
 
    return WOpen("size=" || width || "," || height) |
-      stop("*** can't open window")
+      stop("*** can't open window");
 
    return
 

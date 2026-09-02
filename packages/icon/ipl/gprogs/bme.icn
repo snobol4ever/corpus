@@ -43,48 +43,48 @@ global colors, colorbinds
 
 procedure main(argv)
    local i, f, s, xpos, ypos, i8, j, j8, j8Plus, e, x, y
-   colors := [ "black", "white", "white" ]
-   i := 1
-   XBM := ".xbm"
-   WIDTH  := 32
-   HEIGHT := 32
+   colors := [ "black", "white", "white" ];
+   i := 1;
+   XBM := ".xbm";
+   WIDTH  := 32;
+   HEIGHT := 32;
    if *argv>0 & argv[1][1:5]=="-geo" then {
-      i +:= 1
+      i +:= 1;
       if *argv>1 then argv[2] ? {
 	 WIDTH := integer(tab(many(&digits))) | stop("geo syntax")
-	 ="x" | stop("geo syntax")
-	 HEIGHT := integer(tab(0)) | stop("geo syntax")
+	 ="x" | stop("geo syntax");
+	 HEIGHT := integer(tab(0)) | stop("geo syntax");
 	 i +:= 1
 	 }
       }
-   LMARGIN := WIDTH
+   LMARGIN := WIDTH;
    if LMARGIN < 65 then LMARGIN := 65
    if (*argv >= i) & (f := open(s := (argv[i] | (argv[i]||XBM)))) then {
-      close(f)
+      close(f);
       w:= WOpen("label=BitMap", "image="||s, "cursor=off") |
-        stop("cannot open window")
-      WIDTH  <:= WAttrib(w, "width")
-      HEIGHT <:= WAttrib(w, "height")
-      pos := WAttrib(w, "pos")
+        stop("cannot open window");
+      WIDTH  <:= WAttrib(w, "width");
+      HEIGHT <:= WAttrib(w, "height");
+      pos := WAttrib(w, "pos");
       pos ? {
 	 xpos := tab(many(&digits)) | stop(image(pos))
-	 =","
+	 =",";
 	 ypos := tab(0)
 	 }
       WAttrib(w, "posx="||xpos, "posy="||ypos,
-	      "width="||(WIDTH*8+LMARGIN+5), "height="||(HEIGHT*8))
-      Event(w)
+	      "width="||(WIDTH*8+LMARGIN+5), "height="||(HEIGHT*8));
+      Event(w);
       every i := 0 to HEIGHT-1 do {
-	 i8 := i*8
+	 i8 := i*8;
 	 every j := 0 to WIDTH-1 do {
-	    j8 := j*8
-	    j8Plus := j8 + LMARGIN + 5
-	    CopyArea(w, w, j, i, 1, 1, j8Plus,   i8)
-	    CopyArea(w, w, j, i, 1, 1, j8Plus+1, i8)
-	    CopyArea(w, w, j8Plus, i8, 2, 1, j8Plus+2,i8)
-	    CopyArea(w, w, j8Plus, i8, 4, 1, j8Plus+4, i8)
-	    CopyArea(w, w, j8Plus, i8, 8, 1, j8Plus, i8+1)
-	    CopyArea(w, w, j8Plus, i8, 8, 2, j8Plus, i8+2)
+	    j8 := j*8;
+	    j8Plus := j8 + LMARGIN + 5;
+	    CopyArea(w, w, j, i, 1, 1, j8Plus,   i8);
+	    CopyArea(w, w, j, i, 1, 1, j8Plus+1, i8);
+	    CopyArea(w, w, j8Plus, i8, 2, 1, j8Plus+2,i8);
+	    CopyArea(w, w, j8Plus, i8, 4, 1, j8Plus+4, i8);
+	    CopyArea(w, w, j8Plus, i8, 8, 1, j8Plus, i8+1);
+	    CopyArea(w, w, j8Plus, i8, 8, 2, j8Plus, i8+2);
 	    CopyArea(w, w, j8Plus, i8, 8, 4, j8Plus, i8+4)
 	    }
 	 }
@@ -97,25 +97,25 @@ procedure main(argv)
 
    colorbinds := [ XBind(w,"fg="||colors[1]),
 		   XBind(w,"fg="||colors[2]),
-		   XBind(w,"fg="||colors[3]) ]
+		   XBind(w,"fg="||colors[3]) ];
    every i := 1 to 3 do {
-      XDrawArc(w, 4+i*10, HEIGHT+68, 7, 22)
+      XDrawArc(w, 4+i*10, HEIGHT+68, 7, 22);
       XFillArc(colorbinds[i], 5+i*10, HEIGHT+70, 5, 20)
       }
-   DrawRectangle(w, 5, HEIGHT+55, 45, 60)
-   DrawRectangle(w, 25, HEIGHT+50, 5, 5)
+   DrawRectangle(w, 5, HEIGHT+55, 45, 60);
+   DrawRectangle(w, 25, HEIGHT+50, 5, 5);
    DrawCurve(w, 27, HEIGHT+50,
 		 27, HEIGHT+47,
 		 15, HEIGHT+39,
 		 40, HEIGHT+20,
-		 25, HEIGHT+5)
+		 25, HEIGHT+5);
 
-   Fg(w, "black")
+   Fg(w, "black");
    every i := 0 to HEIGHT-1 do
       every j := 0 to WIDTH-1 do
          DrawRectangle(w, j*8+LMARGIN+5, i*8, 8, 8)
 
-   DrawLine(w, 0, HEIGHT, WIDTH, HEIGHT, WIDTH, 0)
+   DrawLine(w, 0, HEIGHT, WIDTH, HEIGHT, WIDTH, 0);
 
    repeat {
       case e := Event(w) of {

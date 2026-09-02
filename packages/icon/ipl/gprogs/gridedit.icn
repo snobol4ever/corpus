@@ -32,9 +32,9 @@ link tieedit
 
 procedure main(args)
 
-   grid_init()
+   grid_init();
 
-   ready()
+   ready();
 
    while ProcessEvent(grid_root, ,  grid_shortcuts) do
       if \grid_state then exit()
@@ -43,11 +43,11 @@ end
 
 procedure ready()
 
-   grid_state := &null
+   grid_state := &null;
 
-   grid_rows := pat2rows("10,#001002004008010020040080100200")
+   grid_rows := pat2rows("10,#001002004008010020040080100200");
 
-   setup()
+   setup();
 
    WAttrib(grid_window, "canvas=normal")
 

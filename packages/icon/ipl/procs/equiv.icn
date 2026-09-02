@@ -70,10 +70,10 @@ procedure equiv(x1,x2,done)		#: compare values for equivalence
    /done := table()			# Basic call.
 
    (/done[x1] := set()) |		# Make set of equivalences if new.
-      (if member(done[x1],x2) then return x2)
+      (if member(done[x1],x2) then return x2);
 
 					# Records complicate things.
-   image(x1) ? (code := (="record" | type(x1)))
+   image(x1) ? (code := (="record" | type(x1)));
 
    case code of {
       "list" | "record": 

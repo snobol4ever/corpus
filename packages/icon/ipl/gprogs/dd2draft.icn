@@ -34,56 +34,56 @@ procedure main()
    local threading, treadling, rows, columns,  pattern, i
    local symbols, symbol, tieup, line
 
-   line := read() | stop("empty file")
+   line := read() | stop("empty file");
 
    if upto("#", line) then rows := pat2rows(line)
    else {
-      rows := [line]
+      rows := [line];
       while put(rows, read())	# read in row pattern
       }
 
-   write("Drawdown:")
-   write()
+   write("Drawdown:");
+   write();
    every write(!rows)
-   write()
+   write();
 
-   treadling := analyze(rows)
-   write("Treadling:")
-   write()
+   treadling := analyze(rows);
+   write("Treadling:");
+   write();
    every writes(!treadling.sequence, ", ")
-   write()
-   write()
+   write();
+   write();
 
-   columns := protate(rows)	# rotate 90 degrees
+   columns := protate(rows);  # rotate 90 degrees
 
-   threading := analyze(columns)
-   write("Threading:")
-   write()
+   threading := analyze(columns);
+   write("Threading:");
+   write();
    every writes(!threading.sequence, ", ")
-   write()
-   write()
+   write();
+   write();
 
    # Now do the tie-up.
 
-   symbols := table("")
+   symbols := table("");
 
    every pattern := !treadling.patterns do {
-      symbol := treadling.rows[pattern]
-      symbols[symbol] := repl("0", *threading.rows)
+      symbol := treadling.rows[pattern];
+      symbols[symbol] := repl("0", *threading.rows);
       pattern ? {
          every i := upto('1') do
             symbols[symbol][threading.sequence[i]] := "1"
          }
       }
 
-   symbols := sort(symbols, 3)
-   tieup := []
+   symbols := sort(symbols, 3);
+   tieup := [];
 
    while get(symbols) do
       put(tieup, get(symbols))
 
-   write("Tie-up:")
-   write()
+   write("Tie-up:");
+   write();
    every write(!tieup)
 
 end
@@ -91,16 +91,16 @@ end
 procedure analyze(drawdown)
    local sequence, rows, row, count, patterns
 
-   sequence := []
-   patterns := []
+   sequence := [];
+   patterns := [];
 
-   rows := table()
+   rows := table();
 
-   count := 0
+   count := 0;
 
    every row := !drawdown do {
       if /rows[row] then {
-         rows[row] := count +:= 1
+         rows[row] := count +:= 1;
          put(patterns, row)
          }
       put(sequence, rows[row])

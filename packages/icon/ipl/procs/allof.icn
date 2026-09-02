@@ -69,8 +69,8 @@ procedure allof(expr)
    #
    #  Initialize
    #
-   elist := []          # expression list
-   i := 1               # expression list index
+   elist := [];  # expression list
+   i := 1;  # expression list index
    
    #
    #  Loop until backtracking over all expr[2]s has failed.
@@ -87,7 +87,7 @@ procedure allof(expr)
             #
             #  If no further iterations, suspend a result.
             #
-            suspend v
+            suspend v;
             #
             #  We've been backed into -- reset to last expr[2].
             #
@@ -100,7 +100,7 @@ procedure allof(expr)
          #
          #  If success, move on to the refreshed next expression.
          #
-         i +:= 1
+         i +:= 1;
          elist[i] := ^elist[i]
          }
       else

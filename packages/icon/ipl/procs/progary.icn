@@ -22,7 +22,7 @@
 procedure progary(file, value)
    local A
 
-   A := []
+   A := [];
 
    while put(A, list(*read(file), value))
 

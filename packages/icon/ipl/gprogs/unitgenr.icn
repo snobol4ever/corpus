@@ -37,12 +37,12 @@ global switch
 procedure main(args)
    local opts, oldpat, pattern
 
-   opts := options(args, "c")
-   switch := if /opts["c"] then 1 else &null
+   opts := options(args, "c");
+   switch := if /opts["c"] then 1 else &null;
 
    while oldpat := read() do {
       every 1 to 10 do { 			# SAFETY!
-         pattern := rows2pat(unit(pat2rows(oldpat)))
+         pattern := rows2pat(unit(pat2rows(oldpat)));
          if pattern == oldpat then break
          oldpat := pattern
          }
@@ -53,7 +53,7 @@ end
 
 procedure unit(grid)
 
-   grid := grepeat(grid)
+   grid := grepeat(grid);
 
    grid := grepeat(protate(grid))
 
@@ -64,16 +64,16 @@ end
 procedure grepeat(grid)		#: reduce grid to smallest repeat
    local i, width, j, periods
 
-   grid := copy(grid)
+   grid := copy(grid);
 
-   periods := []
+   periods := [];
 
-   width := *grid[1]
+   width := *grid[1];
 
    if /switch then {		# assume no partial repeats
       every i := 1 to *grid do
          put(periods, xperiod(grid[i]) | width)
-      width >:= lcml ! periods
+      width >:= lcml ! periods;
       every i := 1 to *grid do
          grid[i] := left(grid[i], width)
       return grid

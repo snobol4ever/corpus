@@ -63,36 +63,36 @@ procedure main(arg)
    #
    #  Handle command line options and initialization.
    #
-   opt := options(arg,"aBFxtvwuf:")
+   opt := options(arg,"aBFxtvwuf:");
    if *arg = 0 then
 	 stop("usage: itags [-aBFtvwx] [-f tagsfile] file...")
    if \opt["u"] then stop("update option (-u) not supported -- rebuild file")
-   patChar := if \opt["B"] & /opt["F"] then "?" else "/"
+   patChar := if \opt["B"] & /opt["F"] then "?" else "/";
    Write := (if \opt["v"] then VGrind
       else if \opt["x"] then Index
       else {
-	 tfn := \opt["f"] | "tags"
+	 tfn := \opt["f"] | "tags";
 	 tf := open(tfn,if \opt["a"] then "a" else "w") |
-	       stop("Can't open tags file \"",tfn,"\"")
+	       stop("Can't open tags file \"",tfn,"\"");
 	 Tags
-	 })
-   typedef := opt["t"]
-   noWarnings := opt["w"]
-   idChar := &letters ++ &digits ++ "_"
-   space := ' \t\v\f\r'
-   tags := table()
+	 });
+   typedef := opt["t"];
+   noWarnings := opt["w"];
+   idChar := &letters ++ &digits ++ "_";
+   space := ' \t\v\f\r';
+   tags := table();
    #
    #  Loop to read files.
    #
    every fn := !arg do {
       if not find(".",fn) then fn ||:= ".icn"
-      f := open(fn) | write(&errout,"Couldn't open \"",fn,"\"")
-      linenbr := 0
+      f := open(fn) | write(&errout,"Couldn't open \"",fn,"\"");
+      linenbr := 0;
       while line := read(f) do line ? {
-	 linenbr +:= 1
+	 linenbr +:= 1;
 	 if (tab(many(space)) | &null) & =("procedure" | (\typedef,"record")) &
 	       tab(many(space)) then {
-	    tag := tab(many(idChar))
+	    tag := tab(many(idChar));
 	    if x := \tags[tag] then {
 	       if /noWarnings then
 		     write(&errout,"Duplicate entry in file ",fn,", line ",linenbr,

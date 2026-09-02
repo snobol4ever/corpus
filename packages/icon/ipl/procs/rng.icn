@@ -36,7 +36,7 @@ procedure rng(a, c, m, x)
    /m := 2 ^ 31 - 1			# modulus
    /x := 0				# initial value
 
-   suspend x
+   suspend x;
    suspend x := iand(a * |x + c, m)
 
 end

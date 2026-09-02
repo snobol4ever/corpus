@@ -30,8 +30,8 @@ global Graphic, Conv
 procedure main(arg)
    local opt
 
-   opt := options(arg,"acedo")
-   Conv := if \opt["d"] then "d" else if \opt["o"] then "o"
+   opt := options(arg,"acedo");
+   Conv := if \opt["d"] then "d" else if \opt["o"] then "o";
    init()
    every write(colmize(
 	 if \opt["a"] then ASCII()

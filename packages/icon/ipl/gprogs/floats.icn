@@ -29,18 +29,18 @@ link patxform
 procedure main()
    local front, back, black, white
 
-   front := pattread()
+   front := pattread();
    
-   back := pinvert(front)
+   back := pinvert(front);
 
-   analyze("Front weft floats", front, "0")
+   analyze("Front weft floats", front, "0");
 
-   front := protate(front)
+   front := protate(front);
 
-   analyze("Front warp floats", front, "1")
-   analyze("Back weft floats", back, "0")
+   analyze("Front warp floats", front, "1");
+   analyze("Back weft floats", back, "0");
 
-   back := protate(back)
+   back := protate(back);
 
    analyze("Back warp floats", back, "1")
 
@@ -49,12 +49,12 @@ end
 procedure analyze(caption, rows, color)
    local counts, length, row
 
-   counts := table(0)
+   counts := table(0);
 
    every row := !rows do {
          row ? {
             while tab(upto(color)) do {
-               length := *tab(many(color))
+               length := *tab(many(color));
             if length > 2 then counts[length] +:= 1
             }
          }
@@ -64,9 +64,9 @@ procedure analyze(caption, rows, color)
 
    write(caption)
 
-   counts := sort(counts, 3)
+   counts := sort(counts, 3);
 
-   write()
+   write();
 
    while write("\t", get(counts), "\t", get(counts))
 

@@ -43,23 +43,23 @@ link strings
 procedure main(args)
    local file, opts, name, imr, input, literal
 
-   opts := options(args, "l")
+   opts := options(args, "l");
 
-   literal := opts["l"]			# NOT YET IMPLEMENTED
+   literal := opts["l"];  # NOT YET IMPLEMENTED
 
    every file := !args do {
-      name := basename(file, ".ims") || ".gif"
+      name := basename(file, ".ims") || ".gif";
       input := open(file) | {
-         write(&errout, "*** can't open ", file)
+         write(&errout, "*** can't open ", file);
          next
          }
       imr := imstoimr(read(input)) | {
-          write(&errout, "*** bad image file: ", file)
+          write(&errout, "*** bad image file: ", file);
           next
           }
-      imropen(imr) | stop("*** bad image file: ", file)
-      close(input)
-      WriteImage(name)
+      imropen(imr) | stop("*** bad image file: ", file);
+      close(input);
+      WriteImage(name);
       WClose()
       }
 

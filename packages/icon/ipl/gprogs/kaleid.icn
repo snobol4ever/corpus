@@ -81,16 +81,16 @@ global du_v, de_v, rs_v, sk_v
 
 procedure main (args)
 
-   draw_circle := DrawCircle
+   draw_circle := DrawCircle;
 
-   init_globs()
-   process_args(args)
+   init_globs();
+   process_args(args);
 
    if \use_dialog then {	# have vidgets, so use them for args.
       mainwin := WOpen("label=Kaleidoscope", "width=404", "height=313", 
                        "font=6x12") |
-                 stop ("bad mainwin")
-      root := ui (mainwin)
+                 stop ("bad mainwin");
+      root := ui (mainwin);
       GetEvents (root, quit)
       }
    else {			# just rely on command line arguments
@@ -101,17 +101,17 @@ end
 
 procedure init_globs()
 
-   duration := 500                    # set default characteristics
-   density := 30
-   win_size := 600
-   minoff := 1
-   maxradius := 150
-   minradius := 1
-   skew := 1
-   fill := "On"
-   draw_circle := FillCircle
-   Clear := "Off"
-   r_seed := map("HhMmYy", "Hh:Mm:Yy", &clock)
+   duration := 500;  # set default characteristics
+   density := 30;
+   win_size := 600;
+   minoff := 1;
+   maxradius := 150;
+   minradius := 1;
+   skew := 1;
+   fill := "On";
+   draw_circle := FillCircle;
+   Clear := "Off";
+   r_seed := map("HhMmYy", "Hh:Mm:Yy", &clock);
    # See if the Vidget library is available or not
    if \VSet then use_dialog := "yes"
             else use_dialog := &null
@@ -138,7 +138,7 @@ procedure process_args(args)
                      [-sn] [-F] [-C] [-rn]")
       }
    # adjust parameters that depend on the window size...
-   mid_win := win_size/2
+   mid_win := win_size/2;
    maxoff := win_size-1
 end
 
@@ -157,8 +157,8 @@ procedure kaleidoscope(r)
    colors := ["red","green","blue","cyan","magenta","yellow"]
 
    &window := WOpen("label=Kaleidoscope: 'q' quits", "width="||win_size,
-                                  "height="||win_size, "bg=black")
-   WAttrib("drawop=xor")
+                                  "height="||win_size, "bg=black");
+   WAttrib("drawop=xor");
 
    # Create two *indentical* sequences of circles, one to use when
    #   when drawing, one for erasing.  (Since 'xor' is used to
@@ -167,7 +167,7 @@ procedure kaleidoscope(r)
    putcircle := create {                # draws sequence of circles
       &random :=: r
       |{
-       Fg(?colors)
+       Fg(?colors);
        outcircle()
        &random <-> r
        }
@@ -176,7 +176,7 @@ procedure kaleidoscope(r)
    clrcircle := create {                # erases sequence of circles
       &random :=: r
       |{
-       Fg(?colors)
+       Fg(?colors);
        outcircle()
        &random <-> r
        }
@@ -186,7 +186,7 @@ procedure kaleidoscope(r)
 
    every 1 to duration do {		# maintain steady state
       @putcircle
-      @clrcircle
+      @clrcircle;
       if *Pending(&window) > 0 then break
       }
 
@@ -200,23 +200,23 @@ procedure outcircle()                   # select a circle at random,
 local radius, xoff, yoff                #  draw it in kaleidoscopic form
 
 	# get a random center point and radius
-   xoff := (?(maxoff - minoff) + minoff) % mid_win
-   yoff := (?(maxoff - minoff) + minoff) % mid_win
-   radius := ?0 ^ skew
+   xoff := (?(maxoff - minoff) + minoff) % mid_win;
+   yoff := (?(maxoff - minoff) + minoff) % mid_win;
+   radius := ?0 ^ skew;
 	# force radius to 'fit'
    radius := ((maxradius-minradius) * radius + minradius) %
-             (mid_win - ((xoff < yoff)|xoff))
+             (mid_win - ((xoff < yoff)|xoff));
 
 	# put into all 8 octants
-   draw_circle(mid_win+xoff, mid_win+yoff, radius)
-   draw_circle(mid_win+xoff, mid_win-yoff, radius)
-   draw_circle(mid_win-xoff, mid_win+yoff, radius)
-   draw_circle(mid_win-xoff, mid_win-yoff, radius)
+   draw_circle(mid_win+xoff, mid_win+yoff, radius);
+   draw_circle(mid_win+xoff, mid_win-yoff, radius);
+   draw_circle(mid_win-xoff, mid_win+yoff, radius);
+   draw_circle(mid_win-xoff, mid_win-yoff, radius);
 
-   draw_circle(mid_win+yoff, mid_win+xoff, radius)
-   draw_circle(mid_win+yoff, mid_win-xoff, radius)
-   draw_circle(mid_win-yoff, mid_win+xoff, radius)
-   draw_circle(mid_win-yoff, mid_win-xoff, radius)
+   draw_circle(mid_win+yoff, mid_win+xoff, radius);
+   draw_circle(mid_win+yoff, mid_win-xoff, radius);
+   draw_circle(mid_win-yoff, mid_win+xoff, radius);
+   draw_circle(mid_win-yoff, mid_win-xoff, radius);
 
    WDelay(10)
    return
@@ -245,77 +245,77 @@ procedure ui (win)
          slider1 
 
    /win := WOpen("label=ui", "width=404", "height=313", "font=6x12") | 
-           stop ("bad win")
-   root := Vroot_frame (win)
+           stop ("bad win");
+   root := Vroot_frame (win);
 
-   VInsert (root, Vmessage(win, win_size/2), 168, 98)
-   VInsert (root, Vmessage(win, "1"), 108, 97)
+   VInsert (root, Vmessage(win, win_size/2), 168, 98);
+   VInsert (root, Vmessage(win, "1"), 108, 97);
 
-   VInsert (root, sk_v := Vtext(win,"Skew:\\=1",get_skew,,6), 280, 39)
+   VInsert (root, sk_v := Vtext(win,"Skew:\\=1",get_skew,,6), 280, 39);
 
    VInsert (root, du_v := Vtext(win, "Duration:\\="||duration, get_duration,,9),
-                237, 15)
+                237, 15);
 
-   VInsert (root, Vmessage(win, "Clear at end?"), 232, 145)
-   VInsert (root, Vmessage(win, "Fill?"), 105, 142)
-   VInsert (root, Vmessage(win,"Quit?"), 267, 259)
-   VInsert (root, Vmessage(win,"Display it?"), 26, 260)
+   VInsert (root, Vmessage(win, "Clear at end?"), 232, 145);
+   VInsert (root, Vmessage(win, "Fill?"), 105, 142);
+   VInsert (root, Vmessage(win,"Quit?"), 267, 259);
+   VInsert (root, Vmessage(win,"Display it?"), 26, 260);
 
-   VInsert (root, Vcheckbox(win, do_quit, "check2",20), 305, 255, 20, 20)
+   VInsert (root, Vcheckbox(win, do_quit, "check2",20), 305, 255, 20, 20);
 
    VInsert (root, check1:=Vcheckbox(win, do_display, "check1",20),
-                106, 258, 20, 20)
+                106, 258, 20, 20);
 
-   radio_button2 := Vradio_buttons (win, ["On", "Off"], get_clear, , V_CIRCLE)
-   VSet(radio_button2,Clear)
-   VInsert (root, radio_button2, 253, 165)
+   radio_button2 := Vradio_buttons (win, ["On", "Off"], get_clear, , V_CIRCLE);
+   VSet(radio_button2,Clear);
+   VInsert (root, radio_button2, 253, 165);
 
-   radio_button1 := Vradio_buttons (win, ["On", "Off"], get_fill, , V_CIRCLE)
-   VSet(radio_button1,fill)
-   VInsert (root, radio_button1, 99, 165)
+   radio_button1 := Vradio_buttons (win, ["On", "Off"], get_fill, , V_CIRCLE);
+   VSet(radio_button1,fill);
+   VInsert (root, radio_button1, 99, 165);
 
-   cv1 := Vcoupler()
-   VAddClient(cv1, get_max_offset)
-   text_input6 := Vtext (win, "Max Offset:\\="||(win_size-1), cv1, , 3)
-   VAddClient(cv1, text_input6)
+   cv1 := Vcoupler();
+   VAddClient(cv1, get_max_offset);
+   text_input6 := Vtext (win, "Max Offset:\\="||(win_size-1), cv1, , 3);
+   VAddClient(cv1, text_input6);
    slider4 := Vhoriz_slider (win, cv1, "slider4", 70, 12, 0,
-                         win_size-1, win_size-1, )
-   VAddClient(cv1, slider4)
-   VInsert (root, text_input6, 196, 103)
-   VInsert (root, slider4, 306, 106)
+                         win_size-1, win_size-1, );
+   VAddClient(cv1, slider4);
+   VInsert (root, text_input6, 196, 103);
+   VInsert (root, slider4, 306, 106);
 
-   cv2 := Vcoupler()
-   VAddClient(cv2, get_min_offset)
-   text_input5 := Vtext (win, "Min Offset\\=1", cv2, , 3)
-   VAddClient(cv2, text_input5)
-   slider3 := Vhoriz_slider (win, cv2, "slider3", 70, 12, 1, win_size-1, 1, )
-   VAddClient(cv2, slider3)
-   VInsert (root, text_input5, 201, 80)
-   VInsert (root, slider3, 307, 82)
+   cv2 := Vcoupler();
+   VAddClient(cv2, get_min_offset);
+   text_input5 := Vtext (win, "Min Offset\\=1", cv2, , 3);
+   VAddClient(cv2, text_input5);
+   slider3 := Vhoriz_slider (win, cv2, "slider3", 70, 12, 1, win_size-1, 1, );
+   VAddClient(cv2, slider3);
+   VInsert (root, text_input5, 201, 80);
+   VInsert (root, slider3, 307, 82);
 
-   cv3 := Vcoupler()
-   VAddClient(cv3, get_max_radius)
-   text_input4 := Vtext (win, "Max Radius\\="||(win_size/4), cv3, , 3)
-   VAddClient(cv3, text_input4)
+   cv3 := Vcoupler();
+   VAddClient(cv3, get_max_radius);
+   text_input4 := Vtext (win, "Max Radius\\="||(win_size/4), cv3, , 3);
+   VAddClient(cv3, text_input4);
    slider2 := Vhoriz_slider (win, cv3, "slider2", 70, 12, 1, win_size/2,
-         win_size/4, )
-   VAddClient(cv3, slider2)
-   VInsert (root, text_input4, 10, 104)
-   VInsert (root, slider2, 110, 108)
+         win_size/4, );
+   VAddClient(cv3, slider2);
+   VInsert (root, text_input4, 10, 104);
+   VInsert (root, slider2, 110, 108);
 
-   cv4 := Vcoupler()
-   VAddClient(cv4, get_min_radius)
-   text_input3 := Vtext (win, "Min Radius\\=1", cv4, , 3)
-   VAddClient(cv4, text_input3)
-   slider1 := Vhoriz_slider (win, cv4, "slider1", 70, 12, 1, win_size/2, 1, )
-   VAddClient(cv4, slider1)
-   VInsert (root, text_input3, 10, 81)
-   VInsert (root, slider1, 110, 84)
+   cv4 := Vcoupler();
+   VAddClient(cv4, get_min_radius);
+   text_input3 := Vtext (win, "Min Radius\\=1", cv4, , 3);
+   VAddClient(cv4, text_input3);
+   slider1 := Vhoriz_slider (win, cv4, "slider1", 70, 12, 1, win_size/2, 1, );
+   VAddClient(cv4, slider1);
+   VInsert (root, text_input3, 10, 81);
+   VInsert (root, slider1, 110, 84);
 
    VInsert (root, rs_v := Vtext(win,"Random Seed:\\="||r_seed, get_random,, 11),
-              30, 41)
+              30, 41);
    VInsert (root, de_v := Vtext(win,"Density:\\="||density, get_density,,8),
-              71, 16)
+              71, 16);
 
    VResize (root)
    return root
@@ -334,12 +334,12 @@ procedure do_quit (wit, value)
 end
 
 procedure do_display (wit, value)
-   r_seed   := numeric(rs_v.data)
-   duration := integer(du_v.data)
-   density  := integer(de_v.data)
-   skew     := integer(sk_v.data)
-   kaleidoscope(r_seed)
-   wit.callback.value := &null
+   r_seed   := numeric(rs_v.data);
+   duration := integer(du_v.data);
+   density  := integer(de_v.data);
+   skew     := integer(sk_v.data);
+   kaleidoscope(r_seed);
+   wit.callback.value := &null;
    VDraw(check1)
 end
 
@@ -348,7 +348,7 @@ procedure get_clear (wit, value)
 end
 
 procedure get_fill (wit, value)
-   fill := value
+   fill := value;
    if fill == "Off" then draw_circle := DrawCircle
    else draw_circle := FillCircle
 end

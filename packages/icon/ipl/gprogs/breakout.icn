@@ -42,12 +42,12 @@ global blockclr1, blockclr2, blockclr3, invincclr
 
 procedure main()
   local e
-  blockclr1 := "dark blue"     #default 1 hit block color
-  blockclr2 := "dark red"      #default 2 hit block color
-  blockclr3 := "dark green"    #default 3 hit block color
-  invincclr := "black"         #default invincible block color
+  blockclr1 := "dark blue";  #default 1 hit block color
+  blockclr2 := "dark red";  #default 2 hit block color
+  blockclr3 := "dark green";  #default 3 hit block color
+  invincclr := "black";  #default invincible block color
 
-  WOpen("size=293,320") | stop("can't open window") 
+  WOpen("size=293,320") | stop("can't open window");
 
   sphere := "7,g16,~~000~~_
                    ~00000~_
@@ -55,7 +55,7 @@ procedure main()
                    0000000_
                    0000000_
                    ~00000~_
-                   ~~000~~"        #black sphere
+                   ~~000~~"        #black sphere;
 
   blank  := "7,g16,~~FFF~~_
                    ~FFFFF~_

@@ -216,14 +216,14 @@ procedure getse(s)
     local chr
     static BS
     initial {
-	BS := getval("bc") | "\b"
+	BS := getval("bc") | "\b";
 	if not getval("bs") then {
-	    reset_tty()
+	    reset_tty();
 	    stop("Your terminal can't backspace!")
 	}
     }
 
-    /s := ""
+    /s := "";
     repeat {
 	case chr := getch() | fail of {
 	    "\r"|"\n"    : return s
@@ -234,7 +234,7 @@ procedure getse(s)
 	    }
 	    c_cc.verase   : {
 		# if *s < 1 then next
-		writes(BS) & s := s[1:-1]
+		writes(BS) & s := s[1:-1];
 		if *s < 1 then fail
 	    }
 	    default: writes(chr) & s ||:= chr
@@ -255,7 +255,7 @@ end
 procedure reset_tty()
 
     # Reset (global) mode switch to &null to show we're in cooked mode.
-    current_mode := &null
+    current_mode := &null;
     change_tty_mode("reset")
     return
 
@@ -272,7 +272,7 @@ procedure getch()
     if /current_mode := 1 then
 	setup_tty()
 
-    chr := reads(&input)
+    chr := reads(&input);
     case chr of {
 	c_cc.vintr : reset_tty() & stop()  # shouldn't hard code this in
 	c_cc.vquit  : reset_tty() & stop()
@@ -292,7 +292,7 @@ procedure getche()
     if /current_mode := 1 then
 	setup_tty()
 
-    chr := reads(&input)
+    chr := reads(&input);
     case chr of {
 	c_cc.vintr  : reset_tty() & stop()
 	c_cc.vquit  : reset_tty() & stop()
@@ -309,20 +309,20 @@ procedure change_tty_mode(switch)
     local get_term_params, i
     static reset_string
     initial {
-	getval("li")    # check to be sure itlib is set up
+	getval("li");  # check to be sure itlib is set up
 	find("unix",map(&features)) |
-	    stop("change_tty_mode:  These routines must run under UNIX.")
-	get_term_params := open("/bin/stty -g 2>&1","pr")
-	reset_string := !get_term_params
-	close(get_term_params)
+	    stop("change_tty_mode:  These routines must run under UNIX.");
+	get_term_params := open("/bin/stty -g 2>&1","pr");
+	reset_string := !get_term_params;
+	close(get_term_params);
 	reset_string ? {
 	    # tab upto the fifth field of the output of the stty -g cmd
 	    # fields of stty -g seem to be the same as those of the
 	    # termio struct, except that the c_line field is missing
 	    every 1 to 4 do tab(find(":")+1)
-	    c_cc := termio_struct("\x03","\x1C","\x08","\x15")
+	    c_cc := termio_struct("\x03","\x1C","\x08","\x15");
 	    every i := 1 to 3 do {
-		c_cc[i] := char(integer("16r"||tab(find(":"))))
+		c_cc[i] := char(integer("16r"||tab(find(":"))));
 		move(1)
 	    }
 	    c_cc[i+1] := char(integer("16r"||tab(0)))

@@ -105,10 +105,10 @@ record Button_Rec(win, label, proc, arg, x, y, w, h)
 procedure button(win, label, proc, arg, x, y, w, h)
    local r
 
-   r := Button_Rec(win, label, proc, arg, x, y, w, h)
-   buttonlabel(r, label)
+   r := Button_Rec(win, label, proc, arg, x, y, w, h);
+   buttonlabel(r, label);
    if \proc then {
-      BevelRectangle(win, x, y, w, h, BORDER)
+      BevelRectangle(win, x, y, w, h, BORDER);
       sensor(win, &lpress, Exec_Button, r, x, y, w, h)
       }
    return r
@@ -119,18 +119,18 @@ procedure buttonrow(win, x, y, w, h, dx, dy, args[])
 
    if dx < 0 then x -:= w
    if dy < 0 then y -:= h
-   hlist := []
+   hlist := [];
    repeat {
       label := get(args) | break
       proc := get(args) | break
       arg := get(args) | break
       if label === proc === arg === &null then {
-         x +:= dx / 2
+         x +:= dx / 2;
          y +:= dy / 2
          }
       else {
-         put(hlist, button(win, label, proc, arg, x, y, w, h))
-         x +:= dx
+         put(hlist, button(win, label, proc, arg, x, y, w, h));
+         x +:= dx;
          y +:= dy
          }
       }
@@ -138,7 +138,7 @@ procedure buttonrow(win, x, y, w, h, dx, dy, args[])
 end
 
 procedure buttonlabel(r, s)
-   r.label := s
+   r.label := s;
    if /r.proc then
       EraseArea(r.win, r.x, r.y, r.w, r.h)	# borderless button
    else
@@ -150,18 +150,18 @@ end
 procedure Exec_Button(win, r, x, y)
    local e, b, t
 
-   WAttrib(win, "drawop=reverse")
-   FillRectangle(win, r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h -2*BORDER)
-   BevelRectangle(win, r.x, r.y, r.w, r.h, b := -BORDER)
+   WAttrib(win, "drawop=reverse");
+   FillRectangle(win, r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h -2*BORDER);
+   BevelRectangle(win, r.x, r.y, r.w, r.h, b := -BORDER);
 
    while e := Event(win) do {
-      x := &x
-      y := &y
+      x := &x;
+      y := &y;
       case e of {
          &ldrag: {			# drag
-            t := (if ontarget(r, x, y) then -BORDER else BORDER)
+            t := (if ontarget(r, x, y) then -BORDER else BORDER);
             if b ~===:= t then {
-               BevelRectangle(win, r.x, r.y, r.w, r.h, b)
+               BevelRectangle(win, r.x, r.y, r.w, r.h, b);
                FillRectangle(win,
                   r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h - 2*BORDER)
                }

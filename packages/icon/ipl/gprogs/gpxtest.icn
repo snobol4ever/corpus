@@ -69,57 +69,57 @@ procedure main(args)
    local x, y
 
    # Start with a medium window; shrink, test defaults, grow.
-   Window("size=300,300", "bg=light-weak-reddish-yellow", args)
-   VSetFont()
+   Window("size=300,300", "bg=light-weak-reddish-yellow", args);
+   VSetFont();
 
    # The following sequence *should* have no permanent effect
-   WAttrib("drawop=xor", "fillstyle=masked", "pattern=checkers", "linewidth=5")
-   DrawCircle(CELL / 2, CELL / 2, CELL / 3)
-   EraseArea()
-   WAttrib("drawop=copy", "fillstyle=solid", "linewidth=1")
+   WAttrib("drawop=xor", "fillstyle=masked", "pattern=checkers", "linewidth=5");
+   DrawCircle(CELL / 2, CELL / 2, CELL / 3);
+   EraseArea();
+   WAttrib("drawop=copy", "fillstyle=solid", "linewidth=1");
 
    # Shrink the window, test defaults, grow to final size.
-   deftest()
-   WAttrib("size=" || WIDTH || "," || HEIGHT)
-   WAttrib("width=" || WIDTH)			# should be no-op
-   WAttrib("size=" || WIDTH || "," || HEIGHT)	# should be no-op
+   deftest();
+   WAttrib("size=" || WIDTH || "," || HEIGHT);
+   WAttrib("width=" || WIDTH);  # should be no-op
+   WAttrib("size=" || WIDTH || "," || HEIGHT);  # should be no-op
 
    # Make a simple background.
    if WAttrib("depth") > 1 then
       Fg("44000,39000,24000")
    every y := (3 * CELL / 2) to (2 * HEIGHT) by 7 do
       DrawLine(0, y, 2 * y, 0)
-   Fg("#000")
+   Fg("#000");
 
    # Run a series of tests confined to small, square cells.
-   cx := cy := 0			# current cell (already filled)
-   cell(simple)
-   cell(lines)
-   cell(rects)
-   cell(star)
-   cell(pretzel)
-   cell(spiral)
-   cell(arcs)
-   cell(copying)
-   cell(rings)
-   cell(fontvars)
-   cell(stdfonts)
-   cell(stdpats)
-   cell(patts)
-   cell(attribs)
-   cell(gamma)
-   cell(balls)
-   cell(slices)
-   cell(details)
-   cell(rainbow)
-   cell(whale)
-   cell(cheshire)
+   cx := cy := 0;  # current cell (already filled)
+   cell(simple);
+   cell(lines);
+   cell(rects);
+   cell(star);
+   cell(pretzel);
+   cell(spiral);
+   cell(arcs);
+   cell(copying);
+   cell(rings);
+   cell(fontvars);
+   cell(stdfonts);
+   cell(stdpats);
+   cell(patts);
+   cell(attribs);
+   cell(gamma);
+   cell(balls);
+   cell(slices);
+   cell(details);
+   cell(rainbow);
+   cell(whale);
+   cell(cheshire);
 
    # Use the final cell area for Dialog and Quit buttons.
    buttonrow(&window, WIDTH - CELL - GAP/2, HEIGHT - GAP / 2, CELL, 2 * GAP,
-      0, - 3 * GAP, "Quit", argless, exit, "Dialog", argless, dltest)
-   quitsensor(&window)
-   sensor(&window, 'Dd', argless, dltest)
+      0, - 3 * GAP, "Quit", argless, exit, "Dialog", argless, dltest);
+   quitsensor(&window);
+   sensor(&window, 'Dd', argless, dltest);
    evmux(&window)
 end
 
@@ -133,17 +133,17 @@ procedure cell(proc)
    local x, y, stdwin
 
    if (cx +:= 1) >= NWIDE then {
-      cx := 0
+      cx := 0;
       cy +:= 1
       }
-   x := integer((cx + .5) * (CELL + GAP))
-   y := integer((cy + .5) * (CELL + GAP))
+   x := integer((cx + .5) * (CELL + GAP));
+   y := integer((cy + .5) * (CELL + GAP));
 
    stdwin := &window
-   &window := Clone("dx=" || x, "dy=" || y, "bg=white")
-   ClearOutline(-HALF - 1, -HALF - 1, CELL + 1, CELL + 1)
-   Clip(-HALF, -HALF, CELL, CELL)
-   proc()
+   &window := Clone("dx=" || x, "dy=" || y, "bg=white");
+   ClearOutline(-HALF - 1, -HALF - 1, CELL + 1, CELL + 1);
+   Clip(-HALF, -HALF, CELL, CELL);
+   proc();
    Uncouple(&window)
    &window := stdwin
 end
@@ -159,13 +159,13 @@ end
 procedure arcs()
    local r, a, d
 
-   r := 2
-   a := 0
-   d := &pi / 10
+   r := 2;
+   a := 0;
+   d := &pi / 10;
    while r < HALF do {
-      DrawCircle(0, 0, r, a, d)
-      r +:= 1
-      a +:= d
+      DrawCircle(0, 0, r, a, d);
+      r +:= 1;
+      a +:= d;
       d +:= &pi / 40
       }
 end
@@ -187,8 +187,8 @@ procedure attribs()
       "label", "pos", "posx", "posy", "size", "height", "width", "canvas",
       "resize", "echo", "cursor", "x", "y", "row", "col", "pointer",
       "pointerx", "pointery", "pointerrow", "pointercol", 
-      ]
-   afail := []
+      ];
+   afail := [];
 
    every a := \!alist do {
       v1 := WAttrib(a)		| { put(afail, a); next }
@@ -197,28 +197,28 @@ procedure attribs()
       v1 == v2		| { put(afail, a || ": " || v1 || "/" || v2); next }
       }
 
-   Translate(-HALF, -HALF)
-   GotoRC(1, 1)
+   Translate(-HALF, -HALF);
+   GotoRC(1, 1);
 
    if *afail > 0 then {
-      Font("sans,bold,10")
-      WWrite("FAILED:")
+      Font("sans,bold,10");
+      WWrite("FAILED:");
       every WWrite("  ", !afail)
       every write(&errout, "WAttrib() failure: ", !afail)
       fail
       }
 
-   f := WAttrib("font") | "[FAILED]"
-   cw := WAttrib("fwidth") | "[FAILED]"
-   ch := WAttrib("fheight") | "[FAILED]"
-   cl := WAttrib("leading") | "[FAILED]"
-   Font("sans,10")
-   WWrite("display=", WAttrib("display") | "[FAILED]")
+   f := WAttrib("font") | "[FAILED]";
+   cw := WAttrib("fwidth") | "[FAILED]";
+   ch := WAttrib("fheight") | "[FAILED]";
+   cl := WAttrib("leading") | "[FAILED]";
+   Font("sans,10");
+   WWrite("display=", WAttrib("display") | "[FAILED]");
    WWrite("  (", WAttrib("displaywidth") | "????", "x", 
-      WAttrib("displayheight") | "????", "x", WAttrib("depth") | "??", ")") 
+      WAttrib("displayheight") | "????", "x", WAttrib("depth") | "??", ")");
    every a := "gamma" | "pointer" do
       WWrite(a, "=", WAttrib(a) | "[FAILED]")
-   WWrite("vfont=", f)
+   WWrite("vfont=", f);
    WWrite("  (", cw, "x", ch, ", +", cl, ")")
 end
 
@@ -247,34 +247,34 @@ procedure cheshire()
 
    if (face := NewColor("white")) & 
    (eyes := NewColor("black")) & (grin := NewColor("black")) then {
-      Fg("gray")
-      FillRectangle(-HALF, -HALF)
-      Fg(face)
-      FillArc(-HALF, .3 * CELL, CELL, -HALF)
-      FillPolygon(0, 0, -.35 * CELL, -.35 * CELL, -.35 * CELL, 0)
-      FillPolygon(0, 0, .35 * CELL, -.35 * CELL, .35 * CELL, 0)
-      Fg(eyes)
-      WAttrib("linewidth=2")
-      DrawCircle(-.18 * CELL, -.0 * CELL, 3, , , .18 * CELL, -.0 * CELL, 3)
-      Fg(grin)
-      DrawCircle(0, -HALF, .7 * CELL, &pi / 3, &pi / 3)
-      WDelay(500)
+      Fg("gray");
+      FillRectangle(-HALF, -HALF);
+      Fg(face);
+      FillArc(-HALF, .3 * CELL, CELL, -HALF);
+      FillPolygon(0, 0, -.35 * CELL, -.35 * CELL, -.35 * CELL, 0);
+      FillPolygon(0, 0, .35 * CELL, -.35 * CELL, .35 * CELL, 0);
+      Fg(eyes);
+      WAttrib("linewidth=2");
+      DrawCircle(-.18 * CELL, -.0 * CELL, 3, , , .18 * CELL, -.0 * CELL, 3);
+      Fg(grin);
+      DrawCircle(0, -HALF, .7 * CELL, &pi / 3, &pi / 3);
+      WDelay(500);
       every i := 0 to 30 by 2 do {
-         WDelay(100)
-         g := i * 65535 / 60
-         Color(eyes, g || "," || g || "," || g)
-         g := 65535 - g
+         WDelay(100);
+         g := i * 65535 / 60;
+         Color(eyes, g || "," || g || "," || g);
+         g := 65535 - g;
          Color(face, g || "," || g || "," || g)
          }
       every i := 0 to 26 by 2 do {
-         WDelay(100)
-         g := i * 65535 / 60
+         WDelay(100);
+         g := i * 65535 / 60;
          Color(grin, g || "," || g || "," || g)
          }
       }
    else {
-      Translate(-HALF + 4, -HALF)
-      GotoRC(1, 1)
+      Translate(-HALF + 4, -HALF);
+      GotoRC(1, 1);
       WWrite("this test\nrequires\nmutable\ncolors")
       }
 end
@@ -289,34 +289,34 @@ procedure copying()
    local win, o, w, h
 
    win := WOpen("canvas=hidden", "size=" || CELL || "," || CELL) | {
-      GotoRC(1, 1)
-      WWrite("Can't get\nhidden\ncanvas")
+      GotoRC(1, 1);
+      WWrite("Can't get\nhidden\ncanvas");
       fail
       }
    every DrawCircle(win, HALF, HALF, HALF - 2 to sqrt(2) * HALF by 3)
 
-   o := 5		# offset for copy
-   w := CELL / 4	# width of square to be copied
-   h := w / 2		# half of that, for centering
-   Bg(win, "black")
+   o := 5;  # offset for copy
+   w := CELL / 4;  # width of square to be copied
+   h := w / 2;  # half of that, for centering
+   Bg(win, "black");
 
-   CopyArea(win, -o, -o, w, w, 0, 0)
-   CopyArea(win, HALF - h, -o, w, w, HALF - h, 0)
-   CopyArea(win, CELL + o, -o, -w, w, CELL - w, 0)
+   CopyArea(win, -o, -o, w, w, 0, 0);
+   CopyArea(win, HALF - h, -o, w, w, HALF - h, 0);
+   CopyArea(win, CELL + o, -o, -w, w, CELL - w, 0);
 
-   CopyArea(win, -o, HALF - h, w, w, 0, HALF - h)
-   CopyArea(win, CELL + o, HALF - h, -w, w, CELL - w, HALF - h)
+   CopyArea(win, -o, HALF - h, w, w, 0, HALF - h);
+   CopyArea(win, CELL + o, HALF - h, -w, w, CELL - w, HALF - h);
 
-   CopyArea(win, -o, CELL + o, w, -w, 0, CELL - w)
-   CopyArea(win, HALF - h, CELL + o, w, -w, HALF - h, CELL - w)
-   CopyArea(win, CELL + o, CELL + o, -w, -w, CELL - w, CELL - w)
+   CopyArea(win, -o, CELL + o, w, -w, 0, CELL - w);
+   CopyArea(win, HALF - h, CELL + o, w, -w, HALF - h, CELL - w);
+   CopyArea(win, CELL + o, CELL + o, -w, -w, CELL - w, CELL - w);
 
-   CopyArea(win, o, o, w, w, HALF - w, HALF - w)
-   CopyArea(win, CELL - o, o, -w, w, HALF, HALF - w)
-   CopyArea(win, o, CELL - o, w, -w, HALF - w, HALF)
-   CopyArea(win, CELL - o, CELL - o, -w, -w, HALF, HALF)
+   CopyArea(win, o, o, w, w, HALF - w, HALF - w);
+   CopyArea(win, CELL - o, o, -w, w, HALF, HALF - w);
+   CopyArea(win, o, CELL - o, w, -w, HALF - w, HALF);
+   CopyArea(win, CELL - o, CELL - o, -w, -w, HALF, HALF);
 
-   CopyArea(win, &window, , , , , -HALF, -HALF)
+   CopyArea(win, &window, , , , , -HALF, -HALF);
    close(win)
 end
 
@@ -330,13 +330,13 @@ end
 #  results in the first cell.
 
 procedure deftest()
-   WAttrib("drawop=reverse")
-   WAttrib("size=" || CELL || "," || CELL / 2)
-   FillArc()
-   FillArc(, , CELL / 4)
-   FillArc(3 * CELL / 4)
-   WAttrib("height=" || CELL)
-   DrawArc(, CELL / 2)
+   WAttrib("drawop=reverse");
+   WAttrib("size=" || CELL || "," || CELL / 2);
+   FillArc();
+   FillArc(, , CELL / 4);
+   FillArc(3 * CELL / 4);
+   WAttrib("height=" || CELL);
+   DrawArc(, CELL / 2);
    WAttrib("drawop=copy")
 end
 
@@ -346,32 +346,32 @@ end
 #  Tests some of the details of filling and stroking.
 
 procedure details()
-   Shade("light gray")
-   FillRectangle()
+   Shade("light gray");
+   FillRectangle();
 
-   WAttrib("linewidth=7", "fg=white")
-   DrawLine(10, 10, 10, 25, 30, 25, 20, 10)
-   WAttrib("linewidth=1", "fg=black")
-   DrawLine(10, 10, 10, 25, 30, 25, 20, 10)
+   WAttrib("linewidth=7", "fg=white");
+   DrawLine(10, 10, 10, 25, 30, 25, 20, 10);
+   WAttrib("linewidth=1", "fg=black");
+   DrawLine(10, 10, 10, 25, 30, 25, 20, 10);
 
-   Fg("white")
-   DrawRectangle(-5, -5, -25, -30)
-   Fg("black")
-   DrawArc(-5, -5, -25, -30)
+   Fg("white");
+   DrawRectangle(-5, -5, -25, -30);
+   Fg("black");
+   DrawArc(-5, -5, -25, -30);
 
-   Fg("white")
-   FillArc(5, -5, 24, -30)
-   Fg("black")
-   DrawArc(5, -5, 24, -30)
+   Fg("white");
+   FillArc(5, -5, 24, -30);
+   Fg("black");
+   DrawArc(5, -5, 24, -30);
 
-   Shade("light gray")
-   FillCircle(17, -17, 6)
-   Fg("black")
-   DrawCircle(17, -17, 6)
+   Shade("light gray");
+   FillCircle(17, -17, 6);
+   Fg("black");
+   DrawCircle(17, -17, 6);
 
-   Fg("white")
-   FillPolygon(-5,20, -17,23, -20,35, -23,23, -35,20, -23,17, -20,5, -17,17)
-   Fg("black")
+   Fg("white");
+   FillPolygon(-5,20, -17,23, -20,35, -23,23, -35,20, -23,17, -20,5, -17,17);
+   Fg("black");
    DrawPolygon(-5,20, -17,23, -20,35, -23,23, -35,20, -23,17, -20,5, -17,17)
 end
 
@@ -382,15 +382,15 @@ end
 #  Also exercises Shade, GoToXY, WWrites.
 
 procedure fontvars()
-   Translate(-HALF + 4, -HALF)
-   Shade("gray")
-   FillRectangle(-4)
-   Shade("black")
-   GotoXY(0, 0)
-   WWrites("\nFonts...")
-   WWrites("\n", if Font("mono,12") then ABET else "no mono 12")
-   WWrites("\n", if Font("serif,italic") then ABET else "no SF ital")
-   WWrites("\n", if Font("sans,bold,18") then ABET else "no SN B 18")
+   Translate(-HALF + 4, -HALF);
+   Shade("gray");
+   FillRectangle(-4);
+   Shade("black");
+   GotoXY(0, 0);
+   WWrites("\nFonts...");
+   WWrites("\n", if Font("mono,12") then ABET else "no mono 12");
+   WWrites("\n", if Font("serif,italic") then ABET else "no SF ital");
+   WWrites("\n", if Font("sans,bold,18") then ABET else "no SN B 18");
    WWrites("\n", if Font("fixed") then ABET else "no fixed!") 
 end
 
@@ -403,13 +403,13 @@ end
 procedure gamma()
    local g
 
-   GotoXY(0, -HALF + WAttrib("leading") - WAttrib("descent"))
+   GotoXY(0, -HALF + WAttrib("leading") - WAttrib("descent"));
    every g := &null | 1.0 | 1.5 | 2.2 | 3.3 | 5.0 | 7.5 do {
-      Shade("gray")
-      WAttrib("gamma=" || \g)
+      Shade("gray");
+      WAttrib("gamma=" || \g);
       FillRectangle(-4, WAttrib("y") + WAttrib("descent"),
-         -HALF, -WAttrib("leading"))
-      Shade("black")
+         -HALF, -WAttrib("leading"));
+      Shade("black");
       WWrite(WAttrib("gamma"))
       }
 end
@@ -422,30 +422,30 @@ end
 
 procedure lines()
    local i, y
-   y := -HALF - 6
+   y := -HALF - 6;
    every WAttrib("linewidth=" || (0 to 4)) do
       tline(-HALF + 10, y +:= 15)
 end
 
 procedure tline(x, y)
-   DrawLine(x + 1, y, x + 3, y)
-   DrawLine(x - 1, y, x - 3, y)
-   DrawLine(x, y + 1, x, y + 3)
-   DrawLine(x, y - 1, x, y - 3)
-   x +:= 15
-   DrawLine(x - 3, y - 3, x + 3, y - 3)
-   DrawLine(x + 3, y - 3, x + 3, y + 3)
-   DrawLine(x + 3, y + 3, x - 3, y + 3)
-   DrawLine(x - 3, y + 3, x - 3, y - 3)
-   x +:= 15
-   DrawLine(x - 3, y - 3, x + 3, y + 3)
-   DrawLine(x - 3, y + 3, x + 3, y - 3)
-   x +:= 15
-   DrawLine(x, y - 4, x + 4, y)
-   DrawLine(x + 4, y, x, y + 4)
-   DrawLine(x, y + 4, x - 4, y)
-   DrawLine(x - 4, y, x, y - 4)
-   x +:= 15
+   DrawLine(x + 1, y, x + 3, y);
+   DrawLine(x - 1, y, x - 3, y);
+   DrawLine(x, y + 1, x, y + 3);
+   DrawLine(x, y - 1, x, y - 3);
+   x +:= 15;
+   DrawLine(x - 3, y - 3, x + 3, y - 3);
+   DrawLine(x + 3, y - 3, x + 3, y + 3);
+   DrawLine(x + 3, y + 3, x - 3, y + 3);
+   DrawLine(x - 3, y + 3, x - 3, y - 3);
+   x +:= 15;
+   DrawLine(x - 3, y - 3, x + 3, y + 3);
+   DrawLine(x - 3, y + 3, x + 3, y - 3);
+   x +:= 15;
+   DrawLine(x, y - 4, x + 4, y);
+   DrawLine(x + 4, y, x, y + 4);
+   DrawLine(x, y + 4, x - 4, y);
+   DrawLine(x - 4, y, x, y - 4);
+   x +:= 15;
    DrawRectangle(x - 4, y - 4, 8, 8)
 end
 
@@ -457,21 +457,21 @@ end
 procedure patts()
    local i, j, s, w
 
-   WAttrib("linewidth=4")
-   DrawCircle(0, 0, 0.38 * CELL)	# circle should persist after patts
-   WAttrib("linewidth=1")
-   Translate(-HALF, -HALF)
+   WAttrib("linewidth=4");
+   DrawCircle(0, 0, 0.38 * CELL);  # circle should persist after patts
+   WAttrib("linewidth=1");
+   Translate(-HALF, -HALF);
    w := (CELL + 2) / 3;
 
-   WAttrib("fillstyle=masked")
+   WAttrib("fillstyle=masked");
    s := ["8,#01552B552B552BFF", "8,#020E070420E07040",
       "8,31,14,68,224,241,224,68,14", "8,#2020FF020202FF20", "4,#5A5A",
       "8,#0ABBA0BE82BAAAEA", "8,#E3773E383E77E383", "8,#4545C71154547C11",
-      "8,#FF7F3F1F0F070301"]
+      "8,#FF7F3F1F0F070301"];
 
    every i := 0 to 2 do
       every j := 0 to 2 do {
-         WAttrib("pattern=" || s[3 * i + j + 1])
+         WAttrib("pattern=" || s[3 * i + j + 1]);
          FillRectangle(w * j, w * i, w, w)
          }
 end
@@ -482,7 +482,7 @@ end
 #  Tests DrawCurve.
 
 procedure pretzel()
-   WAttrib("linewidth=3")
+   WAttrib("linewidth=3");
    DrawCurve(20, -20, -5, 0, 20, 20, 35, 0, 0,
       -20, -35, 0, -20, 20, 5, 0, -20, -20)
 end
@@ -495,13 +495,13 @@ end
 procedure rainbow()
    local r, c, l
 
-   Shade("moderate blue-cyan")
-   FillRectangle()
-   WAttrib("fillstyle=solid")
-   r := 20
+   Shade("moderate blue-cyan");
+   FillRectangle();
+   WAttrib("fillstyle=solid");
+   r := 20;
    l := ["pink", "pale orange", "light yellow", "pale green", "pale blue",
-         "light bluish violet", " pale violet"]
-   WAttrib("linewidth=3")
+         "light bluish violet", " pale violet"];
+   WAttrib("linewidth=3");
    every Fg(!l) do
       DrawCircle(0, 20, r +:= 3, 0, -&pi)
 end
@@ -514,8 +514,8 @@ end
 procedure rects()
    local r, a
 
-   WAttrib("drawop=reverse")
-   r := HALF
+   WAttrib("drawop=reverse");
+   r := HALF;
    every a := 1 to 19 by 2 do
       DrawRectangle(0, 0, r * cos(0.33 * a), r * sin(0.33 * a))
 end 
@@ -527,14 +527,14 @@ end
 
 procedure rings()
    local x, y
-   Translate(-HALF, -HALF)
-   FillRectangle()
+   Translate(-HALF, -HALF);
+   FillRectangle();
    every 1 to 15 do {
-      x := ?CELL
-      y := ?CELL
-      WAttrib("fg=black", "linewidth=5")
-      DrawCircle(x, y, 30)		# draw ring in black
-      WAttrib("fg=white", "linewidth=3")
+      x := ?CELL;
+      y := ?CELL;
+      WAttrib("fg=black", "linewidth=5");
+      DrawCircle(x, y, 30);  # draw ring in black
+      WAttrib("fg=white", "linewidth=3");
       DrawCircle(x, y, 30)		# color with white band
       }
 end
@@ -545,14 +545,14 @@ end
 #  Tests DrawString, DrawCircle, FillRectangle, EraseArea, linestyles.
 
 procedure simple()
-   DrawCircle(0, 0, CELL / 3)
-   DrawString(-HALF + 4, -HALF + 12, "hello,")
-   DrawString(-HALF + 4, -HALF + 25, "world")
-   FillRectangle(0, 0)
-   EraseArea(10, 4, CELL / 5, CELL / 3)
-   WAttrib("linestyle=dashed")
-   DrawLine(HALF - 3, HALF, HALF - 3, -HALF)
-   WAttrib("linestyle=striped")
+   DrawCircle(0, 0, CELL / 3);
+   DrawString(-HALF + 4, -HALF + 12, "hello,");
+   DrawString(-HALF + 4, -HALF + 25, "world");
+   FillRectangle(0, 0);
+   EraseArea(10, 4, CELL / 5, CELL / 3);
+   WAttrib("linestyle=dashed");
+   DrawLine(HALF - 3, HALF, HALF - 3, -HALF);
+   WAttrib("linestyle=striped");
    DrawLine(HALF - 6, HALF, HALF - 6, -HALF)
 end
 
@@ -564,14 +564,14 @@ end
 procedure slices()
    local n, a, da, ov
 
-   n := 10
-   da := 2 * &pi / n			# change in angle
-   a := -&pi / 2 - da			# current angle
-   ov := &pi / 1000			# small overlap
+   n := 10;
+   da := 2 * &pi / n;  # change in angle
+   a := -&pi / 2 - da;  # current angle
+   ov := &pi / 1000;  # small overlap
 
-   FillRectangle(-HALF, -HALF)
+   FillRectangle(-HALF, -HALF);
    every 1 to n do {
-      Shade(RandomColor())
+      Shade(RandomColor());
       FillArc(-HALF, -CELL / 3, CELL, 2 * CELL / 3, a +:= da, da + ov)
       }
 end
@@ -584,12 +584,12 @@ end
 procedure spiral()
    local r, a, d
 
-   r := 3			# initial radius
-   a := 0			# initial start angle
+   r := 3;  # initial radius
+   a := 0;  # initial start angle
    while r < HALF do {
-      DrawPoint(r * cos(a), r * sin(a))
-      d := 1.0 / r
-      a +:= d
+      DrawPoint(r * cos(a), r * sin(a));
+      d := 1.0 / r;
+      a +:= d;
       r +:= 2 * d
       }
 end
@@ -610,15 +610,15 @@ end
 #  Shows the default font (the header line), standard fonts, and "fixed".
 
 procedure stdfonts()
-   Translate(-HALF + 4, -HALF)
-   Shade("gray")
-   FillRectangle(-4)
-   Shade("black")
-   GotoRC(1, 1)
-   WWrite(if Font("mono") then "mono" else "no mono!") 
-   WWrite(if Font("typewriter") then "typewriter" else "no typewriter!") 
-   WWrite(if Font("sans") then "sans" else "no sans!") 
-   WWrite(if Font("serif") then "serif" else "no serif!") 
+   Translate(-HALF + 4, -HALF);
+   Shade("gray");
+   FillRectangle(-4);
+   Shade("black");
+   GotoRC(1, 1);
+   WWrite(if Font("mono") then "mono" else "no mono!");
+   WWrite(if Font("typewriter") then "typewriter" else "no typewriter!");
+   WWrite(if Font("sans") then "sans" else "no sans!");
+   WWrite(if Font("serif") then "serif" else "no serif!");
    WWrite(if Font("fixed") then "fixed" else "no fixed!") 
 end
 
@@ -630,16 +630,16 @@ end
 procedure stdpats()
    local i, j, s, x, y
 
-   WAttrib("fillstyle=textured")
+   WAttrib("fillstyle=textured");
    s := [
       "black", "verydark", "darkgray", "gray", "lightgray", "verylight",
       "white", "vertical", "diagonal", "horizontal", "grid", "trellis",
-      "checkers", "grains", "scales", "waves"]
+      "checkers", "grains", "scales", "waves"];
    every i := 0 to 3 do
       every j := 0 to 3 do {
-         WAttrib("pattern=" || s[4 * i + j + 1])
-         x := -HALF + j * CELL / 4
-         y := -HALF + i * CELL / 4
+         WAttrib("pattern=" || s[4 * i + j + 1]);
+         x := -HALF + j * CELL / 4;
+         y := -HALF + i * CELL / 4;
          FillRectangle(x, y)	# depends on opacity of patterns to work
          }
 end
@@ -652,9 +652,9 @@ end
 procedure whale()
    local s
 
-   Fg("moderate greenish cyan")
-   FillRectangle()
-   Translate(-HALF, -HALF)
+   Fg("moderate greenish cyan");
+   FillRectangle();
+   Translate(-HALF, -HALF);
 
    DrawImage(3, 3, "32, c1, _
       ~~~~~~~~~~~~000~~~~~~00~~~~~~~00_
@@ -688,10 +688,10 @@ procedure whale()
       ~~~~0iiiiiiiiiiiiiiiii00~~~~~~~~_
       ~~~~~00iiiiiiiiiiiii00~~~~~~~~~~_
       ~~~~~~~000iiiiiii000~~~~~~~~~~~~_
-      ~~~~~~~~~~0000000~~~~~~~~~~~~~~~")
+      ~~~~~~~~~~0000000~~~~~~~~~~~~~~~");
 
-   s := Capture(, 0, 0, 36, 36)
-   DrawImage(0, 40, s)
+   s := Capture(, 0, 0, 36, 36);
+   DrawImage(0, 40, s);
 
    Zoom(0, 0, 36, 36, 40, 20, 72, 72)
 end

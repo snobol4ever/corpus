@@ -96,40 +96,40 @@ procedure gedload(f)		#: load GEDCOM data from file f
    local root, id, fam, ind
    local hset, h1, h2, c
 
-   lnum := 0
-   root := curr := gednode(-1, , "ROOT", "", lnum, , , [])
-   id := table()
-   fam := []
-   ind := []
+   lnum := 0;
+   root := curr := gednode(-1, , "ROOT", "", lnum, , , []);
+   id := table();
+   fam := [];
+   ind := [];
 
    while line := read(f) do {
-      lnum +:= 1
+      lnum +:= 1;
       if *line = 0 then
          next
 
       if not (r := gedscan(line)) then {
-         write(&errout, "ERR, line ", lnum, ": ", line)
+         write(&errout, "ERR, line ", lnum, ": ", line);
          next
       }
-      r.lnum := lnum
-      r.sub := []
+      r.lnum := lnum;
+      r.sub := [];
 
       if r.tag == "CONC" then {		# continuation line (no \n)
-         curr.data ||:= r.data
+         curr.data ||:= r.data;
          next
          }
       if r.tag == "CONT" then {		# continuation line (with \n)
-         curr.data ||:= "\n" || r.data
+         curr.data ||:= "\n" || r.data;
          next
          }
 
       while curr.level >= r.level do
          curr := curr.parent
-      put(curr.sub, r)
-      r.parent := curr
-      curr := r
+      put(curr.sub, r);
+      r.parent := curr;
+      curr := r;
 
-      id[\r.id] := r
+      id[\r.id] := r;
       case r.tag of {
          "FAM":  put(fam, r)
          "INDI":  put(ind, r)
@@ -139,9 +139,9 @@ procedure gedload(f)		#: load GEDCOM data from file f
    every r := gedwalk(root) do
       r.ref := id[r.data]
 
-   hset := set()
+   hset := set();
    every r := !ind do {
-      h1 := h2 := gedhi(r)
+      h1 := h2 := gedhi(r);
       every c := !"123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" do
          if member(hset, h2) then
             h2 := h1 || c	# add disambiguating suffix if needed
@@ -163,13 +163,13 @@ procedure gedscan(s)		# (internal procedure)
    initial alnum := &letters ++ &digits ++ '_'
 
    s ? {
-      tab(many(WHITESPACE))
-      level := tab(many(&digits)) | fail
-      tab(many(WHITESPACE))
+      tab(many(WHITESPACE));
+      level := tab(many(&digits)) | fail;
+      tab(many(WHITESPACE));
       if id := (="@" || tab(upto('@') + 1)) then
          tab(many(WHITESPACE))
-      tag := tab(many(alnum)) | fail
-      tab(many(WHITESPACE))
+      tag := tab(many(alnum)) | fail;
+      tab(many(WHITESPACE));
       data := tab(0)
       return gednode(level, id, tag, data)
       }
@@ -180,7 +180,7 @@ end
 #  gedwalk(r) -- walk GEDCOM tree, generating nodes in preorder
 
 procedure gedwalk(r)		#: generate GEDCOM tree nodes in preorder
-   suspend r | gedwalk(!r.sub)
+   suspend r | gedwalk(!r.sub);
    fail
 end
 
@@ -193,7 +193,7 @@ end
 procedure gedsub(r, f[])	#: find subrecords
    local tag, x
 
-   tag := get(f) | fail
+   tag := get(f) | fail;
    every x := !r.sub do {
       if x.tag == tag then
          if *f > 0 then
@@ -225,7 +225,7 @@ end
 
 procedure gedlnf(r)		#: get last name first
    local s
-   s := gednmf(r, "L, P F S")
+   s := gednmf(r, "L, P F S");
    s ? {
       =", "
       return tab(0)
@@ -243,16 +243,16 @@ end
 procedure gednmf(r, f)		#: format name
    local c, s, prefix, first, last, suffix
 
-   prefix := gedval(r, "TITL" | "NPFX") | gedval(r, "NAME", "NPFX")
-   s := gedval(r, "NAME") | fail
+   prefix := gedval(r, "TITL" | "NPFX") | gedval(r, "NAME", "NPFX");
+   s := gedval(r, "NAME") | fail;
    s ? {
       first := trim(tab(upto('/') | 0))
-      ="/"
+      ="/";
       last := trim(tab(upto('/') | 0))
-      ="/"
+      ="/";
       suffix := gedval(r, "NSFX") | ("" ~== tab(0))
    }
-   s := ""
+   s := "";
    f ? {
       while s ||:= tab(upto('PFLS ')) do {
          while c := tab(any('PFLS ')) do {
@@ -278,21 +278,21 @@ procedure geddate(r)		#: get canonical date
    local s, t, w
    static ftab
    initial {
-      ftab := table()
-      ftab["JAN"] := "Jan";  ftab["FEB"] := "Feb"; ftab["MAR"] := "Mar"
-      ftab["APR"] := "Apr";  ftab["MAY"] := "May"; ftab["JUN"] := "Jun"
-      ftab["JUL"] := "Jul";  ftab["AUG"] := "Aug"; ftab["SEP"] := "Sep"
-      ftab["OCT"] := "Oct";  ftab["NOV"] := "Nov"; ftab["DEC"] := "Dec"
-      ftab["ABT"] := "abt";  ftab["BEF"] := "bef"; ftab["AFT"] := "aft"
+      ftab := table();
+      ftab["JAN"] := "Jan";  ftab["FEB"] := "Feb"; ftab["MAR"] := "Mar";
+      ftab["APR"] := "Apr";  ftab["MAY"] := "May"; ftab["JUN"] := "Jun";
+      ftab["JUL"] := "Jul";  ftab["AUG"] := "Aug"; ftab["SEP"] := "Sep";
+      ftab["OCT"] := "Oct";  ftab["NOV"] := "Nov"; ftab["DEC"] := "Dec";
+      ftab["ABT"] := "abt";  ftab["BEF"] := "bef"; ftab["AFT"] := "aft";
       ftab["CAL"] := "cal";  ftab["EST"] := "est"
       }
 
-   s := trim(gedval(r, "DATE"), WHITESPACE) | fail
-   t := ""
+   s := trim(gedval(r, "DATE"), WHITESPACE) | fail;
+   t := "";
 
    s ? while not pos(0) do {
-      tab(many(WHITESPACE))
-      w := tab(upto(WHITESPACE) | 0)
+      tab(many(WHITESPACE));
+      w := tab(upto(WHITESPACE) | 0);
       t ||:= " " || (\ftab[w] | w)
    }
 
@@ -309,7 +309,7 @@ end
 procedure gedyear(r)		#: get year
    local d, y
 
-   d := gedval(r, "DATE") | fail
+   d := gedval(r, "DATE") | fail;
    d ? while tab(upto(&digits)) do
       if (y := tab(many(&digits)) \ 1) >= 1000 then
          return y
@@ -326,24 +326,24 @@ procedure gedhi(r)		# (internal procedure)
    local s, name, bdate, bd
    static lc, uc
    initial {
-      uc := string(&ucase)
+      uc := string(&ucase);
       lc := string(&lcase)
       }
 
-   s := ""
-   name := gedval(r, "NAME") | ""
+   s := "";
+   name := gedval(r, "NAME") | "";
    name ? {
       # prefer initial of nickname; else skip unused firstname in parens
-      tab(upto('"') + 1) | (="(" & tab(upto(')') + 1))
-      tab(any(' \t'))
-      s ||:= tab(any(&letters)) | "X"		# first initial
-      tab(upto('/') + 1)
-      tab(any(' \t'))
+      tab(upto('"') + 1) | (="(" & tab(upto(')') + 1));
+      tab(any(' \t'));
+      s ||:= tab(any(&letters)) | "X";  # first initial
+      tab(upto('/') + 1);
+      tab(any(' \t'));
       s ||:= tab(any(&letters)) | "X"		# second initial
    }
 
-   bdate := geddate(gedsub(r, "BIRT")) | ""
-   bd := bdate[-2:0] | "00"
+   bdate := geddate(gedsub(r, "BIRT")) | "";
+   bd := bdate[-2:0] | "00";
    if not (bd ? (tab(many(&digits)) & pos(0))) then
       bd := "99" 
    s ||:= bd || gedh3a(name || bdate)
@@ -357,12 +357,12 @@ end
 procedure gedh3a(s)		# (internal procedure)
    local n, d1, d2, d3, c
 
-   n := 0
+   n := 0;
    every c := !map(s) do
       if not upto(' \t\f\r\n', c) then
          n := 37 * n + ord(c) - 32
-   d1 := 97 + (n / 676) % 26
-   d2 := 97 + (n / 26) % 26
+   d1 := 97 + (n / 676) % 26;
+   d2 := 97 + (n / 26) % 26;
    d3 := 97 + n % 26
    return char(d1) || char(d2) || char(d3)
 end
@@ -405,11 +405,11 @@ end
 #  words are mapped to lower-case to allow case-insensitive comparisons
 
 procedure gedlcw(s, c)		# (internal procedure)
-   /c := '/ \t\r\n\v\f'
+   /c := '/ \t\r\n\v\f';
    map(s) ? {
-      tab(many(c))
+      tab(many(c));
       while not pos(0) do {
-         suspend tab(upto(c) | 0) \ 1
+         suspend tab(upto(c) | 0) \ 1;
          tab(many(c))
          }
       }

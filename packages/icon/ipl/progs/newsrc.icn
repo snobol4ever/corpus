@@ -33,13 +33,13 @@ procedure process(times)
 local active, inactive, defective, invar, outvar, line, newline
 
 #create three empty lists
-	active := []
-	inactive := []
-	defective := []
+	active := [];
+	inactive := [];
+	defective := [];
 
 #open old and new files
 	if not (invar := open(".newsrc")) then stop("Unable to open .newsrc")
-	outvar := open("newnewsrc","w")
+	outvar := open("newnewsrc","w");
 
 #get saved lines
 if *times = 0 then put(times,ask()) else {
@@ -51,17 +51,17 @@ if *times = 0 then put(times,ask()) else {
 		write(write(outvar,read(invar)))
 #place the lines in appropriate lists
 	while line := read(invar) do {
-		newline := line
+		newline := line;
 		line	?	{if find(":") then
 					put(active,newline) else
 				 if newline := (tab(find("!")) || "!") then
 					put(inactive,newline) else
 				 put(defective,newline)}}
-	close(invar)
+	close(invar);
 #sort the lists
-	active := sort(active)
-	inactive := sort(inactive)
-	defective := sort(defective)
+	active := sort(active);
+	inactive := sort(inactive);
+	defective := sort(defective);
 #create the new file
 	every line := !active do
 		write(outvar,line)
@@ -70,17 +70,17 @@ if *times = 0 then put(times,ask()) else {
 	every line := !defective do
 		write(outvar,line)
 #notify user
-	write("File newnewsrc has been created.  If it is satisfactory, use")
-	write("mv newnewsrc .newsrc to replace old file.")
+	write("File newnewsrc has been created.  If it is satisfactory, use");
+	write("mv newnewsrc .newsrc to replace old file.");
 	close(outvar)
 end
  
 
 procedure ask()
 local number,n
-	n := 0
-	write("You may save any number of lines at the top of the file.")
-	writes("Enter a whole number, 0 or greater.> ")
+	n := 0;
+	write("You may save any number of lines at the top of the file.");
+	writes("Enter a whole number, 0 or greater.> ");
 	while not integer(number := read()) do  {
 		if (n +:= 1) > 3 then stop("Bye.")
 		writes("You must enter a whole number.> ")}

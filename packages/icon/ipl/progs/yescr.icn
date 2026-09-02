@@ -43,18 +43,18 @@ procedure main(a)
     # Static variables, initial clause not really necessary in main().
     static slash, l, ms, DOSos, nok, ok
     initial {
-	nok := string(~&letters)
-	ok := repl("X",*nok)
+	nok := string(~&letters);
+	ok := repl("X",*nok);
 	# Find us a place to put temporary files.
 	if find("UNIX",&features) then {
-	    slash := "/"
-	    l := 10
+	    slash := "/";
+	    l := 10;
 	    ms := ""
 	}
 	else if find("MS-DOS", &features) then {
-	    slash := "\\"
-	    l := 8
-	    ms := "u"
+	    slash := "\\";
+	    l := 8;
+	    ms := "u";
 	    DOSos := 1
 	}
 	# Don't take this out unless you're sure of what you're doing.
@@ -62,13 +62,13 @@ procedure main(a)
     }
 
     # Check to see if we have any arguments.
-    *a = 0 & stop("usage:  yescr file1 [file2...]")
+    *a = 0 & stop("usage:  yescr file1 [file2...]");
 
     # Start popping filenames off of the argument list.
     while fname := pop(a) do {
 
 	# Open input file.
-	infile := open(fname,"r"||ms) | (er_out(fname), next)
+	infile := open(fname,"r"||ms) | (er_out(fname), next);
 	# Get temporary file name.
 	every temp_name :=
 	    pathname(fname, slash) ||
@@ -101,11 +101,11 @@ procedure main(a)
 	}
 
 	# Close opened input and output files.
-	close(infile)  | stop("yescr:  cannot close, ",fname,"; aborting")
-	close(outfile) | stop("yescr:  cannot close, ",temp_name,"; aborting")
+	close(infile)  | stop("yescr:  cannot close, ",fname,"; aborting");
+	close(outfile) | stop("yescr:  cannot close, ",temp_name,"; aborting");
 
 	# Remove physical input file.
-	remove(fname) | stop("yescr:  cannot remove ",fname,"; aborting")
+	remove(fname) | stop("yescr:  cannot remove ",fname,"; aborting");
 
 	# Give temp name the same name as the input file, completing the
 	# conversion process.
@@ -133,7 +133,7 @@ end
 procedure pathname(s,slash)
     local s2
 
-    s2 := ""
+    s2 := "";
     s ? {
 	while s2 ||:= tab(find(slash)+1)
 	return s2

@@ -92,7 +92,7 @@ procedure LeftString(win, x, y, s)		#: draw left-justified string
 
    initial type := proc("type", 0)	# protect attractive name
    if type(win) ~== "window" then {
-      win :=: x :=: y :=: s
+      win :=: x :=: y :=: s;
       win := &window
       }
    y +:= (WAttrib(win, "ascent") - WAttrib(win, "descent")) / 2 + 1
@@ -107,10 +107,10 @@ procedure CenterString(win, x, y, s)		#: draw centered string
 
    initial type := proc("type", 0)	# protect attractive name
    if type(win) ~== "window" then {
-      win :=: x :=: y :=: s
+      win :=: x :=: y :=: s;
       win := &window
       }
-   x -:= TextWidth(win, s) / 2
+   x -:= TextWidth(win, s) / 2;
    y +:= (WAttrib(win, "ascent") - WAttrib(win, "descent")) / 2 + 1
    return DrawString(win, x, y, s)
 end
@@ -123,10 +123,10 @@ procedure RightString(win, x, y, s)		#: draw right-justified string
 
    initial type := proc("type", 0)	# protect attractive name
    if type(win) ~== "window" then {
-      win :=: x :=: y :=: s
+      win :=: x :=: y :=: s;
       win := &window
       }
-   x -:= TextWidth(win, s)
+   x -:= TextWidth(win, s);
    y +:= (WAttrib(win, "ascent") - WAttrib(win, "descent")) / 2 + 1
    return DrawString(win, x, y, s)
 end
@@ -139,21 +139,21 @@ procedure ClearOutline(win, x, y, w, h)		#: draw and clear rectangle
 
    initial type := proc("type", 0)	# protect attractive name
    if type(win) ~== "window" then {
-      win :=: x :=: y :=: w :=: h
+      win :=: x :=: y :=: w :=: h;
       win := &window
       }
 
    /x := -WAttrib(win, "dx")
    /y := -WAttrib(win, "dy")
    /w := WAttrib(win, "width") - (x + WAttrib(win, "dx"))
-   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"))
+   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"));
 
    if w < 0 then
       x -:= (w := -w)
    if h < 0 then
       y -:= (h := -h)
 
-   DrawRectangle(win, x, y, w, h)
+   DrawRectangle(win, x, y, w, h);
    EraseArea(win, x+1, y+1, w-1, h-1)
    return win
 end
@@ -166,10 +166,10 @@ procedure Translate(win, dx, dy, w, h)		#: add translation
 
    initial type := proc("type", 0)	# protect attractive name
    if type(win) ~== "window" then {
-      win :=: dx :=: dy :=: w :=: h
+      win :=: dx :=: dy :=: w :=: h;
       win := &window
       }
-   WAttrib(win, "dx=" || WAttrib(win,"dx")+dx, "dy=" || WAttrib(win,"dy")+dy)
+   WAttrib(win, "dx=" || WAttrib(win,"dx")+dx, "dy=" || WAttrib(win,"dy")+dy);
    Clip(win, 0, 0, \w, \h)
    return win
 end
@@ -180,30 +180,30 @@ end
 procedure Sweep(win)				#: sweep area with mouse
    local x, y, w, h, wmin, wmax, hmin, hmax
 
-   /win := &window
-   win := Clone(win, "drawop=reverse")
+   /win := &window;
+   win := Clone(win, "drawop=reverse");
 
-   x := &x					# set initial rect bounds
-   y := &y
-   w := h := 0
+   x := &x;  # set initial rect bounds
+   y := &y;
+   w := h := 0;
 
-   wmin := -WAttrib(win, "dx") - x		# calc coordinate limits
-   hmin := -WAttrib(win, "dy") - y
-   wmax := wmin + WAttrib(win, "width") - 1
-   hmax := hmin + WAttrib(win, "height") - 1
+   wmin := -WAttrib(win, "dx") - x;  # calc coordinate limits
+   hmin := -WAttrib(win, "dy") - y;
+   wmax := wmin + WAttrib(win, "width") - 1;
+   hmax := hmin + WAttrib(win, "height") - 1;
 
-   DrawRectangle(win, x, y, w, h)		# draw initial bounding rect
+   DrawRectangle(win, x, y, w, h);  # draw initial bounding rect
    until Event(win) === (&lrelease | &mrelease | &rrelease) do {
-      DrawRectangle(win, x, y, w, h)		# erase old bounds
-      w := &x - x				# calc new width & height
-      h := &y - y
-      w <:= wmin				# clip to stay on window
-      w >:= wmax
-      h <:= hmin
-      h >:= hmax
+      DrawRectangle(win, x, y, w, h);  # erase old bounds
+      w := &x - x;  # calc new width & height
+      h := &y - y;
+      w <:= wmin;  # clip to stay on window
+      w >:= wmax;
+      h <:= hmin;
+      h >:= hmax;
       DrawRectangle(win, x, y, w, h)		# draw new bounds
       }
-   DrawRectangle(win, x, y, w, h)		# erase bounding rectangle
+   DrawRectangle(win, x, y, w, h);  # erase bounding rectangle
 
    if w < 0 then x -:= (w := -w)		# ensure nonnegative sizes
    if h < 0 then y -:= (h := -h)
@@ -232,19 +232,19 @@ procedure Zoom(args[])				#: zoom image
    else
       win2 := win1
 
-   x1 := \get(args) | -WAttrib(win1, "dx")
-   y1 := \get(args) | -WAttrib(win1, "dy")
-   w1 := \get(args) | WAttrib(win1, "width") - (x1 + WAttrib(win1, "dx"))
-   h1 := \get(args) | WAttrib(win1, "height") - (y1 + WAttrib(win1, "dy"))
+   x1 := \get(args) | -WAttrib(win1, "dx");
+   y1 := \get(args) | -WAttrib(win1, "dy");
+   w1 := \get(args) | WAttrib(win1, "width") - (x1 + WAttrib(win1, "dx"));
+   h1 := \get(args) | WAttrib(win1, "height") - (y1 + WAttrib(win1, "dy"));
    if w1 < 0 then
       x1 -:= (w1 := -w1)
    if h1 < 0 then
       y1 -:= (h1 := -h1)
 
-   x2 := \get(args) | -WAttrib(win2, "dx")
-   y2 := \get(args) | -WAttrib(win2, "dy")
-   w2 := \get(args) | WAttrib(win2, "width") - (x2 + WAttrib(win2, "dx"))
-   h2 := \get(args) | WAttrib(win2, "height") - (y2 + WAttrib(win2, "dy"))
+   x2 := \get(args) | -WAttrib(win2, "dx");
+   y2 := \get(args) | -WAttrib(win2, "dy");
+   w2 := \get(args) | WAttrib(win2, "width") - (x2 + WAttrib(win2, "dx"));
+   h2 := \get(args) | WAttrib(win2, "height") - (y2 + WAttrib(win2, "dy"));
    if w2 < 0 then
       x2 -:= (w2 := -w2)
    if h2 < 0 then
@@ -275,7 +275,7 @@ procedure Capture(win, pal, x, y, w, h)		#: capture image as string
    initial type := proc("type", 0)	# protect attractive name
 
    if type(win) ~== "window" then {
-      win :=: pal :=: x :=: y :=: w :=: h
+      win :=: pal :=: x :=: y :=: w :=: h;
       win := \&window | runerr(140, &window)
       }
 
@@ -284,31 +284,31 @@ procedure Capture(win, pal, x, y, w, h)		#: capture image as string
    /x := -WAttrib(win, "dx")
    /y := -WAttrib(win, "dy")
    /w := WAttrib(win, "width") - (x + WAttrib(win, "dx"))
-   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"))
+   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"));
 
    if w < 0 then
       x -:= (w := -w)
    if h < 0 then
       y -:= (h := -h)
 
-   PaletteChars(win, pal) | runerr(205, pal)
+   PaletteChars(win, pal) | runerr(205, pal);
 
-   cmap := table()
+   cmap := table();
 
    # accumulate the image in chunks and then concatenate
    # (much faster than concatenating single chars on a very long string)
-   s := ""
-   a := []
+   s := "";
+   a := [];
    every k := Pixel(win, x, y, w, h) do {
-      c := \cmap[k] | (cmap[k] := PaletteKey(win, pal, k))
+      c := \cmap[k] | (cmap[k] := PaletteKey(win, pal, k));
       if *(s ||:= c) >= CaptureChunk then {
-         put(a, s)
+         put(a, s);
          s := ""
          }
       }
-   put(a, s)
+   put(a, s);
 
-   s := w || "," || pal || ","
+   s := w || "," || pal || ",";
    while s ||:= get(a)
    return s
 end

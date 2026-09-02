@@ -58,30 +58,30 @@ procedure exprfile(exp, links[])	#: pipe for Icon expression
    local output
    static name, input
 
-   expr_error := &null
+   expr_error := &null;
 
-   remove(\name)			# remove former executable
-   close(\input)			# and close last pipe
+   remove(\name);  # remove former executable
+   close(\input);  # and close last pipe
 
-   output := tempfile("expr", ".icn", "/tmp")
+   output := tempfile("expr", ".icn", "/tmp");
 
    image(output) ? {
-      ="file("
+      ="file(";
       name := tab(find(".icn"))
       }
 
-   write(output, "invocable all")
+   write(output, "invocable all");
    every write(output, "link ", image(!links)) 
-   write(output, "procedure main(args)")
-   write(output, "   every write(", exp, ")")
-   write(output, "end")
+   write(output, "procedure main(args)");
+   write(output, "   every write(", exp, ")");
+   write(output, "end");
 
-   close(output)
+   close(output);
 
    if system("icont -o " || name || " -s " || name ||
       " >/dev/null 2>/dev/null") ~= 0 then {
-          expr_error := 1
-          remove(name || ".icn")
+          expr_error := 1;
+          remove(name || ".icn");
           fail
           }
 
@@ -102,7 +102,7 @@ end
 procedure plst2pstr(L)			#: convert program list to string
    local result
 
-   result := ""
+   result := "";
 
    every result ||:= !L || "\n"
 
@@ -113,7 +113,7 @@ end
 procedure pstr2plst(s)			#: convert program string to list
    local result
 
-   result := []
+   result := [];
 
    s ? {
       while put(result, tab(upto('\n'))) do

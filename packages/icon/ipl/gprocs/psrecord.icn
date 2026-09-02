@@ -104,8 +104,8 @@ procedure PSSnap()			#: take PostScript snapshot
    if /PS_active then
       fail
    if /inited := 1 then {
-      seek(PS_f, 1)
-      write(PS_f, "%! nonconforming.......")	# overwrite 1st line
+      seek(PS_f, 1);
+      write(PS_f, "%! nonconforming.......");  # overwrite 1st line
       seek(PS_f, 0)
    }
    PS_out("copypage")
@@ -132,9 +132,9 @@ end
 
 procedure PSDone(sw)			#: terminate PostScript recording
    initial PS_init()
-   PSDisable()
+   PSDisable();
    if /sw then PS_out("showpage") 	# if sw nonnull, do not output
-   PS_out("%%EOF")
+   PS_out("%%EOF");
    close(PS_f)
    return
 end
@@ -144,24 +144,24 @@ end
 #  PS_swap() -- swap local functions for the real versions
 
 procedure PS_swap()
-   PS_attrib :=: WAttrib
-   PS_bg :=: Bg
-   PS_clip :=: Clip
-   PS_drawarc :=: DrawArc
-   PS_drawcircle :=: DrawCircle
-   PS_drawcurve :=: DrawCurve
-   PS_drawline :=: DrawLine
-   PS_drawrect :=: DrawRectangle
-   PS_drawpoint :=: DrawPoint
-   PS_drawsegment :=: DrawSegment
-   PS_drawstring :=: DrawString
-   PS_erasearea :=: EraseArea
-   PS_fg :=: Fg
-   PS_fillarc :=: FillArc
-   PS_fillcircle :=: FillCircle
-   PS_fillrect :=: FillRectangle
-   PS_fillpoly :=: FillPolygon
-   PS_flush :=: WFlush
+   PS_attrib :=: WAttrib;
+   PS_bg :=: Bg;
+   PS_clip :=: Clip;
+   PS_drawarc :=: DrawArc;
+   PS_drawcircle :=: DrawCircle;
+   PS_drawcurve :=: DrawCurve;
+   PS_drawline :=: DrawLine;
+   PS_drawrect :=: DrawRectangle;
+   PS_drawpoint :=: DrawPoint;
+   PS_drawsegment :=: DrawSegment;
+   PS_drawstring :=: DrawString;
+   PS_erasearea :=: EraseArea;
+   PS_fg :=: Fg;
+   PS_fillarc :=: FillArc;
+   PS_fillcircle :=: FillCircle;
+   PS_fillrect :=: FillRectangle;
+   PS_fillpoly :=: FillPolygon;
+   PS_flush :=: WFlush;
    PS_font :=: Font
    return
 end
@@ -177,35 +177,35 @@ procedure PSStart(a[])
 local fname, scale, psw, psh, llx, lly
 
    if \PS_active then PSDone()
-   PS_afix(a)
-   PS_win := \a[1] | \&window | runerr(140, a[1])
-   fname := \a[2] | "xlog.ps"
-   PS_f := open(fname, "w") | stop("can't open", fname)
+   PS_afix(a);
+   PS_win := \a[1] | \&window | runerr(140, a[1]);
+   fname := \a[2] | "xlog.ps";
+   PS_f := open(fname, "w") | stop("can't open", fname);
 
    # calculate output scaling
    # max (&default) scaling is 1.0 (72 pixels per inch)
    # max size image allowed comes within 0.5" of all four borders
-   PS_width := WAttrib(PS_win, "width")
-   PS_height := WAttrib(PS_win, "height")
-   scale := 1.0
-   scale >:= 72 * (8.5 - 0.5 - 0.5) / PS_width
-   scale >:= 72 * (11.0 - 0.5 - 0.5) / PS_height
+   PS_width := WAttrib(PS_win, "width");
+   PS_height := WAttrib(PS_win, "height");
+   scale := 1.0;
+   scale >:= 72 * (8.5 - 0.5 - 0.5) / PS_width;
+   scale >:= 72 * (11.0 - 0.5 - 0.5) / PS_height;
 
    # position window in center of page
-   psw := integer(scale * PS_width + 0.9999)	# width in ps coords
-   psh := integer(scale * PS_height + 0.9999)	# height
-   llx := integer((72 * 8.5 - psw) / 2)		# center horizontally
-   lly := integer((72 * 11.0 - psh) / 2)	# center vertically
+   psw := integer(scale * PS_width + 0.9999);  # width in ps coords
+   psh := integer(scale * PS_height + 0.9999);  # height
+   llx := integer((72 * 8.5 - psw) / 2);  # center horizontally
+   lly := integer((72 * 11.0 - psh) / 2);  # center vertically
    if lly + psh < 72 * 9.5 then
       lly := integer(72 * 9.5 - psh)		# but not over 1.5" from top
 
    # write EPS header
-   PS_out("%!PS-Adobe-3.0 EPSF-3.0")
-   PS_out("%%BoundingBox:", llx, lly, llx + psw + 1, lly + psh + 1)
-   PS_out("%%Creator:", &progname)
-   PS_out("%%CreationDate:", &dateline)
-   PS_out("%%EndComments")
-   PS_out()
+   PS_out("%!PS-Adobe-3.0 EPSF-3.0");
+   PS_out("%%BoundingBox:", llx, lly, llx + psw + 1, lly + psh + 1);
+   PS_out("%%Creator:", &progname);
+   PS_out("%%CreationDate:", &dateline);
+   PS_out("%%EndComments");
+   PS_out();
 
    every PS_out(![			# output PostScript file header
 
@@ -246,22 +246,22 @@ local fname, scale, psw, psh, llx, lly
    ])
 
    # establish coordinate system
-   PS_out(llx, lly + psh, "translate")
-   PS_out(psw + 1, -(psh + 1), "0 0 r clip newpath")
-   PS_out(scale, -scale, "scale")
-   PS_out("0.5 0.5 translate")
-   PS_out("gsave")				# save full-window gpx env
+   PS_out(llx, lly + psh, "translate");
+   PS_out(psw + 1, -(psh + 1), "0 0 r clip newpath");
+   PS_out(scale, -scale, "scale");
+   PS_out("0.5 0.5 translate");
+   PS_out("gsave");  # save full-window gpx env
 
    # swap our routines for those of Icon
    if /PS_active := 1 then
       PS_swap()
 
    # note graphics values in PS file
-   Font(PS_win, Font(PS_win))
-   Fg(PS_win, Fg(PS_win))
-   Bg(PS_win, Bg(PS_win))
+   Font(PS_win, Font(PS_win));
+   Fg(PS_win, Fg(PS_win));
+   Bg(PS_win, Bg(PS_win));
 
-   PS_out(PS_width, PS_height, "0 0 er")	# fill background
+   PS_out(PS_width, PS_height, "0 0 er");  # fill background
    write(PS_f)
 return
 end
@@ -282,7 +282,7 @@ end
 procedure PS_path(a, s)
    local i
 
-   PS_out(a[2], a[3], "m")
+   PS_out(a[2], a[3], "m");
    every i := 4 to *a - 3 by 2 do
       PS_out(a[i], a[i+1], "l")
    PS_out(a[-2], a[-1], "l", s)
@@ -307,14 +307,14 @@ end
 
 
 procedure PS_bg(a[])		# replaces Bg
-   PS_afix(a)
+   PS_afix(a);
    # note that following line fails if there is no a[2]
    PS_out(PS_color(a[2]), "bg")
    return PS_bg ! a
 end
 
 procedure PS_fg(a[])		# replaces Fg
-   PS_afix(a)
+   PS_afix(a);
    # note that following line fails if there is no a[2]
    PS_out(PS_color(a[2]), "fg")
    return PS_fg ! a
@@ -323,8 +323,8 @@ end
 procedure PS_color(color)	# parse color, return string of PS r, g, b
    local r, g, b
    (ColorValue(PS_win, color) | fail) ? {
-      r := tab(many(&digits));  move(1)
-      g := tab(many(&digits));  move(1)
+      r := tab(many(&digits));  move(1);
+      g := tab(many(&digits));  move(1);
       b := tab(many(&digits))
       }
    return (r / 65535.0) || " " || (g / 65535.0) || " " || (b / 65535.0)
@@ -333,7 +333,7 @@ end
 procedure PS_drawpoint(a[])	# replaces DrawPoint
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    every i := 2 to *a by 2 do
       PS_out(a[i], a[i+1], "p")
    return PS_drawpoint ! a
@@ -342,7 +342,7 @@ end
 procedure PS_drawsegment(a[])	# replaces DrawSegment
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    every i := 2 to *a by 4 do
       PS_out(a[i], a[i+1], a[i+2], a[i+3], "g")
    return PS_drawsegment ! a
@@ -351,7 +351,7 @@ end
 procedure PS_drawline(a[])	# replaces DrawLine
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    if *a == 5 then
       PS_out(a[2], a[3], a[4], a[5], "g")
    else
@@ -362,7 +362,7 @@ end
 procedure PS_drawcurve(a[])	# replaces DrawCurve -- approx with line segs
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    PS_path(a, "s")
    return PS_drawcurve ! a
 end
@@ -370,7 +370,7 @@ end
 procedure PS_drawrect(a[])	# replaces DrawRectangle
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    every i := 2 to *a by 4 do
       PS_out(a[i+2], a[i+3], a[i], a[i+1], "r s")
    return PS_drawrect ! a
@@ -379,7 +379,7 @@ end
 procedure PS_fillrect(a[])	# replaces FillRectangle
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    every i := 2 to *a by 4 do
       PS_out(a[i+2], a[i+3], a[i], a[i+1], "r f")
    return PS_fillrect ! a
@@ -388,7 +388,7 @@ end
 procedure PS_fillpoly(a[])	# replaces FillPolygon
    local i
 
-   PS_afix(a)
+   PS_afix(a);
    PS_path(a, "pf")
    return PS_fillpoly ! a
 end
@@ -406,12 +406,12 @@ end
 
 procedure PS_area(a, cmd)	# generate w, h, x, y, and cmd, with defaults
    local x, y, w, h
-   PS_afix(a)
+   PS_afix(a);
 
-   x := \a[2] | 0
-   y := \a[3] | 0
-   w := (0 ~= \a[4]) | PS_width
-   h := (0 ~= \a[5]) | PS_height
+   x := \a[2] | 0;
+   y := \a[3] | 0;
+   w := (0 ~= \a[4]) | PS_width;
+   h := (0 ~= \a[5]) | PS_height;
    PS_out(w, h, x, y, cmd)
 end
 
@@ -440,17 +440,17 @@ procedure PS_arc(a, n, f)	# handle draw/fill arc/circle, append f to cmd
    static mul
    initial mul := 180 / &pi
 
-   PS_afix(a)
+   PS_afix(a);
    every i := 2 to *a by (5 + n) do {
-      x := a[i]
-      y := a[i+1]
-      w := a[i+2] 
-      h := a[i+2+n]
-      a1 := (\a[i+n+3] * mul) | 0.0
-      a2 := (\a[i+n+4] * mul) | 360.0
+      x := a[i];
+      y := a[i+1];
+      w := a[i+2];
+      h := a[i+2+n];
+      a1 := (\a[i+n+3] * mul) | 0.0;
+      a2 := (\a[i+n+4] * mul) | 360.0;
       if n = 1 then {		# if Draw/Fill Arc
-         r := w / 2.0			# radius
-         x +:= r			# center coordinates
+         r := w / 2.0;  # radius
+         x +:= r;  # center coordinates
          y +:= h / 2.0
          }
       else			# Draw/Fill Circle
@@ -459,7 +459,7 @@ procedure PS_arc(a, n, f)	# handle draw/fill arc/circle, append f to cmd
          PS_out(x, y, r, "c" || f)
       else {				# general case
          if a2 < 0 then {
-            a1 := a1 + a2	# ensure counterclockwise arc (in PS coords)
+            a1 := a1 + a2;  # ensure counterclockwise arc (in PS coords)
             a2 := -a2
             }
          if w = 0 then
@@ -475,7 +475,7 @@ end
 procedure PS_font(a[])	     	# replaces Font (very crudely)
    local ret, xname, psname, n
 
-   PS_afix(a)
+   PS_afix(a);
    if not (ret := PS_font ! a) then
       fail
    if xname := \a[2] then {
@@ -505,22 +505,22 @@ procedure PS_font(a[])	     	# replaces Font (very crudely)
          else
             psname := "/Palatino-Roman"
          }
-      n := WAttrib(PS_win, "ascent") + 1	# could possibly be smarter
+      n := WAttrib(PS_win, "ascent") + 1;  # could possibly be smarter
       PS_out(n, psname, "ft  %", xname)
       }
    return ret
 end
 
 procedure PS_drawstring(a[])		# replaces DrawString
-   PS_afix(a)
-   PS_psstring(a[4])
+   PS_afix(a);
+   PS_psstring(a[4]);
    PS_out("", a[2], a[3], "t")
    return PS_drawstring ! a
 end
 
 procedure PS_psstring(s)		# output a string as a PS string
    s ? {
-      writes(PS_f, "(")
+      writes(PS_f, "(");
       while writes(PS_f, tab(upto('()\\'))) do
          writes(PS_f, "\\", move(1))
       writes(PS_f, tab(0), ")")
@@ -537,14 +537,14 @@ end
 procedure PS_attrib(alist[])		# replaces WAttrib
    local win, ret, name, val, a
 
-   PS_afix(alist)
-   ret := alist
-   ret := PS_attrib ! alist
-   win := pop(alist)			# remove window arg
+   PS_afix(alist);
+   ret := alist;
+   ret := PS_attrib ! alist;
+   win := pop(alist);  # remove window arg
    every a := !alist do a ? {		# process each attribute
-      name := tab(upto('=')) | next
-      move(1)
-      val := tab(0)
+      name := tab(upto('=')) | next;
+      move(1);
+      val := tab(0);
       case name of {
          "fg":    Fg(win, val)
          "bg":    Bg(win, val)

@@ -29,13 +29,13 @@ procedure phoname(number)
     local buttons, nondigits, pstr, t, x
 
 
-    buttons := ["000","111","abc","def","ghi","jkl","mno", "prs","tuv","wxy"]
-    nondigits := ~&digits
+    buttons := ["000","111","abc","def","ghi","jkl","mno", "prs","tuv","wxy"];
+    nondigits := ~&digits;
 
-    pstr := stripstr(number,nondigits)
+    pstr := stripstr(number,nondigits);
 
     if 7 ~= *pstr then fail
-    t := []
+    t := [];
     every x := !pstr do
 	put(t,buttons[x+1])
     
@@ -47,7 +47,7 @@ procedure stripstr(str,delchs)
 
     local i
 
-    i := 1
+    i := 1;
     while i <= *str do
 	{
 	if any(delchs,str,i) then

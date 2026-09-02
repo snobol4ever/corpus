@@ -56,13 +56,13 @@ procedure pborder(rows, l, r, t, b, c)	#: place border around pattern
    /r := 1
    /t := 1
    /b := 1
-   /c := "0"
+   /c := "0";
 
    if l = r = t = b = 0 then return rows
 
-   row := repl(c, *rows[1] + l + r)
-   left := repl(c, l)
-   right := repl(c, r)
+   row := repl(c, *rows[1] + l + r);
+   left := repl(c, l);
+   right := repl(c, r);
 
    every i := 1 to *rows do
        rows[i] := left || rows[i] || right
@@ -92,12 +92,12 @@ procedure pcaten(rows1, rows2, dir)	#: concatenate patterns
 
    case dir of {
       "h"  :  {
-         rows := []
+         rows := [];
          every i := 1 to *rows1 do
             put(rows, rows1[i] || rows2[i])
          }
       "v"  :  {
-         rows := copy(rows1)
+         rows := copy(rows1);
          every put(rows, !rows2)
          }
       default:  stop("invalid direction specification in pcaten()")
@@ -118,7 +118,7 @@ procedure pcatenp(rows1, rows2, dir)
 
    /dir := "h"
 
-   rows2 := copy(rows2)		# may delete row or column
+   rows2 := copy(rows2);  # may delete row or column
 
    case dir of {
       "h"  :  {
@@ -129,14 +129,14 @@ procedure pcatenp(rows1, rows2, dir)
                rows2[i][1] := ""
             break
             }
-         rows := []
+         rows := [];
          every i := 1 to *rows1 do
             put(rows, rows1[i] || rows2[i])
          }
       "v"  :  {
          if rows1[-1] == rows2[1] then	# eliminate duplicate
             get(rows2)
-         rows := copy(rows1)
+         rows := copy(rows1);
          every put(rows, !rows2)
          }
       default:  stop("invalid direction specification in pcaten()")
@@ -152,17 +152,17 @@ end
 procedure pcenter(rows, w, h)		#: center pattern
    local rw, rh, vert, horz, t, l
 
-   rows := ptrim(rows)
+   rows := ptrim(rows);
 
-   rw := *rows[1]
-   rh := *rows
+   rw := *rows[1];
+   rh := *rows;
 
    if (rh = h) & (rw = w) then return rows
    if (rh > h) | (rw > w) then fail
 
-   horz := w - rw
-   vert := h - rh
-   l := horz / 2
+   horz := w - rw;
+   vert := h - rh;
+   l := horz / 2;
    t := vert / 2
 
    return pborder(rows, l, horz - l, t, vert - t)
@@ -179,7 +179,7 @@ procedure pcrop(rows, l, r, t, b)	#: crop pattern
    /l := 0
    /r := 0
    /t := 0
-   /b := 0
+   /b := 0;
 
    if l = r = t = b = 0 then return rows
 
@@ -203,7 +203,7 @@ end
 
 procedure pdisplay(rows, pat)			#: display pattern
 
-   /pat := "01"			# mapping string
+   /pat := "01";  # mapping string
 
    every write(map(!rows, "01", pat))
 
@@ -220,7 +220,7 @@ end
 procedure pdouble(rows, dir)		#: double pattern
    local row, newrows
 
-   newrows := []
+   newrows := [];
 
    case dir of {
       "v":  {
@@ -250,26 +250,26 @@ procedure pflip(rows, dir)		#: flip pattern
 
    case dir of {
       "l": {
-         newrows := list(*rows[1], repl("0", *rows))
+         newrows := list(*rows[1], repl("0", *rows));
          every y := 1 to *rows do
             every x := 1 to *rows[1] do
                if rows[y, x] == "1" then
                   newrows[-x, -y] := "1"
          }
       "r": {
-         newrows := list(*rows[1], repl("0", *rows))
+         newrows := list(*rows[1], repl("0", *rows));
          every y := 1 to *rows do
             every x := 1 to *rows[1] do
                if rows[y, x] == "1" then
                   newrows[x, y] := "1"
          }
       "h":  {
-         newrows := copy(rows)
+         newrows := copy(rows);
          every i := 1 to *rows do
             newrows[i] := reverse(newrows[i])
          }
       "v":  {
-         newrows := copy(rows)
+         newrows := copy(rows);
          every i := 1 to *rows / 2 do
            newrows[i] :=: newrows[-i]
          }
@@ -290,8 +290,8 @@ end
 procedure phalve(rows, dir, choice)	#: halve pattern by bits
    local newrows, i
 
-   choice := if choice === ("o" | &null) then 1 else 0
-   newrows := []
+   choice := if choice === ("o" | &null) then 1 else 0;
+   newrows := [];
 
    case dir of {
       "v": {
@@ -312,7 +312,7 @@ end
 procedure pinvert(rows)			#: invert B&W pattern
    local i
 
-   rows := copy(rows)
+   rows := copy(rows);
 
    every i := 1 to *rows do
       rows[i] := map(rows[i], "10", "01")
@@ -337,7 +337,7 @@ procedure pminim(rows)			#: minimize pattern
       if *rows[1] < 4 then break
 
       halfw := *rows[1] / 2
-      halfh := *rows / 2
+      halfh := *rows / 2;
    
       every i := 1 to halfh do			# check rows in top and bottom
          if (rows[i] ~== rows[i + halfh]) |
@@ -363,12 +363,12 @@ procedure por(rows1, rows2)		#: "or" patterns
    if *rows1 ~= *rows2 then fail	# nonconformal
    if *rows1[1] ~= *rows2[1] then fail	# nonconformal
 
-   rows := copy(rows1)
+   rows := copy(rows1);
 
    every i := 1 to *rows do {
       rows2[i] ? {			# overlay 1s of row2 on row1
          while tab(upto('1')) do {
-            rows[i][&pos] := "1"
+            rows[i][&pos] := "1";
             move(1) | break
             }
          }
@@ -385,27 +385,27 @@ end
 procedure protate(rows, dir)		#: rotate pattern
    local newrows, i, row, pix
 
-   /dir := "cw"
+   /dir := "cw";
 
    case string(dir) of {
       "ccw" | "-90":  {			# counter-clockwise
-         newrows := list(*rows[1], "")
+         newrows := list(*rows[1], "");
          every row := !rows do  {
-            i := 0
+            i := 0;
             every pix := !row do
                newrows[i -:= 1] ||:= pix
             }
         }
       "cw" | "90" | &null:  {			# clockwise
-         newrows := list(*rows[1], "")
+         newrows := list(*rows[1], "");
          every row := !rows do {
-            i := 0
+            i := 0;
             every pix := !row do
                newrows[i +:= 1] := pix || newrows[i]
             }
          }
       "180": {
-         newrows := []
+         newrows := [];
          every push(newrows, reverse(!rows))
          }
       default:  stop("*** illegal rotation specification in protate()")
@@ -430,11 +430,11 @@ procedure pscramble(rows, dir)		#: scramble pattern
           }
       "v":  rows := shuffle(rows)
       "b" | &null:  {
-         all := ""
+         all := "";
          every all ||:= !rows
-         all := shuffle(all)
+         all := shuffle(all);
          every i := 1 to *rows do {
-            rows[i] := left(all, *rows[1])
+            rows[i] := left(all, *rows[1]);
             all[1 +: *rows[1]] := ""
             }
          }
@@ -455,7 +455,7 @@ end
 procedure pshift(rows, shift, dir)	#: bit shift pattern
    local i
 
-   /shift := 0
+   /shift := 0;
 
    case dir of {
       "h" | &null: {			# horizontal shift
@@ -482,8 +482,8 @@ end
 
 procedure ptrim(rows, c)		#: trim pattern
    
-   /c := '1'
-   c := cset(c)
+   /c := '1';
+   c := cset(c);
 
    while (*rows > 2) & not(upto(c, rows[1])) do
       get(rows)
@@ -491,7 +491,7 @@ procedure ptrim(rows, c)		#: trim pattern
    while (*rows > 2) & not(upto(c, rows[-1])) do
       pull(rows)
 
-   rows := protate(rows, "cw")
+   rows := protate(rows, "cw");
 
    while (*rows > 2) & not(upto(c, rows[1])) do
       get(rows)

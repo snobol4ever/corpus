@@ -81,13 +81,13 @@ end
 
 procedure sadvance(sc, n)			#: advance stripchart
 
-   /n := 1
+   /n := 1;
    every 1 to n do {
       if sc.x < (sc.x0 + sc.w - 1) then
          sc.x +:= 1
       else
          CopyArea(sc.win, sc.x0 + 1, sc.y, sc.w - 1, sc.h, sc.x0, sc.y)
-      EraseArea(sc.win, sc.x, sc.y, 1, sc.h)
+      EraseArea(sc.win, sc.x, sc.y, 1, sc.h);
       sc.n +:= 1
       }
    return
@@ -97,7 +97,7 @@ end
 ## smark (sc, y1, y2) - mark stripchart from y1 to y2.
 
 procedure smark(sc, y1, y2)			#: mark stripchart
-   y1 := integer(y1)
+   y1 := integer(y1);
    if sc.last[y1] <:= sc.n then
       DrawLine(sc.win, sc.x, y1, sc.x, \y2) | DrawPoint(sc.win, sc.x, y1)
    return

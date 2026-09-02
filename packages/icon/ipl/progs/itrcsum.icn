@@ -31,33 +31,33 @@ procedure main()
    local line, file_tbl, call_tbl, return_tbl, fail_tbl, suspend_tbl
    local resume_tbl, max, ave, count, file, bars, depth, keys, width
 
-   file_tbl := table(0)
-   call_tbl := table(0)
-   return_tbl := table(0)
-   suspend_tbl := table(0)
-   fail_tbl := table(0)
-   resume_tbl := table(0)
+   file_tbl := table(0);
+   call_tbl := table(0);
+   return_tbl := table(0);
+   suspend_tbl := table(0);
+   fail_tbl := table(0);
+   resume_tbl := table(0);
 
-   max := 0
-   ave := 0
-   count := 0
+   max := 0;
+   ave := 0;
+   count := 0;
 
    while line := itrcline(&input) do {
       line ? {
          file := move(13) | break		# line after trace output?
-         count +:= 1
+         count +:= 1;
          if trim(file) == "" then file := "(none)       "
-         file_tbl[file] +:= 1
-         move(8)				# line number field
+         file_tbl[file] +:= 1;
+         move(8);  # line number field
          if bars := tab(many('| ')) then {	# depth bars
-            depth := *bars / 2			# recursion depth
-            max <:= depth			# maximum depth
+            depth := *bars / 2;  # recursion depth
+            max <:= depth;  # maximum depth
             ave +:= depth			# cumulative depth
             }
-         name := tab(upto('( '))		# procedure name
-         tab(bal(' ') | 0)			# skip arguments (faulty)
+         name := tab(upto('( '));  # procedure name
+         tab(bal(' ') | 0);  # skip arguments (faulty)
          if pos(0) then {
-            call_tbl[name] +:= 1
+            call_tbl[name] +:= 1;
             next
             }
          if =" returned" then return_tbl[name] +:= 1
@@ -68,24 +68,24 @@ procedure main()
       }
 
    if count = 0 then {
-      write("no trace output")
+      write("no trace output");
       exit()
       }
 
-   write("maximum recursion depth = ", max)
-   write("average recursion depth = ", fix(ave, count, 5, 3))
-   write()
-   write("File references:\n")
-   file_tbl := sort(file_tbl, 3)
+   write("maximum recursion depth = ", max);
+   write("average recursion depth = ", fix(ave, count, 5, 3));
+   write();
+   write("File references:\n");
+   file_tbl := sort(file_tbl, 3);
    while write(get(file_tbl), right(get(file_tbl), 10))
-   write("\nprocedure activity:\n")
+   write("\nprocedure activity:\n");
 
-   keys := []
+   keys := [];
    every put(keys, key(call_tbl))
 
-   width := 0
+   width := 0;
    every width <:= *!keys
-   width +:= 2
+   width +:= 2;
 
    write(
       left("name", width),
@@ -95,7 +95,7 @@ procedure main()
       right("fail", CountWidth),
       right("resume", CountWidth),
       "\n"
-      )
+      );
 
    every name := !sort(keys) do
       write(

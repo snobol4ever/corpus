@@ -100,7 +100,7 @@ procedure Compound_(es[])		# { e1; e2; ... }
 
    if *es = 0 then return "{}\n"
 
-   result := "{\n"
+   result := "{\n";
    every result ||:= !es || "\n"
 
    return result || "}\n"
@@ -154,7 +154,7 @@ end
 procedure Global_(vs[])		# global v1, v2, ...
    local result
 
-   result := ""
+   result := "";
    every result ||:= !vs || ", "
 
    write("global ", result[1:-2])
@@ -194,7 +194,7 @@ procedure Invoke_(e0, es[])		# e0(e1, e2, ...)
 
    if *es = 0 then return e0 || "()"
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return e0 || "(" || result[1:-2] || ")"
@@ -224,7 +224,7 @@ procedure List_(es[])			# [e1, e2, ... ]
 
    if *es = 0 then return "[]"
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return "[" || result[1:-2] || "]"
@@ -234,7 +234,7 @@ end
 procedure Local_(vs[])			# local v1, v2, ...
    local result
 
-   result := ""
+   result := "";
    every result ||:= !vs || ", "
 
    write("local ", result[1:-2])
@@ -260,7 +260,7 @@ procedure Paren_(es[])			# (e1, e2, ... )
 
    if *es = 0 then return "()"
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return "(" || result[1:-2] || ")"
@@ -272,7 +272,7 @@ procedure Pdco_(e0, es[])		# e0{e1, e2, ... }
 
    if *es = 0 then return e0 || "{}"
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return e0 || "{" || result[1:-2] || "}"
@@ -284,7 +284,7 @@ procedure Proc_(s, es[])		# procedure s(v1, v2, ...)
 
    if *es = 0 then write("procedure ", s, "()")
 
-   result := ""
+   result := "";
    every e := !es do
       if e == "[]" then result[-2:0] := e || ", "
       else result ||:= (\e | "") || ", "
@@ -300,7 +300,7 @@ procedure Record_(s, es[])		# record s(v1, v2, ...)
 
    if *es = 0 then write("record ", s, "()")
 
-   result := ""
+   result := "";
    every field := !es do
       result ||:= (\field | "") || ", "
 
@@ -357,7 +357,7 @@ end
 procedure Static_(ev[])			# static v1, v2, ..
    local result
 
-   result := ""
+   result := "";
    every result ||:= !ev || ", "
 
    write("static ", result[1:-2])

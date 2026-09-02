@@ -55,39 +55,39 @@ $define HOTFORMAT "ncsa-xmosaic-hotlist-format-1"
 procedure main()
    local home, f, t, line, n, editor, command, urllist
 
-   home := getenv("HOME")	| stop("no $HOME value")
-   chdir(home)			| stop("can't chdir to ", home)
+   home := getenv("HOME")	| stop("no $HOME value");
+   chdir(home)			| stop("can't chdir to ", home);
 
-   f := open(HOTFILE)		| stop("can't open ", HOTFILE)
-   line := read(f)		| stop("empty hotlist file")
-   line == HOTFORMAT		| stop("unrecognized hotlist format")
-   line := read(f)		| stop("truncated hotlist file")
-   line == "Default"		| stop("unrecognized hotlist format")
+   f := open(HOTFILE)		| stop("can't open ", HOTFILE);
+   line := read(f)		| stop("empty hotlist file");
+   line == HOTFORMAT		| stop("unrecognized hotlist format");
+   line := read(f)		| stop("truncated hotlist file");
+   line == "Default"		| stop("unrecognized hotlist format");
 
-   t := open(TMPFILE, "w")	| stop("can't write ", TMPFILE)
+   t := open(TMPFILE, "w")	| stop("can't write ", TMPFILE);
 
-   urllist := []
+   urllist := [];
    while put(urllist, read(f)) do {
-      line := read(f)		| stop("ill-formated hotlist file")
+      line := read(f)		| stop("ill-formated hotlist file");
       if *urllist < 1000 then
          n := right(*urllist, 3, "0")
       else
          n := *urllist
       write(t, n, " ", line)
       }
-   close(f)
-   close(t)
+   close(f);
+   close(t);
 
-   f := open(HOTNEW, "w")	| stop("can't write ", HOTNEW)
+   f := open(HOTNEW, "w")	| stop("can't write ", HOTNEW);
 
-   editor := getenv("VISUAL") | getenv("EDITOR") | "/bin/vi"
-   command := editor || " " || TMPFILE
+   editor := getenv("VISUAL") | getenv("EDITOR") | "/bin/vi";
+   command := editor || " " || TMPFILE;
 
-   system(command)
+   system(command);
 
-   t := open(TMPFILE)		| stop("can't reopen ", TMPFILE)
-   write(f, HOTFORMAT)
-   write(f, "Default")
+   t := open(TMPFILE)		| stop("can't reopen ", TMPFILE);
+   write(f, HOTFORMAT);
+   write(f, "Default");
    while line := read(t) do line ? {
       if write(f, urllist[tab(many(&digits))]) then
          write(f, move(1) & tab(0))

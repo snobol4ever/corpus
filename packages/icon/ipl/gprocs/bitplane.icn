@@ -200,29 +200,29 @@ procedure AlcPlane(win, n)		#: allocate colors for bitplane
    local ncolors, mask, b, seqlen, prev, fg, clist
 
    if type(win) ~== "window" then {
-      n := win
+      n := win;
       win := &window
       }
 
    if n < 1 | n > 7 then
       runerr(205, n)
-   fg := Fg(win)
+   fg := Fg(win);
 
-   ncolors := 2 ^ n
-   mask := ncolors - 1
+   ncolors := 2 ^ n;
+   mask := ncolors - 1;
 
    # need to get ncolors colors in sequence, with the last one having the
    # low order n bits (of the actual pixel value) set
 
    # alternatives on Color are in case current fg/bg would cause failure
 
-   b := NewColor(win, fg | "black") | fail
-   clist := [b]
-   seqlen := 1
+   b := NewColor(win, fg | "black") | fail;
+   clist := [b];
+   seqlen := 1;
    while seqlen < ncolors | iand(-1 - b, mask) ~= mask do {
-      prev := b
-      b := NewColor(win, fg | "black") | fail
-      push(clist, b)
+      prev := b;
+      b := NewColor(win, fg | "black") | fail;
+      push(clist, b);
       if prev - b ~= 1 then
          seqlen := 1
       else
@@ -233,13 +233,13 @@ procedure AlcPlane(win, n)		#: allocate colors for bitplane
    every 1 to ncolors do
       pop(clist)
    if *clist > 0 then {
-      push(clist, win)
+      push(clist, win);
       FreeColor ! clist
       }
 
    # set base color to background and return result
    Color(win, b, Bg(win) | "white")
-   /Plane_Mask := table()
+   /Plane_Mask := table();
    every Plane_Mask [b to b + mask] := mask
    return b
 end
@@ -252,14 +252,14 @@ procedure FrontPlane(win, bp, color)	#: move bitplane to front
    local mask, base, bits, i
 
    if type(win) ~== "window" then {
-      win :=: bp :=: color
+      win :=: bp :=: color;
       win := &window
       }
 
-   mask := \Plane_Mask[bp] | runerr(205, bp)
-   base := iand(icom(mask), bp)
+   mask := \Plane_Mask[bp] | runerr(205, bp);
+   base := iand(icom(mask), bp);
    bits := bp - base
-   /color := bp
+   /color := bp;
    every i := base to base + mask do
       if iand(i, bits) = bits then
          Color(win, i, color)
@@ -274,14 +274,14 @@ procedure BackPlane(win, bp, color)	#: move bitplane to back
    local mask, base, bits, i
 
    if type(win) ~== "window" then {
-      win :=: bp :=: color
+      win :=: bp :=: color;
       win := &window
       }
 
-   mask := \Plane_Mask[bp] | runerr(205, bp)
-   base := iand(icom(mask), bp)
-   bits := bp - base
-   Color(win, bp, \color)			# set color if specified
+   mask := \Plane_Mask[bp] | runerr(205, bp);
+   base := iand(icom(mask), bp);
+   bits := bp - base;
+   Color(win, bp, \color);  # set color if specified
    every i := base to base + mask do
       if iand(i, bits) = bits & i ~= bp then
          Color(win, i, ixor(i, bits))		# set color as if plane unset
@@ -296,27 +296,27 @@ procedure PlaneOp(win, bp, op)		#: set context for bitplane operation
    local mask, base, bits, i
 
    if type(win) ~== "window" then {
-      win :=: bp :=: op
+      win :=: bp :=: op;
       win := &window
       }
 
-   mask := \Plane_Mask[bp] | runerr(205, bp)
-   base := iand(icom(mask), bp)
-   bits := bp - base
+   mask := \Plane_Mask[bp] | runerr(205, bp);
+   base := iand(icom(mask), bp);
+   bits := bp - base;
 
    case op of {
       "copy": {
-         WAttrib(win, "drawop=copy")
+         WAttrib(win, "drawop=copy");
          Fg(win, bp)
          }
       "set": {
-         i := base + bits
-         WAttrib(win, "drawop=and")
+         i := base + bits;
+         WAttrib(win, "drawop=and");
          Fg(win, i)
          }
       "clear": {
-         i := base + (mask - bits)
-         WAttrib(win, "drawop=or")
+         i := base + (mask - bits);
+         WAttrib(win, "drawop=or");
          Fg(win, i)
          }
       default:
@@ -332,10 +332,10 @@ end
 procedure Deplane(win, color)
 
    if type(win) ~== "window" then {
-      color := win
+      color := win;
       win := &window
       }
-   WAttrib(win, "drawop=copy")
+   WAttrib(win, "drawop=copy");
    Fg(win, \color)
    return win
 end

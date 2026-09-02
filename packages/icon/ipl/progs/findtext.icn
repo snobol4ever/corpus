@@ -50,34 +50,34 @@ procedure main(args)
 
    local count, file, out_line, s
   
-   Set_OS()
+   Set_OS();
 
-   s    := \args[1] | ""
-   file := \args[2] | ""
+   s    := \args[1] | "";
+   file := \args[2] | "";
 
    if *args ~= 2 then {
       while *s = 0 do {                # force entry of search string
-         writes("Search string: ")
+         writes("Search string: ");
          s := read()
          }
 
       while *file = 0 do {             # force entry of datafile name
-         writes("Search file:   ")
+         writes("Search file:   ");
          file := read()
          }
       }
 
    # Find text associated with index s in file 'file'.
 
-   count := 0
+   count := 0;
    every out_line := gettext(s, file) do {
-      count +:= 1
+      count +:= 1;
       write(count, ": ", out_line)
       }
 
    if count = 0 then {
-      write("String '", s, "' not found in indexed file '", file, "'")
-      write("Format: [iconx] findtext string filename")
+      write("String '", s, "' not found in indexed file '", file, "'");
+      write("Format: [iconx] findtext string filename");
       exit(1)
       }
 

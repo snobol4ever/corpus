@@ -33,7 +33,7 @@ procedure title(name)
 
    initial titles := titleset()
 
-   result := ""
+   result := "";
 
    name ? {
       while result ||:= =!titles || " " do

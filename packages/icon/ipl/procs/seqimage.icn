@@ -43,17 +43,17 @@
 procedure Seqimage(L)
    local seq, result, i, j, resid
 
-   seq := ""
-   i := @L[2]
-   j := @L[3]
+   seq := "";
+   i := @L[2];
+   j := @L[3];
    while result := image(@L[1]) do
       if *L[1] > \i then {
          if /j then {
-            seq ||:= ", ..."
+            seq ||:= ", ...";
             break
             }
          else {
-            resid := [", " || result]
+            resid := [", " || result];
             every put(resid,", " || image(|@L[1]))
             if *resid > j then seq ||:= ", ..."
             every seq ||:= resid[*resid -j + 1 to *resid]

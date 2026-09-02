@@ -63,31 +63,31 @@ procedure fstar(x, y, n, p, r, incr, extent, xinit, yinit)	#: fractal stars
    /incr := 0.8
    /extent := 1.0
    /xinit := 0
-   /yinit := 0.5
+   /yinit := 0.5;
 
-   incr *:= &pi			# scaling
-   extent *:= size
-   xloc := xinit * size
-   yloc := yinit * size
+   incr *:= &pi;  # scaling
+   extent *:= size;
+   xloc := xinit * size;
+   yloc := yinit * size;
 
-   n -:= 1			# computational convenience
-   p -:= 1
+   n -:= 1;  # computational convenience
+   p -:= 1;
 
 #  suspend Point(x + xloc, y + yloc)		# initial point
 
-   angle := 0
+   angle := 0;
 
    every i := 0 to ((n + 1) * n ^ p) do {
-      m := i
-      h := 0
+      m := i;
+      h := 0;
       until (m % n ~= 0) | (h >= p) do {
-         m /:= n
+         m /:= n;
          h +:= 1
          }
-      dist := extent * r ^ (p - h)
-      xloc +:= dist * cos(angle)
+      dist := extent * r ^ (p - h);
+      xloc +:= dist * cos(angle);
       yloc +:= dist * sin(angle)
-      suspend Point(x + xloc, y + yloc)
+      suspend Point(x + xloc, y + yloc);
       angle +:= incr
       }
 

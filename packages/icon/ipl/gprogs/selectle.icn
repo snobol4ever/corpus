@@ -116,17 +116,17 @@ $define PosY	"posy=10"
 procedure main()
    local atts
 
-   atts := ui_atts()
+   atts := ui_atts();
 
    #  The interface window is opened with a hidden canvas so that it
    #  can be made the active window later by making it visible.
 
-   put(atts, "canvas=hidden", PosX, PosY)
+   put(atts, "canvas=hidden", PosX, PosY);
 
-   controls := (WOpen ! atts) | stop("*** cannot open window")
-   vidgets := ui()
+   controls := (WOpen ! atts) | stop("*** cannot open window");
+   vidgets := ui();
 
-   init()
+   init();
 
    GetEvents(root, , shortcuts)
 
@@ -136,11 +136,11 @@ end
 
 procedure auto_cb(vidget, value)
 
-  auto := value
+  auto := value;
 
   if \auto then {
       if OpenDialog("Specify prefix for auto-saving:") == "Cancel" then fail
-      prefix := dialog_value
+      prefix := dialog_value;
       count := -1		# initial count less 1
       }
 
@@ -179,7 +179,7 @@ procedure change_cb(vidget)
          "y 1/2":     current.y <- hmax / 2
          "x y 1/2":   current.x <- wmax / 2 & current.y <- hmax / 2
          }
-     ) | fail
+     ) | fail;
 
    show()
 
@@ -196,7 +196,7 @@ procedure check()
       (0 <= current.x <= hmax) &
       (0 <= current.y <= wmax)
    then return else {
-      Alert()
+      Alert();
       fail
       }
 
@@ -210,17 +210,17 @@ procedure copy_source(label)
 
    screen := WOpen("size=" || WAttrib(source, "width") || "," ||
       WAttrib(source, "height"), "posx=" || posx, "posy=" || posy,
-        "label=" || label) | ExitNotice("Cannot open image window")
+        "label=" || label) | ExitNotice("Cannot open image window");
 
-   CopyArea(source, screen)
+   CopyArea(source, screen);
 
-   expose(controls)
+   expose(controls);
 
-   wmax := WAttrib(source, "width")
-   hmax := WAttrib(source, "height")
+   wmax := WAttrib(source, "width");
+   hmax := WAttrib(source, "height");
 
-   WAttrib(pattern, "width=" || (WAttrib(screen, "width") + Margin))
-   WAttrib(pattern, "height=" || (WAttrib(screen, "height") + Margin))
+   WAttrib(pattern, "width=" || (WAttrib(screen, "width") + Margin));
+   WAttrib(pattern, "height=" || (WAttrib(screen, "height") + Margin));
 
    reset_cb()
 
@@ -236,17 +236,17 @@ procedure draw_cb(vidget, value)
    if /value then return
 
    if /source then {
-      Notice("No source image.")
-      SetVidget(draw, &null)
+      Notice("No source image.");
+      SetVidget(draw, &null);
       fail
       }
 
-   expose(screen)
+   expose(screen);
 
    while current := select(screen) do
       show()
 
-   SetVidget(draw, &null)
+   SetVidget(draw, &null);
 
    expose(controls)
 
@@ -274,18 +274,18 @@ end
 
 procedure get_image()
 
-   WClose(\source)
-   WClose(\screen)
+   WClose(\source);
+   WClose(\screen);
 
    repeat {
-      (OpenDialog("Open image:") == "Okay") | fail
+      (OpenDialog("Open image:") == "Okay") | fail;
       source := WOpen("canvas=hidden", "image=" || dialog_value) | {
-         Notice("Can't open " || dialog_value || ".")
+         Notice("Can't open " || dialog_value || ".");
          next
          }
-      copy_source(dialog_value)
-      wmax := WAttrib(source, "width")
-      hmax := WAttrib(source, "height")
+      copy_source(dialog_value);
+      wmax := WAttrib(source, "width");
+      hmax := WAttrib(source, "height");
       break
       }
 
@@ -306,24 +306,24 @@ $define MinSize 600
 procedure init()
    local iheight
 
-   current := rect(0, 0, 1, 1)
-   hmax := wmax := 0
+   current := rect(0, 0, 1, 1);
+   hmax := wmax := 0;
 
-   posx := WAttrib("width") + Offset1
+   posx := WAttrib("width") + Offset1;
 
-   iheight := WAttrib("height")
+   iheight := WAttrib("height");
 
    pattern := WOpen("label=repeat", "resize=on", "size=" || iheight ||
       "," || iheight, "posx=" || posx, PosY) |
-         stop("*** cannot open window for repeat ***")
+         stop("*** cannot open window for repeat ***");
 
-   posy := WAttrib(pattern, "height") + Offset2
+   posy := WAttrib(pattern, "height") + Offset2;
 
-   root := vidgets["root"]
-   text := vidgets["text"]
-   draw := vidgets["draw"]
+   root := vidgets["root"];
+   text := vidgets["text"];
+   draw := vidgets["draw"];
 
-   WAttrib("canvas=normal")
+   WAttrib("canvas=normal");
 
    auto := &null
 
@@ -337,20 +337,20 @@ procedure pick()
    local plist, ls
 
    plist := filelist("*.gif *.GIF") |
-      return FailNotice("Pick not supported on this platform")
+      return FailNotice("Pick not supported on this platform");
 
    if *plist = 0 then return FailNotice("No files found.")
 
    repeat {
       if SelectDialog("Select image file:", plist, plist[1]) == "Cancel"
          then fail
-      WClose(\source)
-      WClose(\screen)
+      WClose(\source);
+      WClose(\screen);
       source := WOpen("canvas=hidden", "image=" || dialog_value) | {
-         Notice("Cannot open " || dialog_value || ".")
+         Notice("Cannot open " || dialog_value || ".");
          next
          }
-      copy_source(dialog_value)
+      copy_source(dialog_value);
       break
       }
 
@@ -370,7 +370,7 @@ end
 
 procedure reset_cb()
 
-   current := rect(0, 0, 1, 1)
+   current := rect(0, 0, 1, 1);
 
    show()
 
@@ -403,7 +403,7 @@ procedure select_cb(vidget, value)
       " 256 x 256":  256
       " 400 x 400":  400
       " 512 x 512":  512
-      }) | fail
+      }) | fail;
 
    show()
 
@@ -430,7 +430,7 @@ procedure set_cb()
          current.w <- integer(dialog_value[3]) &
          current.h <- integer(dialog_value[4])
          ) | {
-            Notice("Invalid value")
+            Notice("Invalid value");
             next
             }
       show()
@@ -469,23 +469,23 @@ procedure show()
    static sx, sy
 
    initial {
-      sx := text.ax
+      sx := text.ax;
       sy := text.ay
       }
 
    if /source then return FailNotice("No source image.")
 
-   tile(source, pattern, current.x, current.y, current.w, current.h)
+   tile(source, pattern, current.x, current.y, current.w, current.h);
 
    if \auto then {
-      name := prefix || right(count +:= 1, 3, "0") || ".gif"
+      name := prefix || right(count +:= 1, 3, "0") || ".gif";
       WriteImage(source, name, current.x, current.y, current.w, current.h)
       }
 
-   EraseArea(sx, sy, Width, Height) 
+   EraseArea(sx, sy, Width, Height);
 
    DrawString(sx, sy + YOff, "x=" || current.x  || " y=" || current.y ||
-      " w=" || current.w || " h=" || current.h)
+      " w=" || current.w || " h=" || current.h);
 
    if \auto then DrawString(sx, sy + 30, "last auto-save: " || name)
 
@@ -517,7 +517,7 @@ end
 
 procedure tile_selection()
 
-   tile(pattern, screen, current.x, current.y, current.w, current.h)
+   tile(pattern, screen, current.x, current.y, current.w, current.h);
    CopyArea(screen, source)
 
    return

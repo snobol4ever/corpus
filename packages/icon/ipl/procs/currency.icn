@@ -34,18 +34,18 @@ procedure currency(amount,width,minus,decPlaces,minDollarDigits,
    /minDollarDigits := 1
    /currencySign := "$"
    /decimalPoint := "."
-   /comma := ","
+   /comma := ",";
    if amount < 0.0 then {
-      sign := minus
+      sign := minus;
       amount := -amount
       }
    else sign := repl(" ",*minus)
-   amount := (integer(amount * 10.0 ^ (decPlaces + 1)) + 5)[1:-1]
-   amount := right(amount,*amount < decPlaces + minDollarDigits,"0")
-   p := *amount - decPlaces + 1
-   amount[p:p] := decimalPoint
+   amount := (integer(amount * 10.0 ^ (decPlaces + 1)) + 5)[1:-1];
+   amount := right(amount,*amount < decPlaces + minDollarDigits,"0");
+   p := *amount - decPlaces + 1;
+   amount[p:p] := decimalPoint;
    while (p -:= 3) > 1 do amount[p:p] := comma
-   amount := currencySign || amount || sign
+   amount := currencySign || amount || sign;
    amount := right(amount,*amount < width)
    return amount
 end

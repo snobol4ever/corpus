@@ -40,9 +40,9 @@ procedure partit(i, min, max, k)
    /min := 1
    /max := i
    max >:= i
-   /k := i
-   k >:= max
-   k >:= i
+   /k := i;
+   k >:= max;
+   k >:= i;
 
    if i = 0 then return []
 
@@ -55,7 +55,7 @@ end
 procedure partcount(i, min, max)
    local count
 
-   count := 0
+   count := 0;
 
    every partitret(i, min, max) do
       count +:= 1
@@ -71,11 +71,11 @@ procedure partitret(i, min, max, k)
    local j
 
    /min := 1
-   /max := i
+   /max := i;
    max >:= i
-   /k := i
-   k >:= max
-   k >:= i
+   /k := i;
+   k >:= max;
+   k >:= i;
  
    if i = 0 then return
 
@@ -93,10 +93,10 @@ procedure fibpart(i)
 
    initial    m := 1 / log(( 1 + sqrt(5)) / 2)
 
-   partl := []
+   partl := [];
 
    while i > 2 do {
-      push(partl, n := fib(ceil(log(i) * m)))
+      push(partl, n := fib(ceil(log(i) * m)));
       i -:= n
       }
 

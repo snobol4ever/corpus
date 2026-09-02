@@ -24,21 +24,21 @@ procedure plural(word)		#: produce plural of word
    static plural_map, plural_id, plural_s
 
    initial {
-      plural_map := table()
-      plural_map["mouse"] := "mice"
-      plural_map["louse"] := "lice"
-      plural_map["goose"] := "geese"
-      plural_map["datum"] := "data"
+      plural_map := table();
+      plural_map["mouse"] := "mice";
+      plural_map["louse"] := "lice";
+      plural_map["goose"] := "geese";
+      plural_map["datum"] := "data";
 
-      plural_id := set()
+      plural_id := set();
       every insert(plural_id,"chassis" | "fish" | "sheep" | "semantics")
 
-      plural_s := set()
+      plural_s := set();
       every insert(plural_s,"roman" | "norman" | "human" | "shaman" |
          "german" | "talisman" | "superhuman")
       }
    
-   lcword := map(word)
+   lcword := map(word);
 
    if member(plural_id,lcword) then return word
 

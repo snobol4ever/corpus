@@ -36,8 +36,8 @@ procedure main(arg)
    local farb
    local count
 
-   randomize()
-   count := integer(arg[1]) | 1
+   randomize();
+   count := integer(arg[1]) | 1;
 
    farb := [
       "A buck in the hand is worth two on the books.",
@@ -1074,7 +1074,7 @@ procedure main(arg)
       "You've always been the bone of human kindness.",
       "Your ass is going to be mud.",
       "Your wild oats have come home to roost."
-      ]
+      ];
    every write(|?farb) \ count
 
 end

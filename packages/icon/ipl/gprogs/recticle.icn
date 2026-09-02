@@ -50,27 +50,27 @@ global palette
 procedure main(args)
    local w, h, opts, name
 
-   opts := options(args, "w+h+p:g+b+m+n:i")
+   opts := options(args, "w+h+p:g+b+m+n:i");
 
-   w := \opts["w"] | 400
-   h := \opts["h"] | 250
-   palette := \opts["p"] | "c3"
-   PaletteChars(palette) | stop("*** invalid palette: ", palette)
-   gap := \opts["g"] | 3
-   bias := \opts["b"] | 20
-   name := \opts["n"] | "recticle"
-   minside := \opts["m"] | 10
+   w := \opts["w"] | 400;
+   h := \opts["h"] | 250;
+   palette := \opts["p"] | "c3";
+   PaletteChars(palette) | stop("*** invalid palette: ", palette);
+   gap := \opts["g"] | 3;
+   bias := \opts["b"] | 20;
+   name := \opts["n"] | "recticle";
+   minside := \opts["m"] | 10;
 
    WOpen("width=" || w, "height=" || h, "canvas=hidden") |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   randomize()
+   randomize();
 
-   rect(gap, gap, w - gap, h - gap)
+   rect(gap, gap, w - gap, h - gap);
 
    if \opts["i"] then WriteImage(name || ".gif")
 
-   WAttrib("canvas=normal")
+   WAttrib("canvas=normal");
 
    WDone()
 
@@ -85,15 +85,15 @@ procedure rect(x, y, w, h)
    initial colors := colrplte(palette)
 
    if d := divide(w < h) then {		# if cut horizontally:
-      rect(x, y, w, d)			#    draw top portion
+      rect(x, y, w, d);  #    draw top portion
       rect(x, y + d, w, h - d)		#    draw bottom portion
       }
    else if d := divide(w) then {	# if cut vertically:
-      rect(x, y, d, h)			#    draw left portion
+      rect(x, y, d, h);  #    draw left portion
       rect(x + d, y, w - d, h)		#    draw right portion
       }
    else {				# else draw single rect
-      Fg(?colors)	# set random color
+      Fg(?colors);  # set random color
       FillRectangle(x, y, w - gap, h - gap)	# draw
       }
 

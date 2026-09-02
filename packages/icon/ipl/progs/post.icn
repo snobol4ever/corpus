@@ -61,7 +61,7 @@ procedure main(arg)
             "\t-d distribution",
             "\t-f followup-to",
             "\t-p quote-prefix (default ` > ')",
-            "\t-  read article from stdin"]
+            "\t-  read article from stdin"];
 
 	# Site configuration.   Mode can be
 	#   "local" (post via inews),
@@ -72,28 +72,28 @@ procedure main(arg)
   	# Use generic_from to force a generic address instead
         #   of the hostname provided by system commands.
 
-  mode := "local"		
-  smarthost := ""
-  editor := "vi"
-  domain := ".UUCP"
-  default_distribution := "world" 
-  generic_from := &null
+  mode := "local";
+  smarthost := "";
+  editor := "vi";
+  domain := ".UUCP";
+  default_distribution := "world";
+  generic_from := &null;
 
 	# For UNIX, the rest of the configuration is automatic.
 
   if find("UNIX", &features) then {
-    console := "/dev/tty"
-    newslib := "/usr/lib/news/"
-    tz := "unix"
-    tmpdir := "/tmp/"
-    logname := pipe("logname")
+    console := "/dev/tty";
+    newslib := "/usr/lib/news/";
+    tz := "unix";
+    tmpdir := "/tmp/";
+    logname := pipe("logname");
     sysname := trim(pipe("hostname", "uname -n", "uuname -l"))
 	# BSD  passwd: `:fullname[,...]:'
 	# SysV passwd: `-fullname(' 
     \logname & every lookup("/etc/passwd") ? {
       =(logname) & {
 	every tab(upto(':')+1) \4 
-	fullname := (tab(upto('-')+1), tab(upto('(:'))) | tab(upto(',:'))
+	fullname := (tab(upto('-')+1), tab(upto('(:'))) | tab(upto(',:'));
 	break
       }	
     }
@@ -112,39 +112,39 @@ procedure main(arg)
         # sigfile := full path of file with user's email signature.
 
   else {
-    console := "CON"
-    newslib := ""
-    tmpdir := ""
-    logname := &null
-    tz := &null
-    fullname := &null 
-    sigfile := &null
+    console := "CON";
+    newslib := "";
+    tmpdir := "";
+    logname := &null;
+    tz := &null;
+    fullname := &null;
+    sigfile := &null;
     sysname := getenv("HOST") | &host
   }
 
 	# End of user configuration.
 
   (\logname & \sysname & \tz & (mode == "local" | *smarthost > 0)) |
-    stop("post: missing system information")
+    stop("post: missing system information");
   opts := options(arg, "n:s:d:f:p:h?") 
   \opts["h"] | \opts["?"] | arg[1] == "?" & { 
     every write(!usage)
     exit(-1) 
   }
-  org := getenv("ORGANIZATION") | lookup(newslib || "organization")
+  org := getenv("ORGANIZATION") | lookup(newslib || "organization");
   article := open(tmpfile := tempname(tmpdir), "w") | 
-    stop("post: cannot write temp file")
-  write(article, "Path: ",  sysname, "!", logname)
+    stop("post: cannot write temp file");
+  write(article, "Path: ",  sysname, "!", logname);
   writes(article, "From: ", logname, "@", \generic_from | sysname, domain)
-  \fullname & writes(article, " (", fullname, ")")
-  write(article)
+  \fullname & writes(article, " (", fullname, ")");
+  write(article);
 
 	# For a follow-up article, reply_headers() does the work. 
 
   if \arg[1] then {
     inf := (arg[1] == "-" & &input) | 
-      open(arg[1]) | (remove(tmpfile) & stop("post: cannot read " || arg[1]))
-    reply_headers(inf, article)
+      open(arg[1]) | (remove(tmpfile) & stop("post: cannot read " || arg[1]));
+    reply_headers(inf, article);
     every write(article, \opts["p"] | " > ", !inf)
     close(inf)
   }
@@ -154,22 +154,22 @@ procedure main(arg)
 
   else {
     write(article, "Newsgroups: ", 
-      validate(\opts["n"] | query("Newsgroups: "), "active"))
-    write(article, "Subject: ", \opts["s"] | query("Subject: "))
+      validate(\opts["n"] | query("Newsgroups: "), "active"));
+    write(article, "Subject: ", \opts["s"] | query("Subject: "));
     write(article, "Distribution: ", 
       validate(\opts["d"] | query("Distribution: ", default_distribution), 
-		   "distributions"))
+		   "distributions"));
     every write(article, req_headers())
     write(article, "\n")
   }
-  close(article)
-  edstr := (getenv("EDITOR") | editor) || " " || tmpfile || " < " || console
-  system(edstr)
+  close(article);
+  edstr := (getenv("EDITOR") | editor) || " " || tmpfile || " < " || console;
+  system(edstr);
   upto('nN', query("Are you sure you want to post this to Usenet y/n? ")) & {
     if upto('yY', query("Save your draft article y/n? ")) then 
       stop("Your article is saved in ", tmpfile)
     else {
-      remove(tmpfile)
+      remove(tmpfile);
       stop("Posting aborted.") 
     }
   }
@@ -178,8 +178,8 @@ procedure main(arg)
   if mode == "local" then mode := newslib || "inews -h"
   else {
     \sigfile & {
-      article := open(tmpfile, "a")
-      write(article, "--")  
+      article := open(tmpfile, "a");
+      write(article, "--");
       every write(article, lookup(sigfile))
     }
 	# To post via sendnews (mail), we prefix lines with 'N'.
@@ -187,17 +187,17 @@ procedure main(arg)
 
     case mode of {
       "mail": {
-             mode ||:= " " || smarthost || "!rnews" 
-	     outf := open(tmp2 := tempname(tmpdir), "w")
+             mode ||:= " " || smarthost || "!rnews";
+	     outf := open(tmp2 := tempname(tmpdir), "w");
 	     every write(outf, "N", lookup(tmpfile))
-	     remove(tmpfile)
+	     remove(tmpfile);
 	     rename(tmp2, tmpfile)
 	   }
       "uux": mode ||:= " - -r " || smarthost || "!rnews"
     }
   }
   mode ||:= " < " || tmpfile
-  (system(mode) = 0) & write("Article posted!")
+  (system(mode) = 0) & write("Article posted!");
   remove(tmpfile)
 end
 
@@ -214,39 +214,39 @@ procedure reply_headers(infile, art)
   every !infile ? {
     tab(match("from: " | "reply-to: ", map(&subject))) & {
       if find("<") then {
-	fullname := (trim(tab(upto('<'))) ~== "")
+	fullname := (trim(tab(upto('<'))) ~== "");
 	address := (move(1), tab(find(">")))
       }
       else {
-	address := trim(tab(upto('(') | 0))
+	address := trim(tab(upto('(') | 0));
 	fullname := (move(1), tab(find(")")))
       }
       quoter := (\fullname | address)
     }
-    tab(match("date: ", map(&subject))) & date := tab(0)
-    tab(match("message-id: ", map(&subject))) & id := tab(0)
-    tab(match("subject: ", map(&subject))) & subject := tab(0)
-    tab(match("distribution: ", map(&subject))) & distribution := tab(0)
+    tab(match("date: ", map(&subject))) & date := tab(0);
+    tab(match("message-id: ", map(&subject))) & id := tab(0);
+    tab(match("subject: ", map(&subject))) & subject := tab(0);
+    tab(match("distribution: ", map(&subject))) & distribution := tab(0);
     tab(match("newsgroups: " | "followup-to: ", map(&subject))) & 
-      group := tab(0)
+      group := tab(0);
     tab(match("references: ", map(&subject))) & refs := tab(0)
     (\quoter & *&subject = 0) & {
       find("poster", group) & {
-	write(quoter, " has requested followups by email.")
+	write(quoter, " has requested followups by email.");
 	upto('yY', query("Do you want to abort this posting y/n? ")) & {
-	  remove(tmpfile)
+	  remove(tmpfile);
 	  stop("Posting aborted.")
 	}
 	group := &null
       }
       write(art, "Newsgroups: ", \group | 
-	validate(\opts["n"] | query("Newsgroups: "), "active"))
+	validate(\opts["n"] | query("Newsgroups: "), "active"));
       write(art, "Subject: ", \opts["s"] | \subject | query("Subject: "))
       \distribution | distribution := validate(\opts["d"], "distributions") &
-        write(art, "Distribution: ", distribution)
-      write(art, "References: ", (\refs ||:= " ") | "", id)
+        write(art, "Distribution: ", distribution);
+      write(art, "References: ", (\refs ||:= " ") | "", id);
       every write(art, req_headers())
-      write(art, "In-reply-to: ", quoter, "'s message of ", date)
+      write(art, "In-reply-to: ", quoter, "'s message of ", date);
       write(art, "\nIn ", id, ", ", quoter, " writes:\n")
       return 
     }
@@ -262,23 +262,23 @@ procedure req_headers()
   local uniq, date, month, day, time, zone, year
 
   uniq := "<"
-  &date || &clock ? while tab(upto(&digits)) do uniq ||:= tab(many(&digits))
-  uniq ||:= "@" || sysname || domain || ">"
+  &date || &clock ? while tab(upto(&digits)) do uniq ||:= tab(many(&digits));
+  uniq ||:= "@" || sysname || domain || ">";
   if tz == "unix" then {
-    date := pipe("date -u", "date")
+    date := pipe("date -u", "date");
     date ? {
-     month := (tab(find(" ") + 1), tab(many(&letters)))
-     day := (tab(upto(&digits)), tab(many(&digits)))
-     time := (tab(upto(&digits++':')), tab(many(&digits++':')))
-     zone := (tab(upto(&ucase)), tab(many(&ucase)))
+     month := (tab(find(" ") + 1), tab(many(&letters)));
+     day := (tab(upto(&digits)), tab(many(&digits)));
+     time := (tab(upto(&digits++':')), tab(many(&digits++':')));
+     zone := (tab(upto(&ucase)), tab(many(&ucase)));
      year := (tab(upto(&digits)+ 2), tab(0))
     }
     date := day || " " || month || " " || year ||  " " || time || " " || zone
   }
   else {
     &dateline ? {
-      month := left((tab(find(" ")+1), tab(many(&letters))), 3) || " "
-      date := (tab(upto(&digits)), tab(many(&digits))) || " " || month
+      month := left((tab(find(" ")+1), tab(many(&letters))), 3) || " ";
+      date := (tab(upto(&digits)), tab(many(&digits))) || " " || month;
       date ||:= (tab(upto(&digits)), right(tab(many(&digits)), 2))
     }
     date ||:= " " || &clock || " " || tz
@@ -309,10 +309,10 @@ procedure pipe(cmd[])
 
   initial find("pipes" | "compiled", &features) | stop("No pipes.")
   while inf := open("(" || pop(cmd) || ") 2>&1", "pr") do {
-    got := []
+    got := [];
     every put(got, !inf)
     close(inf) = 0 & {
-      suspend !got 
+      suspend !got;
       break
     }
   }
@@ -324,7 +324,7 @@ procedure lookup(what)
   local inf
 
   inf := open(what, "r") | fail
-  suspend !inf 
+  suspend !inf;
   close(inf)
 end
 
@@ -337,7 +337,7 @@ procedure query(prompt, def)
   static stdin
 
   initial stdin := open(console)
-  writes(prompt)
+  writes(prompt);
   ans := read(stdin)
   return (*ans = 0 & \def) | ans
 end
@@ -350,17 +350,17 @@ end
 procedure validate(what, where)
   local valid, stuff, sf, a
 
-  mode ~== "local" & return what
-  valid := &letters ++ '.-' ++ &digits
-  stuff := []
-  what ? while tab(upto(valid)) do put(stuff,tab(many(valid))) 
+  mode ~== "local" & return what;
+  valid := &letters ++ '.-' ++ &digits;
+  stuff := [];
+  what ? while tab(upto(valid)) do put(stuff,tab(many(valid)));
   sf := open(newslib || where) | {
-    remove(tmpfile)
+    remove(tmpfile);
     stop("post: cannot open ", newslib || where)
   }
-  stuff := sort(stuff)
-  a := pop(stuff)
+  stuff := sort(stuff);
+  a := pop(stuff);
   every !sf ? match(a) & (a := pop(stuff)) | return what
-  remove(tmpfile)
+  remove(tmpfile);
   stop("`", a, "' is not in ", newslib || where)
 end

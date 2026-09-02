@@ -65,14 +65,14 @@ global VACANT, DOWN, UP			# status flag values
 procedure main(args)
    local i, j, e
 
-   initialize(args)
-   newgame()
+   initialize(args);
+   newgame();
    while e := Event() do {
       if e === QuitEvents() then
          break
       if e === (&lrelease | &mrelease | &rrelease) then {
-         i := (&y - margin + gap/2) / (cardh + gap)
-         j := (&x - margin + gap/2) / (cardw + gap)
+         i := (&y - margin + gap/2) / (cardh + gap);
+         j := (&x - margin + gap/2) / (cardw + gap);
          click(i, j)
          }
       }
@@ -83,20 +83,20 @@ end
 procedure initialize(args)
    local opts, ncards
 
-   cardw := 80
-   cardh := 124
-   VACANT := 0
-   DOWN := 1
-   UP := 2
+   cardw := 80;
+   cardh := 124;
+   VACANT := 0;
+   DOWN := 1;
+   UP := 2;
 
-   opts := options(args, winoptions())		# get command options
+   opts := options(args, winoptions());  # get command options
 
-   ncards := integer(args[1]) | 52		# get size of deck
-   ncards -:= ncards % 2			# ensure even
-   ncards <:= 2					# ensure at least 2 cards
-   ncards >:= 52				# ensure at most 52 cards
+   ncards := integer(args[1]) | 52;  # get size of deck
+   ncards -:= ncards % 2;  # ensure even
+   ncards <:= 2;  # ensure at least 2 cards
+   ncards >:= 52;  # ensure at most 52 cards
    deck :=
-      ("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ" ? move(ncards))
+      ("aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ" ? move(ncards));
 
    if ncards <= 10 then
       nrows := 2
@@ -108,16 +108,16 @@ procedure initialize(args)
       nrows := 5
    ncols := (ncards + nrows - 1) / nrows
 
-   /opts["M"] := 20
-   margin := opts["M"]
+   /opts["M"] := 20;
+   margin := opts["M"];
    gap := margin / 2
    /opts["W"] := ncols * cardw + (ncols - 1) * gap
    /opts["H"] := nrows * cardh + (nrows - 1) * gap
    /opts["B"] := "deep moderate green"
-   &window := optwindow(opts)
+   &window := optwindow(opts);
    if WAttrib("depth") = 1 then {
-      mono := Clone(&window, "fg=white", "bg=black", "fillstyle=textured")
-      Pattern(mono, "4,2,8,2,8")
+      mono := Clone(&window, "fg=white", "bg=black", "fillstyle=textured");
+      Pattern(mono, "4,2,8,2,8");
       FillRectangle(mono, 0, 0, 2 * margin + opts["W"], 2 * margin + opts["H"])
       }
    randomize()
@@ -129,9 +129,9 @@ end
 procedure newgame()
    local i, j, s
 
-   nleft := *deck
-   nup := 0
-   cd := []
+   nleft := *deck;
+   nup := 0;
+   cd := [];
    every put(cd, cdrec(!deck, DOWN))
    every i := *cd to 2 by -1 do
       cd[?i] :=: cd[i]
@@ -153,27 +153,27 @@ procedure click(i, j)
 
       0: {
          #  no cards are face up.  turn this one up.
-         c := cd[cardno(i, j)] | fail
+         c := cd[cardno(i, j)] | fail;
          if c.status = DOWN then {
-            setcard(i, j, c.label)
-            c.status := UP
-            nup := 1
+            setcard(i, j, c.label);
+            c.status := UP;
+            nup := 1;
             uprank := crank(c.label)
             }
          }
 
       1: {
          #  one is face up.  it might be the one clicked.
-         c := cd[cardno(i, j)] | fail
+         c := cd[cardno(i, j)] | fail;
          if c.status = UP then {
-            setcard(i, j, "-")
-            c.status := DOWN
+            setcard(i, j, "-");
+            c.status := DOWN;
             nup := 0
             }
          else if c.status = DOWN then {
-            setcard(i, j, c.label)
-            c.status := UP
-            nup := 2
+            setcard(i, j, c.label);
+            c.status := UP;
+            nup := 2;
             if uprank ~= crank(c.label) then
                uprank := &null
             }
@@ -187,12 +187,12 @@ procedure click(i, j)
                if c := cd[cardno(i, j)] then
                   if c.status = UP then {
                      if \uprank then {
-                        setcard(i, j, &null)
-                        c.status := VACANT
+                        setcard(i, j, &null);
+                        c.status := VACANT;
                         nleft -:= 1
                         }
                      else {
-                        setcard(i, j, "-")
+                        setcard(i, j, "-");
                         c.status := DOWN
                         }
                      nup -:= 1
@@ -203,8 +203,8 @@ procedure click(i, j)
             every i := 0 to nrows-1 do
                every j := 0 to ncols-1 do
                   if c := cd[cardno(i, j)] then {
-                     setcard(i, j, c.label)
-                     c.status := UP
+                     setcard(i, j, c.label);
+                     c.status := UP;
                      nup +:= 1
                      }
          }
@@ -220,8 +220,8 @@ end
 
 procedure setcard(i, j, c)
    local x, y
-   x := margin + j * (cardw + gap)
-   y := margin + i * (cardh + gap)
+   x := margin + j * (cardw + gap);
+   y := margin + i * (cardh + gap);
    drawcard(x, y, \c) |
       FillRectangle(\mono, x, y, cardw, cardh) |
       EraseArea(x, y, cardw, cardh)

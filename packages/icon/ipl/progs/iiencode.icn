@@ -73,15 +73,15 @@ procedure main ( a )
 
     # Parse arguments.
 
-    opt := options ( a, "-o:-x", Usage )
-    is_xx := opt [ "x" ]
-    out_filename := opt [ "o" ]
+    opt := options ( a, "-o:-x", Usage );
+    is_xx := opt [ "x" ];
+    out_filename := opt [ "o" ];
     case *a of {
     1 :
     	in_filename := remotename := a [ 1 ]
     2 :
 	{
-	in_filename := a [ 1 ]
+	in_filename := a [ 1 ];
 	remotename  := a [ 2 ]
 	}
     default :
@@ -107,9 +107,9 @@ procedure main ( a )
     # don't get fancy and change this unless you plan on keeping your
     # modified version on-site (or else modifying the code in such a
     # way as to avoid dependence on a specific operating system).
-    write ( out, "begin 644 ", remotename )
-    encode ( out, in, is_xx )
-    write ( out, "end" )
+    write ( out, "begin 644 ", remotename );
+    encode ( out, in, is_xx );
+    write ( out, "end" );
 
     every close ( ( &input ~=== in ) | ( &output ~=== out ) )
     exit ( 0 )
@@ -129,7 +129,7 @@ procedure Usage ( msg, Show, errcode )
 	remote-filename [-o output-filename]"
 
     /Show := stop
-    Show ( &errout, msg, "\n", usage )
+    Show ( &errout, msg, "\n", usage );
     exit ( \errcode )
     return msg
 end
@@ -197,12 +197,12 @@ procedure unpack ( s )
     local n, grp
 
     s ? {
-	s := ""
+	s := "";
 
 	while grp := ( move ( 3 ) | left ( "" ~== tab ( 0 ), 3 ) ) do
 	    {
-	    n := 0
-	    grp ? while n := ord ( move ( 1 ) ) + ( n * 16r100 )
+	    n := 0;
+	    grp ? while n := ord ( move ( 1 ) ) + ( n * 16r100 );
 
 	    s ||:=
 		char ( ishift ( iand ( n, 16rFC0000 ), -18 ) ) ||

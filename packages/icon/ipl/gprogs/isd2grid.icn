@@ -43,17 +43,17 @@ link xcode
 procedure main(args)
    local draft, win, opts
 
-   opts := options(args, "n:")
+   opts := options(args, "n:");
 
-   isd			# hands off, linker!
+   isd;  # hands off, linker!
 
-   draft := xdecode(&input) | stop("*** cannot decode draft")
+   draft := xdecode(&input) | stop("*** cannot decode draft");
 
-   draft.name := \opts["n"]
+   draft.name := \opts["n"];
 
-   win := plot(draft) | stop("*** plot() failed")
+   win := plot(draft) | stop("*** plot() failed");
 
-   WAttrib(win, "canvas=normal")
+   WAttrib(win, "canvas=normal");
 
    repeat case Event(win) of {		# process low-level user events
       !"qQ" :  exit()

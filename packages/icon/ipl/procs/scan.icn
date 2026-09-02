@@ -78,9 +78,9 @@ procedure slashbal(c1, c2, c3, s, i, j)	#: bal() with escapes
 
     /c1 := &cset
     /c2 := '('
-    /c3 := ')'
-    twocs := c2 ++ c3
-    allcs := c1 ++ c2 ++ c3 ++ '\\'
+    /c3 := ')';
+    twocs := c2 ++ c3;
+    allcs := c1 ++ c2 ++ c3 ++ '\\';
 
     if /s := &subject
     then default_val := &pos
@@ -97,12 +97,12 @@ procedure slashbal(c1, c2, c3, s, i, j)	#: bal() with escapes
     }
     else j := *s + 1
 
-    count := 0; POS := i - 1
+    count := 0; POS := i - 1;
     s[i:j] ? {
 	while tab(upto(allcs)) do {
-	    chr := move(1)
+	    chr := move(1);
 	    if chr == "\\" & any(twocs) then {
-		chr2 := move(1)
+		chr2 := move(1);
 		if any(c1, chr) & count = 0 then
 		    suspend POS + .&pos - 2
 		if any(c1, chr2) & count = 0 then
@@ -168,9 +168,9 @@ procedure slshupto(c, s, i, j)		#: upto() with escapes
     /j := *s + 1
     
     /c := &cset
-    c2 := '\\' ++ c
+    c2 := '\\' ++ c;
     s[1:j] ? {
-        tab(i)
+        tab(i);
         while tab(upto(c2)) do {
             if ="\\" then {
 		move(1) | {
@@ -179,7 +179,7 @@ procedure slshupto(c, s, i, j)		#: upto() with escapes
 		}
 		next
 	    }
-            suspend .&pos
+            suspend .&pos;
             move(1)
         }
     }
@@ -265,36 +265,36 @@ procedure snapshot(title,len)		#: snapshot of string scanning
    local bar1, bar2, bar3, is, is0, prefix, titlel, placement, POS
 
    /title := ""			# no meaningful default
-   \len <:= 20			# any less is really not useful
-   prefix := "&subject = "
-   is := image(&subject)
-   is0 := *image(&subject[1:&pos]) | fail
+   \len <:= 20;  # any less is really not useful
+   prefix := "&subject = ";
+   is := image(&subject);
+   is0 := *image(&subject[1:&pos]) | fail;
 
    #
    # Set up top and bottom bars (not exceeding len width, if
    # len is nonnull).  Fit title into top bar (bar1).
    #
-   bar1 := bar3 := repl("-", *is + *prefix + 4)[1:\len-4|0]
+   bar1 := bar3 := repl("-", *is + *prefix + 4)[1:\len-4|0];
    # in *is + *prefix + 4, the 4 is for two vbars/two spaces
-   titlel := (*title > *bar3-4) | *title[1:\len-4|0]
-   bar1 ?:= move(3) || (tab(4+titlel), title) || tab(0)
+   titlel := (*title > *bar3-4) | *title[1:\len-4|0];
+   bar1 ?:= move(3) || (tab(4+titlel), title) || tab(0);
 
    #
    # Write bar1, then spacers (bar2).  Then write out len-size chunks
    # of &subject, with the | pointer-line, where appropriate. Finally,
    # write out bar3 (like bar1, but with no title).
    #
-   write(bar1)
-   bar2 := "|" || repl(" ", *bar3 - 2) || "|"
-   write(bar2, "\n", bar2)
+   write(bar1);
+   bar2 := "|" || repl(" ", *bar3 - 2) || "|";
+   write(bar2, "\n", bar2);
    placement := *prefix + is0
    (prefix || is) ? {
        until pos(0) do {
-	   POS := &pos - 1
-	   write("| ", move(*bar3-4) | left(tab(0), *bar3-4), " |")
+	   POS := &pos - 1;
+	   write("| ", move(*bar3-4) | left(tab(0), *bar3-4), " |");
 	   if POS < placement < &pos then {
-	       writes("| ")
-	       writes(left(repl(" ", placement - POS - 1) || "|", *bar3-4))
+	       writes("| ");
+	       writes(left(repl(" ", placement - POS - 1) || "|", *bar3-4));
 	       write(" |\n", bar2)
 	   }
 	   else write(bar2, "\n", bar2)
@@ -356,10 +356,10 @@ if /s := &subject then /i1 := &pos
 /cescape := '\\'                                      # escape characters
 
 
-pcount := 0                                           # "parenthesis" counter
-spos   := i1                                          # scanning position
+pcount := 0;  # "parenthesis" counter
+spos   := i1;  # scanning position
 
-ca := cstop ++ copen ++ cclose ++ cquote ++ cescape   # characters to check
+ca := cstop ++ copen ++ cclose ++ cquote ++ cescape;  # characters to check
 
 while sp := s[ spos := upto( ca, s, spos, i2 ) ] do { 
       
@@ -408,21 +408,21 @@ if /s := &subject then /i1 := &pos
 /cescape := '\\'                                      # escape characters
 
 if /scm & /ecm then {
-   scm := "/*"                                        # start of comment
+   scm := "/*";  # start of comment
    ecm := "*/"                                        # end of comment
    }
 else 
    if \scm & /ecm then 
       ecm := &null                                    # icon style comment
 
-ccom := ''
-ccom ++:= cset(\scm[1])
-ccom ++:= cset(\ecm[1])
+ccom := '';
+ccom ++:= cset(\scm[1]);
+ccom ++:= cset(\ecm[1]);
 
-pcount := 0                                           # "parenthesis" counter
-spos   := i1                                          # scanning position
+pcount := 0;  # "parenthesis" counter
+spos   := i1;  # scanning position
 
-ca := cstop ++ copen ++ cclose ++ cquote ++ cescape ++ ccom # chars to check
+ca := cstop ++ copen ++ cclose ++ cquote ++ cescape ++ ccom;  # chars to check
 
 while sp := s[ spos := upto( ca, s, spos, i2 ) ] do { 
       
@@ -456,7 +456,7 @@ while sp := s[ spos := upto( ca, s, spos, i2 ) ] do {
                            }
                         else
                            if \ecm == s[ spos +: *ecm ] then {
-                              spos +:= *ecm - 1
+                              spos +:= *ecm - 1;
                               comnt := &null
                               }
                               
@@ -497,12 +497,12 @@ procedure limatch(l,i)			#: matching items in list
 
 local s, f, p
 
-p := &pos
+p := &pos;
 every ( s := !l ) | ( return p ) do
 {
    if /f := 1 then tab(find(s))        #  startup - position at first string
-   tab(match(s)) | fail                #  fail if not matched
-   tab(many(i) | &pos)                 #  skip ignore chars. if any
+   tab(match(s)) | fail;  #  fail if not matched
+   tab(many(i) | &pos);  #  skip ignore chars. if any
    p := &pos                           #  remember last position
 }
 end

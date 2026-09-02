@@ -63,17 +63,17 @@ global score
 global pixels
 
 procedure prepare_vars()
-  actions := table()
-  actions[Key_Down]  := ["v", +1]
-  actions[Key_Up]    := ["v", -1]
-  actions[Key_Right] := ["h", +1]
-  actions[Key_Left]  := ["h", -1]
+  actions := table();
+  actions[Key_Down]  := ["v", +1];
+  actions[Key_Up]    := ["v", -1];
+  actions[Key_Right] := ["h", +1];
+  actions[Key_Left]  := ["h", -1];
   every actions["q" | "Q" | "\e"] := "quit"
-  set_direction(["h", +1])
-  x := 150
-  y := 90
-  score := 0
-  pixels := table()
+  set_direction(["h", +1]);
+  x := 150;
+  y := 90;
+  score := 0;
+  pixels := table();
   every pixels[0 to 199] := table(0)
 end
 
@@ -84,8 +84,8 @@ procedure set_color(n)
 end
 
 procedure pset(x, y, color)
-  set_color(color)
-  pixels[y][x] := color
+  set_color(color);
+  pixels[y][x] := color;
   FillRectangle(x*2, y*2, 2, 2)
 end
 
@@ -95,8 +95,8 @@ end
 
 procedure draw_red_square()
   local x, y
-  x := ?316
-  y := ?188
+  x := ?316;
+  y := ?188;
   every pset(x to x+2, y to y+2, 1)
 end
 
@@ -109,7 +109,7 @@ procedure ignored_turn(newdirection)
 end
 
 procedure set_direction(newdirection)
-  direction := newdirection
+  direction := newdirection;
   if direction[1] == "h" then {
     dx := direction[2]; dy := 0
   } else {
@@ -120,9 +120,9 @@ end
 procedure process_events()
   local e, action
   while *Pending() > 0 do {
-    e := Event()
+    e := Event();
     # w(e)
-    action := actions[e]
+    action := actions[e];
     if is_direction(action) then {
       if not ignored_turn(action) then {
         set_direction(action)
@@ -143,32 +143,32 @@ procedure prepare_walls()
 end
 
 procedure draw_score()
-  GotoXY(6, 396)
-  set_color(3)
+  GotoXY(6, 396);
+  set_color(3);
   WWrites("Score: " || score)
 end
 
 procedure play()
-  prepare_vars()
-  set_color(0)
-  FillRectangle(0, 0, 640, 400)
-  prepare_walls()
-  pset(x, y, 3)
-  draw_red_square()
-  draw_score()
+  prepare_vars();
+  set_color(0);
+  FillRectangle(0, 0, 640, 400);
+  prepare_walls();
+  pset(x, y, 3);
+  draw_red_square();
+  draw_score();
 
-  WDelay(1000)
+  WDelay(1000);
 
   while process_events() do {
-    x +:= dx
-    y +:= dy
+    x +:= dx;
+    y +:= dy;
     if point(x, y) == 3 then break
     if point(x, y) == 1 then {
-      draw_red_square(); score +:= 1; draw_score()
-      pset(x, y, 3)
+      draw_red_square(); score +:= 1; draw_score();
+      pset(x, y, 3);
       WDelay(50)
     }
-    pset(x, y, 3)
+    pset(x, y, 3);
     WDelay(50)
   }
 end
@@ -177,12 +177,12 @@ procedure main(args)
   local e
 
   # w(actions)
-  WOpen("size=640,400", "fg=yellow", "bg=black")
-  WAttrib("font=Helvetica,12,bold")
+  WOpen("size=640,400", "fg=yellow", "bg=black");
+  WAttrib("font=Helvetica,12,bold");
 
-  randomize()
+  randomize();
   while 1 do {
-    play()
+    play();
     while e := Event() do {
       if e === ("q" | "Q" | "\e") then return
       if e === ("p" | "P" | " " | "\r" | "\n") then break

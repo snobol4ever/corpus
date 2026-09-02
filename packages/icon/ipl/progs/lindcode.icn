@@ -36,14 +36,14 @@ procedure main(args)
    local allchar, rchar, line, prefix, symbol, rhs, file, name, spec
    local value, c, opts, expand
 
-   opts := options(args, "e")
-   expand := opts["e"]
-   write("   linden := table()\n")
+   opts := options(args, "e");
+   expand := opts["e"];
+   write("   linden := table()\n");
 
    while line := read() do {
       line ? {
          if ="name:" then {
-            name := tab(0)
+            name := tab(0);
             break
             }
          }
@@ -51,33 +51,33 @@ procedure main(args)
 
    repeat {
 
-      allchar := rchar := ''
+      allchar := rchar := '';
 
-      prefix := "   linden[" || image(name) || "]"
+      prefix := "   linden[" || image(name) || "]";
    
-      write(prefix, " := lsys_0l(\"\", table(), 0, 90)")
+      write(prefix, " := lsys_0l(\"\", table(), 0, 90)");
    
       while line := read() | exit() do
          line ? {
             if symbol := move(1) & ="->" then {
-               rchar ++:= symbol
-               rhs := tab(0)
-               write(prefix, ".rewrite[\"", symbol, "\"] := ", image(rhs))
+               rchar ++:= symbol;
+               rhs := tab(0);
+               write(prefix, ".rewrite[\"", symbol, "\"] := ", image(rhs));
                allchar ++:= rhs
                }
          else if spec := tab(upto(':')) then {
-            move(1)
-            value := tab(0)
+            move(1);
+            value := tab(0);
             case spec of {
                "axiom":  {
-                  allchar ++:= value
+                  allchar ++:= value;
                   write(prefix, ".axiom := ", image(value))
                   }
                "gener":  write(prefix, ".gener := ", integer(value))
                "angle":  write(prefix, ".angle := ", real(value))
                "length":  write(prefix, ".length := ", integer(value))
                "name":   {
-                   name := value
+                   name := value;
                    break
                    }
                }
@@ -86,7 +86,7 @@ procedure main(args)
          }
 
       if \expand then {
-         allchar --:= rchar
+         allchar --:= rchar;
          every c := image(!allchar) do
             write(prefix, ".rewrite[", c, "] := ", c)
          }

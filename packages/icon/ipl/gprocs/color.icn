@@ -114,7 +114,7 @@ procedure Blend(args[])			#: generate sequence of colors
 
    initial type := proc("type", 0)	# protect attractive name
 
-   n := 4
+   n := 4;
    if type(args[1]) == "window" then
       win := get(args)
    else
@@ -124,25 +124,25 @@ procedure Blend(args[])			#: generate sequence of colors
       if integer(a) >= 0 then
          n := integer(a)
       else {
-         s := ColorValue(win, a) | fail
+         s := ColorValue(win, a) | fail;
          s ? {
-            r2 := tab(many(&digits));  move(1)
-            g2 := tab(many(&digits));  move(1)
+            r2 := tab(many(&digits));  move(1);
+            g2 := tab(many(&digits));  move(1);
             b2 := tab(many(&digits))
             }
          if /r1 then
             suspend s
          else
             every i := 1 to n do {
-               f2 := real(i) / real(n)
-               f1 := 1.0 - f2
-               r3 := integer(f1 * r1 + f2 * r2)
-               g3 := integer(f1 * g1 + f2 * g2)
+               f2 := real(i) / real(n);
+               f1 := 1.0 - f2;
+               r3 := integer(f1 * r1 + f2 * r2);
+               g3 := integer(f1 * g1 + f2 * g2);
                b3 := integer(f1 * b1 + f2 * b2)
                suspend r3 || "," || g3 || "," || b3
                }
-         r1 := r2
-         g1 := g2
+         r1 := r2;
+         g1 := g2;
          b1 := b2
          }
 end
@@ -153,7 +153,7 @@ end
 procedure Contrast(win, color)		#: choose contrasting color
    static l, type
    initial {
-      l := ["white", "black"]
+      l := ["white", "black"];
       type := proc("type", 0)	# protect attractive name
       }
        
@@ -171,12 +171,12 @@ procedure Shade(win, color)		#: dither shade using pattern
    static dmat, env, type
 
    initial {
-      env := ("" ~== map(getenv("XSHADE")))
+      env := ("" ~== map(getenv("XSHADE")));
       type := proc("type", 0)	# protect attractive name
       }
 
    if type(win) ~== "window" then {
-      color := win
+      color := win;
       win := &window
       }
    if WAttrib(win, "depth") ~== "1" & /env then {
@@ -184,11 +184,11 @@ procedure Shade(win, color)		#: dither shade using pattern
       return win
       }
    (ColorValue(win, color) | fail) ? {
-      r := tab(many(&digits));  move(1)
-      g := tab(many(&digits));  move(1)
+      r := tab(many(&digits));  move(1);
+      g := tab(many(&digits));  move(1);
       b := tab(many(&digits))
       }
-   g := integer(0.30 * r + 0.59 * g + 0.11 * b)
+   g := integer(0.30 * r + 0.59 * g + 0.11 * b);
 
    if \env == ("gray" | "grey") then {
       Fg(win, g || "," || g || "," || g)
@@ -213,9 +213,9 @@ procedure Shade(win, color)		#: dither shade using pattern
       "4,8,0,1,0",
       "4,8,0,0,0",
       "4,0,0,0,0",
-      ]
-   WAttrib(win, "fillstyle=textured")
-   g := g / 3856 + 1
+      ];
+   WAttrib(win, "fillstyle=textured");
+   g := g / 3856 + 1;
    Pattern(win, dmat[g])
    return win
 end
@@ -233,10 +233,10 @@ procedure RandomColor(win, palette)	#: choose random color
       palette:= win			# window allowed but ignored
    /palette := "c6"
 
-   s := PaletteChars(palette)
+   s := PaletteChars(palette);
    palette ?
       if ="c" & any('23456') then {
-         n := integer(move(1))
+         n := integer(move(1));
          s := s[1 +: n * n * n]
          }
    return PaletteColor(palette, ?s)
@@ -253,7 +253,7 @@ procedure PaletteGrays(win, palette)	#: grayscale entries from palette
    if (type(win) ~== "window") then
       palette := win				# window not needed
 
-   palette := string(palette) | runerr(103, palette)
+   palette := string(palette) | runerr(103, palette);
 
    if palette ? ="g" then
       return PaletteChars(palette)
@@ -280,8 +280,8 @@ procedure RGBKey(win, palette, r, g, b)	#: return palette key for color
    initial type := proc("type", 0)	# protect attractive name
    if type(win) ~== "window" then	# allow unused window argument
       win :=: palette :=: r :=: g :=: b
-   r := integer(r * 65535.99)
-   g := integer(g * 65535.99)
+   r := integer(r * 65535.99);
+   g := integer(g * 65535.99);
    b := integer(b * 65535.99)
    return PaletteKey(palette, r || "," || g || "," || b)
 end
@@ -302,15 +302,15 @@ procedure HSVKey(win, palette, h, s, v)	#: nearest key from HSV specification
    if s = 0.0 then			# achromatic case
       return RGBKey(palette, v, v, v)
 
-   h *:= 6.0				# hue [0.0 - 6.0)
+   h *:= 6.0;  # hue [0.0 - 6.0)
    if h >= 6.0 then
       h := 0.0
 
-   i := integer(h)
-   f := h - i
-   p := v * (1.0 - s)
-   q := v * (1.0 - f * s)
-   t := v * (1.0 - (1.0 - f) * s)
+   i := integer(h);
+   f := h - i;
+   p := v * (1.0 - s);
+   q := v * (1.0 - f * s);
+   t := v * (1.0 - (1.0 - f) * s);
 
    case i of {
       0: { r := v;  g := t;  b := p }	# red - yellow
@@ -337,18 +337,18 @@ procedure HSV(k)			#: HSV interpretation of color
    local r, g, b, h, s, v, min, max, d
 
    (ColorValue(k) | fail) ? {
-      r := tab(many(&digits)) / 65535.0
-      move(1)
-      g := tab(many(&digits)) / 65535.0
-      move(1)
+      r := tab(many(&digits)) / 65535.0;
+      move(1);
+      g := tab(many(&digits)) / 65535.0;
+      move(1);
       b := tab(many(&digits)) / 65535.0
       }
 
-   min := r;  min >:= g;  min >:= b		# minimum
-   max := r;  max <:= g;  max <:= b		# maximum
-   d := max - min				# difference
+   min := r;  min >:= g;  min >:= b;  # minimum
+   max := r;  max <:= g;  max <:= b;  # maximum
+   d := max - min;  # difference
 
-   v := max					# value is max of all values
+   v := max;  # value is max of all values
    if max > 0 then
       s := d / max				# saturation is (max-min)/max
    else
@@ -383,10 +383,10 @@ procedure HSVValue(hsv)			#: color value of HSV specification
 
    hsv ? {
       h := tab(many(&digits)) / 360.0 | fail
-      ="/" | fail
+      ="/" | fail;
       s := tab(many(&digits)) / 100.0 | fail
-      ="/" | fail
-      v := tab(many(&digits)) / 100.0 | fail
+      ="/" | fail;
+      v := tab(many(&digits)) / 100.0 | fail;
       pos(0) | fail
       }
    if (h | s | v) > 1 then fail
@@ -396,15 +396,15 @@ procedure HSVValue(hsv)			#: color value of HSV specification
       return v || "," || v || "," || v
       }
 
-   h *:= 6.0				# hue [0.0 - 6.0)
+   h *:= 6.0;  # hue [0.0 - 6.0)
    if h >= 6.0 then
       h := 0.0
 
-   i := integer(h)
-   f := h - i
-   p := v * (1.0 - s)
-   q := v * (1.0 - f * s)
-   t := v * (1.0 - (1.0 - f) * s)
+   i := integer(h);
+   f := h - i;
+   p := v * (1.0 - s);
+   q := v * (1.0 - f * s);
+   t := v * (1.0 - (1.0 - f) * s);
 
    case i of {
       0: { r := v;  g := t;  b := p }	# red - yellow
@@ -432,18 +432,18 @@ procedure HLS(k)			#: HLS interpretation of color
    local r, g, b, h, l, s, min, max, delta
 
    (ColorValue(k) | fail) ? {
-      r := tab(many(&digits)) / 65535.0
-      move(1)
-      g := tab(many(&digits)) / 65535.0
-      move(1)
+      r := tab(many(&digits)) / 65535.0;
+      move(1);
+      g := tab(many(&digits)) / 65535.0;
+      move(1);
       b := tab(many(&digits)) / 65535.0
       }
 
-   min := r;  min >:= g;  min >:= b	# minimum
-   max := r;  max <:= g;  max <:= b	# maximum
-   delta := max - min			# difference
+   min := r;  min >:= g;  min >:= b;  # minimum
+   max := r;  max <:= g;  max <:= b;  # maximum
+   delta := max - min;  # difference
 
-   l := (max + min) / 2			# lightness
+   l := (max + min) / 2;  # lightness
 
    if max = min then 
       h := s := 0			# achromatic
@@ -483,10 +483,10 @@ procedure HLSValue(hls)			#: color value of HLS specification
 
    hls ? {
       h := tab(many(&digits)) / 360.0 | fail
-      =":" | fail
+      =":" | fail;
       l := tab(many(&digits)) / 100.0 | fail
-      =":" | fail
-      s := tab(many(&digits)) / 100.0 | fail
+      =":" | fail;
+      s := tab(many(&digits)) / 100.0 | fail;
       pos(0) | fail
       }
    if (h | l | s) > 1 then fail
@@ -495,13 +495,13 @@ procedure HLSValue(hls)			#: color value of HLS specification
       m2 := l * (1 + s)
    else
       m2 := l + s - (l * s)
-   m1 := 2 * l - m2
+   m1 := 2 * l - m2;
 
    if s = 0.0 then
       r := g := b := l			# achromatic
    else {
-      r := hls_rgb_val(m1, m2, h + 0.3333333)
-      g := hls_rgb_val(m1, m2, h)
+      r := hls_rgb_val(m1, m2, h + 0.3333333);
+      g := hls_rgb_val(m1, m2, h);
       b := hls_rgb_val(m1, m2, h - 0.3333333)
       }
 
@@ -510,7 +510,7 @@ procedure HLSValue(hls)			#: color value of HLS specification
 end
 
 procedure hls_rgb_val(n1, n2, hue)	# helper function for HLSValue
-   hue *:= 6
+   hue *:= 6;
    if hue >= 6 then
       hue -:= 6
    else if hue < 0 then

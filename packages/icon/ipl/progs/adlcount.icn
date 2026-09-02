@@ -28,9 +28,9 @@
 procedure main(arg)
    local s, count
 
-   s := cset(arg[1]) | &cset
+   s := cset(arg[1]) | &cset;
 
-   count := 0
+   count := 0;
    every !&input ? {
       any('#') & upto(s) \ 1
       } do

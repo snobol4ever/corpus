@@ -57,8 +57,8 @@ procedure main(a)
     # directories listed in libdirs are added any directories found in
     # the ILIBS environment variable.
 
-    proc_table := table()
-    too_many_table := table()
+    proc_table := table();
+    too_many_table := table();
 
     # Put all command-line option paths, and ILIBS paths, into one sorted
     # list.  Then get the names of all .icn filenames in those paths.
@@ -70,7 +70,7 @@ procedure main(a)
 	else {
 	    # Find all procedure calls in lib_file.
 	    every elem := !get_procedures(lib_file,fname) do {
-		/proc_table[elem.name] := set()
+		/proc_table[elem.name] := set();
 		insert(proc_table[elem.name],elem)
 	    }
 	    close(lib_file)
@@ -79,7 +79,7 @@ procedure main(a)
 
     every elem := key(proc_table) do {
 	if *proc_table[elem] > 1 then {
-	    write("\"", elem, "\" is defined in ",*proc_table[elem]," places:")
+	    write("\"", elem, "\" is defined in ",*proc_table[elem]," places:");
 	    every tmp := !proc_table[elem] do {
 		write("     ",tmp.file, ", line ",tmp.lineno)
 	    }
@@ -110,7 +110,7 @@ procedure getlibpaths(ipl_paths)
     # ipl_paths.  Spaces - NOT COLONS - are used as separators.
     getenv("ILIBS") ? {
 	while path := tab(find(" ")) do {
-	    insert(ipl_paths, fixup_path(path))
+	    insert(ipl_paths, fixup_path(path));
 	    tab(many(' '))
 	}
     insert(ipl_paths, fixup_path(tab(0)))
@@ -142,8 +142,8 @@ procedure get_procedures(intext,fname)
     }
 
     # Initialize procedure-name list, line count.
-    psl := list()
-    line_no := 0
+    psl := list();
+    line_no := 0;
 
     # Find procedure declarations in intext.
     while line := read(intext) & line_no +:= 1 do {
@@ -173,12 +173,12 @@ procedure take_out_comments(s)
     local i, j, c, c2, s2
 
     s ? {
-	tab(many(' \t'))
-	pos(0) & fail
-        find("#") | (return trim(tab(0),' \t'))
+	tab(many(' \t'));
+	pos(0) & fail;
+        find("#") | (return trim(tab(0),' \t'));
 	match("#") & fail
 	(s2 <- tab(find("#"))) ? {
-	    c2 := &null
+	    c2 := &null;
 	    while tab(upto('\\"\'')) do {
 		case c := move(1) of {
 		    "\\"   : {
@@ -212,7 +212,7 @@ procedure get_icn_filenames(lib_paths)
     static get_dir
     initial get_dir := set_getdir_by_os()
 
-    procedure_stat_list := list()
+    procedure_stat_list := list();
     # Run through every possible path in which files might be found,
     # and get a list of procedures contained in those files.
     every procedure_stat_list |||:= get_dir(!lib_paths)
@@ -257,30 +257,30 @@ procedure msdos_get_dir(dir)
 
     # Get name of tempfile to be used.
     temp_name := get_dos_tempname(temp_dir) |
-	stop("No more available tempfile names!")
+	stop("No more available tempfile names!");
 
     # Make sure we have an unambiguous directory name, with backslashes
     # instead of UNIX-like forward slashes.
-    dir := trim(map(dir, "/", "\\"), '\\') || "\\"
+    dir := trim(map(dir, "/", "\\"), '\\') || "\\";
 
     # Put dir listing into a temp file.
-    system("dir "||dir||" > "||temp_name)
+    system("dir "||dir||" > "||temp_name);
 
     # Put tempfile entries into a list, removing blank- and
     # space-initial lines.  Exclude directories (i.e. return file
     # names only).
     in_dir := open(temp_name,"r") |
-	stop("Can't open temp file in directory ",temp_dir,".")
-    filename_list := list()
+	stop("Can't open temp file in directory ",temp_dir,".");
+    filename_list := list();
     every filename := ("" ~== !in_dir) do {
-        match(" ",filename) | find(" <DIR>", filename) & next
-	filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ')
+        match(" ",filename) | find(" <DIR>", filename) & next;
+	filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ');
 	if filename ? (tab(find(".ICN")+4), pos(0))
 	then put(filename_list, map(dir || filename))
     }
 
     # Clean up.
-    close(in_dir) & remove(temp_name)
+    close(in_dir) & remove(temp_name);
 
     # Check to be sure we actually managed to read some files.
     if *filename_list = 0 then fail
@@ -309,15 +309,15 @@ end
 procedure unix_get_dir(dir)
    local filename_list, in_dir, filename
 
-    dir := trim(dir, '/') || "/"
-    filename_list := list()
-    in_dir := open("/bin/ls -F "||dir, "pr")
+    dir := trim(dir, '/') || "/";
+    filename_list := list();
+    in_dir := open("/bin/ls -F "||dir, "pr");
     every filename := ("" ~== !in_dir) do {
-	match("/",filename,*filename) & next
+	match("/",filename,*filename) & next;
 	if filename ? (not match("s."), tab(find(".icn")+4), pos(0))
 	then put(filename_list, trim(dir || filename, '*'))
     }
-    close(in_dir)
+    close(in_dir);
 
     if *filename_list = 0 then fail
     else return filename_list

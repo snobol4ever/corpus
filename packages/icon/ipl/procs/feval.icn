@@ -36,16 +36,16 @@ procedure feval(s)
 
    s ? {
       fnc := tab(upto('(')) | {
-         write(&errout, "*** syntax error")
+         write(&errout, "*** syntax error");
          fail
          }
       fnc := proc(fnc, 3 to 1 by -1) | {
-         write(&errout, "*** invalid function or operation")
+         write(&errout, "*** invalid function or operation");
          fail
          }
-      move(1)
+      move(1);
 
-      argl := []
+      argl := [];
       while put(argl, ivalue(tab(upto(',)')))) do move(1)
 
       suspend fnc ! argl

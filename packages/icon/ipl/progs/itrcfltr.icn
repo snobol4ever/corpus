@@ -49,9 +49,9 @@ $define CountWidth 10
 procedure main(args)
    local line, name, selected, opts
 
-   opts := options(args, "a")
+   opts := options(args, "a");
    
-   selected := set(args)
+   selected := set(args);
 
    if (*selected = 0) | \opts["a"] then		# if -a or no names produce all
       every write(itrcline(&input))
@@ -59,8 +59,8 @@ procedure main(args)
       every line := itrcline(&input) do {
          line ? {
             move(21) | break			# line after trace output?
-            tab(many('| '))			# depth bars
-            name := tab(upto('( '))		# procedure name
+            tab(many('| '));  # depth bars
+            name := tab(upto('( '));  # procedure name
             if member(selected, name) then write(line)
             }
          }

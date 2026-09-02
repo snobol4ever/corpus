@@ -36,9 +36,9 @@ link options
 procedure main(args)
    local name, input, output, line, opts
 
-   opts := options(args, "f")
+   opts := options(args, "f");
 
-   name := (args[1] | "foo")
+   name := (args[1] | "foo");
    if (*name < 4) | (name[-4:0] ~== ".icn") then name ||:= ".icn"
 
    if system("cp " || name || " " || name || ".bak >/dev/null") ~= 0 then {
@@ -46,9 +46,9 @@ procedure main(args)
       exit()
       }
 
-   input := open(name || ".bak") | stop("*** cannot open backup file")
+   input := open(name || ".bak") | stop("*** cannot open backup file");
 
-   output := open(name, "w") | stop("*** cannot open ", name, " for writing")
+   output := open(name, "w") | stop("*** cannot open ", name, " for writing");
 
    repeat {				# to provide a way out ...
       every 1 to 8 do write(output, read(input)) | break
@@ -61,7 +61,7 @@ procedure main(args)
 
    while write(output, read(input))
 
-   close(output)
+   close(output);
 
    if /opts["f"] then system("vi " || name)
 

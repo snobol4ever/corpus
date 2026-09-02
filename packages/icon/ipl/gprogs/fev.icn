@@ -39,19 +39,19 @@ link xcompat
 
 procedure main(av)
    local slope, fin, win, L, ht, focus, focuswidth, e, base
-   slope := 2
+   slope := 2;
    if av[1] == "-s" then slope := (pop(av), pop(av))
-   fin := open(av[1]) | stop("no file")
-   win := WOpen("label=" || av[1], "height=860") | stop("no window")
-   L := []
+   fin := open(av[1]) | stop("no file");
+   win := WOpen("label=" || av[1], "height=860") | stop("no window");
+   L := [];
    every put(L,!fin)
-   write(*L," lines")
-   ht := 23
-   focus := *L/2
-   focuswidth := 1
-   fisheye(win,L,focus,ht,slope,,,focuswidth)
+   write(*L," lines");
+   ht := 23;
+   focus := *L/2;
+   focuswidth := 1;
+   fisheye(win,L,focus,ht,slope,,,focuswidth);
    repeat {
-      e := Event(win)
+      e := Event(win);
       case e of {
 	 "q"|"\e": exit(0)
 	 "n" : focus := *L >= focus+1

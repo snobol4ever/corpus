@@ -45,10 +45,10 @@ invocable all
 global line, count
 
 procedure main()
-   expr1()
-   expr2()
-   expr3()
-   expr4(1,2)
+   expr1();
+   expr2();
+   expr3();
+   expr4(1,2);
    expr4{1,2}
    expr5(1,2,3,4)
 end

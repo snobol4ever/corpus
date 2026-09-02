@@ -29,10 +29,10 @@ procedure main(args)
 
    case map(args[1]) | stop("Usage: icvt -a | -e") of {
        "-a" : {
-	   lbrace := "$("; nlbrace := "{"
-	   rbrace := "$)"; nrbrace := "}"
-	   lbrack := "$<"; nlbrack := "["
-	   rbrack := "$>"; nrbrack := "]"
+	   lbrace := "$("; nlbrace := "{";
+	   rbrace := "$)"; nrbrace := "}";
+	   lbrack := "$<"; nlbrack := "[";
+	   rbrack := "$>"; nrbrack := "]";
 	   bb := '$'
 	   }
        "-e" : {
@@ -46,10 +46,10 @@ procedure main(args)
 	   stop("Usage: icvt -a | -e")
        }
 
-   process := standard
+   process := standard;
 
    while line := read() do {
-       line ||:= "\n"
+       line ||:= "\n";
        line ? while not pos(0) do
 	   process()
        }
@@ -57,30 +57,30 @@ procedure main(args)
 end
 
 procedure standard()
-   writes(tab(upto( '"\'#' ++ bb))) | (writes(tab(0)) & return)
+   writes(tab(upto( '"\'#' ++ bb))) | (writes(tab(0)) & return);
 
    if match("#") then {
        writes(tab(0))
        }
    else if any('\'"') then {
-       process := inquote
-       quotechar := move(1)
+       process := inquote;
+       quotechar := move(1);
        writes(quotechar)
        }
    else if match(lbrack) then {
-       move(*lbrack)
+       move(*lbrack);
        writes(nlbrack)
        }
    else if match(rbrack) then {
-       move(*rbrack)
+       move(*rbrack);
        writes(nrbrack)
        }
    else if match(lbrace) then {
-       move(*lbrace)
+       move(*lbrace);
        writes(nlbrace)
        }
    else if match(rbrace) then {
-       move(*rbrace)
+       move(*rbrace);
        writes(nrbrace)
        }
    else writes(move(1))
@@ -89,9 +89,9 @@ end
 
 procedure inquote()
    writes( tab(upto( quotechar ++ '\\')) ) |
-       (writes(tab(0)) & return)
+       (writes(tab(0)) & return);
    writes(="\\") & writes(move(1)) & return
-   writes( =quotechar )
+   writes( =quotechar );
    process := standard
    return
 end

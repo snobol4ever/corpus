@@ -34,7 +34,7 @@ invocable all
 procedure main(args)
    local p, line
 
-   p := proc(get(args)) | stop("*** invalid or missing procedure")
+   p := proc(get(args)) | stop("*** invalid or missing procedure");
 
    while line := read() do
       write(p(line))

@@ -44,45 +44,45 @@ procedure attribs(win)		#: set graphics attributes via dialog
 
    # Assign values from current attributes.
 
-   atts["1_fg"] := Fg(win)
-   atts["2_bg"] := Bg(win)
-   atts["3_font"] := Font(win)
-   atts["4_linewidth"] := WAttrib(win, "linewidth")
-   atts["5_pattern"] := WAttrib(win, "pattern")
-   atts["linestyle"] := WAttrib(win, "linestyle")
-   atts["fillstyle"] := WAttrib(win, "fillstyle")
-   atts["gamma"] := WAttrib(win, "gamma")
+   atts["1_fg"] := Fg(win);
+   atts["2_bg"] := Bg(win);
+   atts["3_font"] := Font(win);
+   atts["4_linewidth"] := WAttrib(win, "linewidth");
+   atts["5_pattern"] := WAttrib(win, "pattern");
+   atts["linestyle"] := WAttrib(win, "linestyle");
+   atts["fillstyle"] := WAttrib(win, "fillstyle");
+   atts["gamma"] := WAttrib(win, "gamma");
 
    # Call up the dialog.
 
       repeat {
    
-      attributes(win, atts) == "Okay" | fail
+      attributes(win, atts) == "Okay" | fail;
 
       # Set attributes from table.
    
       Fg(win, atts["1_fg"]) | {
-         Notice("Invalid foreground color.")
+         Notice("Invalid foreground color.");
          next
          }
       Bg(win, atts["2_bg"]) | {
-         Notice("Invalid background color.")
+         Notice("Invalid background color.");
          next
          }
       Font(win, atts["3_font"]) | {
-         Notice("Invalid font.")
+         Notice("Invalid font.");
          next
          }
       WAttrib(win, "linewidth=" || integer(atts["4_linewidth"])) | {
-         Notice("Invalid linewidth.")
+         Notice("Invalid linewidth.");
          next
          }
       WAttrib(win, "pattern=" || atts["5_pattern"]) | {
-            Notice("Invalid pattern.")
+            Notice("Invalid pattern.");
             next
             }
-      WAttrib(win, "linestyle=" || atts["linestyle"])
-      WAttrib(win, "fillstyle=" || atts["fillstyle"])
+      WAttrib(win, "linestyle=" || atts["linestyle"]);
+      WAttrib(win, "fillstyle=" || atts["fillstyle"]);
       WAttrib(win, "gamma=" || atts["gamma"])
 
       return

@@ -68,24 +68,24 @@ procedure dsetup(win, wlist[])
       win := &window
 
    win := Clone(win, "fg=black", "linewidth=1", "linestyle=solid",
-      "fillstyle=solid", "drawop=copy")	# clone window with standard attribs
-   VSetFont(win)			# set standard VIB font
+      "fillstyle=solid", "drawop=copy");  # clone window with standard attribs
+   VSetFont(win);  # set standard VIB font
    if ColorValue(Bg(win)) == ("65535,65535,65535" | "0,0,0") then
       Bg(win, VBackground)		# change black or white bg to pale gray
 
    while /wlist[-1] do			# ignore trailing null elements
       pull(wlist)
-   wspec := get(wlist)			# first spec gives wdow size
+   wspec := get(wlist);  # first spec gives wdow size
 
-   r := DL_crack(wspec) | stop("dsetup: bad spec")
+   r := DL_crack(wspec) | stop("dsetup: bad spec");
 
-   did_list := []
-   did_label := &null
+   did_list := [];
+   did_label := &null;
 
-   dialog := Vdialog(win, 0, 0)		# create dialog frame
-   dialog.id := r.var
+   dialog := Vdialog(win, 0, 0);  # create dialog frame
+   dialog.id := r.var;
    VInsert(dialog, Vmessage(win, ""),	# set dialog box dimensions
-      r.x + r.w - 1, r.y + r.h - WAttrib(win, "fheight") - 1)
+      r.x + r.w - 1, r.y + r.h - WAttrib(win, "fheight") - 1);
 
    every r := DL_crack(!sort(wlist), &null) do {
       DL_obj(win, dialog, r)			# insert other vidgets
@@ -104,15 +104,15 @@ procedure dpopup(win, dftbl, dstate)
       win :=: dftbl
       }
 
-   /dftbl := table()
-   did_list := dstate.list
+   /dftbl := table();
+   did_list := dstate.list;
 
-   init_list := list(*did_list)
+   init_list := list(*did_list);
    every i := 1 to *did_list do
       init_list[i] := \dftbl[did_list[i]]
 
    dialog_value := VOpenDialog(dstate.dialog, , dstate.dialog.id,
-      init_list, dstate.deflabel)
+      init_list, dstate.deflabel);
 
    every i := 1 to *did_list do
       dftbl[did_list[i]] := dialog_value[i]
@@ -132,18 +132,18 @@ procedure DL_crack(wspec, cbk)
 
    r := DL_rec()
    (get(wspec) | fail) ? { 
-      r.var := tab(upto(':')) | fail;  move(1)
-      r.typ := tab(upto(':')) | fail;  move(1)
-      r.sty := tab(upto(':')) | fail;  move(1)
-      r.num := tab(upto(':')) | fail;  move(1)
-      r.x := tab(upto(',')) | fail;  move(1)
-      r.y := tab(upto(',')) | fail;  move(1)
-      r.w := tab(upto(',')) | fail;  move(1)
-      r.h := tab(upto(':')) | fail;  move(1)
+      r.var := tab(upto(':')) | fail;  move(1);
+      r.typ := tab(upto(':')) | fail;  move(1);
+      r.sty := tab(upto(':')) | fail;  move(1);
+      r.num := tab(upto(':')) | fail;  move(1);
+      r.x := tab(upto(',')) | fail;  move(1);
+      r.y := tab(upto(',')) | fail;  move(1);
+      r.w := tab(upto(',')) | fail;  move(1);
+      r.h := tab(upto(':')) | fail;  move(1);
       r.lbl := tab(0)
       }
-   get(wspec)		# skip callback field
-   r.cbk := cbk		# always use parameter
+   get(wspec);  # skip callback field
+   r.cbk := cbk;  # always use parameter
    r.etc := get(wspec)
    return r
 end
@@ -156,11 +156,11 @@ procedure DL_obj(win, dialog, r)
 
    case r.typ of {
       "Label" | "Message": {
-         obj := Vmessage(win, r.lbl)
+         obj := Vmessage(win, r.lbl);
          VInsert(dialog, obj, r.x, r.y, r.w, r.h)
          }
       "Line": {
-         obj := Vline(win, r.x, r.y, r.w, r.h)
+         obj := Vline(win, r.x, r.y, r.w, r.h);
          VInsert(dialog, obj, r.x, r.y, 1, 1) 
          }
 #     "Rect": {   # doesn't work
@@ -173,7 +173,7 @@ procedure DL_obj(win, dialog, r)
       "Rect":  &null
       "List":  &null
       "Check": {
-         obj := Vcheckbox(win, r.cbk, r.var, r.w)
+         obj := Vcheckbox(win, r.cbk, r.var, r.w);
          VInsert(dialog, obj, r.x, r.y, r.w, r.h)
          }
       "Button": {
@@ -191,28 +191,28 @@ procedure DL_obj(win, dialog, r)
             default:	V_RECT
             }
          if r.num == "1" then {		# toggle
-            put(did_list, r.var)
-            obj := Vtoggle(win, r.lbl, r.cbk, r.var, style, r.w, r.h)
+            put(did_list, r.var);
+            obj := Vtoggle(win, r.lbl, r.cbk, r.var, style, r.w, r.h);
             VRegister(dialog, obj, r.x, r.y)
             }
          else {				# dismiss
-            obj := Vbutton(win, r.lbl, dialog_cb, V_OK, style, r.w, r.h)
-            VInsert(dialog, obj, r.x, r.y)
+            obj := Vbutton(win, r.lbl, dialog_cb, V_OK, style, r.w, r.h);
+            VInsert(dialog, obj, r.x, r.y);
             if r.num == "-1" then
                did_label := r.lbl
             }
          }
       "Choice": {
-         obj := Vradio_buttons(win, r.etc, r.cbk, r.var, V_DIAMOND_NO)
-         put(did_list, r.var)
+         obj := Vradio_buttons(win, r.etc, r.cbk, r.var, V_DIAMOND_NO);
+         put(did_list, r.var);
          VRegister(dialog, obj, r.x, r.y)
          }
       "Slider" | "Scrollbar" : {
          r.lbl ? {
-            lo := numeric(tab(upto(',')))
-            move(1)
-            hi := numeric(tab(upto(',')))
-            move(1)
+            lo := numeric(tab(upto(',')));
+            move(1);
+            hi := numeric(tab(upto(',')));
+            move(1);
             iv := numeric(tab(0))
             }
          if r.num == "" then
@@ -227,12 +227,12 @@ procedure DL_obj(win, dialog, r)
             "vScrollbar":
                Vvert_scrollbar(win, r.cbk, r.var, r.h, r.w, hi, lo, , , r.num)
             }
-         put(did_list, r.var)
+         put(did_list, r.var);
          VRegister(dialog, obj, r.x, r.y)
          }
       "Text": {
-         obj := Vtext(win, r.lbl, r.cbk, r.var, r.num)
-         put(did_list, r.var)
+         obj := Vtext(win, r.lbl, r.cbk, r.var, r.num);
+         put(did_list, r.var);
          VRegister(dialog, obj, r.x, r.y)
          }
 #     "Menu": {
@@ -241,7 +241,7 @@ procedure DL_obj(win, dialog, r)
 #        }
       "Menu":  &null
       default: {
-         stop("dsetup: unrecognized object: ", r.typ)
+         stop("dsetup: unrecognized object: ", r.typ);
          fail
          }
    }
@@ -255,9 +255,9 @@ end
 procedure DL_submenu(win, lst, cbk)
    local a, c, lbl
 
-   a := [win]
+   a := [win];
    while *lst > 0 do {
-      put(a, get(lst))
+      put(a, get(lst));
       if type(lst[1]) == "list" then
          put(a, DL_submenu(win, get(lst), cbk))
       else
@@ -275,13 +275,13 @@ end
 procedure dproto(proc, font, w, h)
    local win, s, l
 
-   w <:= 150
-   h <:= 100
-   win := Window([], "canvas=hidden")
-   VSetFont(win)
+   w <:= 150;
+   h <:= 100;
+   win := Window([], "canvas=hidden");
+   VSetFont(win);
    repeat {
       if write(image(proc), " returned ", image(proc(win))) then {
-         l := sort(dialog_value, 3)
+         l := sort(dialog_value, 3);
          while write("   dialog_value[\"", get(l), "\"] = ", image(get(l)))
          }
       else

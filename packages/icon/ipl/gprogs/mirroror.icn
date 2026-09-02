@@ -36,11 +36,11 @@ procedure main(args)
 
    every name := !args do {
       WOpen("image=" || name, "canvas=hidden") | {
-         write(&errout, "*** cannot open ", image(name))
+         write(&errout, "*** cannot open ", image(name));
          next
          }
-      win := mirror(&window)
-      WAttrib(win, "canvas=normal", "label=" || name)
+      win := mirror(&window);
+      WAttrib(win, "canvas=normal", "label=" || name);
       repeat case Event(win) of {
          "n":  break
          "s":  snapshot(win)

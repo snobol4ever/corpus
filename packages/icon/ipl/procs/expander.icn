@@ -43,43 +43,43 @@ procedure pfl2str(pattern)		#: pattern-form to plain string
    static operator, optbl
 
    initial {
-      operator := '*-!|+,/~:?%<>#`'
+      operator := '*-!|+,/~:?%<>#`';
 
-      optbl := table()
+      optbl := table();
 
-      optbl["*"] := repl
-      optbl["<"] := Upto
-      optbl[">"] := Downto
-      optbl["-"] := UpDown
-      optbl["|"] := Palindrome
+      optbl["*"] := repl;
+      optbl["<"] := Upto;
+      optbl[">"] := Downto;
+      optbl["-"] := UpDown;
+      optbl["|"] := Palindrome;
 #     optbl["!"] := Palindroid
-      optbl["+"] := Block
-      optbl["~"] := Interleave
-      optbl["->"] := Extend
-      optbl[":"] := Template
-      optbl["?"] := Permute
-      optbl["%"] := Pbox
-      optbl["<>"] := UpDown
-      optbl["><"] := DownUp
-      optbl["#"] := rotate
-      optbl["`"] := reverse
+      optbl["+"] := Block;
+      optbl["~"] := Interleave;
+      optbl["->"] := Extend;
+      optbl[":"] := Template;
+      optbl["?"] := Permute;
+      optbl["%"] := Pbox;
+      optbl["<>"] := UpDown;
+      optbl["><"] := DownUp;
+      optbl["#"] := rotate;
+      optbl["`"] := reverse;
       optbl[","] := proc("||", 2)
       }
 
-   result := ""
+   result := "";
 
    pattern ? {
       while result ||:= tab(upto('[')) do {
-         move(1)
+         move(1);
 #        expr1 := pfl2str(tab(bal(operator, '[', ']'))) | return error("1", pattern)
          expr1 := pfl2str(tab(bal(operator, '[', ']'))) | {
-            result ||:= pfl2str(tab(bal(']', '[', ']')))
-            move(1)
+            result ||:= pfl2str(tab(bal(']', '[', ']')));
+            move(1);
             next
             }
-         op := tab(many(operator)) | return error("2", pattern)
-         expr2 := pfl2str(tab(bal(']', '[', ']'))) | return error("3", pattern)
-         result ||:= \optbl[op](expr1, expr2) | return error("4", pattern)
+         op := tab(many(operator)) | return error("2", pattern);
+         expr2 := pfl2str(tab(bal(']', '[', ']'))) | return error("3", pattern);
+         result ||:= \optbl[op](expr1, expr2) | return error("4", pattern);
          move(1)
          }
       if not pos(0) then result ||:= tab(0)
@@ -94,40 +94,40 @@ procedure pfl2pwl(pattern)		#: pattern form to Painter expression
    static operator, optbl
 
    initial {
-      operator := '*-!|+,;/~:?%<>#`'
+      operator := '*-!|+,;/~:?%<>#`';
 
-      optbl := table()
+      optbl := table();
 
-      optbl["*"] := "*"
-      optbl["<"] := "<"
-      optbl[">"] := ">"
-      optbl["-"] := "-"
-      optbl["|"] := "|"
-      optbl["!"] := "!"		# not supported in PWL
-      optbl["+"] := "[]"
-      optbl["->"] := "->"
-      optbl["~"] := "~"
-      optbl[":"] := ":"
-      optbl["?"] := " perm "
-      optbl["%"] := " pbox "
-      optbl["<>"] := "<>"
-      optbl["><"] := "><"
-      optbl["#"] := "#"
-      optbl["`"] := "`"
+      optbl["*"] := "*";
+      optbl["<"] := "<";
+      optbl[">"] := ">";
+      optbl["-"] := "-";
+      optbl["|"] := "|";
+      optbl["!"] := "!";  # not supported in PWL
+      optbl["+"] := "[]";
+      optbl["->"] := "->";
+      optbl["~"] := "~";
+      optbl[":"] := ":";
+      optbl["?"] := " perm ";
+      optbl["%"] := " pbox ";
+      optbl["<>"] := "<>";
+      optbl["><"] := "><";
+      optbl["#"] := "#";
+      optbl["`"] := "`";
       optbl[","] := ","
       }
 
-   result := ""
+   result := "";
 
    pattern ? {
       while head :=  tab(upto('[')) do {
          if *head > 0 then result ||:= "," || head
-         move(1)
-         expr1 := pfl2pwl(tab(bal(operator, '[', ']'))) | return error()
-         op := tab(many(operator)) | return error()
-         expr2 := pfl2pwl(tab(bal(']', '[', ']'))) | return error()
+         move(1);
+         expr1 := pfl2pwl(tab(bal(operator, '[', ']'))) | return error();
+         op := tab(many(operator)) | return error();
+         expr2 := pfl2pwl(tab(bal(']', '[', ']'))) | return error();
          result ||:= "," ||  "(" || expr1 || \optbl[op] || expr2 || ")" |
-            return error()
+            return error();
          move(1)
          }
       if not pos(0) then result ||:= "," || tab(0)
@@ -139,7 +139,7 @@ end
 
 procedure error(expr1, expr2)
 
-   write(&errout, "*** error ", expr1, " ", expr2)
+   write(&errout, "*** error ", expr1, " ", expr2);
 
    fail
 
@@ -151,55 +151,55 @@ procedure pfl2gxp(pattern, arg)		#: pattern form to generating expression
 
    initial {
 
-      operator := ',.*-!|+;/~:?%<>#`'
+      operator := ',.*-!|+;/~:?%<>#`';
 
-      optbl := table()
+      optbl := table();
 
-      optbl["*"] := "Repl{"
-      optbl["<"] := "Upto{"
-      optbl[">"] := "Downto{"
-      optbl["-"] := "UpDownto{"
-      optbl["|"] := "TileMirror{"
-      optbl["!"] := "Palin{"
-      optbl["+"] := "Valrpt{"
-      optbl["~"] := "Inter{"
-      optbl["->"] := "ExtendSeq{"
-      optbl["~"] := "Parallel{"
-      optbl[":"] := "Template{"
-      optbl["?"] := "Permut{"
-      optbl["%"] := "Pbox{"
-      optbl["<>"] := "UpDown{"
-      optbl["><"] := "DownUp{"
-      optbl["#"] := "Rotate{"
-      optbl["`"] := "Reverse{"
+      optbl["*"] := "Repl{";
+      optbl["<"] := "Upto{";
+      optbl[">"] := "Downto{";
+      optbl["-"] := "UpDownto{";
+      optbl["|"] := "TileMirror{";
+      optbl["!"] := "Palin{";
+      optbl["+"] := "Valrpt{";
+      optbl["~"] := "Inter{";
+      optbl["->"] := "ExtendSeq{";
+      optbl["~"] := "Parallel{";
+      optbl[":"] := "Template{";
+      optbl["?"] := "Permut{";
+      optbl["%"] := "Pbox{";
+      optbl["<>"] := "UpDown{";
+      optbl["><"] := "DownUp{";
+      optbl["#"] := "Rotate{";
+      optbl["`"] := "Reverse{";
       optbl["*"] := repl
       }
 
-   /arg := str
+   /arg := str;
 
       # Handling of literal arguments
 
-      argtbl := table(str)
-      argtbl["*"] := 1
-      argtbl["#"] := 1
-      argtbl["->"] := 1
+      argtbl := table(str);
+      argtbl["*"] := 1;
+      argtbl["#"] := 1;
+      argtbl["->"] := 1;
 
    if /pattern | (*pattern = 0) then return image("")
 
-   result := ""
+   result := "";
 
    pattern ? {
       while result ||:= arg(tab(upto('['))) do {
-         move(1)
+         move(1);
          expr1 := pfl2gxp(tab(bal(operator, '[', ']')), arg) | {
-            result ||:= tab(bal(']', '[', ']')) || " | "	# no operator
-            move(1)
+            result ||:= tab(bal(']', '[', ']')) || " | ";  # no operator
+            move(1);
             next
             }
          if ="." then result ||:= tab(bal(']', '[', ']')) || " | "
          else {
-            op := tab(many(operator))  | return error()
-            expr2 := pfl2gxp(tab(bal(']', '[', ']')), argtbl[op]) | return error()
+            op := tab(many(operator))  | return error();
+            expr2 := pfl2gxp(tab(bal(']', '[', ']')), argtbl[op]) | return error();
             result ||:= \optbl[op] || expr1 || "," || expr2 || ") | " |
               return error()
             }
@@ -268,7 +268,7 @@ procedure prepare(wexpr)		# preprocess pwl
          " reverse ", "`",
          " rev ", "`",
          " rev", "`",
-         ]
+         ];
 
       names1 := [
          "",				# expression placeholder
@@ -278,12 +278,12 @@ procedure prepare(wexpr)		# preprocess pwl
 
       }
 
-   result := ""
+   result := "";
 
    wexpr ? {
       while result ||:= tab(upto('[')) do {
-         move(1)
-         inter := tab(bal(']'))
+         move(1);
+         inter := tab(bal(']'));
          if *inter > 0 then result ||:= spray(inter)
          else result ||:= "[]"
          move(1)
@@ -293,13 +293,13 @@ procedure prepare(wexpr)		# preprocess pwl
 
    if upto(result, ' ') then {
       if upto(result, &letters) then {
-         names[1] := result
+         names[1] := result;
          result := (replacem ! names)
          }
       }
 
    if upto(result, &letters) then {
-      names1[1] := result
+      names1[1] := result;
       result := (replacem ! names1)
       }
 
@@ -314,15 +314,15 @@ procedure pwlcvt(wexpr)
       2(="(", tab(bal(')')), pos(-1))
       }
       
-   result := ""
+   result := "";
 
    wexpr ? {
       while result ||:= form1(pwlcvt(tab(bal('|`', '([', ']('))), move(1))
       result ||:= tab(0)
       }
 
-   wexpr := result
-   result := ""
+   wexpr := result;
+   result := "";
 
    wexpr ? {
       while result ||:= form2(pwlcvt(tab(bal('->:#*=~', '([', ')]'))),
@@ -330,8 +330,8 @@ procedure pwlcvt(wexpr)
       result ||:= tab(0)
       }
 
-   wexpr := result
-   result := ""
+   wexpr := result;
+   result := "";
  
    wexpr ? {
       while result ||:= form2(pwlcvt(tab(bal('<>', '([', ')]'))),
@@ -339,8 +339,8 @@ procedure pwlcvt(wexpr)
       result ||:= tab(0)
       }
 
-   wexpr := result
-   result := ""
+   wexpr := result;
+   result := "";
  
    wexpr ? {
       while result ||:= form2(pwlcvt(tab(bal('<->,', '([', ')]'))),
@@ -367,7 +367,7 @@ end
 procedure spray(inter)
    local count, s1, s2, s3, colors
 
-   s1 := s2 := s3 := ""
+   s1 := s2 := s3 := "";
 
    inter ?:= {		# only palindome and reflection allowed, it seems
       1(tab(upto('|`') | 0), s3 := tab(0))
@@ -375,8 +375,8 @@ procedure spray(inter)
 
    inter ? {
       while s1 ||:= colors := tab(upto(' ')) do {
-         tab(many(' '))
-         count := tab(upto(' ') | 0)
+         tab(many(' '));
+         count := tab(upto(' ') | 0);
          if *count = 1 then s2 ||:= repl(count, *colors)
          else s2 ||:= repl("{" || count || "}", *colors)
          move(1) | break

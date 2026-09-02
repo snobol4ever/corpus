@@ -62,21 +62,21 @@ procedure main(args)
    local mcount, sx, sy, xp, yp, max, min, i
    local count, prefix, iter, opts, interval, limit
 
-   pi_2 := 2 * &pi
-   pi_4 := 4 * &pi
-   pi_6 := 6 * &pi
+   pi_2 := 2 * &pi;
+   pi_4 := 4 * &pi;
+   pi_6 := 6 * &pi;
 
-   iter := 0
-   count := -1
+   iter := 0;
+   count := -1;
 
-   opts := options(args, "i+p:t+")
+   opts := options(args, "i+p:t+");
 
-   interval := \opts["i"] | 100000
-   prefix := \opts["p"] | "q_"
-   limit := \opts["t"]
+   interval := \opts["i"] | 100000;
+   prefix := \opts["p"] | "q_";
+   limit := \opts["t"];
 
-   xnew := x := 0.1
-   ynew := y := 0.334
+   xnew := x := 0.1;
+   ynew := y := 0.334;
 
 # Sugar and Spice
 
@@ -190,43 +190,43 @@ procedure main(args)
 
 # Flowers with Ribbons
 
-   lambda := -0.11
-   alpha := -0.26
-   beta := 0.19
-   gamma := -0.059
-   omega := 0.07
-   shift := 0.5
-   ma := 2.0
+   lambda := -0.11;
+   alpha := -0.26;
+   beta := 0.19;
+   gamma := -0.059;
+   omega := 0.07;
+   shift := 0.5;
+   ma := 2.0;
 
-   mcount := create_matrix(Size, Size, 0)
+   mcount := create_matrix(Size, Size, 0);
 
    repeat {
 
       # iterate
-      sx := sin(pi_2 * x)
-      sy := sin(pi_2 * y)
+      sx := sin(pi_2 * x);
+      sy := sin(pi_2 * y);
       xnew := (lambda + alpha * cos(pi_2 * y)) * sx - omega * sy + beta *
          sin(pi_4 * x) + gamma * sin(pi_6 * x) * cos(pi_4 * y) + ma *
-         x + shift
+         x + shift;
       ynew := (lambda + alpha * cos(pi_2 * x)) * sy + omega * sx + beta *
          sin(pi_4 * y) + gamma * sin(pi_6 * y) * cos(pi_4 * x) + ma *
-         y + shift
+         y + shift;
       if xnew > 1.0 then xnew -:= integer(xnew)
       else if xnew < 0.0 then xnew +:= integer(-xnew) + 1
       if ynew > 1.0 then ynew -:= integer(ynew)
       else if ynew < 0.0 then ynew +:= integer(-ynew) + 1
-      x := xnew
-      y := ynew
+      x := xnew;
+      y := ynew;
 
-      xp := integer(Size * x)
-      yp := integer(Size * y)
-      mcount[xp + 1, yp + 1] +:= 1
-      iter +:= 1
+      xp := integer(Size * x);
+      yp := integer(Size * y);
+      mcount[xp + 1, yp + 1] +:= 1;
+      iter +:= 1;
       if iter % \interval = 0 then {
-         max := 0
-         min := 2 ^ 31
+         max := 0;
+         min := 2 ^ 31;
          every i := mcount[1 to Size, 1 to Size] do {
-            max <:= i
+            max <:= i;
             min >:= i
             }
          if min < 0 then min := 0

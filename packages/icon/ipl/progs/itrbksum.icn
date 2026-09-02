@@ -32,19 +32,19 @@ procedure main()
       else write(line)
       }
 
-   write()
-   write(read())
+   write();
+   write(read());
 
-   count := 0
+   count := 0;
    while line := read() do
       count +:= 1
 
    every 1 to 3 do
       write("\t.")
 
-   write(line)
+   write(line);
 
-   write()
+   write();
 
    write("at level ", count)
 

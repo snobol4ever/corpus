@@ -36,13 +36,13 @@ procedure read_cpt(input)	#: convert numerical carpet to matrix
       width := integer(tab(many(&digits))) &
       =" height=" &
       height := integer(tab(many(&digits)))
-      } | stop("*** invalid carpet file")
+      } | stop("*** invalid carpet file");
 
-   carpet := create_matrix(height, width)
+   carpet := create_matrix(height, width);
 
    every j := 1 to height do {
-      line := read(input) | stop("*** short carpet data")
-      i := 0
+      line := read(input) | stop("*** short carpet data");
+      i := 0;
       line ? {
          while carpet[j, i +:= 1] := tab(upto(' ')) do
             move(1) | stop("*** narrow carpet data")

@@ -41,20 +41,20 @@ procedure main(arg)
 
    local opt, fn, f, outfn, outf, f1, f2, buf
 
-   opt := options(arg,"i+o+")
-   intabs := (\opt["i"] | 8) + 1
-   outtabs := (\opt["o"] | 8) + 1
+   opt := options(arg,"i+o+");
+   intabs := (\opt["i"] | 8) + 1;
+   outtabs := (\opt["o"] | 8) + 1;
    if *arg = 0 then itab(&input,&output)
    else every fn := !arg do {
       if not (fn[-4:0] == ".icn") then fn ||:= ".icn"
-      write(&errout,"Entabbing ",fn)
-      f := open(fn) | stop("Can't open input file ",fn)
-      outfn := fn || ".temp"
-      outf := open(outfn,"w") | stop("Can't open output file ",outfn)
-      itab(f,outf)
-      close(outf)
-      close(f)
-      fcopy(outfn,fn)
+      write(&errout,"Entabbing ",fn);
+      f := open(fn) | stop("Can't open input file ",fn);
+      outfn := fn || ".temp";
+      outf := open(outfn,"w") | stop("Can't open output file ",outfn);
+      itab(f,outf);
+      close(outf);
+      close(f);
+      fcopy(outfn,fn);
       remove(outfn)
       }
 end
@@ -62,13 +62,13 @@ end
 
 procedure itab(f,outf)
    local line,c,nonwhite,comment,delim
-   line := ""
+   line := "";
    while c := readx(f) do {
       if not any(' \t',c) then nonwhite := 1
       case c of {
 	 "\n": {
-	    write(outf,map(entab(line,outtabs),\mapchars," \t") | line)
-	    line := ""
+	    write(outf,map(entab(line,outtabs),\mapchars," \t") | line);
+	    line := "";
 	    nonwhite := comment := &null
 	    }
 	 "'" | "\"": {
@@ -94,11 +94,11 @@ end
 procedure readx(f)
    static buf,printchars
    initial {
-      buf := ""
+      buf := "";
       printchars := &cset[33:128]
       }
    if *buf = 0 then {
-      buf := detab(read(f),intabs) || "\n" | fail
+      buf := detab(read(f),intabs) || "\n" | fail;
       mapchars := (printchars -- buf)[1+:2] | &null
       }
    return 1(.buf[1],buf[1] := "")

@@ -25,31 +25,31 @@
 procedure main()
    local line, base, ext, dir, forbid
 
-   forbid := &cset -- &letters -- &digits -- '._^$~!#%&-{}()@\'`'
+   forbid := &cset -- &letters -- &digits -- '._^$~!#%&-{}()@\'`';
 
    while line := read() do {
       if *line = 0 then next			# skip blank lines
       line ? {
          if upto(forbid, line) then {		# contains forbidden character
-            write(dir, line)
+            write(dir, line);
             next
             }
          if = "." then {			# directory header
-            dir := tab(-1) || "/"
+            dir := tab(-1) || "/";
             next
             }
          if base := tab(upto('.')) then {
-            move(1)
-            ext := tab(0)
+            move(1);
+            ext := tab(0);
             ext ? {
                if upto('.') then {		# period in "extension"
-                  write(dir, line)
+                  write(dir, line);
                   next
                   }
                }
             }
          else {
-            base := tab(0)
+            base := tab(0);
             ext := ""
             }
          if (*base > 8) | (*ext > 3) then	# check sizes

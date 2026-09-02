@@ -27,7 +27,7 @@ procedure argparse(s)
 
    initial nonblank := &cset -- ' \t\n'
 
-   arglist := []
+   arglist := [];
 
    s ? {
      while tab(upto(nonblank)) do

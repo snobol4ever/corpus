@@ -29,7 +29,7 @@ link strings
 procedure poly2seq(str)
    local vars
 
-   str := deletec(str, ' ')		# delete blanks
+   str := deletec(str, ' ');  # delete blanks
 
    vars := &letters ** cset(str)
 

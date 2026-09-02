@@ -45,43 +45,43 @@ procedure main(args)
    else
       f := &input
 
-   g := gedload(f)
-   close(f)
+   g := gedload(f);
+   close(f);
 
-   plist := []
-   ptab := table()
+   plist := [];
+   ptab := table();
    every r := !g.ind do
       put(plist, ptab[r] := person(0, sortkey(r), r))
 
-   plist := sortf(plist, 2)
+   plist := sortf(plist, 2);
 
-   n := 0
+   n := 0;
    every (!plist).n := (n +:= 1)
 
    every p := !plist do {
-      b := gedsub(p.r, "BIRT") | &null
-      d := gedsub(p.r, "DEAT") | &null
+      b := gedsub(p.r, "BIRT") | &null;
+      d := gedsub(p.r, "DEAT") | &null;
 
-      write()
-      writes("[", p.n, "] ", gedlnf(p.r))
-      byr := gedyear(\b) | &null
-      dyr := gedyear(\d) | &null
+      write();
+      writes("[", p.n, "] ", gedlnf(p.r));
+      byr := gedyear(\b) | &null;
+      dyr := gedyear(\d) | &null;
       if \byr | \dyr then 
          writes("  (", byr, " - ", dyr, ")")
-      write()
+      write();
 
       if fam := gedref(p.r, "FAMC") then {
-         refto("father", gedref(fam, "HUSB"))
+         refto("father", gedref(fam, "HUSB"));
          refto("mother", gedref(fam, "WIFE"))
          }
 
-      event("b.", \b)
+      event("b.", \b);
 
-      r := &null
+      r := &null;
       every fam := gedref(p.r, "FAMS") do {		# for every family
-         r := event("m.", gedsub(fam, "MARR"))
-         r := refto("  husb", p.r ~=== gedref(fam, "HUSB"))
-         r := refto("  wife", p.r ~=== gedref(fam, "WIFE"))
+         r := event("m.", gedsub(fam, "MARR"));
+         r := refto("  husb", p.r ~=== gedref(fam, "HUSB"));
+         r := refto("  wife", p.r ~=== gedref(fam, "WIFE"));
          # if had earlier kids and did not indicate remarriage, do so now
          if \r then
             write("   m.")
@@ -104,8 +104,8 @@ end
 procedure event(label, r)
    local date, place
 
-   date := ("" ~== geddate(r))
-   place := ("" ~== gedval(r, "PLAC"))
+   date := ("" ~== geddate(r));
+   place := ("" ~== gedval(r, "PLAC"));
    if /place then
       write("   ", label, " ", \date)
    else

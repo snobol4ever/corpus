@@ -22,9 +22,9 @@
 procedure digitcnt(file)	#: count digits in file
    local result
 
-   /file := &input
+   /file := &input;
 
-   result := list(10, 0)
+   result := list(10, 0);
 
    #  If the file contains only digits, remove the # on the next line and add
    # to the following one.

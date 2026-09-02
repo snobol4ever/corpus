@@ -45,8 +45,8 @@ record pqelem (
 procedure pq(L)				#: create priority queue
    local Q, i, e
 
-   /L := list()
-   Q := list()
+   /L := list();
+   Q := list();
    every e := !L do
       put(Q, pqelem(e.data, numeric(e.priority) | runerr(102, e.priority)))
    every i := *Q / 2 to 1 by -1 do
@@ -57,8 +57,8 @@ end
 procedure pqget(Q)			#: remove first priority queue element
    local e
 
-   e := get(Q) | fail
-   push(Q, pull(Q))
+   e := get(Q) | fail;
+   push(Q, pull(Q));
    pq__down(Q, 1)
    return e
 end
@@ -66,13 +66,13 @@ end
 procedure pqgen(Q)			#: generate priority queue elements
    local q, e
 
-   q := copy(Q)
+   q := copy(Q);
    while e := copy(pqget(q)) do
       suspend e
 end
 
 procedure pqput(Q, e)			#: insert priority queue element
-   put(Q, pqelem(e.data, numeric(e.priority) | runerr(102, e.priority)))
+   put(Q, pqelem(e.data, numeric(e.priority) | runerr(102, e.priority)));
    pq__up(Q, *Q)
    return Q
 end
@@ -83,14 +83,14 @@ end
 procedure pq__down(Q, i)
    local left, right, largest
 
-   left := i * 2
-   right := left + 1
+   left := i * 2;
+   right := left + 1;
 
    if Q[left].priority > Q[i].priority then largest := left
    else largest := i
    if Q[right].priority > Q[largest].priority then largest := right
    if largest ~= i then {
-      Q[i] :=: Q[largest]
+      Q[i] :=: Q[largest];
       pq__down(Q, largest)
       }
    return
@@ -99,9 +99,9 @@ end
 procedure pq__up(Q, i)
    local parent
 
-   parent := i / 2
+   parent := i / 2;
    if Q[i].priority > Q[parent].priority then {
-      Q[i] :=: Q[parent]
+      Q[i] :=: Q[parent];
       pq__up(Q, parent)
       }
    return

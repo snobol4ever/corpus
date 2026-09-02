@@ -25,8 +25,8 @@ procedure main()
 
    while line := read() do {
       line ? {
-         tab(find("<A" | "<a"))
-         tab(upto('"') + 1)
+         tab(find("<A" | "<a"));
+         tab(upto('"') + 1);
          write(tab(upto('"')))
          }
       }

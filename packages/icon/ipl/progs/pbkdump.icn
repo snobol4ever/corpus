@@ -32,16 +32,16 @@ procedure main(args)
    local fn, f, x
 
    every fn := !args do {
-      f := open(fn,"u") | stop("Can't open ",fn)
-      x := pbk_read_id(f)
+      f := open(fn,"u") | stop("Can't open ",fn);
+      x := pbk_read_id(f);
       while x := pbk_read_data(f) do {
-	 write("Name:   ",x.name)
-	 write("Number: ",x.number)
-	 write("Address:")
+	 write("Name:   ",x.name);
+	 write("Number: ",x.number);
+	 write("Address:");
 	 every write(!bk_format_lines(x.address))
 	 write()
 	 }
-      pbk_read_end(f) | write("Fail on end record")
+      pbk_read_end(f) | write("Fail on end record");
       close(f)
       }
 end

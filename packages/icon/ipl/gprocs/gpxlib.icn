@@ -80,7 +80,7 @@ end
 #   Distance(x1, y1, x2, y2) -- compute distance between two points.
 
 procedure Distance(x1, y1, x2, y2)		#: distance between two points
-   x1 -:= x2
+   x1 -:= x2;
    y1 -:= y2
    return sqrt(x1 * x1 + y1 * y1)
 end
@@ -104,24 +104,24 @@ procedure ScratchCanvas(win, w, h, id)		#: return scratch canvas
    static dpytab, type
 
    initial {
-      dpytab := table()
+      dpytab := table();
       type := proc("type", 0)	# protect attractive name
       }
 
    if type(win) ~== "window" then {
-      win :=: w :=: h :=: id
+      win :=: w :=: h :=: id;
       win := &window
       }
    /w := WAttrib(win, "width")
-   /h := WAttrib(win, "height")
-   w <:= 100				# if too teeny, can't open
-   h <:= 100
+   /h := WAttrib(win, "height");
+   w <:= 100;  # if too teeny, can't open
+   h <:= 100;
 
-   d := WAttrib(win, "display")
+   d := WAttrib(win, "display");
    s := d || "," || image(id)
    /dpytab[s] := WOpen("width=" || w, "height=" || h, "canvas=hidden",
-      "display=" || d)
-   win := dpytab[s]
+      "display=" || d);
+   win := dpytab[s];
    if /win then
       fail
    if WAttrib(win, "width") < w | WAttrib(win, "height") < h then

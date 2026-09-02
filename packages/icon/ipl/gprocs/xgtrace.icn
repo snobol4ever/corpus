@@ -37,9 +37,9 @@ link turtle
 procedure line_trace(call)
    local TPlot, point
 
-   TPlot := TGoto			# go to first point
+   TPlot := TGoto;  # go to first point
    every point := invoke(call) do {
-      TPlot(point.x, point.y)
+      TPlot(point.x, point.y);
       TPlot := TDrawto			# draw subsequently
       }
 
@@ -54,10 +54,10 @@ end
 procedure segment_trace(call)
    local TPlot, TPlotNext, point
 
-   TPlot := TGoto			# go to first point
-   TPlotNext := TDrawto
+   TPlot := TGoto;  # go to first point
+   TPlotNext := TDrawto;
    every point := invoke(call) do {
-      TPlot(point.x, point.y)
+      TPlot(point.x, point.y);
       TPlot :=: TPlotNext		# draw subsequently
       }
 
@@ -72,7 +72,7 @@ end
 procedure curve_trace(call, limit)
    local points, n
 
-   /limit := 500			# maximum number of points allowed
+   /limit := 500;  # maximum number of points allowed
 
    DrawCurve ! coord_list(call, limit)
 

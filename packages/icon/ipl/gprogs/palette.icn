@@ -43,22 +43,22 @@ global flags
 procedure main(args)
    local p, nw, nh, w, h, e
 
-   flags := "l"
+   flags := "l";
    if args[-1] ? any(&letters) then
       p := args[-1]
    else
       p := "c1"
 
-   PaletteChars(p) | stop(&progname, ": palette ", p, " not found")
+   PaletteChars(p) | stop(&progname, ": palette ", p, " not found");
 
    Window("width=125", "height=250", "font=lucidasans-bold-12",
       "label=" || p, args)
 
-   &error := 1
+   &error := 1;
    WAttrib("resize=on")
-   &error := 0
+   &error := 0;
 
-   draw(p)
+   draw(p);
    while e := Event() do case e of {
       QuitEvents():	break
       !"123456":	draw(p := "c" || e)

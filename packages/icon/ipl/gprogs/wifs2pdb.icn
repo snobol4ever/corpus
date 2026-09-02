@@ -33,13 +33,13 @@ procedure main(args)
    local file, wifname, input, clist, line, range, i
 
    every file := !args do {
-      wifname := basename(file, ".wif")
+      wifname := basename(file, ".wif");
       input := open(file) | {
-         write(&errout, "*** cannot open ", image(file))
+         write(&errout, "*** cannot open ", image(file));
          next
          }
-      clist := []
-      range := &null
+      clist := [];
+      range := &null;
       while line := trim(map(read(input))) do {
          if line == "[color table]" then {
             while line := trim(read(input)) do {
@@ -58,20 +58,20 @@ procedure main(args)
                line ? {
                   if ="[" then break
                   else if ="range=" then {
-                     tab(upto(',') + 1)
-                     range := tab(0) + 1
+                     tab(upto(',') + 1);
+                     range := tab(0) + 1;
                      break
                      }
                   }
                }
             }
          }
-      close(input)
+      close(input);
 
       if (\range ~= 65536) then {		# adjust color values
          every i := 1 to *clist do
             clist[i] := color_range(clist[i], range) | {
-               write(&errout, "*** bad color specification")
+               write(&errout, "*** bad color specification");
                break break
                }
          }

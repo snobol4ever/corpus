@@ -50,11 +50,11 @@ global base,      # 1970 calculation baseline number
 
 procedure main(param)
   local i, option, j
-  calc_today()
-  files   := directory()
-  method  := "none"
-  output  := "long"
-  command := ""
+  calc_today();
+  files   := directory();
+  method  := "none";
+  output  := "long";
+  command := "";
   if *param = 0 then show_age()
   every i := 1 to *param do
     {
@@ -64,13 +64,13 @@ procedure main(param)
       "to"     |
       "before" |
       "until"   : {
-                  files := before(files,param[i+1])
+                  files := before(files,param[i+1]);
                   i    +:= 1
                   }
       "from"  |
       "since" |
       "after"   : {
-                  files := since(files,param[i+1])
+                  files := since(files,param[i+1]);
                   i    +:= 1
                   }
       "asc"     : method:="ascending"
@@ -97,13 +97,13 @@ procedure show_age()
     "none" : {  
              every line := !files do
                {
-               age := (today - parse(line,' ')[1]) / 86400
-               ks  := parse(line,' ')[2] / 1024
+               age := (today - parse(line,' ')[1]) / 86400;
+               ks  := parse(line,' ')[2] / 1024;
                file:= line[23:0]
                (command == "") |
                  {
-                 write(command,line[37:0])
-                 system(command || line[37:0])
+                 write(command,line[37:0]);
+                 system(command || line[37:0]);
                  next
                  }
                if output == "brief" then text := line[37:0]
@@ -112,16 +112,16 @@ procedure show_age()
                }
              }
     "descending" : {
-                   results := sort(files)
+                   results := sort(files);
                    every line := !results do
                      {
-                     age := (today - parse(line,' ')[1]) / 86400
-                     ks  := parse(line,' ')[2] / 1024
+                     age := (today - parse(line,' ')[1]) / 86400;
+                     ks  := parse(line,' ')[2] / 1024;
                      file:= line[23:0]
                      (command == "") |
                        {
-                       write(command,line[37:0])
-                       system(command || line[37:0])
+                       write(command,line[37:0]);
+                       system(command || line[37:0]);
                        next
                        }
                      if output == "brief" then text := line[37:0]
@@ -130,17 +130,17 @@ procedure show_age()
                      }
                    }
     "ascending" : {
-                   results := sort(files)
+                   results := sort(files);
                    every i := *results to 1 by -1 do
                      {
-                     line:= results[i]
-                     age := (today - parse(line,' ')[1]) / 86400
-                     ks  := parse(line,' ')[2] / 1024
+                     line:= results[i];
+                     age := (today - parse(line,' ')[1]) / 86400;
+                     ks  := parse(line,' ')[2] / 1024;
                      file:= line[23:0]
                      (command == "") |
                        {
-                       write(command,line[37:0])
-                       system(command || line[37:0])
+                       write(command,line[37:0]);
+                       system(command || line[37:0]);
                        next
                        }
                      if output == "brief" then text := line[37:0]
@@ -161,22 +161,22 @@ procedure before(lst,days)
   initial mtab := [0,31,59,90,120,151,181,212,243,273,304,334]
   if find("/",days) then
     {
-    mo := parse(days,'/')[1]
-    da := parse(days,'/')[2]
-    yr := parse(days,'/')[3] | parse(&date,'/')[1]
+    mo := parse(days,'/')[1];
+    da := parse(days,'/')[2];
+    yr := parse(days,'/')[3] | parse(&date,'/')[1];
     if yr < 100 then yr +:= 1900
-    tmp := yr * 31557600
-    dd  := mtab[mo] + da
+    tmp := yr * 31557600;
+    dd  := mtab[mo] + da;
     if ((yr % 4) = 0) & (mo > 2) then dd +:= 1
-    tmp+:= dd * 86400
+    tmp+:= dd * 86400;
     age := tmp
     } else {
     age := now - (days * 86400)
     }
-  work := []
+  work := [];
   every file := !lst do
     {
-    old := parse(file,' ')[1]
+    old := parse(file,' ')[1];
     if old <= age then put(work,file)
     }
   return copy(work)
@@ -191,22 +191,22 @@ procedure since(lst,days)
   initial mtab := [0,31,59,90,120,151,181,212,243,273,304,334]
   if find("/",days) then
     {
-    mo := parse(days,'/')[1]
-    da := parse(days,'/')[2]
-    yr := parse(days,'/')[3] | parse(&date,'/')[1]
+    mo := parse(days,'/')[1];
+    da := parse(days,'/')[2];
+    yr := parse(days,'/')[3] | parse(&date,'/')[1];
     if yr < 100 then yr +:= 1900
-    tmp := yr * 31557600
-    dd  := mtab[mo] + da
+    tmp := yr * 31557600;
+    dd  := mtab[mo] + da;
     if ((yr % 4) = 0) & (mo > 2) then dd +:= 1
-    tmp+:= dd * 86400
+    tmp+:= dd * 86400;
     age := tmp
     } else {
     age := now - (days * 86400)
     }
-  work := []
+  work := [];
   every file := !lst do
     {
-    old := parse(file,' ')[1]
+    old := parse(file,' ')[1];
     if old >= age then put(work,file)
     }
   return copy(work)
@@ -219,16 +219,16 @@ procedure calc_today()
   local tmpy, tmpm, tmpd, here
   static  mtab
   initial {
-          base := 1970*31557600
+          base := 1970*31557600;
           mtab := [0,31,59,90,120,151,181,212,243,273,304,334]
           }
-  tmpy := parse(&date,'/')[1]
-  tmpm := parse(&date,'/')[2]
-  tmpd := parse(&date,'/')[3]
+  tmpy := parse(&date,'/')[1];
+  tmpm := parse(&date,'/')[2];
+  tmpd := parse(&date,'/')[3];
   here := tmpy * 31557600 +
-          (mtab[tmpm] + tmpd) * 86400
+          (mtab[tmpm] + tmpd) * 86400;
   if ((tmpy%4) = 0) & (tmpm > 2) then here +:= 86400
-  today := here
+  today := here;
   now   := here +
            parse(&clock,':')[1] * 3600 +
            parse(&clock,':')[2] *   60 +
@@ -242,33 +242,33 @@ procedure directory()
   local pipe, entries, line, size, file, day, year, sec, mark, text
   static mtab
   initial {
-          mtab := table(0)
-          mtab["Jan"] := 0
-          mtab["Feb"] := 31
-          mtab["Mar"] := 59
-          mtab["Apr"] := 90
-          mtab["May"] := 120
-          mtab["Jun"] := 151
-          mtab["Jul"] := 181
-          mtab["Aug"] := 212
-          mtab["Sep"] := 243
-          mtab["Oct"] := 273
-          mtab["Nov"] := 304
+          mtab := table(0);
+          mtab["Jan"] := 0;
+          mtab["Feb"] := 31;
+          mtab["Mar"] := 59;
+          mtab["Apr"] := 90;
+          mtab["May"] := 120;
+          mtab["Jun"] := 151;
+          mtab["Jul"] := 181;
+          mtab["Aug"] := 212;
+          mtab["Sep"] := 243;
+          mtab["Oct"] := 273;
+          mtab["Nov"] := 304;
           mtab["Dec"] := 334
           }
-  pipe    := open("ls -al","pr")
-  entries := []
+  pipe    := open("ls -al","pr");
+  entries := [];
   every line := !pipe do
     {
     if any('dclst',line) then next   # ignore info and dirs
-    size := parse(line,' ')[4]
-    file := line[33:0]
-    day  := mtab[parse(line,' ')[5]] + parse(line,' ')[6]
-    year := if line[40] == " " then parse(line,' ')[7] else parse(&date,'/')[1]
-    sec  := if line[40] == " " then 0 else hhmm(parse(line,' ')[7])
-    mark := year * 31557600 + day * 86400 + sec
+    size := parse(line,' ')[4];
+    file := line[33:0];
+    day  := mtab[parse(line,' ')[5]] + parse(line,' ')[6];
+    year := if line[40] == " " then parse(line,' ')[7] else parse(&date,'/')[1];
+    sec  := if line[40] == " " then 0 else hhmm(parse(line,' ')[7]);
+    mark := year * 31557600 + day * 86400 + sec;
     if (now-mark) < 0 then mark -:= 31557600
-    text := right(mark,12) || right(size,10) || " " || file
+    text := right(mark,12) || right(size,10) || " " || file;
     put(entries,text)
     }
   close(pipe)
@@ -280,7 +280,7 @@ procedure directory()
 #
 procedure hhmm(str)
   local hh, mm
-  hh := str[1+:2]
+  hh := str[1+:2];
   mm := str[4+:2]
   return hh*3600 + mm*60
   end
@@ -291,8 +291,8 @@ procedure hhmm(str)
 procedure parse(line,delims)
   local tokens
   static chars
-  chars  := &cset -- delims
-  tokens := []
+  chars  := &cset -- delims;
+  tokens := [];
   line ? while tab(upto(chars)) do put(tokens,tab(many(chars)))
   return tokens
   end

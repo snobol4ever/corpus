@@ -48,45 +48,45 @@ procedure main(args)
    local opts, prefix, h_rep, v_rep, win1, win2, name, width, height
    local auto, wdim, hdim, limit
 
-   opts := options(args, "h+v+a+l+p:")
+   opts := options(args, "h+v+a+l+p:");
 
-   h_rep := \opts["h"] | 1
-   v_rep := \opts["v"] | 1
-   prefix := \opts["p"] | "rep_"
-   auto := \opts["a"]
-   limit := \opts["l"] | 256
+   h_rep := \opts["h"] | 1;
+   v_rep := \opts["v"] | 1;
+   prefix := \opts["p"] | "rep_";
+   auto := \opts["a"];
+   limit := \opts["l"] | 256;
 
    every name := !args do {
       win1 := WOpen("canvas=hidden", "image=" || name) | {
-         write(&errout, "*** cannot open ", name)
+         write(&errout, "*** cannot open ", name);
          next
          }
-      width := WAttrib(win1, "width")
-      height := WAttrib(win1, "height")
+      width := WAttrib(win1, "width");
+      height := WAttrib(win1, "height");
       if \auto then {
          if width > height then {
-            hdim := height * auto
-            hdim >:= limit
+            hdim := height * auto;
+            hdim >:= limit;
             wdim := width
             }
          else {
-            hdim := height
-            wdim := width * auto
+            hdim := height;
+            wdim := width * auto;
             wdim >:= limit
             }
          }
       else {
-         hdim := height * h_rep
+         hdim := height * h_rep;
          wdim := width * v_rep
          } 
       win2 := WOpen("canvas=hidden", "width=" || wdim, "height=" || hdim) | {
-         write(&errout, "*** cannot open window for repeat")
-         WClose(win1)
+         write(&errout, "*** cannot open window for repeat");
+         WClose(win1);
          next
          }
-      tile(win1, win2)
-      WriteImage(win2, prefix || name)
-      WClose(win1)
+      tile(win1, win2);
+      WriteImage(win2, prefix || name);
+      WClose(win1);
       WClose(win2)
       }
 end

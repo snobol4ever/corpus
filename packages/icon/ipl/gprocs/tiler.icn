@@ -38,11 +38,11 @@ procedure tileimg(win, img)		#: tile image
 
    hidden := WOpen("canvas=hidden", "image=" || img, "gamma=" ||
       WAttrib(win, "gamma")) | {
-      write(&errout, "*** cannot open image ", img)
+      write(&errout, "*** cannot open image ", img);
       fail
       }
 
-   tile(hidden, win)
+   tile(hidden, win);
 
    WClose(hidden)
 
@@ -53,19 +53,19 @@ end
 procedure tileims(win, ims)		#: tile image string
    local w, h
 
-   w := imswidth(ims)
-   h := imsheight(ims)
+   w := imswidth(ims);
+   h := imsheight(ims);
 
    if ims ? {
       tab(many(&digits)) & =",#"
       } then {
-         WAttrib(win, "pattern=" || ims)
-         WAttrib(win, "fillstyle=textured")
+         WAttrib(win, "pattern=" || ims);
+         WAttrib(win, "fillstyle=textured");
          FillRectangle(win)
          }
    
    else {
-      DrawImage(win, 0, 0, ims) | fail
+      DrawImage(win, 0, 0, ims) | fail;
       tile(win, win, 0, 0, w, h)
       }
 

@@ -27,9 +27,9 @@
 procedure main()
     local option
 
-    write("graph: simple bar graphics package for icon")
-    write("(b)yte frequency count or (f)ibonacci's numbers?")
-    option := read()
+    write("graph: simple bar graphics package for icon");
+    write("(b)yte frequency count or (f)ibonacci's numbers?");
+    option := read();
     case option of {
 "b"     : countdemo()
 "f"     : fibodemo()
@@ -40,19 +40,19 @@ end
 procedure countdemo()
     local numlist, line, a, ms, b
 
-    numlist := list(0)
-    write("type strings or quit using end-of-file")
+    numlist := list(0);
+    write("type strings or quit using end-of-file");
     while line := read() do {
-	a := frequ_count(line,4)
-	ms := a
+	a := frequ_count(line,4);
+	ms := a;
 	a ? {
 	    while b := tab(upto(";")) do {
 		b ? {
-		    tab(upto(","))
-		    move(1)
+		    tab(upto(","));
+		    move(1);
 		    b := tab(0)
 		}
-		move(1)
+		move(1);
 		put(numlist,b)
 	    }
 	}
@@ -63,16 +63,16 @@ end
 procedure frequ_count(lin,item_number)
     local result, n, byte_frequency_1, byte_frequency_2, byte, entry
 
-    result := ""
-    n := 1
-    byte_frequency_1 := table(0)
+    result := "";
+    n := 1;
+    byte_frequency_1 := table(0);
     every byte := !lin do {
 	    byte_frequency_1[byte] +:= 1
     }
-    byte_frequency_2 := sort(byte_frequency_1,2)
+    byte_frequency_2 := sort(byte_frequency_1,2);
     while n <= item_number do {
-	entry := pull(byte_frequency_2)
-	result := result || pop(entry) || "," || pull(entry) || ";"
+	entry := pull(byte_frequency_2);
+	result := result || pop(entry) || "," || pull(entry) || ";";
 	n +:= 1
     }
 return result
@@ -87,11 +87,11 @@ procedure fibodemo()
     local a, l, b, fb
 
     while every a := fibo(0,1) & a < 10000 do {
-	l := list(4,0)
+	l := list(4,0);
 # delete the following line if you don't use ms/dr dos
-	write(char(27),"[2J")
-	l[1] := a
-	graph(l,("fibo: " || a || ".   <enter> to continue"))
+	write(char(27),"[2J");
+	l[1] := a;
+	graph(l,("fibo: " || a || ".   <enter> to continue"));
 	b := read()
     }
 end
@@ -100,8 +100,8 @@ procedure fibo(m,n)
     local fb
 
     while n < 30000 do {
-	fb := m + n
-	m := n
+	fb := m + n;
+	m := n;
 	n := fb
 	suspend fb
     }
@@ -123,42 +123,42 @@ procedure graph(numbers,comment)
 # || repl("\334",numerical_value).
 #
 # create item2 with its string contents
-    item := list(0)
+    item := list(0);
 	 while itm := pop(numbers) do {
 # write every place of itm if there are less then 4 places.
 	    if *itm < 4 then itm := repl("0",(4 - *itm)) || itm
 # convert every place of itm to a "\334 "-string and assign it
 # to list item
 	    while every value := !itm do {
-	      bar := repl(" ",(10 - value)) || repl("\334",value)
+	      bar := repl(" ",(10 - value)) || repl("\334",value);
 	      put(item,bar)
 	    }
 	}
 # display bar graphic
-    graph_line := ""
-    l := 1
-    m := 1
-    n := 1
-    nn := 10
+    graph_line := "";
+    l := 1;
+    m := 1;
+    n := 1;
+    nn := 10;
     while n <= 10 do {
       while m <= 16 do {
 	  while l <= 4 do {
-	    graph_line := graph_line || " " || !item[m]
-	    item[m][1] := ""
-	    l +:= 1
+	    graph_line := graph_line || " " || !item[m];
+	    item[m][1] := "";
+	    l +:= 1;
 	    m +:= 1
 	  }
-	  graph_line := graph_line || "  \272 "
+	  graph_line := graph_line || "  \272 ";
 	  l := 1
 	}
-      write(graph_line,"    ",nn)
-      graph_line := ""
-      l := 1
-      m := 1
-      n +:= 1
+      write(graph_line,"    ",nn);
+      graph_line := "";
+      l := 1;
+      m := 1;
+      n +:= 1;
       nn -:= 1
     }
-    write(" a b c d")
-    write("a: 1000, b: 100, c: 10, d: 1")
+    write(" a b c d");
+    write("a: 1000, b: 100, c: 10, d: 1");
     write(comment)
 end

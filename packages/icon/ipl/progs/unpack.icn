@@ -27,7 +27,7 @@ procedure main()
    local line, out
    while line := read() do {
       if line == "##########" then {
-         close(\out)
+         close(\out);
          out := open(name := read(),"w") | stop("cannot open ",name)
          }
       else write(out,line)

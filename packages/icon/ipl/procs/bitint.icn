@@ -25,13 +25,13 @@ procedure int2bit(i)
 
    if i = 0 then return 0
    if i < 0 then {
-      sign := "-"
+      sign := "-";
       i := -i
       }
    else sign := ""
-   s := ""
+   s := "";
    while i > 0 do {
-      s := (i % 2) || s
+      s := (i % 2) || s;
       i /:= 2
       }
    return sign || s

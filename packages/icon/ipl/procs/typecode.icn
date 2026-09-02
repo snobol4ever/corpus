@@ -32,7 +32,7 @@ procedure typecode(x)
       if ="record" then return "R"
       }
 
-   code := type(x)
+   code := type(x);
 
    if code == ("list" | "set" | "table" | "co-expression") then
       code := map(code,&lcase,&ucase)

@@ -101,7 +101,7 @@ procedure itokens(stream, nostrip)
     local T, last_token
 
     # initialize to some meaningless value
-    last_token := TOK()
+    last_token := TOK();
 
     every T := \iparse_tokens(stream) do {
 	if \T.sym then {
@@ -140,20 +140,20 @@ procedure expand_fake_beginner(next_token)
 
     static exptbl
     initial {
-	exptbl := table()
-	insert(exptbl, "CONCAT",  [TOK("BAR", "|"),   TOK("BAR", "|")])
-	insert(exptbl, "DIFF",    [TOK("MINUS", "-"), TOK("MINUS", "-")])
+	exptbl := table();
+	insert(exptbl, "CONCAT",  [TOK("BAR", "|"),   TOK("BAR", "|")]);
+	insert(exptbl, "DIFF",    [TOK("MINUS", "-"), TOK("MINUS", "-")]);
  	insert(exptbl, "EQUIV",   [TOK("NUMEQ", "="), TOK("NUMEQ", "="),
-				   TOK("NUMEQ", "=")])
-	insert(exptbl, "INTER",   [TOK("STAR", "*"),  TOK("STAR", "*")])
+				   TOK("NUMEQ", "=")]);
+	insert(exptbl, "INTER",   [TOK("STAR", "*"),  TOK("STAR", "*")]);
 	insert(exptbl, "LCONCAT", [TOK("BAR", "|"),   TOK("BAR", "|"),
-				   TOK("BAR", "|")])
-	insert(exptbl, "LEXEQ",   [TOK("NUMEQ", "="), TOK("NUMEQ", "=")])
+				   TOK("BAR", "|")]);
+	insert(exptbl, "LEXEQ",   [TOK("NUMEQ", "="), TOK("NUMEQ", "=")]);
 	insert(exptbl, "LEXNE",   [TOK("TILDE", "~"), TOK("NUMEQ", "="),
-				   TOK("NUMEQ", "=")])
+				   TOK("NUMEQ", "=")]);
 	insert(exptbl, "NOTEQUIV",[TOK("TILDE", "~"), TOK("NUMEQ","="),
-				   TOK("NUMEQ", "="), TOK("NUMEQ", "=")])
-	insert(exptbl, "NUMNE",   [TOK("TILDE", "~"), TOK("NUMEQ","=")])
+				   TOK("NUMEQ", "="), TOK("NUMEQ", "=")]);
+	insert(exptbl, "NUMNE",   [TOK("TILDE", "~"), TOK("NUMEQ","=")]);
 	insert(exptbl, "UNION",   [TOK("PLUS", "+"),  TOK("PLUS", "+")])
     }
 
@@ -197,7 +197,7 @@ procedure iparse_tokens(stream, getchar)
 		       ["real-literal",    "REALLIT",   "be"],
 		       ["string-literal",  "STRINGLIT", "be"],
 		       ["cset-literal",    "CSETLIT",   "be"],
-		       ["end-of-file",     "EOFX",      "" ]]
+		       ["end-of-file",     "EOFX",      "" ]];
 
 	# Reserved Words
 	#
@@ -230,7 +230,7 @@ procedure iparse_tokens(stream, getchar)
 		       ["then",            "THEN",      ""  ],
 		       ["to",              "TO",        ""  ],
 		       ["until",           "UNTIL",     "b" ],
-		       ["while",           "WHILE",     "b" ]]
+		       ["while",           "WHILE",     "b" ]];
 
 	# Operators
 	#
@@ -320,13 +320,13 @@ procedure iparse_tokens(stream, getchar)
 		       ["%$)",             "ENDGLOB",   "e" ],
 		       ["%{",              "BEGGLOB",   "b" ],
 		       ["%}",              "ENDGLOB",   "e" ],
-		       ["%%",              "NEWSECT",   "be"]]
+		       ["%%",              "NEWSECT",   "be"]];
 
 	# static be_tbl, reserved_tbl
-	reserved_tbl := table()
+	reserved_tbl := table();
 	every elem := !reserveds do
 	    insert(reserved_tbl, elem[1], elem[2])
-	be_tbl := table()
+	be_tbl := table();
 	every elem := !primitives | !reserveds | !operators do {
 	    insert(be_tbl, elem[2], elem[3])
 	}
@@ -355,7 +355,7 @@ procedure iparse_tokens(stream, getchar)
 		# have to move this code into do_operator().
 		#
 		last_token := do_dot(getchar)
-		suspend last_token
+		suspend last_token;
 #		write(&errout, "next_c == ", image(next_c))
 		next
 	    }
@@ -376,7 +376,7 @@ procedure iparse_tokens(stream, getchar)
 		# up to the next newline.  The global var next_c
 		# should *always* == "\n" when this is done.
 		#
-		do_number_sign(getchar)
+		do_number_sign(getchar);
 #		write(&errout, "next_c == ", image(next_c))
 		next
 	    }
@@ -387,7 +387,7 @@ procedure iparse_tokens(stream, getchar)
 		# (accounting for the _ line-continuation convention).
 		#
 		last_token := do_quotation_mark(getchar)
-		suspend last_token
+		suspend last_token;
 #		write(&errout, "next_c == ", image(next_c))
 		next
 	    }
@@ -397,7 +397,7 @@ procedure iparse_tokens(stream, getchar)
 		# next non-backslashed apostrophe, inclusive.
 		#
 		last_token := do_apostrophe(getchar)
-		suspend last_token
+		suspend last_token;
 #		write(&errout, "next_c == ", image(next_c))
 		next
 	    }

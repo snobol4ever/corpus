@@ -30,9 +30,9 @@ procedure main()
 
    while line := read() do {
       while line[-1] == "_" do {	# handle continued literal
-         nextline := read() | stop("*** unclosed continued literal")
+         nextline := read() | stop("*** unclosed continued literal");
          nextline ?:= {
-            tab(many(' \t'))		# remove leading whitespace
+            tab(many(' \t'));  # remove leading whitespace
             tab(0)
             }
          line := line[1:-1] || nextline

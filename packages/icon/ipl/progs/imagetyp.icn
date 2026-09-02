@@ -67,9 +67,9 @@ end
 procedure imagetyp(s)
    local input, header, type
 
-   input := open(s, "u") | fail			# must be untranslated
+   input := open(s, "u") | fail;  # must be untranslated
 
-   header := reads(input, 640) | fail
+   header := reads(input, 640) | fail;
 
    type := {
       header ? {
@@ -100,7 +100,7 @@ procedure imagetyp(s)
 
    if \type then return type
 
-   seek(input, -17)			# and now for one at the end ...
+   seek(input, -17);  # and now for one at the end ...
 
    if read(input) == "TRUEVISION-TARGA\x0" then return "targa"
 

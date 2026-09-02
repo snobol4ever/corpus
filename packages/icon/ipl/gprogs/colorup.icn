@@ -48,41 +48,41 @@ procedure main(args)
    local threading, treadling, color_list, colors, choice
    local symbols, symbol, drawdown, draft, warp_colors, weft_colors, pixels
 
-   opts := options(args, "o+")
+   opts := options(args, "o+");
 
    choice := opts["o"] | 0
 
    (warp := read()  & weft := read() & pattern := read()) |
-      stop("*** short file")
+      stop("*** short file");
 
-   pixels := real(*pattern)
+   pixels := real(*pattern);
 
-   colors := warp ++ weft
+   colors := warp ++ weft;
 
-   color_list := []
+   color_list := [];
 
    every put(color_list, PaletteColor("c1", !colors))
 
-   warp_colors := []
+   warp_colors := [];
 
    every put(warp_colors, upto(!warp, colors))
 
-   weft_colors := []
+   weft_colors := [];
 
    every put(weft_colors, upto(!weft, colors))
 
-   drawdown := []
+   drawdown := [];
 
    pattern ? {
       while put(drawdown, move(*warp))
       }
 
-   count := 0
+   count := 0;
 
    every i := 1 to *weft do {		# row
       every j := 1 to *warp do {		# column
          if weft[i] == warp[j] then {		# option point
-            count +:= 1
+            count +:= 1;
             drawdown[i, j] := case choice of {
                0  :  ?2 - 1				# random
                1  :  "1"				# warp
@@ -95,38 +95,38 @@ procedure main(args)
          }
       }
 
-   treadling := analyze(drawdown)
-   drawdown := protate(drawdown, "cw")
-   threading := analyze(drawdown)
+   treadling := analyze(drawdown);
+   drawdown := protate(drawdown, "cw");
+   threading := analyze(drawdown);
 
-   symbols := table("")
+   symbols := table("");
 
    every pattern := !treadling.patterns do {
-      symbol := treadling.rows[pattern]
-      symbols[symbol] := repl("0", *threading.rows)
+      symbol := treadling.rows[pattern];
+      symbols[symbol] := repl("0", *threading.rows);
       pattern ? {
          every i := upto('1') do
             symbols[symbol][threading.sequence[i]] := "1"
          }
       }
 
-   symbols := sort(symbols, 3)
-   rows := []
+   symbols := sort(symbols, 3);
+   rows := [];
 
    while get(symbols) do
       put(rows, get(symbols))
 
-   draft := isd()
+   draft := isd();
 
-   draft.name := "colorup"
-   draft.threading := threading.sequence
-   draft.treadling := treadling.sequence
-   draft.warp_colors := warp_colors
-   draft.weft_colors := weft_colors
-   draft.color_list := color_list
-   draft.shafts := *threading.rows
-   draft.treadles := *treadling.rows
-   draft.tieup := rows
+   draft.name := "colorup";
+   draft.threading := threading.sequence;
+   draft.treadling := treadling.sequence;
+   draft.warp_colors := warp_colors;
+   draft.weft_colors := weft_colors;
+   draft.color_list := color_list;
+   draft.shafts := *threading.rows;
+   draft.treadles := *treadling.rows;
+   draft.tieup := rows;
 
    xencode(draft, &output)
 

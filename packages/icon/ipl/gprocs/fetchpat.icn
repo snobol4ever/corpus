@@ -33,7 +33,7 @@ link patutils
 procedure fetchpat(file, n)
    local input, pattern
 
-   input := dopen(file) | fail
+   input := dopen(file) | fail;
 
    every 1 to n do
       pattern := readpatt(input)

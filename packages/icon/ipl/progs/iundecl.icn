@@ -52,26 +52,26 @@ procedure main(arg)
    #
    #  Build a set of all the undeclared identifiers.
    #
-   argstring := ""
+   argstring := "";
    every argstring ||:= " " || !arg
    p := open("icont -s -u -o /dev/null 2>&1" || argstring,"p") |
-       stop("popen failed")
-   undeclared := set()
+       stop("popen failed");
+   undeclared := set();
    while line := read(p) do line ? {
          if find("version mismatch") then {
-               write(&errout, line)
+               write(&errout, line);
                exit()
                }
 	 if find("undeclared identifier") then
 	       tab(find("\"") + 1) & insert(undeclared,tab(find("\"")))
          }
-   close(p)
+   close(p);
    #
    #  Loop through files to process individual procedures.
    #
    every fn := !arg do {
       f := if fn == "-" then &input else {
-	 fn := \suffix(fn)[1] || ".icn"
+	 fn := \suffix(fn)[1] || ".icn";
 	 open(fn) | stop("Can't open input file \"",fn,"\"")
 	 }
       #
@@ -79,35 +79,35 @@ procedure main(arg)
       #
       while line := read(f) do line ? {
 	 if tab(many(' \t')) | "" & ="procedure" & tab(many(' \t')) then {
-	    t := open("undeclared_tmp.icn","w") | stop("Can't open work file")
-	    write(t,line)
+	    t := open("undeclared_tmp.icn","w") | stop("Can't open work file");
+	    write(t,line);
 	    while line := read(f) do line ? {
-	       write(t,line)
+	       write(t,line);
 	       if tab(many(' \t')) | "" & ="end" & many(' \t') | pos(0) then
 		     break
 	       }
-	    close(t)
+	    close(t);
 	    #
             #  Now we have an isolated Icon procedure -- invoke icont to
 	    #  determine its undeclared variables.
 	    #
 	    p := open("icont -s -u -o /dev/null 2>&1 undeclared_tmp.icn","p") |
-		  stop("popen failed")
-	    names := []
+		  stop("popen failed");
+	    names := [];
 	    while line := read(p) do line ?
 		  if find("undeclared identifier") then
 			tab(find("\"") + 1) &
 			put(names,member(undeclared,tab(find("\""))))
-	    close(p)
+	    close(p);
 	    #
 	    #  Output the declaration.
 	    #
 	    pn := "\"" || tab(upto(' \t(')) || "\"" ||
-		  if *arg > 1 then " (" || fn || ")" else ""
+		  if *arg > 1 then " (" || fn || ")" else "";
 	    if *names = 0 then write("# ",pn," is OK")
 	    else {
-	       write("# Local declarations for procedure ",pn)
-	       sep := "   local "
+	       write("# Local declarations for procedure ",pn);
+	       sep := "   local ";
 	       every writes(sep,!sort(names)) do sep := ", "
 	       write()
 	       }

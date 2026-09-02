@@ -80,14 +80,14 @@ procedure main(a)
 
    local ABORT, idxfile_name, fname, infile, outfile
 
-   Set_OS()
+   Set_OS();
    
    if \a[1] == "-a" then ABORT := pop(a)  
 
    # Check to see if we have any arguments.
 
    if find("Macintosh", &features) then {
-      writes("Enter file name for indexing: ")
+      writes("Enter file name for indexing: ");
       a := [read()]
       }
    else  {
@@ -105,15 +105,15 @@ procedure main(a)
 
       # Get index file name.
 
-      idxfile_name := Pathname(fname) || getidxname(fname)
+      idxfile_name := Pathname(fname) || getidxname(fname);
       if \ABORT then if close(open(idxfile_name)) then
          stop("idxtext:  index file ",idxfile_name, " already exists")
       outfile := open(idxfile_name, "w") |
-         stop("idxtext:  can't open ", idxfile_name)
+         stop("idxtext:  can't open ", idxfile_name);
 
       # Write index to index.IDX file.
 
-      write_index(infile, outfile)
+      write_index(infile, outfile);
       every close(infile | outfile)
       }
    exit()
@@ -127,12 +127,12 @@ procedure write_index(in, out)
    # Write to out all keys in file "in," with their byte
    # offsets.
 
-   key_offset_table := table()
+   key_offset_table := table();
 
    while (w := where(in), line := read(in)) do {
       line ? {
          while ="::" do {
-            KEY := trim(tab(find("::") | 0))
+            KEY := trim(tab(find("::") | 0));
             if not (/key_offset_table[KEY] := KEY || _delimiter || w)
             then key_offset_table[KEY] ||:= _delimiter || w
             }
@@ -143,7 +143,7 @@ procedure write_index(in, out)
    # indexed byte in write_index, so that we can still
    # search unindexed parts of in.
 
-   write(out, where(in))
+   write(out, where(in));
 
    # Write sorted KEY\toffset lines.
 

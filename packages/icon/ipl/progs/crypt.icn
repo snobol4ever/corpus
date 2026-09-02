@@ -29,27 +29,27 @@ procedure main(args)
    local fin, fout, infile, outfile
 
    if *args = 3 then  {
-      ky      := get(args)
-      infile  := get(args)
+      ky      := get(args);
+      infile  := get(args);
       outfile := get(args)
       }
 
    else  {
-      writes("Enter password:    ")
+      writes("Enter password:    ");
       # Note - password is visible
-      ky := read()
-      writes("Enter input file:  ")
-      infile := read()
-      writes("Enter output file: ")
+      ky := read();
+      writes("Enter input file:  ");
+      infile := read();
+      writes("Enter output file: ");
       outfile := read()
       }
 
-   fin  := open(infile, "ur")
-   fout := open(outfile,"uw")
+   fin  := open(infile, "ur");
+   fout := open(outfile,"uw");
 
-   i := 1
-   l := 0
-   k := []
+   i := 1;
+   l := 0;
+   k := [];
    every put(k, ord(!ky)) do
       l +:= 1
 

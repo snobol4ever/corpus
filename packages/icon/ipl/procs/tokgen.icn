@@ -43,12 +43,12 @@ global all			# kludge -- invocable is not handled properly
 procedure main()
    local names, tables, i, total, count
 
-   total := 0			# total number of tokens
+   total := 0;  # total number of tokens
 
    #  Build a list of tables for the different types of tokens.  The order
    #  of the tables determines the order of output.
 
-   tables := []
+   tables := [];
    every put(tables, (unops | binops | others | controls | keys | clits |
       ilits | rlits | slits | vars | fldref | declarations | globals |
       locals | statics | parms | fields | files) := table(0))
@@ -60,16 +60,16 @@ procedure main()
       "Control structures", "Keywords", "Cset literals", "Integer literals",
       "Real literals", "String literals", "Variable references",
       "Field references", "Declarations", "Globals", "Locals", "Statics",
-      "Procedure parameters", "Record fields", "Included files"]
+      "Procedure parameters", "Record fields", "Included files"];
 
    #  Call the procedure corresponding to the target program.
    #  It adds the token counts to the tables.
 
-   Mp()
+   Mp();
 
    every i := 1 to *names do {
-      count := showtbl(names[i],tables[i])[1]
-      total +:= count
+      count := showtbl(names[i],tables[i])[1];
+      total +:= count;
       write("\n", right(count, 8), "   total")
       }
    write("\nTotal tokens: ", total)
@@ -173,7 +173,7 @@ procedure Fail()			# fail
 end
 
 procedure Field(e1, e2)		# e . f
-   binops["e1 . e2"] +:= 1
+   binops["e1 . e2"] +:= 1;
    fldref[e2] +:= 1
    return
 end

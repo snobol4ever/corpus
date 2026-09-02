@@ -39,23 +39,23 @@
 
 procedure unsigned(s)
    local i
-   i := 0
+   i := 0;
    every i := ord(!s) + i * 256
    return i
 end
 
 procedure raw(s)
    local i
-   i := 0
+   i := 0;
    every i := ior(ord(!s),ishift(i,8))
    return i
 end
 
 procedure rawstring(i,size)
    local s
-   s := ""
+   s := "";
    every 1 to size do {
-      s := char(iand(i,16rFF)) || s
+      s := char(iand(i,16rFF)) || s;
       i := ishift(i,-8)
       }
    return s

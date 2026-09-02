@@ -39,7 +39,7 @@ procedure symrand(x, y, extentx, extenty, size, n)
    local xp, yp
 
    every 1 to n do {
-      xp := x + ?extentx + 1
+      xp := x + ?extentx + 1;
       yp := y + ?extenty + 1
       suspend Point(xp | size - xp, yp | size - yp) |
          Point(yp | size - yp, xp | size - xp)

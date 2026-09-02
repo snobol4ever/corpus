@@ -39,18 +39,18 @@ procedure main(arg)
   local address, quoter, date, id, subject, newsgroup, refs, edstr, stdin
   local mailstr
   
-  smarthost := ""
-  editor := "vi"
+  smarthost := "";
+  editor := "vi";
 
   if find("UNIX", &features) then {
-    console := "/dev/tty"
+    console := "/dev/tty";
     tmpdir := "/tmp/"
   }
   else if find("MS-DOS", &features) then {
-    console := "CON"
+    console := "CON";
     tmpdir := ""
   }
-  (\console & \tmpdir) | stop("reply: missing system information")
+  (\console & \tmpdir) | stop("reply: missing system information");
 
   every tmpfile := tmpdir || "reply." || right(1 to 999,3,"0") do
     close(open(tmpfile)) | break
@@ -60,56 +60,56 @@ procedure main(arg)
   every !&input ? {
     tab(match("from: " | "reply-to: ", map(&subject))) & {
       if find("<") then {
-	fullname := tab(upto('<'))
+	fullname := tab(upto('<'));
 	address := (move(1), tab(find(">")))
       }
       else {
-	address := trim(tab(upto('(') | 0))
+	address := trim(tab(upto('(') | 0));
 	fullname := (move(1), tab(find(")")))
       }
       while match(" ", \fullname, *fullname) do fullname ?:= tab(-1)
       quoter := if *\fullname > 0 then fullname else address
     }
-    tab(match("date: ", map(&subject))) & date := tab(0)
-    tab(match("message-id: ", map(&subject))) & id := tab(0)
-    match("subject: ", map(&subject)) & subject := tab(0)
-    match("newsgroups: ", map(&subject)) & newsgroup := tab(upto(',') | 0)
+    tab(match("date: ", map(&subject))) & date := tab(0);
+    tab(match("message-id: ", map(&subject))) & id := tab(0);
+    match("subject: ", map(&subject)) & subject := tab(0);
+    match("newsgroups: ", map(&subject)) & newsgroup := tab(upto(',') | 0);
     match("references: ", map(&subject)) & refs := tab(0)
     (\address & *&subject = 0) & {
       \subject & write(reply, subject)
       \newsgroup & write(reply, newsgroup)
-      \refs & write(reply, refs, " ", id)
+      \refs & write(reply, refs, " ", id);
       write(reply, "In-reply-to: ", quoter, "'s message of ", date);
-      write(reply, "\nIn ", id, ", ", quoter, " writes:\n")
+      write(reply, "\nIn ", id, ", ", quoter, " writes:\n");
       break
     }
   }
 
   every write(reply, \arg[1] | " > ", !&input)
-  edstr := (getenv("EDITOR") | editor) || " " || tmpfile || " < " || console
-  system(edstr)
-  stdin := open(console)
-  writes("Send y/n? ")
+  edstr := (getenv("EDITOR") | editor) || " " || tmpfile || " < " || console;
+  system(edstr);
+  stdin := open(console);
+  writes("Send y/n? ");
   upto('nN', read(stdin)) & {
-    writes("Save your draft reply y/n? ")
+    writes("Save your draft reply y/n? ");
     if upto('yY', read(stdin)) then 
       stop("Your draft reply is saved in ", tmpfile)
     else {
-      remove(tmpfile)
+      remove(tmpfile);
       stop("Reply aborted.")
     }
   }
 
   (*smarthost > 0) & not find(map(smarthost), map(address)) & {
     find("@", address) & address ? {
-      name := tab(upto('@'))
+      name := tab(upto('@'));
       address := (move(1), tab(upto(' ') | 0)) || "!" || name
     }
     if find(".", smarthost) then address ||:= "@" || smarthost
     else address := smarthost || "!" || address
   }
-  mailstr := "mail " || address || " < " || tmpfile
-  system(mailstr)
-  write("Reply sent to " || address)
+  mailstr := "mail " || address || " < " || tmpfile;
+  system(mailstr);
+  write("Reply sent to " || address);
   remove(tmpfile)
 end

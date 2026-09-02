@@ -23,16 +23,16 @@ link namepfx, lastname
 procedure main()
    local names, line, last, first
 
-   names := table()
+   names := table();
 
    while line := read() do {
-      last := lastname(line)
+      last := lastname(line);
       first := namepfx(line)
-      /names[last] := set()
+      /names[last] := set();
       insert(names[last], first)
       }
 
-   names := sort(names, 3)
+   names := sort(names, 3);
 
    while last := get(names) do
       every write(!sort(get(names)), " ", last)

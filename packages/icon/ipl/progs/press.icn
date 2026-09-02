@@ -36,7 +36,7 @@
 link options, colmize, wildcard
 
 procedure Usage(s)
-   /s := ""
+   /s := "";
    stop("\nUsage:_
 \n      Compress: press -c <archive file> [<options>] [<file to compress>...]_
 \n      Archive:  press -a <archive file> [<options>] [<file to archive>...]_
@@ -132,15 +132,15 @@ procedure main(arg)
    #
    #  Initialize.
    #
-   Options(arg)
-   inchars := outchars := tinchars := toutchars := lzw_recycles := 0
-   magic := "\^p\^r\^e\^s\^s\^i\^c\^n"
+   Options(arg);
+   inchars := outchars := tinchars := toutchars := lzw_recycles := 0;
+   magic := "\^p\^r\^e\^s\^s\^i\^c\^n";
    #
    #  Do requested operation.
    #
    arcfile :=
          DefaultSuffix(\(compr | archive | extract | print | lister | deleter),
-         "prx") | Usage()
+         "prx") | Usage();
    if \(compr | archive) then Archive(arcfile,arg)
    else if \(extract | print) then Extract(arcfile,arg)
    else if \lister then List(arcfile,arg)
@@ -160,21 +160,21 @@ global extract,compr,archive,lister,deleter
 #
 procedure Options(arg)
    local opt,n,x
-   opt := options(arg,"hc:a:x:p:l:d:qtTS+n")
+   opt := options(arg,"hc:a:x:p:l:d:qtTS+n");
    if \opt["h"] then Usage(MoreHelp())
-   extract := opt["x"]
-   print := opt["p"]
-   compr := opt["c"]
-   archive := opt["a"]
-   lister := opt["l"]
-   deleter := opt["d"]
-   quiet := opt["q"]
-   tmode := if \opt["t"] then "t" else "u"
-   WildMatch := if \opt["n"] then not_wild_match else whole_wild_match
-   lzw_trace := opt["T"]
-   maxTableSpecified := opt["S"]
-   maxTableSize := \maxTableSpecified | 1024    # 10 bits default
-   n := 0
+   extract := opt["x"];
+   print := opt["p"];
+   compr := opt["c"];
+   archive := opt["a"];
+   lister := opt["l"];
+   deleter := opt["d"];
+   quiet := opt["q"];
+   tmode := if \opt["t"] then "t" else "u";
+   WildMatch := if \opt["n"] then not_wild_match else whole_wild_match;
+   lzw_trace := opt["T"];
+   maxTableSpecified := opt["S"];
+   maxTableSize := \maxTableSpecified | 1024;  # 10 bits default
+   n := 0;
    every x := compr | archive | extract | print | lister | deleter do
          if \x then n +:= 1
    if n ~= 1 then Usage()
@@ -198,49 +198,49 @@ procedure Archive(arcfile,arg)
             }
          close(wf)
          }
-      wf := open(arcfile,"bu" | "wu") | stop("Can't open archive file ",arcfile)
+      wf := open(arcfile,"bu" | "wu") | stop("Can't open archive file ",arcfile);
       if tmode == "t" then rline := "\n"
-      seek(wf,0)
+      seek(wf,0);
       if where(wf) = 1 then writes(wf,magic)
       }
    else {
-      wf := &output
+      wf := &output;
       arcfile := "stdout"
       }
-   new_data_start := where(wf)
+   new_data_start := where(wf);
    ## if /quiet then 
    ##    write(&errout,"New data starting at byte ",new_data_start," of ",arcfile)
    #
    #  Loop to process files on command line.
    #
    if *arg = 0 then arg := ["-"]
-   deleteFiles := []
+   deleteFiles := [];
    every fn := !arg do {
       if fn === arcfile then next
       if /quiet then
          writes(&errout,"File \"",fn,"\" -- ")
-      rf := if fn ~== "-" then open(fn,tmode) | &null else &input
+      rf := if fn ~== "-" then open(fn,tmode) | &null else &input;
       if /rf then {
          if /quiet then
             write(&errout,"Can't open input file \"",fn,"\" -- skipped")
          next
          }
-      put(deleteFiles,fn)
-      WriteString(wf,Tail(fn))
-      addr := where(rf)
-      seek(rf,0)
-      realLen := where(rf) - 1
-      WriteInteger(wf,realLen)
-      seek(rf,addr)
+      put(deleteFiles,fn);
+      WriteString(wf,Tail(fn));
+      addr := where(rf);
+      seek(rf,0);
+      realLen := where(rf) - 1;
+      WriteInteger(wf,realLen);
+      seek(rf,addr);
       if /quiet then
          writes(&errout,"Length: ",realLen)
-      addr := where(wf)
-      WriteInteger(wf,0)
-      writes(wf,"\1")    # write a compression version string
+      addr := where(wf);
+      WriteInteger(wf,0);
+      writes(wf,"\1");  # write a compression version string
       if \compr then {
-         WriteInteger(wf,maxTableSize)
-         maxT := Compress(R,W,maxTableSize)
-         length := outchars + 4
+         WriteInteger(wf,maxTableSize);
+         maxT := Compress(R,W,maxTableSize);
+         length := outchars + 4;
          if /quiet then
             writes(&errout,"  Compressed: ",length,"  ",
                   Percent(realLen - outchars,realLen))
@@ -251,25 +251,25 @@ procedure Archive(arcfile,arg)
       if \archive | length > realLen then {
          if /quiet then
             writes(&errout," -- Archived uncompressed")
-         seek(wf,addr + 4)
-         writes(wf,"\0") # write a zero version string for uncompressed
-         seek(rf,1)
-         CopyFile(rf,wf)
-         inchars := outchars := length := realLen
-         maxT := 0
+         seek(wf,addr + 4);
+         writes(wf,"\0");  # write a zero version string for uncompressed
+         seek(rf,1);
+         CopyFile(rf,wf);
+         inchars := outchars := length := realLen;
+         maxT := 0;
          lzw_stringTable := ""
          }
       if /quiet then
          write(&errout)
-      close(rf)
-      addr2 := where(wf)
-      seek(wf,addr)
-      WriteInteger(wf,length)
-      seek(wf,addr2)
+      close(rf);
+      addr2 := where(wf);
+      seek(wf,addr);
+      WriteInteger(wf,length);
+      seek(wf,addr2);
       if /quiet then
          Stats(maxT)
       }
-   close(wf)
+   close(wf);
    if /quiet then
       if *arg > 1 then FinalStats()
    Delete(arcfile,deleteFiles,new_data_start)
@@ -283,9 +283,9 @@ end
 procedure Extract(arcfile,arg)
    local fileSet,wfn,realLen,cmprLen,maxT,version,theArg
    if \maxTableSpecified then Usage()
-   rf := OpenReadArchive(arcfile)
-   arcfile := rf[2]
-   rf := rf[1]
+   rf := OpenReadArchive(arcfile);
+   arcfile := rf[2];
+   rf := rf[1];
    if *arg > 0 then fileSet := set(arg)
    #
    #  Process input file.
@@ -294,12 +294,12 @@ procedure Extract(arcfile,arg)
       (realLen := ReadInteger(rf) &
             cmprLen := ReadInteger(rf) &
             version := ord(reads(rf))) |
-            stop("Bad format in compressed file")
+            stop("Bad format in compressed file");
       if /quiet then
          writes(&errout,"File \"",wfn,"\" -- length: ",realLen,
                "  compressed: ",cmprLen," bytes -- ")
       if /fileSet | WildMatch(theArg := !arg,wfn) then {
-         delete(\fileSet,theArg)
+         delete(\fileSet,theArg);
          if not version = (0 | 1) then {
          if /quiet then
                write(&errout,"can't handle this compression type (",version,
@@ -310,7 +310,7 @@ procedure Extract(arcfile,arg)
             if /quiet then
                write(&errout,"extracted")
             if /print then {
-               wf := open(wfn,"w" || tmode) | &null
+               wf := open(wfn,"w" || tmode) | &null;
                if /wf then {
                   if /quiet then
                      write(&errout,"Can't open output file \"",wfn,
@@ -321,15 +321,15 @@ procedure Extract(arcfile,arg)
             else wf := &output
             if version = 1 then {
                maxT := ReadInteger(rf) |
-                     stop("Error in archive file format: ","table size missing")
+                     stop("Error in archive file format: ","table size missing");
                Decompress(R,W,maxT)
                }
             else {
-               maxT := 0
-               CopyFile(rf,wf,cmprLen)
+               maxT := 0;
+               CopyFile(rf,wf,cmprLen);
                outchars := inchars := realLen
                }
-            close(&output ~=== wf)
+            close(&output ~=== wf);
             if /quiet then
                Stats(maxT)
             }
@@ -340,7 +340,7 @@ procedure Extract(arcfile,arg)
          seek(rf,where(rf) + cmprLen)
          }
       }
-   close(rf)
+   close(rf);
    FilesNotFound(fileSet)
    return
 end
@@ -353,31 +353,31 @@ end
 procedure List(arcfile,arg)
    local fileSet,flist,wfn,realLen,cmprLen,version,theArg
    if \maxTableSpecified then Usage()
-   rf := OpenReadArchive(arcfile)
-   arcfile := rf[2]
-   rf := rf[1]
-   write(&errout,"Archive file ",arcfile,":")
+   rf := OpenReadArchive(arcfile);
+   arcfile := rf[2];
+   rf := rf[1];
+   write(&errout,"Archive file ",arcfile,":");
    if *arg > 0 then fileSet := set(arg)
    #
    #  Process input file.
    #
-   flist := []
+   flist := [];
    while wfn := ReadString(rf) do {
       (realLen := ReadInteger(rf) &
             cmprLen := ReadInteger(rf) &
             version := ord(reads(rf))) |
-            stop("Bad format in compressed file")
+            stop("Bad format in compressed file");
       if /fileSet | WildMatch(theArg := !arg,wfn) then {
-         delete(\fileSet,theArg)
-         put(flist,"\"" || wfn || "\" " || realLen || "->" || cmprLen)
-         tinchars +:= realLen
+         delete(\fileSet,theArg);
+         put(flist,"\"" || wfn || "\" " || realLen || "->" || cmprLen);
+         tinchars +:= realLen;
          toutchars +:= cmprLen
          }
       seek(rf,where(rf) + cmprLen)
       }
-   close(rf)
+   close(rf);
    every write(&errout,colmize(sort(flist)))
-   FilesNotFound(fileSet)
+   FilesNotFound(fileSet);
    FinalStats()
    return
 end
@@ -390,29 +390,29 @@ procedure Delete(arcfile,arg,new_data_start)
    local workfn,workf,fileSet,wfn,realLen,cmprLen,bakfn,deletedFiles,
          head,version,hdrLen,theArg
    if *arg = 0 | (\deleter & \maxTableSpecified) then Usage()
-   rf := OpenReadArchive(arcfile)
-   arcfile := rf[2]
-   rf := rf[1]
-   workfn := Root(arcfile) || ".wrk"
-   workf := open(workfn,"wu") | stop("Can't open work file ",workfn)
-   writes(workf,magic)
-   fileSet := set(arg)
+   rf := OpenReadArchive(arcfile);
+   arcfile := rf[2];
+   rf := rf[1];
+   workfn := Root(arcfile) || ".wrk";
+   workf := open(workfn,"wu") | stop("Can't open work file ",workfn);
+   writes(workf,magic);
+   fileSet := set(arg);
    #
    #  Process input file.
    #
-   deletedFiles := 0
-   head := if \deleter then "File" else "Replaced file"
+   deletedFiles := 0;
+   head := if \deleter then "File" else "Replaced file";
    while not (\new_data_start <= where(rf)) & wfn := ReadString(rf) do {
       (realLen := ReadInteger(rf) &
             cmprLen := ReadInteger(rf) &
             version := ord(reads(rf))) |
-            stop("Bad format in compressed file")
+            stop("Bad format in compressed file");
       if /quiet then
          writes(&errout,head," \"",wfn,"\" -- length: ",realLen,
                "  compressed: ",cmprLen," bytes -- ")
       if WildMatch(theArg := !arg,wfn) then {
-         deletedFiles +:= 1
-         delete(fileSet,theArg)
+         deletedFiles +:= 1;
+         delete(fileSet,theArg);
          if /quiet then
             write(&errout,"deleted")
          seek(rf,where(rf) + cmprLen)
@@ -420,17 +420,17 @@ procedure Delete(arcfile,arg,new_data_start)
       else {
          if /quiet then
             write(&errout,"kept")
-         hdrLen := *wfn + 10
-         seek(rf,where(rf) - hdrLen)
+         hdrLen := *wfn + 10;
+         seek(rf,where(rf) - hdrLen);
          CopyFile(rf,workf,cmprLen + hdrLen)
          }
       }
    if deletedFiles > 0 then {
-      CopyFile(rf,workf)
+      CopyFile(rf,workf);
       every close(workf | rf)
       if (rf ~=== &input) then {
-         bakfn := Root(arcfile) || ".bak"
-         remove(bakfn)
+         bakfn := Root(arcfile) || ".bak";
+         remove(bakfn);
          rename(arcfile,bakfn) | stop("Couldn't rename ",arcfile," to ",bakfn)
          }
       rename(workfn,arcfile) | stop("Couldn't rename ",workfn," to ",arcfile)
@@ -466,7 +466,7 @@ end
 #
 procedure FilesNotFound(fileSet)
    return if *\fileSet > 0 then {
-      write(&errout,"\nFiles not found:")
+      write(&errout,"\nFiles not found:");
       every write(&errout," ",colmize(sort(fileSet),78))
       &null
       }
@@ -483,8 +483,8 @@ procedure Stats(maxTableSize)
    if \lzw_trace then write(&errout,
          "  table size = ",*lzw_stringTable,"/",maxTableSize,
          " (recycles: ",lzw_recycles,")")
-   tinchars +:= inchars
-   toutchars +:= outchars
+   tinchars +:= inchars;
+   toutchars +:= outchars;
    inchars := outchars := lzw_recycles := 0
    return
 end
@@ -511,9 +511,9 @@ end
 #
 procedure WriteInteger(f,i)
    local s
-   s := ""
+   s := "";
    every 1 to 4 do {
-      s := char(i % 256) || s
+      s := char(i % 256) || s;
       i /:= 256
       }
    return writes(f,s)
@@ -525,10 +525,10 @@ end
 #
 procedure ReadInteger(f)
    local s,v
-   s := reads(f,4) | fail
+   s := reads(f,4) | fail;
    if *s < 4 then
          stop("Error in archive file format: ","bad integer")
-   v := 0
+   v := 0;
    s ? while v := v * 256 + ord(move(1))
    return v
 end
@@ -547,8 +547,8 @@ end
 #
 procedure ReadString(f)
    local len,s
-   len := ord(reads(f)) | fail
-   s := reads(f,len)
+   len := ord(reads(f)) | fail;
+   s := reads(f,len);
    if *s < len then
          stop("Error in archive file format: ","bad string")
    return s
@@ -577,9 +577,9 @@ end
 procedure Percent(n,d)
    local sign,whole,fraction
    n / (0.0 ~= d) ? {
-      sign := ="-" | ""
-      whole := tab(find("."))
-      move(1)
+      sign := ="-" | "";
+      whole := tab(find("."));
+      move(1);
       fraction := tab(0)
       }
    return (\sign || ("0" ~== whole | "") ||
@@ -594,8 +594,8 @@ end
 procedure R()
    local c
 
-   c := reads(rf) | fail
-   inchars +:= 1
+   c := reads(rf) | fail;
+   inchars +:= 1;
    if c === rline then c := "\x0a"
    return c
 end
@@ -619,7 +619,7 @@ end
 #
 procedure Tail(fn)
    local i
-   i := 0
+   i := 0;
    every i := upto('/\\:',fn)
    return .fn[i + 1:0]
 end
@@ -630,7 +630,7 @@ end
 #
 procedure Root(fn)
    local i
-   i := 0
+   i := 0;
    every i := find(".",fn)
    return .fn[1:i]
 end
@@ -666,20 +666,20 @@ procedure Compress(inproc,outproc,maxTableSize)
    #
    #  Initialize.
    #
-   /maxTableSize := 1024        # default 10 "bits"
+   /maxTableSize := 1024;  # default 10 "bits"
    tossTable := maxTableSize
-   /lzw_recycles := 0
+   /lzw_recycles := 0;
    if maxTableSize < 0 then maxTableSize := -maxTableSize
-   charTable := table()
+   charTable := table();
    every c := !&cset do charTable[c] := ord(c)
-   EOF := charTable[*charTable] := *charTable    # reserve code=256 for EOF
-   lzw_stringTable := copy(charTable)
+   EOF := charTable[*charTable] := *charTable;  # reserve code=256 for EOF
+   lzw_stringTable := copy(charTable);
    #
    #  Compress the input stream.
    #
-   s := inproc() | return maxTableSize
+   s := inproc() | return maxTableSize;
    if \lzw_trace then {
-      write(&errout,"\nInput string\tOutput code\tNew table entry")
+      write(&errout,"\nInput string\tOutput code\tNew table entry");
       writes(&errout,"\"",image(s)[2:-1])
       }
    while c := inproc() do {
@@ -688,11 +688,11 @@ procedure Compress(inproc,outproc,maxTableSize)
       if \lzw_stringTable[t := s || c] then s := t
       else {
          Compress_output(outproc,junk2 := lzw_stringTable[s],
-               junk1 := *lzw_stringTable)
+               junk1 := *lzw_stringTable);
          if *lzw_stringTable < maxTableSize then
                lzw_stringTable[t] := *lzw_stringTable
          else if tossTable >= 0 then {
-               lzw_stringTable := copy(charTable)
+               lzw_stringTable := copy(charTable);
                lzw_recycles +:= 1
             }
          if \lzw_trace then
@@ -703,17 +703,17 @@ procedure Compress(inproc,outproc,maxTableSize)
          }
       }
       Compress_output(outproc,junk2 := lzw_stringTable[s],
-	    junk1 := *lzw_stringTable)
+	    junk1 := *lzw_stringTable);
       if *lzw_stringTable < maxTableSize then
 	    {}
       else if tossTable >= 0 then {
-	    lzw_stringTable := copy(charTable)
+	    lzw_stringTable := copy(charTable);
 	    lzw_recycles +:= 1
 	 }
       if \lzw_trace then
 	    writes(&errout,"\"\t\t",
 		  image(char(*&cset > junk2) | junk2),"(",junk1,")\n")
-   Compress_output(outproc,EOF,*lzw_stringTable)
+   Compress_output(outproc,EOF,*lzw_stringTable);
    if \lzw_trace then write(&errout,"\"\t\t",EOF)
    Compress_output(outproc)
    return maxTableSize
@@ -727,17 +727,17 @@ procedure Compress_output(outproc,code,stringTableSize)
    #  Initialize.
    #
    initial {
-      lastSize := 1000000
+      lastSize := 1000000;
       buffer := bufferbits := 0
       }
    #
    #  If this is "close" call, flush buffer and reinitialize.
    #
    if /code then {
-      outcode := &null
+      outcode := &null;
       if bufferbits > 0 then
             outproc(char(outcode := ishift(buffer,8 - bufferbits)))
-      lastSize := 1000000
+      lastSize := 1000000;
       buffer := bufferbits := 0
       return outcode
       }
@@ -745,25 +745,25 @@ procedure Compress_output(outproc,code,stringTableSize)
    #  Expand output code size if necessary.
    #
    if stringTableSize < lastSize then {
-      max := 1
+      max := 1;
       bits := 0
       }
    while stringTableSize > max do {
-      max *:= 2
+      max *:= 2;
       bits +:= 1
       }
-   lastSize := stringTableSize
+   lastSize := stringTableSize;
    #
    #  Merge new code into buffer.
    #
-   buffer := ior(ishift(buffer,bits),code)
-   bufferbits +:= bits
+   buffer := ior(ishift(buffer,bits),code);
+   bufferbits +:= bits;
    #
    #  Output bits.
    #
    while bufferbits >= 8 do {
-      outproc(char(outcode := ishift(buffer,8 - bufferbits)))
-      buffer := ixor(buffer,ishift(outcode,bufferbits - 8))
+      outproc(char(outcode := ishift(buffer,8 - bufferbits)));
+      buffer := ixor(buffer,ishift(outcode,bufferbits - 8));
       bufferbits -:= 8
       }
    return outcode
@@ -790,15 +790,15 @@ procedure Decompress(inproc,outproc,maxTableSize)
    #
    #  Initialize.
    #
-   /maxTableSize := 1024        # default 10 "bits"
+   /maxTableSize := 1024;  # default 10 "bits"
    tossTable := maxTableSize
-   /lzw_recycles := 0
+   /lzw_recycles := 0;
    if maxTableSize < 0 then maxTableSize := -maxTableSize
-   maxTableSize -:= 1
-   lzw_stringTable := list(*&cset)
+   maxTableSize -:= 1;
+   lzw_stringTable := list(*&cset);
    every i := 1 to *lzw_stringTable do lzw_stringTable[i] := char(i - 1)
-   put(lzw_stringTable,EOF := *lzw_stringTable)  # reserve code=256 for EOF
-   charSize := *lzw_stringTable
+   put(lzw_stringTable,EOF := *lzw_stringTable);  # reserve code=256 for EOF
+   charSize := *lzw_stringTable;
    if \lzw_trace then
          write(&errout,"\nInput code\tOutput string\tNew table entry")
    #
@@ -810,13 +810,13 @@ procedure Decompress(inproc,outproc,maxTableSize)
       if \lzw_trace then
             write(&errout,image(old_strg),"(",*lzw_stringTable,")",
                   "\t",image(old_strg))
-      outproc(old_strg)
+      outproc(old_strg);
       c := old_strg[1]
       (while new_code := Decompress_read_code(inproc,
             *lzw_stringTable + 1,EOF) do {
-         strg := lzw_stringTable[new_code + 1] | old_strg || c
-         outproc(strg)
-         c := strg[1]
+         strg := lzw_stringTable[new_code + 1] | old_strg || c;
+         outproc(strg);
+         c := strg[1];
          if \lzw_trace then
                write(&errout,image(char(*&cset > new_code) \ 1 | new_code),
                      "(",*lzw_stringTable + 1,")","\t",
@@ -825,8 +825,8 @@ procedure Decompress(inproc,outproc,maxTableSize)
          if *lzw_stringTable < maxTableSize then
                put(lzw_stringTable,old_strg || c)
          else if tossTable >= 0 then {
-            lzw_stringTable := lzw_stringTable[1:charSize + 1]
-            lzw_recycles +:= 1
+            lzw_stringTable := lzw_stringTable[1:charSize + 1];
+            lzw_recycles +:= 1;
             break
             }
          old_strg := strg
@@ -845,14 +845,14 @@ procedure Decompress_read_code(inproc,stringTableSize,EOF)
    #  Initialize.
    #
    initial {
-      lastSize := 1000000
+      lastSize := 1000000;
       buffer := bufferbits := 0
       }
    #
    #  Reinitialize if called with no arguments.
    #
    if /inproc then {
-      lastSize := 1000000
+      lastSize := 1000000;
       buffer := bufferbits := 0
       return
       }
@@ -860,11 +860,11 @@ procedure Decompress_read_code(inproc,stringTableSize,EOF)
    #  Expand code size if necessary.
    #
    if stringTableSize < lastSize then {
-      max := 1
+      max := 1;
       bits := 0
       }
    while stringTableSize > max do {
-      max *:= 2
+      max *:= 2;
       bits +:= 1
       }
    #
@@ -872,14 +872,14 @@ procedure Decompress_read_code(inproc,stringTableSize,EOF)
    #
    while bufferbits < bits do {
       buffer := ior(ishift(buffer,8),ord(inproc())) |
-            stop("Premature end of file")
+            stop("Premature end of file");
       bufferbits +:= 8
       }
    #
    #  Extract code from buffer and return.
    #
-   code := ishift(buffer,bits - bufferbits)
-   buffer := ixor(buffer,ishift(code,bufferbits - bits))
+   code := ishift(buffer,bits - bufferbits);
+   buffer := ixor(buffer,ishift(code,bufferbits - bits));
    bufferbits -:= bits
    return EOF ~= code
 end

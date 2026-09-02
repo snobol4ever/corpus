@@ -36,10 +36,10 @@ procedure main(args)
 
    while file := get(args) do {
       win := WOpen("image=" || file, "canvas=hidden") | {
-         write(&errout, "cannot open ", file)
+         write(&errout, "cannot open ", file);
          next
          }
-      write(pix2pat(win, 0, 0, WAttrib("width"), WAttrib("height")))
+      write(pix2pat(win, 0, 0, WAttrib("width"), WAttrib("height")));
       WClose(win)
       }
 

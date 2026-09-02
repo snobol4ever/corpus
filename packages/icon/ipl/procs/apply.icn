@@ -26,9 +26,9 @@
 procedure apply(plist, arg)
    local p
 
-   plist := copy(plist)
+   plist := copy(plist);
 
-   p := get(plist) | fail
+   p := get(plist) | fail;
 
    if *plist = 0 then
       suspend p(arg)

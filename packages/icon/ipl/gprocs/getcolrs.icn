@@ -50,16 +50,16 @@ procedure color_palette()
 
    initial {
 
-      windows := table()
-      attribs := table()
+      windows := table();
+      attribs := table();
 
-      attribs["palette"] := "c3"
+      attribs["palette"] := "c3";
 
-      palettes := table()			# set up palette colors
+      palettes := table();  # set up palette colors
 
       every clist := ("c" || (1 to 6)) | ("g" || (16 | 64)) do
          palettes[clist] := colrplte(clist) | {
-            Notice("Internal error")
+            Notice("Internal error");
             exit()
             }
 
@@ -67,52 +67,52 @@ procedure color_palette()
 
    if colors_dl(attribs) == "Cancel" then fail
 
-   clist := palettes[attribs["palette"]]
+   clist := palettes[attribs["palette"]];
 
-   color_win := palette_win("color list", WAttrib("width") + WPad, 0) | fail
+   color_win := palette_win("color list", WAttrib("width") + WPad, 0) | fail;
 
    pal_win := palette_win("palette", WAttrib("width") + WPad,
-      WAttrib(color_win, "height") + HPad) | fail
+      WAttrib(color_win, "height") + HPad) | fail;
 
-   i := 0
+   i := 0;
    every y := 1 + (0 to ColorCols) * CellSize do
       every x := 1 + (0 to ColorRows) * CellSize do {
          Fg(pal_win, clist[i +:= 1]) | break break
          FillRectangle(pal_win, x, y, CellSize - 1, CellSize - 1)
          }
 
-   colors_tmp := []
+   colors_tmp := [];
 
-   x := y := 1
+   x := y := 1;
 
    repeat {
-      e := Event(pal_win)
+      e := Event(pal_win);
       if &meta & (map(e) == "q") then break
       if e === (&lpress | &rpress | &mpress) then {
          if ((&x % CellSize) | (&y % CellSize)) = 0 then next	# on border
-         put(colors_tmp, c := Pixel(pal_win, &x, &y, 1, 1))
-         Fg(color_win, c)
-         FillRectangle(color_win, x, y, CellSize - 1, CellSize - 1)
-         x +:= CellSize
+         put(colors_tmp, c := Pixel(pal_win, &x, &y, 1, 1));
+         Fg(color_win, c);
+         FillRectangle(color_win, x, y, CellSize - 1, CellSize - 1);
+         x +:= CellSize;
          if (x > ColorCols * CellSize) then {
-            x := 1
-            y +:= CellSize
+            x := 1;
+            y +:= CellSize;
             if y > (ColorRows * CellSize) then break
             } 
          }
       }
 
-   WAttrib(pal_win, "canvas=hidden")
-   EraseArea(pal_win)
-   WClose(color_win)
+   WAttrib(pal_win, "canvas=hidden");
+   EraseArea(pal_win);
+   WClose(color_win);
 
    if *colors_tmp = 0 then return Notice("Empty palette")
 
-   colors := colors_tmp
+   colors := colors_tmp;
 
    if OpenDialog("Palette name:") == "Cancel" then fail
 
-   palette := dialog_value
+   palette := dialog_value;
 
    colortbl[palette] := colors
 
@@ -123,20 +123,20 @@ end
 procedure edit_colors(colors)
    local color_win, x, y
 
-   color_win := palette_win("color list", WAttrib("width") + WPad, 0) | fail
-   x := y := 1
+   color_win := palette_win("color list", WAttrib("width") + WPad, 0) | fail;
+   x := y := 1;
 
    every Fg(color_win, !colors) do {
-      FillRectangle(color_win, x, y, CellSize - 1, CellSize - 1)
-      x +:= CellSize
+      FillRectangle(color_win, x, y, CellSize - 1, CellSize - 1);
+      x +:= CellSize;
       if (x > ColorCols * CellSize) then {
-         x := 1
-         y +:= CellSize
+         x := 1;
+         y +:= CellSize;
          if y > (ColorRows * CellSize) then break
          } 
       }
 
-   Event(color_win)
+   Event(color_win);
 
    WClose(color_win)
 
@@ -149,17 +149,17 @@ procedure palette_win(label, xoff, yoff)
       CellSize), "label=" || label, "bg=black", "fg=white",
       "posx=" || (WAttrib("posx") + xoff),
       "posy=" || (WAttrib("posy") + yoff)) |
-         return Notice("Cannot open window for palette selection")
+         return Notice("Cannot open window for palette selection");
 
-   WAttrib(win, "fillstyle=textured")
-   Pattern(win, "checkers")
-   Bg(win, "very dark gray")
+   WAttrib(win, "fillstyle=textured");
+   Pattern(win, "checkers");
+   Bg(win, "very dark gray");
 
    every x := 1 + (0 to ColorRows) * CellSize do
       every y := 1 + (0 to ColorCols) * CellSize do
          FillRectangle(win, x, y, CellSize - 1, CellSize - 1)
 
-   WAttrib(win, "fillstyle=solid")
+   WAttrib(win, "fillstyle=solid");
    Bg(win, "black")
  
    return win
@@ -181,12 +181,12 @@ procedure get_list(i)
       "Cancel" then fail
 
    n := (0 < integer(dialog_value[1])) |
-      return Notice("Invalid number specification")
+      return Notice("Invalid number specification");
 
    if Dialog("Values", , list(n, ""), ColorField, ["Okay", "Cancel"]) ==
       "Cancel" then fail
 
-   list_tmp := [] 
+   list_tmp := [];
 
    every x := !dialog_value do {
       if *x = 0 then next				# skip empty fields
@@ -207,7 +207,7 @@ end
 procedure color_blend()
    local colors_tmp
 
-   colors_tmp := []
+   colors_tmp := [];
 
    every put(colors_tmp, Blend ! get_list(2)) | fail	# accept counts
 
@@ -230,18 +230,18 @@ end
 procedure select_color(palette)
    local clist,k
 
-   clist := []
+   clist := [];
    every k := key(colortbl) do
       if \colortbl[k] then put(clist, k)
 
    if *clist = 0 then {
-      Notice("No colors are available")
+      Notice("No colors are available");
       fail
       }
 
-   SelectDialog("Select color list:", sort(clist), palette) == "Okay" | fail
+   SelectDialog("Select color list:", sort(clist), palette) == "Okay" | fail;
 
-   palette := dialog_value
+   palette := dialog_value;
    colors := colortbl[palette]
 
    return
@@ -254,15 +254,15 @@ procedure save_colortbl()
    if /save_colortbl_name then return save_colortbl_as()
 
    output := open(save_colortbl_name, "w") | {
-      Notice("Can't open save file for writing")
+      Notice("Can't open save file for writing");
       fail
       }
 
-   temp := sort(colortbl, 3)
+   temp := sort(colortbl, 3);
 
    while n := get(temp) do {
-      clist := \get(temp) | next
-      writes(output, n, ":")
+      clist := \get(temp) | next;
+      writes(output, n, ":");
       every writes(output, !clist, " ")
       write(output)
       }
@@ -276,27 +276,27 @@ end
 procedure load_colortbl()
    local line, clist, tbl, name
 
-   load_file("Load color table:") == "Okay" | fail
+   load_file("Load color table:") == "Okay" | fail;
 
-   tbl := table()
+   tbl := table();
 
    while line := read(dialog_value) do {
       line ? {
          name := tab(upto(':')) | {
-            Notice("Invalid color table.")
+            Notice("Invalid color table.");
             fail
             }
-         move(1)
-         clist := []
+         move(1);
+         clist := [];
          while put(clist, tab(upto(' '))) do
             move(1)
          tbl[name] := clist
          }
       }
 
-   colortbl := tbl
-   palette := name
-   colors := clist
+   colortbl := tbl;
+   palette := name;
+   colors := clist;
 
    close(dialog_value)
 
@@ -307,19 +307,19 @@ end
 procedure save_colortbl_as()
    local n, clist, temp
 
-   save_as("Save color table:") == "Yes" | fail
+   save_as("Save color table:") == "Yes" | fail;
 
-   temp := sort(colortbl, 3)
+   temp := sort(colortbl, 3);
 
    while n := get(temp) do {
-      clist := \get(temp) | next
-      writes(dialog_value, n, ":")
+      clist := \get(temp) | next;
+      writes(dialog_value, n, ":");
       every writes(dialog_value, !clist, " ")
       write(dialog_value)
       }
   
    image(dialog_value) ? {
-      ="file("
+      ="file(";
       save_colortbl_name := tab(upto(')'))
       }
    close(dialog_value)
@@ -332,17 +332,17 @@ procedure delete_color()
    local clist, k
 
    if *colortbl = 0 then {
-      Notice("No colors are available")
+      Notice("No colors are available");
       fail
       }
 
-   clist := []
+   clist := [];
    every k := key(colortbl) do
       if \colortbl[k] then put(clist, k)
 
-   SelectDialog("Delete color:", sort(clist), palette) == "Okay" | fail
+   SelectDialog("Delete color:", sort(clist), palette) == "Okay" | fail;
 
-   TextDialog("Delete " || dialog_value || "?") == "Okay" | fail
+   TextDialog("Delete " || dialog_value || "?") == "Okay" | fail;
 
    colortbl[dialog_value] := &null
 
@@ -352,7 +352,7 @@ end
 
 procedure delete_colortbl()
 
-   TextDialog("Delete entire color table?") == "Okay" | fail
+   TextDialog("Delete entire color table?") == "Okay" | fail;
 
    colortbl := table()
 

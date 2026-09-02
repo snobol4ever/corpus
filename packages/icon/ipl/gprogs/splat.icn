@@ -35,16 +35,16 @@ link random
 procedure main(args)
    local w, h, n, m, d
 
-   Window("size=800,500", args)
-   w := WAttrib("width")
-   h := WAttrib("height")
-   n := integer(args[1]) | 1000
-   m := integer(args[2]) | 100
+   Window("size=800,500", args);
+   w := WAttrib("width");
+   h := WAttrib("height");
+   n := integer(args[1]) | 1000;
+   m := integer(args[2]) | 100;
 
-   randomize()
+   randomize();
    every 1 to n do {
-      Shade(RandomColor())
-      d := (?m * ?m * ?m) / (m * m)
+      Shade(RandomColor());
+      d := (?m * ?m * ?m) / (m * m);
       FillArc(?(w - d - 1), ?(h - d - 1), d, d)
       }
    WDone()

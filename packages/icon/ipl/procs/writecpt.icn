@@ -28,10 +28,10 @@ link matrix
 procedure write_cpt(output, carpet)	#: convert matrix to numerical carpet
    local min, max, i, j, width, height
 
-   width := matrix_width(carpet)
-   height := matrix_height(carpet)
+   width := matrix_width(carpet);
+   height := matrix_height(carpet);
 
-   write(output, "width=", width, " height=", height)
+   write(output, "width=", width, " height=", height);
 
    write_matrix(output, carpet)
 

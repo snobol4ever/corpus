@@ -61,7 +61,7 @@ procedure wild_match(plist,s,i1,i2) # i3,i4,...,iN
 #  position.  Similar to match(), but is capable of generating multiple
 #  positions.
 #
-   /i1:= if /s := &subject then &pos else 1 ; /i2 := 0
+   /i1:= if /s := &subject then &pos else 1 ; /i2 := 0;
    plist := (if type(plist) == "string" then wild_pat else copy)(plist)
    suspend s[i1:i2] ? (wild_match1(plist) & i1 + &pos - 1)
 end
@@ -74,7 +74,7 @@ procedure wild_find(plist,s,i1,i2) # i3,i4,...,iN
 #  to find().
 #
    local p
-   /i1 := if /s := &subject then &pos else 1 ; /i2 := 0
+   /i1 := if /s := &subject then &pos else 1 ; /i2 := 0;
    if type(plist) == "string" then plist := wild_pat(plist)
    s[i1:i2] ? suspend (
 	 wild_skip(plist) &
@@ -102,10 +102,10 @@ procedure wild_pat(s) # L
    #				rather than one of the special pattern
    #				characters.
    #
-   plist := []
+   plist := [];
    s ? {
       until pos(0) do {
-	 c := &null
+	 c := &null;
 	 #
 	 #  Put pattern element on list.
 	 #
@@ -121,19 +121,19 @@ procedure wild_pat(s) # L
 	 #	   - or ] (if first, or after initial !) means itself.
 	 #
 	 \c ? {
-	    complement := ="!" | &null
-	    special := '-]'
-	    e := ''
+	    complement := ="!" | &null;
+	    special := '-]';
+	    e := '';
 	    while ch := tab(any(special)) do {
-	       e ++:= ch
+	       e ++:= ch;
 	       special --:= ch
 	       }
 	    while chars := tab(find("-")) do {
-	       move(1)
+	       move(1);
 	       e ++:= chars[1:-1] ++
 		     &cset[ord(chars[-1]) + 1:ord(move(1)) + 2]
 	       }
-	    e ++:= tab(0)
+	    e ++:= tab(0);
 	    if \complement then e := ~e
 	    }
 	 if type(e) == "string" == type(plist[-1]) then plist[-1] ||:= e
@@ -179,7 +179,7 @@ procedure wild_match1(plist,v) # s1,s2,...,sN
 	       "cset": tab(any(c))
 	       default: =c
 	       } 
-	 })
+	 });
       push(plist,c)
       }
    else return v

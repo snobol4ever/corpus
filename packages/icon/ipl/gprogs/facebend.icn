@@ -111,40 +111,40 @@ procedure main()
 
    # Open the window, extract layout information, initialize dialogs.
 
-   vidgets := ui()
-   WAttrib("pointer=circle")		# may fail, but at least try
-   init_geometry()
+   vidgets := ui();
+   WAttrib("pointer=circle");  # may fail, but at least try
+   init_geometry();
 
    # Make two clipped bindings for displaying the image and sketch.
 
-   display_win := Clone("linewidth=2")
-   Clip(display_win, display_xoff, display_yoff, display_width, display_height)
-   overlay_win := Clone(display_win, "fillstyle=masked", "pattern=4,#9696")
+   display_win := Clone("linewidth=2");
+   Clip(display_win, display_xoff, display_yoff, display_width, display_height);
+   overlay_win := Clone(display_win, "fillstyle=masked", "pattern=4,#9696");
 
    # Make a clipped binding for displaying targets on the guide display.
 
-   target_win := Clone("drawop=reverse")
-   Clip(target_win, guide_xoff, guide_yoff, guide_width, guide_height)
+   target_win := Clone("drawop=reverse");
+   Clip(target_win, guide_xoff, guide_yoff, guide_width, guide_height);
 
    # Initialize globals.
 
-   init_stdface()			# coordinates of "standard" face
-   mode := ImageMode			# display mode
-   setdist(0)				# distortion factor
+   init_stdface();  # coordinates of "standard" face
+   mode := ImageMode;  # display mode
+   setdist(0);  # distortion factor
 
    # Use the standard face to create a guide display for locating targets.
    # Calculate eye locations to use for scaling;  then draw the face
    # with straight lines to emphasize the individual point locations.
 
-   l := guide_xoff + 3 * guide_width / 8
-   r := guide_xoff + 5 * guide_width / 8
-   y := guide_yoff + guide_height / 2
-   guideface := scaleface(stdface, [[l, y], [r, y]])
-   drawface(&window, guideface, DrawLine)
+   l := guide_xoff + 3 * guide_width / 8;
+   r := guide_xoff + 5 * guide_width / 8;
+   y := guide_yoff + guide_height / 2;
+   guideface := scaleface(stdface, [[l, y], [r, y]]);
+   drawface(&window, guideface, DrawLine);
 
    # Load and display an image; exit if dialog is cancelled.
 
-   new() | exit()
+   new() | exit();
 
    # Enter event loop.
 
@@ -166,12 +166,12 @@ procedure caricature()
    else
       win := overlay_win		# use subpattern of display pixels
 
-   Fg(win, "white")
-   FillRectangle(win)			# clear clipped area using fillstyle
-   Fg(win, "black")
+   Fg(win, "white");
+   FillRectangle(win);  # clear clipped area using fillstyle
+   Fg(win, "black");
 
-   base := scaleface(stdface, sketch)
-   face := distort(sketch, base, distortion)
+   base := scaleface(stdface, sketch);
+   face := distort(sketch, base, distortion);
    drawface(win, face, DrawCurve)	# draw distorted face
 
    return
@@ -188,7 +188,7 @@ procedure check_save()
    if \touched then
       case SaveDialog("Save coordinates first?", pointfile) of {
          "Yes": {
-            pointfile := dialog_value
+            pointfile := dialog_value;
             save() | save_as() | fail
             }
          "No":  return

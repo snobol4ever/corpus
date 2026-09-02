@@ -31,11 +31,11 @@
 procedure WeightedShuffle (sample, percentage)
 local lcv, pairs, weight, size, newlist, legal, illegal
   numeric(percentage) | fail
-  (0 <= percentage <= 100) | fail
-  newlist := copy(sample)                  # Start with a copy of the
+  (0 <= percentage <= 100) | fail;
+  newlist := copy(sample);  # Start with a copy of the
                                            # original list.
-  size := *newlist
-  legal := list()                          # This list will hold which
+  size := *newlist;
+  legal := list();  # This list will hold which
                                            # indices are valid choices for
                                            # the shuffle, amounting to the
                                            # selected percentage of all
@@ -47,31 +47,31 @@ local lcv, pairs, weight, size, newlist, legal, illegal
 # "good" indices that the random switch can choose from.
 
   if ((percentage <= 50) | (percentage = 100)) then {
-    pairs := integer (size * percentage / 100)
+    pairs := integer (size * percentage / 100);
                                            # Number of pairs to be switched.
     if pairs > 0 then {                    # Makes sure to avoid division by
                                            # zero- occurs when there is no
                                            # need to shuffle.
-      weight := integer ((real(size) / pairs) + 0.5)        
+      weight := integer ((real(size) / pairs) + 0.5);
                                            # Holds increment used in
                                            # selective shuffling, rounded up.
-      lcv := 1
+      lcv := 1;
       until lcv > size do {
-        put (legal, lcv)                   # These indices may be used in
+        put (legal, lcv);  # These indices may be used in
                                            # the shuffle.
         lcv +:= weight
       }
     }
   }  
   else { # percentage > 50
-    pairs := integer (size * (100 - percentage) / 100)
+    pairs := integer (size * (100 - percentage) / 100);
                                            # Avoid switching this many pairs.
     if pairs > 0 then {
-      weight := integer (size / pairs)     # Increment, rounded down.
-      illegal := set ([])                  # Which indices can't be used?
-      lcv := 1
+      weight := integer (size / pairs);  # Increment, rounded down.
+      illegal := set ([]);  # Which indices can't be used?
+      lcv := 1;
       until lcv > size do {
-        illegal ++:= set([lcv])            # Compile the list of invaild
+        illegal ++:= set([lcv]);  # Compile the list of invaild
                                            # indices.
         lcv +:= weight
       }

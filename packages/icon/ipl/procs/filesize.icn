@@ -22,9 +22,9 @@
 procedure filesize(s)			#: file size
    local input, size
 
-   input := open(s) | fail
+   input := open(s) | fail;
 
-   size := 0
+   size := 0;
 
    while size +:= *reads(input, 10000)
 

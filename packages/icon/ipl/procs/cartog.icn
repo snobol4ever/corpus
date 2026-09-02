@@ -144,10 +144,10 @@ end
 procedure sbsize(p, x, y, u, maxl)	#: calculate scalebar size
    local d, i, m, r
 
-   m := 1
+   m := 1;
    repeat {
-      r := project(p, [x, y, x + m * u, y])
-      d := r[3] - r[1]
+      r := project(p, [x, y, x + m * u, y]);
+      d := r[3] - r[1];
       if d > maxl then
          m := m / 10.0
       else if d * 10 >= maxl
@@ -186,13 +186,13 @@ procedure rectp(x1, y1, x2, y2, xm, ym)	#: define rectangular projection
    local p
 
    /xm := 1.0
-   /ym := xm
-   p := ctg_rect()
-   p.proj := ctg_rect_proj
-   p.inv := ctg_rect_inv
-   p.xmul := real(xm)
-   p.ymul := real(ym)
-   p.xadd := x2 - x1 * xm
+   /ym := xm;
+   p := ctg_rect();
+   p.proj := ctg_rect_proj;
+   p.inv := ctg_rect_inv;
+   p.xmul := real(xm);
+   p.ymul := real(ym);
+   p.xadd := x2 - x1 * xm;
    p.yadd := y2 - y1 * ym
    return p
 end
@@ -204,13 +204,13 @@ end
 procedure ctg_rect_proj(p, L)
    local i, a, xmul, ymul, xadd, yadd
 
-   a := list()
-   xmul := p.xmul
-   ymul := p.ymul
-   xadd := p.xadd
-   yadd := p.yadd
+   a := list();
+   xmul := p.xmul;
+   ymul := p.ymul;
+   xadd := p.xadd;
+   yadd := p.yadd;
    every i := 1 to *L by 2 do {
-      put(a, xmul * L[i] + xadd)
+      put(a, xmul * L[i] + xadd);
       put(a, ymul * L[i+1] + yadd)
       }
    return a
@@ -223,10 +223,10 @@ end
 procedure ctg_rect_inv(p)
    local q
 
-   q := copy(p)
-   q.xmul := 1.0 / p.xmul
-   q.ymul := 1.0 / p.ymul
-   q.xadd := -p.xadd / p.xmul
+   q := copy(p);
+   q.xmul := 1.0 / p.xmul;
+   q.ymul := 1.0 / p.ymul;
+   q.xadd := -p.xadd / p.xmul;
    q.yadd := -p.yadd / p.ymul
    return q
 end
@@ -257,17 +257,17 @@ procedure pptrans(L1, L2)	#: define planar projective transformation
    local x1p, x2p, x3p, x4p, y1p, y2p, y3p, y4p
 
    *L1 = 8 | runerr(205, L1)
-   *L2 = 8 | runerr(205, L2)
+   *L2 = 8 | runerr(205, L2);
 
-   p := ctg_ppt()
-   p.proj := ctg_ppt_proj
-   p.inv := ctg_ppt_inv
-   p.org := copy(L1)
-   p.tgt := copy(L2)
+   p := ctg_ppt();
+   p.proj := ctg_ppt_proj;
+   p.inv := ctg_ppt_inv;
+   p.org := copy(L1);
+   p.tgt := copy(L2);
 
-   B := copy(L1)
+   B := copy(L1);
    every (x1 | y1 | x2 | y2 | x3 | y3 | x4 | y4) := get(B)
-   B := copy(L2)
+   B := copy(L2);
    every (x1p | y1p | x2p | y2p | x3p | y3p | x4p | y4p) := get(B)
 
    M := [
@@ -279,12 +279,12 @@ procedure pptrans(L1, L2)	#: define planar projective transformation
       [ 0., 0., 0., x3, y3, 1., -y3p * x3, -y3p * y3], 
       [ x4, y4, 1., 0., 0., 0., -x4p * x4, -x4p * y4], 
       [ 0., 0., 0., x4, y4, 1., -y4p * x4, -y4p * y4] 
-      ]
-   I := list(8)
-   B := copy(L2)
+      ];
+   I := list(8);
+   B := copy(L2);
 
-   lu_decomp(M, I) | fail		# if singular, fail
-   lu_back_sub(M, I, B)
+   lu_decomp(M, I) | fail;  # if singular, fail
+   lu_back_sub(M, I, B);
    every (p.h11 | p.h12 | p.h13 | p.h21 | p.h22 | p.h23 | p.h31 | p.h32) :=
       get(B)
    p.h33 := 1.0
@@ -299,21 +299,21 @@ end
 procedure ctg_ppt_proj(p, L)
    local a, i, x, y, d, h11, h12, h13, h21, h22, h23, h31, h32, h33
 
-   h11 := p.h11
-   h12 := p.h12
-   h13 := p.h13
-   h21 := p.h21
-   h22 := p.h22
-   h23 := p.h23
-   h31 := p.h31
-   h32 := p.h32
-   h33 := p.h33
-   a := list()
+   h11 := p.h11;
+   h12 := p.h12;
+   h13 := p.h13;
+   h21 := p.h21;
+   h22 := p.h22;
+   h23 := p.h23;
+   h31 := p.h31;
+   h32 := p.h32;
+   h33 := p.h33;
+   a := list();
 
    every i := 1 to *L by 2 do {
-      x := L[i]
-      y := L[i+1]
-      d := h31 * x + h32 * y + h33
+      x := L[i];
+      y := L[i+1];
+      d := h31 * x + h32 * y + h33;
       put(a, (h11 * x + h12 * y + h13) / d, (h21 * x + h22 * y + h23) / d)
       }
 
@@ -358,23 +358,23 @@ record ctg_utm(		# UTM projection record
 procedure utm(a, f)		#: define UTM projection
    local p, e, af
 
-   p := ctg_utm()
-   p.proj := ctg_utm_proj
-   p.inv := ctg_utm_inv
+   p := ctg_utm();
+   p.proj := ctg_utm_proj;
+   p.inv := ctg_utm_inv;
 
    if /f then {
-      af := ellipsoid(a) | fail
-      a := af[1]
+      af := ellipsoid(a) | fail;
+      a := af[1];
       f := af[2]
    }
-   p.a := a			# p.a = equatorial radius
-   p.f := f			# p.f = flattening
-   p.esq := 2 * f - f ^ 2	# p.esq = eccentricity squared 
-   p.epsq := p.esq / (1 - p.esq)
-   p.e := sqrt(p.esq)		# p.e = eccentricity
-   p.c0 := p.a * (1 - (p.e^2) / 4 - 3 * (p.e^4) / 64 - 5 * (p.e^6) / 256)
-   p.c2 := p.a * (3 * (p.e^2) / 8 + 3 * (p.e^4) / 32 + 45 * (p.e^6) / 1024)
-   p.c4 := p.a * (15 * (p.e^4) / 256 + 45 * (p.e^6) / 1024)
+   p.a := a;  # p.a = equatorial radius
+   p.f := f;  # p.f = flattening
+   p.esq := 2 * f - f ^ 2;  # p.esq = eccentricity squared
+   p.epsq := p.esq / (1 - p.esq);
+   p.e := sqrt(p.esq);  # p.e = eccentricity
+   p.c0 := p.a * (1 - (p.e^2) / 4 - 3 * (p.e^4) / 64 - 5 * (p.e^6) / 256);
+   p.c2 := p.a * (3 * (p.e^2) / 8 + 3 * (p.e^4) / 32 + 45 * (p.e^6) / 1024);
+   p.c4 := p.a * (15 * (p.e^4) / 256 + 45 * (p.e^6) / 1024);
    p.c6 := p.a * (35 * (p.e^6) / 3072)
    return p
 end
@@ -387,27 +387,27 @@ procedure ctg_utm_proj(p, L)
    local ulist, epsq, lat, lon, zone, phi, lambda, lamzero, cosphi
    local i, N, T, C, A, M, x, u, y
 
-   ulist := list()
-   epsq := p.epsq
+   ulist := list();
+   epsq := p.epsq;
 
    every i := 1 to *L by 2 do {
-      lon := numeric(L[i])
-      lat := numeric(L[i+1])
-      zone := (185 + integer(lon)) / 6
-      phi := dtor(lat)				# latitude in radians
-      lambda := dtor(lon)			# longitude in radians
-      lamzero := dtor(-183 + 6 * zone)		# central meridian of zone
-      N := p.a / sqrt(1 - p.esq * sin(phi) ^ 2)		# (8-12)
-      T := tan(phi) ^ 2					# (4-20)
-      cosphi := cos(phi)
-      C := epsq * cosphi ^ 2				# (8-13)
-      A := (lambda - lamzero) * cosphi			# (8-15)
-      M := p.c0*phi - p.c2*sin(2.*phi) + p.c4*sin(4.*phi) - p.c6*sin(6.*phi)
+      lon := numeric(L[i]);
+      lat := numeric(L[i+1]);
+      zone := (185 + integer(lon)) / 6;
+      phi := dtor(lat);  # latitude in radians
+      lambda := dtor(lon);  # longitude in radians
+      lamzero := dtor(-183 + 6 * zone);  # central meridian of zone
+      N := p.a / sqrt(1 - p.esq * sin(phi) ^ 2);  # (8-12)
+      T := tan(phi) ^ 2;  # (4-20)
+      cosphi := cos(phi);
+      C := epsq * cosphi ^ 2;  # (8-13)
+      A := (lambda - lamzero) * cosphi;  # (8-15)
+      M := p.c0*phi - p.c2*sin(2.*phi) + p.c4*sin(4.*phi) - p.c6*sin(6.*phi);
       x := k0 * N * (A + (1 - T + C) * A^3 / 6. +
-         (5. - 18. * T + T^2 + 72. * C - 58. * epsq) * A^5 / 120.)
+         (5. - 18. * T + T^2 + 72. * C - 58. * epsq) * A^5 / 120.);
       u := A^2 / 2 + (5 - T + 9 * C + 4 * C^2) * A^4 / 24 +
-         (61. - 58. * T + T^2 + 600. * C - 330. * epsq) * A^6 / 720.
-      y := k0 * (M - M0 + N * tan(phi) * u)
+         (61. - 58. * T + T^2 + 600. * C - 330. * epsq) * A^6 / 720.;
+      y := k0 * (M - M0 + N * tan(phi) * u);
       put(ulist, zone, x, y)
       }
    return ulist
@@ -420,15 +420,15 @@ end
 procedure ctg_utm_inv(p)
    local q, e, e1
 
-   q := copy(p)
-   q.proj := ctg_iutm_proj
-   q.inv := ctg_iutm_inv
-   e := q.e
-   e1 := (1 - sqrt(1 - e^2)) / (1 + sqrt(1 - e^2))
-   q.c0 := q.a * (1 - e^2 / 4. - 3. * e^4 / 64. - 5. * e^6 / 256.)
-   q.c2 := 3. * e1 / 2. - 27. * e1^3 / 32.
-   q.c4 := 21. * e1^2 / 16. - 55. * e1^4 / 32.
-   q.c6 := 151. * e1^3 / 96.
+   q := copy(p);
+   q.proj := ctg_iutm_proj;
+   q.inv := ctg_iutm_inv;
+   e := q.e;
+   e1 := (1 - sqrt(1 - e^2)) / (1 + sqrt(1 - e^2));
+   q.c0 := q.a * (1 - e^2 / 4. - 3. * e^4 / 64. - 5. * e^6 / 256.);
+   q.c2 := 3. * e1 / 2. - 27. * e1^3 / 32.;
+   q.c4 := 21. * e1^2 / 16. - 55. * e1^4 / 32.;
+   q.c6 := 151. * e1^3 / 96.;
    q.c8 := 1097. * e1^4 / 512.
    return q
 end
@@ -442,36 +442,36 @@ procedure ctg_iutm_proj(p, L)
    local lllist, i, x, y, zone
    local lam0, mu, phi1, sin1, cos1, tan1, phi, lam, t1, t2, C1, T1, N1, R1, D
 
-   a := p.a
-   esq := p.esq
-   epsq := p.epsq
-   lllist := list()
+   a := p.a;
+   esq := p.esq;
+   epsq := p.epsq;
+   lllist := list();
 
    every i := 1 to *L by 3 do {
-      zone := L[i]
-      x := L[i + 1]
-      y := L[i + 2]
-      lam0 := dtor(-183 + 6 * zone)		# central meridian of zone
-      mu := y / (k0 * p.c0)
+      zone := L[i];
+      x := L[i + 1];
+      y := L[i + 2];
+      lam0 := dtor(-183 + 6 * zone);  # central meridian of zone
+      mu := y / (k0 * p.c0);
       phi1 := mu + p.c2 * sin(2. * mu) + p.c4 * sin(4. * mu) +
-         p.c6 * sin(6. * mu) + p.c8 * sin(8. * mu)
-      sin1 := sin(phi1)
-      cos1 := cos(phi1)
-      tan1 := tan(phi1)
-      t1 := 1 - esq * sin1^2
-      t2 := sqrt(t1)
-      C1 := epsq * cos1^2
-      T1 := tan1^2
-      N1 := a / t2
-      R1 := a * (1 - esq) / (t1 * t2)
-      D := x / (N1 * k0)
+         p.c6 * sin(6. * mu) + p.c8 * sin(8. * mu);
+      sin1 := sin(phi1);
+      cos1 := cos(phi1);
+      tan1 := tan(phi1);
+      t1 := 1 - esq * sin1^2;
+      t2 := sqrt(t1);
+      C1 := epsq * cos1^2;
+      T1 := tan1^2;
+      N1 := a / t2;
+      R1 := a * (1 - esq) / (t1 * t2);
+      D := x / (N1 * k0);
       phi := phi1 - (N1 * tan1 / R1) *
          (D^2 / 2. - (5. + 3.*T1 + 10.*C1 - 4.*C1*C1 - 9.*epsq) * D^4 / 24. + 
             (61. + 90.*T1 + 298.*C1 + 45.*T1*T1 - 252.*epsq - 3. * C1*C1) *
-            D^6 / 720.)
+            D^6 / 720.);
       lam := lam0 + (D - (1 + 2 * T1 + C1) * D^3 / 6. +
          (5. - 2. * C1 + 28. * T1 - 3. * C1 * C1 + 
-         8. * epsq + 24. * T1 * T1) * D^5 / 120.) / cos1
+         8. * epsq + 24. * T1 * T1) * D^5 / 120.) / cos1;
       put(lllist, rtod(lam), rtod(phi))
       }
    
@@ -503,10 +503,10 @@ record ctg_comp(		# composition of two projections
 procedure compose(a[])		#: define composite projection
    local q, r
 
-   q := ctg_comp()
-   q.proj := ctg_comp_proj
-   q.inv := ctg_comp_inv
-   q.projList := []
+   q := ctg_comp();
+   q.proj := ctg_comp_proj;
+   q.inv := ctg_comp_inv;
+   q.projList := [];
    every r := !a do
       push(q.projList, r)
    return q
@@ -523,10 +523,10 @@ end
 procedure ctg_comp_inv(p)
    local q, r
 
-   q := ctg_comp()
-   q.proj := ctg_comp_proj
-   q.inv := ctg_comp_inv
-   q.projList := []
+   q := ctg_comp();
+   q.proj := ctg_comp_proj;
+   q.inv := ctg_comp_inv;
+   q.projList := [];
    every r := !(p.projList) do
       push(q.projList, invp(r))
    return q

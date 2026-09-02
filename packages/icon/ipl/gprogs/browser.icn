@@ -34,18 +34,18 @@ $define FileLength 500
 procedure main()
    local root, root_cur
 
-   nav_init()
-   vidgets := ui()
-   pat_window := &window
+   nav_init();
+   vidgets := ui();
+   pat_window := &window;
 
-   root := vidgets["root"]
+   root := vidgets["root"];
 
    repeat {
       root_cur := case Active() of {
          pat_window   :  root
          nav_window   :  nav_root
          }
-      ProcessEvent(root_cur, , shortcuts)
+      ProcessEvent(root_cur, , shortcuts);
       case nav_state of {
          &null   :  next
          "Okay"  :  process_file()
@@ -62,19 +62,19 @@ procedure process_file()
    initial list_vidget := vidgets["list"]
 
    if nav_file[-1] == "/" then {	# directory
-      chdir(nav_file)
+      chdir(nav_file);
       nav_refresh()
       }
 
    else {				# "plain" file
       input := open(nav_file) | {
-         Notice("Cannot open " || image(nav_file) || ".")
+         Notice("Cannot open " || image(nav_file) || ".");
          fail
          }
-      file_list := []
+      file_list := [];
       every put(file_list, left(entab(!input), LineLength)) \ FileLength
-      VSetItems(list_vidget, file_list)
-      close(input)
+      VSetItems(list_vidget, file_list);
+      close(input);
       WAttrib(nav_window, "canvas=hidden")
       }
 

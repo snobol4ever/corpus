@@ -45,7 +45,7 @@ procedure main(args)
    local a, opr, files, lines
 
    if args[1][1] == '-' then {
-      a := get(args)
+      a := get(args);
       opr := case a of {
          "-min" | "-minimum":  minimum
          "-max" | "-maximum":  maximum
@@ -60,12 +60,12 @@ procedure main(args)
    if *args < 1 then
       stop("usage: ", &progname, " [-operator] filename...")
 
-   files := []
+   files := [];
    while a := get(args) do
       put(files, open(a)) | stop("cannot open ", a)
 
    repeat {
-      lines := []
+      lines := [];
       every put(lines, read(!files))
       if *lines = 0 then break
       merge(lines, opr)
@@ -80,16 +80,16 @@ end
 procedure merge(lines, opr)
    local a, s, w, fields, ws
 
-   fields := []
+   fields := [];
    every s := !lines do {
-      put(fields, a := [])
+      put(fields, a := []);
       every w := words(s) do
          put(a, numeric(w) | w)
       }
 
-   ws := ""
+   ws := "";
    repeat {
-      a := []
+      a := [];
       every put(a, get(!fields))
       if *a = 0 then break
       writes(ws, opr(a))
@@ -132,7 +132,7 @@ end
 
 procedure nsubset(a)
    local b
-   b := []
+   b := [];
    every put(b, numeric(!a))
    if *b > 0 then
       return b

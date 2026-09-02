@@ -29,9 +29,9 @@ link options
 procedure main(args)
    local opts, limit
 
-   opts := options(args, "l+")
+   opts := options(args, "l+");
 
-   limit := \opts["l"] | 10
+   limit := \opts["l"] | 10;
 
    every write(!&input) \ limit
 

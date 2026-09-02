@@ -109,11 +109,11 @@ procedure options(arg,optstring,errproc)
    #  Initialize.
    #
    /optstring := string(&letters)
-   /errproc := stop
-   option := table()
-   fList := []
-   opttable := table()
-   optcs := &lcase ++ &ucase ++ &digits ++ '_'
+   /errproc := stop;
+   option := table();
+   fList := [];
+   opttable := table();
+   optcs := &lcase ++ &ucase ++ &digits ++ '_';
    #
    #  Scan the option specification string.
    #
@@ -142,7 +142,7 @@ procedure options(arg,optstring,errproc)
 			if any(':+.',opttype) then {
 			   p := "" ~== tab(0) | get(arg) |
 			      return errproc(
-				    "No parameter following -" || optname)
+				    "No parameter following -" || optname);
 			   case opttype of {
 			      ":": p
 			      "+": integer(p) |
@@ -165,11 +165,11 @@ procedure options(arg,optstring,errproc)
 	 #
 	 else if ="@" & not pos(0) & /ignore then {
 	    f := open(fn := tab(0)) |
-	       return errproc("Can't open " || fn)
-	    fileArg := []
+	       return errproc("Can't open " || fn);
+	    fileArg := [];
 	    while put(fileArg,read(f))
-	    close(f)
-	    push(arg)	# push null to signal end of args from file
+	    close(f);
+	    push(arg);  # push null to signal end of args from file
 	    while push(arg,pull(fileArg))
 	    }
 	 else put(fList,x)

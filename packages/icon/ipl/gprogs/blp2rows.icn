@@ -31,7 +31,7 @@ link patutils
 procedure main()
    local rows
 
-   rows := pat2rows(read())
+   rows := pat2rows(read());
 
    every write(!rows)
 

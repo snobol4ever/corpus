@@ -37,25 +37,25 @@ link wopen
 procedure main()
    local size, real_size, i, j, c1, c2, x, y, n, x1, y1, limit, extent
 
-   size := 300
-   extent := 4.0 / size
+   size := 300;
+   extent := 4.0 / size;
 
-   limit := 30
+   limit := 30;
 
    WOpen("label=mandel", "height=" || size, "width=" || size) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
    every i := 1 to size do {
       every j := 1 to size / 2 do {
-         c1 := -2 + i * extent
-         c2 := 2 - j * extent
-         x := c1
-         y := c2
+         c1 := -2 + i * extent;
+         c2 := 2 - j * extent;
+         x := c1;
+         y := c2;
          every 1 to limit do {		# see what the orbit is
-            x1 := x ^ 2 - y ^ 2 + c1
-            y1 := 2 * x * y + c2
+            x1 := x ^ 2 - y ^ 2 + c1;
+            y1 := 2 * x * y + c2;
             if (x1 ^ 2 + y1 ^ 2) > 4 then break next
-            x := x1
+            x := x1;
             y := y1
             }
          DrawPoint(i, j, i, size - j)

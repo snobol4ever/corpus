@@ -26,7 +26,7 @@
 procedure tab2rec(s, rec)
    local i
 
-   i := 0
+   i := 0;
 
    s ? {
       while rec[i +:= 1] := map(tab(upto('\t') | 0), "\v", "\n") do

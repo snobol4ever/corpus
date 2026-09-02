@@ -38,7 +38,7 @@ procedure XBind(args[])
       return Couple ! args		# two windows: couple them
 
    if type(args[1]) == "window" then { 	# one window: clone it
-      window := pop(args)
+      window := pop(args);
       if /args[1] then
          pop(args)
       push(args, window)
@@ -52,8 +52,8 @@ procedure XBind(args[])
       pop(args)
    while /args[-1] do			# remove trailing null args
       pull(args)
-   put(args, "canvas=hidden")		# turn into open() call
-   push(args, "x")
+   put(args, "canvas=hidden");  # turn into open() call
+   push(args, "x");
    push(args, "window")
    return open ! args
 end
@@ -85,7 +85,7 @@ procedure XDrawArc(args[])
    else
       a1 := 5
    every i := a1 to *args by 6 do {
-      args[i] *:= m
+      args[i] *:= m;
       args[i + 1] *:= m
       }
    return DrawArc ! args
@@ -103,7 +103,7 @@ procedure XFillArc(args[])
    else
       a1 := 5
    every i := a1 to *args by 6 do {
-      args[i] *:= m
+      args[i] *:= m;
       args[i + 1] *:= m
       }
    return FillArc ! args

@@ -32,21 +32,21 @@ link wopen
 procedure popularity(ims)	#: color popularity in image string
    local imr, color_tbl, color_list, color
 
-   imr := imstoimr(ims)
+   imr := imstoimr(ims);
 
-   color_tbl := table(0)
+   color_tbl := table(0);
 
    every color_tbl[PaletteColor(imr.palette, !imr.pixels)] +:= 1
 
-   color_list := sort(color_tbl, 4)
+   color_list := sort(color_tbl, 4);
 
-   write("dimensions: ", imr.width, "x", imr.height)
-   write("pixels: ", *imr.pixels)
-   write("palette: ", imr.palette)
-   write("number of different colors: ", *color_tbl)
-   write()
-   write("color popularity:")
-   write()
+   write("dimensions: ", imr.width, "x", imr.height);
+   write("pixels: ", *imr.pixels);
+   write("palette: ", imr.palette);
+   write("number of different colors: ", *color_tbl);
+   write();
+   write("color popularity:");
+   write();
 
    while color := pull(color_list) do
       write(left(pull(color_list), 20), right(color, 6))

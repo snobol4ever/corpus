@@ -47,7 +47,7 @@ global height
 
 procedure main(args)
 
-   init(args)
+   init(args);
 
    display()
 
@@ -55,21 +55,21 @@ end
 
 procedure init(args)
 
-   WOpen ! ui_atts()
+   WOpen ! ui_atts();
 
-   vidgets := ui()
+   vidgets := ui();
 
-   root := vidgets["root"]
+   root := vidgets["root"];
 
-   state := &null
-   scale := 1
+   state := &null;
+   scale := 1;
 
-   width :=  vidgets["strip"].uw
-   height :=  vidgets["strip"].uh
+   width :=  vidgets["strip"].uw;
+   height :=  vidgets["strip"].uh;
 
-   strip := Clone("dx=" || vidgets["strip"].ux, "dy=" || vidgets["strip"].uy)
-   Clip(strip, 0, 0, width, height)
-   gc_gray := Clone(strip, "fg=gray")
+   strip := Clone("dx=" || vidgets["strip"].ux, "dy=" || vidgets["strip"].uy);
+   Clip(strip, 0, 0, width, height);
+   gc_gray := Clone(strip, "fg=gray");
    gc_black := Clone(strip, "fg=black")
 
 end
@@ -82,23 +82,23 @@ procedure display()
          while (*Pending() > 0) | \state do
             ProcessEvent(root, , shortcuts)
          n := read() | {
-            Notice("End of data.")
+            Notice("End of data.");
             fail
             }
          n ? {
             if ="a" then {
-               n := tab(0)
+               n := tab(0);
                gc := gc_gray
                }
             else gc := gc_black
             }
          n := scale * integer(n) | {
-            Notice("Nonnumeric data; terminating.")
+            Notice("Nonnumeric data; terminating.");
             break
             }
-         n >:= height			# Motif bug avoidance
-         CopyArea(strip, 1, 0, width - 1, height, 0, 0)
-         EraseArea(strip, width - 1, 0, width, height)
+         n >:= height;  # Motif bug avoidance
+         CopyArea(strip, 1, 0, width - 1, height, 0, 0);
+         EraseArea(strip, width - 1, 0, width, height);
          DrawLine(gc, width - 1, height - n, width - 1, height)
          }
    }
@@ -123,7 +123,7 @@ procedure configure_cb(vidget, value)
          repeat {
             if TextDialog(, "scale", scale, 10) == "Okay" then {
                scale := (0 < numeric(dialog_value[1])) | {
-                  Notice("Invalid scale value.")
+                  Notice("Invalid scale value.");
                   next
                   }
                reset_cb()

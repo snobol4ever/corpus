@@ -65,16 +65,16 @@ global idset			# identifier characters
 procedure main(args)
    local line, t
 
-   idset := &letters ++ &digits ++ '.-_:'
+   idset := &letters ++ &digits ++ '.-_:';
    
-   lineno := 0
-   errors := 0
-   tagstack := []
+   lineno := 0;
+   errors := 0;
+   tagstack := [];
 
-   stdout := &output
+   stdout := &output;
 
-   cmdtable := table()
-   cmdtable["divert"] := divert
+   cmdtable := table();
+   cmdtable["divert"] := divert;
 
    if *args = 0 then
       infile := &input
@@ -82,8 +82,8 @@ procedure main(args)
       infile := open(args[1]) | stop("can't open ", args[1])
 
    while line := in() do {
-      lineno +:= 1
-      line := braces(line)
+      lineno +:= 1;
+      line := braces(line);
       out(line)
       }
 

@@ -36,7 +36,7 @@ global code_gen
 
 procedure main()
 
-   code_gen := cat			# so it can be changed easily
+   code_gen := cat;  # so it can be changed easily
 
    Mp()					# call meta-procedure
 
@@ -127,7 +127,7 @@ procedure Compound(es[])		# { e1; e2; ... }
 
    if *es = 0 then return "{}\n"
 
-   result := "{\n"
+   result := "{\n";
    every result ||:= !es || "\n"
 
    return code_gen(result, "}\n")
@@ -181,7 +181,7 @@ end
 procedure Global(vs[])		# global v1, v2, ...
    local result
 
-   result := ""
+   result := "";
    every result ||:= !vs || ", "
 
    write("global ", result[1:-2])
@@ -230,7 +230,7 @@ procedure Invoke(e, es[])		# e(e1, e2, ...)
 
    if *es = 0 then return code_gen(e, "()")
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return code_gen(e, "(", result[1:-2], ")")
@@ -252,7 +252,7 @@ end
 procedure Link(vs[])			# link "v1, v2, ..."
    local result
 
-   result := ""
+   result := "";
    every result ||:= !vs || ", "
 
    write("link ", result[1:-2])
@@ -266,7 +266,7 @@ procedure List(es[])			# [e1, e2, ... ]
 
    if *es = 0 then return "[]"
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return code_gen("[", result[1:-2], "]")
@@ -276,7 +276,7 @@ end
 procedure Local(vs[])			# local v1, v2, ...
    local result
 
-   result := ""
+   result := "";
    every result ||:= !vs || ", "
 
    write("local ", result[1:-2])
@@ -308,7 +308,7 @@ procedure Paren(es[])			# (e1, e2, ... )
 
    if *es = 0 then return "()"
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return code_gen("(", result[1:-2], ")")
@@ -320,7 +320,7 @@ procedure Pdco(e, es[])		# e{e1, e2, ... }
 
    if *es = 0 then return code_gen(e, "{}")
 
-   result := ""
+   result := "";
    every result ||:= !es || ", "
 
    return code_gen(e, "{", result[1:-2], "}")
@@ -332,7 +332,7 @@ procedure Proc(n, vs[])		# procedure n(v1, v2, ...)
 
    if *vs = 0 then write("procedure ", n, "()")
 
-   result := ""
+   result := "";
    every v := !vs do
       if \v == "[]" then result[-2:0] := v || ", "
       else result ||:= (\v | "") || ", "
@@ -348,7 +348,7 @@ procedure Record(n, fs[])		# record n(f1, f2, ...)
 
    if *fs = 0 then write("record ", n, "()")
 
-   result := ""
+   result := "";
    every field := !fs do
       result ||:= (\field | "") || ", "
 
@@ -397,7 +397,7 @@ end
 procedure Static(vs[])			# static v1, v2, ..
    local result
 
-   result := ""
+   result := "";
    every result ||:= !vs || ", "
 
    write("static ", result[1:-2])

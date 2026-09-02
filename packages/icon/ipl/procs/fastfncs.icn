@@ -44,7 +44,7 @@ procedure g(k, n)
 
    if n = 0 then return 0
 
-   value := 0
+   value := 0;
 
    value +:= floor(psi * floor((seq(0) \ k + n) / real(k)) + psi)
 
@@ -55,10 +55,10 @@ end
 procedure robbins(n)
    local numer, denom, i
 
-   numer := denom := 1
+   numer := denom := 1;
 
    every i := 0 to n - 1 do {
-      numer *:= factorial(3 * i + 1)
+      numer *:= factorial(3 * i + 1);
       denom *:= factorial(n + i)
       }
 

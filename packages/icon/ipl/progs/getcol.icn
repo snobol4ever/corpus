@@ -32,18 +32,18 @@ link options
 procedure main(args)
    local i, chars, col, line, opts
 
-   opts := options(args, "n+c:")
+   opts := options(args, "n+c:");
 
-   i := \opts["n"] | 1
+   i := \opts["n"] | 1;
    if i < 1 then stop("*** invalid column specifications")
 
-   chars := cset(\opts["c"]) | ' \t'
+   chars := cset(\opts["c"]) | ' \t';
    if *chars = 0 then stop("*** invalid character-separation specification")
 
    while line := read() do {
       line ? {
          every 1 to i - 1 do {
-            tab(upto(chars)) | stop("*** column missing")
+            tab(upto(chars)) | stop("*** column missing");
             tab(many(chars))
             }
          write(tab(upto(chars) | 0))

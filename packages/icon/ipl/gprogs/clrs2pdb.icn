@@ -37,16 +37,16 @@ procedure main(args)
 
     every file := !args do {
        input := open(file) | {
-          write(&errout, "*** cannot open ", image(file))
+          write(&errout, "*** cannot open ", image(file));
           next
           }
-       name := basename(file, ".clr")
-       clist := []
+       name := basename(file, ".clr");
+       clist := [];
        while line := read(input) do {
-          line ?:= tab(upto('\t'))
+          line ?:= tab(upto('\t'));
           put(clist, line)
           }
-       close(input)
+       close(input);
        makepalette(name, clist) |
           write(&errout, "*** could not make palette from ", image(file))
        }

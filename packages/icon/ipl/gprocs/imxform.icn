@@ -37,9 +37,9 @@ link strings
 
 procedure imxreduce(rows)
 
-   rows := imxcollap(rows)
-   rows := imxrotate(rows, 90)
-   rows := imxcollap(rows)
+   rows := imxcollap(rows);
+   rows := imxrotate(rows, 90);
+   rows := imxcollap(rows);
    rows := imxrotate(rows, -90)
 
    return rows
@@ -49,10 +49,10 @@ end
 procedure imxcollap(rows)
    local size, fact
 
-   size := *rows
+   size := *rows;
    every fact := !pfactors(size) do {
       while rowdupl(rows, fact) do {
-         size /:= fact
+         size /:= fact;
          rows := rows[1+:size]
          }
       }
@@ -66,7 +66,7 @@ procedure rowdupl(rows, n)
 
    if *rows % n ~= 0 then fail
 
-   span := *rows / n
+   span := *rows / n;
 
    every i := 1 to n - 1 do
       every j := 1 to span do
@@ -84,7 +84,7 @@ procedure imxor(rows1, rows2)
 
    if (*rows1 ~= *rows2) | (**rows1 ~= **rows2) then fail
 
-   rows1 := copy(rows1)
+   rows1 := copy(rows1);
 
    every i := 1 to *rows1 do
       every j := upto('1', rows2[i]) do
@@ -102,7 +102,7 @@ procedure imxand(rows1, rows2)
 
    if (*rows1 ~= *rows2) | (**rows1 ~= **rows2) then fail
 
-   rows1 := copy(rows1)
+   rows1 := copy(rows1);
 
    every i := 1 to *rows1 do
       every j := upto('0', rows2[i]) do
@@ -120,7 +120,7 @@ procedure imxxor(rows1, rows2)
 
    if (*rows1 ~= *rows2) | (**rows1 ~= **rows2) then fail
 
-   rows1 := copy(rows1)
+   rows1 := copy(rows1);
 
    every i := 1 to *rows1 do
       every j := 1 to **rows1 do
@@ -145,11 +145,11 @@ procedure imxscramb(rows, dir)
           }
       "v":  rows := shuffle(rows)
       "b" | &null:  {
-         all := ""
+         all := "";
          every all ||:= !rows
-         all := shuffle(all)
+         all := shuffle(all);
          every i := 1 to *rows do {
-            rows[i] := left(all, *rows[1])
+            rows[i] := left(all, *rows[1]);
             all[1 +: *rows[1]] := ""
             }
          }
@@ -169,9 +169,9 @@ end
 procedure imxshift(rows, shift, dir)
    local i
 
-   /shift := 0
+   /shift := 0;
 
-   rows := copy(rows)
+   rows := copy(rows);
 
    case dir of {
       "h" | &null: {			# horizontal shift
@@ -205,13 +205,13 @@ procedure imxborder(rows, l, r, t, b, c)
    /r := 1
    /t := 1
    /b := 1
-   /c := "0"
+   /c := "0";
 
    if l = r = t = b = 0 then return rows
 
-   row := repl(c, *rows[1] + l + r)
-   left := repl(c, l)
-   right := repl(c, r)
+   row := repl(c, *rows[1] + l + r);
+   left := repl(c, l);
+   right := repl(c, r);
 
    every i := 1 to *rows do
        rows[i] := left || rows[i] || right
@@ -236,7 +236,7 @@ procedure imxcrop(rows, l, r, t, b)
    /l := 0
    /r := 0
    /t := 0
-   /b := 0
+   /b := 0;
 
    if l = r = t = b = 0 then return rows
 
@@ -265,8 +265,8 @@ end
 procedure imxhalve(rows, dir, choice)
    local newrows, i
 
-   choice := if choice === ("o" | &null) then 1 else 0
-   newrows := []
+   choice := if choice === ("o" | &null) then 1 else 0;
+   newrows := [];
 
    case dir of {
       "v": {
@@ -290,7 +290,7 @@ end
 procedure imxdouble(rows, dir)
    local row, newrows
 
-   newrows := []
+   newrows := [];
 
    case dir of {
       "v":  {
@@ -320,25 +320,25 @@ procedure imxflip(rows, dir)
 
    case dir of {
       "l": {
-         newrows := imxrotate(rows)
+         newrows := imxrotate(rows);
          every y := 1 to *rows do
             every x := 1 to *rows[1] do
                newrows[x, y] := rows[y, x]
          }
       "r": {
-         newrows := list(*rows[1], repl("0", *rows))
+         newrows := list(*rows[1], repl("0", *rows));
          every y := 1 to *rows do
             every x := 1 to *rows[1] do
                if rows[y, x] == "1" then
                   newrows[x, y] := "1"
          }
       "h":  {
-         newrows := copy(rows)
+         newrows := copy(rows);
          every i := 1 to *rows do
             newrows[i] := reverse(newrows[i])
          }
       "v":  {
-         newrows := copy(rows)
+         newrows := copy(rows);
          every i := 1 to *rows / 2 do
            newrows[i] :=: newrows[-i]
          }
@@ -378,7 +378,7 @@ procedure imxminim(rows)
       if *rows[1] < 8 then break		# can't reduce to < 4 columns
 
       halfw := *rows[1] / 2
-      halfh := *rows / 2
+      halfh := *rows / 2;
    
       every i := 1 to halfh do			# check rows in top and bottom
          if (rows[i] ~== rows[i + halfh]) |
@@ -403,27 +403,27 @@ end
 procedure imxrotate(rows, dir)
    local newrows, i, row, pix
 
-   /dir := "cw"
+   /dir := "cw";
 
    case string(dir) of {
       "ccw" | "-90":  {			# counter-clockwise
-         newrows := list(*rows[1], "")
+         newrows := list(*rows[1], "");
          every row := !rows do  {
-            i := 0
+            i := 0;
             every pix := !row do
                newrows[i -:= 1] ||:= pix
             }
         }
       "cw" | "90" | &null:  {			# clockwise
-         newrows := list(*rows[1], "")
+         newrows := list(*rows[1], "");
          every row := !rows do {
-            i := 0
+            i := 0;
             every pix := !row do
                newrows[i +:= 1] := pix || newrows[i]
             }
          }
       "180": {
-         newrows := []
+         newrows := [];
          every push(newrows, reverse(!rows))
          }
       default:  stop("*** illegal rotation specification in imxrotate()")
@@ -444,7 +444,7 @@ procedure imxtrim(rows)
    while (*rows > 4) & not(upto('1', rows[-1])) do
       pull(rows)
 
-   rows := imxrotate(rows, "cw")
+   rows := imxrotate(rows, "cw");
 
    while (*rows > 4) & not(upto('1', rows[1])) do
       get(rows)
@@ -462,17 +462,17 @@ end
 procedure imxcenter(rows, w, h)
    local rw, rh, vert, horz, t, l
 
-   rows := imxtrim(rows)
+   rows := imxtrim(rows);
 
-   rw := *rows[1]
-   rh := *rows
+   rw := *rows[1];
+   rh := *rows;
 
    if (rh = h) & (rw = w) then return rows
    if (rh > h) | (rw > w) then fail
 
-   horz := w - rw
-   vert := h - rh
-   l := horz / 2
+   horz := w - rw;
+   vert := h - rh;
+   l := horz / 2;
    t := vert / 2
 
    return imxborder(rows, l, horz - l, t, vert - t)

@@ -27,14 +27,14 @@ record textdim(cols, rows)
 procedure filedim(s, p)
    local input, rows, cols, line
 
-   /p := detab
+   /p := detab;
 
-   input := open(s) | stop("*** cannot open ", s)
+   input := open(s) | stop("*** cannot open ", s);
 
-   rows := cols := 0
+   rows := cols := 0;
 
    while line := p(read(input)) do {
-      rows +:= 1
+      rows +:= 1;
       cols <:= *line
       }
 

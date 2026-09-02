@@ -27,9 +27,9 @@ link patutils
 procedure main(args)
    local input, rlist
 
-   input := open(args[1]) | stop("*** cannot open image file")
+   input := open(args[1]) | stop("*** cannot open image file");
 
-   rlist := []
+   rlist := [];
    every put(rlist, xbm2rows(input))
    write(rows2pat(rlist),"	# ", args[1])
 

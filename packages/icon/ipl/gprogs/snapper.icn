@@ -47,14 +47,14 @@ procedure main(av)
       Active()
    } else {
       winput := WOpen("label=snapper! (click mouse in this window to exit)") |
-	 stop("** can't open window")
+	 stop("** can't open window");
 
       repeat {
-	 close(\window)
-	 writes(winput, "next image: ")
+	 close(\window);
+	 writes(winput, "next image: ");
 	 name := read(winput)
 	 (window := WOpen("label=" || name, "image=" || name,"pos=400,200")) | 
-	    write(winput,"cannot open image")
+	    write(winput,"cannot open image");
          if Event(winput) === (&lpress | &mpress | &rpress) then
             exit()
       }

@@ -34,8 +34,8 @@ procedure hostname()
     static h_name
     initial {
 	(find("UNIX",&features), find("pipes",&features)) |
-	    stop("hostname:  works only under UNIX")
-	close(open(fname <- "/usr/bin/hostname"|"/bin/uuname"|"/bin/uname"))
+	    stop("hostname:  works only under UNIX");
+	close(open(fname <- "/usr/bin/hostname"|"/bin/uuname"|"/bin/uname"));
         fname := {
 	    case \fname of {
 		"/usr/bin/hostname" :  "/usr/bin/hostname"
@@ -44,8 +44,8 @@ procedure hostname()
             } | "/usr/bin/uuname -l"
 	}
 	get_name := open(fname, "pr") |
-	    stop("hostname:  can't find hostname/uuname/uname commands")
-        h_name := !get_name
+	    stop("hostname:  can't find hostname/uuname/uname commands");
+        h_name := !get_name;
         close(get_name)
     }
 

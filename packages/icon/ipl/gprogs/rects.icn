@@ -42,17 +42,17 @@ $define Bias 20		# bias setting -- affects size choices
 procedure main(args)
    local w, h
 
-   Window("bg=white", "width=600", "height=400", args)
-   w := integer(WAttrib("width"))
-   h := integer(WAttrib("height"))
+   Window("bg=white", "width=600", "height=400", args);
+   w := integer(WAttrib("width"));
+   h := integer(WAttrib("height"));
 
-   randomize()
-   rect(Gap, Gap, w - Gap, h - Gap)
+   randomize();
+   rect(Gap, Gap, w - Gap, h - Gap);
 
    repeat case Event() of {
       "q":  exit()
       " ": {
-         EraseArea()
+         EraseArea();
          rect(Gap, Gap, w - Gap, h - Gap)
          }
    }
@@ -67,20 +67,20 @@ procedure rect(x, y, w, h)
    local d
    static darkness, hue
    initial {
-      darkness := ["light", "medium", "dark", "deep"]
+      darkness := ["light", "medium", "dark", "deep"];
       hue := ["red", "orange", "yellow", "green", "blue", "gray"]
       }
 
    if d := divide(w < h) then {		# if cut horizontally:
-      rect(x, y, w, d)			#    draw top portion
+      rect(x, y, w, d);  #    draw top portion
       rect(x, y + d, w, h - d)		#    draw bottom portion
       }
    else if d := divide(w) then {	# if cut vertically:
-      rect(x, y, d, h)			#    draw left portion
+      rect(x, y, d, h);  #    draw left portion
       rect(x + d, y, w - d, h)		#    draw right portion
       }
    else {				# else draw single rect
-      Fg(?darkness || " strong " || ?hue)	# set random color
+      Fg(?darkness || " strong " || ?hue);  # set random color
       FillRectangle(x, y, w - Gap, h - Gap)	# draw
       }
 

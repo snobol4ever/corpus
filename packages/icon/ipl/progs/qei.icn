@@ -56,48 +56,48 @@ procedure main()
    local uselines, line, inline, src, files, w, f, Generate, sfile
    local curexp, t, rc, sc
 
-   write("Icon Expression Evaluator, Version 1.2, type :? for help")
+   write("Icon Expression Evaluator, Version 1.2, type :? for help");
    
    if not(&features == "co-expressions") | not(&features == "system function")
    then stop("*** This program requires co-expressions ***")
 
-   tag := create "r" || seq() || "_"
+   tag := create "r" || seq() || "_";
 
    header := [
       "global showtype, showimage, showImage",
       "procedure main()", "hwrite := -1; write :=: hwrite",
       "hwrites := -1; writes :=: hwrites",
       "hread := -1; read :=: hread"
-      ]
+      ];
 
-   incfiles := []
-   prog := []
-   extras := ["write := hwrite", "read := hread", "writes := hwrites"]
-   showtype := 1
-   uselines := []
+   incfiles := [];
+   prog := [];
+   extras := ["write := hwrite", "read := hread", "writes := hwrites"];
+   showtype := 1;
+   uselines := [];
 
    repeat {
-     line := ""
+     line := "";
      repeat {
         if *uselines ~= 0 then {
            inline := get(uselines)
            }
         else {
-           writes(if *line = 0 then "> " else "... ")
+           writes(if *line = 0 then "> " else "... ");
            inline := (read() | shut_down())
            }
       
-        inline := trim(inline, ' \t')
+        inline := trim(inline, ' \t');
         case inline of {
            ":type": {
-              (/showtype := 1) | (showtype := &null)
-              write("Will ",(/showtype & "not ")|"","display types")
+              (/showtype := 1) | (showtype := &null);
+              write("Will ",(/showtype & "not ")|"","display types");
               next
               }
            ":exit" | ":quit": shut_down()
            ":clear": {
-              prog := []
-              tag := ^tag		# reset variable numbering
+              prog := [];
+              tag := ^tag;  # reset variable numbering
               next
               }
            ":list": {
@@ -105,14 +105,14 @@ procedure main()
               next
               }
            ":help" | ":?": {
-              Help()
+              Help();
               next
               }
             }
          inline ? {
            if =":edit" then {
-              src := prog[-1][1:-1]
-              src := replace(src, "\n#", "\n")
+              src := prog[-1][1:-1];
+              src := replace(src, "\n#", "\n");
               src ? {
                  tab(upto('(') + 1) &
                  line := atos(Edit([tab(0)]), "\n") &
@@ -120,37 +120,37 @@ procedure main()
                  }
               }
            else if =":edit all" then {
-              prog := Edit(prog)
+              prog := Edit(prog);
               next
               }
            else if =":link" then {
-              push(header, inline[2:0] ? tab(upto(';') | 0))
+              push(header, inline[2:0] ? tab(upto(';') | 0));
               next
               }
            else if =":include" then {
-              inline := replace(inline, ";", "")
-              inline ? (tab(upto(' \t') + 1) & files := tab(0))
-              files := split(files, ', \t')
-              incfiles |||:= files
+              inline := replace(inline, ";", "");
+              inline ? (tab(upto(' \t') + 1) & files := tab(0));
+              files := split(files, ', \t');
+              incfiles |||:= files;
               next
               }
            else if =":load" then {
-              w := split(inline, ' ,\t\'\";')
+              w := split(inline, ' ,\t\'\";');
               if f := open(w[2]) then {
                  while put(uselines, read(f))
-                 close(f)
+                 close(f);
                  next
                  }
               else {
-                 write("*** cannot open ", image(w[2]))
+                 write("*** cannot open ", image(w[2]));
                  next
                  }
               }
             }
 
-      line ||:= inline || "\n"
+      line ||:= inline || "\n";
          if line[-2:0] == ";\n" then {
-            line[-2:0] := ""
+            line[-2:0] := "";
             break
             }
           }
@@ -160,29 +160,29 @@ procedure main()
 
    if line ?:= (=":every " & tab(0)) then Generate := 1
     
-   sfile := open("qei_.icn","w")
+   sfile := open("qei_.icn","w");
 
    every write(sfile, !(header | prog | extras))
    
-   curexp := (t :=@tag) || " := (" || line || ")"
+   curexp := (t :=@tag) || " := (" || line || ")";
    
    if \Generate then {
        write(sfile, "every WR(\"\",", curexp, ")")
        }
        else {
-          write(sfile, "if (", curexp, ") then WR(\"", t, " := \",", t, ")")
+          write(sfile, "if (", curexp, ") then WR(\"", t, " := \",", t, ")");
           write(sfile, "else write(\"Failure\")")
           }
    
-      write(sfile, "end")
+      write(sfile, "end");
 
-      WriteWR(sfile)
+      WriteWR(sfile);
 
       close(sfile)
 
 $ifdef _MS_WINDOWS
       sc :=  system("wicont -s qei_.icn " || atos(incfiles, " "))
-$else
+$else;
       sc :=  system("icont -s qei_.icn " || atos(incfiles, " "))
 $endif
       if sc = 0 then rc := system("qei_")

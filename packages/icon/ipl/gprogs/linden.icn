@@ -137,26 +137,26 @@ procedure main(args)
    local line, gener, axiom, angle, opts, i, s, c, symbol, rewrite
    local allchars, rhs, value, spec, x, y, length, w, h, delay, name
 
-   rewrite := table()
-   allchars := ''			# cset of all rhs characters
+   rewrite := table();
+   allchars := '';  # cset of all rhs characters
  
-   opts := options(args,"g+l+a+w+h+x+y+Wsd+")
+   opts := options(args,"g+l+a+w+h+x+y+Wsd+");
 
-   rhs := ''
+   rhs := '';
 
    while line := read() do
       line ? {
          if symbol := move(1) & ="->" then {
-            rhs := tab(0)
-            rewrite[symbol] := rhs
+            rhs := tab(0);
+            rewrite[symbol] := rhs;
             allchars ++:= rhs			# keep track of all characters
             }
          else if spec := tab(upto(':')) then {
-            move(1)
-            value := tab(0)
+            move(1);
+            value := tab(0);
             case spec of {
                "axiom":    {
-                  axiom := value
+                  axiom := value;
                   allchars ++:= rhs		# axiom might have strays
                   }
                "angle":    angle := value
@@ -178,14 +178,14 @@ procedure main(args)
    every c := !allchars do
      /rewrite[c] := c
 
-   h := \opts["h"] | 400
-   w := \opts["w"] | 400
+   h := \opts["h"] | 400;
+   w := \opts["w"] | 400;
 
-   angle := \opts["a"]			# command-line overrides
-   length := \opts["l"]
-   gener := \opts["g"]
-   x := \opts["x"]
-   y := \opts["y"]
+   angle := \opts["a"];  # command-line overrides
+   length := \opts["l"];
+   gener := \opts["g"];
+   x := \opts["x"];
+   y := \opts["y"];
    delay := \opts["d"]
 
    /angle := 90				# defaults
@@ -194,14 +194,14 @@ procedure main(args)
    /x := 0
    /y := 0
    /delay := 0
-   /name := "intitled"
+   /name := "intitled";
 
    if /axiom then stop("*** no axiom")
 
    if /opts["W"] then {
       WOpen("size=" || w || "," || h, "dx=" || (w / 2),
-      "dy=" || (h / 2)) | stop("*** cannot open window")
-      linddraw(x, y, axiom, rewrite, length, angle, gener, delay)
+      "dy=" || (h / 2)) | stop("*** cannot open window");
+      linddraw(x, y, axiom, rewrite, length, angle, gener, delay);
       if \opts["s"] then WriteImage(name || ".gif")
       WDone()
       }

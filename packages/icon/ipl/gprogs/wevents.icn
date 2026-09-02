@@ -47,15 +47,15 @@ $include "keysyms.icn"
 procedure main(args)
    local w, q, e, xhex, yhex, eimage
 
-   w := optwindow(options(args, winoptions()))
-   WAttrib(w, "resize=on")
+   w := optwindow(options(args, winoptions()));
+   WAttrib(w, "resize=on");
 
    repeat {
-      q := Pending(Active())	# wait until event is queued
-      eimage := right(image(q[1]), 10) | "******"
-      xhex := hexstring(q[2], 8) | "********"
-      yhex := hexstring(q[3], 8) | "********"
-      e := Event(w)
+      q := Pending(Active());  # wait until event is queued
+      eimage := right(image(q[1]), 10) | "******";
+      xhex := hexstring(q[2], 8) | "********";
+      yhex := hexstring(q[3], 8) | "********";
+      e := Event(w);
       write(
          r(&interval, 5), " ",
          if &control then "c" else "-",
@@ -66,7 +66,7 @@ procedure main(args)
          eimage, "  ",
          left(xhex, 4), " ", right(xhex, 4), "  ",
          left(yhex, 4), " ", right(yhex, 4),
-         )
+         );
       if e === ("\^C" | "\^D" | "\177") then
          break
       if e === &resize & &x < 0 & &y < 0 then

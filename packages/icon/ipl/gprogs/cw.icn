@@ -30,14 +30,14 @@ link colorway
 
 procedure main()
 
-   cw_init()
+   cw_init();
 
-   cw := colorway(table())	# initial color way
-   cw.table["white"] := "white"
-   cw.table["black"] := "black"
-   cw_file := ""
-   win_cw()
-   expose(cw_interface)
+   cw := colorway(table());  # initial color way
+   cw.table["white"] := "white";
+   cw.table["black"] := "black";
+   cw_file := "";
+   win_cw();
+   expose(cw_interface);
 
    repeat {
      if \cw_active then edit_cw()

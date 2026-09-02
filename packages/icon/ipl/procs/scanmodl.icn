@@ -31,7 +31,7 @@ procedure Bscan(e1)
    &pos := 1
    suspend OuterEnvir
    &subject := OuterEnvir.subject
-   &pos := OuterEnvir.pos
+   &pos := OuterEnvir.pos;
    fail
 end
 
@@ -40,10 +40,10 @@ procedure Escan(OuterEnvir, e2)
    InnerEnvir := ScanEnvir(&subject, &pos)
    &subject := OuterEnvir.subject
    &pos := OuterEnvir.pos
-   suspend e2
-   OuterEnvir.subject := &subject
+   suspend e2;
+   OuterEnvir.subject := &subject;
    OuterEnvir.pos := &pos
    &subject := InnerEnvir.subject
-   &pos := InnerEnvir.pos
+   &pos := InnerEnvir.pos;
    fail
 end

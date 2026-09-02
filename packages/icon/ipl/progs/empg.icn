@@ -56,17 +56,17 @@ global decls
 procedure main(args)
    local line, opts, limit, delcomp
 
-   opts := options(args, "d+l+")
+   opts := options(args, "d+l+");
 
-   write("link empgsup")
-   write("link options")
-   write("procedure main(args)")
-   write("   local opts")
-   write("   opts := options(args, \"d+l+\")")
-   write("   _Limit := ", \opts["l"] | " \\opts[\"l\"] | 100000")
-   write("   _Delta := ", \opts["d"] | " \\opts[\"d\"] | _Initialize(_Limit)")
+   write("link empgsup");
+   write("link options");
+   write("procedure main(args)");
+   write("   local opts");
+   write("   opts := options(args, \"d+l+\")");
+   write("   _Limit := ", \opts["l"] | " \\opts[\"l\"] | 100000");
+   write("   _Delta := ", \opts["d"] | " \\opts[\"d\"] | _Initialize(_Limit)");
   
-   decls := []
+   decls := [];
 
    while line := read() do
       line ? {
@@ -76,7 +76,7 @@ procedure main(args)
          else timeloop(tab(0))
          }
 
-   write("end")
+   write("end");
 
    every write(!decls)
 
@@ -106,12 +106,12 @@ end
 
 procedure timeloop(expr)
 
-   write("   write(", image(expr), ")")
-   write("   _Itime := &time")
-   write("   every 1 to _Limit do {")
-   write("      &null & (", expr, ")")
-   write("      }")
-   write("   write(real(&time - _Itime -_Delta) / _Limit, \" ms.\")")
+   write("   write(", image(expr), ")");
+   write("   _Itime := &time");
+   write("   every 1 to _Limit do {");
+   write("      &null & (", expr, ")");
+   write("      }");
+   write("   write(real(&time - _Itime -_Delta) / _Limit, \" ms.\")");
    write("   write()")
 
    return

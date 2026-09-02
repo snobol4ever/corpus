@@ -22,7 +22,7 @@
 procedure distance(d[])
    local sum
 
-   sum := 0
+   sum := 0;
 
    every sum +:= !d ^ 2
 

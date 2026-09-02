@@ -337,17 +337,17 @@ global Chars, Defs, Depth, Ifile, Ifile_name, Init_name_char,
 procedure main(arg_list)
   local line, source
 
-  init(arg_list)
+  init(arg_list);
 
   repeat {
     while line := get_line(Ifile) do
       line ? process_cmd(get_cmd())
 
     # Get new source
-    close(Ifile)
+    close(Ifile);
     if source := pop(Src_stack) then {
-      Ifile := source.fd
-      Ifile_name := source.fname
+      Ifile := source.fd;
+      Ifile_name := source.fname;
       Line_no := source.line
       }
     else  break
@@ -375,11 +375,11 @@ procedure const_expr(expr)
 
   initial White_space_plus := White_space ++ '<>~n'
 
-  new := ""
+  new := "";
   expr ? {
     while new ||:= tab(upto(White_space_plus)) ||
       if any(White_space) then {
-        tab(many(White_space))
+        tab(many(White_space));
  	""
 	}
       else if =">=" then "\x01"
@@ -412,7 +412,7 @@ procedure def_opt(s)
   local name, text
 
   s ? {
-    name := tab(find("=")) | tab(0)
+    name := tab(find("=")) | tab(0);
     text := (move(1) & tab(0)) | "1"
     }
   if name == ("_LINE_" | "_FILE_") then
@@ -427,14 +427,14 @@ end
 procedure define()
   local args, name, text
 
-  get_opt_ws()
+  get_opt_ws();
   if name := get_name() & (any(White_space ++ '(') | pos(0)) then {
     if name == ("_LINE_" | "_FILE_") then
       error(name, " is a reserved name and can not be redefined")
 
     if match("(") then	 		# A macro
       args := get_formals()
-    text := get_text(args)
+    text := get_text(args);
 
     if member(Defs,name) then
       warning(name, " redefined")
@@ -451,7 +451,7 @@ procedure dump()
 end
 
 procedure error(s1, s2)
-  s1 ||:= \s2
+  s1 ||:= \s2;
   stop(Ifile_name, ":  ", Line_no, ":  ", "Error  ", s1)
 end
 
@@ -479,13 +479,13 @@ procedure false_cond()
   local cmd, line
 
   # Skip to next $else / $elif branch, or $endif
-  cmd := skip_to("elif", "else", "endif")
+  cmd := skip_to("elif", "else", "endif");
   case cmd of {
     "elif" : return if_cond(cmd)
     "else" : {
        while line := get_line(Ifile) do
 	  line ? {
-	    cmd := get_cmd()
+	    cmd := get_cmd();
 	    case cmd of {
 	      "elif"  :
 		error("'elif' encountered after 'else'")

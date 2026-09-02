@@ -27,12 +27,12 @@ link patutils
 procedure pattread(file)
    local line, rows
 
-   line := read(file) | fail
+   line := read(file) | fail;
 
    line ? {
       if upto("#", line) then rows := pat2rows(line)
       else {
-         rows := [line]
+         rows := [line];
          while put(rows, read(file))	# read in row pattern
          }
       }

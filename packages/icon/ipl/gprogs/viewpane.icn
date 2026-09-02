@@ -44,15 +44,15 @@ global hbar, vbar				# scrolling vidgets
 procedure main()
    local vidgets
 
-   vidgets := ui()				# set up interface
+   vidgets := ui();  # set up interface
 
-   view_xoff := vidgets["port"].ax + 1		# get pane information
-   view_yoff := vidgets["port"].ay + 1
-   view_width := vidgets["port"].aw - 1
-   view_height := vidgets["port"].ah - 1
+   view_xoff := vidgets["port"].ax + 1;  # get pane information
+   view_yoff := vidgets["port"].ay + 1;
+   view_width := vidgets["port"].aw - 1;
+   view_height := vidgets["port"].ah - 1;
 
-   hbar := vidgets["hbar"]			# horizontal scroll bar
-   vbar := vidgets["vbar"]			# vertical scroll bar
+   hbar := vidgets["hbar"];  # horizontal scroll bar
+   vbar := vidgets["vbar"];  # vertical scroll bar
 
    GetEvents(vidgets["root"], , shortcuts)	# enter event loop
 
@@ -91,9 +91,9 @@ procedure image_open()
 
       case OpenDialog() of {
          "Okay": {
-            WClose(\image_win)
+            WClose(\image_win);
             image_win := WOpen("image=" || dialog_value, "canvas=hidden") | {
-               Notice("Cannot open image file")
+               Notice("Cannot open image file");
                fail
                }
             setup_win(image_win)
@@ -161,18 +161,18 @@ end
 
 procedure setup_win(win)
 
-   EraseArea(view_xoff, view_yoff, view_width, view_height)
-   image_width := real(WAttrib(win, "width"))
-   image_height := real(WAttrib(win, "height"))
-   x_fact := 1.0 - view_width / image_width	# set up x and y factors
-   y_fact := 1.0 - view_height / image_height
-   x_fact <:= 0.0
-   y_fact <:= 0.0
-   x_fact *:= image_width
-   y_fact *:= image_height
-   VSet(hbar, 0.0)				# reset the scroll bars
-   VSet(vbar, 0.0)
-   xpos := ypos := 0
+   EraseArea(view_xoff, view_yoff, view_width, view_height);
+   image_width := real(WAttrib(win, "width"));
+   image_height := real(WAttrib(win, "height"));
+   x_fact := 1.0 - view_width / image_width;  # set up x and y factors
+   y_fact := 1.0 - view_height / image_height;
+   x_fact <:= 0.0;
+   y_fact <:= 0.0;
+   x_fact *:= image_width;
+   y_fact *:= image_height;
+   VSet(hbar, 0.0);  # reset the scroll bars
+   VSet(vbar, 0.0);
+   xpos := ypos := 0;
    copy_image()					# place image
 
    return

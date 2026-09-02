@@ -59,15 +59,15 @@ procedure Init__(prog)
       Term__ := 1
       return
       }
-   Name__ := prog			# program name
-   Labels__ := ["total ","static","string","block "]
-   write(Name__,": benchmarking\n")
-   Signature__()			# initial information
-   Regions__()
-   Time__()
+   Name__ := prog;  # program name
+   Labels__ := ["total ","static","string","block "];
+   write(Name__,": benchmarking\n");
+   Signature__();  # initial information
+   Regions__();
+   Time__();
    if not getenv("OUTPUT") then {	# if OUTPUT is set, allow output
-      Save__ := write			# turn off output
-      Saves__ := writes
+      Save__ := write;  # turn off output
+      Saves__ := writes;
       write := writes := -1
       }
    else write(Name__,": output\n")
@@ -78,14 +78,14 @@ end
 
 procedure Term__()
    if not getenv("OUTPUT") then {	# if OUTPUT is not set, restore output
-      write := Save__
+      write := Save__;
       writes := Saves__
       }
 					# final information
-   Regions__()
-   Storage__()
-   Collections__()
-   Allocated__()
+   Regions__();
+   Storage__();
+   Collections__();
+   Allocated__();
    write("\n",Name__,": elapsed time = ",Time__()," ms.")
    return
 end
@@ -96,7 +96,7 @@ end
 procedure Allocated__()
    local allocated
 
-   allocated := []
+   allocated := [];
    every put(allocated,&allocated)
    Display__(allocated,"allocated")
    return
@@ -108,7 +108,7 @@ end
 procedure Collections__()
    local collections
 
-   collections := []
+   collections := [];
    every put(collections,&collections)
    Display__(collections,"collections")
    return
@@ -119,11 +119,11 @@ end
 procedure Regions__()
    local regions, count
    
-   regions := []
+   regions := [];
    every put(regions,&regions)
-   count := 0
+   count := 0;
    every count +:= !regions
-   push(regions,count)
+   push(regions,count);
    Display__(regions,"regions")
    return
 end
@@ -142,11 +142,11 @@ end
 procedure Storage__()
    local storage, count
    
-   storage := []
+   storage := [];
    every put(storage,&storage)
-   count := 0
+   count := 0;
    every count +:= !storage
-   push(storage,count)
+   push(storage,count);
    Display__(storage,"storage")
    return
 end
@@ -165,7 +165,7 @@ end
 procedure Display__(data,name)
    local i
 
-   write("\n",name,":\n")
+   write("\n",name,":\n");
    every i := 1 to *Labels__ do
       write(Labels__[i],right(data[i],8))
 end

@@ -51,27 +51,27 @@ link random
 procedure main(args)
    local length, steady, star, opts, r, ran1, ran2
 
-   randomize()
+   randomize();
 
-   opts := options(args,"m+t+s:")
-   length := \opts["m"] | 10
-   steady := \opts["t"] | 50
-   star := \opts["s"] | "*"
-   star := star[1]
-   r := 0
+   opts := options(args,"m+t+s:");
+   length := \opts["m"] | 10;
+   steady := \opts["t"] | 50;
+   star := \opts["s"] | "*";
+   star := star[1];
+   r := 0;
 
-   ran1 := create 2(&random :=: r, |?(24 | 80), &random <-> r)
-   ran2 := ^ran1
-   clear()				# clear the screen
+   ran1 := create 2(&random :=: r, |?(24 | 80), &random <-> r);
+   ran2 := ^ran1;
+   clear();  # clear the screen
    every 1 to length do			# start up the universe
       place(ran1,star)
    every 1 to steady do {		# steady state condition
-      place(ran2," ")			# clean up the beginning
+      place(ran2," ");  # clean up the beginning
       place(ran1,star)			# create more
       }
    every 1 to length do			# and the universe dies
       place(ran2," ")			# clean up the end
-   clear()				# clear the screen
+   clear();  # clear the screen
    home()				# home the cursor
 end
 
@@ -86,7 +86,7 @@ procedure home()
 end
 
 procedure place(e,s)
-   CUP(@e,@e)
+   CUP(@e,@e);
    writes(s)
    return
 end

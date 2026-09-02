@@ -30,10 +30,10 @@ procedure rpoly(cx, cy, radius, vertices, theta)	#: generate polygon points
    local incr, i
 
    incr := 2 * &pi / vertices
-   /theta := 0			# starting angle
+   /theta := 0;  # starting angle
 
    every i := 1 to vertices do {
-      suspend Point(cx + radius * cos(theta), cy + radius * sin(theta))
+      suspend Point(cx + radius * cos(theta), cy + radius * sin(theta));
       theta +:= incr
       }
 

@@ -61,40 +61,40 @@ procedure main(args)
    local colors
 
    # get options and open window
-   win := Window("size=800,600", "font=Helvetica,bold,14", args)
+   win := Window("size=800,600", "font=Helvetica,bold,14", args);
 
    # ensure that we can get the color map entries we will need
-   bitwin := Clone(win)
-   panebase := AlcPlane(bitwin, 4) | stop("can't get 4 planes")
-   rgbbase := AlcPlane(bitwin, 3) | stop("can't get 3 planes")
+   bitwin := Clone(win);
+   panebase := AlcPlane(bitwin, 4) | stop("can't get 4 planes");
+   rgbbase := AlcPlane(bitwin, 3) | stop("can't get 3 planes");
 
    # get window geometry
-   m := WindowMargin			# margins
-   b := BevelWidth
-   w := WAttrib("width") - 2 * m	# usable width
-   h := WAttrib("height") - 2 * m	# usable height
-   bw := 80				# button width
-   bh := 24				# button height
+   m := WindowMargin;  # margins
+   b := BevelWidth;
+   w := WAttrib("width") - 2 * m;  # usable width
+   h := WAttrib("height") - 2 * m;  # usable height
+   bw := 80;  # button width
+   bh := 24;  # button height
 
    # establish global sensors; override later with buttons etc. in some areas
-   sensor(win, &lpress, drag)
-   sensor(win, &ldrag, drag)
-   quitsensor(win)
-   button(win, "quit", argless, exit, m, m + h - bh, bw, bh)
+   sensor(win, &lpress, drag);
+   sensor(win, &ldrag, drag);
+   quitsensor(win);
+   button(win, "quit", argless, exit, m, m + h - bh, bw, bh);
 
    # build drawing window and initialize with overlapping circles
-   BevelRectangle(win, m + 100, m, w - 100, 250, -b)
+   BevelRectangle(win, m + 100, m, w - 100, 250, -b);
    colors := [
       Bg(win), "red", "yellow", "red-yellow",
-      "blue", "purple-magenta", "dark green", "dark brown"]
+      "blue", "purple-magenta", "dark green", "dark brown"];
    every i := 0 to 7 do
       Color(bitwin, rgbbase + i, colors[i + 1])
-   PlaneOp(bitwin, rgbbase, "copy")
-   FillRectangle(bitwin, m + 100 + b, m + b, w - 100 - 2 * b, 250 - 2 * b)
-   PlaneOp(bitwin, rgbbase+4, "set"); FillArc(bitwin, w/2-25, 100, 100, 100)
-   PlaneOp(bitwin, rgbbase+2, "set"); FillArc(bitwin, w/2,     50, 100, 100)
-   PlaneOp(bitwin, rgbbase+1, "set"); FillArc(bitwin, w/2+25, 100, 100, 100)
-   Deplane(bitwin)
+   PlaneOp(bitwin, rgbbase, "copy");
+   FillRectangle(bitwin, m + 100 + b, m + b, w - 100 - 2 * b, 250 - 2 * b);
+   PlaneOp(bitwin, rgbbase+4, "set"); FillArc(bitwin, w/2-25, 100, 100, 100);
+   PlaneOp(bitwin, rgbbase+2, "set"); FillArc(bitwin, w/2,     50, 100, 100);
+   PlaneOp(bitwin, rgbbase+1, "set"); FillArc(bitwin, w/2+25, 100, 100, 100);
+   Deplane(bitwin);
 
    # set up related buttons
    buttonrow(win, m, m, bw, bh, 0, bh + m,
@@ -105,65 +105,65 @@ procedure main(args)
       "erase red", erase, 1,
       "erase yel", erase, 2,
       "erase blu", erase, 4,
-      )
+      );
 
    # set up structure for pane demo
-   panecolor := table()
-   panecolor[0] := Bg(win)
-   px := m + 100
-   py := m + 250 + 2 * m
-   pw := m + w - px
-   ph := m + h - py
-   Fg(bitwin, panebase)
-   FillRectangle(bitwin, px, py, pw, ph)
-   BevelRectangle(win, px, py, pw, ph, -b)
-   Clip(bitwin, px + b, py + b, pw - 2 * b, ph - 2 * b)
+   panecolor := table();
+   panecolor[0] := Bg(win);
+   px := m + 100;
+   py := m + 250 + 2 * m;
+   pw := m + w - px;
+   ph := m + h - py;
+   Fg(bitwin, panebase);
+   FillRectangle(bitwin, px, py, pw, ph);
+   BevelRectangle(win, px, py, pw, ph, -b);
+   Clip(bitwin, px + b, py + b, pw - 2 * b, ph - 2 * b);
    buttonrow(win, m, py, bw, bh, 0, bh + m,
       "visible:", &null, &null,
       "grid", mvplane, 1,
       "curves", mvplane, 8,
       "squares", mvplane, 2,
       "circles", mvplane, 4,
-      )
+      );
 
    # draw grid on plane 1
-   FrontPlane(bitwin, panebase + 1, panecolor[1] := "light gray")
-   PlaneOp(bitwin, panebase + 1, "set")
+   FrontPlane(bitwin, panebase + 1, panecolor[1] := "light gray");
+   PlaneOp(bitwin, panebase + 1, "set");
    every x := 20 to pw - 1 by 40 do
       FillRectangle(bitwin, px + x, py + b, 3, ph - 2 * b)
    every y := 20 to ph - 1 by 40 do
       FillRectangle(bitwin, px + b, py + y, pw - 2 * b, 3)
 
    # draw curves on plane 8
-   FrontPlane(bitwin, panebase + 8, panecolor[8] := "dark blue")
-   PlaneOp(bitwin, panebase + 8, "set")
+   FrontPlane(bitwin, panebase + 8, panecolor[8] := "dark blue");
+   PlaneOp(bitwin, panebase + 8, "set");
    every y := 20 to ph-40 by 30 do {
-      a := [bitwin]
+      a := [bitwin];
       every put(a, px + (0 to pw+24 by 25)) do
          put(a, py + y + ?20)
       every 1 to 3 do {
-         DrawCurve ! a
+         DrawCurve ! a;
          every a[3 to *a by 2] +:= 1
          }
       }
 
    # draw squares on plane 2
-   FrontPlane(bitwin, panebase + 2, panecolor[2] := "dark brown")
-   PlaneOp(bitwin, panebase + 2, "set")
-   d := 20
+   FrontPlane(bitwin, panebase + 2, panecolor[2] := "dark brown");
+   PlaneOp(bitwin, panebase + 2, "set");
+   d := 20;
    every 1 to 50 do
       FillRectangle(bitwin, px + ?(pw - d), py + ?(ph - d), d, d)
 
    # draw circles on plane 4
-   FrontPlane(bitwin, panebase + 4, panecolor[4] := "dark moderate green")
-   PlaneOp(bitwin, panebase + 4, "set")
+   FrontPlane(bitwin, panebase + 4, panecolor[4] := "dark moderate green");
+   PlaneOp(bitwin, panebase + 4, "set");
    every 1 to 50 do {
-      d := 20 + ?10
+      d := 20 + ?10;
       FillArc(bitwin, px + ?(pw - d), py + ?(ph - d), d, d)
       }
 
    # enter event loop
-   Clip(bitwin)
+   Clip(bitwin);
    evmux(win)
 end
 

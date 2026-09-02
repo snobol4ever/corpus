@@ -32,7 +32,7 @@ link patxform
 procedure main()
    local rows, row
 
-   rows := pattread()
+   rows := pattread();
 
    write(*set(protate(rows)), "x", *set(rows))
 

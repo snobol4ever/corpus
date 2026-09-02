@@ -61,15 +61,15 @@ procedure Vtext(params[])
    initial {
        procs := Vstd(event_Vtext, draw_Vtext,
           outline_Vtext, resize_Vtext, inrange_Vpane, init_Vtext,
-          couplerset_Vtext,,,,, set_value_Vtext)
+          couplerset_Vtext,,,,, set_value_Vtext);
       type := proc("type", 0)		# protect attractive name
       }
 
    if ins := Vinsert_check(params) then {
       frame := pop(params); x := pop(params); y:= pop(params)
       }
-   self := Vtext_rec ! params[1:7|0]
-   Vwin_check(self.win, "Vtext()")
+   self := Vtext_rec ! params[1:7|0];
+   Vwin_check(self.win, "Vtext()");
    if (\self.MaxChars, not numeric(self.MaxChars) ) then
       _Vbomb("invalid size parameter to Vtext()")
    if type(\self.mask) ~== "cset" then
@@ -77,12 +77,12 @@ procedure Vtext(params[])
    if type(\self.s) ~== "string" & not numeric(self.s) then
       _Vbomb("invalid prompt passed to Vtext()")
 
-   self.uid := Vget_uid()
-   self.V := procs
-   self.P := Vstd_pos()
+   self.uid := Vget_uid();
+   self.V := procs;
+   self.P := Vstd_pos();
    self.T := Vstd_text(draw_cursor_Vtext, erase_cursor_Vtext,
-      draw_data_Vtext, unblock_Vtext, block_Vtext)
-   init_Vtext(self)
+      draw_data_Vtext, unblock_Vtext, block_Vtext);
+   init_Vtext(self);
 
    if \ins then VInsert(frame, self, x, y)
    return self
@@ -95,9 +95,9 @@ procedure init_Vtext(self)
    local p
 
    /self.s := ""
-   /self.MaxChars := 18
+   /self.MaxChars := 18;
    self.s ? if self.s := tab(find("\\=")) then ="\\=" & self.data := tab(0)
-   /self.data := ""
+   /self.data := "";
    if *self.data > self.MaxChars then self.data := self.data[1:self.MaxChars]
    self.T.DataLength := *self.data
    self.T.MaxPixelSize := WAttrib(self.win, "fwidth")*self.MaxChars

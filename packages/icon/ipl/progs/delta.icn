@@ -22,10 +22,10 @@
 procedure main()
    local i, j
 
-   i := read() | exit()
+   i := read() | exit();
 
    while j := read() do {
-      write(j - i)
+      write(j - i);
       i := j
       }
 

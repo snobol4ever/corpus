@@ -161,7 +161,7 @@ procedure bufopen(fname)
         __buf := table(&null)
     
     if /fname then {
-        /__buf[&input] | stop("bufopen: Standard input is already open")
+        /__buf[&input] | stop("bufopen: Standard input is already open");
         __buf[&input] := []
         return &input
     }
@@ -184,7 +184,7 @@ procedure bufclose(file)
         return &input
     }
     else {
-        close(file)
+        close(file);
         __buf[file] := &null
         return file
     }
@@ -201,7 +201,7 @@ procedure bufread(file)
     if /file then
         file := &input
 
-    type(file) == "file" | stop("bufread: Parameter is not a file")
+    type(file) == "file" | stop("bufread: Parameter is not a file");
     buf := \__buf[file] | stop("bufread: File not open for buffered reads")
     return get(buf) | read(file)
 
@@ -220,9 +220,9 @@ procedure bufnext(file, n)
     if /n then
         n := 1
         
-    type(file) == "file" | stop("bufnext: Parameter is not a file")
+    type(file) == "file" | stop("bufnext: Parameter is not a file");
     integer(n) | stop("bufnext: Look ahead count was not convertible to integer")
-    (n > 0) | stop("bufnext: Look ahead count was non-positive")
+    (n > 0) | stop("bufnext: Look ahead count was non-positive");
     buf := \__buf[file] | stop("bufnext: File not open for buffered reads")
 
     return buf[n] |

@@ -41,18 +41,18 @@ global queens
 procedure main(args)
    local i, opts, wsize, bqueen, wqueen
 
-   opts := options(args,"n+")
-   queens := \opts["n"] | 8
+   opts := options(args,"n+");
+   queens := \opts["n"] | 8;
    if queens <= 0 then stop("-n needs a positive numeric parameter")
-   wsize := queens * Size + 2 * Offset
+   wsize := queens * Size + 2 * Offset;
 
 
    WOpen("size=" || wsize || "," || wsize, "label=" || queens ||
-      "-queens") | stop("*** cannot open window")
+      "-queens") | stop("*** cannot open window");
    black_queen := WOpen("canvas=hidden", "size=41,41") |
-      stop("*** cannot open window for black queen")
+      stop("*** cannot open window for black queen");
    white_queen := WOpen("canvas=hidden", "size=41,41") |
-      stop("*** cannot open window for white queen")
+      stop("*** cannot open window for white queen");
 
    DrawImage(black_queen, 0, 0,
       "41,c1,_
@@ -97,7 +97,7 @@ procedure main(args)
       66666666300000000000000000000000036666666_
       66666666300000000000000000000000036666666_
       66666666666666666666666666666666666666666_
-      ")
+      ");
 
    DrawImage(white_queen, 0, 0,
       "41,c1,_
@@ -142,11 +142,11 @@ procedure main(args)
       00000003666666666666666666666666300000000_
       00000000000000000000000000000000000000000_
       00000000000000000000000000000000000000000_
-      ")
+      ");
 
-   DrawBoard()
+   DrawBoard();
 
-   solution := list(queens)	# ... and a list of column solutions
+   solution := list(queens);  # ... and a list of column solutions
 
    every q(1)			# start by placing queen in first column
 
@@ -160,13 +160,13 @@ procedure q(c)
    local r
    static up, down, rows
    initial {
-      up := list(2 * queens - 1, 0)
-      down := list(2 * queens - 1, 0)
+      up := list(2 * queens - 1, 0);
+      down := list(2 * queens - 1, 0);
       rows := list(queens, 0)
       }
    every 0 = rows[r := 1 to queens] = up[queens+r-c] = down[r+c-1] &
       rows[r] <- up[queens+r-c] <- down[r+c-1] <- 1        do {
-         solution[c] := r	# record placement.
+         solution[c] := r;  # record placement.
          if c = queens then show()
          else q(c + 1)		# try to place next queen.
          }
@@ -178,13 +178,13 @@ procedure show()
    local i, j, queen
 
    every i := 1 to *solution do {
-      j := solution[i] 
-      queen := if (i + j) % 2 = 0 then black_queen else white_queen
+      j := solution[i];
+      queen := if (i + j) % 2 = 0 then black_queen else white_queen;
       CopyArea(queen, &window, , , , , Offset + (i - 1) * Size + 1,
          Offset + (j - 1) * Size + 1)
       }
 
-   WDelay(500)
+   WDelay(500);
 
    while *Pending() > 0 do {
       case Event() of {
@@ -194,7 +194,7 @@ procedure show()
       }
 
    every i := 1 to *solution do {
-      j := solution[i] 
+      j := solution[i];
       if (i + j) % 2 = 1 then Fg("black") else Fg("white")
       FillRectangle(Offset + (i - 1) * Size, Offset + (j - 1) * Size,
          Size, Size)
@@ -213,7 +213,7 @@ procedure DrawBoard()
             FillRectangle(Offset + i * Size, Offset + j * Size,
                Size, Size)
    DrawRectangle(Offset - 1, Offset - 1, queens * Size + 1,
-      queens * Size + 1)
+      queens * Size + 1);
    DrawRectangle(Offset - Edge - 1, Offset - Edge - 1,
       queens * Size + 2 * Edge + 1, queens * Size + 2 * Edge + 1)
 

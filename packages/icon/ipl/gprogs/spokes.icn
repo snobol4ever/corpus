@@ -42,26 +42,26 @@ procedure main(args)
    local i, j, k, angle, incr, xpoint, ypoint, size, radius, opts
    local extent, max, limit, run
 
-   opts := options(args, "gl+n+s+")
+   opts := options(args, "gl+n+s+");
 
-   extent := \opts["s"] | 256
-   limit := \opts["l"] | (2 ^ 10)
-   max := \opts["n"] | 50
-   run := opts["g"]
+   extent := \opts["s"] | 256;
+   limit := \opts["l"] | (2 ^ 10);
+   max := \opts["n"] | 50;
+   run := opts["g"];
 
-   radius := extent / 4
+   radius := extent / 4;
 
    WOpen("label=spokes", "width=" || extent, "height=" || extent,
       "bg=light gray", "dx=" || (extent / 2), "dy=" || (extent / 2)) |
-         ExitNotice("Cannot open window.")
+         ExitNotice("Cannot open window.");
 
    every 1 to limit do {
-      i := ?max
+      i := ?max;
       if i < 4 then i+:= 3 + ?10	# too few doesn't work well ...
-      angle := 0.0
-      incr := 2 * &pi / i
+      angle := 0.0;
+      incr := 2 * &pi / i;
       every j := 1 to i do {
-         spokes(radius * cos(angle), radius * sin(angle), radius, i, angle)
+         spokes(radius * cos(angle), radius * sin(angle), radius, i, angle);
          angle +:= incr
          }
       if /run then repeat case Event() of {
@@ -69,7 +69,7 @@ procedure main(args)
          "s":   snapshot()
          "n":   break
          }
-      WDelay(1000)
+      WDelay(1000);
       EraseArea()
       }
    
@@ -78,10 +78,10 @@ end
 procedure spokes(x, y, r, i, angle)
    local incr, j
 
-   incr := 2 * &pi / i 
+   incr := 2 * &pi / i;
 
    every j := 1 to i do {
-      DrawLine(x, y, x + r * cos(angle), y + r * sin(angle))
+      DrawLine(x, y, x + r * cos(angle), y + r * sin(angle));
       angle +:= incr
       }
 

@@ -44,18 +44,18 @@ procedure readtbl(f)
 
     local t, line, k, on_sequence, off_sequence
 
-    /f & stop("readtbl:  Arg must be a valid open file.")
+    /f & stop("readtbl:  Arg must be a valid open file.");
 
-    t := table()
+    t := table();
 
     every line := trim(!f,'\t ') do {
 	line ? {
 	    k := tabslashupto('\t:') &
 	    tab(many('\t:')) &
-	    on_sequence := tabslashupto('\t:') | tab(0)
-	    tab(many('\t:'))
+	    on_sequence := tabslashupto('\t:') | tab(0);
+	    tab(many('\t:'));
 	    off_sequence := tab(0)
-	} | stop("readtbl:  Bad map file format.")
+	} | stop("readtbl:  Bad map file format.");
 	insert(t, k, outstr(on_sequence, off_sequence))
     }
 
@@ -68,11 +68,11 @@ end
 procedure tabslashupto(c,s)
     local POS
 
-    POS := &pos
+    POS := &pos;
 
     while tab(upto('\\' ++ c)) do {
 	if ="\\" then {
-	    move(1)
+	    move(1);
 	    next
 	}
 	else {
@@ -82,7 +82,7 @@ procedure tabslashupto(c,s)
 	}
     }
 
-    &pos := POS
+    &pos := POS;
     fail
 
 end

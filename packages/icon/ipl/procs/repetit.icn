@@ -27,10 +27,10 @@
 procedure repetit(L)
    local c, n, l, e, i
 
-   c := L[1]				# starting value
-   l := *L				# end of list
+   c := L[1];  # starting value
+   l := *L;  # end of list
 
-   n := 2				# initial hypothesis
+   n := 2;  # initial hypothesis
 
    n := \{				# tricky coding -- nonnull on success
       until n >= l do
@@ -49,7 +49,7 @@ end
 procedure hypothesis(L, n)
    local s, i, j
 
-   s := *L / n
+   s := *L / n;
 
    every j := 1 to s do
       every i := 1 to n do

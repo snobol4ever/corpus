@@ -51,10 +51,10 @@ global
    ud                           # List of queens in each up diagonal
 
 procedure main (args)           # Program arguments
-   n := integer (args [1]) | 6
-   rw := list (n)
-   dd := list (2*n-1)
-   ud := list (2*n-1)
+   n := integer (args [1]) | 6;
+   rw := list (n);
+   dd := list (2*n-1);
+   ud := list (2*n-1);
    solvequeen (1)
    return
    end # procedure main
@@ -74,10 +74,10 @@ procedure placequeen (c)        # Column at which to place queen
 procedure solvequeen (c)        # Column for next queen placement
    if (c > n) then {
       # Have placed all required queens.  Write the board, and resume search.
-      writeboard ()
+      writeboard ();
       fail
       }
-   suspend placequeen (c) & solvequeen (c+1)
+   suspend placequeen (c) & solvequeen (c+1);
    fail
    end # procedure solvequeen
 
@@ -89,12 +89,12 @@ procedure writeboard ()
       c,                        # Column of queen in row r
       row                       # Depiction of row as its created
 
-   write (repl ("--", n), "-")
+   write (repl ("--", n), "-");
    every r := 1 to n do {
-      c := rw [r]
-      row := repl ("| ", n) || "|"
-      row [2*c] := "Q"
-      write (row)
+      c := rw [r];
+      row := repl ("| ", n) || "|";
+      row [2*c] := "Q";
+      write (row);
       write (repl ("--", n), "-")
       }
    write ()

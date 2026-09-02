@@ -69,9 +69,9 @@
 procedure main()
    local line
 
-   writes("->")
+   writes("->");
    while line := read() do {
-       write(parse(line))
+       write(parse(line));
        writes("->")
        }
 end
@@ -83,9 +83,9 @@ end
 procedure expr(exp)
    local lvalue
 
-   lvalue := term()
+   lvalue := term();
    repeat {
-       tab(many(' \t'))
+       tab(many(' \t'));
        if ="&&" then lvalue := iand(term(),lvalue)
        else if ="||" then lvalue := ior(term(),lvalue)
        else break
@@ -96,9 +96,9 @@ end
 procedure term()
    local lvalue
 
-   lvalue := fact()
+   lvalue := fact();
    repeat {
-       tab(many(' \t'))
+       tab(many(' \t'));
        if      ="<=" then lvalue := if lvalue <= fact() then 1 else 0
        else if ="<"  then lvalue := if lvalue <  fact() then 1 else 0
        else if =">=" then lvalue := if lvalue >= fact() then 1 else 0
@@ -113,9 +113,9 @@ end
 procedure fact()
    local lvalue
 
-   lvalue := part()
+   lvalue := part();
    repeat {
-       tab(many(' \t'))
+       tab(many(' \t'));
        if ="+" then lvalue +:= part()
        else if ="-" then lvalue -:= part()
        else break
@@ -126,9 +126,9 @@ end
 procedure part()
    local lvalue
 
-   lvalue := const()
+   lvalue := const();
    repeat {
-       tab(many(' \t'))
+       tab(many(' \t'));
        if ="*" then lvalue *:= part()
        else if ="%" then lvalue %:= part()
        else if ="/" then lvalue /:= part()
@@ -140,23 +140,23 @@ end
 procedure const()
    local sign, logical, rval, s1, s2
 
-   tab(many(' \t'))
+   tab(many(' \t'));
 
    if ="-" then sign := -1 else sign := 1
    if ="!" then logical := 1 else logical := &null
    if ="(" then {
-       rval := expr()
+       rval := expr();
        if not match(")") then {
-	   write(&subject)
+	   write(&subject);
 	   write(right("",&pos-1,"_"),"^ Mis-matched parenthesis")
 	   }
        else move(1)
        }
    else if ="'" then {
-       s1 := tab(upto('\''))
-       move(1)
-       s2 := tab(upto('\''))
-       move(1)
+       s1 := tab(upto('\''));
+       move(1);
+       s2 := tab(upto('\''));
+       move(1);
        rval := if s1 === s2 then 1 else 0
        }
    else {

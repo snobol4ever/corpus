@@ -43,12 +43,12 @@ procedure strip_comments(s)
     local i, j, c, c2, s2
 
     s ? {
-	tab(many(' \t'))
-	pos(0) & fail
-        find("#") | (return trim(tab(0),' \t'))
+	tab(many(' \t'));
+	pos(0) & fail;
+        find("#") | (return trim(tab(0),' \t'));
 	match("#") & fail
 	(s2 <- tab(find("#"))) ? {
-	    c2 := &null
+	    c2 := &null;
 	    while tab(upto('\\"\'')) do {
 		case c := move(1) of {
 		    "\\"   : {

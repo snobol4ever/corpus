@@ -29,39 +29,39 @@ procedure main()
    local alphanum, in_id, in_name, in_record, rank_list,
          start_time, word_requested
 
-   bias          := -2                  # Reduce importance of reverse match
-   rank_list_max := 15                  # Number of best matches to write
-   weight1       := 6                   # Weight of chars not in weight_set
-   weight2       := 2                   # Weight of chars in weight_set
-   weight_set    := 'aehiouwy'          # Soundex ignore list
+   bias          := -2;  # Reduce importance of reverse match
+   rank_list_max := 15;  # Number of best matches to write
+   weight1       := 6;  # Weight of chars not in weight_set
+   weight2       := 2;  # Weight of chars in weight_set
+   weight_set    := 'aehiouwy';  # Soundex ignore list
 
    write("The ",rank_list_max,
-      " best matches for the first word in each line will be written.")
-   writes("\nName of input file: "); in_name := read()
-   in_id := (open(in_name,"r")) | (stop("Can't open file ",in_name))
+      " best matches for the first word in each line will be written.");
+   writes("\nName of input file: "); in_name := read();
+   in_id := (open(in_name,"r")) | (stop("Can't open file ",in_name));
 
-   writes("\nWord to search for: ")
-   word_requested := map(read())
+   writes("\nWord to search for: ");
+   word_requested := map(read());
 
-   writes("\nWhich function: Simple, Optimized, Weighted (1,2,3): ")
+   writes("\nWhich function: Simple, Optimized, Weighted (1,2,3): ");
    which_fuzz_value := case read() of {
       "1"     : fuzz_value_1            # Simple, "obvious" implementation
       "2"     : fuzz_value_2            # Simple, linearized for speed
       default : fuzz_value_3            # Weights and bias included
    }
 
-   write("\nSearching for \"",word_requested,"\" in file ",in_name)
-   start_time := &time
-   alphanum := &letters ++ &digits
-   rank_list := []                      # [[fuzz-value,in-record],...]
+   write("\nSearching for \"",word_requested,"\" in file ",in_name);
+   start_time := &time;
+   alphanum := &letters ++ &digits;
+   rank_list := [];  # [[fuzz-value,in-record],...]
    while in_record := read(in_id) do {
       in_record ? {
-         tab(upto(alphanum))
+         tab(upto(alphanum));
          rank(word_requested,map(tab(many(alphanum))),in_record,
             rank_list,rank_list_max)
       }
    }
-   write("\nFuzz Value of first word\n  |   Input Record...")
+   write("\nFuzz Value of first word\n  |   Input Record...");
    every rank := !rank_list do {
       write(left(string(rank[1]),5)," ",left(rank[2],72))
    }
@@ -79,7 +79,7 @@ procedure rank(s,t,r,rl,rm)
                                         # 3rd-last args needed by fuzz_value_3
    if *rl = 0 then put(rl,[v,r])        # First entry in list
    else if v >= rl[*rl][1] then {       # If value greater than least in list...
-      put(rl,[v,r])                     #    add to list, sort, and trim
+      put(rl,[v,r]);  #    add to list, sort, and trim
       every i := *rl to 2 by -1 do {
          if rl[i][1] > rl[i-1][1] then rl[i] :=: rl[i-1]
       }
@@ -99,11 +99,11 @@ procedure fuzz_match_1(s,ti)
 # Calculate the Fuzz Matches between s and t.  Simple algorithm.
 # ASCII NUL is used to mark matched pairs, so can't be used in strings
    local i, imax, jmax, m, t, tsdif
-   tsdif := *ti - *s
-   m := 0
+   tsdif := *ti - *s;
+   m := 0;
    every imax := 1 to *s do {
-      t := ti
-      jmax := imax + tsdif + 1
+      t := ti;
+      jmax := imax + tsdif + 1;
       every i := 1 to imax do 
          if t[find(s[i],t,1,jmax)] := "\0" then m +:= 1
    }
@@ -124,12 +124,12 @@ procedure fuzz_match_2(s,t)
 # ASCII NUL is used to mark matched pairs, so can't be used in s or t. 
 # s(ip) is ith char from right, similarly for t(jp)
    local ip, j, jmp, jp, m, si
-   ip := *s
-   jmp := *t + 1
-   m := 0
+   ip := *s;
+   jmp := *t + 1;
+   m := 0;
    every si := !s do {
       if t[j := find(si,t)] := "\0" then {
-         jp := jmp - j
+         jp := jmp - j;
          m +:= (ip <= jp | ip) - abs(ip - jp)  # max column minus column offset
       }
       ip -:= 1
@@ -151,13 +151,13 @@ procedure fuzz_match_3(s,t,w1,w2,w2c)
 # ASCII NUL is used to mark matched pairs, so can't be used in s or t. 
 # s(ip) is ith char from right, similarly for t(jp)
    local ip, j, jmp, jp, m, mo, si
-   ip := *s
-   jmp := *t + 1
-   m := 0
+   ip := *s;
+   jmp := *t + 1;
+   m := 0;
    every si := !s do {
       if t[j := find(si,t)] := "\0" then {
-         jp := jmp - j
-         mo := (ip <= jp | ip) - abs(ip - jp)  # max column minus column offset
+         jp := jmp - j;
+         mo := (ip <= jp | ip) - abs(ip - jp);  # max column minus column offset
          m +:= (any(w2c,si) & (w2 * mo)) | (w1 * mo)
       }
       ip -:= 1
@@ -169,10 +169,10 @@ procedure fuzz_self_3(s,w1fr,w2fr,w2c)
 # fuzz matches of s with s
 # w1fr, w2fr: forward plus reverse weights.
    local ip, m, si
-   ip := *s
-   m := 0
+   ip := *s;
+   m := 0;
    every si := !s do {
-      m +:= (any(w2c,si) & (w2fr * ip)) | (w1fr * ip) 
+      m +:= (any(w2c,si) & (w2fr * ip)) | (w1fr * ip);
       ip -:= 1
    }
    return m

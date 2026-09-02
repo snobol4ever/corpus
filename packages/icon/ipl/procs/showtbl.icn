@@ -55,7 +55,7 @@ procedure showtbl(title, tbl, sort_type,	#: show table contents
    limit, sort_order, posit, w1, w2, gutter, f1, f2)
       local count, lst, i, number
 
-   /title := ""
+   /title := "";
    if type(tbl) ~== "table" then
       stop("*** invalid table argument to showtbl()")
    sort_type := case sort_type of {
@@ -63,7 +63,7 @@ procedure showtbl(title, tbl, sort_type,	#: show table contents
       "val": 4
       default:  stop("*** invalid sort type in showtbl()")
       }
-   /limit := 2 ^ 30			# essentially infinite
+   /limit := 2 ^ 30;  # essentially infinite
    sort_order := case sort_order of {
       "incr" | &null:  "incr"
       "decr":  "decr"
@@ -78,27 +78,27 @@ procedure showtbl(title, tbl, sort_type,	#: show table contents
    /w2 := 10
    /gutter := repl(" ", 3)
    /f1 := left
-   /f2 := right
+   /f2 := right;
 
-   number := 0
+   number := 0;
 
-   count := 0
+   count := 0;
    every count +:= !tbl
 
-   write("\n", title, ":\n")
+   write("\n", title, ":\n");
 
-   lst := sort(tbl, sort_type)
+   lst := sort(tbl, sort_type);
 
    if sort_type = 3 then {
       every i := 1 to *lst - 1 by 2 do {
-         number +:= 1
+         number +:= 1;
          if number > limit then break
          else  write(f1(lst[i], w1), gutter, trim(f2(lst[i + 1], w2)))
          }
       }
    else {
       every i := *lst to 1 by -2 do {
-         number +:= 1
+         number +:= 1;
          if number > limit then break
          else write(f1(lst[i - 1], w1), gutter, trim(f2(lst[i], w2)))
          }

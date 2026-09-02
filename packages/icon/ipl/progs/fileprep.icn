@@ -22,14 +22,14 @@
 procedure main()
    local files, file, input, line
 
-   files := open("ls [a-z]*.icn", "p")
+   files := open("ls [a-z]*.icn", "p");
 
    while file := read(files) do {
       if *file > 13 then write(&errout,"*** file name too long: ", file)
-      input := open(file)
+      input := open(file);
       every 1 to 4 do read(input)		# skip to subject line
       line := read(input) | {
-         write(&errout, "*** no subject in ", file)
+         write(&errout, "*** no subject in ", file);
          next
          }
       line ? {
@@ -45,11 +45,11 @@ procedure main()
             tab(find("Subject:  Record declarations ") + 30) |
             tab(find("Subject:  Record declaration ") + 29) then
                {
-                  =("for " | "to ")			# optional in some cases
+                  =("for " | "to ");  # optional in some cases
                   write(file ? tab(find(".icn")), ": ", tab(0))
                   }
             else {
-               write(&errout, "*** bad subject line in ", file)
+               write(&errout, "*** bad subject line in ", file);
                write(&errout, line)
                }
             }

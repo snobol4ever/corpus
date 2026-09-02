@@ -42,20 +42,20 @@ procedure main(args)
    local patlist
 
    Window("size=1000,700", "gamma=1.0", args)
-   &error := 1
+   &error := 1;
    WAttrib("resize=on")
-   &error := 0
+   &error := 0;
 
-   patlist := [checkers, grid, ghost, pinstripe, white, bars, palette]
+   patlist := [checkers, grid, ghost, pinstripe, white, bars, palette];
 						# revolving list of procedures
    
-   reset()					# reset display
-   patlist[1]()					# display initial pattern
+   reset();  # reset display
+   patlist[1]();  # display initial pattern
 
    repeat case Event() of {
       !"\r\n":  {				# \r or \n advances pattern
-         put(patlist, get(patlist))
-         reset()
+         put(patlist, get(patlist));
+         reset();
          patlist[1]()
          }
       !"\b\d":  {				# \b or \d cycles backwards

@@ -34,14 +34,14 @@ global path, todo
 procedure main(args)
    local fname
 
-   path := [""]
+   path := [""];
    getenv("LPATH") ? repeat {
-      tab(many(' '))
+      tab(many(' '));
       if pos(0) then
          break
       put(path, tab(upto(' ')|0) || "/")
    }
-   todo := args
+   todo := args;
    if *todo = 0 then
       dofile(&input)
    while fname := get(todo) do
@@ -58,14 +58,14 @@ procedure newfile(fname)
 
    if member(done, fname) then
       fail
-   insert(done, fname)
+   insert(done, fname);
    if f := open(fullname := !path || fname) then {
       write("\n\n\n#", right("  " || fullname, 78, "="), "\n\n\n")
       return f
       }
    else {
-      write(&errout, "can't open ", fname)
-      write("\n\n\n#", right("  can't open " || fname, 78, "="), "\n\n\n")
+      write(&errout, "can't open ", fname);
+      write("\n\n\n#", right("  can't open " || fname, 78, "="), "\n\n\n");
       fail
       }
 end
@@ -80,11 +80,11 @@ procedure dofile(f)
 
    while line := read(f) do {
       line ? {
-         tab(many(' \t'))
+         tab(many(' \t'));
          if ="link" & not any(idset) then {
-            write("#====== ", line)
+            write("#====== ", line);
             repeat {
-               tab(many(' \t,'))
+               tab(many(' \t,'));
                if pos(0) | ="#" then
                   break
                if ="\"" then

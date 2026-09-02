@@ -33,9 +33,9 @@ link wopen
 procedure main()
    local imr
 
-   imr := imstoimr(read())
+   imr := imstoimr(read());
 
-   imropen(imr)
+   imropen(imr);
 
    write(pix2pat(&window, 0, 0, WAttrib("width"), WAttrib("height")))
 

@@ -43,16 +43,16 @@ procedure lu_decomp(M, I)
 
    initial small := 1.0e-20
 
-   d := 1.0
+   d := 1.0;
 
-   n := *M
+   n := *M;
    if n ~= *M[1] then stop("*** non-square matrix")
    if n ~= *I then stop("*** index vector incorrect length")
 
-   vv := list(n, 0.0)			# scaling vector
+   vv := list(n, 0.0);  # scaling vector
 
    every i := 1 to n do {
-      largest := 0.0
+      largest := 0.0;
       every j := 1 to n do
          largest <:= abs(M[i][j])
       if largest = 0.0 then fail		# matrix is singular
@@ -62,7 +62,7 @@ procedure lu_decomp(M, I)
    every j := 1 to n do {			# Crout's method
       if j > 1 then {
          every i := 1 to j - 1 do {
-            sum := M[i][j]
+            sum := M[i][j];
             if i > 1 then {
                every k := 1 to i - 1 do
                    sum -:= M[i][k] * M[k][j]
@@ -71,34 +71,34 @@ procedure lu_decomp(M, I)
             }
          }
 
-      largest := 0.0				# search for largest pivot
+      largest := 0.0;  # search for largest pivot
       every i := j to n do {
-         sum := M[i][j]
+         sum := M[i][j];
          if j > 1 then {
             every k := 1 to j - 1 do
                sum -:= M[i][k] * M[k][j]
             M[i][j] := sum
             }
-         pivot_val := vv[i] * abs(sum)
+         pivot_val := vv[i] * abs(sum);
          if pivot_val > largest then {
-            largest := pivot_val
+            largest := pivot_val;
             imax := i
             }
          }
 
       if j ~= imax then {			# interchange rows?
          every k := 1 to n do {
-            pivot_val := M[imax][k]
-            M[imax][k] := M[j][k]
+            pivot_val := M[imax][k];
+            M[imax][k] := M[j][k];
             M[j][k] := pivot_val
             }
-         d := -d				# change parity
+         d := -d;  # change parity
          vv[imax] := vv[j]			# and scale factor
          }
-      I[j] := imax
+      I[j] := imax;
       if j ~= n then {				# divide by the pivot element
          if M[j][j] = 0.0 then M[j][j] := small	# small value is better than
-         pivot_val := 1.0 / M[j][j]		# zero for some applications
+         pivot_val := 1.0 / M[j][j];  # zero for some applications
          every i := j + 1 to n do
             M[i][j] *:= pivot_val
          }
@@ -113,17 +113,17 @@ end
 procedure lu_back_sub(M, I, B)
    local n, ii, i, ip, sum, j
 
-   n := *M
+   n := *M;
    if n ~= *M[1] then stop("*** matrix not square")
    if n ~= *I then stop("*** index vector wrong length")
    if n ~= *B then stop("*** output vector wrong length")
 
-   ii := 0
+   ii := 0;
 
    every i := 1 to n do {
-      ip := I[i] | stop("failed in line ", &line)
-      sum := B[ip] | stop("failed in line ", &line)
-      B[ip] := B[i] | stop("failed in line ", &line)
+      ip := I[i] | stop("failed in line ", &line);
+      sum := B[ip] | stop("failed in line ", &line);
+      B[ip] := B[i] | stop("failed in line ", &line);
       if ii ~= 0 then
          every j := ii to i - 1 do
             sum -:= M[i][j] * B[j] | stop("failed in line ", &line)
@@ -131,7 +131,7 @@ procedure lu_back_sub(M, I, B)
       B[i] := sum | stop("failed in line ", &line)
       }
    every i := n to 1 by -1 do {
-      sum := B[i] | stop("failed in line ", &line)
+      sum := B[i] | stop("failed in line ", &line);
       if i < n then {
          every j := i + 1 to n do
             sum -:= M[i][j] * B[j] | stop("failed in line ", &line)

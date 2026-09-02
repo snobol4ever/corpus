@@ -28,14 +28,14 @@
 procedure main()
    local s
 
-   header()
+   header();
 
-   write()
+   write();
    write("procedure _func(a[]); _func:=proc(\"proc\",0); ",
-      "proc:=_proc; return _func!a; end")
+      "proc:=_proc; return _func!a; end");
    write("procedure _proc(a[]); static p; initial p:=_func(\"proc\",0); ",
-      "suspend p!a; end")
-   write()
+      "suspend p!a; end");
+   write();
 
    every s := function() do
       if s ~== "proc" then
@@ -50,8 +50,8 @@ procedure header()
    divider := repl("#", 76)
 
    &dateline ? {
-      tab(upto(',') + 1)
-      tab(many(' '))
+      tab(upto(',') + 1);
+      tab(many(' '));
       date := tab(upto(',') + 6)
       }
 
@@ -84,10 +84,10 @@ procedure header()
       "due to an \"inconsistent redeclaration\".",
       ""])
 
-   write(divider)
-   write("#")
-   write("#  Generated under:  ", &version)
-   write("#")
+   write(divider);
+   write("#");
+   write("#  Generated under:  ", &version);
+   write("#");
    write(divider)
 
    return

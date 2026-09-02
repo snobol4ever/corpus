@@ -116,10 +116,10 @@ procedure vhttp(url)			#: validate HTTP: URL
 
    /vhttp_agent := AGENT_NAME
    url ? {
-      protocol := map(tab(upto(':')))	| fail
+      protocol := map(tab(upto(':')))	| fail;
       protocol == "http"		| fail
-      ="://"				| fail
-      host := map(tab(upto('/:') | 0))	| fail
+      ="://"				| fail;
+      host := map(tab(upto('/:') | 0))	| fail;
       if =":" then
          port := tab(many(&digits))	| fail
       else
@@ -133,7 +133,7 @@ procedure vhttp(url)			#: validate HTTP: URL
    if result := vhttp_histval(url) then
       return result
 
-   result := vhttp_contact(host, port, path)
+   result := vhttp_contact(host, port, path);
    vhttp_addhist(url, result)
    return result
 end
@@ -147,25 +147,25 @@ procedure vhttp_contact(host, port, path)
    static deadhosts
    initial deadhosts := set()
 
-   hostport := host || ":" || port
+   hostport := host || ":" || port;
 
    if member(deadhosts, hostport) then
       return "551 Connection Failed"
 
-   vhttp_waitclock(host)
+   vhttp_waitclock(host);
    
    if not (f := tconnect(host, port)) then {
       insert(deadhosts, hostport)
       return "551 Connection Failed"
       }
 
-   writes(f, "HEAD ", path, " HTTP/1.0\r\n")
-   writes(f, "User-agent: ", \vhttp_agent, "\r\n")
-   writes(f, "From: ", \vhttp_from, "\r\n")
-   writes(f, "Host: ", host, "\r\n")
-   writes(f, "\r\n")
-   flush(f)
-   seek(f, 1)
+   writes(f, "HEAD ", path, " HTTP/1.0\r\n");
+   writes(f, "User-agent: ", \vhttp_agent, "\r\n");
+   writes(f, "From: ", \vhttp_from, "\r\n");
+   writes(f, "Host: ", host, "\r\n");
+   writes(f, "\r\n");
+   flush(f);
+   seek(f, 1);
 
    if not fpoll(f, MAX_WAIT * 1000) then {
       close(f)
@@ -177,9 +177,9 @@ procedure vhttp_contact(host, port, path)
       return "559 Empty Response"
       }
 
-   close(f)
+   close(f);
    line ? {
-      tab(many(' '))
+      tab(many(' '));
       if ="HTTP/" then tab(many('12345.67890'))
       tab(many(' '))
       return trim(tab(0), ' \t\r\n\v\f')
@@ -193,14 +193,14 @@ end
 procedure vhttp_waitclock(host)
    static hclock, curclock
    initial {
-      hclock := table()
+      hclock := table();
       curclock := &clock
       }
 
    if hclock[host] === curclock then {
-      curclock := &clock
+      curclock := &clock;
       if hclock[host] === curclock then {
-         delay(1000)
+         delay(1000);
          curclock := &clock
          }
       }
@@ -218,20 +218,20 @@ global vhttp_htable, vhttp_hfile
 procedure vhttp_inithist()
    local fname, line, key, val
 
-   vhttp_htable := table()
-   fname := (getenv("HOME") | "?noHOME?") || "/" || HIST_FILE
+   vhttp_htable := table();
+   fname := (getenv("HOME") | "?noHOME?") || "/" || HIST_FILE;
    if (vhttp_hfile := open(fname, "b")) & (read(vhttp_hfile) == &date) then {
       while line := read(vhttp_hfile) do line ? {
-         key := tab(upto(' ')) | next
-         move(1)
-         val := tab(0)
+         key := tab(upto(' ')) | next;
+         move(1);
+         val := tab(0);
          vhttp_htable[key] := val
          }
       seek(vhttp_hfile, 0)	# to allow switch to writing
       }
    else {
-      close(\vhttp_hfile)
-      vhttp_hfile := open(fname, "w") | stop("can't open " || fname)
+      close(\vhttp_hfile);
+      vhttp_hfile := open(fname, "w") | stop("can't open " || fname);
       write(vhttp_hfile, &date)
       }
    return
@@ -242,7 +242,7 @@ procedure vhttp_histval(key)
 end
 
 procedure vhttp_addhist(key, val)
-   vhttp_htable[key] := val
+   vhttp_htable[key] := val;
    write(vhttp_hfile, key, " ", val)
    return val
 end

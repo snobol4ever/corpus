@@ -22,9 +22,9 @@
 procedure main(args)
    local limit, line
 
-   limit := integer(args[1]) | 80
+   limit := integer(args[1]) | 80;
 
-   line := read() | stop("*** no input line")
+   line := read() | stop("*** no input line");
 
    line ? {
       while write(move(limit))

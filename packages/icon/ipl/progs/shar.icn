@@ -28,7 +28,7 @@ procedure main(arg)
 	 \n# This is a shell archive, meaning:_
 	 \n# 1. Remove everything above the #! /bin/sh line._
 	 \n# 2. Save the resulting text in a file._
-	 \n# 3. Execute the file with /bin/sh (not csh) to create:")
+	 \n;  # 3. Execute the file with /bin/sh (not csh) to create:")
    every write("#\t",!arg)
    write(
 	  "# This archive created: ",&dateline,

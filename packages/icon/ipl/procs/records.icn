@@ -39,7 +39,7 @@ end
 procedure fieldnum(R, s)		#: return index of field R.s
    local i
 
-   R := copy(R)
+   R := copy(R);
    every i := 1 to *R do
       R[i] := i
    return R[s]

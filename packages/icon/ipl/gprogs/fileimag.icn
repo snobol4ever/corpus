@@ -36,23 +36,23 @@ link wopen
 procedure main(args)
    local input, width, height, line
 
-   input := open(args[1]) | stop("*** cannot open file")
+   input := open(args[1]) | stop("*** cannot open file");
 
-   width := height := 0
+   width := height := 0;
 
    while line := read(input) do {
-      height +:= 1
+      height +:= 1;
       width <:= *line
       }
 
-   height +:= 1
+   height +:= 1;
 
-   close(input)
+   close(input);
 
-   input := open(args[1]) | stop("*** cannot re-open file")
+   input := open(args[1]) | stop("*** cannot re-open file");
 
    WOpen("canvas=hidden", "columns=" || width, "lines=" || height) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
    while WWrite(WRead(input))
 

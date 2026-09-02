@@ -90,7 +90,7 @@ global  sym_tab
 procedure main()
    local line, sline
 
-   sym_tab := table()
+   sym_tab := table();
 
    every line := getbs() do {			# a 'line' may be more
 						#   than one input line
@@ -117,7 +117,7 @@ static tmp
          if more('}','{',tmp) then break
          tmp ||:= (("" ~== |read()) || " ") | break
          }
-      suspend tmp
+      suspend tmp;
       tmp := (("" ~== |read()) || " ") | fail
       }
 end
@@ -135,10 +135,10 @@ end
 #
 procedure more(c1,c2,s)
 local cnt
-   cnt := 0
+   cnt := 0;
    s ? while (cnt <= 0) & not pos(0) do {
          (any(c1) & cnt +:= 1) |
-         (any(c2) & cnt -:= 1)
+         (any(c2) & cnt -:= 1);
          move(1)
          }
    return cnt >= 0
@@ -277,7 +277,7 @@ procedure Id()
    static first, rest
 
    initial {
-      first := &letters ++ "_"
+      first := &letters ++ "_";
       rest := first ++ &digits
       }
 
@@ -330,7 +330,7 @@ procedure binary(l,o,r)
       # ok, have to add node to far left end of chain for r
 
       # ...do so by first finding leftmost node of chain for r
-      lm := r
+      lm := r;
       while (type(lm.left) == "binop") & samelop(o,lm.left.op) do {
          lm := lm.left
          }
@@ -438,7 +438,7 @@ procedure process(t)
 
 		  # statements in a statement list
                    ";" : {
-                         process(t.left)
+                         process(t.left);
                          process(t.right)
                          }
 
@@ -466,7 +466,7 @@ procedure process(t)
 
       "list"  : {	# argument list for function call
 			#   evaluate each argument into a new list
-                a := []
+                a := [];
                 every put(a,process(!t))
                 a
                 }

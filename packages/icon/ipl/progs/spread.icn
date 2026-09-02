@@ -37,29 +37,29 @@ procedure main(args)
    local data, colsz, s, n, i, t
 
    # process options and set defaults
-   opts := options(args, "g+t:r")			# command options
-   sep := cset(\opts["t"]) | '\t'			# separator cset
-   gutter := integer(\opts["g"]) | 1			# output gutter width
-   justify := if \opts["r"] then right else left	# justifying procedure
+   opts := options(args, "g+t:r");  # command options
+   sep := cset(\opts["t"]) | '\t';  # separator cset
+   gutter := integer(\opts["g"]) | 1;  # output gutter width
+   justify := if \opts["r"] then right else left;  # justifying procedure
 
    # load data into memory
-   data := []
+   data := [];
    if *args = 0 then
       while put(data, read())
    else {
       every fname := !args do {
-         f := open(fname) | stop("can't open ", fname)
+         f := open(fname) | stop("can't open ", fname);
 	 while put(data, read(f))
 	 }
       }
 
    # scan data to record maximum column widths needed
-   colsz := []
+   colsz := [];
    every s := !data do s ? {
-      i := 0
+      i := 0;
       while n := (*tab(upto(sep)) | (0 < *tab(0))) do {
-	 move(1)
-	 i +:= 1
+	 move(1);
+	 i +:= 1;
 	 if n <= colsz[i] then
 	    next
 	 if i > *colsz then
@@ -76,9 +76,9 @@ procedure main(args)
 
    # write padded output
    every s := !data do s ? {
-      i := 0
+      i := 0;
       while t := tab(upto(sep)) do {
-         writes(justify(t, colsz[i +:= 1]))
+         writes(justify(t, colsz[i +:= 1]));
 	 move(1)
 	 }
       write(justify(tab(0), colsz[i +:= 1]))

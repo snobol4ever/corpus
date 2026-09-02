@@ -40,15 +40,15 @@ procedure Usage(s)
 end
 
 procedure Error(L[])
-   push(L,"*** ")
-   push(L, &errout)
+   push(L,"*** ");
+   push(L, &errout);
    write ! L
 end
 
 procedure ErrorCheck(line,file)
    if &errortext == "" then fail	# No converted error
-   write("\nError ",&errornumber," at line ",line, " in file ",file)
-   write(&errortext)
+   write("\nError ",&errornumber," at line ",line, " in file ",file);
+   write(&errortext);
    write("offending value: ",image(&errorvalue))
    return
 end
@@ -62,7 +62,7 @@ procedure Requires(s)
 end
 
 procedure Signature()
-   write(&version)
-   write(&host)
+   write(&version);
+   write(&host);
    every write(&features)
 end

@@ -34,24 +34,24 @@ link wopen
 procedure main(args)
    local colors, width, height, x, y, c
 
-   WOpen("image=" || args[1]) | stop("*** cannot open image")
+   WOpen("image=" || args[1]) | stop("*** cannot open image");
 
-   colors := table()
+   colors := table();
 
-   width := WAttrib("width")
-   height := WAttrib("height")
+   width := WAttrib("width");
+   height := WAttrib("height");
 
-   x := y := 0
+   x := y := 0;
 
    #  Build table of argument lists for colors
 
    every c := Pixel() do {
-      x +:= 1
+      x +:= 1;
       if x % width = 0 then {
-         x := 0
+         x := 0;
          y +:= 1
          }
-      /colors[c] := []			# new color
+      /colors[c] := [];  # new color
       put(colors[c], x, y)
       }
 
@@ -67,14 +67,14 @@ procedure main(args)
    #  either there would be a trailing empty element in "pixels"
    #  or some painful code would be necessary to avoid it.
 
-   write("pixels:=[")
+   write("pixels:=[");
 
    every c := key(colors) do {
-      push(colors[c], c)
+      push(colors[c], c);
       write(limage(colors[c]), ",")
       }
 
-   write("[", width, ",", height, ",", *colors,  "]")
+   write("[", width, ",", height, ",", *colors,  "]");
    write("]")
 
 end

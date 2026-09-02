@@ -59,7 +59,7 @@
 procedure lindstrp(prod, band_tbl)
    local result
 
-   result := ""
+   result := "";
 
    every result ||:= \band_tbl[!prod] || ";"
 

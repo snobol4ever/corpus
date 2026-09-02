@@ -27,7 +27,7 @@
 procedure imgcolor(win, x, y, w, h)
    local colors
 
-   colors := table(0)
+   colors := table(0);
 
    every colors[Pixel(win, x, y, w, h)] +:= 1
 

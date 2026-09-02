@@ -46,7 +46,7 @@ end
 procedure call_image(call)
    local args
 
-   args := ""
+   args := "";
 
    every args ||:= !call.args || ", "
 
@@ -62,8 +62,8 @@ procedure make_call(s)
    local arg, args, result
 
    s ? {
-      result := call(proc(tab(upto('(')))) | fail
-      move(1)
+      result := call(proc(tab(upto('(')))) | fail;
+      move(1);
       result.args := make_args(tab(-1))
       }
 
@@ -76,11 +76,11 @@ end
 procedure make_args(s)
    local args, arg
 
-   args := []
+   args := [];
 
    s ? {
       while arg := tab(upto(',') | 0) do {
-         put(args, ivalue(arg)) | fail
+         put(args, ivalue(arg)) | fail;
          move(1) | break
          }
       }
@@ -95,10 +95,10 @@ procedure call_code(s)
    local code, arg, result
 
    s ? {
-      result := "call(" || tab(upto('(')) || ", [" | fail
-      move(1)
+      result := "call(" || tab(upto('(')) || ", [" | fail;
+      move(1);
       while arg := tab(upto(',)')) do {
-         result ||:= ivalue(arg) || ", " | fail
+         result ||:= ivalue(arg) || ", " | fail;
          move(1) | break
          }
       }
@@ -119,8 +119,8 @@ procedure write_calltable(T, p, f)
    local name
 
    every name := key(T) do {
-      writes(f, name, "=")
-      writes(f, procname(p), ":")
+      writes(f, name, "=");
+      writes(f, procname(p), ":");
       every writes(f, image(!T[name]), ",")
       }
 
@@ -135,15 +135,15 @@ end
 procedure read_calltable(f)
    local T, line, p, args
 
-   T := table()
+   T := table();
 
    while line := read(f) do
       line ? {
-         name := tab(upto('="')) | fail
-         move(1)
-         p := tab(upto(':')) | fail
-         move(1)
-         args := []
+         name := tab(upto('="')) | fail;
+         move(1);
+         p := tab(upto(':')) | fail;
+         move(1);
+         args := [];
          while put(args, ivalue(tab(upto(',')))) do
              move(1)
          T[name] := call(proc(p), args) | fail

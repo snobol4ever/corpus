@@ -41,14 +41,14 @@ procedure popen(cmd, mode)
   local tfn, p
 
   initial ("pipes" == &features) | {
-    PIPE_cmd := table()
+    PIPE_cmd := table();
     PIPE_fname := table()
   }
   (type(PIPE_fname) ~== "table") & return open(cmd, mode || "p")
-  tfn := tempfile("pipe.")
-  upto('r', mode) & system(cmd || " > " || tfn)
-  p := open(tfn, mode)
-  PIPE_fname[p] := tfn
+  tfn := tempfile("pipe.");
+  upto('r', mode) & system(cmd || " > " || tfn);
+  p := open(tfn, mode);
+  PIPE_fname[p] := tfn;
   upto('w', mode) & PIPE_cmd[p] := cmd
   return p
 end
@@ -57,14 +57,14 @@ end
 procedure pclose(pipe)
   local status
 
-  (type(PIPE_fname) ~== "table") & return close(pipe)
+  (type(PIPE_fname) ~== "table") & return close(pipe);
   if \PIPE_cmd[pipe] then {
-    close(pipe) 
-    PIPE_cmd[pipe] ||:= " < " || PIPE_fname[pipe]
+    close(pipe);
+    PIPE_cmd[pipe] ||:= " < " || PIPE_fname[pipe];
     status := system(PIPE_cmd[pipe])
   }
   else status := close(pipe)
-  remove(PIPE_fname[pipe])
+  remove(PIPE_fname[pipe]);
   PIPE_cmd[pipe] := PIPE_fname[pipe] := &null
   return status
 end

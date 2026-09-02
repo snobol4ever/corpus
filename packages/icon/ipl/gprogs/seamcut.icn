@@ -41,29 +41,29 @@ procedure main(args)
 
    every name := !args do {
       base := basename(name, ".gif") | {
-         write(&errout, "*** unexpected file extension ", name)
+         write(&errout, "*** unexpected file extension ", name);
          next
          }
       win1 := WOpen("canvas=hidden", "image=" || name) | {
-         write(&errout, "*** cannot open ", name)
+         write(&errout, "*** cannot open ", name);
          next
          }
 
-      width := WAttrib(win1, "width")
-      height := WAttrib(win1, "height")
-      half_width := width / 2
-      half_height := height / 2
+      width := WAttrib(win1, "width");
+      height := WAttrib(win1, "height");
+      half_width := width / 2;
+      half_height := height / 2;
 
       win2 := WOpen("canvas=hidden", "width=" || width, "height=" || height) |
-         stop("*** cannot open target window")
+         stop("*** cannot open target window");
 
-      CopyArea(win1, win2, 0, 0, half_width, height, half_width, 0)
-      CopyArea(win1, win2, half_width, 0, half_width, height, 0, 0)
-      EraseArea(win1)
-      CopyArea(win2, win1, 0, 0, width, half_height, 0, half_height)
-      CopyArea(win2, win1, 0, half_height, width, half_height, 0, 0)
-      WriteImage(win1, base || "_s.gif")
-      WClose(win1)
+      CopyArea(win1, win2, 0, 0, half_width, height, half_width, 0);
+      CopyArea(win1, win2, half_width, 0, half_width, height, 0, 0);
+      EraseArea(win1);
+      CopyArea(win2, win1, 0, 0, width, half_height, 0, half_height);
+      CopyArea(win2, win1, 0, half_height, width, half_height, 0, 0);
+      WriteImage(win1, base || "_s.gif");
+      WClose(win1);
       WClose(win2)
       }
 

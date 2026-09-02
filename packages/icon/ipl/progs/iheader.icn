@@ -25,28 +25,28 @@ global input
 procedure main(args)
    local file, line, bar
 
-   bar := repl("#", 76)
+   bar := repl("#", 76);
 
    every file := !args do {
-      write(file, ":")
+      write(file, ":");
       input := open(file) | {
-         write("*** cannot open file")
-         close(\input)
+         write("*** cannot open file");
+         close(\input);
          next
          }
       line := read(input) | {
-         write("*** empty file")
-         close(\input)
+         write("*** empty file");
+         close(\input);
          next
          }
       if line ~== bar then {
-         write("*** invalid first line")
-         close(\input)
+         write("*** invalid first line");
+         close(\input);
          next
          }
       while line := read(input) do {
          if line == bar then {
-            close(input)
+            close(input);
             break
             }
          else write(line)

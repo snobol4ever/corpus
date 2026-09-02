@@ -23,10 +23,10 @@
 procedure rec2tab(rec, output)
    local i, x
 
-   i := *rec - 1
+   i := *rec - 1;
    every i := 1 to *rec - 1 do {
       x := rec[i]
-      /x := ""
+      /x := "";
       writes(output, map(x, "\n", "\v"),"\t")
       }
    write(output, map(\rec[-1], "\n", "\v")) | write(output)

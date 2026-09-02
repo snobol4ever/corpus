@@ -31,7 +31,7 @@ procedure acker(i, j)
    static memory
 
    initial {
-      memory := table()
+      memory := table();
       every memory[0 to 100] := table()
       }
 
@@ -48,7 +48,7 @@ procedure fib(i)
    static memory
 
    initial {
-      memory := table()
+      memory := table();
       memory[1] := memory[2] := 1
       }
 
@@ -61,7 +61,7 @@ procedure q(i)
    static memory
 
    initial {
-      memory := table()
+      memory := table();
       memory[1] := memory[2] := 1
       }
 

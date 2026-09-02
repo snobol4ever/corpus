@@ -102,21 +102,21 @@ procedure gettext(KEY,FNAME)      #: search database by indexed term
    local line, value
    static last_FNAME, intext, inidx, off_set, off_sets
 
-   (/KEY | /FNAME) & stop("error (gettext):  null argument")
+   (/KEY | /FNAME) & stop("error (gettext):  null argument");
 
    if FNAME == \last_FNAME then {
-      seek(intext, 1)
+      seek(intext, 1);
       seek(\inidx, 1)
       }
    else {
       # We've got a new text-base file.  Close the old one.
       every close(\intext | \inidx)
       # Try to open named text-base file.
-      intext := open(FNAME) | stop("gettext: file \"",FNAME,"\" not found")
+      intext := open(FNAME) | stop("gettext: file \"",FNAME,"\" not found");
       # Try to open index file.
       inidx := open(Pathname(FNAME) || getidxname(FNAME),"ru") | &null
       }
-   last_FNAME := FNAME
+   last_FNAME := FNAME;
 
    # Find offsets, if any, for key KEY in index file.
    # Then seek to the end and do a sequential search
@@ -126,7 +126,7 @@ procedure gettext(KEY,FNAME)      #: search database by indexed term
    if off_sets := get_offsets(KEY, inidx) then {
       off_sets ?  {
          while off_set := (move(1),tab(many(&digits))) do {
-            seek(intext, off_set)
+            seek(intext, off_set);
 
          # Find key.  Should be right there, unless the user has appended
          # key/value pairs to the end without re-indexing, or else has not
@@ -142,7 +142,7 @@ procedure gettext(KEY,FNAME)      #: search database by indexed term
 
          # Collect all text upto the next colon+colon line (::)
          # or EOF.
-            value := ""
+            value := "";
             while line := read(intext) do {
                find("::",line) & break
                value ||:= line || "\n"
@@ -156,7 +156,7 @@ procedure gettext(KEY,FNAME)      #: search database by indexed term
 
    # Find additional values appended to file since last indexing.
 
-   seek(intext, \firstline - _OS_offset)
+   seek(intext, \firstline - _OS_offset);
    while value := sequential_search(KEY, intext) do
       suspend trim(value,'\n') #|| " (" || off_set || "-s)"
 
@@ -176,35 +176,35 @@ procedure get_offsets(KEY, inidx)       #: binary search of index
    # text file.  We need this later.  Save it.  Start the binary
    # search routine at the next byte after this line.
 
-   seek(inidx, 1)
+   seek(inidx, 1);
    if not (inidx === \old_inidx) then {
 
       # Get first line.
-      firstline := !inidx
+      firstline := !inidx;
 
       # Set "bottom."
-      SOF := 1
+      SOF := 1;
 
       # How big is this file?
-      seek(inidx, 0)
-      EOF := where(inidx)
+      seek(inidx, 0);
+      EOF := where(inidx);
 
       old_inidx := inidx
       }
 
    # SOF, EOF constant for a given inidx file.
-   bottom := SOF ; top := EOF
+   bottom := SOF ; top := EOF;
 
 
    # If bottom gets bigger than top, there's no such key.
    until bottom >= top do {
 
-      loc := (top+bottom) / 2
-      seek(inidx, loc)
+      loc := (top+bottom) / 2;
+      seek(inidx, loc);
 
       # Move past next newline.  If at EOF, break.
 
-      read(inidx)
+      read(inidx);
       if (where(inidx) > EOF) | (loc = bottom) | (loc = top) then {
          break
          }
@@ -214,7 +214,7 @@ procedure get_offsets(KEY, inidx)       #: binary search of index
          line ? {
 
             # .IDX file line format is KEY<delimiter>offset
-            firstpart := tab(upto(_delimiter))
+            firstpart := tab(upto(_delimiter));
          
             if KEY ==  firstpart then {
                # return offset and addresses for any added material
@@ -242,7 +242,7 @@ procedure sequential_search(KEY, intext)  #: brute-force database search
    # Collect all text upto the next colon+colon line (::)
    # or EOF.
 
-   off_set := where(intext)
+   off_set := where(intext);
    while (line := read(intext)) | fail do {
       line  ? {
          if =("::" || KEY) & (match(" " | "\t") | pos(0))
@@ -250,14 +250,14 @@ procedure sequential_search(KEY, intext)  #: brute-force database search
          else off_set := where(intext)
          }
       }
-   value := ""
+   value := "";
    while line := read(intext) do {
       find("::", line) & break
       value ||:= line || "\n"
       }
 
    # Debug information for sequential searching:
-   value := value[1:-1] || " (" || off_set || "-s)\n"
+   value := value[1:-1] || " (" || off_set || "-s)\n";
 
    # Back up to allow for consecutive instances of KEY.
    seek(intext, where(intext) - *line - 2)

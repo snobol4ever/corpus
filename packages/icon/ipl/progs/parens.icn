@@ -74,22 +74,22 @@ global r, k, lp, rp
 procedure main(args)
    local string, i, s, bound, limit, varying, opts
 
-   randomize()
+   randomize();
    
-   bound := limit := 10			# default bound and limit
-   lp := "("				# default left paren
-   rp := ")"				# default right paren
+   bound := limit := 10;  # default bound and limit
+   lp := "(";  # default left paren
+   rp := ")";  # default right paren
 
-   opts := options(args,"l:r:vb+n+")
-   bound := \opts["b"] | 10
-   limit := \opts["n"] | 10
-   lp := \opts["l"] | "("
-   rp := \opts["r"] | ")"
-   varying := opts["v"]
+   opts := options(args,"l:r:vb+n+");
+   bound := \opts["b"] | 10;
+   limit := \opts["n"] | 10;
+   lp := \opts["l"] | "(";
+   rp := \opts["r"] | ")";
+   varying := opts["v"];
    every 1 to limit do {
       if \varying then k := 2 * ?bound else k := 2 * bound
-      string := ""
-      r := 0
+      string := "";
+      r := 0;
       while k ~= r do {
          if r = 0 then string ||:= Open()
          else if ?0 < probClose()
@@ -101,13 +101,13 @@ procedure main(args)
 end
 
 procedure Open()
-   r +:= 1
+   r +:= 1;
    k -:= 1
    return lp
 end
 
 procedure Close()
-   r -:= 1
+   r -:= 1;
    k -:= 1
    return rp
 end

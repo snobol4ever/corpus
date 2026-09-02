@@ -61,12 +61,12 @@ procedure BitStreamWrite(outfile,bits,value,outproc)
     initial {
 	 buffer := bufferbits := 0
 	    }
-    /outproc := writes
+    /outproc := writes;
     #
     #  If this is "close" call, flush buffer and reinitialize.
     #
     if /value then {
-	 outvalue := &null
+	 outvalue := &null;
 	 if bufferbits > 0 then
 		  outproc(outfile,char(outvalue := ishift(buffer,8 - bufferbits)))
 	 buffer := bufferbits := 0
@@ -75,14 +75,14 @@ procedure BitStreamWrite(outfile,bits,value,outproc)
     #
     #  Merge new value into buffer.
     #
-    buffer := ior(ishift(buffer,bits),value)
-    bufferbits +:= bits
+    buffer := ior(ishift(buffer,bits),value);
+    bufferbits +:= bits;
     #
     #  Output bits.
     #
     while bufferbits >= 8 do {
-	 outproc(outfile,char(outvalue := ishift(buffer,8 - bufferbits)))
-	 buffer := ixor(buffer,ishift(outvalue,bufferbits - 8))
+	 outproc(outfile,char(outvalue := ishift(buffer,8 - bufferbits)));
+	 buffer := ixor(buffer,ishift(outvalue,bufferbits - 8));
 	 bufferbits -:= 8
 	    }
     return outvalue
@@ -108,16 +108,16 @@ procedure BitStreamRead(infile,bits,inproc)
     #
     #  Read in more data if necessary.
     #
-    /inproc := reads
+    /inproc := reads;
     while bufferbits < bits do {
-	 buffer := ior(ishift(buffer,8),ord(inproc(infile))) | fail
+	 buffer := ior(ishift(buffer,8),ord(inproc(infile))) | fail;
 	 bufferbits +:= 8
 	    }
     #
     #  Extract value from buffer and return.
     #
-    value := ishift(buffer,bits - bufferbits)
-    buffer := ixor(buffer,ishift(value,bufferbits - bits))
+    value := ishift(buffer,bits - bufferbits);
+    buffer := ixor(buffer,ishift(value,bufferbits - bits));
     bufferbits -:= bits
     return value
 end

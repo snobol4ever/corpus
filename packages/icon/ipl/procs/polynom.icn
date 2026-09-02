@@ -34,18 +34,18 @@ link tables
 procedure str2poly(str)			#: convert string to polynomial
    local poly, var, vars, term, factor, power
 
-   poly := table(0)
+   poly := table(0);
 
    str ? {
       while term := (move(1) || tab(upto('-+') | 0)) do {	# possible sign
          term ? {
-            factor := 1			# default
-            factor := tab(many(&digits ++ '+.-'))
+            factor := 1;  # default
+            factor := tab(many(&digits ++ '+.-'));
             tab(0) ? {
-               vars := ""
+               vars := "";
                while var := move(1) do {
-                  power := 1		# default
-                  power := integer(tab(many(&digits)))
+                  power := 1;  # default
+                  power := integer(tab(many(&digits)));
                   vars ||:= repl(var, power)
                   }
                }
@@ -61,9 +61,9 @@ end
 procedure polyadd(poly1, poly2)		#: add polynomials
    local poly, keys, k
 
-   keys := sort(set(keylist(poly1)) ++ set(keylist(poly2)))
+   keys := sort(set(keylist(poly1)) ++ set(keylist(poly2)));
 
-   poly := table(0)
+   poly := table(0);
 
    every k := !keys do
       poly[k] := poly1[k] + poly2[k]
@@ -75,9 +75,9 @@ end
 procedure polymod(poly, i)		#: polynomial modular reduction
    local poly1, keys, k
 
-   keys := keylist(poly)
+   keys := keylist(poly);
 
-   poly1 := table(0)
+   poly1 := table(0);
 
    every k := !keys do
       poly1[k] := poly[k] % i
@@ -89,9 +89,9 @@ end
 procedure polysub(poly1, poly2)		#: subtract polynomials
    local poly, keys, k
 
-   keys := sort(set(keylist(poly1)) ++ set(keylist(poly2)))
+   keys := sort(set(keylist(poly1)) ++ set(keylist(poly2)));
 
-   poly := table(0)
+   poly := table(0);
 
    every k := !keys do
       poly[k] := poly1[k] - poly2[k]
@@ -103,10 +103,10 @@ end
 procedure polymul(poly1, poly2)		#: multiply polynomials
    local poly, keys1, keys2, k1, k2
 
-   keys1 := keylist(poly1)
-   keys2 := keylist(poly2)
+   keys1 := keylist(poly1);
+   keys2 := keylist(poly2);
 
-   poly := table(0)
+   poly := table(0);
 
    every k1 := !keys1 do
       every k2 := !keys2 do
@@ -119,7 +119,7 @@ end
 procedure polyexp(poly1, i)		#: exponentiate polynomial
    local poly
 
-   poly := copy(poly1)
+   poly := copy(poly1);
 
    every 1 to i - 1 do 
       poly := polymul(poly, poly1)
@@ -131,9 +131,9 @@ end
 procedure poly2str(poly)		#: polynomial to string
    local str, keys, k, count, var
 
-   keys := keylist(poly)
+   keys := keylist(poly);
 
-   str := ""
+   str := "";
 
    every k := !keys do {
       if poly[k] = 0 then next		# skip term
@@ -141,8 +141,8 @@ procedure poly2str(poly)		#: polynomial to string
       else if poly[k] < 0 then str ||:= ((poly[k] ~= 1) | "")
       k ? {
          while var := move(1) do {
-            count := 1
-            count +:= *tab(many(var))
+            count := 1;
+            count +:= *tab(many(var));
             if count = 1 then str ||:= var
             else str ||:= var || count
             }
@@ -156,15 +156,15 @@ end
 procedure polydiff(poly, var)		#: polynomial differentiation
    local poly_new, keys, k, nvars, newk
 
-   poly_new := table()
+   poly_new := table();
 
-   keys := keylist(poly)
+   keys := keylist(poly);
 
    every k := !keys do {
       k ? {
          if newk := tab(upto(var)) then {
-            nvars := *tab(many(var))
-            newk ||:= repl(var, nvars - 1) || tab(0)
+            nvars := *tab(many(var));
+            newk ||:= repl(var, nvars - 1) || tab(0);
             poly_new[newk] := nvars * poly[k]
             }
          }
@@ -177,15 +177,15 @@ end
 procedure polyintg(poly, var)		#: polynomial integration
    local poly_new, keys, k, nvars, newk
 
-   poly_new := table()
+   poly_new := table();
 
-   keys := keylist(poly)
+   keys := keylist(poly);
 
    every k := !keys do {
       k ? {
          if newk := tab(upto(var)) then {
-            nvars := *tab(many(var))
-            newk ||:= repl(var, nvars + 1) || tab(0)
+            nvars := *tab(many(var));
+            newk ||:= repl(var, nvars + 1) || tab(0);
             poly_new[newk] := poly[k] / real(nvars + 1) 
             }
          }
@@ -228,14 +228,14 @@ end
 procedure poly2profile(poly)		#: polynomial to profile sequence
    local str, keys, k, count, vara, i, seg
 
-   keys := keylist(poly)
+   keys := keylist(poly);
 
-   str := ""
+   str := "";
 
    every k := !keys do {
-      i := poly[k]
+      i := poly[k];
       if i < 0 then {			# if negative, reverse sequence
-         i := abs(i)
+         i := abs(i);
          k := reverse(k)
          }
       str ||:= left(repl(k, i + 1), i * *k)
@@ -248,9 +248,9 @@ end
 procedure poly2profilelen(poly)		#: polynomial to profile sequence
    local i, keys, k, count, var
 
-   keys := keylist(poly)
+   keys := keylist(poly);
 
-   i := 0
+   i := 0;
 
    every k := !keys do
        i +:= *repl(k, abs(poly[k]))	# treat negative as if positive
@@ -271,12 +271,12 @@ procedure basepoly(clist, plist)	# base polynomial
 
    initial vlist := string(&lcase)
 
-   poly := table()
+   poly := table();
 
-   i := 1
+   i := 1;
 
    while c := get(clist) & p := get(plist) do {
-      poly[repl(vlist[i], (0 <= p))] := (0 ~= c)
+      poly[repl(vlist[i], (0 <= p))] := (0 ~= c);
       i +:= 1
       }
 

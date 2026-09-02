@@ -31,24 +31,24 @@ procedure acker(i, j)
 
    if i = 0 then return j + 1
 
-   value := list(i + 1)
-   place := list(i + 1)
+   value := list(i + 1);
+   place := list(i + 1);
 
-   value[1] := 1
-   place[1] := 0
+   value[1] := 1;
+   place[1] := 0;
 
    repeat {				# new value[1]
-      value[1] +:= 1
-      place[1] +:= 1
+      value[1] +:= 1;
+      place[1] +:= 1;
       every k := 1 to i do {		# propagate value
          if place[k] = 1 then {		# initiate new level
-            value[k + 1] := value[1]
-            place[k + 1] := 0
+            value[k + 1] := value[1];
+            place[k + 1] := 0;
             if k ~= i then break next
             }
          else {
             if place[k] = value[k + 1] then {
-               value[k + 1] := value[1]
+               value[k + 1] := value[1];
                place[k + 1] +:= 1
                }
             else break next
@@ -62,17 +62,17 @@ end
 procedure fib(i, m)			# generalized Fibonacci sequence
    local j, n, k
 
-   /m := 0
+   /m := 0;
 
    if i = 1 then return 1
    if i = 2 then return m + 1
 
-   j := 1
-   k := m + 1
+   j := 1;
+   k := m + 1;
 
    every 1 to i - 2 do {
-      n := j + k
-      j := k
+      n := j + k;
+      j := k;
       k := n
       }
 

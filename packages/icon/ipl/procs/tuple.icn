@@ -54,11 +54,11 @@ procedure tuple(tl)
    initial tuptab := table()	# create the root node
 
    /tuptab[*tl] := table()	# if there is no table for this size, make one
-   tb := tuptab[*tl]		# go to tuple for size of table
-   i := 0			# assign default value to i
+   tb := tuptab[*tl];  # go to tuple for size of table
+   i := 0;  # assign default value to i
    every i := 1 to *tl - 1 do {	# iterate though all but last value
       e := tl[i]		# ith value in tuple
-      /tb[e] := table()		# if it is not in the table, make a new one
+      /tb[e] := table();  # if it is not in the table, make a new one
       tb := tb[e]		# go to table for that value
       }
    le := tl[i + 1]		# last value in tuple

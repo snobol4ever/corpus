@@ -34,8 +34,8 @@ link options
 procedure main(args)
    local expr, opts, limit
 
-   opts := options(args, "l+")
-   limit := \opts["l"] | 2 ^ 30
+   opts := options(args, "l+");
+   limit := \opts["l"] | 2 ^ 30;
 
    while expr := read() do
       every write(eval(expr)) \ limit

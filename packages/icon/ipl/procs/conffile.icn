@@ -260,7 +260,7 @@ local sL, sLL, f, fn, fL, action, tag, DirectiveT
 /continue   := "_"
 /escape     := '\\'
 /quotes     := '\'"'
-/whitespace := ' \b\t\v\f\r'
+/whitespace := ' \b\t\v\f\r';
 
 if not ( comment := string(comment) ) then runerr(103,comment)
 if *comment ~= 1 then runerr(500,comment)
@@ -270,7 +270,7 @@ if *continue ~= 1 then runerr(500,continue)
 
 if not ( escape := cset(escape) ) then runerr(104,escape)
 if *escape ~= 1 then runerr(500,escape)
-notescape := ~escape
+notescape := ~escape;
 
 if not ( quotes := cset(quotes) ) then runerr(104,quotes)
 if *quotes = 0 then runerr(500,quotes)
@@ -282,9 +282,9 @@ if type(fnL) ~== "list" then runerr(108,fnL)
 
 if type(spec) ~== "table" then runerr(124,spec)
 
-fL := []                 # list of original config file
-sL := []                 # list of lists corresponding to each directive
-DirectiveT := table()    # results
+fL := [];  # list of original config file
+sL := [];  # list of lists corresponding to each directive
+DirectiveT := table();  # results
 
 #   2. locate (and open) a file
 
@@ -307,21 +307,21 @@ while /eof do
 
    #  3.1 gather complete directive statements
 
-   wip := ""
+   wip := "";
    repeat 
    {
       if not ( line := read(f) ) then eof := line := ""
       else
       {
-         put(fL,line)                                  # save original line
-         line ?:=  2( tab(many(whitespace)), tab(0) )  # discard leading w/s 
-         line ?:=  tab(findp(notescape,comment))       # discard comment 
+         put(fL,line);  # save original line
+         line ?:=  2( tab(many(whitespace)), tab(0) );  # discard leading w/s
+         line ?:=  tab(findp(notescape,comment));  # discard comment
          line := trim(line,whitespace)
       }
-      wip ||:= line
+      wip ||:= line;
       if wip[-1] == continue then 
       {
-         wip := wip[1:-1]
+         wip := wip[1:-1];
          next
       }
       else break
@@ -329,17 +329,17 @@ while /eof do
 
    #  3.2 tokenize directive
 
-   put( sL, sLL := [] )                   # start a list of words
+   put( sL, sLL := [] );  # start a list of words
    wip ? repeat 
    {
-      tab( many(whitespace) )             # kill leading white space
+      tab( many(whitespace) );  # kill leading white space
       if pos(0) then break                # deal with trailing whitespace here
 
       ( q := tab(any(quotes)), 
         ( x := 1( tab(findp(notescape,q)), =q ) | tab(0) ) 
       ) | ( x := tab(upto(whitespace) | 0) )  
 
-      y := ""
+      y := "";
       x ?                                 # strip imbedded escape characters
       { 
          while y ||:= tab(upto(escape)) do move(1)
@@ -353,8 +353,8 @@ while /eof do
   
    #  3.3 process directive
  
-   action :=  get(sLL)                    # peel off the action tag
-   d := spec[action]
+   action :=  get(sLL);  # peel off the action tag
+   d := spec[action];
 
    if /d | /d.classproc then runerr(500,d)
 

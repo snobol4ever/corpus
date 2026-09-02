@@ -444,18 +444,18 @@ procedure main(args)
    local a, c, e, g, i, r, s, t, v
 
    # use large region sizes for better efficiency
-   collect(2, STRSIZE)			# string region
-   collect(3, BLKSIZE)			# block (heap) region
+   collect(2, STRSIZE);  # string region
+   collect(3, BLKSIZE);  # block (heap) region
 
    # open window first, to validate and remove any window options
    Window("label=--", "gamma=1.5", "bg=white", "fg=brown",
-      "resize=on", "canvas=hidden", WSIZE, args)
+      "resize=on", "canvas=hidden", WSIZE, args);
 
-   randomize()
-   initattrib()
+   randomize();
+   initattrib();
 
    # process command options
-   opts := options(args, "o:l:x:cdnpqt")
+   opts := options(args, "o:l:x:cdnpqt");
    if \opts["o"] then {
       if opts["o"] == "-" then
          logfile := &output
@@ -465,16 +465,16 @@ procedure main(args)
    else
       logfile := &output
 
-   chosen := cset(\opts["l"]) | (&lcase -- 'n')  # start with explicit layers
-   chosen ++:= 'go'			# add paths & other data, if loaded
-   chosen --:= cset(\opts["x"])		# now apply exclusions
+   chosen := cset(\opts["l"]) | (&lcase -- 'n');  # start with explicit layers
+   chosen ++:= 'go';  # add paths & other data, if loaded
+   chosen --:= cset(\opts["x"]);  # now apply exclusions
 
    # any remaining arguments are directory names
    if *args = 0 then
       stop("usage: ", &progname, " [options] dir...")
 
    # build list of arg records, classifying each filename or directory
-   arglist := []
+   arglist := [];
    every s := !args do {
       if directory(s) then
          t := "dir"
@@ -487,15 +487,15 @@ procedure main(args)
 
    # scan text files first, because we haven't really done any validation
    # (any unrecognized file is classified as a text file)
-   features := []
+   features := [];
    every (a := !arglist) & (a.type == "txt") do
       rdtext(a)
 
    # take inventory of DLG directories and files, and load XREF/NPnn info
    every (a := !arglist) & (a.type ~== "txt") do {
-      inventory(a)
+      inventory(a);
       every r := !a.ltable do {
-         loadref(r)
+         loadref(r);
          if r.zone >= 0 then
             loadcorners(r)
          else
@@ -511,21 +511,21 @@ procedure main(args)
    (*(!arglist).ltable > 0) | stop("no data")
 
    # show initial screen
-   winit()
-   mapinit(draw, , xmin, xmax, ymax, ymin, aspect)
+   winit();
+   mapinit(draw, , xmin, xmax, ymax, ymin, aspect);
    if WAttrib("label") == "--" then	# set window label, if not specified
       WAttrib("label=" || args[1])
-   WAttrib("canvas=normal")		# make window visible
-   Font("sans,bold,72")
-   Fg("pale yellowish gray")
-   DrawString(60, 120, "LOADING...")
+   WAttrib("canvas=normal");  # make window visible
+   Font("sans,bold,72");
+   Fg("pale yellowish gray");
+   DrawString(60, 120, "LOADING...");
 
    if \opts["c"] then			# if just coverage wanted
       chosen := 'n'			# turn on names, turn off loaded paths
    else {
 
       # finally: load in the data
-      alllabels()			# show coverage while loading
+      alllabels();  # show coverage while loading
       every c := !DLG_LAYERS do		# load by layers
          every a := !arglist do
             if \a.wanted then
@@ -533,7 +533,7 @@ procedure main(args)
 
       # report memory usage
       every put(c := [], &collections)
-      collect()
+      collect();
       every put(a := [], &storage)
       if /opts["q"] then {
          write(" ", (a[2] + a[3] + MEGABYTE / 2) / MEGABYTE,
@@ -544,13 +544,13 @@ procedure main(args)
    # put segment lists in order for drawing
    # shuffle segments of each list to minimize "dead time" drawing offscreen
    every put(slist := [], !attrib)
-   slist := sortf(slist, field(attrec, "seq"))
+   slist := sortf(slist, field(attrec, "seq"));
    every g := (!slist).segs do
       every !g :=: ?g			# imperfect but good enough shuffle
 
    # report attribute counts, if -d given
    if \opts["d"] then {
-      write()
+      write();
       every e := !slist do
          if *e.segs > 0 then
             write(right(e.seq, 3), ". ", e.lcode, " ",
@@ -563,8 +563,8 @@ procedure main(args)
       Event()
 
    # draw initial screen
-   EraseArea()
-   mapgen()
+   EraseArea();
+   mapgen();
 
    # process interactive commands
    repeat case e := Event() of {

@@ -26,7 +26,7 @@
 procedure main()
    local count, line
 
-   count := 0
+   count := 0;
 
    while line := reads(, 1000000) do
       line ? {

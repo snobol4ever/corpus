@@ -45,7 +45,7 @@ $define MaxIntensity (2 ^ 16 - 1)
 procedure rgbsum(s1, s2)
    local rgb1, rgb2
 
-    rgb1 := rgbrec(s1) | fail
+    rgb1 := rgbrec(s1) | fail;
     rgb2 := rgbrec(s2) | fail
 
    return rgbrec(
@@ -59,7 +59,7 @@ end
 procedure rgbdif(s1, s2)
    local rgb1, rgb2
 
-    rgb1 := rgbrec(s1) | fail
+    rgb1 := rgbrec(s1) | fail;
     rgb2 := rgbrec(s2) | fail
 
    return rgbrec(
@@ -73,7 +73,7 @@ end
 procedure rgbavg(s1, s2)
    local rgb1, rgb2
 
-    rgb1 := rgbrec(s1) | fail
+    rgb1 := rgbrec(s1) | fail;
     rgb2 := rgbrec(s2) | fail
 
    return rgbrec(

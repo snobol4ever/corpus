@@ -35,7 +35,7 @@ end
 procedure gauss()
    local v
 
-   v := 0.0
+   v := 0.0;
 
    every 1 to 12 do v +:= ?0
 

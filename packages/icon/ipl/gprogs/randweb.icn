@@ -37,22 +37,22 @@ link wopen
 procedure main(argl)
    local i, j, k, angle, incr, points, size, radius
 
-   i := integer(argl[1]) | 20
+   i := integer(argl[1]) | 20;
 
-   size := 300
-   radius := size / 2
+   size := 300;
+   radius := size / 2;
 
    WOpen("label=random web", "width=" || size, "height=" || size) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   points := []
+   points := [];
 
-   randomize()
+   randomize();
 
    every j := 1 to i do
       put(points, Point(?size, ?size))
 
-   joinpair(points, points)
+   joinpair(points, points);
 
    Event()
 

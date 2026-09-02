@@ -42,22 +42,22 @@ link wopen
 procedure main(args)
    local opts, prefix, x, y, w, h, win
 
-   opts := options(args, "x+y+w+h+p:")
+   opts := options(args, "x+y+w+h+p:");
 
-   x := \opts["x"] | 0
-   y := \opts["y"] | 0
-   w := \opts["w"] | 64
-   h := \opts["h"] | 64
+   x := \opts["x"] | 0;
+   y := \opts["y"] | 0;
+   w := \opts["w"] | 64;
+   h := \opts["h"] | 64;
    
-   prefix := \opts["p"] | "rect_"
+   prefix := \opts["p"] | "rect_";
 
    every name := !args do {
       win := WOpen("canvas=hidden", "image=" || name) | {
-         write(&errout, "*** cannot open ", name)
+         write(&errout, "*** cannot open ", name);
          next
          }
       WriteImage(win, prefix || name, x, y, w, h) |
-         write(&errout, "*** cannot write rectangle for ", name)
+         write(&errout, "*** cannot write rectangle for ", name);
       WClose(win)
       }
 end

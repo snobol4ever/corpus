@@ -26,10 +26,10 @@
 procedure main()
    local input, old, new
 
-   input := open("ls", "p")
+   input := open("ls", "p");
 
    while old := read(input) do {
-      new := map(old)
+      new := map(old);
       if new ~== old then rename(old, new)
       }
 

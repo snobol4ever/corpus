@@ -87,7 +87,7 @@ global   whitespace, amode, seed, deck, over, hidden, run, ace
 procedure main(args)
    local a, p, c, r, s, cnt, cheat, cmd, act, from, dest
 
-   VERSION := (!args == ("Atari ST" | "hp2621" | "IBM PC" | "vt100"))
+   VERSION := (!args == ("Atari ST" | "hp2621" | "IBM PC" | "vt100"));
 
 #  if keyboard functions are not available, disable ability to
 #  get out of auto mode.
@@ -98,54 +98,54 @@ procedure main(args)
    case VERSION of {
 
       "Atari ST": {
-         CLEAR  := "\eE"
-         CLREOL := "\eK"
-         NORMAL := "\eb3"
-         RED    := "\eb1"
+         CLEAR  := "\eE";
+         CLREOL := "\eK";
+         NORMAL := "\eb3";
+         RED    := "\eb1";
          BLACK  := "\eb2"
       }
 
       "hp2621": {
-         CLEAR  := "\eH\eJ"
-         CLREOL := "\eK"
-         NORMAL := "\e&d@"
-         RED    := "\e&dJ"
+         CLEAR  := "\eH\eJ";
+         CLREOL := "\eK";
+         NORMAL := "\e&d@";
+         RED    := "\e&dJ";
          BLACK  := "\e&d@"
       }
 
       "IBM PC" | "vt100": {
-         CLEAR  := "\e[H\e[2J"
-         CLREOL := "\e[0K"
-         NORMAL := "\e[0m"
-         RED    := "\e[0;31;47m"
+         CLEAR  := "\e[H\e[2J";
+         CLREOL := "\e[0K";
+         NORMAL := "\e[0m";
+         RED    := "\e[0;31;47m";
          BLACK  := "\e[1;30;47m"
       }
 
       default: {  # same as IBM PC and vt100
-         CLEAR  := "\e[H\e[2J"
-         CLREOL := "\e[0K"
-         NORMAL := "\e[0m"
-         RED    := "\e[0;31;47m"
+         CLEAR  := "\e[H\e[2J";
+         CLREOL := "\e[0K";
+         NORMAL := "\e[0m";
+         RED    := "\e[0;31;47m";
          BLACK  := "\e[1;30;47m"
       }
    }
 
    # white space is blanks or tabs
-   whitespace := ' \t'
+   whitespace := ' \t';
 
    # clear the auto pilot mode flag
-   amode := 0
+   amode := 0;
 
    # if a command line argument started with "seed" use the rest of
    # the argument for the random number generator seed value
    if (a := !args)[1:5] == "seed" then seed := integer(a[5:0])
 
    # initialize the data structures
-   deck   := shuffle()
-   over   := []
-   hidden := [[],[],[],[],[],[],[]]
-   run    := [[],[],[],[],[],[],[]]
-   ace    := [[],[],[],[]]
+   deck   := shuffle();
+   over   := [];
+   hidden := [[],[],[],[],[],[],[]];
+   run    := [[],[],[],[],[],[],[]];
+   ace    := [[],[],[],[]];
 
    # lay down the 7 piles of cards
    every p := 1 to 7 do every c := p to 7 do put(hidden[c],get(deck))
@@ -155,17 +155,17 @@ procedure main(args)
 
    # check for aces in the runs and move them to the ace piles
    every r := 1 to 7 do while getvalue(run[r][1]) = 1 do {
-      s := getsuite(!run[r])
-      push(ace[s],get(run[r]))
+      s := getsuite(!run[r]);
+      push(ace[s],get(run[r]));
       put(run[r],get(hidden[r]))
    }
 
    # initialize the command and cheat counts
-   cnt := cheat := 0
+   cnt := cheat := 0;
 
    # clear the screen and display the initial layout
-   writes(CLEAR)
-   display()
+   writes(CLEAR);
+   display();
 
    # if a command line argument was "auto" let the auto pilot take over
    if !args == "auto" then autopilot(cheat)
@@ -174,19 +174,19 @@ procedure main(args)
    repeat {
 
       # increment the command count
-      cnt +:= 1
+      cnt +:= 1;
 
       # prompt for a command
-      movecursor(15,0)
+      movecursor(15,0);
       writes("cmd:",cnt,"> ",CLREOL)
 
       # scan the command line
       (cmd := read() | exit()) ? {
 
          # parse the one character action
-         tab(many(whitespace))
-         act := (move(1) | "")
-         tab(many(whitespace))
+         tab(many(whitespace));
+         act := (move(1) | "");
+         tab(many(whitespace));
 
          # switch on the action
          case map(act) of {
@@ -196,13 +196,13 @@ procedure main(args)
 
          # move a card or run of cards
          "m": {
-            if {from := move(1)
-               tab(many(whitespace))
+            if {from := move(1);
+               tab(many(whitespace));
                dest := move(1)
                }                                    # Keep failure of parsing
             then {                                  #   from movecard();
                if not movecard(from,dest) then  {   # otherwise, program
-                  whoops(cmd)                       #   aborts.
+                  whoops(cmd);  #   aborts.
                   next                              # Exit from wrong
                   }                                 #   instruction.
                else if cardsleft() = 0 then
@@ -210,7 +210,7 @@ procedure main(args)
                      else &null
                }
            else {                                   # Exit from incomplete
-               whoops(cmd)                          #  command.
+               whoops(cmd);  #  command.
                next
                }
            }

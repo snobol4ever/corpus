@@ -66,8 +66,8 @@
 link gpxop
 
 procedure WOpen(args[])
-   push(args, "g")
-   push(args, "")
+   push(args, "g");
+   push(args, "");
    if /&window then
       return &window := open ! args
    else
@@ -89,7 +89,7 @@ procedure WReads(window, i)
    if /window then
       window := \&window | runerr(140, &window)
    else if type(window) ~== "window" then {
-      i := window
+      i := window;
       window := \&window | runerr(140, &window)
       }
    return reads(window, i)
@@ -120,19 +120,19 @@ procedure WDelay(window, n)
    static delay, type
 
    initial {
-      delay := proc("delay", 0)		# protect attractive names
+      delay := proc("delay", 0);  # protect attractive names
       type := proc("type", 0)
       }
 
    if /window then
       window := \&window | runerr(140, &window)
    else if type(window) ~== "window" then {
-      n := window
+      n := window;
       window := \&window | runerr(140, &window)
       }
-   /n := 1
-   integer(n) | runerr(101, n)
-   WFlush(window)
+   /n := 1;
+   integer(n) | runerr(101, n);
+   WFlush(window);
    delay(n)
 
    return window
@@ -162,7 +162,7 @@ end
 
 
 procedure WQuit(win)
-   /win := &window
+   /win := &window;
    while *Pending(win) > 0 do
       if Event(win) === QuitEvents() then
          return win
@@ -171,7 +171,7 @@ end
 
 
 procedure WDone(win)
-   /win := &window
+   /win := &window;
    until Event(win) === QuitEvents()
    exit()
 end
@@ -182,14 +182,14 @@ end
 procedure ZDone(win)
    local org, e, w, h, ww, hh, x0, y0
 
-   /win := &window
-   x0 := -WAttrib(win, "dx")
-   y0 := -WAttrib(win, "dy")
-   w := WAttrib(win, "width")
-   h := WAttrib(win, "height")
-   org := WOpen("width=" || w, "height=" || h, "canvas=hidden") | WDone()
-   CopyArea(win, org, x0, y0)
-   WAttrib(win, "resize=on")
+   /win := &window;
+   x0 := -WAttrib(win, "dx");
+   y0 := -WAttrib(win, "dy");
+   w := WAttrib(win, "width");
+   h := WAttrib(win, "height");
+   org := WOpen("width=" || w, "height=" || h, "canvas=hidden") | WDone();
+   CopyArea(win, org, x0, y0);
+   WAttrib(win, "resize=on");
    while e := Event(win) do case e of {
       QuitEvents():
          exit()

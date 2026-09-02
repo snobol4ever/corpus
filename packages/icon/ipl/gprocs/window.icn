@@ -107,8 +107,8 @@ procedure Window(args[])
 
    initial type := proc("type", 0)	# protect attractive name
 
-   wdw_debug := &null
-   att := table()
+   wdw_debug := &null;
+   att := table();
 
    # Trim &progname for use as option index and window label.
    cs := &cset -- &letters -- &digits -- '.$_'
@@ -124,13 +124,13 @@ procedure Window(args[])
    every a := !args do
       case type(a) of {
          "string": a ? {
-            name := tab(upto("=")) | runerr(205, a)
-            move(1)
-            val := tab(0)
+            name := tab(upto("=")) | runerr(205, a);
+            move(1);
+            val := tab(0);
             wdw_register(att, name, val)
             }
          "list": {
-            wdw_defaults(att, a, pname)
+            wdw_defaults(att, a, pname);
             wdw_options(att, a)
             }
          default:
@@ -140,7 +140,7 @@ procedure Window(args[])
    # Set defaults for certain attributes if not set earlier.
    /att["fg"] := "black"
    /att["bg"] := VBackground
-   /att["label"] := pname
+   /att["label"] := pname;
 
    if /att["image"] & not (att["canvas"] === "maximal") then {	# don't override
       /att["width"] := 500
@@ -150,15 +150,15 @@ procedure Window(args[])
    # Open the window.  Defer "font" and "fg" until later because they can
    # cause failure.  Don't defer "bg", because it affects the initial
    # window appearance, but try again without it if the open fails.
-   omit1 := set(["fg", "font"])
-   omit2 := set(["fg", "font", "bg"])
-   win := wdw_open(att, omit1 | omit2) | stop(&progname, ": can't open window")
+   omit1 := set(["fg", "font"]);
+   omit2 := set(["fg", "font", "bg"]);
+   win := wdw_open(att, omit1 | omit2) | stop(&progname, ": can't open window");
 
    # Set foreground, background, and font, giving a nonfatal message if
    # the value is unacceptable.  Then return the window.
-   wdw_attrib(win, att, "fg")
-   wdw_attrib(win, att, "bg")
-   wdw_attrib(win, att, "font")
+   wdw_attrib(win, att, "fg");
+   wdw_attrib(win, att, "bg");
+   wdw_attrib(win, att, "font");
    GotoRC(win, 1, 1)			# now that font has been set
    /&window := win
    return win
@@ -176,11 +176,11 @@ procedure wdw_defaults(att, arglist, pname)
 
    # We need to have a window in order to read defaults, and unless we honor
    # the -D option from the command line here it becomes pretty useless.
-   dpy := ("display=" || wdw_peekopt(arglist, "D")) | "fg=black"
+   dpy := ("display=" || wdw_peekopt(arglist, "D")) | "fg=black";
 
    # Open an offscreen window.
    w := open("Window()", "g", "canvas=hidden", "size=32,32", dpy) |
-      stop(&progname, ": can't open display")
+      stop(&progname, ": can't open display");
 
    # Set attributes from environment.  Order is significant here:
    # pos & size override geometry, and posx/posy/width/height override both.
@@ -202,7 +202,7 @@ end
 procedure wdw_peekopt(arglist, ch)
    local a, opt, val
 
-   arglist := copy(arglist)
+   arglist := copy(arglist);
    while a := get(arglist) do a ? {
       if ="-" & (opt := tab(any(&ucase))) then {
          if pos(0) then
@@ -235,7 +235,7 @@ end
 procedure wdw_options(att, arglist)
    local a, opt, name, val, rejects
 
-   rejects := []
+   rejects := [];
    while a := get(arglist) do a ? {
       if ="-" & (opt := tab(any(&ucase))) then {
          if pos(0) then
@@ -257,8 +257,8 @@ procedure wdw_options(att, arglist)
             "G":  wdw_register(att, "geometry", val)
             "A":  val ? {
                name := tab(upto("=")) |
-                  stop(&progname, ": malformed -A option: ", val)
-               move(1)
+                  stop(&progname, ": malformed -A option: ", val);
+               move(1);
                wdw_register(att, name, tab(0))
                }
             default:  stop(&progname, ": unrecognized option -", opt)
@@ -293,35 +293,35 @@ procedure wdw_reg(att, name, val)
    case name of {
       "size": val ? {		# size=www,hhh
          att["width"] := tab(many(&digits)) | fail
-         ="," | fail
-         att["height"] := tab(many(&digits)) | fail
-         pos(0) | fail
+         ="," | fail;
+         att["height"] := tab(many(&digits)) | fail;
+         pos(0) | fail;
          if \att["canvas"] == "maximal" then
             delete(att, "canvas")
          }
       "pos": val ? {		# pos=xxx,yyy
          att["posx"] := tab(many(&digits)) | fail
-         ="," | fail
-         att["posy"] := tab(many(&digits)) | fail
+         ="," | fail;
+         att["posy"] := tab(many(&digits)) | fail;
          pos(0) | fail
          }
       "geometry": val ? {	# geometry=[wwwxhhh][+xxx+yyy]
          if att["width"] := tab(many(&digits))
          then {
-            ="x" | fail
-            att["height"] := tab(many(&digits)) | fail
+            ="x" | fail;
+            att["height"] := tab(many(&digits)) | fail;
             if \att["canvas"] == "maximal" then
                delete(att, "canvas")
             }
          if ="+" then {
             att["posx"] := tab(many(&digits)) | fail
-            ="+" | fail
+            ="+" | fail;
             att["posy"] := tab(many(&digits)) | fail
             }
          pos(0) | fail
          }
       "canvas": {
-         att[name] := val
+         att[name] := val;
          if val == "maximal" then
             every delete(att, "width" | "height")
          }
@@ -344,13 +344,13 @@ procedure wdw_open(att, omit)
 
    initial image := proc("image", 0)	# protect attractive name
 
-   args := [&progname, "g"]
+   args := [&progname, "g"];
    every name := key(att) do
       if not member(omit, name) then
          put(args, name || "=" || ("" ~== \att[name]))
 
    if \wdw_debug then {
-      writes(&errout, "Window: open(", image(args[1]))
+      writes(&errout, "Window: open(", image(args[1]));
       every writes(&errout, ",", image(args[2 to *args]))
       write(&errout, ")")
       }
@@ -372,7 +372,7 @@ procedure wdw_attrib(win, att, name)
    initial image := proc("image", 0)	# protect attractive name
 
    val := ("" ~== \att[name]) | return
-   s := name || "=" || val
+   s := name || "=" || val;
    if \wdw_debug then
       write(&errout, "Window: WAttrib(", image(s), ")")
    WAttrib(win, s) | write(&errout, &progname, ": can't set ", s)

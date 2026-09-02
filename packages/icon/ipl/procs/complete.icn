@@ -81,8 +81,8 @@ procedure complete(s,st)
     # No-arg invocation wipes out static structures & causes an
     # immediate garbage collection.
     if /s & /st then {
-	t := table()
-	collect()		# do it NOW
+	t := table();
+	collect();  # do it NOW
 	fail
     }
     type(st) == ("list"|"set") |
@@ -100,11 +100,11 @@ procedure complete(s,st)
 
     # Store any sets we have to create in a static structure for later
     # re-use.
-    /t[st] := table()
+    /t[st] := table();
 
     # We'll call the table entry for the current set dfstn.  (It really
     # does enable us to do things deterministically.)
-    dfstn := t[st]
+    dfstn := t[st];
 
     # Snarf one character at a time from s.
     every c := !s do {
@@ -121,16 +121,16 @@ procedure complete(s,st)
 
 	    # To get strings that start with the same char together,
 	    # sort the current string set (st).
-	    l := sort(st)
-	    newtbl := table()
-	    old_chr := ""
+	    l := sort(st);
+	    newtbl := table();
+	    old_chr := "";
 	    # Now pop off each member of the sorted string set.  Use
 	    # first characters as keys, and then divvy up the full strings
 	    # into sets of strings having the same initial letter.
 	    every str := !l do {
 		str ? { chr := move(1) | next; str := tab(0) }
 		if old_chr ~==:= chr then {
-		    strset := set([str])
+		    strset := set([str]);
 		    insert(newtbl, chr, strset)
 		}
 		else insert(strset, str)
@@ -148,7 +148,7 @@ procedure complete(s,st)
 	# with the label c (dfstn[st][c]).  If so, its value becomes
 	# the new current state (st), and we cycle around again for
 	# yet another c.
-	st := \dfstn[st][c] | fail
+	st := \dfstn[st][c] | fail;
 	if *st = 1 & match(s,!st)
 	then break
     }

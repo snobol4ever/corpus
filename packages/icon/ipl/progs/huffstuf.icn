@@ -51,30 +51,30 @@ global count_of_all_chars
 procedure main(a)
 
     local direction, usage, size, char_tbl, heap, tree, h_tbl, intext
-    usage := "huffcode -i|o filename1"
+    usage := "huffcode -i|o filename1";
 
-    direction := pop(a) | stop(usage)
+    direction := pop(a) | stop(usage);
     direction ?:= { ="-"; tab(any('oi')) } | stop(usage)
-    *a = 1 | stop(usage)
+    *a = 1 | stop(usage);
 
-    intext := open(a[1]) | quitprog("huffcode", "can't open "||a[1], 1)
-    size   := 80
+    intext := open(a[1]) | quitprog("huffcode", "can't open "||a[1], 1);
+    size   := 80;
 
     if direction == "o" then {
 
-	char_tbl := table()
+	char_tbl := table();
 	while count_chars_in_s(reads(intext), char_tbl)
-	heap     := initialize_heap(char_tbl)
-	tree     := heap_2_tree(heap)
-	h_tbl    := hash_codes(tree)
+	heap     := initialize_heap(char_tbl);
+	tree     := heap_2_tree(heap);
+	h_tbl    := hash_codes(tree);
 
-	put_tree(&output, tree)
-	seek(intext, 1)
+	put_tree(&output, tree);
+	seek(intext, 1);
 	every writes(&output, encode_string(|reads(intext, size), h_tbl))
 
     }
     else {
-	tree := get_tree(intext)
+	tree := get_tree(intext);
 	every writes(&output, decode_rest_of_file(intext, size, tree))
     }
 
@@ -93,7 +93,7 @@ procedure count_chars_in_s(s, char_tbl)
 	/char_tbl &
 	    quitprog("count_chars_in_s", "need 2 args - 1 string, 2 table", 9)
 	*char_tbl ~= 0 &
-	    quitprog("count_chars_in_s","start me with an empty table",8)
+	    quitprog("count_chars_in_s","start me with an empty table",8);
 	count_of_all_chars := 0
     }
 
@@ -110,7 +110,7 @@ procedure count_chars_in_s(s, char_tbl)
     s ? {
 	while chr := move(1) do {
 	    count_of_all_chars +:= 1
-	    /char_tbl[chr]   := leaF(chr,0)
+	    /char_tbl[chr]   := leaF(chr,0);
 	    char_tbl[chr].n +:= 1
 	}
     }
@@ -128,7 +128,7 @@ procedure initialize_heap(char_tbl)
     #
     local heap
 
-    heap := list()
+    heap := list();
     every push(heap, !char_tbl) do
 	reshuffle_heap(heap, 1)
     return heap
@@ -154,7 +154,7 @@ procedure reshuffle_heap(h, k)
     while k <= (*h / 2) do {
 
 	# ...double k, assign the result to j.
-	j := k+k
+	j := k+k;
 
 	# If we aren't at the end of the heap...
 	if j < *h then {
@@ -201,16 +201,16 @@ procedure heap_2_tree(h)
 
     until *h = 1 do {
 
-	h[1] :=: h[*h]		# Reverse first and last elements.
-	frst := pull(h)		# Pop last elem off & save it.
-	reshuffle_heap(h, 1)	# Resettle the heap.
-	scnd := !h		# Save (but don't clobber) top element.
+	h[1] :=: h[*h];  # Reverse first and last elements.
+	frst := pull(h);  # Pop last elem off & save it.
+	reshuffle_heap(h, 1);  # Resettle the heap.
+	scnd := !h;  # Save (but don't clobber) top element.
 
-	count := frst.n + scnd.n
+	count := frst.n + scnd.n;
 	frst := { if *frst = 2 then frst.c else _ND(frst.l, frst.r) }
 	scnd := { if *scnd = 2 then scnd.c else _ND(scnd.l, scnd.r) }
 
-	h[1] := nodE(frst, scnd, count) # Create new nodE().
+	h[1] := nodE(frst, scnd, count);  # Create new nodE().
 	reshuffle_heap(h, 1)	# Resettle once again.
     }
 
@@ -235,7 +235,7 @@ procedure hash_codes(tr)
     #
     local code
 
-    huff_tbl := table()
+    huff_tbl := table();
     every code := collect_bits(tr) do
 	insert(huff_tbl, code.c, code)
     return huff_tbl
@@ -257,7 +257,7 @@ procedure collect_bits(tr, i, len)
     else {
 	(/len := 1) | (len +:= 1)
 	(/i   := 0) | (i   *:= 2)
-	suspend collect_bits(tr.l, i, len)
+	suspend collect_bits(tr.l, i, len);
 	i   +:= 1
 	suspend collect_bits(tr.r, i, len)
     }
@@ -274,12 +274,12 @@ procedure put_tree(f, tr)
     local stringized_tr
     # global count_of_all_chars
 
-    /f | /tr & quitprog("put_tree","I need two nonnull arguments",7)
+    /f | /tr & quitprog("put_tree","I need two nonnull arguments",7);
 
-    stringized_tr := encode(tr)
+    stringized_tr := encode(tr);
     every writes(f, outbits(*stringized_tr, 16))     # use two bytes
-    outbits()					     # just in case
-    writes(f, stringized_tr)
+    outbits();  # just in case
+    writes(f, stringized_tr);
     # How many characters are there in the input file?
     every writes(f, outbits(count_of_all_chars, 32))
     outbits()
@@ -297,9 +297,9 @@ procedure get_tree(f)
     local stringized_tr_size, tr
     # global count_of_all_chars
 
-    stringized_tr_size := inbits(f, 16)
+    stringized_tr_size := inbits(f, 16);
     tr := decode(reads(f, stringized_tr_size)) |
-	quitprog("get_tree", "can't decode tree", 6)
+	quitprog("get_tree", "can't decode tree", 6);
     count_of_all_chars := inbits(f, 32) |
 	quitprog("get_tree", "garbled input file", 10)
     return tr
@@ -321,21 +321,21 @@ procedure encode_string(s, huffman_table)
     static chars_written
     initial chars_written := 0
 
-    s2 := ""
+    s2 := "";
     s ? {
 	while chr := move(1) do {
-	    chars_written +:= 1
+	    chars_written +:= 1;
 	    hcode := \huffman_table[chr] |
-		quitprog("encode_string", "unexpected char, "||image(chr), 11)
+		quitprog("encode_string", "unexpected char, "||image(chr), 11);
 	    every s2 ||:= outbits(hcode.i, hcode.len)
 	}
 	# If at end of output stream, then flush outbits buffer.
 	if chars_written = count_of_all_chars then {
-	    chars_written := 0
+	    chars_written := 0;
 	    s2 ||:= outbits()
 	} else {
 	    if chars_written > count_of_all_chars then {
-		chars_written := 0
+		chars_written := 0;
 		quitprog("encode_string", "you're trying to write _
 		    more chars than you originally tabulated", 12)
 	    }
@@ -352,17 +352,17 @@ procedure decode_rest_of_file(f, size, huffman_tree)
     static chars_decoded
     initial chars_decoded := 0
 
-    E := huffman_tree
+    E := huffman_tree;
     while line := reads(f, size) do {
 	line ? {
-	    s2 := ""
+	    s2 := "";
 	    while chr := move(1) do {
 		every bit := iand(1, ishift(ord(chr), -7 to 0)) do {
 		    E := { if bit = 0 then E.l else E.r }
 		    if s2 ||:= string(E) then {
-			chars_decoded +:= 1
+			chars_decoded +:= 1;
 			if chars_decoded = count_of_all_chars then {
-			    chars_decoded := 0
+			    chars_decoded := 0;
 			    break { break break }
 			}
 			else E := huffman_tree
@@ -379,8 +379,8 @@ end
 
 procedure quitprog(p, m, c)
 
-    /m := "program error"
-    write(&errout, p, ":  ", m)
+    /m := "program error";
+    write(&errout, p, ":  ", m);
     exit(\c | 1)
 
 end

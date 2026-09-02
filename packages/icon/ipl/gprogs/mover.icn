@@ -35,7 +35,7 @@ global vidgets
 
 procedure main()
 
-   init()
+   init();
 
    GetEvents(root, , shortcuts)
 
@@ -43,11 +43,11 @@ end
 
 procedure init()
 
-   vidgets := ui()
+   vidgets := ui();
 
-   root := vidgets["root"]
+   root := vidgets["root"];
 
-   names := vidgets["names"]
+   names := vidgets["names"];
    VSetItems(names, filelist())
 
 end
@@ -68,7 +68,7 @@ procedure names_cb(vidget, value, x)
    if OpenDialog("Rename:", value) == "Cancel" then fail
    if system("mv " || value || " " || dialog_value ||
       " >/dev/null 2>/dev/null") ~= 0 then {
-         Notice("Renaming failed.")
+         Notice("Renaming failed.");
          fail
          }
    VSetItems(names, filelist())

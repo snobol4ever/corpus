@@ -101,16 +101,16 @@ procedure imsheight(im)				#: height of image
    local pal, w, n, d, c
 
    im ? {
-      w := integer(tab(upto(','))) | fail
-      move(1)
+      w := integer(tab(upto(','))) | fail;
+      move(1);
       if ="#" then {
-         n := IMH_Count('0123456789ABCDEFabcdef')
+         n := IMH_Count('0123456789ABCDEFabcdef');
          d := (w + 3) / 4
          return (n + d - 1) / d
          }
-      pal := tab(upto(',')) | fail
-      move(1)
-      c := cset(PaletteChars(pal)) | fail
+      pal := tab(upto(',')) | fail;
+      move(1);
+      c := cset(PaletteChars(pal)) | fail;
       n := IMH_Count(c ++ '~\xFF')
       return (n + w - 1) / w
       }
@@ -119,7 +119,7 @@ end
 procedure IMH_Count(c)		# count remaining chars that are in cset c
    local n
 
-   n := 0
+   n := 0;
    while tab(upto(c)) do
       n +:= *tab(many(c))
    return n
@@ -138,9 +138,9 @@ end
 procedure imswrite(f, s, n)			#: write image string
    local w, h, p, d, ll
 
-   w := imswidth(s) | fail
-   h := imsheight(s) | fail
-   p := imspalette(s) | fail
+   w := imswidth(s) | fail;
+   h := imsheight(s) | fail;
+   p := imspalette(s) | fail;
 
    if /p then				# if bilevel image
       d := (w + 3) / 4			# number of digits per row
@@ -151,16 +151,16 @@ procedure imswrite(f, s, n)			#: write image string
    /n := 79
 
    # Figure out a reasonable line length for output, with n as maximum
-   n -:= 1				# allow for underscore
+   n -:= 1;  # allow for underscore
    if upto('\0', PaletteChars(\p)) then
       n /:= 4				# allow for escapes
-   ll := 1 + (n > (d - 1) / seq(1))	# divide line as equally as possible
+   ll := 1 + (n > (d - 1) / seq(1));  # divide line as equally as possible
 
    # Write the image as a multiline string constant.
    s ? {
       tab(upto(',') + 1)
-      ="#" | tab(upto(',') + 1)
-      write(f, "\"", w, ",", (\p || ",") | "#", "_")
+      ="#" | tab(upto(',') + 1);
+      write(f, "\"", w, ",", (\p || ",") | "#", "_");
       while not pos(0) do IWR_Row(f, move(d) | tab(0), ll)
       write(f, "\"")
       }
@@ -182,10 +182,10 @@ procedure drawpalette(win, p, x, y, w, h, f, n)	#: draw palette
    initial cs := &ascii[33+:95] -- '\\'
 
    if type(win) ~== "window" then {
-      win :=: p :=: x :=: y :=: w :=: h :=: f :=: n
+      win :=: p :=: x :=: y :=: w :=: h :=: f :=: n;
       win := \&window | runerr(140, &window)
       }
-   win := Clone(win, "fg=black")
+   win := Clone(win, "fg=black");
    ret := win
 
    /p := "c1"
@@ -194,7 +194,7 @@ procedure drawpalette(win, p, x, y, w, h, f, n)	#: draw palette
    /x := -WAttrib(win, "dx")
    /y := -WAttrib(win, "dy")
    /w := WAttrib(win, "width") - (x + WAttrib(win, "dx"))
-   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"))
+   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"));
 
    if w < 0 then
       x -:= (w := -w)
@@ -202,35 +202,35 @@ procedure drawpalette(win, p, x, y, w, h, f, n)	#: draw palette
       y -:= (h := -h)
 
    s := PAL_Order(p) | fail
-   /n := PAL_Columns(p, s, w, h)
-   nh := (*s + n - 1) / n
+   /n := PAL_Columns(p, s, w, h);
+   nh := (*s + n - 1) / n;
 
-   EraseArea(win, x, y, w, h)
+   EraseArea(win, x, y, w, h);
    if f ? upto('o') then {
-      w -:= 1
+      w -:= 1;
       h -:= 1
       }
 
-   i := j := 0
+   i := j := 0;
    every c := !s do {
-      x1 := x + j * w / n
-      x2 := x + (j + 1) * w / n
-      y1 := y + i * h / nh
-      y2 := y + (i + 1) * h / nh
-      Fg(win, colr := PaletteColor(p, c)) | (ret := &null)
-      FillRectangle(win, x1, y1, x2 - x1, y2 - y1)
+      x1 := x + j * w / n;
+      x2 := x + (j + 1) * w / n;
+      y1 := y + i * h / nh;
+      y2 := y + (i + 1) * h / nh;
+      Fg(win, colr := PaletteColor(p, c)) | (ret := &null);
+      FillRectangle(win, x1, y1, x2 - x1, y2 - y1);
       if upto('l', f) then {
-         Fg(win, Contrast(win, colr))
+         Fg(win, Contrast(win, colr));
          if not upto(cs, c) then
             c := image(c)[-3:-1]
          CenterString(win, (x1 + x2) / 2, (y1 + y2) / 2, c)
          }
       if upto('o', f) then {
-         Fg(win, "black")
+         Fg(win, "black");
          DrawRectangle(win, x1, y1, x2 - x1, y2 - y1)
          }
       if (j +:= 1) >= n then {
-         j := 0
+         j := 0;
          i +:= 1
          }
       }
@@ -238,14 +238,14 @@ procedure drawpalette(win, p, x, y, w, h, f, n)	#: draw palette
    # if some cells are unfilled, and the 'u' flag is not given,
    # hash the unfilled cells with a diagonal pattern.
    if j > 0 & not upto('u', f) then {
-      x1 := x + j * w / n
-      y1 := y + i * h / nh
-      x2 := x + w
-      y2 := y + h
-      WAttrib(win, "fg=black", "pattern=diagonal", "fillstyle=textured")
-      FillRectangle(win, x1, y1, x2 - x1, y2 - y1)
+      x1 := x + j * w / n;
+      y1 := y + i * h / nh;
+      x2 := x + w;
+      y2 := y + h;
+      WAttrib(win, "fg=black", "pattern=diagonal", "fillstyle=textured");
+      FillRectangle(win, x1, y1, x2 - x1, y2 - y1);
       if upto('o', f) then {
-         WAttrib(win, "fillstyle=solid")
+         WAttrib(win, "fillstyle=solid");
          DrawRectangle(win, x1, y1, x2 - x1, y2 - y1)
          }
       }
@@ -261,19 +261,19 @@ procedure pickpalette(win, p, dx, dy, w, h, n)	#: key from drawn palette
    local s, nw, nh
 
    if type(win) ~== "window" then {
-      win :=: p :=: dx :=: dy :=: w :=: h :=: n
+      win :=: p :=: dx :=: dy :=: w :=: h :=: n;
       win := \&window | runerr(140, &window)
       }
    /w := WAttrib(win, "width")
-   /h := WAttrib(win, "height")
+   /h := WAttrib(win, "height");
    if dx < 0 | dy < 0 | dx >= w | dy >= h then
       fail
 
    s := PAL_Order(p) | fail
-   /n := PAL_Columns(p, s, w, h)
-   nh := (*s + n - 1) / n
+   /n := PAL_Columns(p, s, w, h);
+   nh := (*s + n - 1) / n;
 
-   dx := ((dx + 1) * n - 1) / w
+   dx := ((dx + 1) * n - 1) / w;
    dy := ((dy + 1) * nh - 1) / h
    return s[1 + n * dy + dx]
 end
@@ -294,9 +294,9 @@ procedure PAL_Columns(p, s, w, h)
       "c5":	return 5
       "c6":	return 6
       default: {
-	 nw := integer(w / sqrt(w * h / *s))
-         nw <:= 1
-         nh := (*s + nw - 1) / nw
+	 nw := integer(w / sqrt(w * h / *s));
+         nw <:= 1;
+         nh := (*s + nw - 1) / nw;
          nh <:= 1
          return (*s + nh - 1) / nh
 	 }
@@ -314,7 +314,7 @@ end
 procedure PAL_Order(p)
    local palchars, s, t, n, n3, i, l
 
-   palchars := PaletteChars(p) | fail
+   palchars := PaletteChars(p) | fail;
 
    p ? {
       if not (="c" & any('23456')) then return palchars
@@ -323,14 +323,14 @@ procedure PAL_Order(p)
 
    palchars ? {
 
-      l := list(n, "")
-      n3 := n * n * n
+      l := list(n, "");
+      n3 := n * n * n;
       while &pos <= n3 do
          every !l ||:= (move(n) \ 1)
-      s := ""
+      s := "";
       every s ||:= !l		# build g/r/b cube portion
 
-      t := ""
+      t := "";
       every i := 1 to (n3 - 1) by (n * (n + 1) + 1) do
          t ||:= palchars[i] || move(n - 1)
       }
@@ -345,40 +345,40 @@ procedure XPMImage(win, f, pal)			#: image string for XPM file
    local w, h, nc, cpp, i, im, c, k, s1, s2
 
    if type(win) ~== "window" then {
-      win :=: f :=: pal
+      win :=: f :=: pal;
       win := &window		# okay if null
       }
    /f := &input
-   /pal := "c1"
-   type(f) == "file" | runerr(105, f)
+   /pal := "c1";
+   type(f) == "file" | runerr(105, f);
    PaletteChars(pal) | runerr(205, f)
 
    (read(f) ? find("XPM")) | fail
    (XPM_RdStr(f) | fail) ? {
-      tab(many(' \t'));  w := tab(many(&digits)) | fail
-      tab(many(' \t'));  h := tab(many(&digits)) | fail
-      tab(many(' \t'));  nc := tab(many(&digits)) | fail
+      tab(many(' \t'));  w := tab(many(&digits)) | fail;
+      tab(many(' \t'));  h := tab(many(&digits)) | fail;
+      tab(many(' \t'));  nc := tab(many(&digits)) | fail;
       tab(many(' \t'));  cpp := tab(many(&digits)) | fail
    }
    if w = 0 | h = 0 then
       fail
 
    # read colors and figure out translation
-   s1 := s2 := ""
+   s1 := s2 := "";
    every i := 1 to nc do (XPM_RdStr(f) | fail) ? {
-      s1 ||:= move(1)
+      s1 ||:= move(1);
       if cpp > 1 then
          =" " | fail			# if not blank, we can't handle it
       k := &null
       # find a color key we can decipher; try color, then grayscale, then mono
       (c := !"cgm") & tab(upto(' \t') + 1) & =c & tab(many(' \t')) &
-         (k := XPM_Key(win, pal, (tab(upto(' \t') | 0))))
+         (k := XPM_Key(win, pal, (tab(upto(' \t') | 0))));
       # use first color found, or default if none
       s2 ||:= \k | PaletteKey(pal, "gray")
       }
 
    # construct image
-   im := w || "," || pal || ","
+   im := w || "," || pal || ",";
    if cpp = 1 then
       while im ||:= map(XPM_RdStr(f), s1, s2)
    else
@@ -406,7 +406,7 @@ procedure XPM_RdStr(f)		# read next C string from file f
 
    while line := read(f) do line ? {
       tab(many(' \t'))
-      ="\"" | next
+      ="\"" | next;
       if s := tab(upto('"')) then
          return s
       }
@@ -415,8 +415,8 @@ end
 
 procedure XPM_Nth(s, n)		#  concatenate every nth character from s
    local t
-   n -:= 1
-   t := ""
+   n -:= 1;
+   t := "";
    s ? while t ||:= move(1) do
       move(n)
    return t

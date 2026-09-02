@@ -38,7 +38,7 @@
 
 procedure signed(s)
    local i
-   i := if ord(s[1]) >= 128 then -1 else 0
+   i := if ord(s[1]) >= 128 then -1 else 0;
    every i := ior(ord(!s),ishift(i,8))
    return i
 end

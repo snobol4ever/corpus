@@ -118,8 +118,8 @@ procedure encode(x,level)
    initial label := create "l" || star(string(&lcase))
    if /level then outlab := table()	# table is global, but reset at
 					# each root call.
-   tag := ""
-   Type := typecode(x)
+   tag := "";
+   Type := typecode(x);
    if Type == !"ri" then str := string(x)	# first the scalars
    else if Type == !"cs" then str := image(string(x))[2:-1]	# remove quotes
    else if Type == "n" then str := ""
@@ -127,8 +127,8 @@ procedure encode(x,level)
       if str := \outlab[x] then		# if the object has been processed,
          Type := "l"			# use its label and type it as label.
       else {
-         tag := outlab[x] := @label	# else make a label for it.
-         str := ""
+         tag := outlab[x] := @label;  # else make a label for it.
+         str := "";
          if Type == !"LSRT" then {	# structures
             every str ||:= encode(	# generate, recurse, and concatenate
                case Type of {
@@ -182,12 +182,12 @@ procedure separ(s)
    local p, size
 
    while *s ~= 0 do {
-      p := triple()
+      p := triple();
       s ?:= {
-         p.tag := tab(many(&lcase))
+         p.tag := tab(many(&lcase));
          size := tab(many(&digits)) | break
-         p.type := move(1)
-         p.value := move(size)
+         p.type := move(1);
+         p.value := move(size);
          tab(0)
          }
       suspend p
@@ -199,7 +199,7 @@ end
 #
 procedure delist(s,tag)
    local a
-   inlab[tag] := a := []	# insert object for label
+   inlab[tag] := a := [];  # insert object for label
    every put(a,decode(s,1))
    return a
 end
@@ -208,7 +208,7 @@ end
 #
 procedure deset(s,tag)
    local S
-   inlab[tag] := S := set()
+   inlab[tag] := S := set();
    every insert(S,decode(s,1))
    return S
 end
@@ -217,10 +217,10 @@ end
 #
 procedure derecord(s,tag)
    local R, e
-   e := create decode(s,1)	# note use of co-expressions to control
+   e := create decode(s,1);  # note use of co-expressions to control
 				# generation, since record must be constructed
 				# before fields are produced.
-   inlab[tag] := R := proc(@e)() | stop("error in decoding record")
+   inlab[tag] := R := proc(@e)() | stop("error in decoding record");
    every !R := @e
    return R
 end
@@ -229,9 +229,9 @@ end
 #
 procedure detable(s,tag)
    local t, e
-   e := create decode(s,1)	# see derecord above; here it's the default
+   e := create decode(s,1);  # see derecord above; here it's the default
 				# value that motivates co-expressions.
-   inlab[tag] := t := table(@e)
+   inlab[tag] := t := table(@e);
    while t[@e] := @e
    return t
 end
@@ -244,7 +244,7 @@ procedure defile(s, tag)
       "&output": &output
       "&errout": &errout
       default: s ? {
-            ="file("		# open for reading to play it safe
+            ="file(";  # open for reading to play it safe
             open(tab(upto(')'))) | stop("cannot open encoded file")
             }
        }

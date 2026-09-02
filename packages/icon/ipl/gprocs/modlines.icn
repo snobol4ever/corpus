@@ -36,11 +36,11 @@ link gtrace
 procedure modlines(call, m, k, limit)
    local points, n, i
 
-   /limit := 500			# maximum number of points allowed
+   /limit := 500;  # maximum number of points allowed
 
-   points := point_list(call, limit)
+   points := point_list(call, limit);
 
-   n := *points				# number of points on supporting curve
+   n := *points;  # number of points on supporting curve
 
    every i := 0 to m do {
 #     i1 := i % n + 1

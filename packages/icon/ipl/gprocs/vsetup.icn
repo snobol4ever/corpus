@@ -70,32 +70,32 @@ procedure vsetup(args[])
       "list":	winargs := get(args)
       "null":	get(args)
       }
-   /win := &window
+   /win := &window;
 
    if type(args[1]) ~== "list" then	# check for callback argument
       cbk := get(args)
 
-   wspec := get(args)			# first spec gives window size
+   wspec := get(args);  # first spec gives window size
 
    if /win then {			# if we don't have a window
-      r := VS_crack(wspec) | _Vbomb("bad specification in vsetup")
+      r := VS_crack(wspec) | _Vbomb("bad specification in vsetup");
       wlbl := ("" ~== r.lbl) |
-         (&progname ? {while tab(upto('/')+1); tab(upto('.')|0)})
-      alist := []
-      put(alist, "width=" || (r.x + r.w))
-      put(alist, "height=" || (r.y + r.h))
-      put(alist, "label=" || wlbl)
-      put(alist, \winargs)
+         (&progname ? {while tab(upto('/')+1); tab(upto('.')|0)});
+      alist := [];
+      put(alist, "width=" || (r.x + r.w));
+      put(alist, "height=" || (r.y + r.h));
+      put(alist, "label=" || wlbl);
+      put(alist, \winargs);
       win := Window ! alist
       }
 
-   VSetFont(win)			# set correct text font
+   VSetFont(win);  # set correct text font
 
-   vtable := table()			# make table of handles
-   vtable["root"] := root := Vroot_frame(win)	# insert root frame
+   vtable := table();  # make table of handles
+   vtable["root"] := root := Vroot_frame(win);  # insert root frame
    every r := VS_crack(\!args, cbk) do
       vtable[r.var] := VS_obj(win, root, r)	# insert other vidgets
-   VResize(root)			# configure and realize vidgets
+   VResize(root);  # configure and realize vidgets
    root.id := "root"
    return vtable			# return table
 end
@@ -111,17 +111,17 @@ procedure VS_crack(wspec, cbk)
 
    r := VS_rec()
    (get(wspec) | fail) ? { 
-      r.var := tab(upto(':')) | fail;  move(1)
-      r.typ := tab(upto(':')) | fail;  move(1)
-      r.sty := tab(upto(':')) | fail;  move(1)
-      r.num := tab(upto(':')) | fail;  move(1)
-      r.x := tab(upto(',')) | fail;  move(1)
-      r.y := tab(upto(',')) | fail;  move(1)
-      r.w := tab(upto(',')) | fail;  move(1)
-      r.h := tab(upto(':')) | fail;  move(1)
+      r.var := tab(upto(':')) | fail;  move(1);
+      r.typ := tab(upto(':')) | fail;  move(1);
+      r.sty := tab(upto(':')) | fail;  move(1);
+      r.num := tab(upto(':')) | fail;  move(1);
+      r.x := tab(upto(',')) | fail;  move(1);
+      r.y := tab(upto(',')) | fail;  move(1);
+      r.w := tab(upto(',')) | fail;  move(1);
+      r.h := tab(upto(':')) | fail;  move(1);
       r.lbl := tab(0)
       }
-   r.cbk := \get(wspec) | cbk
+   r.cbk := \get(wspec) | cbk;
    r.etc := get(wspec)
    return r
 end
@@ -138,13 +138,13 @@ procedure VS_obj(win, root, r)
 
    case r.typ of {
       "Label" | "Message": {
-         obj := Vmessage(win, r.lbl)
-         VInsert(root, obj, r.x, r.y, r.w, r.h)
+         obj := Vmessage(win, r.lbl);
+         VInsert(root, obj, r.x, r.y, r.w, r.h);
          obj.id := r.var
          }
       "Line": {
-         obj := Vline(win, r.x, r.y, r.w, r.h)
-         obj.id := r.var
+         obj := Vline(win, r.x, r.y, r.w, r.h);
+         obj.id := r.var;
          VInsert(root, obj)
          }
       "Rect": {
@@ -153,11 +153,11 @@ procedure VS_obj(win, root, r)
                r.sty := "grooved"
             else
                r.sty := "invisible"
-         obj := Vpane(win, r.cbk, r.var, r.sty)
+         obj := Vpane(win, r.cbk, r.var, r.sty);
          VInsert(root, obj, r.x, r.y, r.w, r.h)
          }
       "Check": {
-         obj := Vcheckbox(win, r.cbk, r.var, r.w)
+         obj := Vcheckbox(win, r.cbk, r.var, r.w);
          VInsert(root, obj, r.x, r.y, r.w, r.h)
          }
       "Button": {
@@ -165,19 +165,19 @@ procedure VS_obj(win, root, r)
             p := Vtoggle
          else
             p := Vbutton
-         obj := p(win, r.lbl, r.cbk, r.var, r.sty, r.w, r.h)
+         obj := p(win, r.lbl, r.cbk, r.var, r.sty, r.w, r.h);
          VInsert(root, obj, r.x, r.y)
          }
       "Choice": {
-         obj := Vradio_buttons(win, r.etc, r.cbk, r.var, V_DIAMOND_NO)
+         obj := Vradio_buttons(win, r.etc, r.cbk, r.var, V_DIAMOND_NO);
          VInsert(root, obj, r.x, r.y)
          }
       "Slider" | "Scrollbar" : {
          r.lbl ? {
-            lo := numeric(tab(upto(',')))
-            move(1)
-            hi := numeric(tab(upto(',')))
-            move(1)
+            lo := numeric(tab(upto(',')));
+            move(1);
+            hi := numeric(tab(upto(',')));
+            move(1);
             iv := numeric(tab(0))
             }
          if r.num == "" then
@@ -192,16 +192,16 @@ procedure VS_obj(win, root, r)
             "vScrollbar":
                Vvert_scrollbar(win, r.cbk, r.var, r.h, r.w, hi, lo, , , r.num)
             }
-         VSetState(obj, iv)			# needed for scrollbars
+         VSetState(obj, iv);  # needed for scrollbars
          VInsert(root, obj, r.x, r.y)
          }
       "Text": {
-         obj := Vtext(win, r.lbl, r.cbk, r.var, r.num)
+         obj := Vtext(win, r.lbl, r.cbk, r.var, r.num);
          VInsert(root, obj, r.x, r.y)
          }
       "Menu": {
-         obj := Vmenu_bar(win, r.lbl, VS_submenu(win, r.etc, r.cbk))
-         obj.id := obj.lookup[1].id := r.var
+         obj := Vmenu_bar(win, r.lbl, VS_submenu(win, r.etc, r.cbk));
+         obj.id := obj.lookup[1].id := r.var;
          VInsert(root, obj, r.x, r.y)
          }
       "List": {
@@ -209,7 +209,7 @@ procedure VS_obj(win, root, r)
             r.num := 1
          else
             r.num := &null
-         obj := Vlist(win, r.cbk, r.var, [], r.num, r.w, r.h, r.sty)
+         obj := Vlist(win, r.cbk, r.var, [], r.num, r.w, r.h, r.sty);
          VInsert(root, obj, r.x, r.y)
          }
       "List": {
@@ -217,11 +217,11 @@ procedure VS_obj(win, root, r)
             r.num := 1
          else
             r.num := &null
-         obj := Vlist(win, r.cbk, r.var, [], r.num, r.w, r.h, r.sty)
+         obj := Vlist(win, r.cbk, r.var, [], r.num, r.w, r.h, r.sty);
          VInsert(root, obj, r.x, r.y)
          }
       default: {
-         _Vbomb("unrecognized object in vsetup: " || image(r.typ))
+         _Vbomb("unrecognized object in vsetup: " || image(r.typ));
          fail
          }
    }
@@ -238,9 +238,9 @@ procedure VS_submenu(win, lst, cbk)
 
    initial type := proc("type", 0)	# protect attractive name
 
-   a := [win]
+   a := [win];
    while *lst > 0 do {
-      put(a, get(lst))
+      put(a, get(lst));
       if type(lst[1]) == "list" then
          put(a, VS_submenu(win, get(lst), cbk))
       else

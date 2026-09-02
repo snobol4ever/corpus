@@ -29,7 +29,7 @@ procedure create_array(lbs, ubs, value)
 
    if (*lbs ~= *ubs) | (*lbs = 0) then stop("*** bad specification")
 
-   lengths :=list(*lbs)
+   lengths :=list(*lbs);
 
    every i := 1 to *lbs do
      lengths[i] := ubs[i] - lbs[i] + 1
@@ -41,9 +41,9 @@ end
 procedure create_struct(lengths, value)
    local A
 
-   lengths := copy(lengths)
+   lengths := copy(lengths);
 
-   A := list(get(lengths), value)
+   A := list(get(lengths), value);
 
    if *lengths > 0 then
       every !A := create_struct(lengths, value)
@@ -58,8 +58,8 @@ procedure ref_array(A, subscrs[])
    if *A.lbs ~= *subscrs then
       stop("*** bad specification")
 
-   lbs := A.lbs
-   A1 := A.structure
+   lbs := A.lbs;
+   A1 := A.structure;
 
    every i := 1 to *subscrs - 1 do
       A1 := A1[subscrs[i] - lbs[i] + 1] | fail

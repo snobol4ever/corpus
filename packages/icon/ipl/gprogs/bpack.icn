@@ -74,29 +74,29 @@ global shelf2		# packed bins
 procedure main(args)
    local v, r, c, gc
 
-   randomize()				# set irreproducible mode
+   randomize();  # set irreproducible mode
 
-   v := ui(args)			# open window, set up vib-built vidgets
-   r := v["root"]
-   shelf1 := v["shelf1"]
-   shelf2 := v["shelf2"]
+   v := ui(args);  # open window, set up vib-built vidgets
+   r := v["root"];
+   shelf1 := v["shelf1"];
+   shelf2 := v["shelf2"];
    if shelf1.uw ~= shelf2.uw | shelf1.uw ~= shelf2.uw then
       runerr(500, "inconsistent layout")
 
    # make a set of colors for different bin heights
    # note that exactly half are reds/yellows and half are blues & darker
-   color := []
+   color := [];
    every c := Blend(
          "black", 1, "deep purple-magenta", 10, "cyan-blue",
          1, "reddish-yellow", 11, "orange-red") do {
-      gc := Clone(&window)
-      Fg(gc, c)
+      gc := Clone(&window);
+      Fg(gc, c);
       put(color, gc)
       }
-   color := copy(color)			# ensure contiguous array
-   cscale := *color / real(FULL + 1)
+   color := copy(color);  # ensure contiguous array
+   cscale := *color / real(FULL + 1);
 
-   reload()				# initialize random bins
+   reload();  # initialize random bins
    GetEvents(r)				# enter event loop
 end
 
@@ -108,10 +108,10 @@ end
 #  prepare(v) -- prepare shelf v for placing pieces
 
 procedure prepare(v)
-   xll := v.ux
-   yll := v.uy + v.uh
-   bin := list(*pieces, 0)
-   nfilled := 0
+   xll := v.ux;
+   yll := v.uy + v.uh;
+   bin := list(*pieces, 0);
+   nfilled := 0;
    EraseArea(v.ux, v.uy, v.uw, v.uh)
    return
 end
@@ -124,15 +124,15 @@ procedure place(p, b)
    static m
    initial m := shelf1.uh / real(FULL)
 
-   o := bin[b] | fail
+   o := bin[b] | fail;
    if (t := o + p) > FULL then
       fail
-   bin[b] := t
-   nfilled <:= b
+   bin[b] := t;
+   nfilled <:= b;
 
-   x := xll + (b - 1) * (PieceWidth + 1)
-   y0 := integer(yll - m * o)
-   y1 := integer(yll - m * t) + 1
+   x := xll + (b - 1) * (PieceWidth + 1);
+   y0 := integer(yll - m * o);
+   y1 := integer(yll - m * t) + 1;
    FillRectangle(color[cscale * p + 1], x, y1, PieceWidth, 0 < (y0 - y1))
    return
 end
@@ -143,11 +143,11 @@ end
 procedure status(s)
    local x
 
-   x := xll + nfilled * BinWidth + 4
-   x >:= xll + shelf1.uw - TextWidth("000 ")
-   GotoXY(x, yll - WAttrib("leading") - WAttrib("descent"))
-   WWrites(s)
-   GotoXY(x, yll - WAttrib("descent"))
+   x := xll + nfilled * BinWidth + 4;
+   x >:= xll + shelf1.uw - TextWidth("000 ");
+   GotoXY(x, yll - WAttrib("leading") - WAttrib("descent"));
+   WWrites(s);
+   GotoXY(x, yll - WAttrib("descent"));
    WWrites(nfilled)
    return
 end
@@ -162,8 +162,8 @@ end
 procedure reload()
    local i, j, z, p
 
-   pieces := list(shelf1.uw / BinWidth)
-   prepare(shelf1)
+   pieces := list(shelf1.uw / BinWidth);
+   prepare(shelf1);
    every place(pieces[i := 1 to *pieces] := ?FULL, i)
    status("")
    return
@@ -179,7 +179,7 @@ procedure mix()
    every i := *pieces to 2 by -1 do
       pieces[?i] :=: pieces[i]
 
-   prepare(shelf1)
+   prepare(shelf1);
    every place(pieces[i := 1 to *pieces], i)
    status("")
    return
@@ -192,16 +192,16 @@ end
 procedure regular()
    local i, n, p
 
-   n := integer(*pieces / &phi + 1)
+   n := integer(*pieces / &phi + 1);
    while gcd(*pieces, n) > 1 do
       n -:= 1
-   i := 0
+   i := 0;
    every p := !sort(pieces) do {
-      i := (i + n) % *pieces
+      i := (i + n) % *pieces;
       pieces[i + 1] := p
       }
 
-   prepare(shelf1)
+   prepare(shelf1);
    every place(pieces[i := 1 to *pieces], i)
    status("")
    return
@@ -214,8 +214,8 @@ end
 procedure ascending()
    local i
 
-   pieces := sort(pieces)
-   prepare(shelf1)
+   pieces := sort(pieces);
+   prepare(shelf1);
    every place(pieces[i := 1 to *pieces], i)
    status("")
    return
@@ -228,11 +228,11 @@ end
 procedure descending()
    local i
 
-   pieces := sort(pieces)
+   pieces := sort(pieces);
    every i := 1 to *pieces / 2 do	# change from ascending to descending
       pieces[i] :=: pieces[-i]
 
-   prepare(shelf1)
+   prepare(shelf1);
    every place(pieces[i := 1 to *pieces], i)
    status("")
    return
@@ -283,9 +283,9 @@ procedure bestfit(l)
    local p, b, i, max, found
 
    every p := !l do {
-      max := FULL - p			# fullest acceptable bin size
-      found := 0			# size of best bin found so far
-      b := nfilled + 1			# index of where found
+      max := FULL - p;  # fullest acceptable bin size
+      found := 0;  # size of best bin found so far
+      b := nfilled + 1;  # index of where found
       every i := 1 to nfilled do
          if found <:= (max >= bin[i]) then
             b := i
@@ -301,8 +301,8 @@ procedure worstfit(l, n)
    local p, b, i, found
 
    every p := !l do {
-      found := FULL - p			# size of best bin found so far
-      b := nfilled + 1			# index of where found
+      found := FULL - p;  # size of best bin found so far
+      b := nfilled + 1;  # index of where found
       every i := 1 to nfilled do
          if found >:= bin[i] then
             b := i
@@ -318,11 +318,11 @@ procedure nearworst(l, n)
    local p, a, b, i, found
 
    every p := !l do {
-      found := FULL - p			# size of best bin found so far
-      a := b := &null
+      found := FULL - p;  # size of best bin found so far
+      a := b := &null;
       every i := 1 to nfilled do
          if found >:= bin[i] then {
-            a := b
+            a := b;
             b := i
             }
       place(p, \a | \b | (nfilled + 1))	# place in second-best bin found
@@ -361,8 +361,8 @@ procedure pack_cb(v, a)
       s := tab(upto(' '))		# get 2- or 3-letter name
       }
 
-   prepare(shelf2)			# clear the shelf
-   p := copy(pieces)
+   prepare(shelf2);  # clear the shelf
+   p := copy(pieces);
    case s of {
       "FF":	firstfit(p)
       "LF":	lastfit(p)

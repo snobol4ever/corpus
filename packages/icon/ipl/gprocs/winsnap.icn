@@ -36,20 +36,20 @@ procedure winsnap(win, x, y, w, h)
    local name, f
 
    if type(win) ~== "window" then {
-      win :=: x :=: y :=: w :=: h
+      win :=: x :=: y :=: w :=: h;
       win := \&window | runerr(140, &window)
       }
 
    repeat {
       if OpenDialog("Image file name") == "Okay" then {
-         name := dialog_value
+         name := dialog_value;
          if f := open(name) then {
-            close(f)
+            close(f);
             if Dialog("Overwrite existing file?", , , ,
                ["Okay", "Cancel"]) == "Cancel" then next
             }
          WriteImage(win, name, x, y, w, h) | {
-            Notice("Cannot write image")
+            Notice("Cannot write image");
             fail
             }
          return

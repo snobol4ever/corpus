@@ -79,7 +79,7 @@ global height, width, nbr_bones, x1, y1, sq, print_bone_count
 
 
 procedure main(arg)
-   initialize(arg)
+   initialize(arg);
    play()
    return
 end
@@ -87,16 +87,16 @@ end
 
 procedure draw_board(win)
    local x, y, x2, y2
-   x2 := x1 + width * sq
-   y2 := y1 + height * sq
-   x := x1
+   x2 := x1 + width * sq;
+   y2 := y1 + height * sq;
+   x := x1;
    every 1 to width + 1 do {
-      DrawLine(win, x, y1, x, y2)
+      DrawLine(win, x, y1, x, y2);
       x +:= sq
       }
-   y := y1
+   y := y1;
    every 1 to height + 1 do {
-      DrawLine(win, x1, y, x2, y)
+      DrawLine(win, x1, y, x2, y);
       y +:= sq
       }
    return
@@ -105,14 +105,14 @@ end
 
 procedure set_up_board(win, visited)
    local board, pt
-   EraseArea(win)
-   board := make_board()
-   set_bones(board, nbr_bones)
-   calc_neighbors(board)
-   draw_board(win)
-   draw_hearts(win)
+   EraseArea(win);
+   board := make_board();
+   set_bones(board, nbr_bones);
+   calc_neighbors(board);
+   draw_board(win);
+   draw_hearts(win);
    every pt := spread_zeros(board, 1, 1) do {
-      write_to_square(win, pt[1], pt[2], pt[3])
+      write_to_square(win, pt[1], pt[2], pt[3]);
       visited[pt[1], pt[2]] := 1
       }
    return board
@@ -139,17 +139,17 @@ end
 
 procedure play()
    local win, x, y, evt, mark, marks, board, visited, pt, value
-   sq := (if match("OS/2", &host) then 30 else 20)
-   x1 := 10
-   y1 := 10
+   sq := (if match("OS/2", &host) then 30 else 20);
+   x1 := 10;
+   y1 := 10;
    win := WOpen("label=HB", "size=" || width * sq + 2 * x1 || "," ||
-	 height * sq + 2 * y1)
+	 height * sq + 2 * y1);
    repeat {
-      visited := make_board()
-      board := set_up_board(win, visited)
-      marks := make_board(" ")
+      visited := make_board();
+      board := set_up_board(win, visited);
+      marks := make_board(" ");
       repeat {
-	 evt := Event(win)
+	 evt := Event(win);
 	 case type(evt) of {
 	    "string": case map(evt) of {
 	       "q": exit()
@@ -157,17 +157,17 @@ procedure play()
 	       }
 	    "integer": {
 	       if evt = &lrelease then {
-		  x := (&x - x1) / sq + 1
-		  y := (&y - y1) / sq + 1
+		  x := (&x - x1) / sq + 1;
+		  y := (&y - y1) / sq + 1;
 		  if legal_move(x, y, visited) then {
-		     value := board[x, y]
+		     value := board[x, y];
 		     if value ~=== "X" then {
 			#
 			#  Visited a safe square.
 			#
 			if value = 0 then 
 			      every pt := spread_zeros(board, x, y) do {
-				 write_to_square(win, pt[1], pt[2], pt[3])
+				 write_to_square(win, pt[1], pt[2], pt[3]);
 				 visited[pt[1], pt[2]] := 1
 				 }
 			else write_to_square(win, x, y, value)
@@ -177,12 +177,12 @@ procedure play()
 			#  Stepped on a bone -- game over.
 			#
 			every x := 1 to width & y := 1 to height do {
-			   value := board[x, y]
+			   value := board[x, y];
 			   write_to_square(win, x, y, "X" === value)
 			   }
-			draw_hearts(win)
+			draw_hearts(win);
 			repeat {
-			   evt := Event(win)
+			   evt := Event(win);
 			   case type(evt) of {
 			      "integer": if evt = &lrelease then break
 			      "string": case map(evt) of {

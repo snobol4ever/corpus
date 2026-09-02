@@ -38,14 +38,14 @@ link vsetup
 procedure main(args)
    local dflt
 
-   Window ! put(ui_atts(), "canvas=hidden", args)
-   ui()				# just to get standard VIB font
+   Window ! put(ui_atts(), "canvas=hidden", args);
+   ui();  # just to get standard VIB font
 
    if *args > 0 then {
-      dflt := ""
+      dflt := "";
       every dflt ||:= " " || !args
       if not ColorValue(dflt) then {
-         write(&errout, "  illegal default color: ", dflt)
+         write(&errout, "  illegal default color: ", dflt);
          dflt := &null
          }
       }

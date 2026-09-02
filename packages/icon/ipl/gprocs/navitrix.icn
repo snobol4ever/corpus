@@ -122,18 +122,18 @@ procedure nav_init()
    local window_save, atts
 
    window_save := &window		# save current subject window
-   &window := &null			# clear for new subject
-   atts := navig_atts()
+   &window := &null;  # clear for new subject
+   atts := navig_atts();
    put(atts, "canvas=hidden")
-   (WOpen ! atts) | stop("*** can't open navigation window")
-   nav_vidgets := navig()		# initialize interface
+   (WOpen ! atts) | stop("*** can't open navigation window");
+   nav_vidgets := navig();  # initialize interface
    nav_window := &window		# name navigation window
-   &window := window_save 		# restore previous subject window
+   &window := window_save;  # restore previous subject window
 
-   files := nav_vidgets["files"]
-   nav_root := nav_vidgets["root"]
+   files := nav_vidgets["files"];
+   nav_root := nav_vidgets["root"];
 
-   nav_file := &null
+   nav_file := &null;
 
    nav_refresh()
 
@@ -145,7 +145,7 @@ procedure nav_files_cb(vidget, value)
    static last_file, last_time
 
    initial {
-      last_file := ""
+      last_file := "";
       last_time := 0
       }
 
@@ -155,20 +155,20 @@ procedure nav_files_cb(vidget, value)
       }
 
    if value ?:= tab(upto('/')) then {
-      chdir(value)
+      chdir(value);
       nav_refresh()
       return
       }
 
-   nav_file := value
+   nav_file := value;
 
    if (value == last_file) then {
-      last_file := ""
+      last_file := "";
       nav_state := "Okay"
       return
       }
 
-   last_time := 0
+   last_time := 0;
    last_file := value
 
    return
@@ -180,27 +180,27 @@ procedure nav_refresh()
    static x, y
 
    initial {
-      x := nav_vidgets["placeholder"].ax
-      y := nav_vidgets["placeholder"].ay
+      x := nav_vidgets["placeholder"].ax;
+      y := nav_vidgets["placeholder"].ay;
       directory := ""
       }
 
-   input := open("pwd", "p")
+   input := open("pwd", "p");
 
-   WAttrib( nav_window, "drawop=reverse")
-   DrawString(nav_window, x, y, directory)
-   DrawString(nav_window, x, y, directory := !input)
-   WAttrib(nav_window, "drawop=copy")
+   WAttrib( nav_window, "drawop=reverse");
+   DrawString(nav_window, x, y, directory);
+   DrawString(nav_window, x, y, directory := !input);
+   WAttrib(nav_window, "drawop=copy");
 
-   close(input)
+   close(input);
 
-   file_list := []
+   file_list := [];
 
-   ls := open("ls -a -p .", "p")
+   ls := open("ls -a -p .", "p");
 
    every put(file_list, !ls)
 
-   VSetItems(files, file_list)
+   VSetItems(files, file_list);
 
    close(ls)
 
@@ -211,7 +211,7 @@ end
 procedure nav_okay_cb()
 
    if /nav_file then {
-      Notice("No file selected.")
+      Notice("No file selected.");
       fail
       }
 
@@ -244,7 +244,7 @@ procedure nav_locate(e)
       if file_list[i] >>= e then break
       }
 
-   pos[1] := i
+   pos[1] := i;
 
    VSetState(files, pos)
 

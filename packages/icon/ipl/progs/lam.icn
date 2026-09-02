@@ -57,16 +57,16 @@ global fndxs
 
 procedure main(a)
    local bufs, i
-   bufs := list(*a)
-   fndxs := []
+   bufs := list(*a);
+   fndxs := [];
    if (*a = 0) | a[1] == "?" then Usage("lam file [file | -string]...")
    every i := 1 to *a do {
       if a[i] == "-" then {
-         a[i] := &input
+         a[i] := &input;
             put(fndxs,i)
             }
       else if match("-",a[i]) then {
-         bufs[i] := a[i][2:0]
+         bufs[i] := a[i][2:0];
          a[i] := &null
          }
       else {
@@ -85,7 +85,7 @@ procedure lamr(args,bufs)
    while \bufs[!fndxs] do {
       every j := 1 to *bufs do
          writes(\bufs[j])
-      write()
+      write();
       every i := !fndxs do
          bufs[i] := (read(args[i]) | &null)
      }

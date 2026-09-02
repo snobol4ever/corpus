@@ -48,7 +48,7 @@ global height
 
 procedure main(args)
 
-   init(args)
+   init(args);
 
    display()
 
@@ -56,19 +56,19 @@ end
 
 procedure init(args)
 
-   vidgets := ui()
+   vidgets := ui();
 
-   root := vidgets["root"]
+   root := vidgets["root"];
 
-   state := &null
-   scale := 1
-   fnc := 1			# linear scaling  :-)
+   state := &null;
+   scale := 1;
+   fnc := 1;  # linear scaling  :-)
    if args[1] == "-p" then input := &input
 
-   width :=  vidgets["strip"].uw
-   height :=  vidgets["strip"].uh
+   width :=  vidgets["strip"].uw;
+   height :=  vidgets["strip"].uh;
 
-   strip := Clone("dx=" || vidgets["strip"].ux, "dy=" || vidgets["strip"].uy)
+   strip := Clone("dx=" || vidgets["strip"].ux, "dy=" || vidgets["strip"].uy);
    Clip(strip, 0, 0, width, height)
 
 end
@@ -81,16 +81,16 @@ procedure display()
          while (*Pending() > 0) | \state | /input do
             ProcessEvent(root, , shortcuts)
          n := read(input) | {
-            Notice("End of data")
+            Notice("End of data");
             break
             }
          n := integer(fnc(n * scale)) | {
-            Notice("Nonnumeric data; terminating input")
+            Notice("Nonnumeric data; terminating input");
             break
             }
-         n >:= height			# Motif bug avoidance
-         EraseArea(strip, width - 1, 0, width - 1, height)
-         DrawLine(strip, width - 1, height - n, width - 1, height)
+         n >:= height;  # Motif bug avoidance
+         EraseArea(strip, width - 1, 0, width - 1, height);
+         DrawLine(strip, width - 1, height - n, width - 1, height);
          CopyArea(strip, 1, 0, width - 1, height, 0, 0)
          }
    input := &null
@@ -117,7 +117,7 @@ procedure configure_cb(vidget, value)
          repeat {
             if TextDialog(, "scale", scale, 10) == "Okay" then {
                scale := (0 < numeric(dialog_value[1])) | {
-                  Notice("Invalid scale value")
+                  Notice("Invalid scale value");
                   next
                   }
                reset_cb()
@@ -130,7 +130,7 @@ procedure configure_cb(vidget, value)
          repeat {
             if TextDialog(,  "function", fnc, 10) == "Okay" then {
                (proc | numeric)(fnc <-dialog_value[1]) | {
-                  Notice("Invalid function specification")
+                  Notice("Invalid function specification");
                   next
                   }
                reset_cb()
@@ -175,7 +175,7 @@ end
 procedure load()
 
    if load_file() == "Okay" then {
-      input := dialog_value
+      input := dialog_value;
       reset_cb()
       return
       }

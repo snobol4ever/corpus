@@ -65,44 +65,44 @@ initial {
       "Vmenu_frame_rec", "Vradio_entry_rec", "Vradio_frame_rec", 
       "Vpull_down_button_rec", "Vpane_rec", "Varrow_rec",
       "Vthumb_rec", "Vscrollbar_frame_rec",
-      "Vslider_rec", "Vtext_rec", "Vgrid_rec"])
+      "Vslider_rec", "Vtext_rec", "Vgrid_rec"]);
 
-   Vcoupler_recset := set(["Vcoupler_rec", "Vrange_coupler_rec"])
+   Vcoupler_recset := set(["Vcoupler_rec", "Vrange_coupler_rec"]);
 
 #  The padding in a Vtext_in between the data outline and the data text.
-   V_TEXT_PAD 		:= 4
+   V_TEXT_PAD 		:= 4;
 
 #  Used for button styles.
-   V_RECT := V_2D 	:= -690402
-   V_CHECK 		:= -690403
-   V_CIRCLE 		:= -690404
-   V_RECT_NO := V_2D_NO	:= -690406
-   V_CHECK_NO 		:= -690407
-   V_CIRCLE_NO 		:= -690408
-   V_XBOX		:= -690409
-   V_XBOX_NO		:= -690410
-   V_DIAMOND		:= -690411
-   V_DIAMOND_NO		:= -690412
-   V_IMAGE              := -690413
-   V_IMAGE_NO           := -690414
+   V_RECT := V_2D 	:= -690402;
+   V_CHECK 		:= -690403;
+   V_CIRCLE 		:= -690404;
+   V_RECT_NO := V_2D_NO	:= -690406;
+   V_CHECK_NO 		:= -690407;
+   V_CIRCLE_NO 		:= -690408;
+   V_XBOX		:= -690409;
+   V_XBOX_NO		:= -690410;
+   V_DIAMOND		:= -690411;
+   V_DIAMOND_NO		:= -690412;
+   V_IMAGE              := -690413;
+   V_IMAGE_NO           := -690414;
 
 #  Used for communication between a dialog box and its contents.
-   V_CANCEL 		:= -690417
-   V_OK		  	:= -690418
-   V_NEXT		:= -690419
-   V_PREVIOUS		:= -690420
+   V_CANCEL 		:= -690417;
+   V_OK		  	:= -690418;
+   V_NEXT		:= -690419;
+   V_PREVIOUS		:= -690420;
 
 #  Used for telling a radio button frame *not* to turn on a default
 #  selection.
-   V_NO_RB_FOCUS	:= -690421
+   V_NO_RB_FOCUS	:= -690421;
 
 #  Used in menus.
-   V_DRAGGING		:= -690422
-   V_FAIL		:= -690423
+   V_DRAGGING		:= -690422;
+   V_FAIL		:= -690423;
 
 #  Lets a thumb know an arrow called its couplerset.
-   V_ARROW		:= -690424
-   V_COUPLER 		:= -690425
+   V_ARROW		:= -690424;
+   V_COUPLER 		:= -690425;
    V_DUMMY_ID		:= -690426
 }
 
@@ -118,7 +118,7 @@ end
 
 procedure _Vbomb(str)
 
-   write(&errout, "Vidget error: ", str)
+   write(&errout, "Vidget error: ", str);
    runerr(600)
 
 end   

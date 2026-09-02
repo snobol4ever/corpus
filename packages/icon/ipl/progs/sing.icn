@@ -50,7 +50,7 @@ procedure sing(singer)
         "ninth",
         "tenth",
         "eleventh",
-        "twelfth"]
+        "twelfth"];
 
     gift := [
         "twelve lords a'leaping,",
@@ -68,9 +68,9 @@ procedure sing(singer)
     }
 
     every which := 1 to 12 do {
-    write (singer)    # Take a breath
-    write (singer, "On the ", day [which], " day of Christmas,")
-    write (singer, "my true love gave to me,")
+    write (singer);  # Take a breath
+    write (singer, "On the ", day [which], " day of Christmas,");
+    write (singer, "my true love gave to me,");
     every write (singer, !(gift[-which : 0]))
 
     if (/and := "and ") then gift[-1] := and || gift[-1]

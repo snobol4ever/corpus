@@ -44,21 +44,21 @@ link random
 procedure main(argv)
    local f, ix, n
 
-   f := open("farber.sen", "r") | stop("*** cannot open \"farber.sen\"")
+   f := open("farber.sen", "r") | stop("*** cannot open \"farber.sen\"");
    if not (ix := open("farber.idx", "ru")) then {
-      ix := open("farber.idx", "bcu")
+      ix := open("farber.idx", "bcu");
       n := 0;
       repeat {
-         writes(ix, left(where(f), 10))
+         writes(ix, left(where(f), 10));
          if not read(f) then break
          n +:= 1
       }
-      seek(ix, -10)
+      seek(ix, -10);
       writes(ix, left(n, 10))
    }
-   seek(ix, -10)
-   randomize()
-   seek(ix,10*(?numeric(reads(ix,10))-1))
-   seek(f,numeric(reads(ix,10)))
+   seek(ix, -10);
+   randomize();
+   seek(ix,10*(?numeric(reads(ix,10))-1));
+   seek(f,numeric(reads(ix,10)));
    write(read(f))
 end

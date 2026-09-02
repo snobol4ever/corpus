@@ -36,7 +36,7 @@ procedure imscanon(ims)
    local head, spec, dspec, max, val, imax, i, width
 
    ims ? {
-      head := tab(upto('#~') + 1)
+      head := tab(upto('#~') + 1);
       spec := tab(0)
       }
 
@@ -45,13 +45,13 @@ procedure imscanon(ims)
       }
 
    if (width % 4) ~= 0 then return ims		# one digit for 4 columns
-   width /:= 4
+   width /:= 4;
    if (*spec % width) ~= 0 then return ims	# must be even number of digits
 
-   dspec := spec || spec
-   max := -1
+   dspec := spec || spec;
+   max := -1;
    every i := 1 to (*spec / width) do {
-      val := integer("16r" || dspec[1 +: *spec])
+      val := integer("16r" || dspec[1 +: *spec]);
       if max <:= val then imax := (((i - 1) * width) + 1)
       dspec := rotate(dspec, width)
       }

@@ -49,40 +49,40 @@ procedure main(args)
    local width, height, x, y, row, col, rows, cols, w, h, suffix, file
    local basename, opts
 
-   opts := options(args, "n:s")
-   suffix := \opts["s"] | "_t"
+   opts := options(args, "n:s");
+   suffix := \opts["s"] | "_t";
 
    every file := !args do {
       WOpen("canvas=hidden", "image=" || file) | {
-         write(&errout, "*** cannot open ", file)
+         write(&errout, "*** cannot open ", file);
          next
          }
       file ? {
          basename := 1(tab(find(".gif")), move(0)) | "unname"
          }
-      width := WAttrib("width")
-      height := WAttrib("height")
+      width := WAttrib("width");
+      height := WAttrib("height");
    
-      rows := []
+      rows := [];
       every y := 0 to height - 1 do {
-         row := []
+         row := [];
          every put(row,Pixel(0, y, width, 1))
          put(rows, repetit(row))
          }
-      h := lcml ! rows
-      h >:= height
+      h := lcml ! rows;
+      h >:= height;
    
-      cols := []
+      cols := [];
       every x := 0 to width - 1 do {
-         col := []
+         col := [];
          every put(col, Pixel(x, 0, 1, height))
          put(cols, repetit(col))
          }
-      w := lcml ! cols
-      w >:= width
+      w := lcml ! cols;
+      w >:= width;
 
       if w = width & h = height then {
-         write(&errout, file, " has no subrepeat")
+         write(&errout, file, " has no subrepeat");
          next
          }
    
@@ -90,7 +90,7 @@ procedure main(args)
          write(file, ": ", w, "x", h)
       else
          WriteImage(basename || suffix || ".gif", 0, 0, w, h) | {
-         write(&errout, "*** cannot write image for ", file)
+         write(&errout, "*** cannot write image for ", file);
          write(&errout, "w=", w, " h=", h)
          }
       WClose(&window)

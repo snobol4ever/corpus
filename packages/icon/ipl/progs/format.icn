@@ -58,42 +58,42 @@ procedure main(arg)
 			\t-J\tfully justify last line, too\n_
 			\t-c\tattempt to format program comments\n_
 			\t-n\tdon't put extra spaces after sentences\n_
-			\t-h\tprint help message"
-   opts := options(arg,"ht+w+cjJn")
+			\t-h\tprint help message";
+   opts := options(arg,"ht+w+cjJn");
    if \opts["h"] then stop(usage)
-   width := integer(\opts["w"]) | 72
-   tabs := (integer(\opts["t"]) | 8) + 1
+   width := integer(\opts["w"]) | 72;
+   tabs := (integer(\opts["t"]) | 8) + 1;
    if tabs >= 2 then {
-      Detab := detab
+      Detab := detab;
       Entab := entab
       }
    else Entab := Detab := 1
-   comment := opts["c"]
-   format := if \just1 | \opts["j"] then justify else 1
-   just1 := opts["J"]
-   xspace := if \opts["s"] then '' else '.?:!'
+   comment := opts["c"];
+   format := if \just1 | \opts["j"] then justify else 1;
+   just1 := opts["J"];
+   xspace := if \opts["s"] then '' else '.?:!';
    #
    #  Initialize variables.
    #
-   space := ' \t'
-   nspace := ~space
-   wchar := nspace
+   space := ' \t';
+   nspace := ~space;
+   wchar := nspace;
    #
    #  Read the first line to establish a prototype of comment format
    #  if -c option, or of leading spaces if normal formatting.
    #
-   line := Detab(read(),tabs) | exit()
+   line := Detab(read(),tabs) | exit();
    line ?
       pre := (tab(many(space)) | "") ||
 	 if \comment then
 	    tab(many(nspace)) || tab(many(space)) |
 			stop("### Can't establish comment pattern")
 	 else
-	    ""
-   width -:= *pre
-   empty := trim(pre)
-   outpre := Entab(pre,tabs)
-   outline := spaces := ""
+	    "";
+   width -:= *pre;
+   empty := trim(pre);
+   outpre := Entab(pre,tabs);
+   outline := spaces := "";
    repeat {
       line ? {
 	 #
@@ -101,23 +101,23 @@ procedure main(arg)
 	 #
 	 if (=empty & pos(0)) | (=pre & any(space) | pos(0)) |
 			(/comment & not match(pre)) then {
-	    write(outpre,"" ~== outline)
-	    outline := spaces := ""
+	    write(outpre,"" ~== outline);
+	    outline := spaces := "";
 	    write(line)
 	    }
 	 #
 	 #  Otherwise continue formatting.
 	 #
 	 else {
-	    =pre
+	    =pre;
 	    tab(0) ? {
-	       tab(many(space))
+	       tab(many(space));
 	       while word := tab(many(wchar)) & (tab(many(space)) | "") do {
 		  if *outline + *spaces + *word > width then {
-		     write(outpre,"" ~== format(outline,width))
+		     write(outpre,"" ~== format(outline,width));
 		     outline := spaces := ""
 		     }
-		  outline ||:= spaces || word
+		  outline ||:= spaces || word;
 		  spaces := if any(xspace,word[-1]) then "  " else " "
 		  }
 	       }
@@ -142,21 +142,21 @@ procedure justify(s,width)
    local wlist,wset,t,r
    static space,nspace
    initial {
-      space := ' '
+      space := ' ';
       nspace := &cset -- space
       }
-   s := trim(s[many(space,s) | 1:0])
-   wlist := []
-   s ? while put(wlist,[tab(many(nspace)),*tab(many(space)) | 0])
+   s := trim(s[many(space,s) | 1:0]);
+   wlist := [];
+   s ? while put(wlist,[tab(many(nspace)),*tab(many(space)) | 0]);
    if *s >= width | *wlist < 2 then return s
-   wset := set(wlist[1:-1])
-   t := (width - *s) / *wset
+   wset := set(wlist[1:-1]);
+   t := (width - *s) / *wset;
    every (!wset)[2] +:= t
    every 1 to (width - *s) % *wset do {
-      (t := ?wset)[2] +:= 1
+      (t := ?wset)[2] +:= 1;
       delete(wset,t)
       }
-   r := ""
+   r := "";
    every t := !wlist do r ||:= t[1] || repl(" ",t[2])
    return r
 end

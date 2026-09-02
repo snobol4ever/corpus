@@ -23,8 +23,8 @@
 procedure main(args)
    local i, line
 
-   i := args[1] | 60
-   integer(i) | stop("*** invalid argument")
+   i := args[1] | 60;
+   integer(i) | stop("*** invalid argument");
 
    while line := read() do
       line ? {

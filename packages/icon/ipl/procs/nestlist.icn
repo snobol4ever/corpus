@@ -39,7 +39,7 @@ procedure s_list( L )
   local i, s
   if type( L ) ~== "list"
     then return string( L )
-  s := "["
+  s := "[";
   every i := 1 to *L
     do s ||:= ( if i ~= 1 then "," else "" ) || s_list( L[i] )
   return s || "]"

@@ -34,8 +34,8 @@
 procedure main(argl)
    local start, count
 
-   start := argl[1] | stop("*** starting value missing")
-   count := argl[2] | stop("*** count missing")
+   start := argl[1] | stop("*** starting value missing");
+   count := argl[2] | stop("*** count missing");
 
    if not (start := integer(start) & start > 0) then
       stop("starting value not positive integer")

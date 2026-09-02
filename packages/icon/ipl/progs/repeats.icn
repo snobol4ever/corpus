@@ -33,12 +33,12 @@ link options
 procedure main(args)
    local opts, limit, repeats, values
 
-   opts := options(args, "l+r+")
+   opts := options(args, "l+r+");
 
-   limit := \opts["l"] | 1000
-   repeats := \opts["2"] | (2 ^ 20)		# kludge ...
+   limit := \opts["l"] | 1000;
+   repeats := \opts["2"] | (2 ^ 20);  # kludge ...
 
-   values := []
+   values := [];
 
    every put(values, !&input) \ limit
 

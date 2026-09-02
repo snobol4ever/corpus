@@ -30,7 +30,7 @@
 procedure wdiag(names__[])		#: write labeled global values
    local wlist__, s__
 
-   wlist__ := []
+   wlist__ := [];
 
    every put(wlist__, " ", s__ := !names__, "=") do
       put(wlist__, image(variable(s__))) |

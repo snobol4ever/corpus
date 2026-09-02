@@ -35,13 +35,13 @@ link datetime
 procedure main(arg)
    local pre,suf
    if arg[1] == "-a" then {
-      pop(arg)
+      pop(arg);
       pre := suf := ""
       }
    else {
-      pre := "It's "
+      pre := "It's ";
       suf := "."
       }
-   arg[1] | put(arg)
+   arg[1] | put(arg);
    every write(pre,saytime(!arg),suf)
 end

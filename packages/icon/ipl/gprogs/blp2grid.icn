@@ -41,26 +41,26 @@ link wopen
 procedure main(args)
    local rows, panel, input, line, name, opts, size, file, color
 
-   opts := options(args, "s+c:")
+   opts := options(args, "s+c:");
 
-   size := \opts["s"] | 5
-   color := \opts["c"] | "black"
+   size := \opts["s"] | 5;
+   color := \opts["c"] | "black";
 
    while file := get(args) do {
-      input := open(file) | stop("*** cannot open pattern file")
-      rows := []
-      line := read(input) | stop("empty file")
+      input := open(file) | stop("*** cannot open pattern file");
+      rows := [];
+      line := read(input) | stop("empty file");
       if upto("#", line) then rows := pat2rows(line)
       else {
-         rows := [line]
+         rows := [line];
          while put(rows, read(input))	# read in row pattern
          }
-      panel := matrixpanel(rows, size)
-      fill_cells(panel, rows, color)
-      name := basename(file, ".blp")
-      name := basename(name, ".rows")
-      WriteImage(panel.window, name || "_grid.gif")
-      WClose(panel.window)
+      panel := matrixpanel(rows, size);
+      fill_cells(panel, rows, color);
+      name := basename(file, ".blp");
+      name := basename(name, ".rows");
+      WriteImage(panel.window, name || "_grid.gif");
+      WClose(panel.window);
       close(input)
       }
 
@@ -71,7 +71,7 @@ procedure fill_cells(panel, rows, cellcolor)
 
    every i := 1 to *rows do {
       every j := 1 to *rows[1] do {
-         color := if rows[i, j] == "1" then cellcolor else "white"
+         color := if rows[i, j] == "1" then cellcolor else "white";
          colorcell(panel, j, i, color)
          } 
       }

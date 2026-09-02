@@ -38,15 +38,15 @@ procedure mapbit(s)
    #  and parameterizing the initialization.
 
    initial {
-      all := string(&cset)
-      base16 := "0123456789ABCDEF"
-      hex1 := ""
+      all := string(&cset);
+      base16 := "0123456789ABCDEF";
+      hex1 := "";
       every hex1 ||:= repl(!base16,16)
-      hex2 := repl(base16,16)
-      quad1 := ""
+      hex2 := repl(base16,16);
+      quad1 := "";
       every quad1 ||:= repl(!left(base16,4),4)
-      quad2 := repl(left(base16,4),4)
-      pair1 := ""
+      quad2 := repl(left(base16,4),4);
+      pair1 := "";
       every pair1 ||:= repl(!left(base16,2),2)
       pair2 := repl(left(base16,2),2)
       }

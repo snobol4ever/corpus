@@ -63,39 +63,39 @@ procedure main()
    local index, page, line, lines, temp1, temp2, x, xcase
    local lline
 
-   index := table()
-   xcase := table(" *** empty line")
-   page := "<no page number>"  # in case file doesn't start with a page number
+   index := table();
+   xcase := table(" *** empty line");
+   page := "<no page number>";  # in case file doesn't start with a page number
 
    while line := read() do {
       line ? {
          if ="=" then {
-            page := tab(0)
-            page := integer(page)	# for sorting; may fail
+            page := tab(0);
+            page := integer(page);  # for sorting; may fail
             if page === "" then page := "<empty page number>"
             next
             }
          }
-      line ?:= (tab(many(' ')), tab(0))	# trim leading blanks
+      line ?:= (tab(many(' ')), tab(0));  # trim leading blanks
       if *line = 0 then next
-      lline := map(line)
-      xcase[lline] := line
+      lline := map(line);
+      xcase[lline] := line;
       if lline == "" then lline := " *** empty line"
       /index[lline] := set()
       insert(index[lline], page)
       }
 
-   index := sort(index, 3)
+   index := sort(index, 3);
 
    while writes(xcase[get(index)]) do {
-      lines := sort(get(index))
-      temp1 := []
-      temp2 := []
+      lines := sort(get(index));
+      temp1 := [];
+      temp2 := [];
       while x := get(lines) do {
          if type(x) == "string" then put(temp1, x)
          else put(temp2, x)
          }
-      lines := temp1 ||| temp2
+      lines := temp1 ||| temp2;
       while writes(", ", get(lines))
       write()
       }

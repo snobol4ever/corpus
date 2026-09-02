@@ -25,7 +25,7 @@
 
 procedure reduce(op, init, args[])
 
-   op := proc(op, 2) | stop("*** invalid operator for reduce()")
+   op := proc(op, 2) | stop("*** invalid operator for reduce()");
 
    every init := op(init, !args)
 

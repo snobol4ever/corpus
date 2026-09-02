@@ -40,22 +40,22 @@ procedure getpaths(base_paths[])
     static sep, trailer, trimmer
     initial {
 	if find("UNIX", &features) then {
-	    sep := ":"
-	    trailer := "/"
+	    sep := ":";
+	    trailer := "/";
 	    trimmer := cset(trailer || " ")
         }
 	else if find("MS-DOS", &features) then {
-	    sep := ";"
-	    trailer := "\\"
+	    sep := ";";
+	    trailer := "\\";
 	    trimmer := cset(trailer || " ")
 	}
         else stop("getpaths:  OS not supported.")
     }
 
-    suspend !base_paths
+    suspend !base_paths;
     paths := getenv("PATH")
     \paths ? {
-	tab(match(sep))
+	tab(match(sep));
 	while p := 1(tab(find(sep)), move(1))
 	do suspend ("" ~== trim(p,trimmer)) || trailer
 	return ("" ~== trim(tab(0),trimmer)) || trailer

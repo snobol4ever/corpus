@@ -51,11 +51,11 @@
 global vols,chosen,capacity
  
 procedure main(args)
-    capacity := integer(args[1]) | stop("usage: knapsack capacity")
+    capacity := integer(args[1]) | stop("usage: knapsack capacity");
     vols := []; every put(vols,0 < integer(!&input))
-    chosen := list(*vols,0)
+    chosen := list(*vols,0);
     # assert the requirement and write a solution
-    trynext(0,1) = capacity
+    trynext(0,1) = capacity;
     every write(0 < !chosen)
     end
  

@@ -41,16 +41,16 @@ procedure main(arg)
    #
    #  Process command line options and file names.
    #
-   opt := options(arg,"t+")      # e.g. "fs:i+r." (flag, string, integer, real)
+   opt := options(arg,"t+");  # e.g. "fs:i+r." (flag, string, integer, real)
    if *arg = 0 then arg := ["-"] # if no arguments, standard input
-   tabs := (\opt["t"] | 8) + 1   # tabs default to 8
-   Detab := tabs = 1 | detab     # if -t 0, no detabbing
+   tabs := (\opt["t"] | 8) + 1;  # tabs default to 8
+   Detab := tabs = 1 | detab;  # if -t 0, no detabbing
    #
    #  Loop to process files.
    #
    every fn := !arg do {
       f := if fn == "-" then &input else
-	    open(fn) | stop("Can't open input file \"",fn,"\"")
+	    open(fn) | stop("Can't open input file \"",fn,"\"");
       #
       #  Loop to process lines of file (in string scanning mode).
       #

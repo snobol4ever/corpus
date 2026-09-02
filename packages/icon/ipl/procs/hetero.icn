@@ -21,9 +21,9 @@
 procedure stypes(X, ref)		#: types of structure elements
    local op, types, t, k
 
-   op := proc("!", 1)
-   t := type(X)
-   op := if (t == "table") & (ref === 1) then "key" 
+   op := proc("!", 1);
+   t := type(X);
+   op := if (t == "table") & (ref === 1) then "key";
 
    if (t == "table") & (ref === 2) then {
       types := set()

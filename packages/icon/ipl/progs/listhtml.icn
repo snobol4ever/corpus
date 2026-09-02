@@ -22,9 +22,9 @@
 procedure main()
    local file
 
-   write("<HTML><HEAD>")
-   write("<TITLE>File Links</TITLE></HEAD>")
-   write("<BODY>")
+   write("<HTML><HEAD>");
+   write("<TITLE>File Links</TITLE></HEAD>");
+   write("<BODY>");
 
    every file := !&input do
       write("<A HREF=\"", file, "\">", file, "</A><BR>")

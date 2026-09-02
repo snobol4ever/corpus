@@ -25,7 +25,7 @@ procedure patword(s)
     static labels, revnum
 
     initial {
-	labels := &lcase || &lcase
+	labels := &lcase || &lcase;
 	revnum := reverse(&cset)
 	}
 
@@ -36,9 +36,9 @@ procedure patword(s)
 #
 # Next map each of these new characters into contiguous letters.
 
-    numbering := revnum[1 : *s + 1] | stop("word too long")
-    orderS := map(s, reverse(s), numbering)
-    orderset := string(cset(orderS))
+    numbering := revnum[1 : *s + 1] | stop("word too long");
+    orderS := map(s, reverse(s), numbering);
+    orderset := string(cset(orderS));
     patlbls := labels[1 : *orderset + 1] | stop("too many characters")
 
     return map(orderS, orderset, patlbls)

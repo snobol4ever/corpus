@@ -78,9 +78,9 @@ global lcount, linelst, ordflag
 
 procedure main(args)
    local division, keytable, keylist, line, info, nexthdr, null
-   linelst := []
-   keytable := table()
-   lcount := 0
+   linelst := [];
+   keytable := table();
+   lcount := 0;
 
    if *args = 2 then
       if args[1] == "-o" then
@@ -100,15 +100,15 @@ procedure main(args)
    if *args = 0 then
       division := ""
 
-   nexthdr := lmany(division) | fail	# find at least one record or quit
-   info := [nexthdr,[lcount]]
+   nexthdr := lmany(division) | fail;  # find at least one record or quit
+   info := [nexthdr,[lcount]];
 
    # gather all data lines for this group/record
    while line := getline() do {
       if eorec(division,line) then {	# at end of this record
           # enter record info into sort key table
-          put(info[2],lcount-1)
-          enter(info,keytable)
+          put(info[2],lcount-1);
+          enter(info,keytable);
           # look for header of next record
           if nexthdr := lmany(division) then
       	info := [nexthdr,[lcount]] # begin next group/record
@@ -118,11 +118,11 @@ procedure main(args)
       }
    # enter last line info into sort key table
    if \info then {
-      put(info[2],lcount)
+      put(info[2],lcount);
       enter(info,keytable)
       }
 
-   keylist := sort(keytable,1)		# sort by record headers
+   keylist := sort(keytable,1);  # sort by record headers
    if \ordflag then
       printord(keylist)		# list sorted order of records
    else

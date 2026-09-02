@@ -151,7 +151,7 @@ procedure main (args)
 
     if map(args[1]) == "-t" then &trace := -1
 
-     init()
+     init();
 
      while line := prompt() do {
          process(line || " ")      # pad with a blank to make life easy
@@ -186,7 +186,7 @@ end
 procedure parse(str)
     local token
 
-     token := first(str)
+     token := first(str);
      case token of  {
          "?"       : return "print"             # only special case at present
          default   : return token
@@ -232,10 +232,10 @@ procedure isare(str)
 #
 # here if is or are
 #
-     foregoing  := stack(before)    # so we can look back one token
-     subsequent := stack(after)     # might as well stack this too
+     foregoing  := stack(before);  # so we can look back one token
+     subsequent := stack(after);  # might as well stack this too
 
-     name := singular(pop(foregoing))     # define token before is or are
+     name := singular(pop(foregoing));  # define token before is or are
 #
 # next line so we can support "100 cms are 1 meter"
 #
@@ -251,10 +251,10 @@ end
 procedure stack(str)
     local i, j, words
 
-    words := [] ; i := 1
+    words := [] ; i := 1;
 
     while j := upto(nonblank, str, i) do {
-         i := many(nonblank, str, j)
+         i := many(nonblank, str, j);
          push(words, str[i:j])
          }
     return words
@@ -273,7 +273,7 @@ end
 procedure eval(stk)
     local accum, action, token
 
-    accum := 1.0  ;  action := "multiply"
+    accum := 1.0  ;  action := "multiply";
 
     while token := singular(pull(stk)) do {          
 
@@ -289,7 +289,7 @@ procedure eval(stk)
                          "Can't evaluate ", token, " - using 1.0 instead")
          }
          else if action == "divide" then {
-              action := "multiply"
+              action := "multiply";
               if not (accum /:= \(real(token) | real(values[token]))) then
                    write (&errout,
                          "Can't evaluate ", token, " - using 1.0 instead")
@@ -302,18 +302,18 @@ end
 # init
 #
 procedure init()
-     write(&errout, "Conman version 1.1, 7/24/87")
-     values := table(&null)
-     nonblank := &ascii -- ' '
-     blank := ' '
-     values["times"] := 1.0
-     values["by"]    := 1.0
-     values["of"]    := 1.0
-     values["at"]    := 1.0
-     values["print"] := 1.0
-     values["?"]     := 1.0
-     values["meter"] := 1.0
-     values["kilogram"] := 1.0
+     write(&errout, "Conman version 1.1, 7/24/87");
+     values := table(&null);
+     nonblank := &ascii -- ' ';
+     blank := ' ';
+     values["times"] := 1.0;
+     values["by"]    := 1.0;
+     values["of"]    := 1.0;
+     values["at"]    := 1.0;
+     values["print"] := 1.0;
+     values["?"]     := 1.0;
+     values["meter"] := 1.0;
+     values["kilogram"] := 1.0;
      values["second"]   := 1.0
 
 end
@@ -332,9 +332,9 @@ end
 procedure load(str)
     local intext, line, filnam
 
-    filnam := (\second(str) | "conman.sav")
-    write (&errout, "Load from ", filnam, ".  May take a minute or so.")
-    intext := dopen(filnam,"r") | { write(&errout, "can't open ", filnam)
+    filnam := (\second(str) | "conman.sav");
+    write (&errout, "Load from ", filnam, ".  May take a minute or so.");
+    intext := dopen(filnam,"r") | { write(&errout, "can't open ", filnam);
                                     fail}
      while line := read(intext)  do {
          isare(line || " ")  # pad with a blank to make life easy
@@ -349,12 +349,12 @@ end
 procedure save(str)
     local i, outtext, pair, wlist, filnam
  
-    filnam := (\second(str) | "conman.sav")
-    write (&errout, "Save into ", filnam)
-    outtext := open(filnam,"a") | { write(&errout, "can't save to ", filnam)
+    filnam := (\second(str) | "conman.sav");
+    write (&errout, "Save into ", filnam);
+    outtext := open(filnam,"a") | { write(&errout, "can't save to ", filnam);
                                     fail}
-    wlist := sort(values)
-    i := 0
+    wlist := sort(values);
+    i := 0;
     every pair := !wlist do {
          write(outtext, pair[1], " is ", pair[2])
     }
@@ -367,8 +367,8 @@ end
 procedure zlist()
     local i, pair, wlist
 
-    i := 0
-    wlist := sort(values)
+    i := 0;
+    wlist := sort(values);
     every pair := !wlist do {
          write(&errout, pair[1], " is ", pair[2])
     }
@@ -414,7 +414,7 @@ end
 procedure singular(str)
     local s
 
-    s := str 
+    s := str;
     if s == "fps" then return "fps"
     if s == "feet" then return "foot"
     if s == "minutes" then return "minute"

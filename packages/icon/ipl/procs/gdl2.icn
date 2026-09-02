@@ -113,7 +113,7 @@ procedure msdos_get_dir(dir)
 
     # Get name of tempfile to be used.
     temp_name := get_dos_tempname(temp_dir) |
-    stop("No more available tempfile names!")
+    stop("No more available tempfile names!");
     
     ### Added by C. Shartsis 9/19/94
     # Make implicit current directory explicit
@@ -125,7 +125,7 @@ procedure msdos_get_dir(dir)
 
     # Make sure we have an unambiguous directory name, with backslashes
     # instead of Unix-like forward slashes.
-    dir := trim(map(dir, "/", "\\"), '\\')
+    dir := trim(map(dir, "/", "\\"), '\\');
 
     ### Added by C. Shartsis 9/19/94
     # Put backslash back on if dir is the root directory
@@ -136,18 +136,18 @@ procedure msdos_get_dir(dir)
         dir ||:= "\\"
 
     # Put dir listing into a temp file.
-    system("dir "||dir||" > "||temp_name)
+    system("dir "||dir||" > "||temp_name);
 
     # Put tempfile entries into a list, removing blank- and
     # space-initial lines.  Exclude directories (i.e. return file
     # names only).
     in_dir := open(temp_name,"r") |
-    stop("Can't open temp file in directory ",temp_dir,".")
-    filename_list := list()
+    stop("Can't open temp file in directory ",temp_dir,".");
+    filename_list := list();
     every filename := ("" ~== !in_dir) do {
-        match(" ",filename) | find(" <DIR>", filename) & next
+        match(" ",filename) | find(" <DIR>", filename) & next;
     # Exclude our own tempfiles (may not always be appropriate).
-    filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ')
+    filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ');
     ### Change: C. Shartsis - 4/9/95
     # Exclude tempfile
     if filename ? (
@@ -162,7 +162,7 @@ procedure msdos_get_dir(dir)
     }
 
     # Clean up.
-    close(in_dir) & remove(temp_name)
+    close(in_dir) & remove(temp_name);
 
     # Check to be sure we actually managed to read some files.
     if *filename_list = 0 then fail
@@ -191,9 +191,9 @@ procedure msdos_get_dir_rec(dir, level)
     }
     
     # Establish recursion level
-    /level := 0
+    /level := 0;
     if level = 0 then {
-        filename_list := list()
+        filename_list := list();
         # Get name of tempfile to be used.
         temp_name := get_dos_tempname(temp_dir) |
             stop("No more available tempfile names!")
@@ -208,7 +208,7 @@ procedure msdos_get_dir_rec(dir, level)
 
     # Make sure we have an unambiguous directory name, with backslashes
     # instead of Unix-like forward slashes.
-    dir := trim(map(dir, "/", "\\"), '\\')
+    dir := trim(map(dir, "/", "\\"), '\\');
 
     # Put backslash back on if dir is the root directory
     # Otherwise the current directory is returned
@@ -218,30 +218,30 @@ procedure msdos_get_dir_rec(dir, level)
         dir ||:= "\\"
 
     # Put dir listing into a temp file.
-    system("dir "||dir||" > "||temp_name)
+    system("dir "||dir||" > "||temp_name);
 
     # Put tempfile entries into a list, removing blank- and
     # space-initial lines.  Exclude directories (i.e. return file
     # names only).
     in_dir := open(temp_name,"r") |
-    stop("Can't open temp file in directory ",temp_dir,".")
-    raw_list := []
+    stop("Can't open temp file in directory ",temp_dir,".");
+    raw_list := [];
     every put(raw_list, !in_dir)
     # Clean up.
-    close(in_dir) & remove(temp_name)
-    tmp_dirlist := []
-    tmp_filelist := []
+    close(in_dir) & remove(temp_name);
+    tmp_dirlist := [];
+    tmp_filelist := [];
     every filename := ("" ~== !raw_list) do {
-        match(" ",filename) | match(".",filename) & next
+        match(" ",filename) | match(".",filename) & next;
         # Process Directories
         if find(" <DIR>", filename) then {
-            filename ?:= tab(many(~' \t'))
+            filename ?:= tab(many(~' \t'));
             put(tmp_dirlist, map(trim(dir, '\\') || "\\" || filename))
         }
         # Save files to list
         else {
             # extract the file name
-            filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ')
+            filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ');
             # Exclude tempfile
             if not (filename ? (
                 ="ICONDIR." & tab(any(&digits)) & tab(any(&digits)) & tab(any(&digits))
@@ -286,14 +286,14 @@ procedure unix_get_dir(dir)
 
     local filename_list, in_dir, filename
 
-    dir := trim(dir, '/') || "/"
-    filename_list := list()
-    in_dir := open("/bin/ls -F "||dir, "pr")
+    dir := trim(dir, '/') || "/";
+    filename_list := list();
+    in_dir := open("/bin/ls -F "||dir, "pr");
     every filename := ("" ~== !in_dir) do {
-    match("/",filename,*filename) & next
+    match("/",filename,*filename) & next;
     put(filename_list, trim(dir || filename, '*'))
     }
-    close(in_dir)
+    close(in_dir);
 
     if *filename_list = 0 then fail
     else return filename_list
@@ -312,25 +312,25 @@ procedure unix_get_dir_rec(dir, level)
     static filename_list
     
     # Establish recursion level
-    /level := 0
+    /level := 0;
     if level = 0 then
         filename_list := list()
     
     # Append trailing slash
-    dir := trim(dir, '/') || "/"
+    dir := trim(dir, '/') || "/";
 
     # Put tempfile entries into a list, removing blank- and
     # space-initial lines.  Exclude directories (i.e. return file
     # names only).
-    cmd := "/bin/ls -FL " || dir
+    cmd := "/bin/ls -FL " || dir;
     in_dir := open(cmd,"pr") |
-        stop(cmd, " will not run on this system")
-    raw_list := []
+        stop(cmd, " will not run on this system");
+    raw_list := [];
     every put(raw_list, !in_dir)
     # Clean up.
-    close(in_dir)
-    tmp_dirlist := []
-    tmp_filelist := []
+    close(in_dir);
+    tmp_dirlist := [];
+    tmp_filelist := [];
     every filename := ("" ~== !raw_list) do {
         if match(" ",filename) | match(".",filename) | filename[-1] == "=" then
             next
@@ -365,13 +365,13 @@ procedure unix_get_dir_rec2(dir)
 
     local filename_list, in_dir, cmd
 
-    dir := trim(dir, '/') || "/"
-    filename_list := list()
-    cmd := "find " || dir || " -type f -print"
+    dir := trim(dir, '/') || "/";
+    filename_list := list();
+    cmd := "find " || dir || " -type f -print";
     in_dir := open(cmd, "pr") |
-        stop(cmd, " will not run on this system")
+        stop(cmd, " will not run on this system");
     every put(filename_list, !in_dir)
-    close(in_dir)
+    close(in_dir);
 
     if *filename_list = 0 then fail
     else return filename_list

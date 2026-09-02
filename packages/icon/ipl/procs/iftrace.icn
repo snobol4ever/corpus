@@ -52,17 +52,17 @@ procedure set_trace(vf)
    static traceset, case1, case2
 
    initial {
-      traceset := set()
+      traceset := set();
       every insert(traceset, function())
-      case1 := &lcase || &ucase
+      case1 := &lcase || &ucase;
       case2 := &ucase || &lcase
       }
     
    if member(traceset,vf) then {
-      &trace := -1		# have to also trace all procedures!
-      vp := vf
+      &trace := -1;  # have to also trace all procedures!
+      vp := vf;
 				# reverse case of first letter
-      vp[1] := map(vp[1], case1, case2)
+      vp[1] := map(vp[1], case1, case2);
       variable(vp) :=: variable(vf)
       return
       }

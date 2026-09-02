@@ -28,7 +28,7 @@ procedure main()
    while line := read() do
       line ? {
          if ="(This file must be converted with BinHex 4.0)" then {
-            write(line)
+            write(line);
             break
             }
       else write(&errout, line)

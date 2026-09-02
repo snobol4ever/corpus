@@ -71,8 +71,8 @@ procedure main ( a )
     initial oversizes := 0
 
 
-    opt := options ( a, "-x" )
-    is_xx := opt [ "x" ]
+    opt := options ( a, "-x" );
+    is_xx := opt [ "x" ];
 
     # Check for correct number of args.
     case *a of
@@ -81,12 +81,12 @@ procedure main ( a )
 	1       : in := open ( a [ 1 ], "r" ) |
 	    {
 	    write ( &errout, "Can't open input file, ", a [ 1 ], ".\n_
-		usage:  iidecode [infile] [-x]" )
+		usage:  iidecode [infile] [-x]" );
 	    exit ( 1 )
 	    }
 	default :
 	    {
-	    write ( &errout, "usage:  iidecode [infile] [-x]" )
+	    write ( &errout, "usage:  iidecode [infile] [-x]" );
 	    exit ( 2 )
 	    }
 	}
@@ -103,7 +103,7 @@ procedure main ( a )
     # If dest is null, the begin line either isn't present, or is
     # corrupt (which necessitates our aborting with an error msg.).
     if /dest then {
-	write ( &errout, "No begin line." )
+	write ( &errout, "No begin line." );
 	exit ( 3 )
     }
 
@@ -111,14 +111,14 @@ procedure main ( a )
     # safely write the file to the current directory.  Our only choice
     # is to abort.
     if match ( "~", dest ) then {
-	write ( &errout, "Please remove ~ from input file begin line." )
+	write ( &errout, "Please remove ~ from input file begin line." );
 	exit ( 4 )
     }
        
-    out := open ( dest, "wu" )
-    decode ( in, out, is_xx )   # decode checks for "end" line
+    out := open ( dest, "wu" );
+    decode ( in, out, is_xx );  # decode checks for "end" line
     if not match ( "end", !in ) then {
-	write ( &errout, "No end line.\n" )
+	write ( &errout, "No end line.\n" );
 	exit ( 5 )
     }
 
@@ -160,7 +160,7 @@ procedure decode(in, out, is_xx)
 	    +-0123456789ABCD_
 	    EFGHIJKLMNOPQRST_
 	    UVWXYZabcdefghij_
-	    klmnopqrstuvwxyz"
+	    klmnopqrstuvwxyz";
 	unpacked := "_
 	    \x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F_
 	    \x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F_
@@ -175,7 +175,7 @@ procedure decode(in, out, is_xx)
 	     !\"#$%&'()*+,-./_
 	    0123456789:;<=>?_
 	    @ABCDEFGHIJKLMNO_
-	    PQRSTUVWXYZ[\\]^_`"
+	    PQRSTUVWXYZ[\\]^_`";
 	unpacked := "_
 	    \x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F_
 	    \x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F_
@@ -183,23 +183,23 @@ procedure decode(in, out, is_xx)
 	    \x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3A\x3B\x3C\x3D\x3E\x3F\x00"
     }
 
-    badchars := ~ coded
+    badchars := ~ coded;
 
     while line := read ( in ) do {
 
 	if *line = 0 then {
-	    write ( &errout, "Short file.\n" )
+	    write ( &errout, "Short file.\n" );
 	    exit ( 10 )
 	}
 
-	line ? while tab ( upto ( badchars ) + 1 ) do oversizes +:= 1
+	line ? while tab ( upto ( badchars ) + 1 ) do oversizes +:= 1;
 
 	map ( line, coded, unpacked ) ? {
-	    n := ord ( move ( 1 ) )
-	    line := tab ( 0 )
+	    n := ord ( move ( 1 ) );
+	    line := tab ( 0 );
 
 	    if not ( *line % 4 = 0, n <= ( ( *line / 4 ) * 3 ) ) then {
-		write ( &errout, "Short and/or corrupt line:\n", line )
+		write ( &errout, "Short and/or corrupt line:\n", line );
 		if /is_xx & oversizes > 0 then
 		    write ( &errout, "Try -x option?" )
 		exit ( 15 )
@@ -229,11 +229,11 @@ procedure repack ( s )
     local n, grp
 
     s ? {
-	s := ""
+	s := "";
 	while grp := move ( 4 ) do
 	    {
-	    n := 0
-	    grp ? while n := ord ( move ( 1 ) ) % 16r40 + ( n * 16r40 )
+	    n := 0;
+	    grp ? while n := ord ( move ( 1 ) ) % 16r40 + ( n * 16r40 );
 
 	    s ||:=
 		char ( ishift ( iand ( n, 16rFF0000 ), -16 ) ) ||

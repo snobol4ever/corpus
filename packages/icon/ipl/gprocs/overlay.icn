@@ -32,10 +32,10 @@ procedure overlay(window, name)
    local pixmap, width, height, x
 
    pixmap := XBind(, , "image=" || name) |
-      stop("*** cannot bind image")
+      stop("*** cannot bind image");
 
-   width := WAttrib(pixmap, "width")
-   height := WAttrib(pixmap, "height")
+   width := WAttrib(pixmap, "width");
+   height := WAttrib(pixmap, "height");
 
    every x := 0 to width - 1 do
       CopyArea(pixmap, window, x, 0, 1, height, x, 0)

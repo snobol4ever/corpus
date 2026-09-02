@@ -40,15 +40,15 @@ procedure main(args)
    local line, file, name, input, i, j, color
 
    WOpen("canvas=hidden", "size=16,16", "bg=black") |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
    every file := !args do {
       input := open(file) | {
-         write(&errout, "*** cannot open ", file)
+         write(&errout, "*** cannot open ", file);
          next
          }
-      name := basename(file, ".clr")
-      EraseArea()
+      name := basename(file, ".clr");
+      EraseArea();
       every i := 0 to 15 do
          every j := 0 to 15 do {
          color := read(input) | break
@@ -58,7 +58,7 @@ procedure main(args)
             }
          DrawPoint(i, j)
          }
-      WriteImage(name || "_p.gif")
+      WriteImage(name || "_p.gif");
       close(input)
       }
 

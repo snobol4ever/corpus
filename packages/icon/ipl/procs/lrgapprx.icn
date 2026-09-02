@@ -25,7 +25,7 @@ procedure lrgapprx(i)
    local head, carry
 
    i ? {
-      head := move(2) | return i
+      head := move(2) | return i;
       if carry := move(1) then {
          if carry > 5 then head +:= 1
          move(-1)

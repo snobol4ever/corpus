@@ -22,7 +22,7 @@
 procedure titleset()
    local titles
 
-   titles := set()
+   titles := set();
 
    every insert(titles,
       "Mr." | "Mrs." | "Ms." | "Dr." | "Prof." |

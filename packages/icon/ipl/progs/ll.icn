@@ -22,15 +22,15 @@
 procedure main()
    local length, max, min
 
-   max := 0
-   min := 2 ^ 31			#  good enough ...
+   max := 0;
+   min := 2 ^ 31;  #  good enough ...
 
    while length := *read() do {
-      max <:= length
+      max <:= length;
       min >:= length
       }
 
-   write(min)
+   write(min);
    write(max)
 
 end

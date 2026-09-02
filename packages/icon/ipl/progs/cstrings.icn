@@ -22,10 +22,10 @@ procedure main(arg)
    local c,f,fn,line,lineNbr,s
    if *arg = 0 then stop("Usage: cstrings file...")
    every fn := !arg do {
-      f := open(fn) | stop("Can't open \"",fn,"\"")
-      lineNbr := 0
+      f := open(fn) | stop("Can't open \"",fn,"\"");
+      lineNbr := 0;
       while line := read(f) do line ? {
-	 lineNbr +:= 1
+	 lineNbr +:= 1;
 	 while tab(upto('/"\'')) do {
 	    case move(1) of {
 	       #
@@ -35,7 +35,7 @@ procedure main(arg)
 	       "/": {
 		  if ="*" then {
 		     while not tab(find("*/") + 2) do {
-			&subject := read(f) | stop("Unexpected EOF in comment")
+			&subject := read(f) | stop("Unexpected EOF in comment");
 			lineNbr +:= 1
 			}
 		     }
@@ -44,15 +44,15 @@ procedure main(arg)
 	       #  String
 	       #
 	       "\"": {
-		  s := "\""
+		  s := "\"";
 		  while s ||:= tab(upto('"\\')) do {
-		     s ||:= c := move(1)
+		     s ||:= c := move(1);
 		     case c of {
 			"\\": {
 			   if not (s ||:= move(1)) then {
 			      s[-1] := ""
 			      &subject := read(f) |
-				    stop("Unexpected EOF in string")
+				    stop("Unexpected EOF in string");
 			      lineNbr +:= 1
 			      }
 			   }
@@ -70,12 +70,12 @@ procedure main(arg)
 	       #
 	       "'": {
 		  while tab(upto('\'\\')) do {
-		     c := move(1)
+		     c := move(1);
 		     case c of {
 			"\\": {
 			   if not move(1) then {
 			      &subject := read(f) |
-				    stop("Unexpected EOF in character constant")
+				    stop("Unexpected EOF in character constant");
 			      lineNbr +:= 1
 			      }
 			   }

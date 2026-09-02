@@ -61,18 +61,18 @@ procedure main(args)
 		seed,	# random number seed
 		show	# show the game memory flag
 
-        randomize()
+        randomize();
 
 	# check if we should show the thought process of a learning game
 	if !args == "show" then show := "yes"
 
 	# define game memory
-	TRIED := table()
+	TRIED := table();
 
 	# if this is a learning game and there's a memory dump read it
 	if *args > 0 & fp := open(".nimdump","r") then {
 		every stick := 1 to 15 do {
-			TRIED[stick] := list(3)
+			TRIED[stick] := list(3);
 			every take := 1 to 3 do
 				TRIED[stick][take] := (read(fp) | "?")
 		}
@@ -83,23 +83,23 @@ procedure main(args)
 	else every stick := 1 to 15 do TRIED[stick] := [ "?", "?", "?" ]
 
 	# start with their turn
-	turn := "theirs"
+	turn := "theirs";
 
 	# print the initial message
-	write("\nThis is the game of nim.  You must pick up 1, 2 or 3")
-	write("sticks from the pile when it's your turn.  The player")
-	write("that picks up the last stick(s) wins.  Good luck.")
+	write("\nThis is the game of nim.  You must pick up 1, 2 or 3");
+	write("sticks from the pile when it's your turn.  The player");
+	write("that picks up the last stick(s) wins.  Good luck.");
 
 	# loop
 	repeat {
 
 		# initialize the per game variables
-		STICKS := 15
-		THEIRS := table()
-		MINE := table()
+		STICKS := 15;
+		THEIRS := table();
+		MINE := table();
 
 		# display the initial stick pile
-		dispile()
+		dispile();
 
 		# loop while there are sticks left
 		while STICKS > 0 do
@@ -118,7 +118,7 @@ procedure main(args)
 		if *args > 0 then learn(turn,show)
 
 		# see if they want to play again
-		writes("\nDo you want to play again? ")
+		writes("\nDo you want to play again? ");
 		if not any('yY',read()) then quit(args,"\nGoodbye.\n")
 	}
 end
@@ -128,8 +128,8 @@ procedure theirturn(args)
 	local	pick	# the players pick
 
 	# find out how many sticks they want
-	writes("How many sticks do you want? ")
-	pick := read()
+	writes("How many sticks do you want? ");
+	pick := read();
 
 	# check their response to see if they want to quit
 	if any('qQ',pick) then quit(args,"\nYou gave up!\n")
@@ -142,7 +142,7 @@ procedure theirturn(args)
 	if *args > 0 then THEIRS[STICKS] := pick
 
 	# take away the sticks
-	STICKS -:= pick
+	STICKS -:= pick;
 
 	# if there are any sticks left display them
 	if STICKS > 0 then dispile()
@@ -156,13 +156,13 @@ procedure myturn(args)
 	local	pick	# my pick
 
 	# let them know I'm about to pick
-	writes("I'll take ")
+	writes("I'll take ");
 
 	# make my choice depending on whether or not this is a thinking game
 	if *args > 0 then {
 
 		# think about it
-		pick := thinkpick(STICKS)
+		pick := thinkpick(STICKS);
 
 		# if I can't make up my mind randomly pick one choice
 		if type(pick) == "list" then pick := ?pick
@@ -172,10 +172,10 @@ procedure myturn(args)
 	} else	pick := algorpick(STICKS)
 
 	# tell them what I decided
-	write((1 < pick) || " sticks." | "1 stick.")
+	write((1 < pick) || " sticks." | "1 stick.");
 
 	# take away the sticks
-	STICKS -:= pick
+	STICKS -:= pick;
 
 	# if there are any sticks left display them
 	if STICKS > 0 then dispile()
@@ -185,7 +185,7 @@ procedure myturn(args)
 end
 
 procedure dispile()
-	write()
+	write();
 	every 1 to STICKS do writes("/ ")
 	write("\n")
 end
@@ -214,7 +214,7 @@ procedure thinkpick(sticks,recurse)
 		pick	# my pick
 
 	# initialize a list of unknown picks
-	picks := []
+	picks := [];
 
 	# check every possible pick
 	every take := 1 to 3 do {
@@ -232,7 +232,7 @@ procedure thinkpick(sticks,recurse)
 	# be smarter and check to see if there is a clear win for THEM
 	# after any of the picks left
 	if /recurse then {
-		check := []
+		check := [];
 		every pick := !picks do
 			if type(thinkpick(0 < (sticks - pick),1)) == "list" then
 				put(check,pick)
@@ -272,9 +272,9 @@ procedure learn(turn,show)
 
 	# if the show flag is set print the program's game memory
 	if \show then {
-		writes("\n               picks\n          ")
+		writes("\n               picks\n          ");
 		every writes(center(1 to 3,5))
-		write("\n         ----------------")
+		write("\n         ----------------");
 		every stick := 15 to 1 by -1 do {
 			if stick = 8 then
 				writes("sticks ",right(stick,2),"|")
@@ -305,7 +305,7 @@ procedure quit(args,msg)
 		stick,	# sticks index
 		take	# take index
 
-	write(msg)
+	write(msg);
 
 	if !args == "save" then
 		if fp := open(".nimdump","w") then {

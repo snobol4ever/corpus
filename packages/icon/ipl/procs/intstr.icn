@@ -28,9 +28,9 @@
 
 procedure intstr(i,size)
    local s
-   s := ""
+   s := "";
    every 1 to size do {
-      s := char(iand(i,16rFF)) || s
+      s := char(iand(i,16rFF)) || s;
       i := ishift(i,-8)
       }
    return s

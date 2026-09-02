@@ -29,17 +29,17 @@ procedure main(arg)
    local c, comment, line, tline
 
    while line := trim(read(),' \t') do line ? {
-      line := comment := ""
+      line := comment := "";
       while line ||:= tab(upto('\'"/=-')) do {
 	 case c := move(1) of {
 	    "\"" | "'": {
-	       line ||:= c
+	       line ||:= c;
 	       repeat {
 		  until line ||:= tab(find(c) + 1) do {
-		     line ||:= tab(0)
+		     line ||:= tab(0);
 		     if line[-1] == "\\" then line[-1] := "_"
 		     else stop("unbalanced quotes")
-		     Out(line)
+		     Out(line);
 		     line := ""
 		     &subject := read()
 		     }
@@ -49,8 +49,8 @@ procedure main(arg)
 	    "/": {
 	       if ="*" then {
 		  until comment ||:= trim(tab(find("*/")),' \t') do {
-		     comment ||:= trim(tab(0),' \t')
-		     Out(line,comment)
+		     comment ||:= trim(tab(0),' \t');
+		     Out(line,comment);
 		     line := comment := ""
 		     &subject := trim(read(),' \t')
 		     }
@@ -69,8 +69,8 @@ procedure main(arg)
 	    default: line ||:= c
 	    }
 	 }
-      line ||:= tab(0)
-      tline := trim(line)
+      line ||:= tab(0);
+      tline := trim(line);
       if tline[-1] == ";" then {
 	 line := tline[1:-1] || line[*tline + 1:0]
 	 }
@@ -80,8 +80,8 @@ end
 
 
 procedure Out(line,comment)
-   line ||:= "#" || ("" ~== \comment)
-   line := trim(line,' \t')
+   line ||:= "#" || ("" ~== \comment);
+   line := trim(line,' \t');
    write(line)
    return
 end

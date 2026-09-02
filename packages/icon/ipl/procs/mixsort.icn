@@ -30,8 +30,8 @@
 procedure mixsort(T, i)		#: mixed-case string sorting
    local xcase, x, y, temp, j
 
-   xcase := table()		# key-mapping table
-   temp := table()		# parallel table
+   xcase := table();  # key-mapping table
+   temp := table();  # parallel table
 
    if i = (2 | 4) then return sort(T, i)	# doesn't apply
 						# (could do values ...)
@@ -39,11 +39,11 @@ procedure mixsort(T, i)		#: mixed-case string sorting
    every x := key(T) do {	# map keys
       if type(x) == "string" then y := map(x)	# only transform strings
          else y := x
-      temp[y] := T[x]		# lowercase table
+      temp[y] := T[x];  # lowercase table
       xcase[y] := x		# key mapping
       }
 
-   temp := sort(temp, i)	# basic sort on lowercase table
+   temp := sort(temp, i);  # basic sort on lowercase table
 
    if i = 3 then {
       every j := 1 to *temp - 1 by 2 do

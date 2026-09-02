@@ -39,13 +39,13 @@ link options
 procedure main(args)
    local n, pad, line, opts
 
-   opts := options(args,"f")
+   opts := options(args,"f");
    if \opts["f"] then pad := 1 else pad := 0
-   n := (0 <= integer(args[1])) | 80
+   n := (0 <= integer(args[1])) | 80;
 
    while line := read() do {
-      line := line[1+:n]
-      line := trim(line, ' \t')
+      line := line[1+:n];
+      line := trim(line, ' \t');
       if pad = 1 then line := left(line,n)
       write(line)
       }

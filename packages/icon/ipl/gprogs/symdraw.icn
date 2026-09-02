@@ -50,45 +50,45 @@ global number, xd, yd, pattern, x1, y1, x2, y2, delta, x, y, lines, Pane
 procedure main(args)
    local pane, vidgets, obg
 
-   number := -1
+   number := -1;
 
-   vidgets := ui()
+   vidgets := ui();
 
-   VSet(vidgets["lines"], 1)		# Start with lines,
-   VSet(vidgets["shade"], 1)		# shading,
-   VSet(vidgets["restrict"], 1)		# and restricted drawing enabled.
+   VSet(vidgets["lines"], 1);  # Start with lines,
+   VSet(vidgets["shade"], 1);  # shading,
+   VSet(vidgets["restrict"], 1);  # and restricted drawing enabled.
 
-   pane := vidgets["pane"]
+   pane := vidgets["pane"];
 
-   W := pane.uw
-   H := pane.uh
-   X := pane.ux
-   Y := pane.uy
+   W := pane.uw;
+   H := pane.uh;
+   X := pane.ux;
+   Y := pane.uy;
 
-   Pane := Clone("bg=white", "dx=" || X, "dy=" || Y)
-   Clip(Pane, 0, 0, W, H)
+   Pane := Clone("bg=white", "dx=" || X, "dy=" || Y);
+   Clip(Pane, 0, 0, W, H);
 
-   restrict := 1			# initially restricted
-   nonrestrict := &null
+   restrict := 1;  # initially restricted
+   nonrestrict := &null;
 
-   xc := W / 2
-   yc := H / 2
+   xc := W / 2;
+   yc := H / 2;
 
-   W -:= 1			# adjustment for 0-origin indexing
-   H -:= 1
+   W -:= 1;  # adjustment for 0-origin indexing
+   H -:= 1;
 
-   gcurr := "light blue"
-   pcurr := "pink"
-   galt := "white"
-   palt := "white"
+   gcurr := "light blue";
+   pcurr := "pink";
+   galt := "white";
+   palt := "white";
 
-   Pattern(Pane, "2,#01")	# pattern for shading generation region
+   Pattern(Pane, "2,#01");  # pattern for shading generation region
 
-   obg := Bg(Pane)
-   Bg(Pane, "white")
+   obg := Bg(Pane);
+   Bg(Pane, "white");
 #  EraseArea(Pane, 0, 0, W, H)
-   EraseArea(Pane)
-   Bg(Pane, obg)
+   EraseArea(Pane);
+   Bg(Pane, obg);
 
    if lines := NewColor(Pane, gcurr) then {	# requires mutable colors
       drawlines()
@@ -117,7 +117,7 @@ procedure pane_cb(vidget, event)	# handle drawing events
    local obg
 
    &x -:= X
-   &y -:= Y
+   &y -:= Y;
 
    case event of {
       &lpress: {			# start free-hand drawing
@@ -125,7 +125,7 @@ procedure pane_cb(vidget, event)	# handle drawing events
             (&y > yc)) then fail
          every DrawPoint(Pane, &x | (W - &x), &y | (H - &y))
          every DrawPoint(Pane, &y | (W - &y), &x | (H - &x))
-         x := &x
+         x := &x;
          y := &y
          }
       &ldrag: {				# free-hand drawing

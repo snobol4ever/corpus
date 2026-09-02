@@ -41,17 +41,17 @@ link xcode
 procedure main(args)
    local draft, win, opts
 
-   opts := options(args, "n:")
+   opts := options(args, "n:");
 
-   isd			# hands off, linker!
+   isd;  # hands off, linker!
 
-   draft := xdecode(&input) | stop("*** cannot decode draft")
+   draft := xdecode(&input) | stop("*** cannot decode draft");
 
    draft.name := \opts["n"]
 
-   &dump := 1
+   &dump := 1;
    win := plot(draft, "clip") | stop("*** plot() failed")
-   &dump := 0
+   &dump := 0;
 
    WriteImage(win, draft.name || "_d.gif")
 

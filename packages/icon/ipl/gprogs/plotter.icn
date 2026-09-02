@@ -45,24 +45,24 @@ global vidgets
 
 procedure main()
 
-   vidgets := ui()
-   root := vidgets["root"]
+   vidgets := ui();
+   root := vidgets["root"];
 
-   VSetItems(vidgets["coords"], filelist("*.crd"))
-   VSetState(vidgets["plane"], "xy")
+   VSetItems(vidgets["coords"], filelist("*.crd"));
+   VSetState(vidgets["plane"], "xy");
 
-   size := vidgets["pane"].uw
-   half := size / 2
+   size := vidgets["pane"].uw;
+   half := size / 2;
 
    pane := Clone("bg=white", "dx=" || (vidgets["pane"].ux + half),
-      "dy=" || (vidgets["pane"].uy + half))
-   Clip(pane, -half, -half, size, size)
+      "dy=" || (vidgets["pane"].uy + half));
+   Clip(pane, -half, -half, size, size);
 
-   EraseArea(pane, -half, -half, size, size)
+   EraseArea(pane, -half, -half, size, size);
 
-   scale := 10
-   h_off := 0
-   v_off := 0
+   scale := 10;
+   h_off := 0;
+   v_off := 0;
 
    GetEvents(root, , shortcuts)
 
@@ -76,7 +76,7 @@ procedure offset_cb()
       if h_off <- integer(dialog_value[1]) &
          v_off <- integer(dialog_value[2]) then break
       else {
-         Notice("Nonnumeric offset value.")
+         Notice("Nonnumeric offset value.");
          next
          }
       }
@@ -91,7 +91,7 @@ procedure scale_cb()
       if TextDialog("Set scale:", , scale, 5) == "Cancel" then fail
       if scale := integer(dialog_value[1]) then break
       else {
-         Notice("Nonnumeric scale value.")
+         Notice("Nonnumeric scale value.");
          next
          }
       }
@@ -117,11 +117,11 @@ procedure coord_cb(vidget, value)
    local input
 
    input := open(value) | {
-      Notice("Cannot open " || image(value) || ".")
+      Notice("Cannot open " || image(value) || ".");
       fail
       }
 
-   coords := []
+   coords := [];
 
    every put(coords, coord2pt(!input))
 

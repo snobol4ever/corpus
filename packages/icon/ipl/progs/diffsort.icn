@@ -32,8 +32,8 @@ global dlines	# diff lines
 ##  main program
 
 procedure main(args)
-   clines := []
-   dlines := []
+   clines := [];
+   dlines := [];
 
    if *args > 0 then
       every dofile(!args)
@@ -55,7 +55,7 @@ procedure dofile(fname)
    else
       f := open(fname) | stop("can't open ", fname)
 
-   separator := "\n\n" || repl("=", 78) || "\n\n"
+   separator := "\n\n" || repl("=", 78) || "\n\n";
 
    every !f ? {
       if any(&ucase) then

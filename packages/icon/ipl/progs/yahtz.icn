@@ -46,8 +46,8 @@ link random
 
 global players,slot,team,d,od,dice,round
 procedure main(param)
-  paint()
-  assign_players()
+  paint();
+  assign_players();
   every round := 1 to 13 do
     every play(!team)
   summarize()
@@ -58,15 +58,15 @@ procedure main(param)
 #
 procedure paint()
   # Clear first, separately.  Screws up on some terminals of you don't.
-  writes(cls())
+  writes(cls());
   # Check to be sure the terminal is big enough, and won't leave magic
   # cookies on the screen.  -RLG
   if getval("ug"|"sg") > 0
   then stop("abort:  Can't do magic cookie terminals!") 
   if getval("li") < 24 | getval("co") < 80 then
     stop("abort:  Your terminal is too small!")
-  write(high(uhalf("             Y A H T Z E E              ")))
-  write(high(lhalf("             Y A H T Z E E              ")))
+  write(high(uhalf("             Y A H T Z E E              ")));
+  write(high(lhalf("             Y A H T Z E E              ")));
   write(at(1,10),graf(repl("=",75)))
   end
 
@@ -77,10 +77,10 @@ procedure summarize()
   local player, card, top, bottom, i
 
   # blink, high, inverse was just too much for my terminal to handle -RLG
-  write(at(1,11), high(chop("Final Score Summary")))
+  write(at(1,11), high(chop("Final Score Summary")));
   every player := key(players) do
     {
-    card := players[player]
+    card := players[player];
     top  := 0 ; every i := 1 to 6 do top +:= card[i]
     if top > 62 then top +:= 35
     bottom := 0 ; every i := 7 to 13 do bottom +:= card[i]
@@ -97,32 +97,32 @@ procedure summarize()
 procedure assign_players()
   local n, player
 
-  n := 1 ; team := [] ; slot := [] ; d := list(6,"") ; od := list(5,0)
-  randomize()
-  players := table("n/a")
+  n := 1 ; team := [] ; slot := [] ; d := list(6,"") ; od := list(5,0);
+  randomize();
+  players := table("n/a");
   repeat
     {
     (player := input(("Name of player #" || n || ": "))) |
-      stop("Game called off.")
+      stop("Game called off.");
     if player == "" then break
     n +:= 1
-    put(team,player)
+    put(team,player);
     players[player] := list(13,"*")
     }
   if n = 1 then stop("Nobody wants to play!")
 
-  put(slot,"Ones")   ; put(slot,"Twos")  ; put(slot,"Threes")
-  put(slot,"Fours")  ; put(slot,"Fives") ; put(slot,"Sixes")
-  put(slot,"3oK")    ; put(slot,"4oK")   ; put(slot,"FullH")
-  put(slot,"SmStr")  ; put(slot,"LgStr") ; put(slot,"Yahtzee")
-  put(slot,"Chance")
+  put(slot,"Ones")   ; put(slot,"Twos")  ; put(slot,"Threes");
+  put(slot,"Fours")  ; put(slot,"Fives") ; put(slot,"Sixes");
+  put(slot,"3oK")    ; put(slot,"4oK")   ; put(slot,"FullH");
+  put(slot,"SmStr")  ; put(slot,"LgStr") ; put(slot,"Yahtzee");
+  put(slot,"Chance");
 
   # VT-specific characters removed.  -RLG
-  d[1] := "+-----+|     ||  o  ||     |+-----+"
-  d[2] := "+-----+|     || o o ||     |+-----+"
-  d[3] := "+-----+|o    ||  o  ||    o|+-----+"
-  d[4] := "+-----+|o   o||     ||o   o|+-----+"
-  d[5] := "+-----+|o   o||  o  ||o   o|+-----+"
+  d[1] := "+-----+|     ||  o  ||     |+-----+";
+  d[2] := "+-----+|     || o o ||     |+-----+";
+  d[3] := "+-----+|o    ||  o  ||    o|+-----+";
+  d[4] := "+-----+|o   o||     ||o   o|+-----+";
+  d[5] := "+-----+|o   o||  o  ||o   o|+-----+";
   d[6] := "+-----+|o o o||     ||o o o|+-----+"
   end
 
@@ -132,28 +132,28 @@ procedure assign_players()
 procedure play(name)
   local shake, select
 
-  writes(at(1,11),"It's ",high(name),"'s turn",chop())
-  writes(at(1,getval("li")-1),high(name))
-  input(", please press <RETURN> to begin.")
-  score(name)
+  writes(at(1,11),"It's ",high(name),"'s turn",chop());
+  writes(at(1,getval("li")-1),high(name));
+  input(", please press <RETURN> to begin.");
+  score(name);
   dice := [] ; every 1 to 5 do put(dice,?6)
-  depict()
+  depict();
   shake := obtain("Shake which ones : ")
-  (shake === []) | (every dice[!shake] := ?6)
-  depict()
+  (shake === []) | (every dice[!shake] := ?6);
+  depict();
   shake := obtain("Shake which ones (last chance) : ")
-  (shake === []) | (every dice[!shake] := ?6)
-  depict()
+  (shake === []) | (every dice[!shake] := ?6);
+  depict();
   repeat
     {
-    select := input(at(1,22) || clip("Tally to which category (1-13) : "))
+    select := input(at(1,22) || clip("Tally to which category (1-13) : "));
     numeric(select)                | next
     (1 <= select <= 13)            | next
-    (players[name][select] == "*") | next
+    (players[name][select] == "*") | next;
     break
     }
-  tally(name,select)
-  score(name)
+  tally(name,select);
+  score(name);
   input(at(1,22) || clip("Press <RETURN>"))
   end
 
@@ -165,12 +165,12 @@ procedure depict()
 
   every i := 1 to 5 do
     {
-    x := 1
-    writes(at(i*10+3,3),inverse(i))
-    writes(at(i*10+4,9),inverse(dice[i]))  
+    x := 1;
+    writes(at(i*10+3,3),inverse(i));
+    writes(at(i*10+4,9),inverse(dice[i]));
     every j := 4 to 8 do
       {				   # debug
-      writes(at(i*10,j),graf(d[dice[i]][x:x+7]))
+      writes(at(i*10,j),graf(d[dice[i]][x:x+7]));
       x +:= 7
       }
     od[i] := dice[i]
@@ -210,7 +210,7 @@ procedure tally(name,area)
         players[name][6] := sum
         }
     7 : {                        # 3 of a kind
-        sum := 0 ; flag := 0
+        sum := 0 ; flag := 0;
         tmp := table(0) ; every unit := !dice do tmp[unit] +:= 1
         every piece := key(tmp) do
           if tmp[piece] >= 3 then flag := 1
@@ -218,7 +218,7 @@ procedure tally(name,area)
         players[name][7] := sum
         }
     8 : {                        # four of a kind
-        sum := 0 ; flag := 0
+        sum := 0 ; flag := 0;
         tmp := table(0) ; every unit := !dice do tmp[unit] +:= 1
         every piece := key(tmp) do
           if tmp[piece] >= 4 then flag := 1
@@ -226,7 +226,7 @@ procedure tally(name,area)
         players[name][8] := sum
         }
     9 : {                        # full house
-        sum := 0 ; flag := 0
+        sum := 0 ; flag := 0;
         tmp := table(0) ; every unit := !dice do tmp[unit] +:= 1
         every piece := key(tmp) do
           {
@@ -237,9 +237,9 @@ procedure tally(name,area)
         players[name][9] := sum
         }
    10 : {                        # small straight
-        sum  := 0 ; flag := 0
+        sum  := 0 ; flag := 0;
         hold := set() ; every insert(hold,!dice)
-        tmp  := sort(hold)
+        tmp  := sort(hold);
         if tmp[1]+1 = tmp[2] &
            tmp[2]+1 = tmp[3] &
            tmp[3]+1 = tmp[4] then flag := 1
@@ -250,8 +250,8 @@ procedure tally(name,area)
         players[name][10] := sum
         }
    11 : {                        # large straight
-        sum := 0 ; flag := 0  
-        tmp := sort(dice)
+        sum := 0 ; flag := 0;
+        tmp := sort(dice);
         if tmp[1]+1 = tmp[2] &
            tmp[2]+1 = tmp[3] &
            tmp[3]+1 = tmp[4] &
@@ -260,7 +260,7 @@ procedure tally(name,area)
         players[name][11] := sum
         }
    12 : {                        # yahtzee
-        sum := 0 ; flag := 0
+        sum := 0 ; flag := 0;
         tmp := table(0) ; every unit := !dice do tmp[unit] +:= 1
         every piece := key(tmp) do
           if tmp[piece] = 5 then flag := 1
@@ -283,10 +283,10 @@ procedure obtain(prompt)
   repeat
     {
     writes(at(1,22),prompt)
-    (line := read()) | next
+    (line := read()) | next;
     if match("q",map(line)) then stop("Game Quit")
     if trim(line) == "" then return []
-    units := parse(line,', \t')
+    units := parse(line,', \t');
     every unit := !units do
       (1 <= unit <= 5) | next
     break
@@ -301,26 +301,26 @@ procedure score(name)
   local st1, st2, i, bonus
 
   # Slight realignment.  -RLG
-  writes(at(1,11),chop(),at(18,11),under(),"Player = ",name,"     Round = ",under(round))
-  writes(at(10,12)," 1 : Ones    = ",players[name][1])
-  writes(at(10,13)," 2 : Twos    = ",players[name][2])
-  writes(at(10,14)," 3 : Threes  = ",players[name][3])
-  writes(at(10,15)," 4 : Fours   = ",players[name][4])
-  writes(at(10,16)," 5 : Fives   = ",players[name][5])
-  writes(at(10,17)," 6 : Sixes   = ",players[name][6])
-  writes(at(40,12)," 7 : 3oK     = ",players[name][7])
-  writes(at(40,13)," 8 : 4oK     = ",players[name][8])
-  writes(at(40,14)," 9 : FullH   = ",players[name][9])
-  writes(at(40,15),"10 : SmStr   = ",players[name][10])
-  writes(at(40,16),"11 : LgStr   = ",players[name][11])
-  writes(at(40,17),"12 : Yahtzee = ",players[name][12])
-  writes(at(40,18),"13 : Chance  = ",players[name][13])
+  writes(at(1,11),chop(),at(18,11),under(),"Player = ",name,"     Round = ",under(round));
+  writes(at(10,12)," 1 : Ones    = ",players[name][1]);
+  writes(at(10,13)," 2 : Twos    = ",players[name][2]);
+  writes(at(10,14)," 3 : Threes  = ",players[name][3]);
+  writes(at(10,15)," 4 : Fours   = ",players[name][4]);
+  writes(at(10,16)," 5 : Fives   = ",players[name][5]);
+  writes(at(10,17)," 6 : Sixes   = ",players[name][6]);
+  writes(at(40,12)," 7 : 3oK     = ",players[name][7]);
+  writes(at(40,13)," 8 : 4oK     = ",players[name][8]);
+  writes(at(40,14)," 9 : FullH   = ",players[name][9]);
+  writes(at(40,15),"10 : SmStr   = ",players[name][10]);
+  writes(at(40,16),"11 : LgStr   = ",players[name][11]);
+  writes(at(40,17),"12 : Yahtzee = ",players[name][12]);
+  writes(at(40,18),"13 : Chance  = ",players[name][13]);
   st1 := 0 ; every i := 1 to 6 do st1 +:= numeric(players[name][i])
   if st1 > 62 then bonus := 35 else bonus := 0
   st2 := 0 ; every i := 7 to 13 do st2 +:= numeric(players[name][i])
-  writes(at(10,19),"Bonus = ",clip(bonus))
-  writes(at(10,20),"Subtotal = ",st1+bonus)
-  writes(at(40,20),"Subtotal = ",st2)
+  writes(at(10,19),"Bonus = ",clip(bonus));
+  writes(at(10,20),"Subtotal = ",st1+bonus);
+  writes(at(40,20),"Subtotal = ",st2);
   writes(at(37,21),"Grand Total = ",st1+st2+bonus)
   end
 
@@ -374,7 +374,7 @@ procedure uhalf(str)
     }
   if \isVT then
     {
-    /str := ""
+    /str := "";
     if str == "" then return "\e#3"
     return "\e#3" || str
     }
@@ -392,7 +392,7 @@ procedure lhalf(str)
     }
   if \isVT then
     {
-    /str := ""
+    /str := "";
     if str == "" then return "\e#4"
     return "\e#4" || str
     }
@@ -407,7 +407,7 @@ procedure clip(str)
     {
     clear_line := getval("ce") | "                "
     }
-  /str := ""
+  /str := "";
   if str == "" then return clear_line
   return str ||:= clear_line
   end
@@ -419,7 +419,7 @@ procedure high(str)
   static bold_code, off_other_modes
   initial
     {
-    off_other_modes := ""
+    off_other_modes := "";
     every off_other_modes ||:= getval("me"|"ue"|"se")
     bold_code := off_other_modes || getval("md"|"us"|"so")
     }
@@ -434,7 +434,7 @@ procedure inverse(str)
   static reverse_code, off_other_modes
   initial
     {
-    off_other_modes := ""
+    off_other_modes := "";
     every off_other_modes ||:= getval("se"|"ue"|"me")
     reverse_code := off_other_modes || getval("so"|"us"|"md")
     }
@@ -449,7 +449,7 @@ procedure under(str)
   static underline_code, off_other_modes
   initial
     {
-    off_other_modes := ""
+    off_other_modes := "";
     every off_other_modes ||:= getval("ue"|"me"|"se")
     underline_code := off_other_modes || getval("us"|"md"|"so")
     }
@@ -464,7 +464,7 @@ procedure blink(str)
   static blink_code, off_other_modes
   initial
     {
-    off_other_modes := ""
+    off_other_modes := "";
     every off_other_modes ||:= getval("me"|"se"|"ue")
     blink_code := off_other_modes || getval("mb"|"md"|"so"|"us")
     }
@@ -479,7 +479,7 @@ procedure norm(str)
   static off_modes
   initial
     {
-    off_modes := ""
+    off_modes := "";
     every off_modes ||:= getval("me"|"se"|"ue")
     }
   /str := ""
@@ -497,11 +497,11 @@ procedure graf(str)
     if map(getname()) ? (tab(find("vt")+2), tab(any('234')), integer(tab(0)))
     then isVT := 1
     }
-  /str := ""
+  /str := "";
   if \isVT then
     {
     if str == "" then return "\e(0"
-    str := "\e(0" || str
+    str := "\e(0" || str;
     if (str[-3:0] == "\e(B")
       then return str
       else return str || "\e(B"
@@ -519,7 +519,7 @@ procedure nograf(str)
     if map(getname()) ? (tab(find("vt")+2), tab(any('234')), integer(tab(0)))
     then isVT := 1
     }
-  /str := ""
+  /str := "";
   if \isVT then
     {
     if str == "" then return "\e(B"
@@ -543,9 +543,9 @@ procedure at(x,y)
 procedure parse(line,delims)
   local i, tokens
   static chars
-  chars  := &cset -- delims
-  tokens := []
-  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)))
+  chars  := &cset -- delims;
+  tokens := [];
+  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)));
   #
   # My first time playing, I didn't put spaces between the numbers
   # for the dice.  When you think about it, though, why bother?
@@ -555,7 +555,7 @@ procedure parse(line,delims)
   #
   if *!tokens > 1 then line ?
     {
-    tokens := []
+    tokens := [];
     if tab(upto(&digits)) then
       {
       while put(tokens, move(1)) do

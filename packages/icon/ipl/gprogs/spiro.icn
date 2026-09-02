@@ -50,15 +50,15 @@ global Window, XMAX, YMAX
 procedure main (args)
     local a, b, k, t1, t2, N, arg, use_epi, t, alist
 
-    XMAX := YMAX := 700                 # physical screen size
-    w := h := 350.0
+    XMAX := YMAX := 700;  # physical screen size
+    w := h := 350.0;
    
-    a := 100.0
-    b := 5.0
-    k := 20.0
-    t1 := 0.0
-    t2 := 1.0				# only roll around once.
-    N := 500
+    a := 100.0;
+    b := 5.0;
+    k := 20.0;
+    t1 := 0.0;
+    t2 := 1.0;  # only roll around once.
+    N := 500;
 
     while arg := get(args) do {
        case arg of {
@@ -73,18 +73,18 @@ procedure main (args)
           }
        }
 
-    win := WOpen("label=Spirograph", "width="||XMAX, "height="||YMAX)
-    mono := WAttrib (win, "depth") == "1"
+    win := WOpen("label=Spirograph", "width="||XMAX, "height="||YMAX);
+    mono := WAttrib (win, "depth") == "1";
     Window := set_window(win, point(-w,-h), point(w,h),
-                  viewport(point(0,0), point(XMAX, YMAX), win))
+                  viewport(point(0,0), point(XMAX, YMAX), win));
 
-    EraseArea(win)
+    EraseArea(win);
 
-    t := turtle(Window, point(w/2, h/2), 0, create |"red")
+    t := turtle(Window, point(w/2, h/2), 0, create |"red");
 
     # build list of arguments to pass to parametric equations
     #    (same list for both x and y equations here)
-    alist := [a,b,k]
+    alist := [a,b,k];
 
     if \use_epi then
        draw_curve(t,epi_x,alist,epi_y,alist,t1,t2,N)
@@ -93,7 +93,7 @@ procedure main (args)
         
 
     # sit and wait for an event on the window.
-    Event(win)
+    Event(win);
     close(win)
 end
 
@@ -134,15 +134,15 @@ procedure hypo_y(t,a[])
 end
 
 procedure helpmsg()
-   write("Usage: Spiro [-a r] [-b r] [-k r] [-t1 r] [-t2 r] [-N n] [-epi]")
-   write()
-   write("where:")
-   write("\t-a r	- radius of center circle {default 100}")
-   write("\t-b r	- radius of moving circle {5}")
-   write("\t-k r	- distance of pen from center of moving circle {20}")
-   write("\t-t1 r	- initial value for parameter {0.0}")
-   write("\t-t2 r	- final value for parameter {1.0 (one revolutio)}")
-   write("\t-N n	- number of intervals to draw {500}")
-   write("\t-epi	- use epitrochoid instead of hypotrochoid")
+   write("Usage: Spiro [-a r] [-b r] [-k r] [-t1 r] [-t2 r] [-N n] [-epi]");
+   write();
+   write("where:");
+   write("\t-a r	- radius of center circle {default 100}");
+   write("\t-b r	- radius of moving circle {5}");
+   write("\t-k r	- distance of pen from center of moving circle {20}");
+   write("\t-t1 r	- initial value for parameter {0.0}");
+   write("\t-t2 r	- final value for parameter {1.0 (one revolutio)}");
+   write("\t-N n	- number of intervals to draw {500}");
+   write("\t-epi	- use epitrochoid instead of hypotrochoid");
    stop()
 end

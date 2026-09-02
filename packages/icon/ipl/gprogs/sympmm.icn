@@ -41,20 +41,20 @@ procedure main(args)
    local name, base, win1, win2, win3, win4, win5
 
    every name := !args do {
-      base := basename(name, ".gif")
+      base := basename(name, ".gif");
       win1 := WOpen("canvas=hidden", "image=" || name) | {
-         write(&errout, "*** cannot open ", name)
+         write(&errout, "*** cannot open ", name);
          next
          }
-      win2 := wreflect(win1, "v")
-      win3 := wcatenate(win1, win2, "h")
-      WClose(win1)
-      WClose(win2)
-      win4 := wreflect(win3, "h")
-      win5 := wcatenate(win3, win4, "v")
-      WClose(win3)
-      WClose(win4)
-      WriteImage(win5, base || "_pmm.gif")
+      win2 := wreflect(win1, "v");
+      win3 := wcatenate(win1, win2, "h");
+      WClose(win1);
+      WClose(win2);
+      win4 := wreflect(win3, "h");
+      win5 := wcatenate(win3, win4, "v");
+      WClose(win3);
+      WClose(win4);
+      WriteImage(win5, base || "_pmm.gif");
       WClose(win5)
       }
 

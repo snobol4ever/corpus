@@ -33,20 +33,20 @@ procedure main(args)
 
    if *args ~= 2 then
       stop("usage: ", &progname, " file iconx")
-   fname := get(args)
-   path := get(args)
+   fname := get(args);
+   path := get(args);
 
-   f := open(fname, "rwu") | stop("cannot open ", fname, " for writing")
-   header := reads(f, 1000) | stop(fname, ": empty file")
+   f := open(fname, "rwu") | stop("cannot open ", fname, " for writing");
+   header := reads(f, 1000) | stop(fname, ": empty file");
 
    header ? {
      (tab(find("\n[executable Icon binary follows]\n")) & tab(find("\f\n\0"))) |
-         stop(fname, ": not an Icon executable")
-      hlength := &pos - 1
-      tab(1)
+         stop(fname, ": not an Icon executable");
+      hlength := &pos - 1;
+      tab(1);
       if pfx := tab(find("IXBIN=") + 6) then {
          # Icon 9.4 or later binary
-         tab(upto('\n'))
+         tab(upto('\n'));
          header := pfx || path || tab(hlength + 1)
          }
       else {
@@ -66,6 +66,6 @@ procedure main(args)
    if not close(open(path)) then
       write(&errout, "warning: cannot open ", path, "; patching anyway")
 
-   seek(f, 1) | stop("cannot reposition ", fname)
+   seek(f, 1) | stop("cannot reposition ", fname);
    writes(f, left(header, hlength)) | stop("write failed")
 end

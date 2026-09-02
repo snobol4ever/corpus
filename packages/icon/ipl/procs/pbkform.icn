@@ -88,9 +88,9 @@ record pbk_data(name,number,address)
 
 procedure pbk_write_data(f,data)
    local name,number,address
-   name := \data.name | ""
-   number := \data.number | ""
-   address := \data.address | ""
+   name := \data.name | "";
+   number := \data.number | "";
+   address := \data.address | "";
    writes(f,"\x01",bk_int(*name + *number + *address + 4),char(*name),
 	 char(*number),bk_int(*address),name,number,address)
    return data

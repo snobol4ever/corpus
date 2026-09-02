@@ -36,26 +36,26 @@ link wopen
 procedure main(argl)
    local i, j, k, angle, incr, size, radius, xc, yc, points
 
-   i := integer(argl[1]) | 20
+   i := integer(argl[1]) | 20;
 
-   size := 300
-   radius := size / 2
-   xc := yc := size / 2
+   size := 300;
+   radius := size / 2;
+   xc := yc := size / 2;
 
    WOpen("label=mandala", "width=" || size, "height=" || size) |
-      stop("*** cannot open window")
+      stop("*** cannot open window");
 
-   points := list(i)
+   points := list(i);
 
-   angle := 0.0
-   incr := 2 * &pi / i
+   angle := 0.0;
+   incr := 2 * &pi / i;
 
    every j := 1 to i do {
-      points[j] := Point(xc + radius * cos(angle), yc + radius * sin(angle))
+      points[j] := Point(xc + radius * cos(angle), yc + radius * sin(angle));
       angle +:= incr
       }
 
-   joinpair(points, points)
+   joinpair(points, points);
 
    Event()
 

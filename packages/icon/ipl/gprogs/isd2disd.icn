@@ -28,13 +28,13 @@ link xcode
 procedure main()
    local draft
 
-   isd				# fly a kite, linker
+   isd;  # fly a kite, linker
 
-   draft := xdecode(&input)
+   draft := xdecode(&input);
 
-   draft.warp_colors := list(*draft.threading, 1)	# black
-   draft.weft_colors := list(*draft.treadling, 2)	# white
-   draft.color_list := [ColorValue("black"), ColorValue("white")]
+   draft.warp_colors := list(*draft.threading, 1);  # black
+   draft.weft_colors := list(*draft.treadling, 2);  # white
+   draft.color_list := [ColorValue("black"), ColorValue("white")];
 
    xencode(draft, &output)
 

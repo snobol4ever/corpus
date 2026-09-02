@@ -44,11 +44,11 @@ procedure main(args)
    if args[1] == "-e" then echo := 1
 
    while line := read() do {
-      run := open("icont -s - -x","pw")
-      write(run,"procedure main()")
+      run := open("icont -s - -x","pw");
+      write(run,"procedure main()");
       if \echo then write(run,"   write(",image(line),")")
-      write(run,"   every write(image(",line,"))")
-      write(run,"end")
+      write(run,"   every write(image(",line,"))");
+      write(run,"end");
       close(run)
       }
 

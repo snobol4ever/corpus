@@ -91,15 +91,15 @@ procedure VResize(vid, x, y, w, h)
    if not (type(vid) == !Vrecset ) then
       _Vbomb("invalid vidget parameter to VResize()")
    if type(vid) == "Vline_rec" then {
-      vid.ax1 := \x
-      vid.ay1 := \y
-      vid.ax2 := vid.ax1 + \w
+      vid.ax1 := \x;
+      vid.ay1 := \y;
+      vid.ax2 := vid.ax1 + \w;
       vid.ay2 := vid.ay1 + \h
    }
    else {
-      vid.ax := \x
-      vid.ay := \y
-      vid.aw := \w
+      vid.ax := \x;
+      vid.ay := \y;
+      vid.aw := \w;
       vid.ah := \h
    }
    vid.V.resize(vid)
@@ -328,10 +328,10 @@ procedure ProcessEvent(vidget, missed, all, resize)
       then _Vbomb("invalid frame argument to ProcessEvent()")
       }
 
-   event := Event(vidget.win)
+   event := Event(vidget.win);
 
    if event === &resize then {
-      (\resize)(vidget, event, &x, &y)
+      (\resize)(vidget, event, &x, &y);
       VEvent(vidget, event, &x, &y)
       }
 
@@ -362,10 +362,10 @@ procedure VEcho(v, x)
 
    initial image := proc("image", 0)	# protect attractive name
 
-   writes("callback: id=", v.id, ", value=")
+   writes("callback: id=", v.id, ", value=");
    if type(x) == "list" then {
-      writes("[")
-      writes(image(x[1]))
+      writes("[");
+      writes(image(x[1]));
       every writes(",", image(x[2 to *x]))
       writes("]")
       }
@@ -390,7 +390,7 @@ end
 procedure VSetFont(win)
    local spec, maybe
 
-   /win := &window
+   /win := &window;
    if WAttrib(win, "fwidth") = VFWidth then
       return win			# existing font is acceptable
 
@@ -409,7 +409,7 @@ $endif
 
       do {
          Font(win, spec) | next		# try a font
-         /maybe := spec			# remember first success
+         /maybe := spec;  # remember first success
          if WAttrib(win, "fwidth") = VFWidth then
             return win			# this font is right size
          }
