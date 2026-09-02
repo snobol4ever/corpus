@@ -1,0 +1,90 @@
+# triangulation TSV -- 20260902T190902Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_prolog.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+cal	gnu	715287	713317	0.9972	AGREE	0	0
+cal	swi	224160	207808	0.9271	AGREE	0	0
+cal	m3	NA	NA		UNPROVEN	0	0
+cal	m4	NA	NA		UNPROVEN	0	0
+crypt	gnu	NA	2220.46		UNPROVEN	0	0
+crypt	swi	NA	1200.67		UNPROVEN	0	0
+crypt	m3	NA	NA		UNPROVEN	0	0
+crypt	m4	NA	NA		UNPROVEN	0	0
+deriv	gnu	341622	337856	0.9890	AGREE	0	0
+deriv	swi	133978	119583	0.8926	DISAGREE	0	0
+deriv	m3	NA	NA		UNPROVEN	0	0
+deriv	m4	NA	NA		UNPROVEN	0	0
+derive	gnu	299192	295431	0.9874	AGREE	0	0
+derive	swi	147614	158300	1.0724	AGREE	0	0
+derive	m3	NA	NA		UNPROVEN	0	0
+derive	m4	NA	NA		UNPROVEN	0	0
+divide10	gnu	467720	449962	0.9620	AGREE	0	0
+divide10	swi	202766	192216	0.9480	AGREE	0	0
+divide10	m3	NA	NA		UNPROVEN	0	0
+divide10	m4	NA	NA		UNPROVEN	0	0
+fib	gnu	643.581	571.955	0.8887	DISAGREE	0	0
+fib	swi	485.546	501.894	1.0337	AGREE	0	0
+fib	m3	NA	NA		UNPROVEN	0	0
+fib	m4	NA	NA		UNPROVEN	0	0
+ham	gnu	NA	NA		UNPROVEN	0	0
+ham	swi	NA	NA		UNPROVEN	0	0
+ham	m3	NA	NA		UNPROVEN	0	0
+ham	m4	NA	NA		UNPROVEN	0	0
+log10	gnu	668482	569963	0.8526	DISAGREE	0	0
+log10	swi	221912	195365	0.8804	DISAGREE	0	0
+log10	m3	NA	NA		UNPROVEN	0	0
+log10	m4	NA	NA		UNPROVEN	0	0
+meta_qsort	gnu	NA	3829.94		UNPROVEN	0	0
+meta_qsort	swi	NA	4222.28		UNPROVEN	0	0
+meta_qsort	m3	NA	NA		UNPROVEN	0	0
+meta_qsort	m4	NA	NA		UNPROVEN	0	0
+mu	gnu	NA	37359.7		UNPROVEN	0	0
+mu	swi	NA	42036		UNPROVEN	0	0
+mu	m3	NA	NA		UNPROVEN	0	0
+mu	m4	NA	NA		UNPROVEN	0	0
+nrev	gnu	NA	65202.5		UNPROVEN	0	0
+nrev	swi	NA	72322.4		UNPROVEN	0	0
+nrev	m3	NA	NA		UNPROVEN	0	0
+nrev	m4	NA	NA		UNPROVEN	0	0
+nreverse	gnu	NA	70570.2		UNPROVEN	0	0
+nreverse	swi	NA	80924.6		UNPROVEN	0	0
+nreverse	m3	NA	NA		UNPROVEN	0	0
+nreverse	m4	NA	NA		UNPROVEN	0	0
+ops8	gnu	537687	501584	0.9329	AGREE	0	0
+ops8	swi	198217	196648	0.9921	AGREE	0	0
+ops8	m3	NA	NA		UNPROVEN	0	0
+ops8	m4	NA	NA		UNPROVEN	0	0
+qsort	gnu	NA	42975		UNPROVEN	0	0
+qsort	swi	NA	35175.6		UNPROVEN	0	0
+qsort	m3	NA	NA		UNPROVEN	0	0
+qsort	m4	NA	NA		UNPROVEN	0	0
+queens	gnu	NA	NA		UNPROVEN	0	0
+queens	swi	NA	NA		UNPROVEN	0	0
+queens	m3	NA	NA		UNPROVEN	0	0
+queens	m4	NA	NA		UNPROVEN	0	0
+queens_8	gnu	NA	NA		UNPROVEN	0	0
+queens_8	swi	NA	NA		UNPROVEN	0	0
+queens_8	m3	NA	NA		UNPROVEN	0	0
+queens_8	m4	NA	NA		UNPROVEN	0	0
+queensn	gnu	NA	NA		UNPROVEN	0	0
+queensn	swi	NA	NA		UNPROVEN	0	0
+queensn	m3	NA	NA		UNPROVEN	0	0
+queensn	m4	NA	NA		UNPROVEN	0	0
+query	gnu	NA	72962.1		UNPROVEN	0	0
+query	swi	NA	33753.3		UNPROVEN	0	0
+query	m3	NA	NA		UNPROVEN	0	0
+query	m4	NA	NA		UNPROVEN	0	0
+sendmore	gnu	460.465	443.262	0.9626	AGREE	0	0
+sendmore	swi	200.365	224.445	1.1202	DISAGREE	0	0
+sendmore	m3	NA	NA		UNPROVEN	0	0
+sendmore	m4	NA	NA		UNPROVEN	0	0
+tak	gnu	157.755	141.389	0.8963	DISAGREE	0	0
+tak	swi	136.051	113.381	0.8334	DISAGREE	0	0
+tak	m3	NA	NA		UNPROVEN	0	0
+tak	m4	NA	NA		UNPROVEN	0	0
+times10	gnu	469890	511704	1.0890	AGREE	0	0
+times10	swi	189193	217574	1.1500	DISAGREE	0	0
+times10	m3	NA	NA		UNPROVEN	0	0
+times10	m4	NA	NA		UNPROVEN	0	0
+zebra	gnu	NA	534.647		UNPROVEN	0	0
+zebra	swi	NA	503.57		UNPROVEN	0	0
+zebra	m3	NA	NA		UNPROVEN	0	0
+zebra	m4	NA	NA		UNPROVEN	0	0

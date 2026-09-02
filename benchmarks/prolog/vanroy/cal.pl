@@ -4,8 +4,21 @@
 % interest is cal_key/3: 36 fact clauses (12 numeric months + 12 abbrevs + 12
 % full names) — a clause-choice wider than the historical 32-clause cap.
 :- initialization(main).
-bench__main :- day_of_week(1993, 4, 9, Day), write(Day), nl.
-
+% ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+% Bracket encloses the WORK ONLY -- not startup, not the write. Multiples publish on work; startup/finish
+% OVERHEAD is a separate per-engine number the harness derives as (external total - work).
+% ⛔ Timestamps go to user_error so stdout stays BYTE-COMPARABLE and cal.expected still verifies.
+% ⭐ Both units: work_us is the real measurement (integer ms quantizes these kernels -- a 3 ms kernel is
+% three ticks); work_ms is kept because the rival preludes are millisecond sources, so the cross-engine
+% floor genuinely is 1 ms. Reporting both keeps a us numerator from being divided by a ms denominator
+% silently. Per-engine precision floors are stated in the basis line, never papered over.
+bench__main :-
+    wall_us(T0), wall_ms(M0),
+    day_of_week(1993, 4, 9, Day),
+    wall_us(T1), wall_ms(M1),
+    write(Day), nl,
+    W is T1 - T0, WM is M1 - M0,
+    format(user_error, "BENCH kernel=cal work_us=~w work_ms=~w~n", [W, WM]).
 day_of_week(Year,Month,Day, DayOfWeek):-
 	cal_key(Month, Key, LeapC),
 	compute_it(Year,Day,Key,LeapC,DayOfWeek).

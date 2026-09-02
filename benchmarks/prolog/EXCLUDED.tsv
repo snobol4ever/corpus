@@ -13,22 +13,28 @@
 # own header above ordered their removal; they had sat in MEASURED and DECLARED at once, which made the buckets
 # non-partitioning. And queensn -- declared here but NOT one of the 21 (it exists only under bench/), so it was a
 # declaration against a kernel this file's universe does not contain.
-cal	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-crypt	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-derive	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-divide10	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-ham	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-log10	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-meta_qsort	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-mu	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-nreverse	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-nrev	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-ops8	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-qsort	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-queens_8	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-queens	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-query	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-sendmore	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-times10	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-zebra	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-tak	Single-shot correctness PASSES on gnu/swi/m3, but the wall-clock angle cannot bracket it: SCRIP m3/m4 crash on the *second* entry into a compiled user predicate, which every timing method (loop-wrapped or repeated single-shot) requires. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+# ⛔ REWRITTEN 2026-09-02 (hq_P, on the cured three-angle harness; SCRIP f4532dea, -O0, single-shot m3, exact rc captured without a pipe):
+# every "segfault on single-shot" line for a SELF-TIMED kernel was FALSE -- all ten (cal derive deriv divide10 fib log10 ops8 sendmore tak
+# times10) answer correctly single-shot; their rows read UNPROVEN only because angle 1/2 never loaded the rival preludes (SCRIP
+# 4253dd88 cures it). REMOVED: cal derive divide10 ops8 (AGREE from BOTH rivals in triangulation-20260902T190902Z.tsv -- this file's own
+# rule), sendmore times10 (one rival AGREE, the other 1.12x/1.15x at the flat 10% tolerance). ⭐ TWO INSTRUMENTS, TWO RULES, stated so
+# nobody chases it: test_gate_bench_rivals_coverage.sh counts a kernel MEASURED on ANY AGREE row in ANY committed TSV; the two-number
+# board (bench_prolog_vanroy.sh --two-number) promotes only on AGREE from EVERY rival in the LATEST TSV. A kernel can be covered here and
+# REFUSE there; that is the board saying "not excused", not a contradiction. log10 and tak are DECLARED below with their DISCHARGE
+# condition (calibration, not exclusion). The eleven non-runners carry the reading measured today, one line each; the acceptance gate
+# shows 11 of 21 kernels FLIP between runs (FINDING-2026-09-02-hq_P-vanroy-refuse-0-is-nondeterministic-...), so a line names a reading
+# and a date, never a permanent class. FINDING: FINDING-2026-09-02-hq_P-vanroy-loop-runs-its-body-exactly-twice-for-every-n-both-angles-
+# divided-n-by-it-and-the-rivals-never-had-their-preludes.md
+crypt	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02; the rung-2 backtracking class). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+ham	SCRIP m3 rc=0 but WRONG ANSWER single-shot (28 bytes, != ham.expected; f4532dea 2026-09-02) -- a wrong answer is hq_C's; correctness fails before timing is attempted
+log10	RUNS CORRECTLY single-shot; angle 1 vs angle 2 DISAGREE on BOTH rivals at the flat 10% tolerance (gnu 0.8526x, swi 0.8804x, triangulation-20260902T190902Z.tsv) -- TIME_BUDGET_MS / committed N calibration, not a SCRIP defect. DISCHARGE: remove this line when both rivals AGREE
+meta_qsort	SCRIP m3 rc=134 single-shot: "SCRIP FATAL: pl_trail_unwind refuses corrupt trail mark" (the guard firing; f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+mu	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+nreverse	SCRIP m3 rc=0, no answer: "Warning: initialization goal failed: main/0" (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+nrev	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+qsort	SCRIP m3 rc=1 single-shot: "runtime error: ERROR 246 -- stack overflow" (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+queens_8	SCRIP m3 rc=0, no answer: "Warning: initialization goal failed: main/0" (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+queens	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+query	SCRIP m3 SIGSEGV rc=139 single-shot, no answer (f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
+tak	RUNS CORRECTLY single-shot; angle 1 vs angle 2 DISAGREE on BOTH rivals at the flat 10% tolerance (gnu 0.8963x, swi 0.8334x; committed N=16 is tiny, so process startup dominates angle 2's cpu time) -- calibration, not a SCRIP defect. DISCHARGE: remove this line when both rivals AGREE
+zebra	SCRIP m3 rc=134 single-shot: "SCRIP FATAL: pl_trail_unwind refuses corrupt trail mark" (the guard firing; f4532dea 2026-09-02). See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md

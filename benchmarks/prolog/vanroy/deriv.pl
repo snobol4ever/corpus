@@ -2,7 +2,21 @@
 % Bottleneck: structural recursion + cut + is/2 + integer/1.
 % Source: SWI-Prolog/bench (deriv). Prints the derivative of (x+1)*((^(x,2)+2)*(^(x,3)+3)).
 :- initialization(main).
-bench__main :- d((x+1)*((^(x,2)+2)*(^(x,3)+3)),x,D), write(D), nl.
+% ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+% Bracket encloses the WORK ONLY -- not startup, not the write. Multiples publish on work; startup/finish
+% OVERHEAD is a separate per-engine number the harness derives as (external total - work).
+% ⛔ Timestamps go to user_error so stdout stays BYTE-COMPARABLE and deriv.expected still verifies.
+% ⭐ Both units: work_us is the real measurement (integer ms quantizes these kernels -- a 3 ms kernel is
+% three ticks); work_ms is kept because the rival preludes are millisecond sources, so the cross-engine
+% floor genuinely is 1 ms. Reporting both keeps a us numerator from being divided by a ms denominator
+% silently. Per-engine precision floors are stated in the basis line, never papered over.
+bench__main :-
+    wall_us(T0), wall_ms(M0),
+    d((x+1)*((^(x,2)+2)*(^(x,3)+3)),x,D),
+    wall_us(T1), wall_ms(M1),
+    write(D), nl,
+    W is T1 - T0, WM is M1 - M0,
+    format(user_error, "BENCH kernel=deriv work_us=~w work_ms=~w~n", [W, WM]).
 d(U+V,X,DU+DV) :- !, d(U,X,DU), d(V,X,DV).
 d(U-V,X,DU-DV) :- !, d(U,X,DU), d(V,X,DV).
 d(U*V,X,DU*V+U*DV) :- !, d(U,X,DU), d(V,X,DV).
