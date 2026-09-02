@@ -780,13 +780,13 @@ interpret$2F1_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 488]
-                        mov              rbp, qword ptr [rbp + 504]
-                        add              rsp, 512;                            jmp   rcx
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 interpret$2F1_ω:
                         mov              rcx, qword ptr [rsp + 496]
-                        mov              rbp, qword ptr [rbp + 504]
-                        add              rsp, 512;                            jmp   rcx
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 FN__interpret$2F2:
                         sub              rsp, 4448
@@ -7269,13 +7269,13 @@ interpret$2F2_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 4424]
-                        mov              rbp, qword ptr [rbp + 4440]
-                        add              rsp, 4448;                           jmp   rcx
+                        lea              rsp, [rbp + 4448]
+                        mov              rbp, qword ptr [rbp + 4440];         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 interpret$2F2_ω:
                         mov              rcx, qword ptr [rsp + 4432]
-                        mov              rbp, qword ptr [rbp + 4440]
-                        add              rsp, 4448;                           jmp   rcx
+                        lea              rsp, [rbp + 4448]
+                        mov              rbp, qword ptr [rbp + 4440];         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 FN__is_built_in$2F1:
                         sub              rsp, 640
@@ -7812,13 +7812,13 @@ is_built_in$2F1_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 616]
-                        mov              rbp, qword ptr [rbp + 632]
-                        add              rsp, 640;                            jmp   rcx
+                        lea              rsp, [rbp + 640]
+                        mov              rbp, qword ptr [rbp + 632];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 is_built_in$2F1_ω:
                         mov              rcx, qword ptr [rsp + 624]
-                        mov              rbp, qword ptr [rbp + 632]
-                        add              rsp, 640;                            jmp   rcx
+                        lea              rsp, [rbp + 640]
+                        mov              rbp, qword ptr [rbp + 632];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 FN__meta_qsort$2F0:
                         sub              rsp, 224
@@ -8152,13 +8152,13 @@ meta_qsort$2F0_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 200]
-                        mov              rbp, qword ptr [rbp + 216]
-                        add              rsp, 224;                            jmp   rcx
+                        lea              rsp, [rbp + 224]
+                        mov              rbp, qword ptr [rbp + 216];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 meta_qsort$2F0_ω:
                         mov              rcx, qword ptr [rsp + 208]
-                        mov              rbp, qword ptr [rbp + 216]
-                        add              rsp, 224;                            jmp   rcx
+                        lea              rsp, [rbp + 224]
+                        mov              rbp, qword ptr [rbp + 216];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 FN__define$2F2:
                         sub              rsp, 10672
@@ -14746,13 +14746,13 @@ define$2F2_γ:
 .Ldefine$2F2_α_1148_50: mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 10648]
-                        mov              rbp, qword ptr [rbp + 10664]
-                        add              rsp, 10672;                          jmp   rcx
+                        lea              rsp, [rbp + 10672]
+                        mov              rbp, qword ptr [rbp + 10664];        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 define$2F2_ω:
                         mov              rcx, qword ptr [rsp + 10656]
-                        mov              rbp, qword ptr [rbp + 10664]
-                        add              rsp, 10672;                          jmp   rcx
+                        lea              rsp, [rbp + 10672]
+                        mov              rbp, qword ptr [rbp + 10664];        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 FN__interpret_built_in$2F1:
                         sub              rsp, 720
@@ -15357,13 +15357,13 @@ interpret_built_in$2F1_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 696]
-                        mov              rbp, qword ptr [rbp + 712]
-                        add              rsp, 720;                            jmp   rcx
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 interpret_built_in$2F1_ω:
                         mov              rcx, qword ptr [rsp + 704]
-                        mov              rbp, qword ptr [rbp + 712]
-                        add              rsp, 720;                            jmp   rcx
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 FN__interpret_disjunction$2F3:
                         sub              rsp, 2640
@@ -19720,13 +19720,13 @@ interpret_disjunction$2F3_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 2616]
-                        mov              rbp, qword ptr [rbp + 2632]
-                        add              rsp, 2640;                           jmp   rcx
+                        lea              rsp, [rbp + 2640]
+                        mov              rbp, qword ptr [rbp + 2632];         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 interpret_disjunction$2F3_ω:
                         mov              rcx, qword ptr [rsp + 2624]
-                        mov              rbp, qword ptr [rbp + 2632]
-                        add              rsp, 2640;                           jmp   rcx
+                        lea              rsp, [rbp + 2640]
+                        mov              rbp, qword ptr [rbp + 2632];         jmp   rcx
                         .globl           main
 main:
                         sub              rsp, 65544
@@ -20129,13 +20129,13 @@ main_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
                         mov              rcx, qword ptr [rsp + 312]
-                        mov              rbp, qword ptr [rbp + 328]
-                        add              rsp, 336;                            jmp   rcx
+                        lea              rsp, [rbp + 336]
+                        mov              rbp, qword ptr [rbp + 328];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rcx, qword ptr [rsp + 320]
-                        mov              rbp, qword ptr [rbp + 328]
-                        add              rsp, 336;                            jmp   rcx
+                        lea              rsp, [rbp + 336]
+                        mov              rbp, qword ptr [rbp + 328];          jmp   rcx
 module_init:
                         sub              rsp, 8
                         .section         .rodata
