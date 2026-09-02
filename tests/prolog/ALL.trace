@@ -2126,24 +2126,6 @@
 (22) Exit: lit_string -> call_prolog_α
 (23) Call: call_prolog $nl0
 (23) Exit: call_prolog $nl0 -> main_γ
-%---- ladder__rung00_hello m3 total=8 prefix=8
-(1) Call: lit_string hello_world
-(1) Exit: lit_string hello_world -> call_prolog_α
-(2) Call: call_prolog $write
-(2) Exit: call_prolog $write -> lit_string_α
-(3) Call: lit_string
-(3) Exit: lit_string -> call_prolog_α
-(4) Call: call_prolog $nl0
-(4) Exit: call_prolog $nl0 -> pat_flat_γ
-%---- ladder__rung00_hello m4 total=8 prefix=8
-(1) Call: lit_string hello_world
-(1) Exit: lit_string hello_world -> call_prolog_α
-(2) Call: call_prolog $write
-(2) Exit: call_prolog $write -> lit_string_α
-(3) Call: lit_string
-(3) Exit: lit_string -> call_prolog_α
-(4) Call: call_prolog $nl0
-(4) Exit: call_prolog $nl0 -> main_γ
 %---- ladder__rung01_fact_rule m3 total=30 prefix=30
 (1) Call: var_ref G0
 (1) Exit: var_ref G0 -> var_ref_α
@@ -4238,3 +4220,21 @@
 (84) Exit: call_prolog $unify -> suspend_α
 (85) Call: suspend
 (85) Exit: suspend -> p/1_γ
+%---- ladder__rung00_hello m3 total=8 prefix=8
+(1) Call: call_proc_staged main/0
+(2) Call: lit_string hello_world
+(2) Exit: lit_string hello_world -> call_α
+(3) Call: call $write
+(3) Exit: call $write -> call_α
+(4) Call: call $nl
+(4) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung00_hello m4 total=8 prefix=8
+(1) Call: call_proc_staged main/0
+(2) Call: lit_string hello_world
+(2) Exit: lit_string hello_world -> call_α
+(3) Call: call $write
+(3) Exit: call $write -> call_α
+(4) Call: call $nl
+(4) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
