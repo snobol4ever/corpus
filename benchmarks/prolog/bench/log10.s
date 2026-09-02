@@ -35,9 +35,6 @@ n0_call_prolog_α:       mov              r11, 1
 .Lcall_prolog_α_28_102: lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_28_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_28_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -632,9 +629,6 @@ n61_call_prolog_α:      mov              r11, 29
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_339_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_339_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -8730,9 +8724,6 @@ n766_call_prolog_α:     mov              r11, 307
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_770_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_770_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax

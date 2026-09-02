@@ -31,9 +31,6 @@ n0_call_prolog_α:       mov              r11, 1
 .Lcall_prolog_α_13_102: lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_13_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_13_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -798,9 +795,6 @@ n34_call_prolog_α:      mov              r11, 14
 .Lcall_prolog_α_73_102: lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_73_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_73_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -2607,9 +2601,6 @@ n133_call_prolog_α:     mov              r11, 53
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_170_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_170_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -4526,9 +4517,6 @@ n228_call_prolog_α:     mov              r11, 90
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_264_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_264_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -6111,9 +6099,6 @@ n318_call_prolog_α:     mov              r11, 126
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_355_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_355_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -7492,9 +7477,6 @@ n408_call_prolog_α:     mov              r11, 163
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_417_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_417_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
@@ -8048,9 +8030,6 @@ n431_call_prolog_α:     mov              r11, 172
                         lea              r12, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r12 + 0]
                         test             eax, eax;                            jne   .Lcall_prolog_α_468_100
-                        lea              r12, [rip + g_zeta_mode]
-                        mov              eax, dword ptr [r12 + 0]
-                        cmp              eax, 2;                              je    .Lcall_prolog_α_468_100
                         lea              r12, [rip + g_pl_trail]
                         mov              eax, dword ptr [r12 + 32]
                         movsxd           rdx, eax
