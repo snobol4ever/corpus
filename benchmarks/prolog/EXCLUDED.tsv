@@ -5,6 +5,14 @@
 # into-any-user-predicate-crashes-m3-m4.md for the full evidence. Regenerate by re-running
 # scripts/bench_triangulate_prolog.sh once the underlying compiler gap (GOAL-PROLOG-100.md PZ-4) lands --
 # any kernel that starts producing a real AGREE row should be REMOVED from this file, not left declared.
+# ⭐ THE UNIVERSE IS THE 21 vanroy KERNELS, AND THE COUNT IS SAID OUT LOUD SO bench/'s 23 CAN NEVER BE READ AS THE
+# DENOMINATOR AGAIN (hq_B ruling 2026-09-01, seat12 measuring). bench/ is the SOURCE tree (23 .pl, 10 of them
+# carrying the wall_us bracket); vanroy/ is a GENERATED artifact dir of mkwrap loop-wrappers (21, 0 bracketed).
+# Names come from vanroy/, source text from bench/. Board: scripts/bench_prolog_vanroy.sh --two-number.
+# ⛔ REMOVED 2026-09-01 (seat12, hq_B-authorised): deriv + fib -- both now produce real AGREE rows, so this file's
+# own header above ordered their removal; they had sat in MEASURED and DECLARED at once, which made the buckets
+# non-partitioning. And queensn -- declared here but NOT one of the 21 (it exists only under bench/), so it was a
+# declaration against a kernel this file's universe does not contain.
 cal	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 crypt	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 derive	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
@@ -18,12 +26,9 @@ nrev	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails
 ops8	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 qsort	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 queens_8	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-queensn	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 queens	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 query	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 sendmore	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 times10	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 zebra	SCRIP m3/m4 segfault on single-shot execution (rc=139) -- correctness fails before timing is even attempted. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-deriv	Single-shot correctness PASSES on gnu/swi/m3, but the wall-clock angle cannot bracket it: SCRIP m3/m4 crash on the *second* entry into a compiled user predicate, which every timing method (loop-wrapped or repeated single-shot) requires. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
-fib	Single-shot correctness PASSES on gnu/swi/m3, but the wall-clock angle cannot bracket it: SCRIP m3/m4 crash on the *second* entry into a compiled user predicate, which every timing method (loop-wrapped or repeated single-shot) requires. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
 tak	Single-shot correctness PASSES on gnu/swi/m3, but the wall-clock angle cannot bracket it: SCRIP m3/m4 crash on the *second* entry into a compiled user predicate, which every timing method (loop-wrapped or repeated single-shot) requires. See FINDING-2026-08-27-seat14-prolog-second-entry-into-any-user-predicate-crashes-m3-m4.md
