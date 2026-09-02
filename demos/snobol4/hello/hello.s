@@ -50,7 +50,6 @@ n2_assign_α:            mov              r11, 3
                         mov              qword ptr [rip + rtccb+64], r11
                         call             NV_SET_fn@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_statement_end_α
 .Lassign_α_7_0:         .quad            .Lassign_α_7_0_s
