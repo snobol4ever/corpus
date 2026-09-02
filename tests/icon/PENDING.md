@@ -34,17 +34,6 @@ cross-reference. Re-verified after resolving: gate shows `stale-deferral: 0`,
   unimplemented as real coroutines) — this is a repoint to the row that already claims this file,
   not a new deferral target, and the isolation above is new information that row didn't have.
 
-## DEFERRED icon-scan-env-value-residue
-- rung36_jcon_scan2.icn — clean exit both modes (rc=0), WRONG output (both m3/m4 identically short
-  several lines vs `.expected`; the specific remaining diff matches this row's own "non-local"
-  hunk: `z`/`x`/`3`/`c` printed where `q`/`w` are expected). This row's own GOAL text already names
-  `rung36_jcon_scan2` as one of its three witnesses (scan1/scan2/scan), and its NEXT block precisely
-  describes the exact remaining mechanism (`foo()` suspending inside its own scan environment leaves
-  the CALLER's scan state stale — γ-SUSPEND must save Σ/δ/Δ into the activation state, β must
-  reinstate). `tests-consolidate-icon`'s own LEDGER (2026-08-30, ceo) already recorded this
-  ownership transfer from the old icon-n2 umbrella to this row specifically — this section just
-  makes the gate's own record match that already-made decision.
-
 ## DEFERRED icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps
 - rung36_jcon_proto.icn — V9GEN Icon-syntax stress test; 6 parser gaps (unary prefix `^`/REFRESH;
   augmented `|||:=`/`===:=`/`~===:=`/`&:=`/`@:=`) plus 2 emitter-level gaps (`op=120` GOUGE, `op=122`
@@ -119,15 +108,6 @@ divergence, so none needs a per-mode deferral note.
   yet landed, per that commit's own message), and decrement-without-increment predicts exactly this
   monotonic slide below zero. Recorded here so nobody chases the stale `1 1 1 1 1 1 1 1` description
   that predates the half-cure. Converts when the entry-side increment lands.
-
-## DEFERRED icon-scan-env-value-residue
-- rung36_jcon_scan.icn — clean exit both modes (rc=0), WRONG output: 115 lines against `.expected`'s
-  133, 20 differing lines. The gap is scan-environment values going missing mid-run (e.g. `a`/`ab`/
-  `abc` progression absent where a single stale `9` is printed instead) — the same residue mechanism
-  this row's GOAL already names, and this row already owns the sibling witnesses `scan1` (since
-  fixed and converted, SCRIP `9fd26a3e`) and `scan2` (declared above since 2026-08-30). `scan` is
-  the third of the three witnesses its GOAL names; this section just makes the gate's record match
-  an ownership that was already explicit.
 
 ## DEFERRED icon-assign-nameless-emit-guard-var
 - rung36_jcon_var.icn — rc=134 both modes. ⭐ **NOT a crash — an INTENTIONAL guard, and reading it

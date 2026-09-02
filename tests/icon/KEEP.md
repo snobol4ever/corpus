@@ -60,6 +60,37 @@ Both intentionally excluded (`--skip`) from the `rung37_all` conversion (seat03,
 Both stay loose until their respective situations resolve (bug fixed / probe retired), same
 standing as `ladder/`'s open-defect witnesses in the Snocone sibling task.
 
+## 1 file — coexpr_gc_stack_witness.icn, a durable crash-repro probe, deliberately never absorbed (seat13, 2026-09-02)
+
+`coexpr_gc_stack_witness.icn` — added SCRIP `cff58a3dc` ("durable 33-line witness for the coexpr-stack
+GC relocation SIGSEGV"), same session that discovered this row's own `stale-deferral` (scan/scan2, see
+`PENDING.md`/LEDGER). Not a `rungNN_*` family file and not this row's own witness batch — found only
+because it is a NEW loose `.icn` in this directory, which is exactly what this gate exists to catch.
+
+**Why it stays loose, per the authoring commit's own words:** *"Loose pair per the documented
+repro/probe_witness precedent in `ALL.excluded.txt` ('left in place for inspection, NOT re-absorbed')
+... the only runner globbing `tests/icon` is the parser suite, which it passes."* Same class as this
+file's own `rung37_subscript_genproc.icn` entry above — a deliberate crash-regression probe, where
+folding it into a byte-equal suite pin would defeat its purpose. Oracle-graded at authoring time
+(`found=40`, byte-exact against `/home/resources/icon-master/bin/icont`), so it is not ungradeable,
+just intentionally excluded from absorption.
+
+**Owning row: `icon-n2-recursive-generator-per-activation-storage`** (named explicitly in the commit
+message — not `icon-coexpression-support-design`, despite the topical overlap on "co-expressions":
+grepped that row's GOAL/LEDGER for this witness's name first and found no hit, which is exactly the
+false-attribution-by-resemblance trap this task's own `PENDING.md` history warns about). QUEUE.tsv:
+`unassigned`, `BLOCKED-ON:coexpr-stack-leaves-the-compacting-gc-heap`. Mechanism: coexpression
+activations are one-pthread-per-activation; at ~32 live coexpr threads the first compacting GC cycle
+relocates a live thread's own stack (an `HB_ZBLK` heap block) out from under it. Bisected: 15 outer
+iterations pass, 16 crash. Full trace: `FINDING-2026-09-01-seat03-coexpr-thread-stacks-are-gc-heap-
+blocks-and-the-removed-pin-lets-the-compactor-relocate-them.md`,
+`FINDING-2026-09-01-seat08-the-coexpr-pin-ask-is-moot-s263-deleted-pinning-outright-and-already-
+routed-the-real-cure-a-slab-migration.md`. **Declared here as a KEEP (not `PENDING.md`), because
+converting it is not the eventual plan even once the blocker clears** — unlike this task's ordinary
+deferred witnesses, the commit's own framing is that it stays a standalone probe permanently. Not
+this row's bug to chase (out of lane, same as every other Class-C witness above); this entry only
+makes the gate's own record match a disposition the authoring commit already stated.
+
 ## rung03 — 4 of 5 files HARD-BLOCKED on a known, already-tracked, rank-0 fleet defect (seat03, 2026-08-29)
 
 `rung03_suspend_gen.icn rung03_suspend_gen_compose.icn rung03_suspend_gen_filter.icn rung03_suspend_return.icn` —
