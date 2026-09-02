@@ -1,3 +1,10 @@
+# ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+# The bracket encloses the loop nest -- the WORK. The single `say` that fires once inside it is left where
+# upstream put it (moving it would change the algorithm); one line of output inside a 10^8-comparison
+# search is not a measurable share. Timestamps go to STDERR (note) so stdout stays byte-comparable and
+# send-more-money-loops.ref verifies unchanged. wall_us()/wall_ms() are SCRIP builtins; Rakudo gets them
+# from prelude_rakudo.rakumod via -M, so this file is byte-identical on every engine.
+my $t0 = wall_us(); my $m0 = wall_ms();
 my int $s = -1;
 while ++$s <= 9 {
     next if $s == 0;
@@ -69,3 +76,5 @@ while ++$s <= 9 {
         }
     }
 }
+my $t1 = wall_us(); my $m1 = wall_ms();
+note("BENCH kernel=send-more-money-loops work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));

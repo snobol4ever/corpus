@@ -57,6 +57,43 @@ twice under Rakudo 2026.05 — `/home/resources/rakudo-local/bin/raku`, `rakudo_
 default; here it is a literal constant (or a `MAIN` default), chosen small enough to run in a few
 seconds under Rakudo 2026.05 while remaining a non-trivial workload. No kernel's algorithm was changed.
 
+## Self-timed kernels — the two-number basis (hq_B 2026-09-01, row `bench-grids-rebase-to-two-number-basis`)
+
+Lon's basis ruling (2026-08-30, `RULES.md` § THE TWO-NUMBER BENCHMARK BASIS): a published multiple is
+**work on work**, and each engine's startup/finish **overhead** is its own number, derived as
+(external elapsed − self-timed work). The totals basis charged Rakudo's ~300 ms process startup to its
+engine; on a 2 ms kernel that is a 99% startup story wearing an engine multiple.
+
+**How a kernel is self-timed** (the Prolog kernels under `../prolog/bench/` are the model, e.g. `fib.pl`):
+`my $t0 = wall_us(); my $m0 = wall_ms();` before the work, the `$t1`/`$m1` twins after it, and
+`note("BENCH kernel=<name> work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));` **after** the
+kernel's own output. `note` writes to **stderr**, so stdout stays byte-comparable and the `.ref` still
+verifies unchanged — a harness never has to strip a timing line out of the answer. Both units are
+reported on purpose: `work_us` is the measurement, `work_ms` is the cross-check that a µs numerator is
+never divided by a ms denominator unnoticed.
+
+**Where the hooks come from.** `wall_us()`/`wall_ms()` are SCRIP builtins (beside the Prolog
+`wall_us/1`/`wall_ms/1` in `src/runtime/by_name_dispatch.c`, deliberately adjacent so the two cannot
+drift). The Rakudo arm gets the same subs from **`prelude_rakudo.rakumod`** in this directory, loaded
+with `-M` so the kernel source is **byte-identical on every engine**. Precision floors: SCRIP reads
+`CLOCK_MONOTONIC` (~20 ns floor), Rakudo reads `now` (sub-µs `Instant`) — both arms are genuinely
+microsecond-precise, unlike gprolog's 1 ms `real_time/1` that refused the gplc column on the Prolog grid.
+
+⛔ **Never `raku -I. -M…` from this directory.** Rakudo precompiles a `-M` module into a `.precomp/`
+beside it and wrote one **into the corpus** on the first hand run. `SCRIP/scripts/bench_triangulate_raku.sh`
+stages the prelude in a `mktemp` dir and passes `-I<that dir>`; do the same by hand. The corpus is not a
+Rakudo output directory.
+
+**Which kernels are self-timed** — census, never a remembered list: `grep -l 'wall_us()' *.raku`. The
+triangulator declares the rest as NOT SELF-TIMED by name on every run; a kernel joins the grid the day it
+carries the bracket **and** still byte-matches its `.ref` on m3, m4 and Rakudo.
+
+**Output artifact.** `worktime-<UTC stamp>.tsv` here is the triangulator's angle-3 table (work, elapsed,
+overhead, spread, verdict per kernel × engine). It is **angle 3 only** — angles 1 and 2 (fixed-time /
+fixed-iteration cross-proof) have no Raku instrument yet, so every row's cross-proof column reads
+`UNPROVEN` and `test_gate_bench_rivals_coverage.sh raku` correctly still refuses. Publish these numbers
+only with that label. Regenerate, never hand-edit.
+
 ## Excluded from this import (measured, not silently dropped)
 
 | File | Why excluded |
