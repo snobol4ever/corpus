@@ -1104,3 +1104,35 @@ h(A,A,B)
 %---------------------------------------------------- 389 read_directive_1 XFAIL
 end_of_file
 end_of_file
+%------------------------------------------------- 390 between_directive_1 XFAIL
+1
+2
+3
+done
+%------------------------------------------------ 391 sub_atom_directive_1 XFAIL
+0-a
+1-b
+2-c
+done
+%------------------------------------------------- 392 findall_directive_5 XFAIL
+[1,2,3,4]
+%--------------------------------------------- 393 setof_bagof_directive_1 XFAIL
+[a,b,c]
+[c,a,b,a]
+%--------------------------------------------- 394 catch_throw_directive_5 XFAIL
+caught(boom)
+done
+%--------------------------------------------- 395 catch_throw_directive_6 XFAIL
+oops
+after
+%---------------------------------------------------- 396 call_directive_1 XFAIL
+hi
+there
+%----------------------------------------- 397 assertz_retract_directive_2 XFAIL
+[2]
+%----------------------------------------------------- 398 dcg_directive_2 XFAIL
+ok
+%------------------------------------------------ 399 lastcall_directive_1 XFAIL
+done
+%--------------------------------------------------- 400 index_directive_1 XFAIL
+2

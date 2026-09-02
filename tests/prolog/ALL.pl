@@ -2264,3 +2264,50 @@ main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(
 %---------------------------------------------------- 389 read_directive_1 XFAIL
 :- initialization(main).
 main :- get_char(C), read(T), write(C), nl, write(T), nl.
+%------------------------------------------------- 390 between_directive_1 XFAIL
+:- initialization(main).
+main :- between(1, 3, X), write(X), nl, fail.
+main :- write(done), nl.
+%------------------------------------------------ 391 sub_atom_directive_1 XFAIL
+:- initialization(main).
+main :- sub_atom(abc, B, 1, _, S), write(B-S), nl, fail.
+main :- write(done), nl.
+%------------------------------------------------- 392 findall_directive_5 XFAIL
+:- initialization(main).
+main :- findall(X, between(1, 4, X), L), write(L), nl.
+%--------------------------------------------- 393 setof_bagof_directive_1 XFAIL
+:- initialization(main).
+q(c).
+q(a).
+q(b).
+q(a).
+main :- setof(X, q(X), S), write(S), nl, bagof(Y, q(Y), B), write(B), nl.
+%--------------------------------------------- 394 catch_throw_directive_5 XFAIL
+:- initialization(main).
+main :- catch(throw(boom), E, (write(caught(E)), nl)), write(done), nl.
+%--------------------------------------------- 395 catch_throw_directive_6 XFAIL
+:- initialization(main).
+p :- throw(oops).
+main :- catch(p, E, (write(E), nl)), write(after), nl.
+%---------------------------------------------------- 396 call_directive_1 XFAIL
+:- initialization(main).
+main :- G = write(hi), call(G), nl, call(write, there), nl.
+%----------------------------------------- 397 assertz_retract_directive_2 XFAIL
+:- dynamic(f/1).
+:- initialization(main).
+main :- assertz(f(1)), assertz(f(2)), retract(f(1)), findall(X, f(X), L), write(L), nl.
+%----------------------------------------------------- 398 dcg_directive_2 XFAIL
+:- initialization(main).
+greeting --> [hello], [world].
+main :- phrase(greeting, [hello, world]), write(ok), nl.
+%------------------------------------------------ 399 lastcall_directive_1 XFAIL
+:- initialization(main).
+count(N, N) :- !.
+count(I, N) :- I < N, J is I + 1, count(J, N).
+main :- count(0, 100000), write(done), nl.
+%--------------------------------------------------- 400 index_directive_1 XFAIL
+:- initialization(main).
+fact(a, 1).
+fact(b, 2).
+fact(c, 3).
+main :- fact(b, V), write(V), nl.
