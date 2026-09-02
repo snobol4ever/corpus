@@ -1,0 +1,8 @@
+# fixed-iter-n.tsv -- committed N per Raku kernel for angle 2 (bench_raku_fixed_iter.sh), the historical
+# counterpart to angle 1's live search -- calibrated against m3 CPU time, floor 3000ms, cap 32768.
+# Regenerate via 'bench_raku_fixed_iter.sh --calibrate', never hand-edit. One row per self-timed kernel.
+kernel	N
+point_class_add	1
+point_class_add1	1
+send-more-money-loops	16
+string-escape	32768

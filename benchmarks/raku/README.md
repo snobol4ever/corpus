@@ -88,11 +88,43 @@ Rakudo output directory.
 triangulator declares the rest as NOT SELF-TIMED by name on every run; a kernel joins the grid the day it
 carries the bracket **and** still byte-matches its `.ref` on m3, m4 and Rakudo.
 
-**Output artifact.** `worktime-<UTC stamp>.tsv` here is the triangulator's angle-3 table (work, elapsed,
-overhead, spread, verdict per kernel × engine). It is **angle 3 only** — angles 1 and 2 (fixed-time /
-fixed-iteration cross-proof) have no Raku instrument yet, so every row's cross-proof column reads
-`UNPROVEN` and `test_gate_bench_rivals_coverage.sh raku` correctly still refuses. Publish these numbers
-only with that label. Regenerate, never hand-edit.
+**Angles 1+2 (added 2026-09-02, row `bench-grids-rebase-to-two-number-basis`).** `test_bench_raku_timed.sh`
+(angle 1: fixed CPU-time budget, live doubling search) and `bench_raku_fixed_iter.sh` (angle 2: fixed
+iterations, N read from the committed `fixed-iter-n.tsv` below) mirror the Prolog pair of the same name.
+Neither can rename a predicate head the way Prolog's `mkwrap()` does — Raku kernels are top-level scripts —
+so both build their N-times-looped derived twin via `SCRIP/scripts/lib_raku_bench_wrap.sh`, which loops
+exactly the region the kernel's own `wall_us()`/`wall_ms()` bracket delimits (its header documents a real
+scoping subtlety: a bracket-local `my $x` the kernel reads *after* the loop must be hoisted above it, or
+Rakudo refuses to compile the naive wrap). `bench_triangulate_raku.sh` runs both fresh every invocation and
+requires their rates to AGREE (flat 10%, UNBAKED) before a kernel counts MEASURED.
+
+⛔ **`NMAX`/`CAL_NMAX` cap at 32768, not higher** — a real SCRIP runtime ceiling, not a harness choice: an
+N-times-looped `string-escape` aborts both m3 and m4 past ~49152 iterations with `[WSI] workspace island
+exhausted (1024 MB, ... blocks)`. See `FINDING-2026-09-02-seat01-raku-loop-exhausts-1gb-workspace-island.md`
+in `.github/` — filed for the runtime/RTCC lane, not fixed here; it caps how large a looped Raku benchmark
+this harness can ever measure, independent of benchmarking.
+
+**`fixed-iter-n.tsv`** — the committed calibration table angle 2 reads (`kernel<TAB>N`), the lighter-weight
+Raku counterpart to Prolog's checked-in `vanroy/<k>.pl` wrappers (no derived `.raku` source is committed
+here — see `bench_raku_fixed_iter.sh`'s header for why: a committed derived kernel would collide with
+`test_gate_bench_rivals_coverage.sh`'s basename kernel count, the same false-denominator class its own
+header documents for `src/`/`vanroy/`). Regenerate via `bench_raku_fixed_iter.sh --calibrate`, never hand-edit.
+
+**Output artifacts.** `worktime-<UTC stamp>.tsv` is angle 3's own rich table (work, elapsed, overhead,
+spread, verdict, **and now real `angle1`/`angle2`/`crossproof` columns** instead of the old
+`REFUSED-NO-INSTRUMENT` placeholder). `triangulation-<UTC stamp>.tsv` is a companion in
+`bench_triangulate_prolog.sh`'s own 8-column schema (`kernel engine angle1_rate angle2_rate ratio verdict
+disk_inblock disk_oublock`) — `test_gate_bench_rivals_coverage.sh` globs exactly that filename pattern and
+reads column 6 as the verdict; it does not know the richer `worktime-*.tsv` shape. **Keep exactly one of
+each checked in** (Prolog's own convention — its directory carries a single `triangulation-*.tsv`, replaced
+whole on regeneration, never accumulated); a stale run left alongside a fresh one lets the coverage gate
+credit an old AGREE that a fresh run no longer reproduces, found live this row before it was committed.
+First real run (2026-09-02, `NMAX=32768`, `TIME_BUDGET_MS=3000`): every cross-proof cell reads `DISAGREE`
+(10–36% spread) — neither angle repeats internally the way angle 3's REPS=3 best-of does, so a single live
+search against a single fixed-N sample is this noisy on a shared box. The WORK/OVERHEAD numbers remain
+citable on angle 3's own byte-verified, best-of-3 basis; `test_gate_bench_rivals_coverage.sh raku` correctly
+still refuses (0 of 4 self-timed kernels cross-proven MEASURED) until either a noise floor is baked (mirroring
+the SNOBOL4 triangulator's `NOISE-FLOOR.tsv`) or angles 1/2 gain their own repetition.
 
 ## Excluded from this import (measured, not silently dropped)
 
