@@ -5478,7 +5478,9 @@ n00207_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00207_return_α:          mov              r11, 275
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Init___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Init___γ
                         .size            n00207_return_bx, .-n00207_return_bx
                         .type            n00208_conjunction_bx, @function
 n00208_conjunction_bx:
@@ -5574,7 +5576,9 @@ n00212_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00212_return_α:          mov              r11, 281
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Init___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Init___γ
                         .size            n00212_return_bx, .-n00212_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 Init___res:
@@ -6005,7 +6009,9 @@ n00229_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00229_return_α:          mov              r11, 298
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Term___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Term___γ
                         .size            n00229_return_bx, .-n00229_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 Term___res:
@@ -6518,7 +6524,9 @@ n00243_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00243_return_α:          mov              r11, 325
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Collections___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Collections___γ
                         .size            n00243_return_bx, .-n00243_return_bx
                         .type            n00231_var_ref_bx, @function
 n00231_var_ref_bx:
@@ -7184,7 +7192,9 @@ n00280_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00280_return_α:          mov              r11, 362
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Regions___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Regions___γ
                         .size            n00280_return_bx, .-n00280_return_bx
                         .type            n00268_var_ref_bx, @function
 n00268_var_ref_bx:
@@ -7543,7 +7553,9 @@ n00308_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00308_return_α:          mov              r11, 378
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Signature___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Signature___γ
                         .size            n00308_return_bx, .-n00308_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 Signature___res:
@@ -8056,7 +8068,9 @@ n00323_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00323_return_α:          mov              r11, 405
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   Storage___γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   Storage___γ
                         .size            n00323_return_bx, .-n00323_return_bx
                         .type            n00311_var_ref_bx, @function
 n00311_var_ref_bx:

@@ -1219,7 +1219,9 @@ n74_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n74_return_α:           mov              r11, 75
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   loadfile_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   loadfile_γ
                         .size            n74_return_bx, .-n74_return_bx
                         .type            n75_var_bx, @function
 n75_var_bx:
@@ -2599,7 +2601,9 @@ n00040_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00040_return_α:          mov              r11, 150
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   dumpcode_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   dumpcode_γ
                         .size            n00040_return_bx, .-n00040_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 dumpcode_res:
@@ -6769,7 +6773,9 @@ n00274_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00274_return_α:          mov              r11, 355
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   putchain_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   putchain_γ
                         .size            n00274_return_bx, .-n00274_return_bx
                         .type            n00110_var_bx, @function
 n00110_var_bx:
@@ -6829,7 +6835,9 @@ n00277_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00277_return_α:          mov              r11, 359
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   putchain_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   putchain_γ
                         .size            n00277_return_bx, .-n00277_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 putchain_res:
@@ -11649,7 +11657,9 @@ n00383_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00383_return_α:         mov              r11, 594
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   collapse_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   collapse_γ
                         .size            n00383_return_bx, .-n00383_return_bx
                         .type            n00341_var_bx, @function
 n00341_var_bx:
@@ -11730,7 +11740,9 @@ n00516_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00516_return_α:         mov              r11, 598
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   collapse_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   collapse_γ
                         .size            n00516_return_bx, .-n00516_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 collapse_res:

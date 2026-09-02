@@ -450,7 +450,9 @@ n18_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n18_return_α:           mov              r11, 19
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   report_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   report_γ
                         .size            n18_return_bx, .-n18_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 report_res:

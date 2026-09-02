@@ -639,7 +639,9 @@ n30_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n30_return_α:           mov              r11, 31
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   event_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   event_γ
                         .size            n30_return_bx, .-n30_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 event_res:
@@ -947,7 +949,9 @@ n89_return_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n89_return_α:           mov              r11, 44
                         mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0;              jmp   refto_γ
+                        mov              qword ptr [rsp + 8], 0
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8];            jmp   refto_γ
                         .size            n89_return_bx, .-n89_return_bx
 #-----------------------------------------------------------------------------------------------------------------------
 refto_res:
