@@ -136,5 +136,3 @@ does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/
 exits rc=1, stdout does not match .ref. Not further diagnosed.
 *--------------------------- 1575 user_function_eval_span_replace_branch_1 XFAIL
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
-*-------------------------- 1576 user_function_eval_arbno_replace_branch_2 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
