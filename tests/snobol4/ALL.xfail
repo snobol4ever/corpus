@@ -54,8 +54,6 @@ runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 *----------------------------------- 1525 user_function_indirect_replace_1 XFAIL
 exits rc=1, stdout does not match .ref. Not further diagnosed.
-*----------------------------------- 1526 user_function_indirect_replace_2 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
 *---------------------------------------- 1527 user_function_len_capture_1 XFAIL
 exits rc=1, stdout does not match .ref. Not further diagnosed.
 *-------------------------------- 1529 user_function_len_capture_replace_1 XFAIL

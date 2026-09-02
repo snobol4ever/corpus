@@ -13246,7 +13246,7 @@ L2      OUTPUT  =  'sib2 landed'
         OUTPUT  =  'NOT REACHED'
 L3      OUTPUT  =  'witness landed'
 END
-*----------------------------------- 1678 user_function_indirect_replace_2 XFAIL
+*----------------------------------- 1678 user_function_indirect_replace_2
 *  indirect_read_third_operand - distilled from gimpel TEMP_driver (batch C).
 *  An indirect read $N whose cell was created ONLY by a preceding indirect
 *  store reads as NULL when N is ALSO the first operand of the SAME three-
