@@ -2126,68 +2126,6 @@
 (22) Exit: lit_string -> call_prolog_α
 (23) Call: call_prolog $nl0
 (23) Exit: call_prolog $nl0 -> main_γ
-%---- ladder__rung01_fact_rule m3 total=30 prefix=30
-(1) Call: var_ref G0
-(1) Exit: var_ref G0 -> var_ref_α
-(2) Call: var_ref G1
-(2) Exit: var_ref G1 -> call_proc_staged_α
-(3) Call: call_proc_staged p/2
-(4) Call: call_prolog $trail_mark
-(4) Exit: call_prolog $trail_mark -> var_ref_α
-(5) Call: var_ref A0
-(5) Exit: var_ref A0 -> lit_string_α
-(6) Call: lit_string a
-(6) Exit: lit_string a -> call_prolog_α
-(7) Call: call_prolog $unify
-(7) Exit: call_prolog $unify -> var_ref_α
-(8) Call: var_ref A1
-(8) Exit: var_ref A1 -> lit_string_α
-(9) Call: lit_string b
-(9) Exit: lit_string b -> call_prolog_α
-(10) Call: call_prolog $unify
-(10) Exit: call_prolog $unify -> move_label_α
-(11) Call: move_label
-(11) Exit: move_label -> p/2_γ
-(3) Exit: call_proc_staged p/2 -> var_α
-(12) Call: var G0
-(12) Exit: var G0 -> call_prolog_α
-(13) Call: call_prolog $write
-(13) Exit: call_prolog $write -> lit_string_α
-(14) Call: lit_string
-(14) Exit: lit_string -> call_prolog_α
-(15) Call: call_prolog $nl0
-(15) Exit: call_prolog $nl0 -> pat_flat_γ
-%---- ladder__rung01_fact_rule m4 total=30 prefix=30
-(1) Call: var_ref G0
-(1) Exit: var_ref G0 -> var_ref_α
-(2) Call: var_ref G1
-(2) Exit: var_ref G1 -> call_proc_staged_α
-(3) Call: call_proc_staged p/2
-(4) Call: call_prolog $trail_mark
-(4) Exit: call_prolog $trail_mark -> var_ref_α
-(5) Call: var_ref A0
-(5) Exit: var_ref A0 -> lit_string_α
-(6) Call: lit_string a
-(6) Exit: lit_string a -> call_prolog_α
-(7) Call: call_prolog $unify
-(7) Exit: call_prolog $unify -> var_ref_α
-(8) Call: var_ref A1
-(8) Exit: var_ref A1 -> lit_string_α
-(9) Call: lit_string b
-(9) Exit: lit_string b -> call_prolog_α
-(10) Call: call_prolog $unify
-(10) Exit: call_prolog $unify -> move_label_α
-(11) Call: move_label
-(11) Exit: move_label -> p/2_γ
-(3) Exit: call_proc_staged p/2 -> var_α
-(12) Call: var G0
-(12) Exit: var G0 -> call_prolog_α
-(13) Call: call_prolog $write
-(13) Exit: call_prolog $write -> lit_string_α
-(14) Call: lit_string
-(14) Exit: lit_string -> call_prolog_α
-(15) Call: call_prolog $nl0
-(15) Exit: call_prolog $nl0 -> main_γ
 %---- ladder__rung02_choice_redo m3 total=168 prefix=168
 (1) Call: var_ref G0
 (1) Exit: var_ref G0 -> call_proc_staged_α
@@ -4237,4 +4175,58 @@
 (3) Exit: call $write -> call_α
 (4) Call: call $nl
 (4) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung01_fact_rule m3 total=26 prefix=26
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G0
+(2) Exit: var_ref G0 -> var_ref_α
+(3) Call: var_ref G1
+(3) Exit: var_ref G1 -> call_proc_staged_α
+(4) Call: call_proc_staged p/2
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_string_α
+(6) Call: lit_string a
+(6) Exit: lit_string a -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> var_ref_α
+(8) Call: var_ref A1
+(8) Exit: var_ref A1 -> lit_string_α
+(9) Call: lit_string b
+(9) Exit: lit_string b -> call_α
+(10) Call: call $unify
+(10) Exit: call $unify -> p/2_γ
+(4) Exit: call_proc_staged p/2 -> var_α
+(11) Call: var G0
+(11) Exit: var G0 -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> call_α
+(13) Call: call $nl
+(13) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung01_fact_rule m4 total=26 prefix=26
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G0
+(2) Exit: var_ref G0 -> var_ref_α
+(3) Call: var_ref G1
+(3) Exit: var_ref G1 -> call_proc_staged_α
+(4) Call: call_proc_staged p/2
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_string_α
+(6) Call: lit_string a
+(6) Exit: lit_string a -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> var_ref_α
+(8) Call: var_ref A1
+(8) Exit: var_ref A1 -> lit_string_α
+(9) Call: lit_string b
+(9) Exit: lit_string b -> call_α
+(10) Call: call $unify
+(10) Exit: call $unify -> p/2_γ
+(4) Exit: call_proc_staged p/2 -> var_α
+(11) Call: var G0
+(11) Exit: var G0 -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> call_α
+(13) Call: call $nl
+(13) Exit: call $nl -> main/0_γ
 (1) Exit: call_proc_staged main/0 -> main_γ
