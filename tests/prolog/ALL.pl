@@ -2246,3 +2246,21 @@ p(X) :- q(X), X = 2, !.
 p(0).
 main :- p(X), write(X), nl, fail.
 main :- write(done), nl.
+%--------------------------------------------------- 384 arith_directive_1 XFAIL
+:- initialization(main).
+main :- X is 3 + 4 * 2, Y is X - 1, Z is X mod 3, X > Y, Y >= 10, Z =:= 2, X =\= Y, Y < X, Y =< X, write(X), nl, write(Y), nl, write(Z), nl.
+%------------------------------------------------ 385 typetest_directive_1 XFAIL
+:- initialization(main).
+main :- a == a, a \== b, a @< b, b @> a, a @=< a, b @>= a, compare(O, 1, 2), atom(foo), number(3), integer(3), float(1.5), atomic(foo), var(_), nonvar(foo), compound(f(x)), callable(foo), write(O), nl, write(ok), nl.
+%------------------------------------------- 386 writeq_format_directive_3 XFAIL
+:- initialization(main).
+main :- write('hello world'), nl, writeq('hello world'), nl, print(foo), nl, write_canonical([a,b]), nl, writeln(done), tab(3), write(x), nl, format('~w ~a ~d~n', [alpha, beta, 42]).
+%------------------------------------------------ 387 atomconv_directive_1 XFAIL
+:- initialization(main).
+main :- atom_codes(abc, Cs), atom_chars(abc, Chs), atom_length(abcde, L), atom_concat(foo, bar, FB), sub_atom(abcde, 1, 3, _, Sub), number_codes(N, [0'4,0'2]), number_chars(M, ['1','7']), char_code(a, C), write(Cs), nl, write(Chs), nl, write(L), nl, write(FB), nl, write(Sub), nl, write(N), nl, write(M), nl, write(C), nl.
+%------------------------------------------------- 388 termops_directive_1 XFAIL
+:- initialization(main).
+main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(h(X,X,_), Cp), numbervars(Cp, 0, End), succ(3, S), plus(2, 3, P), sort([c,a,b,a], Srt), write(Nm), nl, write(Ar), nl, write(A1), nl, write(T), nl, write(Cp), nl, write(End), nl, write(S), nl, write(P), nl, write(Srt), nl.
+%---------------------------------------------------- 389 read_directive_1 XFAIL
+:- initialization(main).
+main :- get_char(C), read(T), write(C), nl, write(T), nl.

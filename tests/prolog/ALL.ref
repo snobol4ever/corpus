@@ -1067,3 +1067,40 @@ no
 %----------------------------------------------------- 383 cut_directive_8 XFAIL
 2
 done
+%--------------------------------------------------- 384 arith_directive_1 XFAIL
+11
+10
+2
+%------------------------------------------------ 385 typetest_directive_1 XFAIL
+<
+ok
+%------------------------------------------- 386 writeq_format_directive_3 XFAIL
+hello world
+'hello world'
+foo
+[a,b]
+done
+   x
+alpha beta 42
+%------------------------------------------------ 387 atomconv_directive_1 XFAIL
+[97,98,99]
+[a,b,c]
+5
+foobar
+bcd
+42
+17
+97
+%------------------------------------------------- 388 termops_directive_1 XFAIL
+f
+2
+a
+g(1,2)
+h(A,A,B)
+2
+4
+5
+[a,b,c]
+%---------------------------------------------------- 389 read_directive_1 XFAIL
+end_of_file
+end_of_file

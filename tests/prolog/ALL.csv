@@ -382,3 +382,9 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 381,cut_directive_9,ladder__rung04_cut_under_backtrack,ladder,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 382,cut_ite_directive_1,probe_plz__plz_p8_cut_bars_retry,probe_plz,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0
 383,cut_directive_8,ladder__rung04_cut_prunes_later_clause,ladder,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,1,0,0,0
+384,arith_directive_1,ladder__rung06_is_arith_compare,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+385,typetest_directive_1,ladder__rung06_order_compare_typetest,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+386,writeq_format_directive_3,ladder__rung06_write_family_format,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0
+387,atomconv_directive_1,ladder__rung06_atom_number_conversion,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0
+388,termops_directive_1,ladder__rung06_term_construct_sort,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,1,1,1,0,0,0
+389,read_directive_1,ladder__rung06_read_get_char,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
